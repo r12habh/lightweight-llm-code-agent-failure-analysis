@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-14317",
+  "raw": "```diff\ndiff --git a/sympy/printing/latex.py b/sympy/printing/latex.py\nindex 54d8df8..0ac7312 100644\n--- a/sympy/printing/latex.py\n+++ b/sympy/printing/latex.py\n@@ -363,7 +363,7 @@ class LatexPrinter(Printer):\n \n         return tex\n \n-    def _print_Add(self, expr, order=None):\n+    def _print_Add(self, expr, order='none'):\n         if self.order == 'none':\n             terms = list(expr.args)\n         else:\n```",
+  "usage": {
+    "input_tokens": 22187,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 131,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 22318
+  },
+  "localized_files": []
+}

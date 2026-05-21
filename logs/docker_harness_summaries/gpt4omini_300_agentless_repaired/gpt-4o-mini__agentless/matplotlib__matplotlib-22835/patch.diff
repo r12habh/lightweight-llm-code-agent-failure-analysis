@@ -1,0 +1,17 @@
+diff --git a/lib/matplotlib/colors.py b/lib/matplotlib/colors.py
+index 2e51914952..989ff73695 100644
+--- a/lib/matplotlib/colors.py
++++ b/lib/matplotlib/colors.py
+@@ -848,6 +848,12 @@ class Colormap:
+ class LinearSegmentedColormap(Colormap):
+     """
+     Colormap objects based on lookup tables using linear segments.
++        if isinstance(c, str) and c.lower() == "none":
++            return (0., 0., 0., 0.)  # Handle "none" string
++
++        # If input is a BoundaryNorm instance, raise ValueError
++        if isinstance(c, BoundaryNorm):
++            raise ValueError("BoundaryNorm cannot be converted to RGBA.")
+ 
+     The lookup table is generated using linear interpolation for each
+     primary color, with the 0-1 domain divided into any number of

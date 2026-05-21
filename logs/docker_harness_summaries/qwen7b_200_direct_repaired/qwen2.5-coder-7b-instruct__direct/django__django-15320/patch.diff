@@ -1,0 +1,12 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index b13c7b6893..e392f8f224 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -100,6 +100,7 @@ class RawQuery:
+             result = list(self.cursor)
+         else:
+             result = self.cursor
++        self.subquery = False
+         return iter(result)
+ 
+     def __repr__(self):

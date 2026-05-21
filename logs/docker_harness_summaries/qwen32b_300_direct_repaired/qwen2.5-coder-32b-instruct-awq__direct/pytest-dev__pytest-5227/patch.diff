@@ -1,0 +1,40 @@
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 757cb2797..869a343c3 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -12,7 +12,7 @@ import six
+ 
+ import pytest
+ from _pytest.compat import dummy_context_manager
+-from _pytest.config import create_terminal_writer
++from _pytest.config import create_terminal_writer, Config
+ from _pytest.pathlib import Path
+ 
+ DEFAULT_LOG_FORMAT = "%(filename)-25s %(lineno)4d %(levelname)-8s %(message)s"
+@@ -108,7 +108,7 @@ def pytest_addoption(parser):
+     add_option_ini(
+         "--log-format",
+         dest="log_format",
+-        default=DEFAULT_LOG_FORMAT,
++        default="%(levelname)-8s %(name)s:%(filename)s:%(lineno)d %(message)s",
+         help="log format as used by the logging module.",
+     )
+     add_option_ini(
+@@ -129,7 +129,7 @@ def pytest_addoption(parser):
+     add_option_ini(
+         "--log-cli-format",
+         dest="log_cli_format",
+-        default=None,
++        default="%(levelname)-8s %(name)s:%(filename)s:%(lineno)d %(message)s",
+         help="log format as used by the logging module.",
+     )
+     add_option_ini(
+@@ -153,7 +153,7 @@ def pytest_addoption(parser):
+     add_option_ini(
+         "--log-file-format",
+         dest="log_file_format",
+-        default=DEFAULT_LOG_FORMAT,
++        default="%(levelname)-8s %(name)s:%(filename)s:%(lineno)d %(message)s",
+         help="log format as used by the logging module.",
+     )
+     add_option_ini(

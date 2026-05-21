@@ -1,0 +1,23 @@
+{
+  "raw_dir": "outputs/repair_qwen32b_300/direct",
+  "repaired_path": "outputs/final_predictions_qwen32b_direct.repaired.jsonl",
+  "skip_invalid_path": "outputs/eval_predictions_qwen32b_direct.repaired.skip_invalid.jsonl",
+  "counts": {
+    "records": 300,
+    "valid": 155,
+    "repaired": 154,
+    "invalid": 145,
+    "unchanged_or_invalid": 146
+  },
+  "apply_command_distribution": {
+    "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 129,
+    "None": 145,
+    "git apply --verbose": 26
+  },
+  "selected_candidate_distribution": {
+    "original": 155,
+    "None": 145
+  },
+  "skip_file_nonempty": 155,
+  "skip_file_empty": 145
+}

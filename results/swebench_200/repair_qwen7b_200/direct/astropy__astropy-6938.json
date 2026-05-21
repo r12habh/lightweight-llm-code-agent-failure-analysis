@@ -1,0 +1,25 @@
+{
+  "instance_id": "astropy__astropy-6938",
+  "input_patch_chars": 423,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/io/fits/card.py...\nerror: while searching for:\n            if 'D' in format:\n                output_field.replace(encode_ascii('E'), encode_ascii('D'))\n\n        return output_field\n\n    def __str__(self):\n        return self.image\n\nerror: patch failed: astropy/io/fits/card.py:100\nApplying patch astropy/io/fits/card.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file astropy/io/fits/card.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file astropy/io/fits/card.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

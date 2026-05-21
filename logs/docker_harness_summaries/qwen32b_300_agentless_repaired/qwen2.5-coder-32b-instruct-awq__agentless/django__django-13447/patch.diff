@@ -1,0 +1,12 @@
+diff --git a/docs/topics/class-based-views/generic-display.txt b/docs/topics/class-based-views/generic-display.txt
+index e7ba5c99a2..745c09648e 100644
+--- a/docs/topics/class-based-views/generic-display.txt
++++ b/docs/topics/class-based-views/generic-display.txt
+@@ -125,6 +125,7 @@ Finally hook that view into your urls::
+ 
+ That's all the Python code we need to write. We still need to write a template,
+ however. We could explicitly tell the view which template to use by adding a
++``template_name`` attribute to the view, or
+ ``template_name`` attribute to the view, but in the absence of an explicit
+ template Django will infer one from the object's name. In this case, the
+ inferred template will be ``"books/publisher_list.html"`` -- the "books" part

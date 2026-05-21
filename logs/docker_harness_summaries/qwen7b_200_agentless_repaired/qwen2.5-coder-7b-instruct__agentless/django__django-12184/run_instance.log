@@ -1,0 +1,47 @@
+2026-05-20 19:03:23,965 - INFO - Creating container for django__django-12184...
+2026-05-20 19:03:24,793 - INFO - Container for django__django-12184 created: 03086dfd34b3f600c008850828ad88429f036d66c6edd104d76e4b01d1c4c1d4
+2026-05-20 19:03:24,943 - INFO - Container for django__django-12184 started: 03086dfd34b3f600c008850828ad88429f036d66c6edd104d76e4b01d1c4c1d4
+2026-05-20 19:03:24,943 - INFO - Intermediate patch for django__django-12184 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-12184/patch.diff, now applying to container...
+2026-05-20 19:03:25,133 - INFO - >>>>> Applied Patch:
+Checking patch django/core/handlers/base.py...
+Applied patch django/core/handlers/base.py cleanly.
+
+2026-05-20 19:03:25,949 - INFO - Git diff before:
+diff --git a/django/core/handlers/base.py b/django/core/handlers/base.py
+index 2304e7761d..f7dc658021 100644
+--- a/django/core/handlers/base.py
++++ b/django/core/handlers/base.py
+@@ -74,7 +74,7 @@ class BaseHandler:
+         set_urlconf(settings.ROOT_URLCONF)
+         response = self._middleware_chain(request)
+         response._closable_objects.append(request)
+-        if response.status_code >= 400:
++        if response.status_code >= 400 and not response.streaming:
+             log_response(
+                 '%s: %s', response.reason_phrase, request.path,
+                 response=response,
+2026-05-20 19:03:25,951 - INFO - Eval script for django__django-12184 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-12184/eval.sh; copying to container...
+2026-05-20 19:03:40,377 - INFO - Test runtime: 14.36 seconds
+2026-05-20 19:03:40,379 - INFO - Test output for django__django-12184 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-12184/test_output.txt
+2026-05-20 19:03:40,500 - INFO - Git diff after:
+diff --git a/django/core/handlers/base.py b/django/core/handlers/base.py
+index 2304e7761d..f7dc658021 100644
+--- a/django/core/handlers/base.py
++++ b/django/core/handlers/base.py
+@@ -74,7 +74,7 @@ class BaseHandler:
+         set_urlconf(settings.ROOT_URLCONF)
+         response = self._middleware_chain(request)
+         response._closable_objects.append(request)
+-        if response.status_code >= 400:
++        if response.status_code >= 400 and not response.streaming:
+             log_response(
+                 '%s: %s', response.reason_phrase, request.path,
+                 response=response,
+2026-05-20 19:03:40,500 - INFO - Grading answer for django__django-12184...
+2026-05-20 19:03:40,502 - INFO - report: {'django__django-12184': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_re_path_with_missing_optional_parameter (urlpatterns.tests.SimplifiedURLTests)']}, 'PASS_TO_PASS': {'success': ['test_allows_non_ascii_but_valid_identifiers (urlpatterns.tests.ParameterRestrictionTests)', 'test_non_identifier_parameter_name_causes_exception (urlpatterns.tests.ParameterRestrictionTests)', 'test_matching_urls (urlpatterns.tests.ConverterTests)', 'test_nonmatching_urls (urlpatterns.tests.ConverterTests)', 'test_resolve_type_error_propagates (urlpatterns.tests.ConversionExceptionTests)', 'test_resolve_value_error_means_no_match (urlpatterns.tests.ConversionExceptionTests)', 'test_reverse_value_error_propagates (urlpatterns.tests.ConversionExceptionTests)', 'test_converter_resolve (urlpatterns.tests.SimplifiedURLTests)', 'test_converter_reverse (urlpatterns.tests.SimplifiedURLTests)', 'test_converter_reverse_with_second_layer_instance_namespace (urlpatterns.tests.SimplifiedURLTests)', 'test_invalid_converter (urlpatterns.tests.SimplifiedURLTests)', 'test_path_inclusion_is_matchable (urlpatterns.tests.SimplifiedURLTests)', 'test_path_inclusion_is_reversible (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_double_inclusion (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_empty_string_inclusion (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_inclusion (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_multiple_parameters (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_typed_parameters (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_without_parameters (urlpatterns.tests.SimplifiedURLTests)', 'test_path_reverse_with_parameter (urlpatterns.tests.SimplifiedURLTests)', 'test_path_reverse_without_parameter (urlpatterns.tests.SimplifiedURLTests)', 'test_re_path (urlpatterns.tests.SimplifiedURLTests)', 'test_re_path_with_optional_parameter (urlpatterns.tests.SimplifiedURLTests)', 'test_space_in_route (urlpatterns.tests.SimplifiedURLTests)', 'test_two_variable_at_start_of_path_pattern (urlpatterns.tests.SimplifiedURLTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12184: resolved: False
+2026-05-20 19:03:40,503 - INFO - Attempting to stop container sweb.eval.django__django-12184.qwen7b_200_agentless_repaired...
+2026-05-20 19:03:55,667 - INFO - Attempting to remove container sweb.eval.django__django-12184.qwen7b_200_agentless_repaired...
+2026-05-20 19:03:55,684 - INFO - Container sweb.eval.django__django-12184.qwen7b_200_agentless_repaired removed.
+2026-05-20 19:03:55,684 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12184:latest...
+2026-05-20 19:03:55,690 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12184:latest removed.

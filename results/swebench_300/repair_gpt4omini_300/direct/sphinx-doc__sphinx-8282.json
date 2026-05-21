@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8282",
+  "input_patch_chars": 487,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autodoc/typehints.py...\nerror: while searching for:\n           if sig.return_annotation is not sig.empty:\n               annotation['return'] = typing.stringify(sig.return_annotation)\n\n            \n    except (TypeError, ValueError):\n        pass\n\nerror: patch failed: sphinx/ext/autodoc/typehints.py:45\nerror: sphinx/ext/autodoc/typehints.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/typehints.py...\nerror: while searching for:\n           if sig.return_annotation is not sig.empty:\n               annotation['return'] = typing.stringify(sig.return_annotation)\n\n            \n    except (TypeError, ValueError):\n        pass\n\nerror: patch failed: sphinx/ext/autodoc/typehints.py:45\nApplying patch sphinx/ext/autodoc/typehints.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 604
+}

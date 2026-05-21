@@ -1,0 +1,36 @@
+{
+  "instance_id": "django__django-16139",
+  "raw": "```diff\ndiff --git a/django/contrib/auth/forms.py b/django/contrib/auth/forms.py\nindex 7a14712..a36d7c6 100644\n--- a/django/contrib/auth/forms.py\n+++ b/django/contrib/auth/forms.py\n@@ -87,7 +87,7 @@ class UserChangeForm(forms.ModelForm):\n         password = self.fields.get(\"password\")\n         if password:\n-            password.help_text = password.help_text.format(\"../password/\")\n+            password.help_text = password.help_text.format(f\"../../{self.instance.pk}/password/\")\n         user_permissions = self.fields.get(\"user_permissions\")\n         if user_permissions:\n             user_permissions.queryset = user_permissions.queryset.select_related(\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 18634,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 258,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18892
+    },
+    "patch": {
+      "input_tokens": 18469,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 155,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18624
+    }
+  },
+  "localized_files": [
+    "django/contrib/auth/forms.py",
+    "django/contrib/auth/models.py",
+    "django/contrib/admin/sites.py",
+    "django/contrib/admin/forms.py",
+    "django/contrib/auth/forms.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/contrib/auth/forms.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"This file contains the UserChangeForm that directly interacts with UserAdmin, where the issue arises.\"\n    },\n    {\n      \"path\": \"django/contrib/auth/models.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"This file defines the User model, which is central to the UserAdmin and affected by the changes proposed.\"\n    },\n    {\n      \"path\": \"django/contrib/admin/sites.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"This file manages the admin site, which includes integration with UserAdmin.\"\n    },\n    {\n      \"path\": \"django/contrib/admin/forms.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Contains forms used in the admin interface, which may need adjustments related to UserAdmin.\"\n    },\n    {\n      \"path\": \"django/contrib/auth/forms.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"This file includes the ReadOnlyPasswordHashField which is used in UserChangeForm; changes might affect its behavior.\"\n    }\n  ]\n}\n```"
+}

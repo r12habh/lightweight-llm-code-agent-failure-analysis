@@ -1,0 +1,45 @@
+2026-05-20 08:18:34,861 - INFO - Creating container for django__django-14667...
+2026-05-20 08:18:35,667 - INFO - Container for django__django-14667 created: 09cc33b0f5927f126581d9448e15fa3fe0b58fddc9c912d1b77f3c95b0474b96
+2026-05-20 08:18:35,782 - INFO - Container for django__django-14667 started: 09cc33b0f5927f126581d9448e15fa3fe0b58fddc9c912d1b77f3c95b0474b96
+2026-05-20 08:18:35,782 - INFO - Intermediate patch for django__django-14667 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14667/patch.diff, now applying to container...
+2026-05-20 08:18:35,951 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/sql/query.py...
+Applied patch django/db/models/sql/query.py cleanly.
+
+2026-05-20 08:18:36,682 - INFO - Git diff before:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..6c87a61a58 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -719,6 +719,7 @@ class Query(BaseExpression):
+             # models.
+             workset = {}
+             for model, values in seen.items():
++        self.deferred_loading = (self.deferred_loading[0].difference(fields), True)
+                 for field in model._meta.local_fields:
+                     if field not in values:
+                         m = field.model._meta.concrete_model
+2026-05-20 08:18:36,682 - INFO - Eval script for django__django-14667 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14667/eval.sh; copying to container...
+2026-05-20 08:18:44,699 - INFO - Test runtime: 7.95 seconds
+2026-05-20 08:18:44,700 - INFO - Test output for django__django-14667 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14667/test_output.txt
+2026-05-20 08:18:44,835 - INFO - Git diff after:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..6c87a61a58 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -719,6 +719,7 @@ class Query(BaseExpression):
+             # models.
+             workset = {}
+             for model, values in seen.items():
++        self.deferred_loading = (self.deferred_loading[0].difference(fields), True)
+                 for field in model._meta.local_fields:
+                     if field not in values:
+                         m = field.model._meta.concrete_model
+2026-05-20 08:18:44,835 - INFO - Grading answer for django__django-14667...
+2026-05-20 08:18:44,839 - INFO - report: {'django__django-14667': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_defer_only_chaining (defer.tests.DeferTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_custom_refresh_on_deferred_loading (defer.tests.TestDefer2)', 'When an inherited model is fetched from the DB, its PK is also fetched.', 'Ensure select_related together with only on a proxy model behaves', 'test_eq (defer.tests.TestDefer2)', 'test_refresh_not_loading_deferred_fields (defer.tests.TestDefer2)', 'test_defer_baseclass_when_subclass_has_added_field (defer.tests.BigChildDeferTests)', 'test_defer_subclass (defer.tests.BigChildDeferTests)', 'test_defer_subclass_both (defer.tests.BigChildDeferTests)', 'test_only_baseclass_when_subclass_has_added_field (defer.tests.BigChildDeferTests)', 'test_only_subclass (defer.tests.BigChildDeferTests)', 'test_defer (defer.tests.DeferTests)', 'test_defer_baseclass_when_subclass_has_no_added_fields (defer.tests.DeferTests)', 'test_defer_extra (defer.tests.DeferTests)', 'test_defer_foreign_keys_are_deferred_and_not_traversed (defer.tests.DeferTests)', 'test_defer_none_to_clear_deferred_set (defer.tests.DeferTests)', 'test_defer_of_overridden_scalar (defer.tests.DeferTests)', 'test_defer_on_an_already_deferred_field (defer.tests.DeferTests)', 'test_defer_only_clear (defer.tests.DeferTests)', 'test_defer_select_related_raises_invalid_query (defer.tests.DeferTests)', 'test_defer_values_does_not_defer (defer.tests.DeferTests)', 'test_defer_with_select_related (defer.tests.DeferTests)', 'test_get (defer.tests.DeferTests)', 'test_only (defer.tests.DeferTests)', 'test_only_baseclass_when_subclass_has_no_added_fields (defer.tests.DeferTests)', 'test_only_none_raises_error (defer.tests.DeferTests)', 'test_only_select_related_raises_invalid_query (defer.tests.DeferTests)', 'test_only_values_does_not_defer (defer.tests.DeferTests)', 'test_only_with_select_related (defer.tests.DeferTests)', 'test_saving_object_with_deferred_field (defer.tests.DeferTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14667: resolved: False
+2026-05-20 08:18:44,840 - INFO - Attempting to stop container sweb.eval.django__django-14667.gpt4omini_300_agentless_repaired...
+2026-05-20 08:18:59,950 - INFO - Attempting to remove container sweb.eval.django__django-14667.gpt4omini_300_agentless_repaired...
+2026-05-20 08:18:59,961 - INFO - Container sweb.eval.django__django-14667.gpt4omini_300_agentless_repaired removed.
+2026-05-20 08:18:59,961 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14667:latest...
+2026-05-20 08:18:59,967 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14667:latest removed.

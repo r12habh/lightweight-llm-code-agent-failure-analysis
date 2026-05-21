@@ -1,0 +1,10 @@
+diff --git a/sympy/parsing/latex/_parse_latex_antlr.py b/sympy/parsing/latex/_parse_latex_antlr.py
+index 2e4a45ad20..cf7817d480 100644
+--- a/sympy/parsing/latex/_parse_latex_antlr.py
++++ b/sympy/parsing/latex/_parse_latex_antlr.py
+@@ -592,3 +592,5 @@ def get_differential_var_str(text):
+     if text[0] == "\\":
+         text = text[1:]
+     return text
++        # Adding extra parenthesis in case of nested fractions
++        if left.is_Mul and left.args and left.args[0].is_Add:

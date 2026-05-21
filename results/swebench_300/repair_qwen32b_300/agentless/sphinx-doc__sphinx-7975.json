@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7975",
+  "input_patch_chars": 1632,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/util/nodes.py...\nerror: while searching for:\nimport unicodedata\nimport warnings\nfrom typing import Any, Callable, Iterable, List, Set, Tuple\n\nfrom docutils import nodes\nfrom docutils.nodes import Element, Node\n\nerror: patch failed: sphinx/util/nodes.py:10\nerror: while searching for:\nfrom docutils.parsers.rst.states import Inliner\nfrom docutils.statemachine import StringList\n\nfrom sphinx.deprecation import RemovedInSphinx40Warning\nfrom sphinx.locale import __\nfrom sphinx.util import logging\n\nerror: patch failed: sphinx/util/nodes.py:18\nerror: while searching for:\n    # For type annotation\n    from typing import Type  # for python3.5.1\n    from sphinx.builders import Builder\n    from sphinx.environment import BuildEnvironment\n    from sphinx.util.tags import Tags\n\n\nerror: patch failed: sphinx/util/nodes.py:28\nerror: while searching for:\n    # Normalize the name to a valid HTML ID\n    name = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode('ascii')\n    name = re.sub(r'[^a-zA-Z0-9_-]', '', name)\n    return f'{docname}-{objtype}-{name}'\n\ndef get_full_module_name(node: Node) -> str:\n\nerror: patch failed: sphinx/util/nodes.py:100\nApplying patch sphinx/util/nodes.py with 4 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/util/nodes.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 12 (offset 2 lines).\nHunk #2 succeeded at 19 (offset 1 line).\nHunk #3 succeeded at 27 (offset -1 lines).\nHunk #4 FAILED at 100.\n1 out of 4 hunks FAILED -- saving rejects to file sphinx/util/nodes.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

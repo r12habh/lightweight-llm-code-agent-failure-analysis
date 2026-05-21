@@ -1,0 +1,20 @@
+diff --git a/lib/matplotlib/legend.py b/lib/matplotlib/legend.py
+index 9e5b903d59..9d5ee6c3e2 100644
+--- a/lib/matplotlib/legend.py
++++ b/lib/matplotlib/legend.py
+@@ -100,6 +100,7 @@ loc : str or pair of floats, default: :rc:`legend.loc` ('best' for axes, \
+     The location of the legend.
+ 
+     The strings
++                 draggable=False,
+     ``'upper left', 'upper right', 'lower left', 'lower right'``
+     place the legend at the corresponding corner of the axes/figure.
+ 
+@@ -110,6 +111,7 @@ loc : str or pair of floats, default: :rc:`legend.loc` ('best' for axes, \
+ 
+     The string ``'center'`` places the legend at the center of the axes/figure.
+ 
++        self.draggable = draggable
+     The string ``'best'`` places the legend at the location, among the nine
+     locations defined so far, with the minimum overlap with other drawn
+     artists.  This option can be quite slow for plots with large amounts of

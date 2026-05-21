@@ -1,0 +1,11 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..8063133e62 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -225,6 +225,7 @@ class Query(BaseExpression):
+         # are the fields to defer, or False if these are the only fields to
+         # load.
+         self.deferred_loading = (frozenset(), True)
++        self.only_fields = frozenset()
+ 
+         self._filtered_relations = {}

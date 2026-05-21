@@ -1,0 +1,46 @@
+2026-05-20 13:30:04,772 - INFO - Creating container for sympy__sympy-13031...
+2026-05-20 13:30:06,211 - INFO - Container for sympy__sympy-13031 created: 1e781849b37c4416951945afc2a0bce9672452501962ee1cefc2e9b888834eac
+2026-05-20 13:30:06,379 - INFO - Container for sympy__sympy-13031 started: 1e781849b37c4416951945afc2a0bce9672452501962ee1cefc2e9b888834eac
+2026-05-20 13:30:06,384 - INFO - Intermediate patch for sympy__sympy-13031 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-13031/patch.diff, now applying to container...
+2026-05-20 13:30:06,596 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 13:30:06,670 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 13:30:06,737 - INFO - >>>>> Applied Patch:
+patching file sympy/matrices/common.py
+
+2026-05-20 13:30:07,084 - INFO - Git diff before:
+diff --git a/sympy/matrices/common.py b/sympy/matrices/common.py
+index 7ef51bc847..690917c304 100644
+--- a/sympy/matrices/common.py
++++ b/sympy/matrices/common.py
+@@ -84,7 +84,7 @@ def _eval_col_insert(self, pos, other):
+         def entry(i, j):
+             if j < pos:
+                 return self[i, j]
+-            elif pos <= j < pos + other.cols:
++            elif pos <= j < pos + other.shape[1]:
+                 return other[i, j - pos]
+             return self[i, j - pos - other.cols]
+2026-05-20 13:30:07,085 - INFO - Eval script for sympy__sympy-13031 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-13031/eval.sh; copying to container...
+2026-05-20 13:30:11,647 - INFO - Test runtime: 4.49 seconds
+2026-05-20 13:30:11,648 - INFO - Test output for sympy__sympy-13031 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-13031/test_output.txt
+2026-05-20 13:30:11,742 - INFO - Git diff after:
+diff --git a/sympy/matrices/common.py b/sympy/matrices/common.py
+index 7ef51bc847..690917c304 100644
+--- a/sympy/matrices/common.py
++++ b/sympy/matrices/common.py
+@@ -84,7 +84,7 @@ def _eval_col_insert(self, pos, other):
+         def entry(i, j):
+             if j < pos:
+                 return self[i, j]
+-            elif pos <= j < pos + other.cols:
++            elif pos <= j < pos + other.shape[1]:
+                 return other[i, j - pos]
+             return self[i, j - pos - other.cols]
+2026-05-20 13:30:11,742 - INFO - Grading answer for sympy__sympy-13031...
+2026-05-20 13:30:11,744 - INFO - report: {'sympy__sympy-13031': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_sparse_matrix']}, 'PASS_TO_PASS': {'success': ['test_transpose', 'test_trace', 'test_CL_RL', 'test_add', 'test_errors', 'test_len', 'test_sparse_zeros_sparse_eye', 'test_copyin', 'test_sparse_solve'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-13031: resolved: False
+2026-05-20 13:30:11,745 - INFO - Attempting to stop container sweb.eval.sympy__sympy-13031.qwen32b_300_direct_repaired...
+2026-05-20 13:30:26,903 - INFO - Attempting to remove container sweb.eval.sympy__sympy-13031.qwen32b_300_direct_repaired...
+2026-05-20 13:30:26,922 - INFO - Container sweb.eval.sympy__sympy-13031.qwen32b_300_direct_repaired removed.
+2026-05-20 13:30:26,922 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-13031:latest...
+2026-05-20 13:30:26,930 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-13031:latest removed.

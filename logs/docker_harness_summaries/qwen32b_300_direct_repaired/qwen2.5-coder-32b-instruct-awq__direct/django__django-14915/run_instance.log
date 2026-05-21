@@ -1,0 +1,101 @@
+2026-05-20 12:01:41,217 - INFO - Creating container for django__django-14915...
+2026-05-20 12:01:41,264 - INFO - Container for django__django-14915 created: 6b7da95f6e933faafcc4641592abc45aa879565c461252b72d22a939762c2741
+2026-05-20 12:01:41,360 - INFO - Container for django__django-14915 started: 6b7da95f6e933faafcc4641592abc45aa879565c461252b72d22a939762c2741
+2026-05-20 12:01:41,360 - INFO - Intermediate patch for django__django-14915 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14915/patch.diff, now applying to container...
+2026-05-20 12:01:41,592 - INFO - >>>>> Applied Patch:
+Checking patch django/forms/models.py...
+Applied patch django/forms/models.py cleanly.
+
+2026-05-20 12:01:42,286 - INFO - Git diff before:
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 5dcf923c12..95a590af9e 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -123,6 +123,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     named fields from the returned fields, even if they are listed in the
+     ``fields`` argument.
+ 
++        self._value_map = {str(self.choice_value(obj)): obj for obj in queryset}
+     ``widgets`` is a dictionary of model field names mapped to a widget.
+ 
+     ``formfield_callback`` is a callable that takes a model field and returns
+@@ -131,6 +132,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ``localized_fields`` is a list of names of fields which should be localized.
+ 
+     ``labels`` is a dictionary of model field names mapped to a label.
++        self._value_map = {str(self.choice_value(obj)): obj for obj in self.queryset}
+ 
+     ``help_texts`` is a dictionary of model field names mapped to a help text.
+ 
+@@ -140,6 +142,11 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ``field_classes`` is a dictionary of model field names mapped to a form
+     field class.
+ 
++        if hasattr(obj, '_meta'):
++            return str(getattr(obj, self.field_name))
++        return str(obj)
++
++    def choice_label(self, obj):
+     ``apply_limit_choices_to`` is a boolean indicating if limit_choices_to
+     should be applied to a field's queryset.
+     """
+@@ -147,6 +154,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ignored = []
+     opts = model._meta
+     # Avoid circular import
++        return value in self._value_map
+     from django.db.models import Field as ModelField
+     sortable_private_fields = [f for f in opts.private_fields if isinstance(f, ModelField)]
+     for f in sorted(chain(opts.concrete_fields, sortable_private_fields, opts.many_to_many)):
+2026-05-20 12:01:42,287 - INFO - Eval script for django__django-14915 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14915/eval.sh; copying to container...
+2026-05-20 12:01:48,373 - INFO - Test runtime: 6.03 seconds
+2026-05-20 12:01:48,374 - INFO - Test output for django__django-14915 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14915/test_output.txt
+2026-05-20 12:01:48,494 - INFO - Git diff after:
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 5dcf923c12..95a590af9e 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -123,6 +123,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     named fields from the returned fields, even if they are listed in the
+     ``fields`` argument.
+ 
++        self._value_map = {str(self.choice_value(obj)): obj for obj in queryset}
+     ``widgets`` is a dictionary of model field names mapped to a widget.
+ 
+     ``formfield_callback`` is a callable that takes a model field and returns
+@@ -131,6 +132,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ``localized_fields`` is a list of names of fields which should be localized.
+ 
+     ``labels`` is a dictionary of model field names mapped to a label.
++        self._value_map = {str(self.choice_value(obj)): obj for obj in self.queryset}
+ 
+     ``help_texts`` is a dictionary of model field names mapped to a help text.
+ 
+@@ -140,6 +142,11 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ``field_classes`` is a dictionary of model field names mapped to a form
+     field class.
+ 
++        if hasattr(obj, '_meta'):
++            return str(getattr(obj, self.field_name))
++        return str(obj)
++
++    def choice_label(self, obj):
+     ``apply_limit_choices_to`` is a boolean indicating if limit_choices_to
+     should be applied to a field's queryset.
+     """
+@@ -147,6 +154,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ignored = []
+     opts = model._meta
+     # Avoid circular import
++        return value in self._value_map
+     from django.db.models import Field as ModelField
+     sortable_private_fields = [f for f in opts.private_fields if isinstance(f, ModelField)]
+     for f in sorted(chain(opts.concrete_fields, sortable_private_fields, opts.many_to_many)):
+2026-05-20 12:01:48,494 - INFO - Grading answer for django__django-14915...
+2026-05-20 12:01:48,499 - INFO - report: {'django__django-14915': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_choice_value_hash (model_forms.test_modelchoicefield.ModelChoiceFieldTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_basics (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choice_iterator_passes_model_to_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_bool (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_bool_empty_label (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_freshness (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_not_fetched_when_not_rendering (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_radio_blank (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_clean_model_instance (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_clean_to_field_name (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_custom_choice_iterator_passes_model_to_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_deepcopies_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelchoicefield (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelchoicefield_has_changed (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelchoicefield_initial_model_instance (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelmultiplechoicefield_has_changed (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_multiplemodelchoicefield (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', "ModelChoiceField with RadioSelect widget doesn't produce unnecessary", "Widgets that render multiple subwidgets shouldn't make more than one", 'Iterator defaults to ModelChoiceIterator and can be overridden with', 'test_queryset_manager (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_queryset_none (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_result_cache_not_shared (model_forms.test_modelchoicefield.ModelChoiceFieldTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14915: resolved: False
+2026-05-20 12:01:48,500 - INFO - Attempting to stop container sweb.eval.django__django-14915.qwen32b_300_direct_repaired...
+2026-05-20 12:02:03,718 - INFO - Attempting to remove container sweb.eval.django__django-14915.qwen32b_300_direct_repaired...
+2026-05-20 12:02:03,730 - INFO - Container sweb.eval.django__django-14915.qwen32b_300_direct_repaired removed.
+2026-05-20 12:02:03,730 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14915:latest...
+2026-05-20 12:02:03,736 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14915:latest removed.

@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13241",
+  "input_patch_chars": 1872,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 29\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 28:              # initialize with [-1,1] as in ARPACK\n\n",
+          "stdout": "patching file sklearn/decomposition/kernel_pca.py\nHunk #1 succeeded at 157 (offset 55 lines).\nHunk #2 succeeded at 187 (offset -24 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

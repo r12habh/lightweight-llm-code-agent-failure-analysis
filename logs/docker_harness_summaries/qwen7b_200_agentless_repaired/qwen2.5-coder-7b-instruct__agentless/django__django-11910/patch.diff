@@ -1,0 +1,12 @@
+diff --git a/django/db/migrations/operations/fields.py b/django/db/migrations/operations/fields.py
+index 402dae2829..ce85521824 100644
+--- a/django/db/migrations/operations/fields.py
++++ b/django/db/migrations/operations/fields.py
+@@ -222,7 +222,6 @@ class AlterField(FieldOperation):
+             field = self.field.clone()
+             field.default = NOT_PROVIDED
+         else:
+-            field = self.field
+         state.models[app_label, self.model_name_lower].fields = [
+             (n, field if n == self.name else f)
+             for n, f in

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13230",
+  "input_patch_chars": 645,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpef7ino01.diff:11: trailing whitespace.\n    \nerror: patch fragment without header at line 15: @@ -121,7 +122,7 @@\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/syndication/views.py\nHunk #1 FAILED at 67.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/syndication/views.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

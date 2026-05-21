@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14667",
+  "input_patch_chars": 5943,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 214\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 succeeded at 227 (offset -1007 lines).\nHunk #2 succeeded at 2334 with fuzz 2 (offset 1083 lines).\nHunk #3 succeeded at 2345 with fuzz 3 (offset 1083 lines).\nHunk #4 succeeded at 2356 with fuzz 3 (offset 1083 lines).\nHunk #5 succeeded at 2370 with fuzz 2 (offset 1080 lines).\nHunk #6 succeeded at 2381 with fuzz 3 (offset 1080 lines).\nHunk #7 succeeded at 2398 with fuzz 3 (offset 1080 lines).\nHunk #8 succeeded at 2415 with fuzz 3 (offset 1080 lines).\nHunk #9 succeeded at 2426 with fuzz 3 (offset 1080 lines).\nHunk #10 succeeded at 2443 with fuzz 3 (offset 1080 lines).\nHunk #11 succeeded at 2460 with fuzz 3 (offset 1080 lines).\nHunk #12 FAILED at 1391.\nHunk #13 FAILED at 1407.\nHunk #14 FAILED at 1423.\nHunk #15 FAILED at 1433.\nHunk #16 FAILED at 1449.\nHunk #17 FAILED at 1465.\nHunk #18 FAILED at 1475.\nHunk #19 FAILED at 1491.\nHunk #20 FAILED at 1507.\nHunk #21 FAILED at 1523.\nHunk #22 FAILED at 1539.\nHunk #23 FAILED at 1555.\nHunk #24 FAILED at 1571.\nHunk #25 FAILED at 1587.\nHunk #26 FAILED at 1603.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

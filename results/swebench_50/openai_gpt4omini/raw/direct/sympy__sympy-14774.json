@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-14774",
+  "raw": "```diff\ndiff --git a/sympy/printing/latex.py b/sympy/printing/latex.py\n--- a/sympy/printing/latex.py\n+++ b/sympy/printing/latex.py\n@@ -146,7 +146,9 @@\n accepted_latex_functions = ['arcsin', 'arccos', 'arctan', 'sin', 'cos', 'tan',\n                     'sinh', 'cosh', 'tanh', 'sqrt', 'ln', 'log', 'sec', 'csc',\n                     'cot', 'coth', 're', 'im', 'frac', 'root', 'arg',\n+                    'arccsc', 'arcsec',\n                     ]\n \n # ... [TRUNCATED]\n```",
+  "usage": {
+    "input_tokens": 23146,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 162,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 23308
+  },
+  "localized_files": []
+}

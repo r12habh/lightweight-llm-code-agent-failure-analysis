@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-13043",
+  "raw": "```diff\ndiff --git a/sympy/core/operations.py b/sympy/core/operations.py\n--- a/sympy/core/operations.py\n+++ b/sympy/core/operations.py\n@@ -24,6 +24,7 @@\n from sympy.core.sympify import _sympify, sympify\n from sympy.core.basic import Basic, _aresame\n from sympy.core.cache import cacheit\n+from sympy.core.compatibility import ordered\n from sympy.core.logic import fuzzy_and\n from sympy.core.evaluate import global_evaluate\n\n\n class AssocOp(Basic):\n     \"\"\" Associative operations, can separate noncommutative and\n     commutative parts.\n \n     (a op b) op c == a op (b op c) == a op b op c.\n \n     Base class for Add and Mul.\n     \"\"\"\n \n     # for performance reason, we don't let is_commutative go to assumptions,\n     # and keep it right here\n     __slots__ = ['is_commutative']\n \n     @cacheit\n     def __new__(cls, *args, **options):\n         from sympy import Order\n         args = list(map(_sympify, args))\n+        args = ordered(args)  # Ensure that the order is consistent\n\n         args = [a for a in args if a is not cls.identity]\n \n         if not options.pop('evaluate', global_evaluate[0]):\n             return cls._from_args(args)\n```\n",
+  "usage": {
+    "input_tokens": 21316,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 316,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 21632
+  },
+  "localized_files": []
+}

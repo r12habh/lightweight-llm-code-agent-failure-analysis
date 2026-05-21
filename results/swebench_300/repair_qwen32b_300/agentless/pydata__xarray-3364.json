@@ -1,0 +1,25 @@
+{
+  "instance_id": "pydata__xarray-3364",
+  "input_patch_chars": 960,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/concat.py...\nerror: while searching for:\n                if compat == \"override\":\n                    raise ValueError(\n                        \"Cannot specify both %s='different' and compat='override'.\"\n                    )\n                # all nonindexes that are not the same in each dataset\n                for k in getattr(datasets[0], subset):\n\nerror: patch failed: xarray/core/concat.py:100\nerror: while searching for:\n                            for ds, v in zip(datasets[1:], computed):\n                                ds.variables[k].data = v.data\n                            break\n                        equals[k] = True\n\n            elif opt == \"all\":\n\nerror: patch failed: xarray/core/concat.py:114\nApplying patch xarray/core/concat.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file xarray/core/concat.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 184 (offset 84 lines).\nHunk #2 FAILED at 114.\n1 out of 2 hunks FAILED -- saving rejects to file xarray/core/concat.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

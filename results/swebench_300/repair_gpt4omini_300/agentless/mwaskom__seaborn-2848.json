@@ -1,0 +1,25 @@
+{
+  "instance_id": "mwaskom__seaborn-2848",
+  "input_patch_chars": 1002,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch seaborn/_core/plot.py...\nerror: while searching for:\n\n                # Ensure that hue_order contains only values that are in the data\n                if \"hue\" in self._variables:\n                    hue_data = self._data.frame[self._variables[\"hue\"]]\n                    if self._variables[\"hue_order\"] is not None:\n                        ordered_hues = self._variables[\"hue_order\"]\n                        invalid_hues = set(ordered_hues) - set(hue_data.unique())\n\nerror: patch failed: seaborn/_core/plot.py:164\nerror: while searching for:\n                        if invalid_hues:\n                            raise ValueError(\n                                f\"Invalid hue_order values found: {invalid_hues}\"\n                            )\n\n    # ... [TRUNCATED]\n\nerror: patch failed: seaborn/_core/plot.py:172\nApplying patch seaborn/_core/plot.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file seaborn/_core/plot.py\nHunk #1 FAILED at 164.\nHunk #2 succeeded at 172 with fuzz 3.\n1 out of 2 hunks FAILED -- saving rejects to file seaborn/_core/plot.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+diff --git a/src/flask/blueprints.py b/src/flask/blueprints.py
+index 5fb84d86..a1ef23ee 100644
+--- a/src/flask/blueprints.py
++++ b/src/flask/blueprints.py
+@@ -40,6 +40,10 @@ class BlueprintSetupState:
+         self.app = app
+ 
+         #: a reference to the blueprint that created this setup state.
++            manually instead.
++        :raises ValueError: If the blueprint name contains a dot, which is
++            not allowed since dots are now significant for nested blueprints.
++
+         self.blueprint = blueprint
+ 
+         #: a dictionary with all options that were passed to the
+@@ -196,6 +200,12 @@ class Blueprint(Scaffold):
+         if url_defaults is None:
+             url_defaults = {}
+ 
++        if '.' in name:
++            raise ValueError("Blueprint name cannot contain a dot.")
++
++        if '.' in name:
++            raise ValueError("Blueprint name cannot contain a dot.")
++
+         self.url_values_defaults = url_defaults
+         self.cli_group = cli_group
+         self._blueprints: t.List[t.Tuple["Blueprint", dict]] = []

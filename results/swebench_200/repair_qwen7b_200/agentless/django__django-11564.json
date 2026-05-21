@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11564",
+  "input_patch_chars": 1129,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/staticfiles/storage.py...\nHunk #1 succeeded at 8 (offset -2 lines).\nerror: while searching for:\n    def __init__(self, location=None, base_url=None, *args, **kwargs):\n        if location is None:\n            location = settings.STATIC_ROOT\n        check_settings(base_url)\n        super().__init__(location, base_url, *args, **kwargs)\n        # FileSystemStorage fallbacks to MEDIA_ROOT when location\n\nerror: patch failed: django/contrib/staticfiles/storage.py:100\nApplying patch django/contrib/staticfiles/storage.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/staticfiles/storage.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 8 (offset -2 lines).\nHunk #2 FAILED at 100.\n1 out of 2 hunks FAILED -- saving rejects to file django/contrib/staticfiles/storage.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

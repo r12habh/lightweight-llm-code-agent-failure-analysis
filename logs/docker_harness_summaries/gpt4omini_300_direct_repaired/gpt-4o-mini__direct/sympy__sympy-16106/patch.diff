@@ -1,0 +1,15 @@
+diff --git a/sympy/printing/mathml.py b/sympy/printing/mathml.py
+index 1aa0ee01a2..5580307537 100644
+--- a/sympy/printing/mathml.py
++++ b/sympy/printing/mathml.py
+@@ -180,6 +180,10 @@ def _print_Mul(self, expr):
+         if denom is not S.One:
+             x = self.dom.createElement('apply')
+             x.appendChild(self.dom.createElement('divide'))
++        # Handle IndexedBase specifically
++        if isinstance(sym, sympy.IndexedBase):
++            return self.dom.createElement('ci')
++
+             x.appendChild(self._print(numer))
+             x.appendChild(self._print(denom))
+             return x

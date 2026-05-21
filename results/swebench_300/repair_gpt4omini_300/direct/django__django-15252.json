@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15252",
+  "input_patch_chars": 1629,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 37\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 31:                                  applied.pop(migration)\n\n",
+          "stdout": "patching file django/db/migrations/executor.py\nHunk #1 succeeded at 5 (offset -37 lines).\nHunk #2 succeeded at 19 (offset -38 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

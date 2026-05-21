@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-7490",
+  "input_patch_chars": 404,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch _pytest/python.py...\nerror: _pytest/python.py: No such file or directory\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/_pytest/python.py b/_pytest/python.py\n|index 3a2b3c4..d5e6f7g 100644\n|--- a/_pytest/python.py\n|+++ b/_pytest/python.py\n--------------------------\nNo file to patch.  Skipping patch.\n1 out of 1 hunk ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

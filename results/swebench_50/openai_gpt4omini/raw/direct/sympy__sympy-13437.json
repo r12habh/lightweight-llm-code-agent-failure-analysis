@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-13437",
+  "raw": "```diff\ndiff --git a/sympy/functions/combinatorial/numbers.py b/sympy/functions/combinatorial/numbers.py\nindex 5748c5f3db..b4f00cd173 100644\n--- a/sympy/functions/combinatorial/numbers.py\n+++ b/sympy/functions/combinatorial/numbers.py\n@@ -18,6 +18,7 @@ from sympy.core.symbol import Symbol\n from sympy.core import S\n from sympy.functions import Poly, factorial\n from sympy.series import limit\n+from sympy import oo\n \n \n class Bell(Function):\n@@ -282,6 +283,9 @@ class Bell(Function):\n \n         return super(Bell, self).limit(var, to)\n \n+        if to is oo:\n+            return oo\n+\n \n def bell(n):\n     \"\"\" Return the nth Bell number. \"\"\"\n```",
+  "usage": {
+    "input_tokens": 22232,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 186,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 22418
+  },
+  "localized_files": []
+}

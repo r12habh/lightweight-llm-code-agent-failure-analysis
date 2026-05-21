@@ -1,0 +1,13 @@
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 24d89897f7..6aac87eb83 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -122,6 +122,8 @@ def _hashable_content(self):
+     def __eq__(self, other):
+         try:
+             other = sympify(other)
++            if isinstance(other, str) and other != self.name:  # Avoid evaluating strings from unknown objects
++                return False
+             if not isinstance(other, Expr):
+                 return False
+         except (SympifyError, SyntaxError):

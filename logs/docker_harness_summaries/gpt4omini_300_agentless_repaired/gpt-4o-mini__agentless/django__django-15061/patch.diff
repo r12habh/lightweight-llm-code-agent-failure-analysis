@@ -1,0 +1,11 @@
+diff --git a/docs/topics/class-based-views/generic-display.txt b/docs/topics/class-based-views/generic-display.txt
+index cb35296149..37df2282a2 100644
+--- a/docs/topics/class-based-views/generic-display.txt
++++ b/docs/topics/class-based-views/generic-display.txt
+@@ -1,5 +1,5 @@
+ ==================================
+-Built-in class-based generic views
++Built-in class-based generic views without index
+ ==================================
+ 
+ Writing web applications can be monotonous, because we repeat certain patterns

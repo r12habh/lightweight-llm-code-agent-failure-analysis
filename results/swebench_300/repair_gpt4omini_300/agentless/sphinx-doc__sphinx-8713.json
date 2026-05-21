@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8713",
+  "input_patch_chars": 839,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/napoleon/docstring.py...\nerror: while searching for:\n        if self._config.napoleon_use_param:\n            return self._format_docutils_params(fields)\n        else:\n            return self._format_fields(_('Parameters'), fields)\n\n    def _parse_other_parameters_section(self, section):\n        # type: (unicode) -> List[unicode]\n\nerror: patch failed: sphinx/ext/napoleon/docstring.py:1267\nerror: sphinx/ext/napoleon/docstring.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/napoleon/docstring.py...\nerror: while searching for:\n        if self._config.napoleon_use_param:\n            return self._format_docutils_params(fields)\n        else:\n            return self._format_fields(_('Parameters'), fields)\n\n    def _parse_other_parameters_section(self, section):\n        # type: (unicode) -> List[unicode]\n\nerror: patch failed: sphinx/ext/napoleon/docstring.py:1267\nApplying patch sphinx/ext/napoleon/docstring.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 684
+}

@@ -1,0 +1,16 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7975",
+  "raw": "```diff\ndiff --git a/doc/faq.rst b/doc/faq.rst\nindex 3c5e137..d94b391 100644\n--- a/doc/faq.rst\n+++ b/doc/faq.rst\n@@ -93,6 +93,8 @@ For many more extensions and other contributed stuff, see the sphinx-contrib_\n \n .. _sphinx-contrib: https://bitbucket.org/birkenfeld/sphinx-contrib/\n \n+.. _symbols_issue: https://github.com/sphinx-doc/sphinx/issues/1234\n+\n Using Sphinx with...\n --------------------\n```",
+  "usage": {
+    "input_tokens": 20169,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 129,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20298
+  },
+  "localized_files": []
+}

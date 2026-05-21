@@ -1,0 +1,47 @@
+2026-05-08 22:39:52,645 - INFO - Creating container for django__django-15202...
+2026-05-08 22:39:53,511 - INFO - Container for django__django-15202 created: a86abe9d507da7e5729b0350f7ccc597725f9cac32962e64c6113228e15793e7
+2026-05-08 22:39:53,633 - INFO - Container for django__django-15202 started: a86abe9d507da7e5729b0350f7ccc597725f9cac32962e64c6113228e15793e7
+2026-05-08 22:39:53,635 - INFO - Intermediate patch for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-15202/patch.diff, now applying to container...
+2026-05-08 22:39:53,807 - INFO - >>>>> Applied Patch:
+Checking patch django/core/validators.py...
+Applied patch django/core/validators.py cleanly.
+
+2026-05-08 22:39:54,479 - INFO - Git diff before:
+diff --git a/django/core/validators.py b/django/core/validators.py
+index 72fbe15551..fb3a3ae03b 100644
+--- a/django/core/validators.py
++++ b/django/core/validators.py
+@@ -120,7 +120,7 @@ class URLValidator(RegexValidator):
+                 try:
+                     netloc = punycode(netloc)  # IDN -> ACE
+                 except UnicodeError:  # invalid domain part
+-                    raise e
++                    raise ValidationError(self.message, code=self.code, params={'value': value})
+                 url = urlunsplit((scheme, netloc, path, query, fragment))
+                 super().__call__(url)
+             else:
+2026-05-08 22:39:54,480 - INFO - Eval script for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-15202/eval.sh; copying to container...
+2026-05-08 22:40:01,980 - INFO - Test runtime: 7.42 seconds
+2026-05-08 22:40:01,981 - INFO - Test output for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-15202/test_output.txt
+2026-05-08 22:40:02,107 - INFO - Git diff after:
+diff --git a/django/core/validators.py b/django/core/validators.py
+index 72fbe15551..fb3a3ae03b 100644
+--- a/django/core/validators.py
++++ b/django/core/validators.py
+@@ -120,7 +120,7 @@ class URLValidator(RegexValidator):
+                 try:
+                     netloc = punycode(netloc)  # IDN -> ACE
+                 except UnicodeError:  # invalid domain part
+-                    raise e
++                    raise ValidationError(self.message, code=self.code, params={'value': value})
+                 url = urlunsplit((scheme, netloc, path, query, fragment))
+                 super().__call__(url)
+             else:
+2026-05-08 22:40:02,107 - INFO - Grading answer for django__django-15202...
+2026-05-08 22:40:02,109 - INFO - report: {'django__django-15202': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_urlfield_clean_invalid (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_not_required (forms_tests.field_tests.test_urlfield.URLFieldTest)']}, 'PASS_TO_PASS': {'success': ['test_urlfield_clean (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_required (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_strip_on_none_value (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_unable_to_set_strip_kwarg (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget_max_min_length (forms_tests.field_tests.test_urlfield.URLFieldTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15202: resolved: False
+2026-05-08 22:40:02,110 - INFO - Attempting to stop container sweb.eval.django__django-15202.hf_qwen25_coder32b_awq_50_agentless_repaired...
+2026-05-08 22:40:17,289 - INFO - Attempting to remove container sweb.eval.django__django-15202.hf_qwen25_coder32b_awq_50_agentless_repaired...
+2026-05-08 22:40:17,324 - INFO - Container sweb.eval.django__django-15202.hf_qwen25_coder32b_awq_50_agentless_repaired removed.
+2026-05-08 22:40:17,324 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15202:latest...
+2026-05-08 22:40:18,349 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15202:latest removed.

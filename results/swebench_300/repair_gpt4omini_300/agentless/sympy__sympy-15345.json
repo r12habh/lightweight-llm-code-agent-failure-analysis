@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-15345",
+  "input_patch_chars": 869,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpyq4a2sl2.diff:9: trailing whitespace.\n    def _print_Function(self, expr): \nerror: corrupt patch at line 19\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 18:  \n\n",
+          "stdout": "patching file sympy/printing/mathematica.py\nHunk #1 succeeded at 93 with fuzz 2 (offset -4 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

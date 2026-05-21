@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16873",
+  "input_patch_chars": 536,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/template/defaultfilters.py...\nerror: while searching for:\n    if not isinstance(value, (list, tuple)):\n        return value\n    if autoescape:\n        arg = conditional_escape(arg)\n    return arg.join(map(force_str, value))\njoin.is_safe = True\njoin.needs_autoescape = True\n\nerror: patch failed: django/template/defaultfilters.py:745\nApplying patch django/template/defaultfilters.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/template/defaultfilters.py\nHunk #1 FAILED at 745.\n1 out of 1 hunk FAILED -- saving rejects to file django/template/defaultfilters.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13033",
+  "input_patch_chars": 1054,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 15\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15: @@ -234,6 +238,11 @@ class Query(BaseExpression):\n\n",
+          "stdout": "patching file django/db/models/sql/query.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

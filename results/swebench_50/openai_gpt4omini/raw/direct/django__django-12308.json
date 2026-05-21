@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-12308",
+  "raw": "```diff\ndiff --git a/django/contrib/admin/utils.py b/django/contrib/admin/utils.py\n--- a/django/contrib/admin/utils.py\n+++ b/django/contrib/admin/utils.py\n@@ -1168,6 +1168,10 @@\n     if isinstance(value, bool):\n         return 'Yes' if value else 'No'\n \n+    if hasattr(field, 'prepare_value'):\n+        return field.prepare_value(value)\n+\n     return str(value)\n \n def flatten(fields):\n```",
+  "usage": {
+    "input_tokens": 17123,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 106,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 17229
+  },
+  "localized_files": []
+}

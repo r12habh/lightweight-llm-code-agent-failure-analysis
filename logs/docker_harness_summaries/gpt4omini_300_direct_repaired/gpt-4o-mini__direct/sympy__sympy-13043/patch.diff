@@ -1,0 +1,12 @@
+diff --git a/sympy/core/operations.py b/sympy/core/operations.py
+index 4c4a7b95f2..9dae3c1bbb 100644
+--- a/sympy/core/operations.py
++++ b/sympy/core/operations.py
+@@ -24,6 +24,7 @@ class AssocOp(Basic):
+     # and keep it right here
+     __slots__ = ['is_commutative']
+ 
++from sympy.core.compatibility import ordered
+     @cacheit
+     def __new__(cls, *args, **options):
+         from sympy import Order

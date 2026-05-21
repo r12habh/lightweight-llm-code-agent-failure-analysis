@@ -1,0 +1,16 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7738",
+  "raw": "```diff\ndiff --git a/sphinx/ext/napoleon/__init__.py b/sphinx/ext/napoleon/__init__.py\n+++ b/sphinx/ext/napoleon/__init__.py\n@@ -56,7 +56,7 @@\n    def setup(app: Sphinx) -> Dict[str, Any]:\n        \"\"\"Sphinx extension setup function.\n \n        ...\n        \"\"\"\n-       app.connect('autodoc-process-docstring', _process_docstring)\n+       app.connect('autodoc-process-docstring', _process_docstring_fixed)\n        ...\n \n def _process_docstring(app: Sphinx, what: str, name: str, obj: Any,\n@@ -183,6 +183,12 @@\n \n def _process_docstring(app: Sphinx, what: str, name: str, obj: Any,\n                        options: Any, lines: List[str]) -> None:\n+    \"\"\"Process the docstring for a given python object.\n+\n+    Called when autodoc has read and processed a docstring. `lines` is a list\n+    of docstring lines that `_process_docstring_fixed` modifies in place to change\n+    what Sphinx outputs.\n+    \"\"\"\n     ...\n \n def _process_docstring_fixed(app: Sphinx, what: str, name: str, obj: Any,\n                               options: Any, lines: List[str]) -> None:\n     \"\"\"Custom fixed version to handle overescaped trailing underscores.\"\"\"\n     for i in range(len(lines)):\n         lines[i] = lines[i].replace(r'\\_', '_')\n```",
+  "usage": {
+    "input_tokens": 19869,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 326,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20195
+  },
+  "localized_files": []
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23964",
+  "input_patch_chars": 394,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_ps.py...\nerror: while searching for:\n        if curr_stream:\n            self._write(curr_stream)\n\n            self._write(\"showpage\\n\")\n\n        self._write(\"%%EOF\\n\")\n\nerror: patch failed: lib/matplotlib/backends/backend_ps.py:666\nerror: lib/matplotlib/backends/backend_ps.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_ps.py...\nerror: while searching for:\n        if curr_stream:\n            self._write(curr_stream)\n\n            self._write(\"showpage\\n\")\n\n        self._write(\"%%EOF\\n\")\n\nerror: patch failed: lib/matplotlib/backends/backend_ps.py:666\nApplying patch lib/matplotlib/backends/backend_ps.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 483
+}

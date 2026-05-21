@@ -1,0 +1,12 @@
+diff --git a/django/db/models/sql/compiler.py b/django/db/models/sql/compiler.py
+index 7649c39262..5ea1dfeb16 100644
+--- a/django/db/models/sql/compiler.py
++++ b/django/db/models/sql/compiler.py
+@@ -100,6 +100,7 @@ class SQLCompiler:
+             # then we need to add everything in it to the GROUP BY clause.
+             # Backwards compatibility hack for setting query.group_by. Remove
+             # when  we have public API way of forcing the GROUP BY clause.
++        sql = ' '.join(sql.split('\n'))
+             # Converts string references to expressions.
+             for expr in self.query.group_by:
+                 if not hasattr(expr, 'as_sql'):

@@ -1,0 +1,14 @@
+diff --git a/sympy/core/sympify.py b/sympy/core/sympify.py
+index 9cc4fec441..e693a06de2 100644
+--- a/sympy/core/sympify.py
++++ b/sympy/core/sympify.py
+@@ -150,6 +150,9 @@ def sympify(a, locals=None, convert_xor=True, strict=False, rational=False,
+     >>> sympify("O(x)")
+     O(x)
+     >>> sympify("O + 1")
++    if isinstance(a, Mul) and a.has(ceiling):
++        return a  # Ensure ceiling remains unevaluated
++
+     Traceback (most recent call last):
+     ...
+     TypeError: unbound method...

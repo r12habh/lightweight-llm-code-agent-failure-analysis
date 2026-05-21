@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-4992",
+  "input_patch_chars": 1163,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/config.py...\nerror: while searching for:\n    ) -> bool:\n        \"\"\"Update the values in the config from a file that is loaded\n        using the ``load`` parameter. The loaded data is passed to the\n        :meth:`from_mapping` method.\n\n        .. code-block:: python\n\nerror: patch failed: src/flask/config.py:151\nApplying patch src/flask/config.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/flask/config.py\nHunk #1 FAILED at 151.\n1 out of 1 hunk FAILED -- saving rejects to file src/flask/config.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

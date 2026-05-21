@@ -1,0 +1,45 @@
+2026-05-20 14:43:24,015 - INFO - Creating container for django__django-14787...
+2026-05-20 14:43:25,364 - INFO - Container for django__django-14787 created: 84be61102ab94b5a6642002e60add90a8e0c93ec64c3d40093ec0e4f2dbbd618
+2026-05-20 14:43:25,568 - INFO - Container for django__django-14787 started: 84be61102ab94b5a6642002e60add90a8e0c93ec64c3d40093ec0e4f2dbbd618
+2026-05-20 14:43:25,570 - INFO - Intermediate patch for django__django-14787 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-14787/patch.diff, now applying to container...
+2026-05-20 14:43:25,810 - INFO - >>>>> Applied Patch:
+Checking patch django/utils/decorators.py...
+Applied patch django/utils/decorators.py cleanly.
+
+2026-05-20 14:43:26,764 - INFO - Git diff before:
+diff --git a/django/utils/decorators.py b/django/utils/decorators.py
+index 5c9a5d01c7..826d68f0ee 100644
+--- a/django/utils/decorators.py
++++ b/django/utils/decorators.py
+@@ -40,6 +40,7 @@ def _multi_decorate(decorators, method):
+         bound_method = partial(method.__get__(self, type(self)))
+         for dec in decorators:
+             bound_method = dec(bound_method)
++        bound_method.__name__ = method.__name__
+         return bound_method(*args, **kwargs)
+ 
+     # Copy any attributes that a decorator adds to the function it decorates.
+2026-05-20 14:43:26,764 - INFO - Eval script for django__django-14787 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-14787/eval.sh; copying to container...
+2026-05-20 14:43:34,240 - INFO - Test runtime: 7.41 seconds
+2026-05-20 14:43:34,241 - INFO - Test output for django__django-14787 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-14787/test_output.txt
+2026-05-20 14:43:34,374 - INFO - Git diff after:
+diff --git a/django/utils/decorators.py b/django/utils/decorators.py
+index 5c9a5d01c7..826d68f0ee 100644
+--- a/django/utils/decorators.py
++++ b/django/utils/decorators.py
+@@ -40,6 +40,7 @@ def _multi_decorate(decorators, method):
+         bound_method = partial(method.__get__(self, type(self)))
+         for dec in decorators:
+             bound_method = dec(bound_method)
++        bound_method.__name__ = method.__name__
+         return bound_method(*args, **kwargs)
+ 
+     # Copy any attributes that a decorator adds to the function it decorates.
+2026-05-20 14:43:34,374 - INFO - Grading answer for django__django-14787...
+2026-05-20 14:43:34,376 - INFO - report: {'django__django-14787': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['@method_decorator preserves wrapper assignments.']}, 'PASS_TO_PASS': {'success': ['test_cache_control_decorator_http_request (decorators.tests.CacheControlDecoratorTest)', 'Ensures @xframe_options_deny properly sets the X-Frame-Options header.', 'Ensures @xframe_options_exempt properly instructs the', 'Ensures @xframe_options_sameorigin properly sets the X-Frame-Options', 'Built-in decorators set certain attributes of the wrapped function.', 'test_cache_page (decorators.tests.DecoratorsTest)', 'Test for the require_safe decorator.', 'The user_passes_test decorator can be applied multiple times (#9474).', 'test_never_cache_decorator (decorators.tests.NeverCacheDecoratorTest)', 'test_never_cache_decorator_http_request (decorators.tests.NeverCacheDecoratorTest)', 'test_argumented (decorators.tests.MethodDecoratorTests)', 'test_bad_iterable (decorators.tests.MethodDecoratorTests)', '@method_decorator can be used to decorate a class and its methods.', 'test_descriptors (decorators.tests.MethodDecoratorTests)', '@method_decorator on a nonexistent method raises an error.', '@method_decorator on a non-callable attribute raises an error.', 'A decorator that sets a new attribute on the method.', 'test_preserve_attributes (decorators.tests.MethodDecoratorTests)', 'test_preserve_signature (decorators.tests.MethodDecoratorTests)', '@method_decorator can accept a tuple of decorators.'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14787: resolved: False
+2026-05-20 14:43:34,377 - INFO - Attempting to stop container sweb.eval.django__django-14787.qwen32b_300_agentless_repaired...
+2026-05-20 14:43:49,534 - INFO - Attempting to remove container sweb.eval.django__django-14787.qwen32b_300_agentless_repaired...
+2026-05-20 14:43:49,549 - INFO - Container sweb.eval.django__django-14787.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:43:49,549 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14787:latest...
+2026-05-20 14:43:49,557 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14787:latest removed.

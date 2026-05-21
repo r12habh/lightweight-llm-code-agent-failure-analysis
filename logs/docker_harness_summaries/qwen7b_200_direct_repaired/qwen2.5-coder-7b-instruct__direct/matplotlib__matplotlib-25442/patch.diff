@@ -1,0 +1,13 @@
+diff --git a/lib/matplotlib/collections.py b/lib/matplotlib/collections.py
+index 377345006d..26ae6e2b2f 100644
+--- a/lib/matplotlib/collections.py
++++ b/lib/matplotlib/collections.py
+@@ -93,7 +93,7 @@ class Collection(artist.Artist, cm.ScalarMappable):
+                  zorder=1,
+                  **kwargs
+                  ):
+-        """
++        super().__init__(**kwargs)
+         Parameters
+         ----------
+         edgecolors : color or list of colors, default: :rc:`patch.edgecolor`

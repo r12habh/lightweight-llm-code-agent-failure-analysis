@@ -1,0 +1,28 @@
+{
+  "instance_id": "pydata__xarray-4094",
+  "input_patch_chars": 323,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch xarray/backends/api.py...\nerror: while searching for:\n\n    dataset : Dataset\n        The newly created Dataset.\n\n    ------\n    ValueError\n\nerror: patch failed: xarray/backends/api.py:2334\nerror: xarray/backends/api.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/backends/api.py...\nerror: while searching for:\n\n    dataset : Dataset\n        The newly created Dataset.\n\n    ------\n    ValueError\n\nerror: patch failed: xarray/backends/api.py:2334\nApplying patch xarray/backends/api.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 281
+}

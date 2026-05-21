@@ -1,0 +1,51 @@
+2026-05-20 14:24:42,729 - INFO - Creating container for django__django-12915...
+2026-05-20 14:24:42,768 - INFO - Container for django__django-12915 created: 822430f6b7bd0c62bcc27d50169ec87087e5899ecf4efa453ef921b547a9201b
+2026-05-20 14:24:42,895 - INFO - Container for django__django-12915 started: 822430f6b7bd0c62bcc27d50169ec87087e5899ecf4efa453ef921b547a9201b
+2026-05-20 14:24:42,896 - INFO - Intermediate patch for django__django-12915 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-12915/patch.diff, now applying to container...
+2026-05-20 14:24:43,076 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/staticfiles/handlers.py...
+Applied patch django/contrib/staticfiles/handlers.py cleanly.
+
+2026-05-20 14:24:43,865 - INFO - Git diff before:
+diff --git a/django/contrib/staticfiles/handlers.py b/django/contrib/staticfiles/handlers.py
+index 711d8864ad..5f12ddf94f 100644
+--- a/django/contrib/staticfiles/handlers.py
++++ b/django/contrib/staticfiles/handlers.py
+@@ -83,6 +83,10 @@ class ASGIStaticFilesHandler(StaticFilesHandlerMixin, ASGIHandler):
+         if scope['type'] == 'http' and self._should_handle(scope['path']):
+             # Serve static content
+             # (the one thing super() doesn't do is __call__, apparently)
++            request = ASGIRequest(scope, body_file=None)
++            response = self.get_response(request)
++            return await self.send_response(response, send)
++
+             return await super().__call__(scope, receive, send)
+         # Hand off to the main app
+         return await self.application(scope, receive, send)
+2026-05-20 14:24:43,866 - INFO - Eval script for django__django-12915 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-12915/eval.sh; copying to container...
+2026-05-20 14:25:02,084 - INFO - Test runtime: 18.14 seconds
+2026-05-20 14:25:02,085 - INFO - Test output for django__django-12915 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-12915/test_output.txt
+2026-05-20 14:25:02,228 - INFO - Git diff after:
+diff --git a/django/contrib/staticfiles/handlers.py b/django/contrib/staticfiles/handlers.py
+index 711d8864ad..5f12ddf94f 100644
+--- a/django/contrib/staticfiles/handlers.py
++++ b/django/contrib/staticfiles/handlers.py
+@@ -83,6 +83,10 @@ class ASGIStaticFilesHandler(StaticFilesHandlerMixin, ASGIHandler):
+         if scope['type'] == 'http' and self._should_handle(scope['path']):
+             # Serve static content
+             # (the one thing super() doesn't do is __call__, apparently)
++            request = ASGIRequest(scope, body_file=None)
++            response = self.get_response(request)
++            return await self.send_response(response, send)
++
+             return await super().__call__(scope, receive, send)
+         # Hand off to the main app
+         return await self.application(scope, receive, send)
+2026-05-20 14:25:02,228 - INFO - Grading answer for django__django-12915...
+2026-05-20 14:25:02,230 - INFO - report: {'django__django-12915': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_get_async_response (staticfiles_tests.test_handlers.TestASGIStaticFilesHandler)', 'test_get_async_response_not_found (staticfiles_tests.test_handlers.TestASGIStaticFilesHandler)', 'test_static_file_response (asgi.tests.ASGITest)']}, 'PASS_TO_PASS': {'success': ['test_disconnect (asgi.tests.ASGITest)', 'test_file_response (asgi.tests.ASGITest)', 'test_get_asgi_application (asgi.tests.ASGITest)', 'test_get_query_string (asgi.tests.ASGITest)', 'test_headers (asgi.tests.ASGITest)', 'test_non_unicode_query_string (asgi.tests.ASGITest)', 'test_request_lifecycle_signals_dispatched_with_thread_sensitive (asgi.tests.ASGITest)', 'test_wrong_connection_type (asgi.tests.ASGITest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12915: resolved: False
+2026-05-20 14:25:02,230 - INFO - Attempting to stop container sweb.eval.django__django-12915.qwen32b_300_agentless_repaired...
+2026-05-20 14:25:17,454 - INFO - Attempting to remove container sweb.eval.django__django-12915.qwen32b_300_agentless_repaired...
+2026-05-20 14:25:17,473 - INFO - Container sweb.eval.django__django-12915.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:25:17,473 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12915:latest...
+2026-05-20 14:25:17,485 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12915:latest removed.

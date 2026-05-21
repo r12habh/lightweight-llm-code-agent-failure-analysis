@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13401",
+  "input_patch_chars": 680,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    \n    def __eq__(self, other):\n        if not isinstance(other, Field):\n        return self.creation_counter == other.creation_counter\n\n    def __lt__(self, other):\n\nerror: patch failed: django/db/models/fields/__init__.py:367\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    \n    def __eq__(self, other):\n        if not isinstance(other, Field):\n        return self.creation_counter == other.creation_counter\n\n    def __lt__(self, other):\n\nerror: patch failed: django/db/models/fields/__init__.py:367\nApplying patch django/db/models/fields/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 760
+}

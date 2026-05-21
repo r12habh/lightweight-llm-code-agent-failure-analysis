@@ -1,0 +1,25 @@
+{
+  "instance_id": "pydata__xarray-4248",
+  "input_patch_chars": 900,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 15\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15: @@ -201,6 +205,10 @@ def _format_coordinates(obj, col_width):\n\n",
+          "stdout": "patching file xarray/core/formatting.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

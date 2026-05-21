@@ -1,0 +1,12 @@
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index f71bea25f5..38d1796adf 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -104,6 +104,7 @@ def _import(module, reload="False"):
+     """
+     Creates a global translation dictionary for module.
+ 
++        args = [Dummy(arg.name) if isinstance(arg, MatrixSymbol) else arg for arg in args]
+     The argument module has to be one of the following strings: "math",
+     "mpmath", "numpy", "sympy", "tensorflow".
+     These dictionaries map names of python functions to their equivalent in

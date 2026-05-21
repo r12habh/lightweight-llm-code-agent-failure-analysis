@@ -1,0 +1,13 @@
+diff --git a/sklearn/metrics/cluster/_unsupervised.py b/sklearn/metrics/cluster/_unsupervised.py
+index f341f3e80b..f3aee98cb4 100644
+--- a/sklearn/metrics/cluster/_unsupervised.py
++++ b/sklearn/metrics/cluster/_unsupervised.py
+@@ -212,7 +212,7 @@ def silhouette_samples(X, labels, metric='euclidean', **kwds):
+     """
+     X, labels = check_X_y(X, labels, accept_sparse=['csc', 'csr'])
+ 
+-    # Check for non-zero diagonal entries in precomputed distance matrix
++    # Ensure diagonal is zero for precomputed distance matrix
+     if metric == 'precomputed':
+         atol = np.finfo(X.dtype).eps * 100
+         if np.any(np.abs(np.diagonal(X)) > atol):

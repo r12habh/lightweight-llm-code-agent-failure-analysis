@@ -1,0 +1,12 @@
+diff --git a/docs/topics/settings.txt b/docs/topics/settings.txt
+index 7c824b98f7..a0a66aa21c 100644
+--- a/docs/topics/settings.txt
++++ b/docs/topics/settings.txt
+@@ -2,7 +2,7 @@
+ Django settings
+ ===============
+ 
+-A Django settings file contains all the configuration of your Django
++A Django settings file contains all the configurations of your Django
+ installation. This document explains how settings work and which settings are
+ available.

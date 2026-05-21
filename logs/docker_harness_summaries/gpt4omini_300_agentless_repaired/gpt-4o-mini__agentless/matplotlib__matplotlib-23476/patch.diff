@@ -1,0 +1,16 @@
+diff --git a/lib/matplotlib/backends/backend_macosx.py b/lib/matplotlib/backends/backend_macosx.py
+index 700d1d4c58..aa153bf91a 100644
+--- a/lib/matplotlib/backends/backend_macosx.py
++++ b/lib/matplotlib/backends/backend_macosx.py
+@@ -100,6 +100,11 @@ class FigureCanvasMac(FigureCanvasAgg, _macosx.FigureCanvas, FigureCanvasBase):
+         self.figure.set_size_inches(width, height, forward=False)
+         ResizeEvent("resize_event", self)._process()
+         self.draw_idle()
++        self.figure.dpi = 200  # Reset DPI to prevent doubling
++
++    def __setstate__(self, state):
++        super().__setstate__(state)
++        self.figure.dpi = 200  # Ensure DPI is correctly set on unpickling
+ 
+ 
+ class NavigationToolbar2Mac(_macosx.NavigationToolbar2, NavigationToolbar2):

@@ -1,0 +1,12 @@
+diff --git a/sympy/core/basic.py b/sympy/core/basic.py
+index 22c88759eb..eeeaeaaff4 100644
+--- a/sympy/core/basic.py
++++ b/sympy/core/basic.py
+@@ -2,6 +2,7 @@
+ from __future__ import print_function, division
+ from collections import Mapping, defaultdict
+ 
++from sympy import default_sort_key
+ from .assumptions import BasicMeta, ManagedProperties
+ from .cache import cacheit
+ from .sympify import _sympify, sympify, SympifyError

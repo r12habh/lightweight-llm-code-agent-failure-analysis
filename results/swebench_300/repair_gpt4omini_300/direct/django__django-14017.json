@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14017",
+  "input_patch_chars": 802,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 23\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 19:          # Define __rand__ for commutativity with Exists\n\n",
+          "stdout": "patching file django/db/models/query_utils.py\nHunk #1 succeeded at 25 with fuzz 2 (offset 10 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

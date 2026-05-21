@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index 569cf59977..98e3ac4d93 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -167,7 +167,6 @@ def _parse_to_version_info(version_str):
+     v = parse_version(version_str)
+     if v.pre is None and v.post is None and v.dev is None:
+         return _VersionInfo(v.major, v.minor, v.micro, 'final', 0)
+-    elif v.dev is not None:
+         return _VersionInfo(v.major, v.minor, v.micro, 'alpha', v.dev)
+     elif v.pre is not None:
+         releaselevel = {

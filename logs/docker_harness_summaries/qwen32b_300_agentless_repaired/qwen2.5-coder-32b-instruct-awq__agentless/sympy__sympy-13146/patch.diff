@@ -1,0 +1,12 @@
+diff --git a/sympy/simplify/simplify.py b/sympy/simplify/simplify.py
+index f1609aa908..ae9b968086 100644
+--- a/sympy/simplify/simplify.py
++++ b/sympy/simplify/simplify.py
+@@ -123,6 +123,7 @@ def _separatevars(expr, force):
+             expr = expr.func(*args)
+         return expr
+ 
++    expr = expr.simplify()
+     # get a Pow ready for expansion
+     if expr.is_Pow:
+         expr = Pow(separatevars(expr.base, force=force), expr.exp)

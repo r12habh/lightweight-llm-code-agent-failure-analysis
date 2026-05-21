@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14155",
+  "input_patch_chars": 1039,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/management/commands/makemigrations.py...\nerror: while searching for:\nfrom django.core.management.base import BaseCommand, CommandError\nfrom django.db import connections, models\nfrom django.db.migrations.autodetector import MigrationAutodetector\nfrom django.db.migrations.state import ProjectState\nfrom django.db.models.signals import pre_migrate\nfrom django.utils import timezone\n\nerror: patch failed: django/core/management/commands/makemigrations.py:10\nerror: django/core/management/commands/makemigrations.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/commands/makemigrations.py...\nerror: while searching for:\nfrom django.core.management.base import BaseCommand, CommandError\nfrom django.db import connections, models\nfrom django.db.migrations.autodetector import MigrationAutodetector\nfrom django.db.migrations.state import ProjectState\nfrom django.db.models.signals import pre_migrate\nfrom django.utils import timezone\n\nerror: patch failed: django/core/management/commands/makemigrations.py:10\nerror: while searching for:\n        autodetector = MigrationAutodetector(project_state, project_state)\n        changes = autodetector.changes(\n            changes={app_label: models.get_models(app_label, include_auto_created=True)}\n        )\n        if not changes:\n            self.stdout.write(\"No changes detected in apps.\")\n\nerror: patch failed: django/core/management/commands/makemigrations.py:100\nApplying patch django/core/management/commands/makemigrations.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1062
+}

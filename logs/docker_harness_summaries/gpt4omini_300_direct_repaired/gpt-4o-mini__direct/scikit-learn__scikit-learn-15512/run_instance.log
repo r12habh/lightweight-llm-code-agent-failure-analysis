@@ -1,0 +1,56 @@
+2026-05-20 01:08:37,460 - INFO - Creating container for scikit-learn__scikit-learn-15512...
+2026-05-20 01:08:38,029 - INFO - Container for scikit-learn__scikit-learn-15512 created: 8e3153773983e1780903f49b83674eb6ebae2aa7d3e6c2377e4e9971b9e0e259
+2026-05-20 01:08:38,238 - INFO - Container for scikit-learn__scikit-learn-15512 started: 8e3153773983e1780903f49b83674eb6ebae2aa7d3e6c2377e4e9971b9e0e259
+2026-05-20 01:08:38,240 - INFO - Intermediate patch for scikit-learn__scikit-learn-15512 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/scikit-learn__scikit-learn-15512/patch.diff, now applying to container...
+2026-05-20 01:08:38,522 - INFO - >>>>> Applied Patch:
+/tmp/patch.diff:11: trailing whitespace.
+        
+Checking patch sklearn/cluster/_affinity_propagation.py...
+Applied patch sklearn/cluster/_affinity_propagation.py cleanly.
+warning: 1 line adds whitespace errors.
+
+2026-05-20 01:08:38,945 - INFO - Git diff before:
+diff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py
+index 4806afee9..42c9b3d11 100644
+--- a/sklearn/cluster/_affinity_propagation.py
++++ b/sklearn/cluster/_affinity_propagation.py
+@@ -236,6 +236,11 @@ def affinity_propagation(S, preference=None, convergence_iter=15, max_iter=200,
+ class AffinityPropagation(ClusterMixin, BaseEstimator):
+     """Perform Affinity Propagation Clustering of data.
+ 
++        cluster_centers_indices = []  # Ensure empty array for non-convergence
++        labels = np.array([-1] * n_samples)  # Ensure all labels are -1
++        
++        # Added to assign proper attributes for expected behavior
++        self.cluster_centers_indices_ = cluster_centers_indices
+     Read more in the :ref:`User Guide <affinity_propagation>`.
+ 
+     Parameters
+2026-05-20 01:08:38,945 - INFO - Eval script for scikit-learn__scikit-learn-15512 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/scikit-learn__scikit-learn-15512/eval.sh; copying to container...
+2026-05-20 01:08:47,921 - INFO - Test runtime: 8.90 seconds
+2026-05-20 01:08:47,921 - INFO - Test output for scikit-learn__scikit-learn-15512 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/scikit-learn__scikit-learn-15512/test_output.txt
+2026-05-20 01:08:48,051 - INFO - Git diff after:
+diff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py
+index 4806afee9..42c9b3d11 100644
+--- a/sklearn/cluster/_affinity_propagation.py
++++ b/sklearn/cluster/_affinity_propagation.py
+@@ -236,6 +236,11 @@ def affinity_propagation(S, preference=None, convergence_iter=15, max_iter=200,
+ class AffinityPropagation(ClusterMixin, BaseEstimator):
+     """Perform Affinity Propagation Clustering of data.
+ 
++        cluster_centers_indices = []  # Ensure empty array for non-convergence
++        labels = np.array([-1] * n_samples)  # Ensure all labels are -1
++        
++        # Added to assign proper attributes for expected behavior
++        self.cluster_centers_indices_ = cluster_centers_indices
+     Read more in the :ref:`User Guide <affinity_propagation>`.
+ 
+     Parameters
+2026-05-20 01:08:48,051 - INFO - Grading answer for scikit-learn__scikit-learn-15512...
+2026-05-20 01:08:48,052 - INFO - report: {'scikit-learn__scikit-learn-15512': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_non_convergence_regressiontest']}, 'PASS_TO_PASS': {'success': ['sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_predict', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_predict_error', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_fit_non_convergence', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_equal_mutual_similarities', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_predict_non_convergence', 'sklearn/cluster/tests/test_affinity_propagation.py::test_equal_similarities_and_preferences', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_convergence_warning_dense_sparse[centers0]', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_convergence_warning_dense_sparse[centers1]'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-15512: resolved: False
+2026-05-20 01:08:48,053 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-15512.gpt4omini_300_direct_repaired...
+2026-05-20 01:09:03,329 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-15512.gpt4omini_300_direct_repaired...
+2026-05-20 01:09:03,352 - INFO - Container sweb.eval.scikit-learn__scikit-learn-15512.gpt4omini_300_direct_repaired removed.
+2026-05-20 01:09:03,354 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-15512:latest...
+2026-05-20 01:09:05,261 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-15512:latest removed.

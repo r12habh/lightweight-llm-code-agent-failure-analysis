@@ -1,0 +1,63 @@
+{
+  "target": "audit_checks/paper_body.txt",
+  "corpus": "audit_checks/sources/text",
+  "n": 8,
+  "target_tokens": 5975,
+  "target_ngram_instances": 5968,
+  "files_compared": 9,
+  "files_with_overlap": 2,
+  "results": [
+    {
+      "source": "audit_checks/sources/text/swe-agent_2405.15793.txt",
+      "source_tokens": 46030,
+      "shared_ngram_instances": 4,
+      "shared_unique_ngrams": 4,
+      "target_ngram_coverage": 0.0006702412868632708,
+      "source_ngram_coverage": 8.691306520652718e-05,
+      "top_matches": [
+        {
+          "ngram": "0 0 0 2 0 4 0 6",
+          "count": 1
+        },
+        {
+          "ngram": "0 0 2 0 4 0 6 0",
+          "count": 1
+        },
+        {
+          "ngram": "0 2 0 4 0 6 0 8",
+          "count": 1
+        },
+        {
+          "ngram": "2 0 4 0 6 0 8 1",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source": "audit_checks/sources/text/swe-bench-live_2505.23419.txt",
+      "source_tokens": 12438,
+      "shared_ngram_instances": 4,
+      "shared_unique_ngrams": 4,
+      "target_ngram_coverage": 0.0006702412868632708,
+      "source_ngram_coverage": 0.00032177620464966615,
+      "top_matches": [
+        {
+          "ngram": "0 0 0 2 0 4 0 6",
+          "count": 1
+        },
+        {
+          "ngram": "0 0 2 0 4 0 6 0",
+          "count": 1
+        },
+        {
+          "ngram": "0 2 0 4 0 6 0 8",
+          "count": 1
+        },
+        {
+          "ngram": "2 0 4 0 6 0 8 1",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

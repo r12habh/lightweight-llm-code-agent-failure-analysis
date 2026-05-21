@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-11897",
+  "input_patch_chars": 512,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n\n    def _print_Fraction(self, expr):\n        return r\"\\frac{%s}{%s}\" % (self._print(expr.numerator), self._print(expr.denominator))\n\n    def _print_Pow(self, expr):\n        return r\"%s^{%s}\" % (self._print(expr.base), self._print(expr.exp))\n\nerror: patch failed: sympy/printing/latex.py:482\nerror: sympy/printing/latex.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n\n    def _print_Fraction(self, expr):\n        return r\"\\frac{%s}{%s}\" % (self._print(expr.numerator), self._print(expr.denominator))\n\n    def _print_Pow(self, expr):\n        return r\"%s^{%s}\" % (self._print(expr.base), self._print(expr.exp))\n\nerror: patch failed: sympy/printing/latex.py:482\nApplying patch sympy/printing/latex.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 551
+}

@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-17139",
+  "raw": "```diff\ndiff --git a/sympy/simplify/fu.py b/sympy/simplify/fu.py\n--- a/sympy/simplify/fu.py\n+++ b/sympy/simplify/fu.py\n@@ -506,7 +506,7 @@\n     if (rv.exp < 0) == True:\n         raise TypeError(\"Invalid comparison of complex %s\" % me)\n \n-    if rv.is_complex:\n+    if rv.is_complex and not rv.is_extended_real:\n         raise TypeError(\"Invalid comparison of complex %s\" % me)\n \n     return super()._lt(rhs)\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 24282,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 236,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 24518
+    },
+    "patch": {
+      "input_tokens": 24374,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 136,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 24510
+    }
+  },
+  "localized_files": [
+    "sympy/simplify/fu.py",
+    "sympy/simplify/trigsimp.py",
+    "sympy/core/expr.py",
+    "sympy/strategies/core.py",
+    "sympy/core/function.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/simplify/fu.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains rules related to trigonometric simplifications which may trigger issues with complex numbers.\"\n    },\n    {\n      \"path\": \"sympy/simplify/trigsimp.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"Related to trigonometric simplifications where complex comparisons might arise.\"\n    },\n    {\n      \"path\": \"sympy/core/expr.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Defines expression behavior, including comparisons and may require handling of complex values.\"\n    },\n    {\n      \"path\": \"sympy/strategies/core.py\",\n      \"confidence\": 0.75,\n      \"reason\": \"Includes strategy functions that could interact with expressions involving complex numbers.\"\n    },\n    {\n      \"path\": \"sympy/core/function.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Handles function definitions and evaluations which might involve complex arguments.\"\n    }\n  ]\n}\n```"
+}

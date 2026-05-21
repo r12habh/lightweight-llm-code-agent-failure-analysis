@@ -1,0 +1,13 @@
+diff --git a/lib/matplotlib/layout_engine.py b/lib/matplotlib/layout_engine.py
+index 56e82b5699..fe6bd26e4f 100644
+--- a/lib/matplotlib/layout_engine.py
++++ b/lib/matplotlib/layout_engine.py
+@@ -58,7 +58,7 @@ class LayoutEngine:
+     # override these is sub-class
+     _adjust_compatible = None
+     _colorbar_gridspec = None
+-
++    
+     def __init__(self, **kwargs):
+         super().__init__(**kwargs)
+         self._params = {}

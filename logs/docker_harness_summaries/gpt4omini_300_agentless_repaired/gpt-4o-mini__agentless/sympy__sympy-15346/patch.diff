@@ -1,0 +1,11 @@
+diff --git a/sympy/simplify/trigsimp.py b/sympy/simplify/trigsimp.py
+index 8ba346adbe..988a2b5d66 100644
+--- a/sympy/simplify/trigsimp.py
++++ b/sympy/simplify/trigsimp.py
+@@ -1,5 +1,6 @@
+ from __future__ import print_function, division
+ 
++from sympy import Rational
+ from collections import defaultdict
+ 
+ from sympy.core.cache import cacheit

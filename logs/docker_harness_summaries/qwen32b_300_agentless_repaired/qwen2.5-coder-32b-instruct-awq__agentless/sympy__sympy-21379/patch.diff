@@ -1,0 +1,11 @@
+diff --git a/sympy/solvers/solvers.py b/sympy/solvers/solvers.py
+index cdc7a72462..e13f28570e 100644
+--- a/sympy/solvers/solvers.py
++++ b/sympy/solvers/solvers.py
+@@ -123,6 +123,7 @@ def _simple_dens(f, symbols):
+             if d.exp.is_zero:
+                 continue  # foo**0 is never 0
+             d = d.base
++                f = f.subs(sol)
+         dens.add(d)
+     return dens

@@ -1,0 +1,36 @@
+{
+  "instance_id": "psf__requests-2674",
+  "raw": "```diff\ndiff --git a/requests/packages/urllib3/exceptions.py b/requests/packages/urllib3/exceptions.py\n--- a/requests/packages/urllib3/exceptions.py\n+++ b/requests/packages/urllib3/exceptions.py\n@@ -30,6 +30,8 @@ class TimeoutError(HTTPError):\n     \"\"\" Raised when a socket timeout error occurs.\n \n     Catching this error will catch both :exc:`ReadTimeoutErrors\n     <ReadTimeoutError>` and :exc:`ConnectTimeoutErrors <ConnectTimeoutError>`.\n+    \"\"\"\n+    pass\n\n class ReadTimeoutError(TimeoutError, RequestError):\n     \"Raised when a socket timeout occurs while receiving data from a server\"\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19222,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 238,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19460
+    },
+    "patch": {
+      "input_tokens": 19321,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 148,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19469
+    }
+  },
+  "localized_files": [
+    "requests/packages/urllib3/exceptions.py",
+    "requests/packages/urllib3/connectionpool.py",
+    "requests/packages/urllib3/poolmanager.py",
+    "requests/packages/urllib3/response.py",
+    "requests/packages/urllib3/util/retry.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"requests/packages/urllib3/exceptions.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains DecodeError and TimeoutError which need to be exposed.\"\n    },\n    {\n      \"path\": \"requests/packages/urllib3/connectionpool.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Manages connection handling and likely to need changes to wrap exceptions.\"\n    },\n    {\n      \"path\": \"requests/packages/urllib3/poolmanager.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Handles requests and may need to account for urllib3 exceptions.\"\n    },\n    {\n      \"path\": \"requests/packages/urllib3/response.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Processes HTTP responses and might need modifications for exception handling.\"\n    },\n    {\n      \"path\": \"requests/packages/urllib3/util/retry.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Manages retry logic and may require updates to include new exceptions.\"\n    }\n  ]\n}\n```"
+}

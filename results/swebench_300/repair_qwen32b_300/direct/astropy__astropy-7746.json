@@ -1,0 +1,28 @@
+{
+  "instance_id": "astropy__astropy-7746",
+  "input_patch_chars": 678,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch astropy/wcs/wcs.py...\nerror: while searching for:\n                \"a 1-D array for each axis, followed by an origin.\")\n\n            return _return_list_of_arrays(axes, origin)\n        raise TypeError(\n            \"Invalid argument types. Expected a 1-D array for each axis, \"\n            \"followed by an origin.\")\n\nerror: patch failed: astropy/wcs/wcs.py:1260\nerror: astropy/wcs/wcs.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/wcs/wcs.py...\nerror: while searching for:\n                \"a 1-D array for each axis, followed by an origin.\")\n\n            return _return_list_of_arrays(axes, origin)\n        raise TypeError(\n            \"Invalid argument types. Expected a 1-D array for each axis, \"\n            \"followed by an origin.\")\n\nerror: patch failed: astropy/wcs/wcs.py:1260\nApplying patch astropy/wcs/wcs.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 652
+}

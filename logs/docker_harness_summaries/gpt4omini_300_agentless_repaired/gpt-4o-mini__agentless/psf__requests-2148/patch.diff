@@ -1,0 +1,24 @@
+diff --git a/requests/packages/urllib3/response.py b/requests/packages/urllib3/response.py
+index 7e0d47fa..9c43253e 100644
+--- a/requests/packages/urllib3/response.py
++++ b/requests/packages/urllib3/response.py
+@@ -21,6 +21,7 @@ class DeflateDecoder(object):
+         return getattr(self._obj, name)
+ 
+     def decompress(self, data):
++import socket
+         if not self._first_try:
+             return self._obj.decompress(data)
+ 
+@@ -42,6 +43,11 @@ def _get_decoder(mode):
+ 
+     return DeflateDecoder()
+ 
++        except socket.error as e:
++            raise ConnectionError(f"Socket error: {e}")
++
++        except Exception as e:
++            raise ConnectionError(f"Unexpected error: {e}")
+ 
+ class HTTPResponse(io.IOBase):
+     """

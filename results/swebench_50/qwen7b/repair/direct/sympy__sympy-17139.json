@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-17139",
+  "input_patch_chars": 406,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n    if rv.is_Mul:\n        return rv\n    if rv.is_Pow:\n        if (rv.exp < 0) == True:\n            return rv.base**(-rv.exp)\n    if rv.is_Add:\n        return rv\n\nerror: patch failed: sympy/simplify/fu.py:563\nerror: sympy/simplify/fu.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n    if rv.is_Mul:\n        return rv\n    if rv.is_Pow:\n        if (rv.exp < 0) == True:\n            return rv.base**(-rv.exp)\n    if rv.is_Add:\n        return rv\n\nerror: patch failed: sympy/simplify/fu.py:563\nApplying patch sympy/simplify/fu.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 403
+}

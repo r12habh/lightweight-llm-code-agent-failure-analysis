@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/nodes.py b/src/_pytest/nodes.py
+index 03a4b1af8..eae51a229 100644
+--- a/src/_pytest/nodes.py
++++ b/src/_pytest/nodes.py
+@@ -322,7 +322,7 @@ class Node(metaclass=NodeMeta):
+     ) -> Union[str, ReprExceptionInfo, ExceptionChainRepr, FixtureLookupErrorRepr]:
+         if isinstance(excinfo.value, fail.Exception):
+             if not excinfo.value.pytrace:
+-                return str(excinfo.value)
++                return repr(excinfo.value)
+         if isinstance(excinfo.value, FixtureLookupError):
+             return excinfo.value.formatrepr()
+         if self.config.getoption("fulltrace", False):

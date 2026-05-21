@@ -1,0 +1,13 @@
+diff --git a/django/db/migrations/migration.py b/django/db/migrations/migration.py
+index fe5e228c6c..67c37fa19f 100644
+--- a/django/db/migrations/migration.py
++++ b/django/db/migrations/migration.py
+@@ -21,7 +21,7 @@ class Migration:
+     """
+ 
+     # Operations to apply during this migration, in order.
+-    operations = []
++    operations = [migrations.RunPython(lambda apps, schema_editor: None)]
+ 
+     # Other migrations that should be run before this migration.
+     # Should be a list of (app, migration_name).

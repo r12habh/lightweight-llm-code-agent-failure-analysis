@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15902",
+  "input_patch_chars": 848,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/ref/forms/validation.txt...\nerror: while searching for:\n    * The ``Field.clean()`` method (or its override) is run, then\n    * ``clean_<fieldname>()``. Finally, once those two methods are run for every\n      field, the :meth:`Form.clean()` method, or its override, is executed whether\n\n      Note that any errors raised by your :meth:`Form.clean()` override will not\n      be associated with any field in particular. They go into a special\n\nerror: patch failed: docs/ref/forms/validation.txt:123\nerror: docs/ref/forms/validation.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/ref/forms/validation.txt...\nerror: while searching for:\n    * The ``Field.clean()`` method (or its override) is run, then\n    * ``clean_<fieldname>()``. Finally, once those two methods are run for every\n      field, the :meth:`Form.clean()` method, or its override, is executed whether\n\n      Note that any errors raised by your :meth:`Form.clean()` override will not\n      be associated with any field in particular. They go into a special\n\nerror: patch failed: docs/ref/forms/validation.txt:123\nApplying patch docs/ref/forms/validation.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 635
+}

@@ -1,0 +1,13 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index a0eb97792e..17766a1d51 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -804,6 +804,9 @@ def _print_FunctionClass(self, expr):
+                 return self._special_function_classes[cls]
+         return self._hprint_Function(str(expr))
+ 
++
++    def _print_MatrixExpr(self, expr):
++        return self._print(expr.args[0])
+     def _print_Lambda(self, expr):
+         symbols, expr = expr.args

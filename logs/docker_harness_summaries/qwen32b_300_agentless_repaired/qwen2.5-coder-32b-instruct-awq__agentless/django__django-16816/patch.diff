@@ -1,0 +1,15 @@
+diff --git a/django/contrib/admin/utils.py b/django/contrib/admin/utils.py
+index 5e6a400b6c..26d28083b7 100644
+--- a/django/contrib/admin/utils.py
++++ b/django/contrib/admin/utils.py
+@@ -165,6 +165,10 @@ def get_deleted_objects(objs, request, admin_site):
+         else:
+             # Don't display link to edit, because it either has no
+             # admin or is edited inline.
++        if field.is_relation and field.related_model:
++            label = field.related_model._meta.verbose_name
++        else:
++            raise FieldDoesNotExist()
+             return no_edit_link
+ 
+     to_delete = collector.nested(format_callback)

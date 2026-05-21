@@ -1,0 +1,83 @@
+2026-05-20 11:58:37,973 - INFO - Creating container for django__django-14667...
+2026-05-20 11:58:38,016 - INFO - Container for django__django-14667 created: 68dec6ffe5bc4e7e85b382d72e9dd1fbd3a97c880daa0e8b1de1a97ce8022ca6
+2026-05-20 11:58:38,133 - INFO - Container for django__django-14667 started: 68dec6ffe5bc4e7e85b382d72e9dd1fbd3a97c880daa0e8b1de1a97ce8022ca6
+2026-05-20 11:58:38,133 - INFO - Intermediate patch for django__django-14667 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14667/patch.diff, now applying to container...
+2026-05-20 11:58:38,282 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/sql/query.py...
+Applied patch django/db/models/sql/query.py cleanly.
+
+2026-05-20 11:58:39,119 - INFO - Git diff before:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..3a25a50aac 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -100,6 +100,10 @@ class RawQuery:
+             result = list(self.cursor)
+         else:
+             result = self.cursor
++        obj = super().clone()
++        obj.deferred_loading = self.deferred_loading
++        return obj
++
+         return iter(result)
+ 
+     def __repr__(self):
+@@ -110,6 +114,7 @@ class RawQuery:
+         if self.params is None:
+             return None
+         return dict if isinstance(self.params, Mapping) else tuple
++        obj.deferred_loading = self.deferred_loading
+ 
+     def __str__(self):
+         if self.params_type is None:
+@@ -302,6 +307,7 @@ class Query(BaseExpression):
+         obj.alias_map = self.alias_map.copy()
+         obj.external_aliases = self.external_aliases.copy()
+         obj.table_map = self.table_map.copy()
++        obj.deferred_loading = self.deferred_loading
+         obj.where = self.where.clone()
+         obj.annotations = self.annotations.copy()
+         if self.annotation_select_mask is None:
+2026-05-20 11:58:39,120 - INFO - Eval script for django__django-14667 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14667/eval.sh; copying to container...
+2026-05-20 11:58:46,375 - INFO - Test runtime: 7.20 seconds
+2026-05-20 11:58:46,376 - INFO - Test output for django__django-14667 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14667/test_output.txt
+2026-05-20 11:58:46,496 - INFO - Git diff after:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..3a25a50aac 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -100,6 +100,10 @@ class RawQuery:
+             result = list(self.cursor)
+         else:
+             result = self.cursor
++        obj = super().clone()
++        obj.deferred_loading = self.deferred_loading
++        return obj
++
+         return iter(result)
+ 
+     def __repr__(self):
+@@ -110,6 +114,7 @@ class RawQuery:
+         if self.params is None:
+             return None
+         return dict if isinstance(self.params, Mapping) else tuple
++        obj.deferred_loading = self.deferred_loading
+ 
+     def __str__(self):
+         if self.params_type is None:
+@@ -302,6 +307,7 @@ class Query(BaseExpression):
+         obj.alias_map = self.alias_map.copy()
+         obj.external_aliases = self.external_aliases.copy()
+         obj.table_map = self.table_map.copy()
++        obj.deferred_loading = self.deferred_loading
+         obj.where = self.where.clone()
+         obj.annotations = self.annotations.copy()
+         if self.annotation_select_mask is None:
+2026-05-20 11:58:46,497 - INFO - Grading answer for django__django-14667...
+2026-05-20 11:58:46,498 - INFO - report: {'django__django-14667': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_defer_only_chaining (defer.tests.DeferTests)']}, 'PASS_TO_PASS': {'success': ['test_custom_refresh_on_deferred_loading (defer.tests.TestDefer2)', 'When an inherited model is fetched from the DB, its PK is also fetched.', 'Ensure select_related together with only on a proxy model behaves', 'test_eq (defer.tests.TestDefer2)', 'test_refresh_not_loading_deferred_fields (defer.tests.TestDefer2)', 'test_defer_baseclass_when_subclass_has_added_field (defer.tests.BigChildDeferTests)', 'test_defer_subclass (defer.tests.BigChildDeferTests)', 'test_defer_subclass_both (defer.tests.BigChildDeferTests)', 'test_only_baseclass_when_subclass_has_added_field (defer.tests.BigChildDeferTests)', 'test_only_subclass (defer.tests.BigChildDeferTests)', 'test_defer (defer.tests.DeferTests)', 'test_defer_baseclass_when_subclass_has_no_added_fields (defer.tests.DeferTests)', 'test_defer_extra (defer.tests.DeferTests)', 'test_defer_foreign_keys_are_deferred_and_not_traversed (defer.tests.DeferTests)', 'test_defer_none_to_clear_deferred_set (defer.tests.DeferTests)', 'test_defer_of_overridden_scalar (defer.tests.DeferTests)', 'test_defer_on_an_already_deferred_field (defer.tests.DeferTests)', 'test_defer_only_clear (defer.tests.DeferTests)', 'test_defer_select_related_raises_invalid_query (defer.tests.DeferTests)', 'test_defer_values_does_not_defer (defer.tests.DeferTests)', 'test_defer_with_select_related (defer.tests.DeferTests)', 'test_get (defer.tests.DeferTests)', 'test_only (defer.tests.DeferTests)', 'test_only_baseclass_when_subclass_has_no_added_fields (defer.tests.DeferTests)', 'test_only_none_raises_error (defer.tests.DeferTests)', 'test_only_select_related_raises_invalid_query (defer.tests.DeferTests)', 'test_only_values_does_not_defer (defer.tests.DeferTests)', 'test_only_with_select_related (defer.tests.DeferTests)', 'test_saving_object_with_deferred_field (defer.tests.DeferTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14667: resolved: False
+2026-05-20 11:58:46,499 - INFO - Attempting to stop container sweb.eval.django__django-14667.qwen32b_300_direct_repaired...
+2026-05-20 11:59:01,767 - INFO - Attempting to remove container sweb.eval.django__django-14667.qwen32b_300_direct_repaired...
+2026-05-20 11:59:01,789 - INFO - Container sweb.eval.django__django-14667.qwen32b_300_direct_repaired removed.
+2026-05-20 11:59:01,790 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14667:latest...
+2026-05-20 11:59:01,798 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14667:latest removed.

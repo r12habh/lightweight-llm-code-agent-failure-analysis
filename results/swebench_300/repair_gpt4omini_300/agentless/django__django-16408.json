@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16408",
+  "input_patch_chars": 1235,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch tests/known_related_objects/tests.py...\nerror: while searching for:\n\nerror: patch failed: tests/known_related_objects/tests.py:0\nerror: tests/known_related_objects/tests.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch tests/known_related_objects/tests.py...\nerror: while searching for:\n\nerror: patch failed: tests/known_related_objects/tests.py:0\nApplying patch tests/known_related_objects/tests.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1217
+}

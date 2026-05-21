@@ -1,0 +1,13 @@
+diff --git a/django/contrib/auth/validators.py b/django/contrib/auth/validators.py
+index b4878cfd45..942cb5b033 100644
+--- a/django/contrib/auth/validators.py
++++ b/django/contrib/auth/validators.py
+@@ -2,7 +2,7 @@ import re
+ 
+ from django.core import validators
+ from django.utils.deconstruct import deconstructible
+-from django.utils.translation import gettext_lazy as _
++from django.utils.translation import gettext as _
+ 
+ 
+ @deconstructible

@@ -1,0 +1,44 @@
+2026-05-20 13:19:35,065 - INFO - Creating container for scikit-learn__scikit-learn-25747...
+2026-05-20 13:19:35,116 - INFO - Container for scikit-learn__scikit-learn-25747 created: e3fd007e0f9873436a580d124aa60972063a0f86603c124c7dca4707329b18a4
+2026-05-20 13:19:35,235 - INFO - Container for scikit-learn__scikit-learn-25747 started: e3fd007e0f9873436a580d124aa60972063a0f86603c124c7dca4707329b18a4
+2026-05-20 13:19:35,235 - INFO - Intermediate patch for scikit-learn__scikit-learn-25747 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/scikit-learn__scikit-learn-25747/patch.diff, now applying to container...
+2026-05-20 13:19:35,400 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 13:19:35,479 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 13:19:35,549 - INFO - >>>>> Applied Patch:
+patching file sklearn/utils/_set_output.py
+
+2026-05-20 13:19:35,948 - INFO - Git diff before:
+diff --git a/sklearn/utils/_set_output.py b/sklearn/utils/_set_output.py
+index 335773c6a..0c36efbdf 100644
+--- a/sklearn/utils/_set_output.py
++++ b/sklearn/utils/_set_output.py
+@@ -56,6 +56,7 @@ def _wrap_in_pandas_container(
+         if columns is not None:
+             data_to_wrap.columns = columns
+         if index is not None:
++        if len(index) == len(data_to_wrap):
+             data_to_wrap.index = index
+         return data_to_wrap
+2026-05-20 13:19:35,949 - INFO - Eval script for scikit-learn__scikit-learn-25747 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/scikit-learn__scikit-learn-25747/eval.sh; copying to container...
+2026-05-20 13:19:42,967 - INFO - Test runtime: 6.95 seconds
+2026-05-20 13:19:42,969 - INFO - Test output for scikit-learn__scikit-learn-25747 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/scikit-learn__scikit-learn-25747/test_output.txt
+2026-05-20 13:19:43,071 - INFO - Git diff after:
+diff --git a/sklearn/utils/_set_output.py b/sklearn/utils/_set_output.py
+index 335773c6a..0c36efbdf 100644
+--- a/sklearn/utils/_set_output.py
++++ b/sklearn/utils/_set_output.py
+@@ -56,6 +56,7 @@ def _wrap_in_pandas_container(
+         if columns is not None:
+             data_to_wrap.columns = columns
+         if index is not None:
++        if len(index) == len(data_to_wrap):
+             data_to_wrap.index = index
+         return data_to_wrap
+2026-05-20 13:19:43,071 - INFO - Grading answer for scikit-learn__scikit-learn-25747...
+2026-05-20 13:19:43,081 - INFO - report: {'scikit-learn__scikit-learn-25747': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/utils/tests/test_set_output.py::test_set_output_pandas_keep_index']}, 'PASS_TO_PASS': {'success': [], 'failure': ['sklearn/utils/tests/test_set_output.py::test__wrap_in_pandas_container_dense', 'sklearn/utils/tests/test_set_output.py::test__wrap_in_pandas_container_dense_update_columns_and_index', 'sklearn/utils/tests/test_set_output.py::test__wrap_in_pandas_container_error_validation', 'sklearn/utils/tests/test_set_output.py::test__safe_set_output', 'sklearn/utils/tests/test_set_output.py::test_set_output_mixin', 'sklearn/utils/tests/test_set_output.py::test__safe_set_output_error', 'sklearn/utils/tests/test_set_output.py::test_set_output_method', 'sklearn/utils/tests/test_set_output.py::test_set_output_method_error', 'sklearn/utils/tests/test_set_output.py::test__get_output_config', 'sklearn/utils/tests/test_set_output.py::test_get_output_auto_wrap_false', 'sklearn/utils/tests/test_set_output.py::test_auto_wrap_output_keys_errors_with_incorrect_input', 'sklearn/utils/tests/test_set_output.py::test_set_output_mixin_custom_mixin', 'sklearn/utils/tests/test_set_output.py::test__wrap_in_pandas_container_column_errors', 'sklearn/utils/tests/test_set_output.py::test_set_output_mro']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-25747: resolved: False
+2026-05-20 13:19:43,081 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-25747.qwen32b_300_direct_repaired...
+2026-05-20 13:19:58,214 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-25747.qwen32b_300_direct_repaired...
+2026-05-20 13:19:58,225 - INFO - Container sweb.eval.scikit-learn__scikit-learn-25747.qwen32b_300_direct_repaired removed.
+2026-05-20 13:19:58,225 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-25747:latest...
+2026-05-20 13:19:58,233 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-25747:latest removed.

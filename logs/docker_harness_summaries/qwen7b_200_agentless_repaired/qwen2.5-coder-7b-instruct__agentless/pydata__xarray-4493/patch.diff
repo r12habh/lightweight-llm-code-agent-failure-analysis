@@ -1,0 +1,13 @@
+diff --git a/xarray/core/variable.py b/xarray/core/variable.py
+index 64c1895d..9a438a44 100644
+--- a/xarray/core/variable.py
++++ b/xarray/core/variable.py
+@@ -330,7 +330,7 @@ class Variable(
+         self._data = as_compatible_data(data, fastpath=fastpath)
+         self._dims = self._parse_dimensions(dims)
+         self._attrs = None
+-        self._encoding = None
++        self._encoding = {}
+         if attrs is not None:
+             self.attrs = attrs
+         if encoding is not None:

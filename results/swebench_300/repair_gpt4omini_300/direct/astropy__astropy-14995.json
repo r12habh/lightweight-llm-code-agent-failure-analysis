@@ -1,0 +1,28 @@
+{
+  "instance_id": "astropy__astropy-14995",
+  "input_patch_chars": 684,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch astropy/nddata/mixins/ndarithmetic.py...\nerror: while searching for:\n\n        # collapse operations on masked quantities/arrays which are supported by\n        # the astropy.utils.masked or np.ma modules should use those modules to\n        # do the arithmetic on the data and propagate masks.\n        if self.mask is None and operand.mask is None:\n            use_masked_arith = False\n        else:\n\nerror: patch failed: astropy/nddata/mixins/ndarithmetic.py:145\nerror: astropy/nddata/mixins/ndarithmetic.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/nddata/mixins/ndarithmetic.py...\nerror: while searching for:\n\n        # collapse operations on masked quantities/arrays which are supported by\n        # the astropy.utils.masked or np.ma modules should use those modules to\n        # do the arithmetic on the data and propagate masks.\n        if self.mask is None and operand.mask is None:\n            use_masked_arith = False\n        else:\n\nerror: patch failed: astropy/nddata/mixins/ndarithmetic.py:145\nApplying patch astropy/nddata/mixins/ndarithmetic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 749
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11815",
+  "input_patch_chars": 622,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/serializer.py...\nerror: while searching for:\n                # If it's an enum, we want the name, not the value\n                if isinstance(value, Enum):\n                    value = value.name\n                value = force_text(value)\n            elif isinstance(value, datetime.datetime):\n                value = value.isoformat()\n            elif isinstance(value, datetime.date):\n\nerror: patch failed: django/db/migrations/serializer.py:280\nApplying patch django/db/migrations/serializer.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/migrations/serializer.py\nHunk #1 FAILED at 280.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/migrations/serializer.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

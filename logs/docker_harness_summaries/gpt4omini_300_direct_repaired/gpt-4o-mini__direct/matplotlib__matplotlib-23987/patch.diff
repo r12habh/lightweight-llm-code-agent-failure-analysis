@@ -1,0 +1,20 @@
+diff --git a/lib/matplotlib/_constrained_layout.py b/lib/matplotlib/_constrained_layout.py
+index 5b5e0b9cf6..3928f50427 100644
+--- a/lib/matplotlib/_constrained_layout.py
++++ b/lib/matplotlib/_constrained_layout.py
+@@ -137,6 +137,7 @@ def do_constrained_layout(fig, h_pad, w_pad,
+                             w_pad=w_pad, hspace=hspace, wspace=wspace)
+             if compress:
+                 layoutgrids = compress_fixed_aspect(layoutgrids, fig)
++    fig._tight_layout_warning = False
+                 layoutgrids[fig].update_variables()
+                 if check_no_collapsed_axes(layoutgrids, fig):
+                     reposition_axes(layoutgrids, fig, renderer, h_pad=h_pad,
+@@ -161,6 +162,7 @@ def make_layoutgrids(fig, layoutgrids, rect=(0, 0, 1, 1)):
+ 
+     if layoutgrids is None:
+         layoutgrids = dict()
++            ax._tight_layout_warning = False
+         layoutgrids['hasgrids'] = False
+     if not hasattr(fig, '_parent'):
+         # top figure;  pass rect as parent to allow user-specified

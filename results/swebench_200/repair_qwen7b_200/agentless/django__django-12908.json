@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12908",
+  "input_patch_chars": 1034,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 21\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 20:  \n\n",
+          "stdout": "patching file tests/distinct_on_fields/tests.py\nHunk #1 succeeded at 10 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

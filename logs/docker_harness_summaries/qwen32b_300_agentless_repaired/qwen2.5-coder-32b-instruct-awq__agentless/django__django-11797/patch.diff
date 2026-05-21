@@ -1,0 +1,15 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8e55bd092d..525493aba4 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1234,6 +1234,10 @@ class Query(BaseExpression):
+                 condition = filter_expr.resolve_expression(self)
+             else:
+                 # Expression is not supported in the WHERE clause, add
++            # Ensure that the group_by fields are not overridden by filtering
++            if self.where.children:
++                self.group_by = tuple(self.group_by) + tuple(self.where.children[0].lhs for child in self.where.children if isinstance(child, Lookup))
++
+                 # comparison with True.
+                 condition = self.build_lookup(['exact'], filter_expr.resolve_expression(self), True)
+             clause = self.where_class()

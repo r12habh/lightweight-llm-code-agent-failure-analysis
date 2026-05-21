@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-14317",
+  "input_patch_chars": 404,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n\n        return tex\n\n    def _print_Add(self, expr, order=None):\n        if self.order == 'none':\n            terms = list(expr.args)\n        else:\n\nerror: patch failed: sympy/printing/latex.py:363\nerror: sympy/printing/latex.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n\n        return tex\n\n    def _print_Add(self, expr, order=None):\n        if self.order == 'none':\n            terms = list(expr.args)\n        else:\n\nerror: patch failed: sympy/printing/latex.py:363\nApplying patch sympy/printing/latex.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 426
+}

@@ -1,0 +1,13 @@
+diff --git a/django/contrib/admin/utils.py b/django/contrib/admin/utils.py
+index b971bd528f..062005abf2 100644
+--- a/django/contrib/admin/utils.py
++++ b/django/contrib/admin/utils.py
+@@ -123,6 +123,9 @@ def get_deleted_objects(objs, request, admin_site):
+ 
+     def format_callback(obj):
+         model = obj.__class__
++        if value == "":
++            return empty_value_display
++
+         has_admin = model in admin_site._registry
+         opts = obj._meta

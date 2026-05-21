@@ -1,0 +1,47 @@
+2026-05-08 11:53:27,567 - INFO - Creating container for astropy__astropy-14365...
+2026-05-08 11:53:27,709 - INFO - Container for astropy__astropy-14365 created: 51081c4219363950caff0f32690f0e08b53b7a7f390ff12c4c9bfbe968317cea
+2026-05-08 11:53:27,899 - INFO - Container for astropy__astropy-14365 started: 51081c4219363950caff0f32690f0e08b53b7a7f390ff12c4c9bfbe968317cea
+2026-05-08 11:53:27,899 - INFO - Intermediate patch for astropy__astropy-14365 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/astropy__astropy-14365/patch.diff, now applying to container...
+2026-05-08 11:53:28,076 - INFO - >>>>> Applied Patch:
+Checking patch astropy/io/ascii/qdp.py...
+Applied patch astropy/io/ascii/qdp.py cleanly.
+
+2026-05-08 11:53:28,514 - INFO - Git diff before:
+diff --git a/astropy/io/ascii/qdp.py b/astropy/io/ascii/qdp.py
+index 83a4f004a..af590565d 100644
+--- a/astropy/io/ascii/qdp.py
++++ b/astropy/io/ascii/qdp.py
+@@ -2,7 +2,7 @@
+ """
+ This package contains functions for reading and writing QDP tables that are
+ not meant to be used directly, but instead are available as readers/writers in
+-`astropy.table`. See :ref:`astropy:table_io` for more details.
++`astropy.table`. See :ref:`astropy:table_io` for more details. QDP commands are not case sensitive.
+ """
+ import copy
+ import re
+2026-05-08 11:53:28,514 - INFO - Eval script for astropy__astropy-14365 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/astropy__astropy-14365/eval.sh; copying to container...
+2026-05-08 11:55:08,566 - INFO - Test runtime: 99.98 seconds
+2026-05-08 11:55:08,567 - INFO - Test output for astropy__astropy-14365 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/astropy__astropy-14365/test_output.txt
+2026-05-08 11:55:08,680 - INFO - Git diff after:
+diff --git a/astropy/io/ascii/qdp.py b/astropy/io/ascii/qdp.py
+index 83a4f004a..af590565d 100644
+--- a/astropy/io/ascii/qdp.py
++++ b/astropy/io/ascii/qdp.py
+@@ -2,7 +2,7 @@
+ """
+ This package contains functions for reading and writing QDP tables that are
+ not meant to be used directly, but instead are available as readers/writers in
+-`astropy.table`. See :ref:`astropy:table_io` for more details.
++`astropy.table`. See :ref:`astropy:table_io` for more details. QDP commands are not case sensitive.
+ """
+ import copy
+ import re
+2026-05-08 11:55:08,680 - INFO - Grading answer for astropy__astropy-14365...
+2026-05-08 11:55:08,682 - INFO - report: {'astropy__astropy-14365': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['astropy/io/ascii/tests/test_qdp.py::test_roundtrip[True]']}, 'PASS_TO_PASS': {'success': ['astropy/io/ascii/tests/test_qdp.py::test_get_tables_from_qdp_file', 'astropy/io/ascii/tests/test_qdp.py::test_roundtrip[False]', 'astropy/io/ascii/tests/test_qdp.py::test_read_example', 'astropy/io/ascii/tests/test_qdp.py::test_roundtrip_example', 'astropy/io/ascii/tests/test_qdp.py::test_roundtrip_example_comma', 'astropy/io/ascii/tests/test_qdp.py::test_read_write_simple', 'astropy/io/ascii/tests/test_qdp.py::test_read_write_simple_specify_name', 'astropy/io/ascii/tests/test_qdp.py::test_get_lines_from_qdp'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for astropy__astropy-14365: resolved: False
+2026-05-08 11:55:08,682 - INFO - Attempting to stop container sweb.eval.astropy__astropy-14365.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 11:55:23,804 - INFO - Attempting to remove container sweb.eval.astropy__astropy-14365.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 11:55:23,828 - INFO - Container sweb.eval.astropy__astropy-14365.hf_qwen25_coder7b_50_agentless_repaired removed.
+2026-05-08 11:55:23,828 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest...
+2026-05-08 11:55:24,495 - INFO - Image swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest removed.

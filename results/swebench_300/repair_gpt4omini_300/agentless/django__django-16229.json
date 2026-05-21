@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16229",
+  "input_patch_chars": 614,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n        if max_length is not None and max_length <= 0:\n            raise ValueError('max_length must be greater than 0.')\n        # Set default for blank in case it's not given\n        self.default = default\n        self.editable = editable\n        self.serialize = serialize\n\nerror: patch failed: django/db/models/fields/__init__.py:114\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n        if max_length is not None and max_length <= 0:\n            raise ValueError('max_length must be greater than 0.')\n        # Set default for blank in case it's not given\n        self.default = default\n        self.editable = editable\n        self.serialize = serialize\n\nerror: patch failed: django/db/models/fields/__init__.py:114\nApplying patch django/db/models/fields/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 562
+}

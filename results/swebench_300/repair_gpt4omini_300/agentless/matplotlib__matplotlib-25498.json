@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-25498",
+  "input_patch_chars": 475,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/colorbar.py...\nerror: while searching for:\n        self._colorbar_info.pop('norm', None)\n\n        # Ensure the mappable has appropriate vmin and vmax\n\n        self.update_normal(mappable)  # Update the colorbar to reflect changes\n        self._process_values()\n\nerror: patch failed: lib/matplotlib/colorbar.py:663\nerror: lib/matplotlib/colorbar.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/colorbar.py...\nerror: while searching for:\n        self._colorbar_info.pop('norm', None)\n\n        # Ensure the mappable has appropriate vmin and vmax\n\n        self.update_normal(mappable)  # Update the colorbar to reflect changes\n        self._process_values()\n\nerror: patch failed: lib/matplotlib/colorbar.py:663\nApplying patch lib/matplotlib/colorbar.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 529
+}

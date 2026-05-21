@@ -1,0 +1,25 @@
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index daa65d61eb..62d71c8620 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -53,7 +53,7 @@ class Field:
+     default_error_messages = {
+         'required': _('This field is required.'),
+     }
+-    empty_values = list(validators.EMPTY_VALUES)
++    empty_values = list(validators.EMPTY_VALUES) + [None]
+ 
+     def __init__(self, *, required=True, widget=None, label=None, initial=None,
+                  help_text='', error_messages=None, show_hidden_initial=False,
+diff --git a/tests/model_forms/test_modelchoicefield.py b/tests/model_forms/test_modelchoicefield.py
+index 8f41ce9c40..daa2759b66 100644
+--- a/tests/model_forms/test_modelchoicefield.py
++++ b/tests/model_forms/test_modelchoicefield.py
+@@ -30,6 +30,7 @@ class ModelChoiceFieldTests(TestCase):
+         with self.assertRaises(ValidationError):
+             f.clean(None)
+         with self.assertRaises(ValidationError):
++            f.clean('invalid_value')
+             f.clean(0)
+ 
+         # Invalid types that require TypeError to be caught.

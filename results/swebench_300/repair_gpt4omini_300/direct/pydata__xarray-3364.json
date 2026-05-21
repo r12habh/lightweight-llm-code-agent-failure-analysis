@@ -1,0 +1,25 @@
+{
+  "instance_id": "pydata__xarray-3364",
+  "input_patch_chars": 878,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 12\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 12: @@ -144,10 +145\n\n",
+          "stdout": "patching file xarray/core/concat.py\nHunk #1 succeeded at 103 with fuzz 2 (offset -15 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

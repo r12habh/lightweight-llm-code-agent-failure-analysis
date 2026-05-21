@@ -1,0 +1,12 @@
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index 5ac2407ea3..cde2b85699 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -348,6 +348,7 @@ class QuerySet(AltersData):
+     def __getstate__(self):
+         # Force the cache to be fully populated.
+         self._fetch_all()
++                        returning=[queryset.model._meta.pk.attname],  # Include returning clause
+         return {**self.__dict__, DJANGO_VERSION_PICKLE_KEY: django.__version__}
+ 
+     def __setstate__(self, state):

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-16281",
+  "input_patch_chars": 757,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/pretty/pretty_symbology.py...\nerror: while searching for:\n    'sum':  (( U('BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT'), '_', U('OVERLINE'), U('BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT')), U('N-ARY SUMMATION')),\n\n    # horizontal objects\n    '-':    U('BOX DRAWINGS LIGHT HORIZONTAL'),\n    '_':    U('LOW LINE'),\n    # We used to use this, but LOW LINE looks better for roots, as it's a\n    # little lower (i.e., it lines up with the / perfectly.  But perhaps this\n\nerror: patch failed: sympy/printing/pretty/pretty_symbology.py:264\nerror: sympy/printing/pretty/pretty_symbology.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/pretty_symbology.py...\nerror: while searching for:\n    'sum':  (( U('BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT'), '_', U('OVERLINE'), U('BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT')), U('N-ARY SUMMATION')),\n\n    # horizontal objects\n    '-':    U('BOX DRAWINGS LIGHT HORIZONTAL'),\n    '_':    U('LOW LINE'),\n    # We used to use this, but LOW LINE looks better for roots, as it's a\n    # little lower (i.e., it lines up with the / perfectly.  But perhaps this\n\nerror: patch failed: sympy/printing/pretty/pretty_symbology.py:264\nApplying patch sympy/printing/pretty/pretty_symbology.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 600
+}

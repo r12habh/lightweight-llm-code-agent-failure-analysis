@@ -1,0 +1,47 @@
+2026-05-08 12:12:32,592 - INFO - Creating container for django__django-15202...
+2026-05-08 12:12:33,147 - INFO - Container for django__django-15202 created: 236efa760390acb5a695684a0f29e8a8cd9a3ab478c55848f9464e063ef03adb
+2026-05-08 12:12:33,241 - INFO - Container for django__django-15202 started: 236efa760390acb5a695684a0f29e8a8cd9a3ab478c55848f9464e063ef03adb
+2026-05-08 12:12:33,242 - INFO - Intermediate patch for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/django__django-15202/patch.diff, now applying to container...
+2026-05-08 12:12:33,422 - INFO - >>>>> Applied Patch:
+Checking patch django/forms/fields.py...
+Applied patch django/forms/fields.py cleanly.
+
+2026-05-08 12:12:34,110 - INFO - Git diff before:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..bb44c607fe 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -97,7 +97,7 @@ class Field:
+         if self.localize:
+             widget.is_localized = True
+ 
+-        # Let the widget know whether it should display as required.
++        # Let the widget know whether it should display as required and not raise ValueError.
+         widget.is_required = self.required
+ 
+         # Hook into self.widget_attrs() for any Field-specific HTML attributes.
+2026-05-08 12:12:34,110 - INFO - Eval script for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/django__django-15202/eval.sh; copying to container...
+2026-05-08 12:12:42,777 - INFO - Test runtime: 8.61 seconds
+2026-05-08 12:12:42,778 - INFO - Test output for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/django__django-15202/test_output.txt
+2026-05-08 12:12:42,911 - INFO - Git diff after:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..bb44c607fe 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -97,7 +97,7 @@ class Field:
+         if self.localize:
+             widget.is_localized = True
+ 
+-        # Let the widget know whether it should display as required.
++        # Let the widget know whether it should display as required and not raise ValueError.
+         widget.is_required = self.required
+ 
+         # Hook into self.widget_attrs() for any Field-specific HTML attributes.
+2026-05-08 12:12:42,911 - INFO - Grading answer for django__django-15202...
+2026-05-08 12:12:42,912 - INFO - report: {'django__django-15202': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_urlfield_clean_invalid (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_not_required (forms_tests.field_tests.test_urlfield.URLFieldTest)']}, 'PASS_TO_PASS': {'success': ['test_urlfield_clean (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_required (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_strip_on_none_value (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_unable_to_set_strip_kwarg (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget_max_min_length (forms_tests.field_tests.test_urlfield.URLFieldTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15202: resolved: False
+2026-05-08 12:12:42,912 - INFO - Attempting to stop container sweb.eval.django__django-15202.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 12:12:58,059 - INFO - Attempting to remove container sweb.eval.django__django-15202.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 12:12:58,086 - INFO - Container sweb.eval.django__django-15202.hf_qwen25_coder7b_50_agentless_repaired removed.
+2026-05-08 12:12:58,086 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15202:latest...
+2026-05-08 12:12:58,883 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15202:latest removed.

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11964",
+  "input_patch_chars": 824,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch tests/get_or_create/tests.py...\nHunk #1 succeeded at 7 (offset -3 lines).\nerror: while searching for:\n        obj, created = Person.objects.get_or_create(\n            first_name='George', last_name='Harrison', defaults={\n                'birthday': date(1943, 2, 25),\n            }\n        )\n        self.assertTrue(created)\n\nerror: patch failed: tests/get_or_create/tests.py:100\nApplying patch tests/get_or_create/tests.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file tests/get_or_create/tests.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 7 (offset -3 lines).\nHunk #2 FAILED at 100.\n1 out of 2 hunks FAILED -- saving rejects to file tests/get_or_create/tests.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

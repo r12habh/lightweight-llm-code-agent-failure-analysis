@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-10451",
+  "input_patch_chars": 507,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\n\n    # make sure there is a blank line at the end\n    if lines and lines[-1]:\n        lines.append('')\n    return process\n\ndef between(marker: str, what: Sequence[str] = None, keepempty: bool = False,\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:216\nApplying patch sphinx/ext/autodoc/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/autodoc/__init__.py\nHunk #1 FAILED at 216.\n1 out of 1 hunk FAILED -- saving rejects to file sphinx/ext/autodoc/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

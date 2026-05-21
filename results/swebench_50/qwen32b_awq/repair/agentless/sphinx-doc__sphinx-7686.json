@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7686",
+  "input_patch_chars": 1066,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autosummary/generate.py...\nerror: while searching for:\n    return documenter\n\n\ndef generate_autosummary_docs(sources, output_dir=None, suffix='.rst',\n                              builder=None, warn=None, info=None,\n                              template_dir=None, base_path=None,\n\nerror: patch failed: sphinx/ext/autosummary/generate.py:200\nerror: sphinx/ext/autosummary/generate.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autosummary/generate.py...\nerror: while searching for:\n    return documenter\n\n\ndef generate_autosummary_docs(sources, output_dir=None, suffix='.rst',\n                              builder=None, warn=None, info=None,\n                              template_dir=None, base_path=None,\n\nerror: patch failed: sphinx/ext/autosummary/generate.py:200\nerror: while searching for:\n            if not members:\n                members = get_module_members(module)\n\n            # classify members into functions, classes, exceptions, attributes\n            functions = []\n            classes = []\n\nerror: patch failed: sphinx/ext/autosummary/generate.py:250\nApplying patch sphinx/ext/autosummary/generate.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1235
+}

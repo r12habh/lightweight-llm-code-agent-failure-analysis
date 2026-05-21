@@ -1,0 +1,15 @@
+diff --git a/django/forms/utils.py b/django/forms/utils.py
+index 905babce4d..6d9372079e 100644
+--- a/django/forms/utils.py
++++ b/django/forms/utils.py
+@@ -68,6 +68,10 @@ class RenderableMixin:
+         if (
+             template == "django/forms/default.html"
+             or template == "django/forms/formsets/default.html"
++        ) and not isinstance(self, ManagementForm):
++            # Avoid warning for ManagementForm
++            return
++        if (
+         ):
+             warnings.warn(
+                 DEFAULT_TEMPLATE_DEPRECATION_MSG, RemovedInDjango50Warning, stacklevel=2

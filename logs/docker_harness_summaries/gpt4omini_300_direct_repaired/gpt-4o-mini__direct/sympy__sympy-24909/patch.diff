@@ -1,0 +1,12 @@
+diff --git a/sympy/physics/units/prefixes.py b/sympy/physics/units/prefixes.py
+index ca6a642156..fcf0e2336c 100644
+--- a/sympy/physics/units/prefixes.py
++++ b/sympy/physics/units/prefixes.py
+@@ -80,6 +80,8 @@ def __repr__(self):
+ 
+     def __mul__(self, other):
+         from sympy.physics.units import Quantity
++        if isinstance(other, Quantity) and other.scale_factor == 1:
++            return other
+         if not isinstance(other, (Quantity, Prefix)):
+             return super().__mul__(other)

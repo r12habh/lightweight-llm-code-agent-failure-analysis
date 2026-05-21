@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-18698",
+  "input_patch_chars": 450,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/ntheory/factor_.py...\nerror: while searching for:\n        # The multiplicity could be very large. Better\n        # to increment in powers of two\n        e = 2\n        while 1:\n            ppow = p**e\n            if ppow < n:\n                nnew, rem = divmod(n, ppow)\n\nerror: patch failed: sympy/ntheory/factor_.py:1927\nerror: sympy/ntheory/factor_.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/ntheory/factor_.py...\nerror: while searching for:\n        # The multiplicity could be very large. Better\n        # to increment in powers of two\n        e = 2\n        while 1:\n            ppow = p**e\n            if ppow < n:\n                nnew, rem = divmod(n, ppow)\n\nerror: patch failed: sympy/ntheory/factor_.py:1927\nApplying patch sympy/ntheory/factor_.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 472
+}

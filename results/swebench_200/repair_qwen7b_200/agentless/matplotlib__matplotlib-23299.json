@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23299",
+  "input_patch_chars": 1307,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_template.py...\nHunk #1 succeeded at 34 (offset 24 lines).\nHunk #2 succeeded at 111 (offset 10 lines).\nerror: while searching for:\n    def new_gc(self):\n        # docstring inherited\n        return GraphicsContextTemplate()\n    def points_to_pixels(self, points):\n        # if backend doesn't have dpi, e.g., postscript or svg\n        return points\n\nerror: patch failed: lib/matplotlib/backends/backend_template.py:110\nerror: lib/matplotlib/backends/backend_template.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_template.py...\nHunk #1 succeeded at 34 (offset 24 lines).\nHunk #2 succeeded at 111 (offset 10 lines).\nerror: while searching for:\n    def new_gc(self):\n        # docstring inherited\n        return GraphicsContextTemplate()\n    def points_to_pixels(self, points):\n        # if backend doesn't have dpi, e.g., postscript or svg\n        return points\n\nerror: patch failed: lib/matplotlib/backends/backend_template.py:110\nApplying patch lib/matplotlib/backends/backend_template.py with 1 reject...\nHunk #1 applied cleanly.\nHunk #2 applied cleanly.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 658
+}

@@ -1,0 +1,33 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8595",
+  "raw": "```diff\ndiff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py\n--- a/sphinx/ext/autodoc/__init__.py\n+++ b/sphinx/ext/autodoc/__init__.py\n@@ -57,6 +57,7 @@\n \n ALL = _All()\n EMPTY = _Empty()\n+UNINITIALIZED_ATTR = object()\n INSTANCEATTR = object()\n SLOTSATTR = object()\n \n@@ -179,7 +180,7 @@\n def merge_special_members_option(options: Dict) -> None:\n     \"\"\"Merge :special-members: option to :members: option.\"\"\"\n     if 'special-members' in options and options['special-members'] is not ALL:\n-        if options.get('members') is ALL:\n+        if options.get('members') is ALL or options.get('members') == []:\n             pass\n         elif options.get('members'):\n             for member in options['special-members']:\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 21496,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 262,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21758
+    },
+    "patch": {
+      "input_tokens": 21567,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 204,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21771
+    }
+  },
+  "localized_files": [
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/ext/napoleon/__init__.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sphinx/ext/autodoc/__init__.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"The issue relates to the behavior of autodoc with empty __all__, which may be influenced by the autodoc implementation.\"\n    },\n    {\n      \"path\": \"doc/usage/extensions/autodoc.rst\",\n      \"confidence\": 0.8,\n      \"reason\": \"Documentation on how autodoc processes members related to the issue described.\"\n    },\n    {\n      \"path\": \"sphinx/ext/napoleon/__init__.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Napoleon may affect docstring parsing impacting the usage of __all__.\"\n    },\n    {\n      \"path\": \"doc/man/sphinx-apidoc.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"This file discusses the autodoc and may need clarification on how __all__ is considered.\"\n    },\n    {\n      \"path\": \"doc/usage/builders/index.rst\",\n      \"confidence\": 0.5,\n      \"reason\": \"General documentation on builders that could indirectly reference autodoc behavior.\"\n    }\n  ]\n}\n```"
+}

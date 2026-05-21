@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5103",
+  "input_patch_chars": 5128,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: patch fragment without header at line 88: @@ -290,6 +300,7 @@ class AssertionRewritingHook(object):\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/assertion/rewrite.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 68 (offset -32 lines).\nHunk #2 FAILED at 200.\nHunk #3 FAILED at 211.\nHunk #4 FAILED at 222.\nHunk #5 succeeded at 171 with fuzz 3 (offset -62 lines).\nHunk #6 FAILED at 243.\nHunk #7 FAILED at 254.\nHunk #8 FAILED at 265.\nHunk #9 FAILED at 276.\nHunk #10 FAILED at 287.\n8 out of 10 hunks FAILED -- saving rejects to file src/_pytest/assertion/rewrite.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

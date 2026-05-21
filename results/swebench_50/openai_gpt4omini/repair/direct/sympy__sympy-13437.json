@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-13437",
+  "input_patch_chars": 633,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/functions/combinatorial/numbers.py...\nerror: while searching for:\nfrom sympy.core import S\nfrom sympy.functions import Poly, factorial\nfrom sympy.series import limit\n\n\nclass Bell(Function):\n\nerror: patch failed: sympy/functions/combinatorial/numbers.py:18\nerror: sympy/functions/combinatorial/numbers.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/functions/combinatorial/numbers.py...\nerror: while searching for:\nfrom sympy.core import S\nfrom sympy.functions import Poly, factorial\nfrom sympy.series import limit\n\n\nclass Bell(Function):\n\nerror: patch failed: sympy/functions/combinatorial/numbers.py:18\nerror: while searching for:\n\n        return super(Bell, self).limit(var, to)\n\n\ndef bell(n):\n    \"\"\" Return the nth Bell number. \"\"\"\n\nerror: patch failed: sympy/functions/combinatorial/numbers.py:282\nApplying patch sympy/functions/combinatorial/numbers.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 976
+}

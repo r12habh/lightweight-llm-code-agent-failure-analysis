@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-6116",
+  "input_patch_chars": 1055,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/_pytest/config/__init__.py...\nerror: while searching for:\n    addopts = \"\"\n    addinivalue_line = None\n    basetemp = None\n    color = True\n    continue_on_collection_errors = False\n    doctest_optionflags = 0\n\nerror: patch failed: src/_pytest/config/__init__.py:123\nerror: src/_pytest/config/__init__.py: patch does not apply\nChecking patch src/_pytest/main.py...\nerror: while searching for:\n        self.exitstatus = ExitCode.OK\n        self.config = config\n        self._setupstate = _SetupState()\n\n    def _setupstate(self):\n        return self._setupstate\n\nerror: patch failed: src/_pytest/main.py:110\nerror: src/_pytest/main.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/config/__init__.py...\nerror: while searching for:\n    addopts = \"\"\n    addinivalue_line = None\n    basetemp = None\n    color = True\n    continue_on_collection_errors = False\n    doctest_optionflags = 0\n\nerror: patch failed: src/_pytest/config/__init__.py:123\nerror: while searching for:\n        group.addoption(\n            \"--collect-only\",\n            action=\"store_true\",\n            help=\"only collect tests and don't execute them.\",\n        )\n        group.addoption(\n\nerror: patch failed: src/_pytest/config/__init__.py:400\nChecking patch src/_pytest/main.py...\nerror: while searching for:\n        self.exitstatus = ExitCode.OK\n        self.config = config\n        self._setupstate = _SetupState()\n\n    def _setupstate(self):\n        return self._setupstate\n\nerror: patch failed: src/_pytest/main.py:110\nApplying patch src/_pytest/config/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\nApplying patch src/_pytest/main.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1186
+}

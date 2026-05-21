@@ -1,0 +1,12 @@
+diff --git a/doc/modules/mixture.rst b/doc/modules/mixture.rst
+index fb8e897270..699bcf5462 100644
+--- a/doc/modules/mixture.rst
++++ b/doc/modules/mixture.rst
+@@ -34,6 +34,7 @@ mixture models, that correspond to different estimation strategies,
+ detailed below.
+ 
+ Gaussian Mixture
++   
+ ================
+ 
+ The :class:`GaussianMixture` object implements the

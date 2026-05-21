@@ -1,0 +1,13 @@
+diff --git a/django/contrib/auth/forms.py b/django/contrib/auth/forms.py
+index b3cfc6723c..f9e2fc3e96 100644
+--- a/django/contrib/auth/forms.py
++++ b/django/contrib/auth/forms.py
+@@ -122,7 +122,7 @@ class UserCreationForm(forms.ModelForm):
+             raise ValidationError(
+                 self.error_messages["password_mismatch"],
+                 code="password_mismatch",
+-            )
++                f"../../{self.instance.pk}/password/"
+         return password2
+ 
+     def _post_clean(self):

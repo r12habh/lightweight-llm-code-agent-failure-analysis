@@ -1,0 +1,15 @@
+diff --git a/django/db/models/sql/where.py b/django/db/models/sql/where.py
+index 50ff13be75..0ee94999f0 100644
+--- a/django/db/models/sql/where.py
++++ b/django/db/models/sql/where.py
+@@ -104,6 +104,10 @@ class WhereNode(tree.Node):
+                     return '', []
+         conn = ' %s ' % self.connector
+         sql_string = conn.join(result)
++                else:
++                    if self.connector == AND:
++                        raise EmptyResultSet
++                    full_needed -= 1
+         if sql_string:
+             if self.negated:
+                 # Some backends (Oracle at least) need parentheses

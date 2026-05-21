@@ -1,0 +1,33 @@
+{
+  "instance_id": "django__django-14999",
+  "raw": "```diff\ndiff --git a/django/contrib/postgres/constraints.py b/django/contrib/postgres/constraints.py\nindex 8aaed08..26eccc4 100644\n--- a/django/contrib/postgres/constraints.py\n+++ b/django/contrib/postgres/constraints.py\n@@ -1,5 +1,5 @@\n from django.db import NotSupportedError\n-from django.db.backends.ddl_references import Statement, Table\n+from django.db.backends.ddl_references import Statement, Table, RenameModel\n from django.db.models import Deferrable, F, Q\n from django.db.models.constraints import BaseConstraint\n from django.db.models.expressions import Col\n@@ -48,6 +48,7 @@ class ExclusionConstraint(BaseConstraint):\n \n     def _get_expression_sql(self, compiler, schema_editor, query):\n         # No-op for RenameModel with db_table\n+        self.check.rename = RenameModel(self.name)\n         return super()._get_expression_sql(compiler, schema_editor, query)\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 18360,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 167,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18527
+    },
+    "patch": {
+      "input_tokens": 18425,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 219,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18644
+    }
+  },
+  "localized_files": [
+    "django/contrib/postgres/constraints.py",
+    "tests/postgres_tests/test_constraints.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/contrib/postgres/constraints.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"This file contains the ExclusionConstraint class where db_table related logic likely needs adjustments for RenameModel.\"\n    },\n    {\n      \"path\": \"tests/postgres_tests/test_constraints.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Tests for constraints, including ExclusionConstraint, may need updates to align with the new RenameModel behavior.\"\n    },\n    {\n      \"path\": \"docs/ref/contrib/postgres/constraints.txt\",\n      \"confidence\": 0.7,\n      \"reason\": \"Documentation may need revisions to reflect the noop behavior of RenameModel with db_table.\"\n    }\n  ]\n}\n```"
+}

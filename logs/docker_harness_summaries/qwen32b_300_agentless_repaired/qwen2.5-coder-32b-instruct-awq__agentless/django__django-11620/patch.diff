@@ -1,0 +1,17 @@
+diff --git a/docs/howto/error-reporting.txt b/docs/howto/error-reporting.txt
+index 90918dffe4..8ded730942 100644
+--- a/docs/howto/error-reporting.txt
++++ b/docs/howto/error-reporting.txt
+@@ -60,6 +60,12 @@ not found" errors). Django sends emails about 404 errors when:
+ * Your :setting:`MIDDLEWARE` setting includes
+   :class:`django.middleware.common.BrokenLinkEmailsMiddleware`.
+ 
++    Additionally, if you want to handle Http404 exceptions raised in URL converters
++    with a technical response when :setting:`DEBUG` is ``True``, you can create a
++    custom middleware to catch these exceptions and return a technical response.
++    This is not handled by default, as Http404 is typically used to indicate a
++    non-existent resource rather than a server error.
++
+ If those conditions are met, Django will email the users listed in the
+ :setting:`MANAGERS` setting whenever your code raises a 404 and the request has
+ a referer. It doesn't bother to email for 404s that don't have a referer --

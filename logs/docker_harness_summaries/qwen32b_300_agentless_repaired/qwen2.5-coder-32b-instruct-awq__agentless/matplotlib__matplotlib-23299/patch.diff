@@ -1,0 +1,20 @@
+diff --git a/lib/matplotlib/_pylab_helpers.py b/lib/matplotlib/_pylab_helpers.py
+index 24fcb81fc9..a101a660a0 100644
+--- a/lib/matplotlib/_pylab_helpers.py
++++ b/lib/matplotlib/_pylab_helpers.py
+@@ -32,6 +32,7 @@ class Gcf:
+     figs = OrderedDict()
+ 
+     @classmethod
++    @contextmanager
+     def get_fig_manager(cls, num):
+         """
+         If manager number *num* exists, make it the active one and return it;
+@@ -40,6 +41,7 @@ class Gcf:
+         manager = cls.figs.get(num, None)
+         if manager is not None:
+             cls.set_active(manager)
++        yield manager
+         return manager
+ 
+     @classmethod

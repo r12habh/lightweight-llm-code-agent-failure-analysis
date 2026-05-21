@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-14396",
+  "input_patch_chars": 647,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/polys/polyoptions.py...\nerror: while searching for:\n                return sympy.polys.domains.QQ.algebraic_field(*gens)\n\n        raise OptionError('expected a valid domain specification, got %s' % domain)\n        raise OptionError('expected a valid domain specification, got %s' % domain)\n\n    @classmethod\n    def postprocess(cls, options):\n\nerror: patch failed: sympy/polys/polyoptions.py:480\nerror: sympy/polys/polyoptions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/polys/polyoptions.py...\nerror: while searching for:\n                return sympy.polys.domains.QQ.algebraic_field(*gens)\n\n        raise OptionError('expected a valid domain specification, got %s' % domain)\n        raise OptionError('expected a valid domain specification, got %s' % domain)\n\n    @classmethod\n    def postprocess(cls, options):\n\nerror: patch failed: sympy/polys/polyoptions.py:480\nApplying patch sympy/polys/polyoptions.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 616
+}

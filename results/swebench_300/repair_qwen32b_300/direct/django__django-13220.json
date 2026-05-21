@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13220",
+  "input_patch_chars": 1034,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpo0q5u_wt.diff:9: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpo0q5u_wt.diff:13: trailing whitespace.\n        \nerror: corrupt patch at line 29\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 28:          if isinstance(self.message_dict, dict):\n\n",
+          "stdout": "patching file django/core/exceptions.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

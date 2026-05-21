@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index fb3f7288b5..5cc669d915 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -112,6 +112,7 @@ __all__ = [
+     "get_data_path",
+     "matplotlib_fname",
+     "MatplotlibDeprecationWarning",
++    "set_loglevel",
+     "RcParams",
+     "rc_params",
+     "rc_params_from_file",

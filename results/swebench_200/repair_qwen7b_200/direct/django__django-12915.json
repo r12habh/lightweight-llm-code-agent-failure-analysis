@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12915",
+  "input_patch_chars": 933,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/staticfiles/handlers.py...\nerror: while searching for:\nfrom django.contrib.staticfiles.views import serve\nfrom django.core.handlers.asgi import ASGIHandler\nfrom django.core.handlers.exception import response_for_exception\nfrom django.core.handlers.wsgi import WSGIHandler, get_path_info\nfrom django.http import Http404\nfrom django.urls import urlparse\n\nerror: patch failed: django/contrib/staticfiles/handlers.py:10\nerror: django/contrib/staticfiles/handlers.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/staticfiles/handlers.py...\nerror: while searching for:\nfrom django.contrib.staticfiles.views import serve\nfrom django.core.handlers.asgi import ASGIHandler\nfrom django.core.handlers.exception import response_for_exception\nfrom django.core.handlers.wsgi import WSGIHandler, get_path_info\nfrom django.http import Http404\nfrom django.urls import urlparse\n\nerror: patch failed: django/contrib/staticfiles/handlers.py:10\nerror: while searching for:\n    \"\"\"\n    ASGI application which wraps another and intercepts requests for static\n    files, passing them off to Django's static file serving.\n    def __init__(self, application):\n        self.application = application\n        self.base_url = urlparse(self.get_base_url())\n\nerror: patch failed: django/contrib/staticfiles/handlers.py:100\nApplying patch django/contrib/staticfiles/handlers.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 859
+}

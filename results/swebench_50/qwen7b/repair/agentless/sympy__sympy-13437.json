@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-13437",
+  "input_patch_chars": 430,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/functions/combinatorial/numbers.py...\nerror: while searching for:\n    @classmethod\n    def eval(cls, n, sym=None):\n        if n is S.Infinity:\n            return S.Infinity\n        if n.is_Integer:\n            n = int(n)\n\nerror: patch failed: sympy/functions/combinatorial/numbers.py:100\nerror: sympy/functions/combinatorial/numbers.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/functions/combinatorial/numbers.py...\nerror: while searching for:\n    @classmethod\n    def eval(cls, n, sym=None):\n        if n is S.Infinity:\n            return S.Infinity\n        if n.is_Integer:\n            n = int(n)\n\nerror: patch failed: sympy/functions/combinatorial/numbers.py:100\nApplying patch sympy/functions/combinatorial/numbers.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 444
+}

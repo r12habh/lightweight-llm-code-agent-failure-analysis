@@ -1,0 +1,15 @@
+diff --git a/sympy/printing/codeprinter.py b/sympy/printing/codeprinter.py
+index 98f8615621..2086db5738 100644
+--- a/sympy/printing/codeprinter.py
++++ b/sympy/printing/codeprinter.py
+@@ -265,6 +265,10 @@ def _get_expression_indices(self, expr, assign_to):
+ 
+     def _sort_optimized(self, indices, expr):
+ 
++                    # contractions, those must be computed first.
++                    # (temporary variables?)
++                    raise NotImplementedError(
++                        "FIXME: no support for contractions in factor yet")
+         from sympy.tensor.indexed import Indexed
+ 
+         if not indices:

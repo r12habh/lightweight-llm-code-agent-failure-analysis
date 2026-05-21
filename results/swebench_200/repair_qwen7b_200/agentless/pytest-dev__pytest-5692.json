@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-5692",
+  "input_patch_chars": 1678,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/_pytest/junitxml.py...\nerror: while searching for:\nimport py\nimport pytest\nfrom _pytest.config import filename_arg\nfrom _pytest import nodes\nfrom _pytest.config import filename_arg\n\n\nerror: patch failed: src/_pytest/junitxml.py:10\nerror: src/_pytest/junitxml.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/junitxml.py...\nerror: while searching for:\nimport py\nimport pytest\nfrom _pytest.config import filename_arg\nfrom _pytest import nodes\nfrom _pytest.config import filename_arg\n\n\nerror: patch failed: src/_pytest/junitxml.py:10\nHunk #2 succeeded at 82 (offset -19 lines).\nHunk #3 succeeded at 89 (offset -23 lines).\nerror: while searching for:\n        self.xml.add_stats(type(node).__name__)\n        self.nodes.append(node)\n\n        self.properties.append((str(name), bin_xml_escape(value)))\n\n    def add_attribute(self, name, value):\n\nerror: patch failed: src/_pytest/junitxml.py:120\nerror: while searching for:\n        self.attrs[str(name)] = bin_xml_escape(value)\n\n    def make_properties_node(self):\n        if self.properties:\n            return Junit.properties(\n                [\n\nerror: patch failed: src/_pytest/junitxml.py:130\nerror: while searching for:\n        return \"\"\n\n    def record_testreport(self, testreport):\n        names = mangle_test_address(testreport.nodeid)\n        existing_attrs = self.attrs\n        classnames = names[:-1]\n\nerror: patch failed: src/_pytest/junitxml.py:140\nApplying patch src/_pytest/junitxml.py with 4 rejects...\nRejected hunk #1.\nHunk #2 applied cleanly.\nHunk #3 applied cleanly.\nRejected hunk #4.\nRejected hunk #5.\nRejected hunk #6.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 2499
+}

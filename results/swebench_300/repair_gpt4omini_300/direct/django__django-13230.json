@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13230",
+  "input_patch_chars": 2298,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 12\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 12: @@ -104,7 +105\n\n",
+          "stdout": "patching file django/contrib/syndication/views.py\nHunk #1 succeeded at 82 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

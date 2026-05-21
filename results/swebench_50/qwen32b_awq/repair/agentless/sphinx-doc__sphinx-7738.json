@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7738",
+  "input_patch_chars": 607,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/napoleon/docstring.py...\nerror: while searching for:\n                self._parsed_lines.append('')\n                self._parsed_lines.append(':param %s: %s' % (name, desc))\n                if type_:\n                    self._parsed_lines.append(':type %s: %s' % (name, type_))\n            elif section == 'returns':\n                desc = self._parse_returns_section(lines)\n\nerror: patch failed: sphinx/ext/napoleon/docstring.py:123\nerror: sphinx/ext/napoleon/docstring.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/napoleon/docstring.py...\nerror: while searching for:\n                self._parsed_lines.append('')\n                self._parsed_lines.append(':param %s: %s' % (name, desc))\n                if type_:\n                    self._parsed_lines.append(':type %s: %s' % (name, type_))\n            elif section == 'returns':\n                desc = self._parse_returns_section(lines)\n\nerror: patch failed: sphinx/ext/napoleon/docstring.py:123\nApplying patch sphinx/ext/napoleon/docstring.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 437
+}

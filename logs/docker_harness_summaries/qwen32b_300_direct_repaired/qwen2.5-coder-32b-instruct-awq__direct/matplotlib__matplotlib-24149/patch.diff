@@ -1,0 +1,13 @@
+diff --git a/lib/matplotlib/cbook/__init__.py b/lib/matplotlib/cbook/__init__.py
+index 34c6ddb861..325ac6269e 100644
+--- a/lib/matplotlib/cbook/__init__.py
++++ b/lib/matplotlib/cbook/__init__.py
+@@ -1743,7 +1743,7 @@ def _safe_first_finite(obj, *, skip_nonfinite=True):
+         # TODO do the finite filtering on this
+         return obj[0]
+     elif isinstance(obj, collections.abc.Iterator):
+-        raise RuntimeError("matplotlib does not "
++        return np.nan if isinstance(obj, np.ndarray) and np.all(np.isnan(obj)) else next(val for val in obj if safe_isfinite(val))
+                            "support generators as input")
+     else:
+         return next(val for val in obj if safe_isfinite(val))

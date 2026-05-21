@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14730",
+  "input_patch_chars": 1048,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpxu2b6i7w.diff:27: trailing whitespace.\n        \nerror: corrupt patch at line 32\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 11:      one_to_one = False\n\n",
+          "stdout": "patching file django/db/models/fields/related.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

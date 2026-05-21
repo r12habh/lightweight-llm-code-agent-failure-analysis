@@ -1,0 +1,19 @@
+diff --git a/doc/combining.rst b/doc/combining.rst
+index 4593d410..4b38dc36 100644
+--- a/doc/combining.rst
++++ b/doc/combining.rst
+@@ -80,6 +80,14 @@ Merge
+ To combine variables and coordinates between multiple ``DataArray`` and/or
+ ``Dataset`` objects, use :py:func:`~xarray.merge`. It can merge a list of
+ ``Dataset``, ``DataArray`` or dictionaries of objects convertible to
++
++  When concatenating datasets with missing variables, any variables that are not present
++  in some datasets will be filled with NaN in the resulting dataset. This outer join-like
++  behavior is more consistent with `pandas.concat`, where mismatched indices are handled gracefully.
++
++  The `concat` function in xarray can be set to ignore missing variables by using the 
++  `data_vars='minimal'` argument, which only includes variables that are present in all datasets.
++
+ ``DataArray`` objects:
+ 
+ .. ipython:: python

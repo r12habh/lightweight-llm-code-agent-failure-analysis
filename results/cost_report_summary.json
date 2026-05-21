@@ -1,0 +1,82 @@
+[
+  {
+    "backend": "gpt4omini",
+    "mode": "direct",
+    "instances": 250,
+    "tokens_in": 5127606,
+    "tokens_out": 48459,
+    "elapsed_s": 3376.8,
+    "estimated_usd": "$0.798",
+    "baseline_50_usd": "$0.161"
+  },
+  {
+    "backend": "gpt4omini",
+    "mode": "agentless",
+    "instances": 250,
+    "tokens_in": 10253596,
+    "tokens_out": 100551,
+    "elapsed_s": 6382.9,
+    "estimated_usd": "$1.598",
+    "baseline_50_usd": "$0.322"
+  },
+  {
+    "backend": "qwen7b",
+    "mode": "direct",
+    "instances": 171,
+    "tokens_in": 3344332,
+    "tokens_out": 61145,
+    "elapsed_s": 6323.0,
+    "estimated_usd": "$2.635",
+    "baseline_50_usd": "$0.762 total job",
+    "job_id": "6a0d490a3aba298b21d146dc",
+    "flavor": "a10g-large",
+    "running_seconds": 6171,
+    "per_instance_elapsed_s": 17595.7,
+    "cost_basis": "job total wall-clock seconds"
+  },
+  {
+    "backend": "qwen7b",
+    "mode": "agentless",
+    "instances": 171,
+    "tokens_in": 6687257,
+    "tokens_out": 101423,
+    "elapsed_s": 6323.0,
+    "estimated_usd": "$2.635",
+    "baseline_50_usd": "$0.762 total job",
+    "job_id": "6a0d490a3aba298b21d146dc",
+    "flavor": "a10g-large",
+    "running_seconds": 6171,
+    "per_instance_elapsed_s": 46486.3,
+    "cost_basis": "job total wall-clock seconds"
+  },
+  {
+    "backend": "qwen32b",
+    "mode": "direct",
+    "instances": 250,
+    "tokens_in": 5103123,
+    "tokens_out": 60538,
+    "elapsed_s": 7953.0,
+    "estimated_usd": "$3.976",
+    "baseline_50_usd": "$0.873 total job",
+    "job_id": "6a0d28603aba298b21d14685",
+    "flavor": "l40sx1",
+    "running_seconds": 7729,
+    "per_instance_elapsed_s": 65195.9,
+    "cost_basis": "job total wall-clock seconds"
+  },
+  {
+    "backend": "qwen32b",
+    "mode": "agentless",
+    "instances": 250,
+    "tokens_in": 10192469,
+    "tokens_out": 129912,
+    "elapsed_s": 7953.0,
+    "estimated_usd": "$3.976",
+    "baseline_50_usd": "$0.873 total job",
+    "job_id": "6a0d28603aba298b21d14685",
+    "flavor": "l40sx1",
+    "running_seconds": 7729,
+    "per_instance_elapsed_s": 189254.5,
+    "cost_basis": "job total wall-clock seconds"
+  }
+]

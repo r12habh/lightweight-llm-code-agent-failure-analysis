@@ -1,0 +1,61 @@
+2026-05-20 12:15:10,878 - INFO - Creating container for matplotlib__matplotlib-18869...
+2026-05-20 12:15:11,785 - INFO - Container for matplotlib__matplotlib-18869 created: 87fc1c11f3a0a57738b26356408c248a8a34df63d43e7b2b39ef3b66496248f5
+2026-05-20 12:15:11,940 - INFO - Container for matplotlib__matplotlib-18869 started: 87fc1c11f3a0a57738b26356408c248a8a34df63d43e7b2b39ef3b66496248f5
+2026-05-20 12:15:11,940 - INFO - Intermediate patch for matplotlib__matplotlib-18869 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/matplotlib__matplotlib-18869/patch.diff, now applying to container...
+2026-05-20 12:15:12,132 - INFO - >>>>> Applied Patch:
+Checking patch lib/matplotlib/__init__.py...
+Applied patch lib/matplotlib/__init__.py cleanly.
+
+2026-05-20 12:15:13,319 - INFO - Git diff before:
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index b657a35cf7..4d222b3449 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -115,6 +115,7 @@ from matplotlib.rcsetup import validate_backend, cycler
+ _log = logging.getLogger(__name__)
+ 
+ __bibtex__ = r"""@Article{Hunter:2007,
++from distutils.version import LooseVersion
+   Author    = {Hunter, J. D.},
+   Title     = {Matplotlib: A 2D graphics environment},
+   Journal   = {Computing in Science \& Engineering},
+@@ -144,6 +145,7 @@ def __getattr__(name):
+                 version_scheme="post-release",
+                 local_scheme="node-and-date",
+                 fallback_version=_version.version,
++version_info = LooseVersion(__version__)
+             )
+         else:  # Get the version from the _version.py setuptools_scm file.
+             __version__ = _version.version
+2026-05-20 12:15:13,320 - INFO - Eval script for matplotlib__matplotlib-18869 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/matplotlib__matplotlib-18869/eval.sh; copying to container...
+2026-05-20 12:15:28,400 - INFO - Test runtime: 15.00 seconds
+2026-05-20 12:15:28,403 - INFO - Test output for matplotlib__matplotlib-18869 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/matplotlib__matplotlib-18869/test_output.txt
+2026-05-20 12:15:28,528 - INFO - Git diff after:
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index b657a35cf7..4d222b3449 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -115,6 +115,7 @@ from matplotlib.rcsetup import validate_backend, cycler
+ _log = logging.getLogger(__name__)
+ 
+ __bibtex__ = r"""@Article{Hunter:2007,
++from distutils.version import LooseVersion
+   Author    = {Hunter, J. D.},
+   Title     = {Matplotlib: A 2D graphics environment},
+   Journal   = {Computing in Science \& Engineering},
+@@ -144,6 +145,7 @@ def __getattr__(name):
+                 version_scheme="post-release",
+                 local_scheme="node-and-date",
+                 fallback_version=_version.version,
++version_info = LooseVersion(__version__)
+             )
+         else:  # Get the version from the _version.py setuptools_scm file.
+             __version__ = _version.version
+2026-05-20 12:15:28,528 - INFO - Grading answer for matplotlib__matplotlib-18869...
+2026-05-20 12:15:28,530 - INFO - report: {'matplotlib__matplotlib-18869': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['lib/matplotlib/tests/test_matplotlib.py::test_parse_to_version_info[3.5.0-version_tuple0]', 'lib/matplotlib/tests/test_matplotlib.py::test_parse_to_version_info[3.5.0rc2-version_tuple1]', 'lib/matplotlib/tests/test_matplotlib.py::test_parse_to_version_info[3.5.0.dev820+g6768ef8c4c-version_tuple2]', 'lib/matplotlib/tests/test_matplotlib.py::test_parse_to_version_info[3.5.0.post820+g6768ef8c4c-version_tuple3]']}, 'PASS_TO_PASS': {'success': ['lib/matplotlib/tests/test_matplotlib.py::test_importable_with_no_home', 'lib/matplotlib/tests/test_matplotlib.py::test_use_doc_standard_backends', 'lib/matplotlib/tests/test_matplotlib.py::test_importable_with__OO'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for matplotlib__matplotlib-18869: resolved: False
+2026-05-20 12:15:28,531 - INFO - Attempting to stop container sweb.eval.matplotlib__matplotlib-18869.qwen32b_300_direct_repaired...
+2026-05-20 12:15:43,800 - INFO - Attempting to remove container sweb.eval.matplotlib__matplotlib-18869.qwen32b_300_direct_repaired...
+2026-05-20 12:15:43,826 - INFO - Container sweb.eval.matplotlib__matplotlib-18869.qwen32b_300_direct_repaired removed.
+2026-05-20 12:15:43,826 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-18869:latest...
+2026-05-20 12:15:43,832 - INFO - Image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-18869:latest removed.

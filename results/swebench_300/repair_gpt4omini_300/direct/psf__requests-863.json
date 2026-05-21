@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-863",
+  "input_patch_chars": 570,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/models.py...\nerror: while searching for:\n\n        for event in HOOKS:\n            self.hooks[event] = []\n\n        elif isinstance(hooks, dict):\n            for (k, v) in list(hooks.items()):\n                self.register_hook(event=k, hook=v)\n\nerror: patch failed: requests/models.py:1314\nerror: requests/models.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/models.py...\nerror: while searching for:\n\n        for event in HOOKS:\n            self.hooks[event] = []\n\n        elif isinstance(hooks, dict):\n            for (k, v) in list(hooks.items()):\n                self.register_hook(event=k, hook=v)\n\nerror: patch failed: requests/models.py:1314\nApplying patch requests/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 513
+}

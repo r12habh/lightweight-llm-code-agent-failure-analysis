@@ -1,0 +1,61 @@
+2026-05-19 22:09:40,023 - INFO - Creating container for django__django-13768...
+2026-05-19 22:09:41,073 - INFO - Container for django__django-13768 created: e4fb90d53e26a071eee36a487c358cca327794b1b8b23a8f3d2b2559566aa926
+2026-05-19 22:09:41,162 - INFO - Container for django__django-13768 started: e4fb90d53e26a071eee36a487c358cca327794b1b8b23a8f3d2b2559566aa926
+2026-05-19 22:09:41,163 - INFO - Intermediate patch for django__django-13768 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-13768/patch.diff, now applying to container...
+2026-05-19 22:09:41,311 - INFO - >>>>> Applied Patch:
+Checking patch django/template/base.py...
+Applied patch django/template/base.py cleanly.
+
+2026-05-19 22:09:41,981 - INFO - Git diff before:
+diff --git a/django/template/base.py b/django/template/base.py
+index 85ce3c2abd..3adc531e52 100644
+--- a/django/template/base.py
++++ b/django/template/base.py
+@@ -94,6 +94,7 @@ tag_re = (_lazy_re_compile('(%s.*?%s|%s.*?%s|%s.*?%s)' %
+            re.escape(COMMENT_TAG_START), re.escape(COMMENT_TAG_END))))
+ 
+ logger = logging.getLogger('django.template')
++logger.setLevel(logging.ERROR)  # Ensure we capture error logs
+ 
+ 
+ class TokenType(Enum):
+@@ -732,6 +733,7 @@ class Variable:
+ 
+         >>> c = {'article': {'section':'News'}}
+         >>> Variable('article.section').resolve(c)
++                    logger.exception("Exception in signal receiver:")
+         'News'
+         >>> Variable('article').resolve(c)
+         {'section': 'News'}
+2026-05-19 22:09:41,982 - INFO - Eval script for django__django-13768 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-13768/eval.sh; copying to container...
+2026-05-19 22:09:56,381 - INFO - Test runtime: 14.34 seconds
+2026-05-19 22:09:56,383 - INFO - Test output for django__django-13768 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-13768/test_output.txt
+2026-05-19 22:09:56,512 - INFO - Git diff after:
+diff --git a/django/template/base.py b/django/template/base.py
+index 85ce3c2abd..3adc531e52 100644
+--- a/django/template/base.py
++++ b/django/template/base.py
+@@ -94,6 +94,7 @@ tag_re = (_lazy_re_compile('(%s.*?%s|%s.*?%s|%s.*?%s)' %
+            re.escape(COMMENT_TAG_START), re.escape(COMMENT_TAG_END))))
+ 
+ logger = logging.getLogger('django.template')
++logger.setLevel(logging.ERROR)  # Ensure we capture error logs
+ 
+ 
+ class TokenType(Enum):
+@@ -732,6 +733,7 @@ class Variable:
+ 
+         >>> c = {'article': {'section':'News'}}
+         >>> Variable('article.section').resolve(c)
++                    logger.exception("Exception in signal receiver:")
+         'News'
+         >>> Variable('article').resolve(c)
+         {'section': 'News'}
+2026-05-19 22:09:56,512 - INFO - Grading answer for django__django-13768...
+2026-05-19 22:09:56,514 - INFO - report: {'django__django-13768': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_send_robust_fail (dispatch.tests.DispatcherTests)']}, 'PASS_TO_PASS': {'success': ['test_receiver_signal_list (dispatch.tests.ReceiverTestCase)', 'test_receiver_single_signal (dispatch.tests.ReceiverTestCase)', 'test_cached_garbaged_collected (dispatch.tests.DispatcherTests)', 'test_cannot_connect_no_kwargs (dispatch.tests.DispatcherTests)', 'test_cannot_connect_non_callable (dispatch.tests.DispatcherTests)', 'test_disconnection (dispatch.tests.DispatcherTests)', 'test_garbage_collected (dispatch.tests.DispatcherTests)', 'test_has_listeners (dispatch.tests.DispatcherTests)', 'test_multiple_registration (dispatch.tests.DispatcherTests)', 'test_send (dispatch.tests.DispatcherTests)', 'test_send_connected_no_sender (dispatch.tests.DispatcherTests)', 'test_send_different_no_sender (dispatch.tests.DispatcherTests)', 'test_send_no_receivers (dispatch.tests.DispatcherTests)', 'test_send_robust_ignored_sender (dispatch.tests.DispatcherTests)', 'test_send_robust_no_receivers (dispatch.tests.DispatcherTests)', 'test_send_robust_success (dispatch.tests.DispatcherTests)', 'test_uid_registration (dispatch.tests.DispatcherTests)', 'test_values_returned_by_disconnection (dispatch.tests.DispatcherTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13768: resolved: False
+2026-05-19 22:09:56,517 - INFO - Attempting to stop container sweb.eval.django__django-13768.gpt4omini_300_direct_repaired...
+2026-05-19 22:10:11,733 - INFO - Attempting to remove container sweb.eval.django__django-13768.gpt4omini_300_direct_repaired...
+2026-05-19 22:10:11,746 - INFO - Container sweb.eval.django__django-13768.gpt4omini_300_direct_repaired removed.
+2026-05-19 22:10:11,746 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13768:latest...
+2026-05-19 22:10:12,579 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13768:latest removed.

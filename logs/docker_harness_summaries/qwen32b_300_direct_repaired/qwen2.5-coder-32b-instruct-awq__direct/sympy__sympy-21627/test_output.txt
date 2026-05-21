@@ -1,0 +1,1195 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   sympy/core/expr.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
++ git show
+commit 126f80578140e752ad5135aac77b8ff887eede3e
+Merge: 1fb2490fa2 7738b7fdc6
+Author: Chris Smith <smichr@gmail.com>
+Date:   Wed Jun 16 06:27:22 2021 -0500
+
+    Merge pull request #21608 from bjodah/rewrite-expm1-add-test-for-gh21531
+    
+    codegen: more capable rewrite to expm1 & cosm1 etc.
+
++ git -c core.fileMode=false diff 126f80578140e752ad5135aac77b8ff887eede3e
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 95ed85f769..8b798d840e 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -151,6 +151,10 @@ def __eq__(self, other):
+         if  not (self.is_Number and other.is_Number) and (
+                 type(self) != type(other)):
+             return False
++        if self == other:
++            return True
++        if self.is_zero and other.is_zero:
++            return True
+         a, b = self._hashable_content(), other._hashable_content()
+         if a != b:
+             return False
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e .
+Obtaining file:///testbed
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: mpmath>=0.19 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from sympy==1.9.dev0) (1.3.0)
+Installing collected packages: sympy
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.9.dev0
+    Uninstalling sympy-1.9.dev0:
+      Successfully uninstalled sympy-1.9.dev0
+  DEPRECATION: Legacy editable install of sympy==1.9.dev0 from file:///testbed (setup.py develop) is deprecated. pip 25.0 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+  Running setup.py develop for sympy
+Successfully installed sympy
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git checkout 126f80578140e752ad5135aac77b8ff887eede3e sympy/functions/elementary/tests/test_complexes.py
+Updated 0 paths from cbf892f55b
++ git apply -v -
+Checking patch sympy/functions/elementary/tests/test_complexes.py...
+Applied patch sympy/functions/elementary/tests/test_complexes.py cleanly.
++ : '>>>>> Start Test Output'
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/functions/elementary/tests/test_complexes.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.20-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        1665553
+hash randomization: on (PYTHONHASHSEED=3092263654)
+
+sympy/functions/elementary/tests/test_complexes.py[31] 
+test_re E
+test_im E
+test_sign E
+test_as_real_imag E
+test_sign_issue_3068 f
+test_Abs E
+test_Abs_rewrite E
+test_Abs_real E
+test_Abs_properties E
+test_abs E
+test_arg E
+test_arg_rewrite E
+test_adjoint E
+test_conjugate E
+test_conjugate_transpose E
+test_transpose E
+test_polarify E
+test_unpolarify E
+test_issue_4035 E
+test_issue_3206 E
+test_issue_4754_derivative_conjugate E
+test_derivatives_issue_4757 E
+test_issue_11413 E
+test_periodic_argument E
+test_principal_branch_fail f
+test_principal_branch E
+test_issue_6167_6151 f
+test_issue_14216 E
+test_issue_14238 E
+test_zero_assumptions E
+test_issue_15893 E                                                        [FAIL]
+
+
+________________________________________________________________________________
+__________ sympy/functions/elementary/tests/test_complexes.py:test_re __________
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 36, in test_re
+    assert re(-E) == -E
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+__________ sympy/functions/elementary/tests/test_complexes.py:test_im __________
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 132, in test_im
+    assert im(-E*I) == -E
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_________ sympy/functions/elementary/tests/test_complexes.py:test_sign _________
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 206, in test_sign
+    assert sign(3*I) == I
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_____ sympy/functions/elementary/tests/test_complexes.py:test_as_real_imag _____
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 333, in test_as_real_imag
+    assert sqrt(x).as_real_imag() == \
+  File "/testbed/sympy/core/power.py", line 1287, in as_real_imag
+    re_e, im_e = self.base.as_real_imag(deep=deep)
+  File "/testbed/sympy/core/symbol.py", line 337, in as_real_imag
+    return (re(self), im(self))
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 96, in eval
+    real_imag = term.as_real_imag(ignore=arg)
+  File "/testbed/sympy/core/symbol.py", line 334, in as_real_imag
+    if hints.get('ignore') == self:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 489 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+_________ sympy/functions/elementary/tests/test_complexes.py:test_Abs __________
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 371, in test_Abs
+    assert sign(sign(x)) == sign(x)
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_____ sympy/functions/elementary/tests/test_complexes.py:test_Abs_rewrite ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 473, in test_Abs_rewrite
+    a = Abs(x).rewrite(Heaviside).expand()
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 616, in eval
+    if arg != conj and arg != -conj:
+  File "/testbed/sympy/core/basic.py", line 368, in __ne__
+    return not self == other
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 489 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_______ sympy/functions/elementary/tests/test_complexes.py:test_Abs_real _______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 501, in test_Abs_real
+    assert sqrt(x**2) != Abs(x)
+  File "/testbed/sympy/functions/elementary/miscellaneous.py", line 152, in sqrt
+    return Pow(arg, S.Half, evaluate=evaluate)
+  File "/testbed/sympy/core/power.py", line 336, in __new__
+    obj = b._eval_power(e)
+  File "/testbed/sympy/core/power.py", line 426, in _eval_power
+    elif re(b).is_extended_nonnegative and (abs(e) < 2) == True:
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 96, in eval
+    real_imag = term.as_real_imag(ignore=arg)
+  File "/testbed/sympy/core/symbol.py", line 334, in as_real_imag
+    if hints.get('ignore') == self:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 488 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+____ sympy/functions/elementary/tests/test_complexes.py:test_Abs_properties ____
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 517, in test_Abs_properties
+    assert Abs(x).is_real is None
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in eval
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in <genexpr>
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/core/basic.py", line 1215, in has
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1215, in <genexpr>
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1233, in _has
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1233, in <genexpr>
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1239, in <lambda>
+    return lambda other: self == other
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 486 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+_________ sympy/functions/elementary/tests/test_complexes.py:test_abs __________
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 579, in test_abs
+    assert abs(I*(1 + a)**2) == (1 + a)**2
+  File "/testbed/sympy/core/decorators.py", line 266, in _func
+    return func(self, other)
+  File "/testbed/sympy/core/decorators.py", line 136, in binary_op_wrapper
+    return func(self, other)
+  File "/testbed/sympy/core/expr.py", line 229, in __mul__
+    return Mul(self, other)
+  File "/testbed/sympy/core/operations.py", line 85, in __new__
+    c_part, nc_part, order_symbols = cls.flatten(args)
+  File "/testbed/sympy/core/mul.py", line 521, in flatten
+    if b != bi:
+  File "/testbed/sympy/core/basic.py", line 368, in __ne__
+    return not self == other
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 488 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_________ sympy/functions/elementary/tests/test_complexes.py:test_arg __________
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 586, in test_arg
+    assert arg(I) == pi/2
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_____ sympy/functions/elementary/tests/test_complexes.py:test_arg_rewrite ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 634, in test_arg_rewrite
+    assert arg(1 + I) == atan2(1, 1)
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_______ sympy/functions/elementary/tests/test_complexes.py:test_adjoint ________
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 644, in test_adjoint
+    assert adjoint(a) == -a
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+______ sympy/functions/elementary/tests/test_complexes.py:test_conjugate _______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 671, in test_conjugate
+    assert conjugate(a) == a
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_ sympy/functions/elementary/tests/test_complexes.py:test_conjugate_transpose __
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 695, in test_conjugate_transpose
+    assert conjugate(transpose(x)) == adjoint(x)
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+______ sympy/functions/elementary/tests/test_complexes.py:test_transpose _______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 718, in test_transpose
+    assert transpose(a) == a
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 492 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+_______ sympy/functions/elementary/tests/test_complexes.py:test_polarify _______
+Traceback (most recent call last):
+  File "/testbed/sympy/testing/pytest.py", line 230, in func_wrap
+    func()
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 746, in test_polarify
+    assert polarify(-1) == (polar_lift(-1), ES)
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 491 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+______ sympy/functions/elementary/tests/test_complexes.py:test_unpolarify ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 780, in test_unpolarify
+    u = exp(7*I) + 1
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/exponential.py", line 296, in eval
+    coeff = arg.as_coefficient(S.Pi*S.ImaginaryUnit)
+  File "/testbed/sympy/core/expr.py", line 1727, in as_coefficient
+    r = self.extract_multiplicatively(expr)
+  File "/testbed/sympy/core/expr.py", line 2216, in extract_multiplicatively
+    elif c == self:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 489 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+______ sympy/functions/elementary/tests/test_complexes.py:test_issue_4035 ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 821, in test_issue_4035
+    assert Abs(x).expand(trig=True) == Abs(x)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in eval
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in <genexpr>
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/core/basic.py", line 1215, in has
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1215, in <genexpr>
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1233, in _has
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1233, in <genexpr>
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1239, in <lambda>
+    return lambda other: self == other
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 486 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+______ sympy/functions/elementary/tests/test_complexes.py:test_issue_3206 ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 828, in test_issue_3206
+    assert Abs(Abs(x)) == Abs(x)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in eval
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in <genexpr>
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/core/basic.py", line 1215, in has
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1215, in <genexpr>
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1233, in _has
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1233, in <genexpr>
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1239, in <lambda>
+    return lambda other: self == other
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 486 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+ sympy/functions/elementary/tests/test_complexes.py:test_issue_4754_derivative_conjugate 
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 835, in test_issue_4754_derivative_conjugate
+    assert (f(x).conjugate()).diff(x) == (f(x).diff(x)).conjugate()
+  File "/testbed/sympy/core/expr.py", line 3514, in diff
+    return _derivative_dispatch(self, *symbols, **assumptions)
+  File "/testbed/sympy/core/function.py", line 1951, in _derivative_dispatch
+    return Derivative(expr, *variables, **kwargs)
+  File "/testbed/sympy/core/function.py", line 1473, in __new__
+    obj = cls._dispatch_eval_derivative_n_times(expr, v, count)
+  File "/testbed/sympy/core/function.py", line 1940, in _dispatch_eval_derivative_n_times
+    return expr._eval_derivative_n_times(v, count)
+  File "/testbed/sympy/core/basic.py", line 1715, in _eval_derivative_n_times
+    obj2 = obj._eval_derivative(s)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 843, in _eval_derivative
+    return conjugate(Derivative(self.args[0], x, evaluate=True))
+  File "/testbed/sympy/core/function.py", line 1473, in __new__
+    obj = cls._dispatch_eval_derivative_n_times(expr, v, count)
+  File "/testbed/sympy/core/function.py", line 1940, in _dispatch_eval_derivative_n_times
+    return expr._eval_derivative_n_times(v, count)
+  File "/testbed/sympy/core/basic.py", line 1715, in _eval_derivative_n_times
+    obj2 = obj._eval_derivative(s)
+  File "/testbed/sympy/core/function.py", line 609, in _eval_derivative
+    da = a.diff(s)
+  File "/testbed/sympy/core/expr.py", line 3514, in diff
+    return _derivative_dispatch(self, *symbols, **assumptions)
+  File "/testbed/sympy/core/function.py", line 1951, in _derivative_dispatch
+    return Derivative(expr, *variables, **kwargs)
+  File "/testbed/sympy/core/function.py", line 1473, in __new__
+    obj = cls._dispatch_eval_derivative_n_times(expr, v, count)
+  File "/testbed/sympy/core/function.py", line 1940, in _dispatch_eval_derivative_n_times
+    return expr._eval_derivative_n_times(v, count)
+  File "/testbed/sympy/core/expr.py", line 3913, in _eval_derivative_n_times
+    if self == s:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 483 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+ sympy/functions/elementary/tests/test_complexes.py:test_derivatives_issue_4757 
+Traceback (most recent call last):
+  File "/testbed/sympy/core/function.py", line 530, in class_key
+    i = funcs[name]
+KeyError: 'f'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 843, in test_derivatives_issue_4757
+    assert re(f(x)).diff(x) == re(f(x).diff(x))
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 96, in eval
+    real_imag = term.as_real_imag(ignore=arg)
+  File "/testbed/sympy/core/expr.py", line 1944, in as_real_imag
+    if hints.get('ignore') == self:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 488 more times]
+  File "/testbed/sympy/core/expr.py", line 152, in __eq__
+    type(self) != type(other)):
+  File "/testbed/sympy/core/function.py", line 962, in __ne__
+    return not self == other
+  File "/testbed/sympy/core/function.py", line 958, in __eq__
+    self.class_key() == other.class_key() and
+  File "/testbed/sympy/core/function.py", line 532, in class_key
+    i = 0 if isinstance(cls.nargs, Naturals0) else 10000
+  File "/testbed/sympy/core/function.py", line 248, in nargs
+    from sympy.sets.sets import FiniteSet
+RecursionError: maximum recursion depth exceeded in comparison
+________________________________________________________________________________
+_____ sympy/functions/elementary/tests/test_complexes.py:test_issue_11413 ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 859, in test_issue_11413
+    U = V.normalized()
+  File "/testbed/sympy/matrices/matrices.py", line 1873, in normalized
+    norm = self.norm()
+  File "/testbed/sympy/matrices/matrices.py", line 1935, in norm
+    return sqrt(Add(*(abs(i) ** 2 for i in vals)))
+  File "/testbed/sympy/matrices/matrices.py", line 1935, in <genexpr>
+    return sqrt(Add(*(abs(i) ** 2 for i in vals)))
+  File "/testbed/sympy/core/expr.py", line 204, in __abs__
+    return Abs(self)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in eval
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/functions/elementary/complexes.py", line 614, in <genexpr>
+    if new_conj and all(arg.has(i.args[0]) for i in new_conj):
+  File "/testbed/sympy/core/basic.py", line 1215, in has
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1215, in <genexpr>
+    return any(self._has(pattern) for pattern in patterns)
+  File "/testbed/sympy/core/basic.py", line 1233, in _has
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1233, in <genexpr>
+    return any(match(arg) for arg in preorder_traversal(self))
+  File "/testbed/sympy/core/basic.py", line 1239, in <lambda>
+    return lambda other: self == other
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 483 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+__ sympy/functions/elementary/tests/test_complexes.py:test_periodic_argument ___
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 873, in test_periodic_argument
+    assert unbranched_argument(2 + I) == periodic_argument(2 + I, oo)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1184, in unbranched_argument
+    return periodic_argument(arg, oo)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1142, in eval
+    unbranched = cls._getunbranched(ar)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1113, in _getunbranched
+    unbranched += arg(a)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 764, in eval
+    rv = atan2(y, x)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/trigonometric.py", line 3383, in eval
+    return atan(y/x)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/trigonometric.py", line 2611, in eval
+    atan_table = cls._atan_table()
+  File "/testbed/sympy/functions/elementary/trigonometric.py", line 2049, in _atan_table
+    return {
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 483 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+___ sympy/functions/elementary/tests/test_complexes.py:test_principal_branch ___
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 911, in test_principal_branch
+    assert principal_branch(polar_lift(x), p) == principal_branch(x, p)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1235, in eval
+    return principal_branch(x.args[0], period)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1238, in eval
+    ub = periodic_argument(x, oo)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1142, in eval
+    unbranched = cls._getunbranched(ar)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1113, in _getunbranched
+    unbranched += arg(a)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 763, in eval
+    x, y = arg_.as_real_imag()
+  File "/testbed/sympy/core/symbol.py", line 337, in as_real_imag
+    return (re(self), im(self))
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 96, in eval
+    real_imag = term.as_real_imag(ignore=arg)
+  File "/testbed/sympy/core/symbol.py", line 334, in as_real_imag
+    if hints.get('ignore') == self:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 481 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+_____ sympy/functions/elementary/tests/test_complexes.py:test_issue_14216 ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 955, in test_issue_14216
+    assert unpolarify(A[0, 0]) == A[0, 0]
+  File "/testbed/sympy/functions/elementary/complexes.py", line 1437, in unpolarify
+    if res != eq:
+  File "/testbed/sympy/core/basic.py", line 368, in __ne__
+    return not self == other
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 491 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+_____ sympy/functions/elementary/tests/test_complexes.py:test_issue_14238 ______
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 962, in test_issue_14238
+    assert Abs(r + Piecewise((0, r > 0), (1 - r, True)))
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 542, in eval
+    arg = signsimp(arg, evaluate=False)
+  File "/testbed/sympy/simplify/simplify.py", line 401, in signsimp
+    e = sub_post(sub_pre(expr))
+  File "/testbed/sympy/simplify/cse_opts.py", line 14, in sub_pre
+    adds = [a for a in e.atoms(Add) if a.could_extract_minus_sign()]
+  File "/testbed/sympy/simplify/cse_opts.py", line 14, in <listcomp>
+    adds = [a for a in e.atoms(Add) if a.could_extract_minus_sign()]
+  File "/testbed/sympy/core/expr.py", line 2472, in could_extract_minus_sign
+    if self == negative_self:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 488 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded
+________________________________________________________________________________
+___ sympy/functions/elementary/tests/test_complexes.py:test_zero_assumptions ___
+Traceback (most recent call last):
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 970, in test_zero_assumptions
+    assert re(nr).is_zero is None
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/complexes.py", line 96, in eval
+    real_imag = term.as_real_imag(ignore=arg)
+  File "/testbed/sympy/core/symbol.py", line 334, in as_real_imag
+    if hints.get('ignore') == self:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 490 more times]
+  File "/testbed/sympy/core/expr.py", line 145, in __eq__
+    other = _sympify(other)
+  File "/testbed/sympy/core/sympify.py", line 505, in _sympify
+    return sympify(a, strict=True)
+  File "/testbed/sympy/core/sympify.py", line 345, in sympify
+    is_sympy = getattr(a, '__sympy__', None)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+________________________________________________________________________________
+_____ sympy/functions/elementary/tests/test_complexes.py:test_issue_15893 ______
+Traceback (most recent call last):
+  File "/testbed/sympy/core/function.py", line 530, in class_key
+    i = funcs[name]
+KeyError: 'f'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/testbed/sympy/testing/pytest.py", line 230, in func_wrap
+    func()
+  File "/testbed/sympy/functions/elementary/tests/test_complexes.py", line 985, in test_issue_15893
+    assert eq.doit() == sign(f(x))
+  File "/testbed/sympy/core/function.py", line 1644, in doit
+    rv = self.func(expr, *self.variable_count, **hints)
+  File "/testbed/sympy/core/function.py", line 1405, in __new__
+    if not expr.xreplace({v: D}).has(D):
+  File "/testbed/sympy/core/basic.py", line 1143, in xreplace
+    value, _ = self._xreplace(rule)
+  File "/testbed/sympy/core/basic.py", line 1158, in _xreplace
+    a_xr = _xreplace(rule)
+  File "/testbed/sympy/core/basic.py", line 1150, in _xreplace
+    if self in rule:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  File "/testbed/sympy/core/expr.py", line 154, in __eq__
+    if self == other:
+  [Previous line repeated 487 more times]
+  File "/testbed/sympy/core/expr.py", line 152, in __eq__
+    type(self) != type(other)):
+  File "/testbed/sympy/core/function.py", line 962, in __ne__
+    return not self == other
+  File "/testbed/sympy/core/function.py", line 958, in __eq__
+    self.class_key() == other.class_key() and
+  File "/testbed/sympy/core/function.py", line 532, in class_key
+    i = 0 if isinstance(cls.nargs, Naturals0) else 10000
+  File "/testbed/sympy/core/function.py", line 248, in nargs
+    from sympy.sets.sets import FiniteSet
+RecursionError: maximum recursion depth exceeded in comparison
+
+= tests finished: 0 passed, 3 expected to fail, 28 exceptions, in 0.19 seconds =
+DO *NOT* COMMIT!
++ : '>>>>> End Test Output'
++ git checkout 126f80578140e752ad5135aac77b8ff887eede3e sympy/functions/elementary/tests/test_complexes.py
+Updated 1 path from cbf892f55b

@@ -1,0 +1,25 @@
+{
+  "instance_id": "pylint-dev__pylint-7228",
+  "input_patch_chars": 364,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch pylint/config/arguments_manager.py...\nerror: while searching for:\n\n    # Other option definitions...\n    (\n        \"function-rgx\",\n        {\n            \"type\": \"string\",\n            \"metavar\": \"<regex-pattern>\",\n\nerror: patch failed: pylint/config/arguments_manager.py:62\nApplying patch pylint/config/arguments_manager.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file pylint/config/arguments_manager.py\nHunk #1 FAILED at 62.\n1 out of 1 hunk FAILED -- saving rejects to file pylint/config/arguments_manager.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

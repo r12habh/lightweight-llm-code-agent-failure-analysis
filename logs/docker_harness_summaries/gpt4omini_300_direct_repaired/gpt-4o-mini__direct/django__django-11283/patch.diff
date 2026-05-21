@@ -1,0 +1,12 @@
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..a6c592f7d7 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -65,6 +65,7 @@ class Permission(models.Model):
+ 
+     class Meta:
+         verbose_name = _('permission')
++        unique_together = (('content_type', 'codename'),)  # Ensure unique constraints are respected
+         verbose_name_plural = _('permissions')
+         unique_together = (('content_type', 'codename'),)
+         ordering = ('content_type__app_label', 'content_type__model',

@@ -1,0 +1,17 @@
+diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py
+index a308e27297..5e142137d9 100644
+--- a/astropy/modeling/separable.py
++++ b/astropy/modeling/separable.py
+@@ -102,6 +102,12 @@ def separability_matrix(transform):
+     return separable_matrix
+ 
+ 
++    def _nested_separable(transform):
++        """
++        Handle nested compound models to correctly determine separability.
++        """
++        if isinstance(transform, CompoundModel):
++            return np.array([True] * transform.n_outputs)
+ def _compute_n_outputs(left, right):
+     """
+     Compute the number of outputs of two models.

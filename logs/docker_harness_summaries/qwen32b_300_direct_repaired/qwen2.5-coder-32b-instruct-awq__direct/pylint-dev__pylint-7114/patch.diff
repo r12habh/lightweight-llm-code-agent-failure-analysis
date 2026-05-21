@@ -1,0 +1,15 @@
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index bc227d2c4..9a8462106 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -297,6 +297,10 @@ class PyLinter(
+         self._dynamic_plugins: set[str] = set()
+         """Set of loaded plugin names."""
+ 
++        # Ensure the directory is treated as a package if it contains a .py file
++        if os.path.isdir(self.current_file) and not os.path.isfile(os.path.join(self.current_file, '__init__.py')):
++            open(os.path.join(self.current_file, '__init__.py'), 'a').close()
++
+         # Attributes related to registering messages and their handling
+         self.msgs_store = MessageDefinitionStore()
+         self.msg_status = 0

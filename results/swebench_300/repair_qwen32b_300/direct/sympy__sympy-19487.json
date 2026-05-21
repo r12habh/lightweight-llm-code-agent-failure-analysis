@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-19487",
+  "input_patch_chars": 1343,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/functions/elementary/complexes.py...\nerror: while searching for:\nfrom sympy.core import Function, S, sympify\nfrom sympy.core.add import Add\nfrom sympy.core.containers import Tuple\nfrom sympy.core.operations import LatticeOp, ShortCircuit\nfrom sympy.core.function import (Application, Lambda,\n    ArgumentIndexError)\n\nerror: patch failed: sympy/functions/elementary/complexes.py:1\nerror: sympy/functions/elementary/complexes.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/functions/elementary/complexes.py...\nerror: while searching for:\nfrom sympy.core import Function, S, sympify\nfrom sympy.core.add import Add\nfrom sympy.core.containers import Tuple\nfrom sympy.core.operations import LatticeOp, ShortCircuit\nfrom sympy.core.function import (Application, Lambda,\n    ArgumentIndexError)\n\nerror: patch failed: sympy/functions/elementary/complexes.py:1\nerror: while searching for:\nfrom sympy.core.mul import Mul\nfrom sympy.core.numbers import Rational\nfrom sympy.core.power import Pow\nfrom sympy.core.relational import Relational\nfrom sympy.core.singleton import Singleton\nfrom sympy.core.symbol import Dummy\n\nerror: patch failed: sympy/functions/elementary/complexes.py:10\nerror: while searching for:\n    \"\"\"\n    Returns the sign of an expression.\n\n    Parameters\n    ==========\n\n\nerror: patch failed: sympy/functions/elementary/complexes.py:144\nerror: while searching for:\n    \"\"\"\n    x = sympify(x)\n    if evaluate:\n        if x.is_positive:\n            return S.One\n        elif x.is_negative:\n\nerror: patch failed: sympy/functions/elementary/complexes.py:157\nApplying patch sympy/functions/elementary/complexes.py with 4 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1501
+}

@@ -1,0 +1,26 @@
+{
+  "instance_id": "matplotlib__matplotlib-22711",
+  "input_patch_chars": 460,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/widgets.py...\nerror: while searching for:\n            xy[0] = .25, val[0]\n            xy[1] = .25, val[1]\n            xy[2] = .75, val[1]\n            xy[3] = .75, val[0]\n            # xy[4] = .25, val[0]\n        else:\n            xy[0] = val[0], .25\n\nerror: patch failed: lib/matplotlib/widgets.py:912\nApplying patch lib/matplotlib/widgets.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/widgets.py\nHunk #1 succeeded at 902 with fuzz 3 (offset -10 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

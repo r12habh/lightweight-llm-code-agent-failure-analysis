@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25079",
+  "input_patch_chars": 6175,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 136\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file lib/matplotlib/collections.py\nHunk #1 succeeded at 123 with fuzz 3.\nHunk #2 succeeded at 132 with fuzz 3.\nHunk #3 succeeded at 142 with fuzz 3.\nHunk #4 succeeded at 153 with fuzz 3.\nHunk #5 succeeded at 164 with fuzz 3.\nHunk #6 succeeded at 175 with fuzz 3.\nHunk #7 succeeded at 186 with fuzz 3.\nHunk #8 succeeded at 197 with fuzz 3.\nHunk #9 succeeded at 208 with fuzz 3.\nHunk #10 succeeded at 219 with fuzz 3.\nHunk #11 succeeded at 230 with fuzz 3.\nHunk #12 succeeded at 241 with fuzz 3.\nHunk #13 succeeded at 252 with fuzz 3.\nHunk #14 succeeded at 263 with fuzz 3.\nHunk #15 succeeded at 274 with fuzz 3.\nHunk #16 succeeded at 285 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

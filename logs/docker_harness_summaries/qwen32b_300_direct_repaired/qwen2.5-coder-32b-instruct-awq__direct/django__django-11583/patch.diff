@@ -1,0 +1,15 @@
+diff --git a/django/utils/autoreload.py b/django/utils/autoreload.py
+index 25c3b44250..52f045886e 100644
+--- a/django/utils/autoreload.py
++++ b/django/utils/autoreload.py
+@@ -130,6 +130,10 @@ def iter_modules_and_files(modules, extra_files):
+         # this is the case, skip them.
+         if spec.has_location:
+             origin = spec.loader.archive if isinstance(spec.loader, zipimporter) else spec.origin
++        if isinstance(e, ValueError) and 'embedded null byte' in str(e):
++            # Skip paths with embedded null bytes.
++            continue
++
+             sys_file_paths.append(origin)
+ 
+     results = set()

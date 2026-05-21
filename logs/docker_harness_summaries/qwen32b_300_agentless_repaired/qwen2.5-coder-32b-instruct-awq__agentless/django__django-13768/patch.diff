@@ -1,0 +1,11 @@
+diff --git a/django/dispatch/dispatcher.py b/django/dispatch/dispatcher.py
+index b7d9d26389..b97044f683 100644
+--- a/django/dispatch/dispatcher.py
++++ b/django/dispatch/dispatcher.py
+@@ -150,6 +150,7 @@ class Signal:
+             self.sender_receivers_cache.clear()
+         return disconnected
+ 
++                    logger.exception(f"Error in signal receiver {receiver} for sender {sender}: {err}")
+     def has_listeners(self, sender=None):
+         return bool(self._live_receivers(sender))

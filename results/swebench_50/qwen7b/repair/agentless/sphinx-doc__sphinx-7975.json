@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7975",
+  "input_patch_chars": 456,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/usage/restructuredtext/directives.rst...\nerror: while searching for:\n\n     .. toctree::\n        :maxdepth: 2\n\n        intro\n        strings\n        datatypes\n\nerror: patch failed: doc/usage/restructuredtext/directives.rst:123\nApplying patch doc/usage/restructuredtext/directives.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file doc/usage/restructuredtext/directives.rst\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file doc/usage/restructuredtext/directives.rst.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

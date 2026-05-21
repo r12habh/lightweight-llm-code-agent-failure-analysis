@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-18199",
+  "raw": "```diff\ndiff --git a/sympy/functions/special/hyper.py b/sympy/functions/special/hyper.py\nindex 2d8f7b0b4e..a0d403088c 100644\n--- a/sympy/functions/special/hyper.py\n+++ b/sympy/functions/special/hyper.py\n@@ -18,6 +18,10 @@\n    \"\"\"Hypergeometric and Meijer G-functions\"\"\"\n \n from __future__ import print_function, division\n \n+from sympy.core import S\n+from sympy import Mod\n+\n+\n def _prep_tuple(v):\n     \"\"\"\n     Turn an iterable argument *v* into a tuple and unpolarify, since both\n@@ -36,6 +40,15 @@\n def eval(cls, ap, bq, z):\n     from sympy import unpolarify\n     if len(ap) <= len(bq) or (len(ap) == len(bq) + 1 and (Abs(z) <= 1) == True):\n         nz = unpolarify(z)\n         if z != nz:\n             return hyper(ap, bq, nz)\n+        elif not ap and (z == 0 or Mod(z, bq) == 0):\n+            # adding zero root condition\n+            return S.Zero\n```\n",
+  "usage": {
+    "input_tokens": 22796,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 280,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 23076
+  },
+  "localized_files": []
+}

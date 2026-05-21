@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-20049",
+  "input_patch_chars": 873,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 25\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 20:          if not (frame in self._vel_dict):\n\n",
+          "stdout": "patching file sympy/physics/vector/point.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

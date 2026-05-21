@@ -1,0 +1,12 @@
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 0e28b6812a..b72647de9c 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -112,6 +112,7 @@ class Options:
+         self.proxy_for_model = None
+         # For any non-abstract class, the concrete class is the model
+         # in the end of the proxy_for_model chain. In particular, for
++        self.related_fkey_lookups = []
+         # concrete models, the concrete_model is always the class itself.
+         self.concrete_model = None
+         self.swappable = None

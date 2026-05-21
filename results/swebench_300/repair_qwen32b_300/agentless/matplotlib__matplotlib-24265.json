@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-24265",
+  "input_patch_chars": 631,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/style/core.py...\nerror: while searching for:\n        'seaborn-bright': 'seaborn-bright.mplstyle',\n        'seaborn-colorblind': 'seaborn-colorblind.mplstyle',\n        'seaborn-dark': 'seaborn-dark.mplstyle',\n        'seaborn-dark-palette': 'seaborn-dark-palette.mplstyle',\n        'seaborn-darkgrid': 'seaborn-darkgrid.mplstyle',\n        'seaborn-deep': 'seaborn-deep.mplstyle',\n\nerror: patch failed: lib/matplotlib/style/core.py:123\nerror: lib/matplotlib/style/core.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/style/core.py...\nerror: while searching for:\n        'seaborn-bright': 'seaborn-bright.mplstyle',\n        'seaborn-colorblind': 'seaborn-colorblind.mplstyle',\n        'seaborn-dark': 'seaborn-dark.mplstyle',\n        'seaborn-dark-palette': 'seaborn-dark-palette.mplstyle',\n        'seaborn-darkgrid': 'seaborn-darkgrid.mplstyle',\n        'seaborn-deep': 'seaborn-deep.mplstyle',\n\nerror: patch failed: lib/matplotlib/style/core.py:123\nApplying patch lib/matplotlib/style/core.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 485
+}

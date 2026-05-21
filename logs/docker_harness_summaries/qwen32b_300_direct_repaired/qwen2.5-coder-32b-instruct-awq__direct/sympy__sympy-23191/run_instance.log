@@ -1,0 +1,44 @@
+2026-05-20 13:54:10,463 - INFO - Creating container for sympy__sympy-23191...
+2026-05-20 13:54:10,574 - INFO - Container for sympy__sympy-23191 created: 7d5f48da61f3e1b74886cdf508a4d9ed85c05a5799576b05b3da2aa2e63b8120
+2026-05-20 13:54:10,686 - INFO - Container for sympy__sympy-23191 started: 7d5f48da61f3e1b74886cdf508a4d9ed85c05a5799576b05b3da2aa2e63b8120
+2026-05-20 13:54:10,686 - INFO - Intermediate patch for sympy__sympy-23191 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-23191/patch.diff, now applying to container...
+2026-05-20 13:54:10,862 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 13:54:10,934 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 13:54:11,005 - INFO - >>>>> Applied Patch:
+patching file sympy/physics/vector/printing.py
+
+2026-05-20 13:54:11,593 - INFO - Git diff before:
+diff --git a/sympy/physics/vector/printing.py b/sympy/physics/vector/printing.py
+index 59efcd90e3..7dff6e67f7 100644
+--- a/sympy/physics/vector/printing.py
++++ b/sympy/physics/vector/printing.py
+@@ -123,6 +123,7 @@ def _print_Derivative(self, deriv):
+         if not (isinstance(type(deriv.expr), UndefinedFunction) and
+                 (deriv.expr.args == (t,))):
+             return super()._print_Derivative(deriv)
++        deriv = deriv.doit()
+         else:
+             pform = self._print_Function(deriv.expr)
+2026-05-20 13:54:11,594 - INFO - Eval script for sympy__sympy-23191 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-23191/eval.sh; copying to container...
+2026-05-20 13:54:16,620 - INFO - Test runtime: 4.96 seconds
+2026-05-20 13:54:16,621 - INFO - Test output for sympy__sympy-23191 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-23191/test_output.txt
+2026-05-20 13:54:16,813 - INFO - Git diff after:
+diff --git a/sympy/physics/vector/printing.py b/sympy/physics/vector/printing.py
+index 59efcd90e3..7dff6e67f7 100644
+--- a/sympy/physics/vector/printing.py
++++ b/sympy/physics/vector/printing.py
+@@ -123,6 +123,7 @@ def _print_Derivative(self, deriv):
+         if not (isinstance(type(deriv.expr), UndefinedFunction) and
+                 (deriv.expr.args == (t,))):
+             return super()._print_Derivative(deriv)
++        deriv = deriv.doit()
+         else:
+             pform = self._print_Function(deriv.expr)
+2026-05-20 13:54:16,813 - INFO - Grading answer for sympy__sympy-23191...
+2026-05-20 13:54:16,814 - INFO - report: {'sympy__sympy-23191': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_issue_23058']}, 'PASS_TO_PASS': {'success': ['test_str_printing', 'test_pretty_print_unicode_v', 'test_latex_printing'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-23191: resolved: False
+2026-05-20 13:54:16,815 - INFO - Attempting to stop container sweb.eval.sympy__sympy-23191.qwen32b_300_direct_repaired...
+2026-05-20 13:54:32,013 - INFO - Attempting to remove container sweb.eval.sympy__sympy-23191.qwen32b_300_direct_repaired...
+2026-05-20 13:54:32,203 - INFO - Container sweb.eval.sympy__sympy-23191.qwen32b_300_direct_repaired removed.
+2026-05-20 13:54:32,203 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-23191:latest...
+2026-05-20 13:54:32,215 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-23191:latest removed.

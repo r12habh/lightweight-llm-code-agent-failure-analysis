@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-12471",
+  "input_patch_chars": 572,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/preprocessing/_encoders.py...\nerror: while searching for:\n           if handle_unknown == 'ignore':\n               # Set the problematic rows to an acceptable value and\n               # continue `The rows are marked `X_mask` and will be\n               # removed later.\n               X_mask[:, i] = valid_mask\n               Xi = Xi.copy()\n\nerror: patch failed: sklearn/preprocessing/_encoders.py:132\nerror: sklearn/preprocessing/_encoders.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/preprocessing/_encoders.py...\nerror: while searching for:\n           if handle_unknown == 'ignore':\n               # Set the problematic rows to an acceptable value and\n               # continue `The rows are marked `X_mask` and will be\n               # removed later.\n               X_mask[:, i] = valid_mask\n               Xi = Xi.copy()\n\nerror: patch failed: sklearn/preprocessing/_encoders.py:132\nApplying patch sklearn/preprocessing/_encoders.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 601
+}

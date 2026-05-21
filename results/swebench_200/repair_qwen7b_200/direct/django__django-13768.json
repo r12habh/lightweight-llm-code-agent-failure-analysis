@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13768",
+  "input_patch_chars": 591,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/handlers/exception.py...\nerror: while searching for:\n    elif isinstance(exc, SuspiciousOperation):\n        if isinstance(exc, (RequestDataTooBig, TooManyFieldsSent)):\n            request._mark_post_parse_error()\n        security_logger = logging.getLogger('django.security.%s' % exc.__class__.__name__)\n        security_logger.error(\n            str(exc),\n\nerror: patch failed: django/core/handlers/exception.py:102\nerror: django/core/handlers/exception.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/handlers/exception.py...\nerror: while searching for:\n    elif isinstance(exc, SuspiciousOperation):\n        if isinstance(exc, (RequestDataTooBig, TooManyFieldsSent)):\n            request._mark_post_parse_error()\n        security_logger = logging.getLogger('django.security.%s' % exc.__class__.__name__)\n        security_logger.error(\n            str(exc),\n\nerror: patch failed: django/core/handlers/exception.py:102\nApplying patch django/core/handlers/exception.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 562
+}

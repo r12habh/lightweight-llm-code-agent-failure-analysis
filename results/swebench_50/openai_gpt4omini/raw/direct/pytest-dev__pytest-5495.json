@@ -1,0 +1,16 @@
+{
+  "instance_id": "pytest-dev__pytest-5495",
+  "raw": "```diff\ndiff --git a/src/_pytest/assertion/util.py b/src/_pytest/assertion/util.py\n--- a/src/_pytest/assertion/util.py\n+++ b/src/_pytest/assertion/util.py\n@@ -144,7 +144,8 @@\n             if istext(left) and istext(right):\n                 explanation = _diff_text(left, right, verbose)\n             elif isinstance(left, bytes) and isinstance(right, bytes): \n-                explanation = _diff_text(left.decode(), right.decode(), verbose)\n+                explanation = _diff_text(\n+                    left.decode(errors='replace'), right.decode(errors='replace'), verbose)\n             else:\n                 if issequence(left) and issequence(right):\n                     explanation = _compare_eq_sequence(left, right, verbose)\n```",
+  "usage": {
+    "input_tokens": 20802,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 159,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20961
+  },
+  "localized_files": []
+}

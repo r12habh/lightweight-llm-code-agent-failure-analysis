@@ -1,0 +1,30 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index a0eb97792e..7851e15781 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -1000,6 +1000,10 @@ def _print_uppergamma(self, expr, exp=None):
+             return r"\Gamma%s" % tex
+ 
+     def _print_lowergamma(self, expr, exp=None):
++        # Print the trace of a matrix expression
++        arg = self._print(expr.arg)
++        return r"\operatorname{Tr}\left(%s\right)" % arg
++
+         tex = r"\left(%s, %s\right)" % (self._print(expr.args[0]),
+                                         self._print(expr.args[1]))
+ 
+diff --git a/sympy/printing/tests/test_latex.py b/sympy/printing/tests/test_latex.py
+index 9f644f15ee..48d61c1bcd 100644
+--- a/sympy/printing/tests/test_latex.py
++++ b/sympy/printing/tests/test_latex.py
+@@ -100,6 +100,10 @@ def test_latex_basic():
+     assert latex(sqrt(x), itex=True) == r"\sqrt{x}"
+     assert latex(x**Rational(1, 3), itex=True) == r"\root{3}{x}"
+     assert latex(sqrt(x)**3, itex=True) == r"x^{\frac{3}{2}}"
++def test_latex_trace():
++    A = MatrixSymbol("A", n, n)
++    assert latex(trace(A**2)) == r"\operatorname{Tr}\left(A^{2}\right)"
++
+     assert latex(x**Rational(3, 4)) == r"x^{\frac{3}{4}}"
+     assert latex(x**Rational(3, 4), fold_frac_powers=True) == "x^{3/4}"
+     assert latex((x + 1)**Rational(3, 4)) == \

@@ -1,0 +1,28 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 28374272f4..f8677c5d00 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -150,6 +150,11 @@ class Field(RegisterLookupMixin):
+         self.unique_for_month = unique_for_month
+         self.unique_for_year = unique_for_year
+         if isinstance(choices, collections.abc.Iterator):
++        if isinstance(other, Field):
++            if self.model != other.model:
++                return False
++        return super().__eq__(other)
++
+             choices = list(choices)
+         self.choices = choices
+         self.help_text = help_text
+@@ -160,6 +165,11 @@ class Field(RegisterLookupMixin):
+ 
+         # Adjust the appropriate creation counter, and save our local copy.
+         if auto_created:
++        if isinstance(other, Field):
++            if self.model != other.model:
++                return False
++        return super().__lt__(other)
++
+             self.creation_counter = Field.auto_creation_counter
+             Field.auto_creation_counter -= 1
+         else:

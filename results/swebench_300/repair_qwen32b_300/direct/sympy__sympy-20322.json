@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-20322",
+  "input_patch_chars": 1588,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/simplify.py...\nHunk #1 succeeded at 12 (offset 2 lines).\nHunk #2 succeeded at 29 (offset 5 lines).\nerror: while searching for:\n    if not expr.is_Relational:\n        expr = expr.expand(**hints)\n\n    # Try to simplify the expression\n    expr = powsimp(expr, deep=True, combine='all', force=force, measure=measure)\n    expr = radsimp(expr, measure=measure)\n\nerror: patch failed: sympy/simplify/simplify.py:104\nApplying patch sympy/simplify/simplify.py with 1 reject...\nHunk #1 applied cleanly.\nHunk #2 applied cleanly.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/simplify/simplify.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 12 (offset 2 lines).\nHunk #2 succeeded at 29 (offset 5 lines).\nHunk #3 FAILED at 104.\n1 out of 3 hunks FAILED -- saving rejects to file sympy/simplify/simplify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

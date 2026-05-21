@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16046",
+  "input_patch_chars": 542,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/admin/sites.py...\nerror: while searching for:\n\n            if model._meta.swapped:\n                continue\n            # If we got **options then dynamically construct a subclass of\n            # admin_class with those **options.\n            if options:\n\nerror: patch failed: django/contrib/admin/sites.py:191\nerror: django/contrib/admin/sites.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/sites.py...\nerror: while searching for:\n\n            if model._meta.swapped:\n                continue\n            # If we got **options then dynamically construct a subclass of\n            # admin_class with those **options.\n            if options:\n\nerror: patch failed: django/contrib/admin/sites.py:191\nApplying patch django/contrib/admin/sites.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 552
+}

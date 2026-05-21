@@ -1,0 +1,25 @@
+{
+  "instance_id": "mwaskom__seaborn-2848",
+  "input_patch_chars": 840,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch seaborn/_core/data.py...\nerror: while searching for:\n            values must match length of `data`.\n\n        \"\"\"\n        source_data: dict | DataFrame\n        frame: DataFrame\n        names: dict[str, str | None]\n        ids: dict[str, str | int]\n\nerror: patch failed: seaborn/_core/data.py:120\nerror: while searching for:\n               plot_data[key] = source_data[val]\n               names[key] = ids[key] = str(val)\n\n            elif isinstance(val, str):\n                # This looks like a column name but, lookup failed.\n                raise ValueError(f\"Could not interpret value `{val}` for `{key}`.\")\n\n        frame = pd.DataFrame(plot_data)\n\nerror: patch failed: seaborn/_core/data.py:247\nApplying patch seaborn/_core/data.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file seaborn/_core/data.py\nHunk #1 succeeded at 154 with fuzz 1 (offset 34 lines).\nHunk #2 FAILED at 247.\n1 out of 2 hunks FAILED -- saving rejects to file seaborn/_core/data.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

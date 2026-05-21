@@ -1,0 +1,20 @@
+diff --git a/sklearn/metrics/cluster/_supervised.py b/sklearn/metrics/cluster/_supervised.py
+index 4bddae35c9..cc8a4d1834 100644
+--- a/sklearn/metrics/cluster/_supervised.py
++++ b/sklearn/metrics/cluster/_supervised.py
+@@ -23,6 +23,7 @@ from scipy import sparse as sp
+ from ._expected_mutual_info_fast import expected_mutual_information
+ from ...utils.validation import check_array, check_consistent_length
+ from ...utils.fixes import comb, _astype_copy_false
++from ...utils.validation import check_is_finite
+ 
+ 
+ def _comb2(n):
+@@ -137,6 +138,7 @@ def contingency_matrix(labels_true, labels_pred, eps=None, sparse=False):
+ 
+ def adjusted_rand_score(labels_true, labels_pred):
+     """Rand index adjusted for chance.
++        check_is_finite(contingency)
+ 
+     The Rand Index computes a similarity measure between two clusterings
+     by considering all pairs of samples and counting pairs that are

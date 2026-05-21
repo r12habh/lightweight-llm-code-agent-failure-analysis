@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8801",
+  "input_patch_chars": 575,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\n    # merging is not needed when members: ALL\n    if options.get('members') is ALL:\n        return\n\n    members = options.setdefault('members', [])\n    for key in {'private-members', 'special-members'}:\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:253\nerror: sphinx/ext/autodoc/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\n    # merging is not needed when members: ALL\n    if options.get('members') is ALL:\n        return\n\n    members = options.setdefault('members', [])\n    for key in {'private-members', 'special-members'}:\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:253\nApplying patch sphinx/ext/autodoc/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 608
+}

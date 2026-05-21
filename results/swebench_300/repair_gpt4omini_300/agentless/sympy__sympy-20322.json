@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-20322",
+  "input_patch_chars": 429,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/sympify.py...\nerror: while searching for:\n    if isinstance(a, CantSympify):\n        raise SympifyError(a)\n    \n    cls = getattr(a, \"__class__\", None)\n    if cls is None:\n        cls = type(a)  # Probably an old-style class\n\nerror: patch failed: sympy/core/sympify.py:150\nerror: sympy/core/sympify.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/sympify.py...\nerror: while searching for:\n    if isinstance(a, CantSympify):\n        raise SympifyError(a)\n    \n    cls = getattr(a, \"__class__\", None)\n    if cls is None:\n        cls = type(a)  # Probably an old-style class\n\nerror: patch failed: sympy/core/sympify.py:150\nApplying patch sympy/core/sympify.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 496
+}

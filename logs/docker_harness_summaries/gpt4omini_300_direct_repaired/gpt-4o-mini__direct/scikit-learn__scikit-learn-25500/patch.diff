@@ -1,0 +1,14 @@
+diff --git a/sklearn/calibration.py b/sklearn/calibration.py
+index 2c4a33616d..a4563ec4da 100644
+--- a/sklearn/calibration.py
++++ b/sklearn/calibration.py
+@@ -763,6 +763,9 @@ class _CalibratedClassifier:
+             proba[:, class_idx] = calibrator.predict(this_pred)
+ 
+         # Normalize the probabilities
++            if isinstance(X, pd.DataFrame):
++                X = X.values
++
+         if n_classes == 2:
+             proba[:, 0] = 1.0 - proba[:, 1]
+         else:

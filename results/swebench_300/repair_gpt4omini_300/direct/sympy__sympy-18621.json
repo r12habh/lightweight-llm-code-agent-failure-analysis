@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18621",
+  "input_patch_chars": 532,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 11\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/matrices/expressions/blockmatrix.py\nHunk #1 FAILED at 1206.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/matrices/expressions/blockmatrix.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

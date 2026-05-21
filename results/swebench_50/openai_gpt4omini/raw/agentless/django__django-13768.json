@@ -1,0 +1,32 @@
+{
+  "instance_id": "django__django-13768",
+  "raw": "```diff\ndiff --git a/django/template/base.py b/django/template/base.py\n--- a/django/template/base.py\n+++ b/django/template/base.py\n@@ -630,6 +630,7 @@\n \n logger = logging.getLogger('django.template')\n \n+logger = logging.getLogger(__name__)  # Logger for the current module\n class TokenType(Enum):\n     TEXT = 0\n     VAR = 1\n@@ -1255,7 +1256,11 @@\n                 pass\n         except Exception as e:\n             logger.exception(\"Error while sending signal\")  # Log the exception\n             raise e\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 18792,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 134,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18926
+    },
+    "patch": {
+      "input_tokens": 18845,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 134,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18979
+    }
+  },
+  "localized_files": [
+    "django/template/base.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/template/base.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Method `send_robust()` likely requires logging exceptions.\"\n    },\n    {\n      \"path\": \"docs/howto/error-reporting.txt\",\n      \"confidence\": 0.7,\n      \"reason\": \"Relevant for incorporating error logging in `send_robust()`.\"\n    },\n    {\n      \"path\": \"docs/topics/logging.txt\",\n      \"confidence\": 0.65,\n      \"reason\": \"Contains guidelines for integrating logging effectively.\"\n    }\n  ]\n}\n```"
+}

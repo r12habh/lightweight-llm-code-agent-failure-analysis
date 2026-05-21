@@ -1,0 +1,897 @@
+{
+  "dataset_name": "princeton-nlp/SWE-bench_Lite",
+  "split": "test",
+  "model": "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ",
+  "instance_ids": [
+    "astropy__astropy-14365",
+    "astropy__astropy-14995",
+    "django__django-11133",
+    "django__django-11905",
+    "django__django-12113",
+    "django__django-12308",
+    "django__django-13158",
+    "django__django-13315",
+    "django__django-13658",
+    "django__django-13768",
+    "django__django-13933",
+    "django__django-14534",
+    "django__django-14999",
+    "django__django-15202",
+    "django__django-15252",
+    "django__django-16139",
+    "matplotlib__matplotlib-22835",
+    "matplotlib__matplotlib-23299",
+    "matplotlib__matplotlib-23314",
+    "matplotlib__matplotlib-25079",
+    "matplotlib__matplotlib-25433",
+    "mwaskom__seaborn-3407",
+    "psf__requests-2674",
+    "pytest-dev__pytest-11143",
+    "pytest-dev__pytest-5495",
+    "scikit-learn__scikit-learn-13439",
+    "scikit-learn__scikit-learn-13496",
+    "scikit-learn__scikit-learn-14092",
+    "scikit-learn__scikit-learn-14894",
+    "scikit-learn__scikit-learn-15512",
+    "sphinx-doc__sphinx-10451",
+    "sphinx-doc__sphinx-7686",
+    "sphinx-doc__sphinx-7738",
+    "sphinx-doc__sphinx-7975",
+    "sphinx-doc__sphinx-8273",
+    "sphinx-doc__sphinx-8595",
+    "sympy__sympy-13043",
+    "sympy__sympy-13177",
+    "sympy__sympy-13437",
+    "sympy__sympy-13480",
+    "sympy__sympy-14317",
+    "sympy__sympy-14774",
+    "sympy__sympy-15308",
+    "sympy__sympy-16988",
+    "sympy__sympy-17139",
+    "sympy__sympy-18057",
+    "sympy__sympy-18199",
+    "sympy__sympy-19254",
+    "sympy__sympy-22714",
+    "sympy__sympy-23262"
+  ],
+  "result_prefix": "hf_qwen25_coder32b_awq_50_20260508_l40s",
+  "generated_at": "2026-05-09 03:49:49 UTC",
+  "total_seconds": 1628.856,
+  "metrics": [
+    {
+      "instance_id": "astropy__astropy-14365",
+      "context_chars": 20263,
+      "direct_patch_chars": 832,
+      "agentless_patch_chars": 836,
+      "localized_files": [
+        "astropy/io/ascii/qdp.py",
+        "astropy/io/ascii/tests/test_qdp.py"
+      ],
+      "context_seconds": 0.193,
+      "direct_seconds": 13.025,
+      "localize_seconds": 6.444,
+      "patch_seconds": 12.391,
+      "total_seconds": 41.492
+    },
+    {
+      "instance_id": "astropy__astropy-14995",
+      "context_chars": 20250,
+      "direct_patch_chars": 619,
+      "agentless_patch_chars": 613,
+      "localized_files": [
+        "astropy/nddata/mixins/ndarithmetic.py",
+        "astropy/nddata/nddata.py",
+        "astropy/nddata/nduncertainty.py",
+        "astropy/nddata/nddata_base.py"
+      ],
+      "context_seconds": 0.174,
+      "direct_seconds": 8.239,
+      "localize_seconds": 9.32,
+      "patch_seconds": 8.044,
+      "total_seconds": 26.546
+    },
+    {
+      "instance_id": "django__django-11133",
+      "context_chars": 20257,
+      "direct_patch_chars": 673,
+      "agentless_patch_chars": 648,
+      "localized_files": [
+        "django/http/response.py",
+        "django/db/backends/postgresql/base.py",
+        "docs/topics/http/views.txt"
+      ],
+      "context_seconds": 0.342,
+      "direct_seconds": 7.441,
+      "localize_seconds": 5.909,
+      "patch_seconds": 7.249,
+      "total_seconds": 34.703
+    },
+    {
+      "instance_id": "django__django-11905",
+      "context_chars": 20245,
+      "direct_patch_chars": 551,
+      "agentless_patch_chars": 631,
+      "localized_files": [
+        "django/db/models/lookups.py",
+        "django/db/models/sql/where.py",
+        "tests/modeltests/basic/tests.py"
+      ],
+      "context_seconds": 0.349,
+      "direct_seconds": 6.676,
+      "localize_seconds": 10.282,
+      "patch_seconds": 7.155,
+      "total_seconds": 26.465
+    },
+    {
+      "instance_id": "django__django-12113",
+      "context_chars": 23531,
+      "direct_patch_chars": 689,
+      "agentless_patch_chars": 413,
+      "localized_files": [
+        "tests/admin_views/test_multidb.py",
+        "django/db/backends/sqlite3/base.py",
+        "django/test/testcases.py",
+        "tests/test_sqlite.py",
+        "django/db/models/base.py"
+      ],
+      "context_seconds": 0.362,
+      "direct_seconds": 8.27,
+      "localize_seconds": 9.544,
+      "patch_seconds": 7.007,
+      "total_seconds": 27.15
+    },
+    {
+      "instance_id": "django__django-12308",
+      "context_chars": 20259,
+      "direct_patch_chars": 1022,
+      "agentless_patch_chars": 773,
+      "localized_files": [
+        "django/contrib/admin/utils.py"
+      ],
+      "context_seconds": 0.37,
+      "direct_seconds": 9.91,
+      "localize_seconds": 3.698,
+      "patch_seconds": 7.545,
+      "total_seconds": 23.39
+    },
+    {
+      "instance_id": "django__django-13158",
+      "context_chars": 20258,
+      "direct_patch_chars": 525,
+      "agentless_patch_chars": 658,
+      "localized_files": [
+        "django/forms/models.py",
+        "django/db/models/query.py",
+        "django/db/models/sql/query.py",
+        "tests/forms_tests/tests/test_model_forms.py",
+        "docs/ref/forms/fields.txt"
+      ],
+      "context_seconds": 0.368,
+      "direct_seconds": 6.241,
+      "localize_seconds": 8.729,
+      "patch_seconds": 6.725,
+      "total_seconds": 24.039
+    },
+    {
+      "instance_id": "django__django-13315",
+      "context_chars": 20294,
+      "direct_patch_chars": 553,
+      "agentless_patch_chars": 561,
+      "localized_files": [
+        "django/db/models/fields/related.py",
+        "django/forms/models.py",
+        "django/contrib/admin/options.py",
+        "tests/modeltests/invalid_models/tests.py",
+        "docs/ref/models/fields.txt"
+      ],
+      "context_seconds": 0.37,
+      "direct_seconds": 6.746,
+      "localize_seconds": 7.796,
+      "patch_seconds": 6.337,
+      "total_seconds": 23.135
+    },
+    {
+      "instance_id": "django__django-13658",
+      "context_chars": 20256,
+      "direct_patch_chars": 907,
+      "agentless_patch_chars": 830,
+      "localized_files": [
+        "django/core/management/__init__.py",
+        "django/core/management/base.py"
+      ],
+      "context_seconds": 0.363,
+      "direct_seconds": 8.811,
+      "localize_seconds": 4.853,
+      "patch_seconds": 8.74,
+      "total_seconds": 24.727
+    },
+    {
+      "instance_id": "django__django-13768",
+      "context_chars": 20261,
+      "direct_patch_chars": 757,
+      "agentless_patch_chars": 596,
+      "localized_files": [
+        "django/dispatch/dispatcher.py"
+      ],
+      "context_seconds": 0.362,
+      "direct_seconds": 7.734,
+      "localize_seconds": 3.913,
+      "patch_seconds": 6.541,
+      "total_seconds": 20.529
+    },
+    {
+      "instance_id": "django__django-13933",
+      "context_chars": 20317,
+      "direct_patch_chars": 1601,
+      "agentless_patch_chars": 2545,
+      "localized_files": [
+        "django/forms/models.py",
+        "tests/model_forms/test_modelchoicefield.py",
+        "docs/ref/forms/fields.txt",
+        "docs/releases/3.2.txt"
+      ],
+      "context_seconds": 0.364,
+      "direct_seconds": 13.961,
+      "localize_seconds": 8.249,
+      "patch_seconds": 20.26,
+      "total_seconds": 44.765
+    },
+    {
+      "instance_id": "django__django-14534",
+      "context_chars": 20106,
+      "direct_patch_chars": 525,
+      "agentless_patch_chars": 587,
+      "localized_files": [
+        "django/forms/boundfield.py"
+      ],
+      "context_seconds": 0.374,
+      "direct_seconds": 6.743,
+      "localize_seconds": 3.617,
+      "patch_seconds": 7.166,
+      "total_seconds": 19.827
+    },
+    {
+      "instance_id": "django__django-14999",
+      "context_chars": 20294,
+      "direct_patch_chars": 787,
+      "agentless_patch_chars": 706,
+      "localized_files": [
+        "django/db/migrations/operations/models.py",
+        "django/db/backends/base/schema.py",
+        "tests/migrations/test_operations.py",
+        "docs/releases/4.2.txt",
+        "docs/ref/migrations/operations.txt"
+      ],
+      "context_seconds": 0.37,
+      "direct_seconds": 7.756,
+      "localize_seconds": 8.514,
+      "patch_seconds": 7.268,
+      "total_seconds": 25.87
+    },
+    {
+      "instance_id": "django__django-15202",
+      "context_chars": 19714,
+      "direct_patch_chars": 727,
+      "agentless_patch_chars": 602,
+      "localized_files": [
+        "django/core/validators.py",
+        "django/forms/fields.py"
+      ],
+      "context_seconds": 0.367,
+      "direct_seconds": 7.15,
+      "localize_seconds": 5.316,
+      "patch_seconds": 6.549,
+      "total_seconds": 21.325
+    },
+    {
+      "instance_id": "django__django-15252",
+      "context_chars": 23793,
+      "direct_patch_chars": 1329,
+      "agentless_patch_chars": 581,
+      "localized_files": [
+        "django/db/migrations/recorder.py",
+        "django/db/backends/base/creation.py",
+        "django/core/management/commands/migrate.py",
+        "tests/migrations/test_commands.py"
+      ],
+      "context_seconds": 0.394,
+      "direct_seconds": 11.228,
+      "localize_seconds": 7.568,
+      "patch_seconds": 6.733,
+      "total_seconds": 27.819
+    },
+    {
+      "instance_id": "django__django-16139",
+      "context_chars": 20283,
+      "direct_patch_chars": 533,
+      "agentless_patch_chars": 432,
+      "localized_files": [
+        "django/contrib/auth/admin.py",
+        "django/contrib/auth/forms.py",
+        "django/contrib/auth/models.py",
+        "django/contrib/admin/options.py",
+        "django/contrib/admin/sites.py"
+      ],
+      "context_seconds": 0.376,
+      "direct_seconds": 5.837,
+      "localize_seconds": 8.441,
+      "patch_seconds": 5.358,
+      "total_seconds": 21.875
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-22835",
+      "context_chars": 20261,
+      "direct_patch_chars": 714,
+      "agentless_patch_chars": 645,
+      "localized_files": [
+        "lib/matplotlib/artist.py",
+        "lib/matplotlib/colors.py",
+        "lib/matplotlib/tests/test_colors.py",
+        "lib/matplotlib/tests/test_image.py"
+      ],
+      "context_seconds": 0.167,
+      "direct_seconds": 7.445,
+      "localize_seconds": 8.742,
+      "patch_seconds": 7.978,
+      "total_seconds": 39.808
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23299",
+      "context_chars": 19976,
+      "direct_patch_chars": 490,
+      "agentless_patch_chars": 622,
+      "localized_files": [
+        "lib/matplotlib/_pylab_helpers.py",
+        "lib/matplotlib/rcsetup.py",
+        "lib/matplotlib/backend_bases.py",
+        "lib/matplotlib/pyplot.py",
+        "lib/matplotlib/backends/backend_webagg_core.py"
+      ],
+      "context_seconds": 0.185,
+      "direct_seconds": 6.358,
+      "localize_seconds": 8.693,
+      "patch_seconds": 7.476,
+      "total_seconds": 24.321
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23314",
+      "context_chars": 22918,
+      "direct_patch_chars": 395,
+      "agentless_patch_chars": 468,
+      "localized_files": [
+        "lib/matplotlib/axes/_axes.py",
+        "lib/matplotlib/projections/__init__.py",
+        "lib/matplotlib/projections/axes3d.py",
+        "lib/matplotlib/tests/test_axes.py",
+        "lib/matplotlib/tests/test_3d.py"
+      ],
+      "context_seconds": 0.185,
+      "direct_seconds": 6.933,
+      "localize_seconds": 10.264,
+      "patch_seconds": 6.769,
+      "total_seconds": 25.561
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25079",
+      "context_chars": 20312,
+      "direct_patch_chars": 562,
+      "agentless_patch_chars": 6175,
+      "localized_files": [
+        "lib/matplotlib/colors.py",
+        "lib/matplotlib/axes/_base.py",
+        "lib/matplotlib/collections.py",
+        "lib/matplotlib/cm.py",
+        "lib/matplotlib/pyplot.py"
+      ],
+      "context_seconds": 0.176,
+      "direct_seconds": 7.762,
+      "localize_seconds": 10.878,
+      "patch_seconds": 48.524,
+      "total_seconds": 68.976
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25433",
+      "context_chars": 22978,
+      "direct_patch_chars": 464,
+      "agentless_patch_chars": 5699,
+      "localized_files": [
+        "lib/matplotlib/pyplot.py",
+        "lib/matplotlib/backends/backend_qt.py",
+        "lib/matplotlib/widgets.py",
+        "lib/matplotlib/backend_bases.py",
+        "lib/matplotlib/_pylab_helpers.py"
+      ],
+      "context_seconds": 0.171,
+      "direct_seconds": 6.813,
+      "localize_seconds": 9.902,
+      "patch_seconds": 47.867,
+      "total_seconds": 66.387
+    },
+    {
+      "instance_id": "mwaskom__seaborn-3407",
+      "context_chars": 19929,
+      "direct_patch_chars": 575,
+      "agentless_patch_chars": 587,
+      "localized_files": [
+        "seaborn/axisgrid.py",
+        "axisgrid.py",
+        "seaborn/_core/data.py",
+        "seaborn/_core/groupby.py",
+        "seaborn/_core/rules.py"
+      ],
+      "context_seconds": 0.027,
+      "direct_seconds": 7.108,
+      "localize_seconds": 8.44,
+      "patch_seconds": 7.862,
+      "total_seconds": 24.899
+    },
+    {
+      "instance_id": "psf__requests-2674",
+      "context_chars": 19660,
+      "direct_patch_chars": 589,
+      "agentless_patch_chars": 2766,
+      "localized_files": [
+        "requests/adapters.py",
+        "requests/models.py",
+        "requests/exceptions.py",
+        "requests/sessions.py",
+        "requests/hooks.py"
+      ],
+      "context_seconds": 0.024,
+      "direct_seconds": 6.372,
+      "localize_seconds": 8.029,
+      "patch_seconds": 22.319,
+      "total_seconds": 37.405
+    },
+    {
+      "instance_id": "pytest-dev__pytest-11143",
+      "context_chars": 20674,
+      "direct_patch_chars": 472,
+      "agentless_patch_chars": 486,
+      "localized_files": [
+        "src/_pytest/assertion/rewrite.py",
+        "src/_pytest/assertion/util.py",
+        "src/_pytest/python.py",
+        "src/_pytest/config/__init__.py"
+      ],
+      "context_seconds": 0.063,
+      "direct_seconds": 7.19,
+      "localize_seconds": 9.193,
+      "patch_seconds": 7.625,
+      "total_seconds": 26.626
+    },
+    {
+      "instance_id": "pytest-dev__pytest-5495",
+      "context_chars": 20076,
+      "direct_patch_chars": 509,
+      "agentless_patch_chars": 1327,
+      "localized_files": [
+        "src/_pytest/assertion/util.py",
+        "src/_pytest/assertion/truncate.py",
+        "doc/en/assert.rst",
+        "src/_pytest/assertion/rewrite.py",
+        "src/_pytest/assertion/__init__.py"
+      ],
+      "context_seconds": 0.046,
+      "direct_seconds": 6.602,
+      "localize_seconds": 9.806,
+      "patch_seconds": 12.23,
+      "total_seconds": 28.904
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "context_chars": 19023,
+      "direct_patch_chars": 427,
+      "agentless_patch_chars": 383,
+      "localized_files": [
+        "sklearn/pipeline.py"
+      ],
+      "context_seconds": 0.128,
+      "direct_seconds": 6.034,
+      "localize_seconds": 3.712,
+      "patch_seconds": 5.749,
+      "total_seconds": 24.05
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "context_chars": 20270,
+      "direct_patch_chars": 1060,
+      "agentless_patch_chars": 3193,
+      "localized_files": [
+        "sklearn/ensemble/iforest.py",
+        "sklearn/ensemble/tests/test_iforest.py",
+        "doc/modules/ensemble.rst",
+        "doc/whats_new/v0.22.rst",
+        "doc/modules/generated/sklearn.ensemble.IsolationForest.rst"
+      ],
+      "context_seconds": 0.131,
+      "direct_seconds": 10.433,
+      "localize_seconds": 10.008,
+      "patch_seconds": 28.86,
+      "total_seconds": 50.029
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14092",
+      "context_chars": 23574,
+      "direct_patch_chars": 1460,
+      "agentless_patch_chars": 1141,
+      "localized_files": [
+        "sklearn/neighbors/nca.py",
+        "sklearn/neighbors/tests/test_nca.py",
+        "sklearn/utils/validation.py",
+        "sklearn/model_selection/_validation.py",
+        "sklearn/base.py"
+      ],
+      "context_seconds": 0.129,
+      "direct_seconds": 13.751,
+      "localize_seconds": 10.22,
+      "patch_seconds": 11.121,
+      "total_seconds": 35.821
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "context_chars": 20248,
+      "direct_patch_chars": 648,
+      "agentless_patch_chars": 589,
+      "localized_files": [
+        "sklearn/svm/base.py"
+      ],
+      "context_seconds": 0.13,
+      "direct_seconds": 8.423,
+      "localize_seconds": 4.113,
+      "patch_seconds": 7.98,
+      "total_seconds": 21.26
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-15512",
+      "context_chars": 20301,
+      "direct_patch_chars": 726,
+      "agentless_patch_chars": 831,
+      "localized_files": [
+        "sklearn/cluster/_affinity_propagation.py",
+        "sklearn/cluster/tests/test_affinity_propagation.py",
+        "sklearn/cluster/_base.py",
+        "sklearn/cluster/__init__.py",
+        "sklearn/utils/validation.py"
+      ],
+      "context_seconds": 0.133,
+      "direct_seconds": 8.386,
+      "localize_seconds": 10.805,
+      "patch_seconds": 9.124,
+      "total_seconds": 29.065
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-10451",
+      "context_chars": 20266,
+      "direct_patch_chars": 854,
+      "agentless_patch_chars": 1054,
+      "localized_files": [
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/ext/autodoc/type_comment.py",
+        "sphinx/ext/napoleon/docstring.py"
+      ],
+      "context_seconds": 0.112,
+      "direct_seconds": 8.463,
+      "localize_seconds": 8.147,
+      "patch_seconds": 10.218,
+      "total_seconds": 32.54
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-7686",
+      "context_chars": 22473,
+      "direct_patch_chars": 634,
+      "agentless_patch_chars": 1066,
+      "localized_files": [
+        "sphinx/ext/autosummary/__init__.py",
+        "sphinx/ext/autosummary/templates/autosummary/module.rst",
+        "sphinx/ext/autosummary/generate.py",
+        "sphinx/ext/autodoc/importer.py",
+        "tests/roots/test-ext-autosummary-imported_members/conf.py"
+      ],
+      "context_seconds": 0.102,
+      "direct_seconds": 7.547,
+      "localize_seconds": 10.904,
+      "patch_seconds": 10.43,
+      "total_seconds": 29.569
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-7738",
+      "context_chars": 21446,
+      "direct_patch_chars": 628,
+      "agentless_patch_chars": 607,
+      "localized_files": [
+        "sphinx/ext/napoleon/docstring.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/ext/napoleon/__init__.py",
+        "tests/test_ext/test_napoleon.py",
+        "doc/usage/extensions/napoleon.rst"
+      ],
+      "context_seconds": 0.102,
+      "direct_seconds": 7.012,
+      "localize_seconds": 11.133,
+      "patch_seconds": 7.235,
+      "total_seconds": 26.069
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-7975",
+      "context_chars": 20247,
+      "direct_patch_chars": 559,
+      "agentless_patch_chars": 1632,
+      "localized_files": [
+        "sphinx/environment.py",
+        "sphinx/builders/html.py",
+        "sphinx/directives/other.py",
+        "sphinx/domains/std.py",
+        "sphinx/util/nodes.py"
+      ],
+      "context_seconds": 0.105,
+      "direct_seconds": 6.726,
+      "localize_seconds": 9.254,
+      "patch_seconds": 15.269,
+      "total_seconds": 31.943
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8273",
+      "context_chars": 19674,
+      "direct_patch_chars": 716,
+      "agentless_patch_chars": 1178,
+      "localized_files": [
+        "sphinx/builders/manpage.py",
+        "sphinx/application.py",
+        "sphinx/config.py",
+        "tests/test_build_manpage.py",
+        "doc/usage/configuration.rst"
+      ],
+      "context_seconds": 0.105,
+      "direct_seconds": 8.196,
+      "localize_seconds": 9.125,
+      "patch_seconds": 10.766,
+      "total_seconds": 28.783
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "context_chars": 23152,
+      "direct_patch_chars": 557,
+      "agentless_patch_chars": 803,
+      "localized_files": [
+        "sphinx/ext/autodoc/__init__.py",
+        "tests/test_ext_autodoc.py",
+        "doc/usage/extensions/autodoc.rst",
+        "sphinx/ext/autodoc/common.py",
+        "sphinx/ext/autodoc/directive.py"
+      ],
+      "context_seconds": 0.107,
+      "direct_seconds": 6.49,
+      "localize_seconds": 11.217,
+      "patch_seconds": 9.003,
+      "total_seconds": 27.417
+    },
+    {
+      "instance_id": "sympy__sympy-13043",
+      "context_chars": 20254,
+      "direct_patch_chars": 414,
+      "agentless_patch_chars": 375,
+      "localized_files": [
+        "sympy/polys/intpoly.py",
+        "intpoly.py"
+      ],
+      "context_seconds": 0.186,
+      "direct_seconds": 5.924,
+      "localize_seconds": 3.995,
+      "patch_seconds": 5.76,
+      "total_seconds": 26.268
+    },
+    {
+      "instance_id": "sympy__sympy-13177",
+      "context_chars": 19732,
+      "direct_patch_chars": 508,
+      "agentless_patch_chars": 492,
+      "localized_files": [
+        "sympy/core/mod.py"
+      ],
+      "context_seconds": 0.173,
+      "direct_seconds": 7.255,
+      "localize_seconds": 4.276,
+      "patch_seconds": 7.101,
+      "total_seconds": 19.521
+    },
+    {
+      "instance_id": "sympy__sympy-13437",
+      "context_chars": 20303,
+      "direct_patch_chars": 998,
+      "agentless_patch_chars": 527,
+      "localized_files": [
+        "sympy/functions/combinatorial/numbers.py",
+        "sympy/functions/combinatorial/tests/test_comb_numbers.py",
+        "sympy/combinatorics/partitions.py"
+      ],
+      "context_seconds": 0.179,
+      "direct_seconds": 10.373,
+      "localize_seconds": 7.561,
+      "patch_seconds": 7.21,
+      "total_seconds": 26.074
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "context_chars": 20327,
+      "direct_patch_chars": 582,
+      "agentless_patch_chars": 561,
+      "localized_files": [
+        "sympy/functions/elementary/hyperbolic.py",
+        "sympy/functions/elementary/tests/test_hyperbolic.py",
+        "sympy/functions/elementary/tests/test_trigonometric.py"
+      ],
+      "context_seconds": 0.179,
+      "direct_seconds": 7.915,
+      "localize_seconds": 8.205,
+      "patch_seconds": 8.375,
+      "total_seconds": 25.427
+    },
+    {
+      "instance_id": "sympy__sympy-14317",
+      "context_chars": 20275,
+      "direct_patch_chars": 709,
+      "agentless_patch_chars": 467,
+      "localized_files": [
+        "sympy/printing/latex.py",
+        "sympy/printing/tests/test_latex.py",
+        "sympy/polys/poly.py",
+        "sympy/printing/printer.py",
+        "sympy/printing/pretty/pretty.py"
+      ],
+      "context_seconds": 0.189,
+      "direct_seconds": 9.395,
+      "localize_seconds": 11.926,
+      "patch_seconds": 7.316,
+      "total_seconds": 29.595
+    },
+    {
+      "instance_id": "sympy__sympy-14774",
+      "context_chars": 20258,
+      "direct_patch_chars": 583,
+      "agentless_patch_chars": 607,
+      "localized_files": [
+        "sympy/printing/latex.py"
+      ],
+      "context_seconds": 0.185,
+      "direct_seconds": 7.941,
+      "localize_seconds": 4.257,
+      "patch_seconds": 8.395,
+      "total_seconds": 21.556
+    },
+    {
+      "instance_id": "sympy__sympy-15308",
+      "context_chars": 20254,
+      "direct_patch_chars": 957,
+      "agentless_patch_chars": 1180,
+      "localized_files": [
+        "sympy/printing/latex.py",
+        "sympy/printing/tests/test_latex.py",
+        "sympy/printing/printer.py",
+        "sympy/printing/theanocode.py"
+      ],
+      "context_seconds": 0.193,
+      "direct_seconds": 11.313,
+      "localize_seconds": 8.145,
+      "patch_seconds": 14.748,
+      "total_seconds": 35.181
+    },
+    {
+      "instance_id": "sympy__sympy-16988",
+      "context_chars": 23754,
+      "direct_patch_chars": 405,
+      "agentless_patch_chars": 417,
+      "localized_files": [
+        "sympy/sets/set.py",
+        "sympy/core/basic.py",
+        "sympy/core/operations.py",
+        "sympy/functions/elementary/piecewise.py"
+      ],
+      "context_seconds": 0.198,
+      "direct_seconds": 6.912,
+      "localize_seconds": 8.308,
+      "patch_seconds": 6.078,
+      "total_seconds": 22.284
+    },
+    {
+      "instance_id": "sympy__sympy-17139",
+      "context_chars": 22115,
+      "direct_patch_chars": 530,
+      "agentless_patch_chars": 538,
+      "localized_files": [
+        "sympy/simplify/fu.py",
+        "sympy/core/expr.py",
+        "sympy/simplify/trigsimp.py",
+        "sympy/simplify/simplify.py",
+        "sympy/strategies/core.py"
+      ],
+      "context_seconds": 0.197,
+      "direct_seconds": 7.625,
+      "localize_seconds": 9.946,
+      "patch_seconds": 8.504,
+      "total_seconds": 27.08
+    },
+    {
+      "instance_id": "sympy__sympy-18057",
+      "context_chars": 20226,
+      "direct_patch_chars": 485,
+      "agentless_patch_chars": 681,
+      "localized_files": [
+        "sympy/core/sympify.py",
+        "sympy/core/expr.py",
+        "sympy/core/symbol.py",
+        "sympy/parsing/sympy_parser.py",
+        "sympy/core/singleton.py"
+      ],
+      "context_seconds": 0.209,
+      "direct_seconds": 6.559,
+      "localize_seconds": 9.617,
+      "patch_seconds": 8.186,
+      "total_seconds": 25.399
+    },
+    {
+      "instance_id": "sympy__sympy-18199",
+      "context_chars": 20273,
+      "direct_patch_chars": 424,
+      "agentless_patch_chars": 451,
+      "localized_files": [
+        "sympy/ntheory/residue_ntheory.py"
+      ],
+      "context_seconds": 0.206,
+      "direct_seconds": 7.252,
+      "localize_seconds": 4.558,
+      "patch_seconds": 7.156,
+      "total_seconds": 19.989
+    },
+    {
+      "instance_id": "sympy__sympy-19254",
+      "context_chars": 20244,
+      "direct_patch_chars": 802,
+      "agentless_patch_chars": 802,
+      "localized_files": [
+        "sympy/polys/factortools.py"
+      ],
+      "context_seconds": 0.212,
+      "direct_seconds": 11.648,
+      "localize_seconds": 4.804,
+      "patch_seconds": 11.683,
+      "total_seconds": 29.171
+    },
+    {
+      "instance_id": "sympy__sympy-22714",
+      "context_chars": 20234,
+      "direct_patch_chars": 574,
+      "agentless_patch_chars": 554,
+      "localized_files": [
+        "sympy/core/sympify.py",
+        "sympy/geometry/point.py",
+        "sympy/parsing/sympy_parser.py",
+        "sympy/core/evalf.py",
+        "sympy/core/expr.py"
+      ],
+      "context_seconds": 0.24,
+      "direct_seconds": 7.569,
+      "localize_seconds": 9.964,
+      "patch_seconds": 7.115,
+      "total_seconds": 25.766
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "context_chars": 20267,
+      "direct_patch_chars": 690,
+      "agentless_patch_chars": 516,
+      "localized_files": [
+        "sympy/printing/pycode.py",
+        "sympy/printing/printer.py",
+        "sympy/utilities/lambdify.py",
+        "sympy/core/singleton.py",
+        "sympy/external/tests/test_codegen.py"
+      ],
+      "context_seconds": 0.251,
+      "direct_seconds": 8.298,
+      "localize_seconds": 10.327,
+      "patch_seconds": 7.182,
+      "total_seconds": 26.932
+    }
+  ]
+}

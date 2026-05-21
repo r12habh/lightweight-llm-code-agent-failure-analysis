@@ -1,0 +1,13 @@
+diff --git a/docs/ref/models/querysets.txt b/docs/ref/models/querysets.txt
+index 01ba71c182..d4814b54c7 100644
+--- a/docs/ref/models/querysets.txt
++++ b/docs/ref/models/querysets.txt
+@@ -275,7 +275,8 @@ Aggregation </topics/db/aggregation>`.
+ 
+ By default, results returned by a ``QuerySet`` are ordered by the ordering
+ tuple given by the ``ordering`` option in the model's ``Meta``. You can
+-override this on a per-``QuerySet`` basis by using the ``order_by`` method.
++override this on a per-``QuerySet`` basis by using the ``order_by`` method. 
++If you want to use a specific ordering without interference from the model's default, use the ordering without specifying fields that are defined in the model's Meta options.
+ 
+ Example::

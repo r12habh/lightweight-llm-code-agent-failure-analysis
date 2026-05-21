@@ -1,0 +1,12 @@
+diff --git a/docs/ref/class-based-views/mixins-editing.txt b/docs/ref/class-based-views/mixins-editing.txt
+index d0bb200ae3..53f990d23f 100644
+--- a/docs/ref/class-based-views/mixins-editing.txt
++++ b/docs/ref/class-based-views/mixins-editing.txt
+@@ -7,6 +7,7 @@ The following mixins are used to construct Django's editing views:
+ * :class:`django.views.generic.edit.FormMixin`
+ * :class:`django.views.generic.edit.ModelFormMixin`
+ * :class:`django.views.generic.edit.ProcessFormView`
++* :class:`django.views.generic.edit.InlineModelFormSetMixin`
+ * :class:`django.views.generic.edit.DeletionMixin`
+ 
+ .. note::

@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13497",
+  "input_patch_chars": 582,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 14\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 13:          discrete_mask = np.empty(n_features, dtype=bool)\n\n",
+          "stdout": "patching file sklearn/feature_selection/mutual_info_.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

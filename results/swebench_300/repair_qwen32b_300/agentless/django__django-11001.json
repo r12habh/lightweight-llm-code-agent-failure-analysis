@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11001",
+  "input_patch_chars": 6800,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 163\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/compiler.py\nHunk #1 succeeded at 41 (offset -59 lines).\nHunk #2 succeeded at 52 (offset -94 lines).\nHunk #3 succeeded at 262 (offset -40 lines).\nHunk #4 FAILED at 313.\nHunk #5 FAILED at 323.\nHunk #6 FAILED at 333.\nHunk #7 FAILED at 343.\nHunk #8 FAILED at 353.\nHunk #9 FAILED at 363.\nHunk #10 FAILED at 373.\nHunk #11 FAILED at 383.\nHunk #12 FAILED at 393.\nHunk #13 FAILED at 403.\nHunk #14 FAILED at 413.\nHunk #15 FAILED at 423.\nHunk #16 FAILED at 433.\n13 out of 16 hunks FAILED -- saving rejects to file django/db/models/sql/compiler.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

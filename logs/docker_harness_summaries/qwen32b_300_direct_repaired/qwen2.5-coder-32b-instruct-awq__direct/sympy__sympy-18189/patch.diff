@@ -1,0 +1,12 @@
+diff --git a/sympy/solvers/diophantine.py b/sympy/solvers/diophantine.py
+index 6092e35dab..88fdec4a0e 100644
+--- a/sympy/solvers/diophantine.py
++++ b/sympy/solvers/diophantine.py
+@@ -420,6 +420,7 @@ def diop_solve(eq, param=symbols("t", integer=True)):
+     (t_0, t_0 + t_1, 6*t_0 + 5*t_1 + 4*t_2 - 6, 5*t_0 + 4*t_1 + 3*t_2 - 6)
+     >>> diop_solve(x**2 + y**2 - 5)
+     {(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)}
++                    do_permute_signs_var = True
+ 
+ 
+     See Also

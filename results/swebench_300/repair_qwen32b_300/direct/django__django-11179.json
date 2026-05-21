@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11179",
+  "input_patch_chars": 551,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/deletion.py...\nerror: while searching for:\n                count = sql.DeleteQuery(model).delete_batch([instance.pk], self.using)\n            return count, {model._meta.label: count}\n\n        with transaction.atomic(using=self.using, savepoint=False):\n            # send pre_delete signals\n            for model, obj in self.instances_with_model():\n\nerror: patch failed: django/db/models/deletion.py:277\nerror: django/db/models/deletion.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/deletion.py...\nerror: while searching for:\n                count = sql.DeleteQuery(model).delete_batch([instance.pk], self.using)\n            return count, {model._meta.label: count}\n\n        with transaction.atomic(using=self.using, savepoint=False):\n            # send pre_delete signals\n            for model, obj in self.instances_with_model():\n\nerror: patch failed: django/db/models/deletion.py:277\nApplying patch django/db/models/deletion.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 564
+}

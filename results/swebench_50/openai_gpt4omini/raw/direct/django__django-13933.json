@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-13933",
+  "raw": "```diff\ndiff --git a/django/forms/models.py b/django/forms/models.py\n--- a/django/forms/models.py\n+++ b/django/forms/models.py\n@@ -40,7 +40,8 @@\n     def __init__(self, *args, **kwargs):\n         super().__init__(*args, **kwargs)\n         self.default_error_messages['invalid_choice'] = _(\n-            'Select a valid choice. That choice is not one of'\n+            'Select a valid choice. %(value)s is not one of the'\n             ' available choices.'\n+        )\n \n # ModelMultipleChoiceField ...\n```",
+  "usage": {
+    "input_tokens": 19878,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 130,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20008
+  },
+  "localized_files": []
+}

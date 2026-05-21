@@ -1,0 +1,11 @@
+diff --git a/sympy/functions/elementary/hyperbolic.py b/sympy/functions/elementary/hyperbolic.py
+index 2a4555d919..3075f53133 100644
+--- a/sympy/functions/elementary/hyperbolic.py
++++ b/sympy/functions/elementary/hyperbolic.py
+@@ -570,6 +570,7 @@ def eval(cls, arg):
+             elif arg.is_negative:
+                 return -cls(-arg)
+         else:
++            cotm = arg.cot()
+             if arg is S.ComplexInfinity:
+                 return S.NaN

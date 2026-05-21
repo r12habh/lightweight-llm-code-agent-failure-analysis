@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13658",
+  "input_patch_chars": 907,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/__init__.py...\nerror: while searching for:\nfrom collections import defaultdict\nfrom difflib import get_close_matches\nfrom importlib import import_module\nfrom argparse import ArgumentParser\nimport django\nfrom django.apps import apps\nfrom django.conf import settings\n\nerror: patch failed: django/core/management/__init__.py:10\nerror: while searching for:\n        self.prog_name = os.path.basename(self.argv[0])\n        if self.prog_name == '__main__.py':\n            self.prog_name = 'python -m django'\n        parser = ArgumentParser(\n            prog=self.prog_name,\n            usage='%(prog)s subcommand [options] [args]',\n            add_help=False,\n\nerror: patch failed: django/core/management/__init__.py:184\nApplying patch django/core/management/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/__init__.py\nHunk #1 FAILED at 10.\nHunk #2 FAILED at 184.\n2 out of 2 hunks FAILED -- saving rejects to file django/core/management/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

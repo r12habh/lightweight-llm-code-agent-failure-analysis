@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23476",
+  "input_patch_chars": 486,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/figure.py...\nerror: while searching for:\n        \"\"\"\n        self.set_dpi(dpi)\n        self.set_size_inches(w, h, forward=forward)\n        self.canvas.draw()\n\n    def savefig(self, fname, dpi=None, facecolor=None, edgecolor=None,\n                orientation=None, papertype=None, format=None, transparent=False,\n\nerror: patch failed: lib/matplotlib/figure.py:2908\nerror: lib/matplotlib/figure.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/figure.py...\nerror: while searching for:\n        \"\"\"\n        self.set_dpi(dpi)\n        self.set_size_inches(w, h, forward=forward)\n        self.canvas.draw()\n\n    def savefig(self, fname, dpi=None, facecolor=None, edgecolor=None,\n                orientation=None, papertype=None, format=None, transparent=False,\n\nerror: patch failed: lib/matplotlib/figure.py:2908\nApplying patch lib/matplotlib/figure.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 372
+}

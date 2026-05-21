@@ -1,0 +1,33 @@
+diff --git a/tests/known_related_objects/tests.py b/tests/known_related_objects/tests.py
+index 6080da3838..d897bf95d9 100644
+--- a/tests/known_related_objects/tests.py
++++ b/tests/known_related_objects/tests.py
+@@ -4,6 +4,28 @@ from django.test import TestCase
+ from .models import Organiser, Pool, PoolStyle, Tournament
+ 
+ 
++class ExistingRelatedInstancesTests(TestCase):
++    @classmethod
++    def setUpTestData(cls):
++        cls.t1 = Tournament.objects.create(name="Tourney 1")
++        cls.t2 = Tournament.objects.create(name="Tourney 2")
++        cls.o1 = Organiser.objects.create(name="Organiser 1")
++        cls.p1 = Pool.objects.create(
++            name="T1 Pool 1", tournament=cls.t1, organiser=cls.o1
++        )
++        cls.p2 = Pool.objects.create(
++            name="T1 Pool 2", tournament=cls.t1, organiser=cls.o1
++        )
++
++    def test_wrong_select_related(self):
++        with self.assertNumQueries(3):
++            p = list(PoolStyle.objects.annotate(
++from django.db.models import FilteredRelation
++from django.test import TestCase
++
++from .models import Organiser, Pool, PoolStyle, Tournament
++
++
+ class ExistingRelatedInstancesTests(TestCase):
+     @classmethod
+     def setUpTestData(cls):

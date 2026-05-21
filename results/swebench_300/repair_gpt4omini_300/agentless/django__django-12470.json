@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12470",
+  "input_patch_chars": 625,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n            # in the order specified by the model's Meta.ordering attribute.\n            self.order_by = self.get_meta().ordering\n        self.order_by += self.extra_order_by\n        if self.default_ordering and not self.order_by:\n            self.order_by = self.get_meta().ordering\n        if not self.order_by:\n            # If there is no ordering, it will be determined by the underlying\n\nerror: patch failed: django/db/models/sql/query.py:298\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 FAILED at 298.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/sql/query.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

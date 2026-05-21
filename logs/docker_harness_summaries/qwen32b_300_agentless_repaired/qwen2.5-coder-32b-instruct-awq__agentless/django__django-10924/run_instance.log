@@ -1,0 +1,55 @@
+2026-05-20 14:05:27,710 - INFO - Creating container for django__django-10924...
+2026-05-20 14:05:27,744 - INFO - Container for django__django-10924 created: 583adc0c53d23bb8da2fd1c34114dbe16abe28e1da2899e094ad79688a39dc88
+2026-05-20 14:05:27,877 - INFO - Container for django__django-10924 started: 583adc0c53d23bb8da2fd1c34114dbe16abe28e1da2899e094ad79688a39dc88
+2026-05-20 14:05:27,877 - INFO - Intermediate patch for django__django-10924 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-10924/patch.diff, now applying to container...
+2026-05-20 14:05:28,075 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/fields/files.py...
+Applied patch django/db/models/fields/files.py cleanly.
+
+2026-05-20 14:05:28,956 - INFO - Git diff before:
+diff --git a/django/db/models/fields/files.py b/django/db/models/fields/files.py
+index 8f12e80725..887e6381ff 100644
+--- a/django/db/models/fields/files.py
++++ b/django/db/models/fields/files.py
+@@ -226,7 +226,11 @@ class FileField(Field):
+         self.storage = storage or default_storage
+         self.upload_to = upload_to
+ 
+-        kwargs.setdefault('max_length', 100)
++        if callable(upload_to):
++            kwargs.setdefault('max_length', 255)  # Increase max_length for callable paths
++        else:
++            kwargs.setdefault('max_length', 100)
++
+         super().__init__(verbose_name, name, **kwargs)
+ 
+     def check(self, **kwargs):
+2026-05-20 14:05:28,957 - INFO - Eval script for django__django-10924 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-10924/eval.sh; copying to container...
+2026-05-20 14:05:43,630 - INFO - Test runtime: 14.60 seconds
+2026-05-20 14:05:43,631 - INFO - Test output for django__django-10924 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-10924/test_output.txt
+2026-05-20 14:05:43,756 - INFO - Git diff after:
+diff --git a/django/db/models/fields/files.py b/django/db/models/fields/files.py
+index 8f12e80725..887e6381ff 100644
+--- a/django/db/models/fields/files.py
++++ b/django/db/models/fields/files.py
+@@ -226,7 +226,11 @@ class FileField(Field):
+         self.storage = storage or default_storage
+         self.upload_to = upload_to
+ 
+-        kwargs.setdefault('max_length', 100)
++        if callable(upload_to):
++            kwargs.setdefault('max_length', 255)  # Increase max_length for callable paths
++        else:
++            kwargs.setdefault('max_length', 100)
++
+         super().__init__(verbose_name, name, **kwargs)
+ 
+     def check(self, **kwargs):
+2026-05-20 14:05:43,756 - INFO - Grading answer for django__django-10924...
+2026-05-20 14:05:43,757 - INFO - report: {'django__django-10924': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_callable_path (model_fields.test_filepathfield.FilePathFieldTests)']}, 'PASS_TO_PASS': {'success': ['test_path (model_fields.test_filepathfield.FilePathFieldTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-10924: resolved: False
+2026-05-20 14:05:43,758 - INFO - Attempting to stop container sweb.eval.django__django-10924.qwen32b_300_agentless_repaired...
+2026-05-20 14:05:59,022 - INFO - Attempting to remove container sweb.eval.django__django-10924.qwen32b_300_agentless_repaired...
+2026-05-20 14:05:59,054 - INFO - Container sweb.eval.django__django-10924.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:05:59,054 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-10924:latest...
+2026-05-20 14:05:59,062 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-10924:latest removed.

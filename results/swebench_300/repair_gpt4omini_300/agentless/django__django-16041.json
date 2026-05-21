@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16041",
+  "input_patch_chars": 500,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/files.py...\nerror: while searching for:\n        if not self:\n            raise ValueError(\n                \"The '%s' attribute has no file associated with it.\" % self.field.name\n            )\n            # Raise KeyError if empty_permitted is False\n            raise KeyError(\"Empty form not permitted.\")\n\nerror: patch failed: django/db/models/fields/files.py:80\nerror: django/db/models/fields/files.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/files.py...\nerror: while searching for:\n        if not self:\n            raise ValueError(\n                \"The '%s' attribute has no file associated with it.\" % self.field.name\n            )\n            # Raise KeyError if empty_permitted is False\n            raise KeyError(\"Empty form not permitted.\")\n\nerror: patch failed: django/db/models/fields/files.py:80\nApplying patch django/db/models/fields/files.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 496
+}

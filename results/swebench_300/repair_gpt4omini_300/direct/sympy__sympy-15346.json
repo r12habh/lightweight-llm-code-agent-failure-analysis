@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-15346",
+  "input_patch_chars": 420,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/simplify/trigsimp.py...\nerror: while searching for:\n    return None\n\ndef trigsimp(expr, **hints):\n    expr = expr.rewrite(sin)\n    expr = expr.rewrite(cos)\n    expr = expr.rewrite(tan)\n\nerror: patch failed: sympy/simplify/trigsimp.py:388\nerror: sympy/simplify/trigsimp.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/trigsimp.py...\nerror: while searching for:\n    return None\n\ndef trigsimp(expr, **hints):\n    expr = expr.rewrite(sin)\n    expr = expr.rewrite(cos)\n    expr = expr.rewrite(tan)\n\nerror: patch failed: sympy/simplify/trigsimp.py:388\nApplying patch sympy/simplify/trigsimp.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 652
+}

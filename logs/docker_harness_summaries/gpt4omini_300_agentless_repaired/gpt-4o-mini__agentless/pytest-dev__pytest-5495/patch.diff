@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/assertion/util.py b/src/_pytest/assertion/util.py
+index 762e5761d..a52754d75 100644
+--- a/src/_pytest/assertion/util.py
++++ b/src/_pytest/assertion/util.py
+@@ -188,7 +188,7 @@ def _diff_text(left, right, verbose=0):
+ 
+     if isinstance(left, bytes):
+         left = escape_for_readable_diff(left)
+-    if isinstance(right, bytes):
++    if isinstance(right, bytes) and left != right:
+         right = escape_for_readable_diff(right)
+     if verbose < 1:
+         i = 0  # just in case left or right has zero length

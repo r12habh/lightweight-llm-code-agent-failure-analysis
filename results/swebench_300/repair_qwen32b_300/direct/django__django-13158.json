@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13158",
+  "input_patch_chars": 525,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/models.py...\nerror: while searching for:\n        if not self.initial:\n            return []\n        if isinstance(self.initial, (QuerySet, Manager)):\n            return self.initial.all()\n        return [obj.pk for obj in self.initial]\n\n    def _check_values(self, value):\n\nerror: patch failed: django/forms/models.py:1145\nApplying patch django/forms/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/models.py\nHunk #1 FAILED at 1145.\n1 out of 1 hunk FAILED -- saving rejects to file django/forms/models.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

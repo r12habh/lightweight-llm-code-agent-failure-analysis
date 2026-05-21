@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13437",
+  "input_patch_chars": 983,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp67nyodd_.diff:9: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp67nyodd_.diff:11: trailing whitespace.\n    \nerror: corrupt patch at line 15\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15: @@ -1585,8 +1589\n\n",
+          "stdout": "patching file sympy/functions/combinatorial/numbers.py\nHunk #1 succeeded at 1565 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

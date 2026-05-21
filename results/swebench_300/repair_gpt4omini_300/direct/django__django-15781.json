@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15781",
+  "input_patch_chars": 369,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/management/base.py...\nerror: while searching for:\n\nclass BaseCommand:\n    \"\"\"\n    ...\n    \"\"\"\n\n\nerror: patch failed: django/core/management/base.py:250\nerror: django/core/management/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/base.py...\nerror: while searching for:\n\nclass BaseCommand:\n    \"\"\"\n    ...\n    \"\"\"\n\n\nerror: patch failed: django/core/management/base.py:250\nApplying patch django/core/management/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 607
+}

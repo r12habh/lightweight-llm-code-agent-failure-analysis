@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14534",
+  "input_patch_chars": 1058,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/forms/boundfield.py...\nerror: while searching for:\n        return self.form.errors.get(self.name, self.form.error_class())\n\n    def as_widget(self, widget=None, attrs=None, only_initial=False):\n        widget = widget or self.field.widget\n        if self.field.localize:\n            widget.is_localized = True\n        attrs = attrs or {}\n\nerror: patch failed: django/forms/boundfield.py:100\nerror: django/forms/boundfield.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/boundfield.py...\nerror: while searching for:\n        return self.form.errors.get(self.name, self.form.error_class())\n\n    def as_widget(self, widget=None, attrs=None, only_initial=False):\n        widget = widget or self.field.widget\n        if self.field.localize:\n            widget.is_localized = True\n        attrs = attrs or {}\n\nerror: patch failed: django/forms/boundfield.py:100\nHunk #2 succeeded at 91 (offset -19 lines).\nApplying patch django/forms/boundfield.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 582
+}

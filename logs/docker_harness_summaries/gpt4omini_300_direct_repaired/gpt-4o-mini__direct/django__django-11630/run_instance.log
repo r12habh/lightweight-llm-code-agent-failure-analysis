@@ -1,0 +1,50 @@
+2026-05-19 21:15:58,176 - INFO - Creating container for django__django-11630...
+2026-05-19 21:15:59,173 - INFO - Container for django__django-11630 created: 32104f7e101cc83ae013997316b582deddea431e18c1d9432c64cf1e1b2511af
+2026-05-19 21:15:59,284 - INFO - Container for django__django-11630 started: 32104f7e101cc83ae013997316b582deddea431e18c1d9432c64cf1e1b2511af
+2026-05-19 21:15:59,284 - INFO - Intermediate patch for django__django-11630 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11630/patch.diff, now applying to container...
+2026-05-19 21:15:59,427 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-19 21:15:59,503 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-19 21:15:59,571 - INFO - >>>>> Applied Patch:
+patching file docs/ref/models/options.txt
+
+2026-05-19 21:16:00,200 - INFO - Git diff before:
+diff --git a/docs/ref/models/options.txt b/docs/ref/models/options.txt
+index e09547ec23..6245d8305e 100644
+--- a/docs/ref/models/options.txt
++++ b/docs/ref/models/options.txt
+@@ -52,6 +52,10 @@ Available ``Meta`` options
+ 
+ .. _table-names:
+ 
++   .. admonition:: Unique table names across apps
++      It is recommended that different models across different apps use unique
++      table names to avoid conflicts and errors.
++
+ Table names
+ ~~~~~~~~~~~
+2026-05-19 21:16:00,201 - INFO - Eval script for django__django-11630 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11630/eval.sh; copying to container...
+2026-05-19 21:16:15,824 - INFO - Test runtime: 15.56 seconds
+2026-05-19 21:16:15,827 - INFO - Test output for django__django-11630 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11630/test_output.txt
+2026-05-19 21:16:15,970 - INFO - Git diff after:
+diff --git a/docs/ref/models/options.txt b/docs/ref/models/options.txt
+index e09547ec23..6245d8305e 100644
+--- a/docs/ref/models/options.txt
++++ b/docs/ref/models/options.txt
+@@ -52,6 +52,10 @@ Available ``Meta`` options
+ 
+ .. _table-names:
+ 
++   .. admonition:: Unique table names across apps
++      It is recommended that different models across different apps use unique
++      table names to avoid conflicts and errors.
++
+ Table names
+ ~~~~~~~~~~~
+2026-05-19 21:16:15,970 - INFO - Grading answer for django__django-11630...
+2026-05-19 21:16:15,974 - INFO - report: {'django__django-11630': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_collision_across_apps_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)']}, 'PASS_TO_PASS': {'success': ['test_collision_abstract_model (check_framework.test_model_checks.IndexNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_collision_abstract_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_proxy_models (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_unmanaged_models (check_framework.test_model_checks.DuplicateDBTableTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11630: resolved: False
+2026-05-19 21:16:15,975 - INFO - Attempting to stop container sweb.eval.django__django-11630.gpt4omini_300_direct_repaired...
+2026-05-19 21:16:31,177 - INFO - Attempting to remove container sweb.eval.django__django-11630.gpt4omini_300_direct_repaired...
+2026-05-19 21:16:31,197 - INFO - Container sweb.eval.django__django-11630.gpt4omini_300_direct_repaired removed.
+2026-05-19 21:16:31,197 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11630:latest...
+2026-05-19 21:16:32,063 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11630:latest removed.

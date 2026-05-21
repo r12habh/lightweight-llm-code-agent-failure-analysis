@@ -1,0 +1,25 @@
+{
+  "instance_id": "astropy__astropy-14182",
+  "input_patch_chars": 967,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 22\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 22: @@ -210,6 +211,7 @@\n\n",
+          "stdout": "patching file astropy/io/ascii/core.py\nHunk #1 succeeded at 28 with fuzz 2 (offset -22 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,12 @@
+diff --git a/xarray/core/variable.py b/xarray/core/variable.py
+index e19132b1..c5e1e606 100644
+--- a/xarray/core/variable.py
++++ b/xarray/core/variable.py
+@@ -284,7 +284,6 @@ class Variable(
+     def __init__(self, dims, data, attrs=None, encoding=None, fastpath=False):
+         """
+         Parameters
+-        ----------
+         dims : str or sequence of str
+             Name(s) of the the data dimension(s). Must be either a string (only
+             for 1D data) or a sequence of strings with length equal to the

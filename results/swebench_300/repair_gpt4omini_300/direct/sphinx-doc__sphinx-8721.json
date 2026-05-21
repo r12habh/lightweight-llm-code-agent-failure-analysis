@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8721",
+  "input_patch_chars": 420,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpdd64u4kg.diff:8: trailing whitespace.\n        return \nerror: corrupt patch at line 11\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 10:  \n\n",
+          "stdout": "patching file sphinx/ext/viewcode.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

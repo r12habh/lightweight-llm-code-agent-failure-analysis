@@ -1,0 +1,11 @@
+diff --git a/docs/topics/settings.txt b/docs/topics/settings.txt
+index 7c824b98f7..b97497e1d1 100644
+--- a/docs/topics/settings.txt
++++ b/docs/topics/settings.txt
+@@ -100,7 +100,6 @@ Here's the algorithm Django uses in compiling settings:
+ 
+ Note that a settings file should *not* import from ``global_settings``, because
+ that's redundant.
+-
+ Seeing which settings you've changed
+ ------------------------------------

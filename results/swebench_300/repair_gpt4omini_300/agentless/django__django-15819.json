@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15819",
+  "input_patch_chars": 1436,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpyokilxhx.diff:10: trailing whitespace.\n                # and any other field name -- i.e. accessor for Model.foreign is \nChecking patch django/db/models/fields/related.py...\nerror: while searching for:\n               # i.e. \"app_label.Model.field\".\n                field_name = \"%s.%s\" % (opts.label, self.name)\n\n                # Check clashes between accessor or reverse query name of `field`\n                # and any other field name -- i.e. accessor for Model.foreign is\n                # Model.field.\n                if not rel_is_hidden and clash_field.name == rel_name:\n\nerror: patch failed: django/db/models/fields/related.py:1667\nApplying patch django/db/models/fields/related.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/related.py\nHunk #1 FAILED at 1667.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/fields/related.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

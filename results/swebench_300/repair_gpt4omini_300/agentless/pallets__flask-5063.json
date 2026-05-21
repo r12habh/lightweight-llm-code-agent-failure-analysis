@@ -1,0 +1,28 @@
+{
+  "instance_id": "pallets__flask-5063",
+  "input_patch_chars": 863,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/flask/app.py...\nerror: while searching for:\n\n    def list_routes(self):\n        \"\"\"List all routes and their associated endpoints.\"\"\"\n        for rule in self.url_map.iter_rules():\n            endpoint = rule.endpoint\n            methods = ', '.join(rule.methods)\n\nerror: patch failed: src/flask/app.py:1482\nerror: src/flask/app.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/app.py...\nerror: while searching for:\n\n    def list_routes(self):\n        \"\"\"List all routes and their associated endpoints.\"\"\"\n        for rule in self.url_map.iter_rules():\n            endpoint = rule.endpoint\n            methods = ', '.join(rule.methods)\n\nerror: patch failed: src/flask/app.py:1482\nApplying patch src/flask/app.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 787
+}

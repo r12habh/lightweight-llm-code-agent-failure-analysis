@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-22840",
+  "input_patch_chars": 1455,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 34\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15: -            for name, value in sorted(self._number_symbols, key=str):\n\n",
+          "stdout": "patching file sympy/printing/codeprinter.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

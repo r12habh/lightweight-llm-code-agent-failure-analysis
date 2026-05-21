@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23964",
+  "input_patch_chars": 445,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_ps.py...\nerror: while searching for:\n        if not curr_stream:\n            return\n        for ps_name, xs_names in stream:\n            self._write_ps(ps_name, xs_names)\n\n    def _write_ps(self, ps_name, xs_names):\n\nerror: patch failed: lib/matplotlib/backends/backend_ps.py:666\nerror: lib/matplotlib/backends/backend_ps.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_ps.py...\nerror: while searching for:\n        if not curr_stream:\n            return\n        for ps_name, xs_names in stream:\n            self._write_ps(ps_name, xs_names)\n\n    def _write_ps(self, ps_name, xs_names):\n\nerror: patch failed: lib/matplotlib/backends/backend_ps.py:666\nApplying patch lib/matplotlib/backends/backend_ps.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 487
+}

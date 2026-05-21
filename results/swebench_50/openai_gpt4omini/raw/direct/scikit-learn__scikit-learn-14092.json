@@ -1,0 +1,16 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14092",
+  "raw": "```diff\ndiff --git a/sklearn/neighbors/nca.py b/sklearn/neighbors/nca.py\n--- a/sklearn/neighbors/nca.py\n+++ b/sklearn/neighbors/nca.py\n@@ -137,7 +137,7 @@\n             if self.n_components > X.shape[1]:\n                 raise ValueError('The preferred dimensionality of the '\n                                  'projected space `n_components` ({}) cannot '\n-                                 'be greater than the given data '\n+                                 'be greater than the given data dimensionality ({})!'\n                                  .format(self.n_components, X.shape[1]))\n \n         # Check for float type and convert np.int64 to int\n@@ -153,6 +153,9 @@\n \n         # Check for the tol parameter\n         check_scalar(self.tol, 'tol', numbers.Real, 0.0)  # Ensure it's a positive float\n \n+        # Convert np.int64 to int for n_components\n+        self.n_components = int(self.n_components) if self.n_components is not None else None\n+\n         return X, y, init\n```",
+  "usage": {
+    "input_tokens": 19517,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 232,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 19749
+  },
+  "localized_files": []
+}

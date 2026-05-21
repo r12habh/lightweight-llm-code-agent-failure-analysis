@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16400",
+  "input_patch_chars": 728,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/auth/management/commands/create_permissions.py...\nerror: django/contrib/auth/management/commands/create_permissions.py: No such file or directory\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/django/contrib/auth/management/commands/create_permissions.py b/django/contrib/auth/management/commands/create_permissions.py\n|index 3a2b1c2..4d3e5f6 100644\n|--- a/django/contrib/auth/management/commands/create_permissions.py\n|+++ b/django/contrib/auth/management/commands/create_permissions.py\n--------------------------\nNo file to patch.  Skipping patch.\n1 out of 1 hunk ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

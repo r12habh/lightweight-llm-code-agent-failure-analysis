@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7686",
+  "input_patch_chars": 1440,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 23\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 22:              if subnode not in crawled:\n\n",
+          "stdout": "patching file sphinx/ext/autosummary/__init__.py\nHunk #1 succeeded at 115 (offset 15 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

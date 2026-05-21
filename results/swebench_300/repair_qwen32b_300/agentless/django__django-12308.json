@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12308",
+  "input_patch_chars": 773,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/utils.py...\nerror: while searching for:\n        return formats.localize(value, use_l10n=True)\n    elif isinstance(field, models.JSONField):\n        if value is None:\n            return json.dumps(value)\n    elif isinstance(field, models.DurationField):\n        return formats.time_format(value, \"G:i:s\")\n\nerror: patch failed: django/contrib/admin/utils.py:208\nApplying patch django/contrib/admin/utils.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/admin/utils.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #2 FAILED at 208.\n1 out of 2 hunks FAILED -- saving rejects to file django/contrib/admin/utils.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

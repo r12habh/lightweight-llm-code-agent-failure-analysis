@@ -1,0 +1,71 @@
+{
+  "target_pdf": "final_eswa_swebench_v15.pdf",
+  "extraction": {
+    "pages": 10,
+    "characters": 45643,
+    "words_pypdf_split": 6620,
+    "extracted_text": "audit_checks/paper.txt",
+    "body_text_without_references": "audit_checks/paper_body.txt"
+  },
+  "local_source_corpus": {
+    "pdf_count": 9,
+    "pdfs": [
+      "audit_checks/sources/pdfs/agentless_2407.01489.pdf",
+      "audit_checks/sources/pdfs/fea-bench_2503.06680.pdf",
+      "audit_checks/sources/pdfs/repobench_2306.03091.pdf",
+      "audit_checks/sources/pdfs/secrepobench_2504.21205.pdf",
+      "audit_checks/sources/pdfs/swe-agent_2405.15793.pdf",
+      "audit_checks/sources/pdfs/swe-bench-live_2505.23419.pdf",
+      "audit_checks/sources/pdfs/swe-bench_2310.06770.pdf",
+      "audit_checks/sources/pdfs/tests4py_2307.05147.pdf",
+      "audit_checks/sources/pdfs/wang_llmsan_2024_findings_emnlp_217.pdf"
+    ],
+    "text_dir": "audit_checks/sources/text"
+  },
+  "text_overlap_against_cited_sources": {
+    "body_8gram_files_compared": 9,
+    "body_8gram_files_with_overlap": 2,
+    "body_8gram_max_target_coverage": 0.0006702412868632708,
+    "body_8gram_note": "Only numeric/table-axis n-grams overlapped at n=8.",
+    "body_13gram_files_compared": 9,
+    "body_13gram_files_with_overlap": 0,
+    "body_13gram_max_target_coverage": 0,
+    "body_13gram_note": "No 13-gram overlaps found after removing references.",
+    "reports": [
+      "audit_checks/ngram_overlap_sources_body_8.json",
+      "audit_checks/ngram_overlap_sources_body_13.json"
+    ]
+  },
+  "overlap_against_bundle_sidecars": {
+    "raw_pdf_8gram_top_source": "final_eswa_swebench_v15.tex",
+    "raw_pdf_8gram_top_coverage": 0.7417685118619698,
+    "raw_pdf_13gram_top_source": "final_eswa_swebench_v15.tex",
+    "raw_pdf_13gram_top_coverage": 0.6274820143884892,
+    "note": "High overlap with the TeX source is expected because it generated the PDF; declarations also intentionally repeat submission statements.",
+    "reports": [
+      "audit_checks/ngram_overlap_bundle_8.json",
+      "audit_checks/ngram_overlap_bundle_13.json"
+    ]
+  },
+  "basic_text_audit": {
+    "repeated_sentences": 0,
+    "ai_style_marker_counts": {},
+    "long_lines_over_220_chars": 0,
+    "report": "audit_checks/basic_text_body_audit.json"
+  },
+  "code_plagiarism_patch_similarity": {
+    "status": "not_run",
+    "reason": "No generated/reference patch directories or code artifact files were present in the submission bundle; copydetect/JPlag/Dolos would have no meaningful comparison inputs for this PDF-only audit.",
+    "non_audit_code_like_files_found": []
+  },
+  "zotero_zoteye": {
+    "status": "not_run",
+    "reason": "No local Zotero library path was provided or discovered in the bundle; the cited-source n-gram audit was run instead."
+  },
+  "roberta_ai_detector": {
+    "status": "attempted_failed",
+    "model": "openai-community/roberta-base-openai-detector",
+    "reason": "Both Transformers 5.8.0 and fallback 4.53.3 loads terminated after loading model weights and before inference on this macOS/Python 3.13 environment.",
+    "interpretation": "No detector score was produced; this is not a loss because such detectors are weak signals and not reliable for misconduct decisions."
+  }
+}

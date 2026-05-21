@@ -1,0 +1,87 @@
+2026-05-20 13:58:53,221 - INFO - Creating container for astropy__astropy-12907...
+2026-05-20 13:58:54,681 - INFO - Container for astropy__astropy-12907 created: 84ba7cebb3840d6ea902e80bb1bdf3a9fdae22d1be951da0de0966006799489f
+2026-05-20 13:58:55,027 - INFO - Container for astropy__astropy-12907 started: 84ba7cebb3840d6ea902e80bb1bdf3a9fdae22d1be951da0de0966006799489f
+2026-05-20 13:58:55,027 - INFO - Intermediate patch for astropy__astropy-12907 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/astropy__astropy-12907/patch.diff, now applying to container...
+2026-05-20 13:58:55,218 - INFO - >>>>> Applied Patch:
+Checking patch astropy/modeling/separable.py...
+Applied patch astropy/modeling/separable.py cleanly.
+
+2026-05-20 13:58:55,738 - INFO - Git diff before:
+diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py
+index a308e27297..d07fc25a02 100644
+--- a/astropy/modeling/separable.py
++++ b/astropy/modeling/separable.py
+@@ -233,7 +233,7 @@ def _cstack(left, right):
+     """
+     noutp = _compute_n_outputs(left, right)
+ 
+-    if isinstance(left, Model):
++    if isinstance(left, (Model, CompoundModel)):
+         cleft = _coord_matrix(left, 'left', noutp)
+     else:
+         cleft = np.zeros((noutp, left.shape[1]))
+@@ -241,7 +241,7 @@ def _cstack(left, right):
+     if isinstance(right, Model):
+         cright = _coord_matrix(right, 'right', noutp)
+     else:
+-        cright = np.zeros((noutp, right.shape[1]))
++        cright = np.zeros((noutp, right.shape[1])) if isinstance(right, np.ndarray) else _coord_matrix(right, 'right', noutp)
+         cright[-right.shape[0]:, -right.shape[1]:] = 1
+ 
+     return np.hstack([cleft, cright])
+diff --git a/pyproject.toml b/pyproject.toml
+index 3364d30740..02dddbe713 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools",
++requires = ["setuptools==68.0.0",
+             "setuptools_scm>=6.2",
+             "wheel",
+             "cython==0.29.22",
+2026-05-20 13:58:55,739 - INFO - Eval script for astropy__astropy-12907 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/astropy__astropy-12907/eval.sh; copying to container...
+2026-05-20 14:01:04,209 - INFO - Test runtime: 128.39 seconds
+2026-05-20 14:01:04,219 - INFO - Test output for astropy__astropy-12907 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/astropy__astropy-12907/test_output.txt
+2026-05-20 14:01:04,330 - INFO - Git diff after:
+diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py
+index a308e27297..d07fc25a02 100644
+--- a/astropy/modeling/separable.py
++++ b/astropy/modeling/separable.py
+@@ -233,7 +233,7 @@ def _cstack(left, right):
+     """
+     noutp = _compute_n_outputs(left, right)
+ 
+-    if isinstance(left, Model):
++    if isinstance(left, (Model, CompoundModel)):
+         cleft = _coord_matrix(left, 'left', noutp)
+     else:
+         cleft = np.zeros((noutp, left.shape[1]))
+@@ -241,7 +241,7 @@ def _cstack(left, right):
+     if isinstance(right, Model):
+         cright = _coord_matrix(right, 'right', noutp)
+     else:
+-        cright = np.zeros((noutp, right.shape[1]))
++        cright = np.zeros((noutp, right.shape[1])) if isinstance(right, np.ndarray) else _coord_matrix(right, 'right', noutp)
+         cright[-right.shape[0]:, -right.shape[1]:] = 1
+ 
+     return np.hstack([cleft, cright])
+diff --git a/pyproject.toml b/pyproject.toml
+index 3364d30740..02dddbe713 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools",
++requires = ["setuptools==68.0.0",
+             "setuptools_scm>=6.2",
+             "wheel",
+             "cython==0.29.22",
+2026-05-20 14:01:04,330 - INFO - Grading answer for astropy__astropy-12907...
+2026-05-20 14:01:04,333 - INFO - report: {'astropy__astropy-12907': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['astropy/modeling/tests/test_separable.py::test_separable[compound_model6-result6]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model9-result9]']}, 'PASS_TO_PASS': {'success': ['astropy/modeling/tests/test_separable.py::test_coord_matrix', 'astropy/modeling/tests/test_separable.py::test_cdot', 'astropy/modeling/tests/test_separable.py::test_cstack', 'astropy/modeling/tests/test_separable.py::test_arith_oper', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model0-result0]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model1-result1]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model2-result2]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model3-result3]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model4-result4]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model5-result5]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model7-result7]', 'astropy/modeling/tests/test_separable.py::test_separable[compound_model8-result8]', 'astropy/modeling/tests/test_separable.py::test_custom_model_separable'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for astropy__astropy-12907: resolved: False
+2026-05-20 14:01:04,333 - INFO - Attempting to stop container sweb.eval.astropy__astropy-12907.qwen32b_300_agentless_repaired...
+2026-05-20 14:01:19,500 - INFO - Attempting to remove container sweb.eval.astropy__astropy-12907.qwen32b_300_agentless_repaired...
+2026-05-20 14:01:19,552 - INFO - Container sweb.eval.astropy__astropy-12907.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:01:19,552 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest...
+2026-05-20 14:01:19,559 - INFO - Image swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest removed.

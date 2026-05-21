@@ -1,0 +1,143 @@
+diff --git a/lib/matplotlib/figure.py b/lib/matplotlib/figure.py
+index b4c38368bf..ef7a7e0850 100644
+--- a/lib/matplotlib/figure.py
++++ b/lib/matplotlib/figure.py
+@@ -189,6 +189,7 @@ class FigureBase(Artist):
+         self._align_label_groups = {"x": cbook.Grouper(), "y": cbook.Grouper()}
+ 
+         self.figure = self
++        self._align_label_weakrefs = []
+         self._localaxes = []  # track all axes
+         self.artists = []
+         self.lines = []
+@@ -266,6 +267,7 @@ class FigureBase(Artist):
+                         ax.set_xlabel('')
+ 
+         if allsubplots:
++                self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+             self.subplots_adjust(bottom=bottom)
+         self.stale = True
+ 
+@@ -366,6 +368,10 @@ default: %(va)s
+             if 'fontsize' not in kwargs and 'size' not in kwargs:
+                 kwargs['size'] = mpl.rcParams[info['size']]
+             if 'fontweight' not in kwargs and 'weight' not in kwargs:
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
++
++    def _remove_align_label_weakrefs(self):
++        self._align_label_weakrefs = [wr for wr in self._align_label_weakrefs if wr() is not None]
+                 kwargs['weight'] = mpl.rcParams[info['weight']]
+ 
+         sup = self.text(x, y, t, **kwargs)
+@@ -1066,6 +1072,7 @@ default: %(va)s
+ 
+             This call signature is discouraged, because the relation between
+             plot elements and labels is only implicit by their order and can
++        self._align_label_weakrefs = []
+             easily be mixed up.
+ 
+         To make a legend for all artists on all Axes, call this function with
+@@ -1076,6 +1083,7 @@ default: %(va)s
+             ax2.plot([2, 4, 6], color='red')
+             fig.legend(['the blues', 'the reds'])
+ 
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+ 
+         Parameters
+         ----------
+@@ -1096,6 +1104,7 @@ default: %(va)s
+ 
+         Returns
+         -------
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+         `~matplotlib.legend.Legend`
+ 
+         Other Parameters
+@@ -1116,6 +1125,7 @@ default: %(va)s
+         handles, labels, extra_args, kwargs = mlegend._parse_legend_args(
+                 self.axes,
+                 *args,
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+                 **kwargs)
+         # check for third arg
+         if len(extra_args):
+@@ -1136,6 +1146,7 @@ default: %(va)s
+         l._remove_method = self.legends.remove
+         self.stale = True
+         return l
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+ 
+     @_docstring.dedent_interpd
+     def text(self, x, y, s, fontdict=None, **kwargs):
+@@ -1156,6 +1167,7 @@ default: %(va)s
+             A dictionary to override the default text properties. If not given,
+             the defaults are determined by :rc:`font.*`. Properties passed as
+             *kwargs* override the corresponding ones given in *fontdict*.
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+ 
+         Returns
+         -------
+@@ -1176,6 +1188,7 @@ default: %(va)s
+         effective_kwargs = {
+             'transform': self.transSubfigure,
+             **(fontdict if fontdict is not None else {}),
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+             **kwargs,
+         }
+         text = Text(x=x, y=y, text=s, **effective_kwargs)
+@@ -1196,6 +1209,7 @@ default: %(va)s
+         Parameters
+         ----------
+         mappable
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+             The `matplotlib.cm.ScalarMappable` (i.e., `.AxesImage`,
+             `.ContourSet`, etc.) described by this colorbar.  This argument is
+             mandatory for the `.Figure.colorbar` method but optional for the
+@@ -1216,6 +1230,7 @@ default: %(va)s
+             will be stolen, if *cax* is None.  This has no effect if *cax* is
+             set.
+ 
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+         use_gridspec : bool, optional
+             If *cax* is ``None``, a new *cax* is created as an instance of
+             Axes.  If *ax* is positioned with a subplotspec and *use_gridspec*
+@@ -1236,6 +1251,7 @@ default: %(va)s
+         included automatically.
+ 
+         The *shrink* kwarg provides a simple way to scale the colorbar with
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+         respect to the axes. Note that if *cax* is specified, it determines the
+         size of the colorbar, and *shrink* and *aspect* are ignored.
+ 
+@@ -1256,6 +1272,7 @@ default: %(va)s
+         with semi-transparent images (alpha < 1) and colorbar extensions;
+         therefore, this workaround is not used by default (see issue #1188).
+         """
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+ 
+         if ax is None:
+             ax = getattr(mappable, "axes", None)
+@@ -1276,6 +1293,7 @@ default: %(va)s
+             if (use_gridspec
+                     and isinstance(ax, mpl.axes._base._AxesBase)
+                     and ax.get_subplotspec()):
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+                 cax, kwargs = cbar.make_axes_gridspec(ax, **kwargs)
+             else:
+                 cax, kwargs = cbar.make_axes(ax, **kwargs)
+@@ -1296,6 +1314,7 @@ default: %(va)s
+         Adjust the subplot layout parameters.
+ 
+         Unset parameters are left unmodified; initial values are given by
++        self._align_label_weakrefs.extend([weakref.ref(ax.xaxis), weakref.ref(ax.yaxis)])
+         :rc:`figure.subplot.[name]`.
+ 
+         Parameters
+@@ -1316,6 +1335,7 @@ default: %(va)s
+             The width of the padding between subplots,
+             as a fraction of the average Axes width.
+         hspace : float, optional
++        self._align_label_weakrefs.extend([weakref.ref(ax
+             The height of the padding between subplots,
+             as a fraction of the average Axes height.
+         """

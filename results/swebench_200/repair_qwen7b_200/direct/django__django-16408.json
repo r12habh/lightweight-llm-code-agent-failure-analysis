@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16408",
+  "input_patch_chars": 603,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 11\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file tests/known_related_objects/tests.py\nHunk #1 FAILED at 168.\n1 out of 1 hunk FAILED -- saving rejects to file tests/known_related_objects/tests.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

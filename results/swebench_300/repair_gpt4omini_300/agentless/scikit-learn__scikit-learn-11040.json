@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-11040",
+  "input_patch_chars": 689,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 16\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15:          if n_neighbors <= 0:\n\n",
+          "stdout": "patching file sklearn/neighbors/unsupervised.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14608",
+  "input_patch_chars": 746,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/formsets.py...\nHunk #1 succeeded at 77 (offset -23 lines).\nerror: while searching for:\n        self.error_messages = messages\n\n    def non_form_errors(self):\n        \"\"\"\n        Return an ErrorList of errors that aren't associated with a particular\n        form -- i.e., from formset.clean(). Return an empty ErrorList if there\n\nerror: patch failed: django/forms/formsets.py:110\nApplying patch django/forms/formsets.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/formsets.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 77 (offset -23 lines).\nHunk #2 FAILED at 110.\n1 out of 2 hunks FAILED -- saving rejects to file django/forms/formsets.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-24970",
+  "input_patch_chars": 640,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 16\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/colors.py\nHunk #1 FAILED at 727.\n1 out of 1 hunk FAILED -- saving rejects to file lib/matplotlib/colors.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

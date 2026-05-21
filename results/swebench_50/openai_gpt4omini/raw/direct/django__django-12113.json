@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-12113",
+  "raw": "```diff\ndiff --git a/tests/test_sqlite.py b/tests/test_sqlite.py\nindex f1b65f7d01..9ce4e32e14 100644\n--- a/tests/test_sqlite.py\n+++ b/tests/test_sqlite.py\n@@ -15,9 +15,15 @@\n DATABASES = {\n     'default': {\n         'ENGINE': 'django.db.backends.sqlite3',\n+        'TEST': {\n+            'NAME': 'test_default.sqlite3'\n+        },\n     },\n     'other': {\n         'ENGINE': 'django.db.backends.sqlite3',\n+        'TEST': {\n+            'NAME': 'test_other.sqlite3'\n+        },\n     }\n }\n```",
+  "usage": {
+    "input_tokens": 19254,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 150,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 19404
+  },
+  "localized_files": []
+}

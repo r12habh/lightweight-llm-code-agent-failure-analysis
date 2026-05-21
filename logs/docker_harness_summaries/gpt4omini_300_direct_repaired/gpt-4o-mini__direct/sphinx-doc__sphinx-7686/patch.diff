@@ -1,0 +1,13 @@
+diff --git a/sphinx/ext/autosummary/generate.py b/sphinx/ext/autosummary/generate.py
+index a57c73fb7..0c14ea905 100644
+--- a/sphinx/ext/autosummary/generate.py
++++ b/sphinx/ext/autosummary/generate.py
+@@ -208,7 +208,7 @@ def generate_autosummary_content(name: str, obj: Any, parent: Any,
+                     skipped = skip_member(value, name, documenter.objtype)
+                     if skipped is True:
+                         pass
+-                    elif skipped is False:
++                    elif skipped is False or not imported_members:
+                         # show the member forcedly
+                         items.append(name)
+                         public.append(name)

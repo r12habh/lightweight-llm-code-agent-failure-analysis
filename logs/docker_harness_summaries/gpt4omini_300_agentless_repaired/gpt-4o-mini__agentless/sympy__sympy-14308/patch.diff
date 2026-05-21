@@ -1,0 +1,13 @@
+diff --git a/sympy/printing/pretty/stringpict.py b/sympy/printing/pretty/stringpict.py
+index 82073c1284..26c7cec21f 100644
+--- a/sympy/printing/pretty/stringpict.py
++++ b/sympy/printing/pretty/stringpict.py
+@@ -29,7 +29,7 @@ def __init__(self, s, baseline=0):
+         """Initialize from string.
+         Multiline strings are centered.
+         """
+-        self.s = s
++        self.s = s.strip()  # Strip leading and trailing whitespace
+         #picture is a string that just can be printed
+         self.picture = stringPict.equalLengths(s.splitlines())
+         #baseline is the line number of the "base line"

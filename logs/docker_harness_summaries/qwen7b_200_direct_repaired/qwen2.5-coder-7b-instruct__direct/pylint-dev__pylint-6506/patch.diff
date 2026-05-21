@@ -1,0 +1,28 @@
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index e9195f86e..232f4cb60 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -296,6 +296,7 @@ class PyLinter(
+         self.msg_status = 0
+         self._msgs_state: dict[str, bool] = {}
+         self._by_id_managed_msgs: list[ManagedMessage] = []
++        self._unrecognized_options: list[str] = []
+ 
+         reporters.ReportsHandlerMixIn.__init__(self)
+         checkers.BaseTokenChecker.__init__(self, self)
+@@ -318,6 +319,7 @@ class PyLinter(
+             "The option_groups attribute has been deprecated and will be removed in pylint 3.0",
+             DeprecationWarning,
+         )
++            self._unrecognized_options.append(args)
+         return self._option_groups
+ 
+     @option_groups.setter
+@@ -328,6 +330,7 @@ class PyLinter(
+         )
+         self._option_groups = value
+ 
++            self.add_message("unrecognized-option", 0, ", ".join(self._unrecognized_options))
+     def load_default_plugins(self) -> None:
+         checkers.initialize(self)
+         reporters.initialize(self)

@@ -1,0 +1,12 @@
+diff --git a/src/_pytest/assertion/rewrite.py b/src/_pytest/assertion/rewrite.py
+index 157903faf..a29a897e9 100644
+--- a/src/_pytest/assertion/rewrite.py
++++ b/src/_pytest/assertion/rewrite.py
+@@ -1152,7 +1152,7 @@ def try_makedirs(cache_dir: Path) -> bool:
+     except OSError as e:
+         # as of now, EROFS doesn't have an equivalent OSError-subclass
+         if e.errno == errno.EROFS:
+-            return False
++            return "PYTEST_DONT_REWRITE" in docstring
+         raise
+     return True

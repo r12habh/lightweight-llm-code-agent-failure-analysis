@@ -1,0 +1,13 @@
+diff --git a/sympy/core/numbers.py b/sympy/core/numbers.py
+index 7bc96e68eb..56d6433a8e 100644
+--- a/sympy/core/numbers.py
++++ b/sympy/core/numbers.py
+@@ -133,7 +133,7 @@ def _as_integer_ratio(p):
+ 
+ def _decimal_to_Rational_prec(dec):
+     """Convert an ordinary decimal instance to a Rational."""
+-    if not dec.is_finite():
++    if not dec.is_finite() or isinstance(dec, float):
+         raise TypeError("dec must be finite, got %s." % dec)
+     s, d, e = dec.as_tuple()
+     prec = len(d)

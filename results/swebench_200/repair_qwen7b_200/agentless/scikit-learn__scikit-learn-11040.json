@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-11040",
+  "input_patch_chars": 1062,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/neighbors/base.py...\nHunk #1 succeeded at 117 (offset 17 lines).\nerror: while searching for:\n            raise ValueError(\"Metric '%s' not valid for algorithm '%s'\"\n                             % (self.metric, self.algorithm))\n\n\n        if self.metric_params is not None and 'p' in self.metric_params:\n            warnings.warn(\"Parameter p is found in metric_params. \"\n\nerror: patch failed: sklearn/neighbors/base.py:110\nApplying patch sklearn/neighbors/base.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/neighbors/base.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 117 (offset 17 lines).\nHunk #2 FAILED at 110.\n1 out of 2 hunks FAILED -- saving rejects to file sklearn/neighbors/base.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

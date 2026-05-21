@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-14308",
+  "input_patch_chars": 1798,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/physics/vector/printing.py...\nerror: while searching for:\n                ol += Dyadic([(v[0][0] * v2[0][2], v[1].x, v2[1].z)])\n                ol += Dyadic([(v[0][1] * v2[0][0], v[1].y, v2[1].x)])\n                ol += Dyadic([(v[0][1] * v2[0][1], v[1].y, v2[1].y)])\n                ol += Dyadic([(v[0][1] * v2[0][2], v[1].y, v2[1].z)])\n                ol += Dyadic([(v[0][2] * v2[0][0], v[1].z, v2[1].x)])\n                ol += Dyadic([(v[0][2] * v2[0][1], v[1].z, v2[1].y)])\n                ol += Dyadic([(v[0][2] * v2[0][2], v[1].z, v2[1].z)])\n\nerror: patch failed: sympy/physics/vector/printing.py:165\nerror: while searching for:\n                if ar[i][0][j] == 1:\n                    pform = vp._print(ar[i][1].pretty_vecs[j])\n                # if the coef of the basis vector is -1, we skip the 1\n                elif ar[i][0][j] == -1:\n                    pform = vp._print(ar[i][1].pretty_vecs[j])\n                    pform= prettyForm(*pform.left(\" - \"))\n                    bin = prettyForm.NEG\n\nerror: patch failed: sympy/physics/vector/printing.py:204\nerror: while searching for:\n                elif ar[i][0][j] != 0:\n                    # If the basis vector coeff is not 1 or -1,\n                    # we might wrap it in parentheses, for readability.\n                    if isinstance(ar[i][0][j], Add):\n                        pform = vp._print(ar[i][0][j]).parens()\n                    else:\n                        pform = vp._print(ar[i][0][j])\n\nerror: patch failed: sympy/physics/vector/printing.py:212\nApplying patch sympy/physics/vector/printing.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/physics/vector/printing.py\nHunk #1 FAILED at 165.\nHunk #2 FAILED at 204.\nHunk #3 FAILED at 212.\n3 out of 3 hunks FAILED -- saving rejects to file sympy/physics/vector/printing.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

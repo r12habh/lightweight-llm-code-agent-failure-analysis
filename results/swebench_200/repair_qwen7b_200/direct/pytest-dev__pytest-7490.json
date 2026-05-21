@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-7490",
+  "input_patch_chars": 629,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 20\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 4\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/_pytest/mark.py b/_pytest/mark.py\n|--- a/_pytest/mark.py\n|+++ b/_pytest/mark.py\n--------------------------\nNo file to patch.  Skipping patch.\n2 out of 2 hunks ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

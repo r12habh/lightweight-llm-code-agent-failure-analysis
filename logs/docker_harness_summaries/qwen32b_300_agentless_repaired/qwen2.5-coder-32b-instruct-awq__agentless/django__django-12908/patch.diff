@@ -1,0 +1,15 @@
+diff --git a/tests/gis_tests/relatedapp/tests.py b/tests/gis_tests/relatedapp/tests.py
+index 5f003b78f2..0c0149e8e8 100644
+--- a/tests/gis_tests/relatedapp/tests.py
++++ b/tests/gis_tests/relatedapp/tests.py
+@@ -221,6 +221,10 @@ class RelatedGeoModelTest(TestCase):
+         self.assertEqual(2, len(names))
+         self.assertIn('Aurora', names)
+         self.assertIn('Kecksburg', names)
++        # Test distinct on a union query
++        qs = qs1.union(qs2).distinct('location__point')
++        names = [c.name for c in qs]
++        self.assertEqual(2, len(names))
+ 
+     # TODO: fix on Oracle -- get the following error because the SQL is ordered
+     # by a geometry object, which Oracle apparently doesn't like:

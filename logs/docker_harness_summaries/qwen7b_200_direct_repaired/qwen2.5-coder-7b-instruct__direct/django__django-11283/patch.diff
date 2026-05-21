@@ -1,0 +1,13 @@
+diff --git a/django/contrib/auth/migrations/0011_update_proxy_permissions.py b/django/contrib/auth/migrations/0011_update_proxy_permissions.py
+index 0e66649695..69cfce924b 100644
+--- a/django/contrib/auth/migrations/0011_update_proxy_permissions.py
++++ b/django/contrib/auth/migrations/0011_update_proxy_permissions.py
+@@ -41,7 +41,7 @@ def revert_proxy_model_permissions(apps, schema_editor):
+ class Migration(migrations.Migration):
+     dependencies = [
+         ('auth', '0010_alter_group_name_max_length'),
+-        ('contenttypes', '0002_remove_content_type_name'),
++        ('contenttypes', '0003_alter_content_type_name'),
+     ]
+     operations = [
+         migrations.RunPython(update_proxy_model_permissions, revert_proxy_model_permissions),

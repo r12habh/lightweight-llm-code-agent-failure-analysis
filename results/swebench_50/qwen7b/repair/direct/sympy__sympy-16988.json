@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-16988",
+  "input_patch_chars": 628,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/mul.py...\nerror: while searching for:\nfrom sympy.core.basic import Basic\nfrom sympy.core.numbers import S\nfrom sympy.core.singleton import S\nfrom sympy.core.operations import AssocOp\nfrom sympy.core.cache import cacheit\nfrom sympy.core.logic import fuzzy_not, _fuzzy_group\n\nerror: patch failed: sympy/core/mul.py:10\nerror: sympy/core/mul.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/mul.py...\nerror: while searching for:\nfrom sympy.core.basic import Basic\nfrom sympy.core.numbers import S\nfrom sympy.core.singleton import S\nfrom sympy.core.operations import AssocOp\nfrom sympy.core.cache import cacheit\nfrom sympy.core.logic import fuzzy_not, _fuzzy_group\n\nerror: patch failed: sympy/core/mul.py:10\nHunk #2 succeeded at 69 (offset -32 lines).\nApplying patch sympy/core/mul.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 954
+}

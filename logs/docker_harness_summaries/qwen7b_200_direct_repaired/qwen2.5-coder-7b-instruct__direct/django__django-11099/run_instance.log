@@ -1,0 +1,47 @@
+2026-05-20 16:46:15,089 - INFO - Creating container for django__django-11099...
+2026-05-20 16:46:16,290 - INFO - Container for django__django-11099 created: b5e66da4e5fa413ac53534b74ebd77609788f16757e4af034c4d51cde3e9950d
+2026-05-20 16:46:16,464 - INFO - Container for django__django-11099 started: b5e66da4e5fa413ac53534b74ebd77609788f16757e4af034c4d51cde3e9950d
+2026-05-20 16:46:16,465 - INFO - Intermediate patch for django__django-11099 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11099/patch.diff, now applying to container...
+2026-05-20 16:46:16,656 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/auth/validators.py...
+Applied patch django/contrib/auth/validators.py cleanly.
+
+2026-05-20 16:46:17,494 - INFO - Git diff before:
+diff --git a/django/contrib/auth/validators.py b/django/contrib/auth/validators.py
+index b4878cfd45..942cb5b033 100644
+--- a/django/contrib/auth/validators.py
++++ b/django/contrib/auth/validators.py
+@@ -2,7 +2,7 @@ import re
+ 
+ from django.core import validators
+ from django.utils.deconstruct import deconstructible
+-from django.utils.translation import gettext_lazy as _
++from django.utils.translation import gettext as _
+ 
+ 
+ @deconstructible
+2026-05-20 16:46:17,495 - INFO - Eval script for django__django-11099 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11099/eval.sh; copying to container...
+2026-05-20 16:46:31,965 - INFO - Test runtime: 14.41 seconds
+2026-05-20 16:46:31,967 - INFO - Test output for django__django-11099 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11099/test_output.txt
+2026-05-20 16:46:32,092 - INFO - Git diff after:
+diff --git a/django/contrib/auth/validators.py b/django/contrib/auth/validators.py
+index b4878cfd45..942cb5b033 100644
+--- a/django/contrib/auth/validators.py
++++ b/django/contrib/auth/validators.py
+@@ -2,7 +2,7 @@ import re
+ 
+ from django.core import validators
+ from django.utils.deconstruct import deconstructible
+-from django.utils.translation import gettext_lazy as _
++from django.utils.translation import gettext as _
+ 
+ 
+ @deconstructible
+2026-05-20 16:46:32,092 - INFO - Grading answer for django__django-11099...
+2026-05-20 16:46:32,097 - INFO - report: {'django__django-11099': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)'], 'failure': ['test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests)', 'test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests)']}, 'PASS_TO_PASS': {'success': ['test_help_text (auth_tests.test_validators.MinimumLengthValidatorTest)', 'test_validate (auth_tests.test_validators.MinimumLengthValidatorTest)', 'test_help_text (auth_tests.test_validators.NumericPasswordValidatorTest)', 'test_validate (auth_tests.test_validators.NumericPasswordValidatorTest)', 'test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)', 'test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)', 'test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest)', 'test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest)', 'test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest)', 'test_password_changed (auth_tests.test_validators.PasswordValidationTest)', 'test_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest)', 'test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest)', 'test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest)', 'test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest)', 'test_validate_password (auth_tests.test_validators.PasswordValidationTest)', 'test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest)', 'test_validate (auth_tests.test_validators.CommonPasswordValidatorTest)', 'test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest)', 'test_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11099: resolved: False
+2026-05-20 16:46:32,098 - INFO - Attempting to stop container sweb.eval.django__django-11099.qwen7b_200_direct_repaired...
+2026-05-20 16:46:47,292 - INFO - Attempting to remove container sweb.eval.django__django-11099.qwen7b_200_direct_repaired...
+2026-05-20 16:46:47,315 - INFO - Container sweb.eval.django__django-11099.qwen7b_200_direct_repaired removed.
+2026-05-20 16:46:47,315 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11099:latest...
+2026-05-20 16:46:47,322 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11099:latest removed.

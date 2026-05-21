@@ -1,0 +1,47 @@
+2026-05-08 21:24:10,146 - INFO - Creating container for django__django-15202...
+2026-05-08 21:24:10,730 - INFO - Container for django__django-15202 created: 2e3ed5080d8d8136e9fcfa87babdaf90c0f5a1972816531150f962a2a0b855af
+2026-05-08 21:24:10,846 - INFO - Container for django__django-15202 started: 2e3ed5080d8d8136e9fcfa87babdaf90c0f5a1972816531150f962a2a0b855af
+2026-05-08 21:24:10,847 - INFO - Intermediate patch for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-15202/patch.diff, now applying to container...
+2026-05-08 21:24:11,012 - INFO - >>>>> Applied Patch:
+Checking patch django/core/validators.py...
+Applied patch django/core/validators.py cleanly.
+
+2026-05-08 21:24:11,633 - INFO - Git diff before:
+diff --git a/django/core/validators.py b/django/core/validators.py
+index 72fbe15551..c8480d28b5 100644
+--- a/django/core/validators.py
++++ b/django/core/validators.py
+@@ -116,7 +116,7 @@ class URLValidator(RegexValidator):
+                 try:
+                     scheme, netloc, path, query, fragment = urlsplit(value)
+                 except ValueError:  # for example, "Invalid IPv6 URL"
+-                    raise ValidationError(self.message, code=self.code, params={'value': value})
++                    raise ValidationError(self.message, code='invalid', params={'value': value})
+                 try:
+                     netloc = punycode(netloc)  # IDN -> ACE
+                 except UnicodeError:  # invalid domain part
+2026-05-08 21:24:11,634 - INFO - Eval script for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-15202/eval.sh; copying to container...
+2026-05-08 21:24:19,273 - INFO - Test runtime: 7.57 seconds
+2026-05-08 21:24:19,274 - INFO - Test output for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-15202/test_output.txt
+2026-05-08 21:24:19,397 - INFO - Git diff after:
+diff --git a/django/core/validators.py b/django/core/validators.py
+index 72fbe15551..c8480d28b5 100644
+--- a/django/core/validators.py
++++ b/django/core/validators.py
+@@ -116,7 +116,7 @@ class URLValidator(RegexValidator):
+                 try:
+                     scheme, netloc, path, query, fragment = urlsplit(value)
+                 except ValueError:  # for example, "Invalid IPv6 URL"
+-                    raise ValidationError(self.message, code=self.code, params={'value': value})
++                    raise ValidationError(self.message, code='invalid', params={'value': value})
+                 try:
+                     netloc = punycode(netloc)  # IDN -> ACE
+                 except UnicodeError:  # invalid domain part
+2026-05-08 21:24:19,398 - INFO - Grading answer for django__django-15202...
+2026-05-08 21:24:19,399 - INFO - report: {'django__django-15202': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_urlfield_clean_invalid (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_not_required (forms_tests.field_tests.test_urlfield.URLFieldTest)']}, 'PASS_TO_PASS': {'success': ['test_urlfield_clean (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_required (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_strip_on_none_value (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_unable_to_set_strip_kwarg (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget_max_min_length (forms_tests.field_tests.test_urlfield.URLFieldTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15202: resolved: False
+2026-05-08 21:24:19,400 - INFO - Attempting to stop container sweb.eval.django__django-15202.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:24:34,662 - INFO - Attempting to remove container sweb.eval.django__django-15202.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:24:34,679 - INFO - Container sweb.eval.django__django-15202.hf_qwen25_coder32b_awq_50_direct_repaired removed.
+2026-05-08 21:24:34,680 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15202:latest...
+2026-05-08 21:24:35,712 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15202:latest removed.

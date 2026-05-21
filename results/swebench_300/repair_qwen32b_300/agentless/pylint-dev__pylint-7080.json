@@ -1,0 +1,28 @@
+{
+  "instance_id": "pylint-dev__pylint-7080",
+  "input_patch_chars": 553,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch examples/pyproject.toml...\nerror: while searching for:\n# ignore =\n\n# Add files or directories matching the regex patterns to the ignore-list. The regex matches against paths and can be in Posix or Windows format.\n\n# Files or directories matching the regex patterns are skipped. The regex matches against base names, not paths. The default value ignores Emacs file locks\nignore-patterns = [\"^\\\\.#\"]\n\nerror: patch failed: examples/pyproject.toml:10\nerror: examples/pyproject.toml: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch examples/pyproject.toml...\nerror: while searching for:\n# ignore =\n\n# Add files or directories matching the regex patterns to the ignore-list. The regex matches against paths and can be in Posix or Windows format.\n\n# Files or directories matching the regex patterns are skipped. The regex matches against base names, not paths. The default value ignores Emacs file locks\nignore-patterns = [\"^\\\\.#\"]\n\nerror: patch failed: examples/pyproject.toml:10\nApplying patch examples/pyproject.toml with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 424
+}

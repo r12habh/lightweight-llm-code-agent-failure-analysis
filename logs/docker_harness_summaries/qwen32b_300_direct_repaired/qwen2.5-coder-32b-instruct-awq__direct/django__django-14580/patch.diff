@@ -1,0 +1,12 @@
+diff --git a/django/db/migrations/writer.py b/django/db/migrations/writer.py
+index 4918261fb0..66e95b17ed 100644
+--- a/django/db/migrations/writer.py
++++ b/django/db/migrations/writer.py
+@@ -104,6 +104,7 @@ class OperationWriter:
+ 
+     def indent(self):
+         self.indentation += 1
++        elif "from django.db import migrations" in imports:
+ 
+     def unindent(self):
+         self.indentation -= 1

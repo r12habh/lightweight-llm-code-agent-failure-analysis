@@ -1,0 +1,10 @@
+diff --git a/astropy/io/ascii/core.py b/astropy/io/ascii/core.py
+index 381b5b13db..195ca27f21 100644
+--- a/astropy/io/ascii/core.py
++++ b/astropy/io/ascii/core.py
+@@ -56,6 +56,7 @@ def _check_multidim_table(table, max_ndim):
+             f"column(s) with dimension > {max_ndim} "
+             "cannot be be written with this format, try using 'ecsv' "
+             "(Enhanced CSV) format"
++from astropy.table import QTable
+         )

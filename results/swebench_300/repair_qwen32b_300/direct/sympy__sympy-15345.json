@@ -1,0 +1,26 @@
+{
+  "instance_id": "sympy__sympy-15345",
+  "input_patch_chars": 1198,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 31\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/printing/mathematica.py\nHunk #1 succeeded at 70 with fuzz 3 (offset -34 lines).\nHunk #2 succeeded at 79 with fuzz 3 (offset -33 lines).\nHunk #3 succeeded at 89 (offset -33 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

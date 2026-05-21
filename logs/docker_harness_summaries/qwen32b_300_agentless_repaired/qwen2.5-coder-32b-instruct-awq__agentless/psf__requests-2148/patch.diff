@@ -1,0 +1,15 @@
+diff --git a/requests/packages/urllib3/response.py b/requests/packages/urllib3/response.py
+index 7e0d47fa..d4298e4e 100644
+--- a/requests/packages/urllib3/response.py
++++ b/requests/packages/urllib3/response.py
+@@ -184,6 +184,10 @@ class HTTPResponse(io.IOBase):
+                     if amt != 0 and not data:  # Platform-specific: Buggy versions of Python.
+                         # Close the connection when no data is returned
+                         #
++                    self._fp.close()
++                    raise ConnectionError("Connection closed by peer")
++                elif not data:
++                    raise ConnectionError("No data received")
+                         # This is redundant to what httplib/http.client _should_
+                         # already do.  However, versions of python released before
+                         # December 15, 2012 (http://bugs.python.org/issue16298) do

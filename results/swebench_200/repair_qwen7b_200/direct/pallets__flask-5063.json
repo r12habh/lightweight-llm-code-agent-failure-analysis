@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-5063",
+  "input_patch_chars": 6796,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 141\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 141: @@ -3\n\n",
+          "stdout": "patching file src/flask/app.py\nHunk #1 succeeded at 123 with fuzz 3.\nHunk #2 succeeded at 141 with fuzz 3.\nHunk #3 succeeded at 152 with fuzz 3.\nHunk #4 succeeded at 163 with fuzz 3.\nHunk #5 succeeded at 174 with fuzz 3.\nHunk #6 succeeded at 185 with fuzz 3.\nHunk #7 succeeded at 196 with fuzz 3.\nHunk #8 succeeded at 207 with fuzz 3.\nHunk #9 succeeded at 218 with fuzz 3.\nHunk #10 succeeded at 229 with fuzz 3.\nHunk #11 succeeded at 240 with fuzz 3.\nHunk #12 succeeded at 251 with fuzz 3.\nHunk #13 succeeded at 262 with fuzz 3.\nHunk #14 succeeded at 273 with fuzz 3.\nHunk #15 succeeded at 284 with fuzz 3.\nHunk #16 succeeded at 295 with fuzz 3.\nHunk #17 succeeded at 306 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

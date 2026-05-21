@@ -1,0 +1,15 @@
+diff --git a/sympy/printing/ccode.py b/sympy/printing/ccode.py
+index 30a07a7b59..c325018da8 100644
+--- a/sympy/printing/ccode.py
++++ b/sympy/printing/ccode.py
+@@ -44,6 +44,10 @@
+     "floor": "floor",
+     "ceiling": "ceil",
+ }
++known_functions["sinc"] = [
++    (lambda x: Ne(x, 0), "sin(x)/x"),
++    (lambda x: True, "1")
++]
+ 
+ # These are the core reserved words in the C language. Taken from:
+ # http://crasseux.com/books/ctutorial/Reserved-words-in-C.html

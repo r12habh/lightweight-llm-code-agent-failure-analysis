@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12125",
+  "input_patch_chars": 1545,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    def deconstruct(self):\n        \"\"\"\n        Returns a plain text version of the field. Used in migration\n        files to allow for schema alterations.\n        \"\"\"\n        name = self.name\n\nerror: patch failed: django/db/models/fields/__init__.py:403\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    def deconstruct(self):\n        \"\"\"\n        Returns a plain text version of the field. Used in migration\n        files to allow for schema alterations.\n        \"\"\"\n        name = self.name\n\nerror: patch failed: django/db/models/fields/__init__.py:403\nApplying patch django/db/models/fields/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 575
+}

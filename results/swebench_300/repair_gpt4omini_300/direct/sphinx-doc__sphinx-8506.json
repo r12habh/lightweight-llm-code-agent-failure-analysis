@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8506",
+  "input_patch_chars": 543,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/usage/restructuredtext/directives.rst...\nerror: while searching for:\n\n.. rst:directive:: option\n\n   A command-line option to an executable program.  This generates a link to a\n   :rst:dir:`option` directive, if it exists. The following syntaxes are recognized:\n\n   * ``-opt args``\n\nerror: patch failed: doc/usage/restructuredtext/directives.rst:143\nApplying patch doc/usage/restructuredtext/directives.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file doc/usage/restructuredtext/directives.rst\nHunk #1 FAILED at 143.\n1 out of 1 hunk FAILED -- saving rejects to file doc/usage/restructuredtext/directives.rst.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

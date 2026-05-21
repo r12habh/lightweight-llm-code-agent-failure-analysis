@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-17139",
+  "input_patch_chars": 400,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n    if (rv.exp < 0) == True:\n        raise TypeError(\"Invalid comparison of complex %s\" % me)\n\n    if rv.is_complex:\n        raise TypeError(\"Invalid comparison of complex %s\" % me)\n\n    return super()._lt(rhs)\n\nerror: patch failed: sympy/simplify/fu.py:506\nApplying patch sympy/simplify/fu.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/simplify/fu.py\nHunk #1 FAILED at 506.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/simplify/fu.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16820",
+  "input_patch_chars": 493,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/releases/4.2.txt...\nerror: while searching for:\n\nerror: patch failed: docs/releases/4.2.txt:0\nerror: docs/releases/4.2.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/releases/4.2.txt...\nerror: while searching for:\n\nerror: patch failed: docs/releases/4.2.txt:0\nApplying patch docs/releases/4.2.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 539
+}

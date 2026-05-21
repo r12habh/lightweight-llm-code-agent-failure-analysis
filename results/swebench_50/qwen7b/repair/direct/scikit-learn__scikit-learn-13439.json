@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13439",
+  "input_patch_chars": 400,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/pipeline.py...\nerror: while searching for:\n    def __len__(self):\n        \"\"\"Return the number of steps in the pipeline.\"\"\"\n        return len(self.steps)\n\n    def __getitem__(self, ind):\n        \"\"\"Return a single step or a slice of steps.\"\"\"\n\nerror: patch failed: sklearn/pipeline.py:100\nerror: sklearn/pipeline.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/pipeline.py...\nerror: while searching for:\n    def __len__(self):\n        \"\"\"Return the number of steps in the pipeline.\"\"\"\n        return len(self.steps)\n\n    def __getitem__(self, ind):\n        \"\"\"Return a single step or a slice of steps.\"\"\"\n\nerror: patch failed: sklearn/pipeline.py:100\nApplying patch sklearn/pipeline.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 536
+}

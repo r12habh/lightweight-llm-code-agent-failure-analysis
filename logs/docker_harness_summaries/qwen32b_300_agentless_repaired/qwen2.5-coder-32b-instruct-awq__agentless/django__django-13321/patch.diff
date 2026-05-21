@@ -1,0 +1,13 @@
+diff --git a/django/contrib/sessions/backends/base.py b/django/contrib/sessions/backends/base.py
+index 187e14b1b7..b39673439f 100644
+--- a/django/contrib/sessions/backends/base.py
++++ b/django/contrib/sessions/backends/base.py
+@@ -147,7 +147,7 @@ class SessionBase:
+             if isinstance(e, SuspiciousOperation):
+                 logger = logging.getLogger('django.security.%s' % e.__class__.__name__)
+                 logger.warning(str(e))
+-            return {}
++            return self._legacy_decode(session_data)
+ 
+     def update(self, dict_):
+         self._session.update(dict_)

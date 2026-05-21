@@ -1,0 +1,13 @@
+diff --git a/sympy/core/sympify.py b/sympy/core/sympify.py
+index cbc5cad3a7..02d0e327f7 100644
+--- a/sympy/core/sympify.py
++++ b/sympy/core/sympify.py
+@@ -364,6 +364,8 @@ def sympify(a, locals=None, convert_xor=True, strict=False, rational=False,
+         transformations += (t_convert_xor,)
+ 
+     try:
++        if '*' in a:
++            raise SympifyError('cannot parse expressions with unparenthesized multiplication')
+         a = a.replace('\n', '')
+         expr = parse_expr(a, local_dict=locals, transformations=transformations, evaluate=evaluate)
+     except (TokenError, SyntaxError) as exc:

@@ -1,0 +1,11 @@
+diff --git a/django/contrib/admin/views/autocomplete.py b/django/contrib/admin/views/autocomplete.py
+index 3903e4c98c..591b128b0d 100644
+--- a/django/contrib/admin/views/autocomplete.py
++++ b/django/contrib/admin/views/autocomplete.py
+@@ -6,6 +6,7 @@ from django.views.generic.list import BaseListView
+ 
+ class AutocompleteJsonView(BaseListView):
+     """Handle AutocompleteWidget's AJAX requests for data."""
++    
+     paginate_by = 20
+     admin_site = None

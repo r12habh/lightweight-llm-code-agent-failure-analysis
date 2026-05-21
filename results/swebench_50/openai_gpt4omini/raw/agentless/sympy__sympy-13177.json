@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-13177",
+  "raw": "```diff\ndiff --git a/sympy/core/mod.py b/sympy/core/mod.py\n--- a/sympy/core/mod.py\n+++ b/sympy/core/mod.py\n@@ -44,6 +44,7 @@\n            if (p == q or p == -q or\n                    p.is_Pow and p.exp.is_Integer and p.base == q or\n                    p.is_integer and q == 1):\n+                if not p.is_integer:\n+                    return p - (p/q).expand() * q\n                return S.Zero\n \n            if q.is_Number:\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 25073,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 233,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 25306
+    },
+    "patch": {
+      "input_tokens": 25170,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 125,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 25295
+    }
+  },
+  "localized_files": [
+    "sympy/core/mod.py",
+    "sympy/core/tests/test_eval_power.py",
+    "sympy/functions/combinatorial/factorials.py",
+    "sympy/solvers/solvers.py",
+    "sympy/functions/special/hyper.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/core/mod.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Modification needed to eval logic for non-integer bases in Mod.\"\n    },\n    {\n      \"path\": \"sympy/core/tests/test_eval_power.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Test cases should be added to cover Mod with non-integer input.\"\n    },\n    {\n      \"path\": \"sympy/functions/combinatorial/factorials.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Indirectly relates to modular arithmetic through factorials.\"\n    },\n    {\n      \"path\": \"sympy/solvers/solvers.py\",\n      \"confidence\": 0.4,\n      \"reason\": \"Might involve solutions where Mod behavior is relevant.\"\n    },\n    {\n      \"path\": \"sympy/functions/special/hyper.py\",\n      \"confidence\": 0.3,\n      \"reason\": \"Potential indirect connection to mod operations in hypergeometric functions.\"\n    }\n  ]\n}\n```"
+}

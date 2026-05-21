@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16910",
+  "input_patch_chars": 782,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/sql/compiler.py...\nerror: while searching for:\n                if not (position := selected_expr_positions.get(expr)) is not None\n            ):\n                sql, params = expr.select_format(self, sql, params)\n                sql, params = expr.select_format(self, sql, params)\n            params_hash = make_hashable(params)\n            if (sql, params_hash) not in seen:\n\nerror: patch failed: django/db/models/sql/compiler.py:420\nerror: django/db/models/sql/compiler.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/compiler.py...\nerror: while searching for:\n                if not (position := selected_expr_positions.get(expr)) is not None\n            ):\n                sql, params = expr.select_format(self, sql, params)\n                sql, params = expr.select_format(self, sql, params)\n            params_hash = make_hashable(params)\n            if (sql, params_hash) not in seen:\n\nerror: patch failed: django/db/models/sql/compiler.py:420\nApplying patch django/db/models/sql/compiler.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 753
+}

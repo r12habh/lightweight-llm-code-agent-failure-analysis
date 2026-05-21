@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15498",
+  "input_patch_chars": 710,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/topics/conditional-view-processing.txt...\nerror: while searching for:\n\nHTTP clients can send a number of headers to tell the server about copies of a\nresource that they have already seen. This is commonly used when retrieving a\nused for all HTTP methods (``POST``, ``PUT``, ``DELETE``, etc.).\n\nFor each page (response) that Django sends back from a view, it might provide\n\nerror: patch failed: docs/topics/conditional-view-processing.txt:9\nerror: docs/topics/conditional-view-processing.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/topics/conditional-view-processing.txt...\nerror: while searching for:\n\nHTTP clients can send a number of headers to tell the server about copies of a\nresource that they have already seen. This is commonly used when retrieving a\nused for all HTTP methods (``POST``, ``PUT``, ``DELETE``, etc.).\n\nFor each page (response) that Django sends back from a view, it might provide\n\nerror: patch failed: docs/topics/conditional-view-processing.txt:9\nApplying patch docs/topics/conditional-view-processing.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 873
+}

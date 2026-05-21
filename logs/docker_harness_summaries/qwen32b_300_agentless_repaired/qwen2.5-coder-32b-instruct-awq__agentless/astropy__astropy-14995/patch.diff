@@ -1,0 +1,15 @@
+diff --git a/astropy/nddata/mixins/ndarithmetic.py b/astropy/nddata/mixins/ndarithmetic.py
+index 4153dfccb2..66fd4129af 100644
+--- a/astropy/nddata/mixins/ndarithmetic.py
++++ b/astropy/nddata/mixins/ndarithmetic.py
+@@ -150,6 +150,10 @@ class NDArithmeticMixin:
+         >>> ndd.add(20)
+         NDDataWithMath(120)
+ 
++            if operand1.mask is None:
++                result_mask = operand2.mask
++            elif operand2.mask is None:
++                result_mask = operand1.mask
+     Using it with two operand on an instance::
+ 
+         >>> ndd = NDDataWithMath(-4)

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14411",
+  "input_patch_chars": 553,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 14\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 13:          el.name = el.name.replace(id_regex, replacement);\n\n",
+          "stdout": "patching file django/contrib/admin/static/admin/js/inlines.js\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

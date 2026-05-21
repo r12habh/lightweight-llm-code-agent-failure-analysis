@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23314",
+  "input_patch_chars": 801,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpv4zomci7.diff:9: trailing whitespace.\n    from matplotlib.axes import _Axes3D \nerror: patch fragment without header at line 13: @@ -933,6 +934,20 @@\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpv4zomci7.diff:9: trailing whitespace.\n    from matplotlib.axes import _Axes3D \nerror: patch fragment without header at line 13: @@ -933,6 +934,20 @@\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 462
+}

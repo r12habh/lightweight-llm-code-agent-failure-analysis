@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13964",
+  "input_patch_chars": 679,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/related_descriptors.py...\nerror: while searching for:\n                setattr(instance, lh_field.attname, getattr(value, rh_field.attname))\n\n        # Set the related instance cache used by __get__ to avoid an SQL query\n        self.field.set_cached_value(instance, value)\n\n        # If this is a one-to-one relation, set the reverse accessor cache on\n\nerror: patch failed: django/db/models/fields/related_descriptors.py:214\nerror: django/db/models/fields/related_descriptors.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/related_descriptors.py...\nerror: while searching for:\n                setattr(instance, lh_field.attname, getattr(value, rh_field.attname))\n\n        # Set the related instance cache used by __get__ to avoid an SQL query\n        self.field.set_cached_value(instance, value)\n\n        # If this is a one-to-one relation, set the reverse accessor cache on\n\nerror: patch failed: django/db/models/fields/related_descriptors.py:214\nApplying patch django/db/models/fields/related_descriptors.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 712
+}

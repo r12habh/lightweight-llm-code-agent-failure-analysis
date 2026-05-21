@@ -1,0 +1,11 @@
+diff --git a/pylint/lint/run.py b/pylint/lint/run.py
+index b8923aac5..83b018a6f 100644
+--- a/pylint/lint/run.py
++++ b/pylint/lint/run.py
+@@ -150,6 +150,7 @@ group are mutually exclusive.",
+         # load command line plugins
+         linter.load_plugin_modules(self._plugins)
+ 
++        self._linter.set_option("ignore-paths", self._linter.config.ignore_paths)
+         linter.disable("I")
+         linter.enable("c-extension-no-member")

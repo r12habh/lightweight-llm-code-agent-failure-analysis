@@ -1,0 +1,12 @@
+diff --git a/sympy/simplify/simplify.py b/sympy/simplify/simplify.py
+index f1609aa908..b8cd6a795c 100644
+--- a/sympy/simplify/simplify.py
++++ b/sympy/simplify/simplify.py
+@@ -104,6 +104,7 @@ def separatevars(expr, symbols=[], dict=False, force=False):
+     """
+     expr = sympify(expr)
+     if dict:
++    expr = expr.expand()
+         return _separatevars_dict(_separatevars(expr, force), symbols)
+     else:
+         return _separatevars(expr, force)

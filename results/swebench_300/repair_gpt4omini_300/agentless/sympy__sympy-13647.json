@@ -1,0 +1,17 @@
+{
+  "instance_id": "sympy__sympy-13647",
+  "input_patch_chars": 438,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "git apply --verbose",
+      "errors": []
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "git apply --verbose",
+  "output_patch_chars": 512
+}

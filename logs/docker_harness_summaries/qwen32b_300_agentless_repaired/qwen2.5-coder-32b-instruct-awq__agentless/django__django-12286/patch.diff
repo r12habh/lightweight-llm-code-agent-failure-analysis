@@ -1,0 +1,17 @@
+diff --git a/django/utils/translation/trans_real.py b/django/utils/translation/trans_real.py
+index d852675360..868c14f524 100644
+--- a/django/utils/translation/trans_real.py
++++ b/django/utils/translation/trans_real.py
+@@ -104,6 +104,12 @@ class DjangoTranslation(gettext_module.GNUTranslations):
+         self._add_fallback(localedirs)
+         if self._catalog is None:
+             # No catalogs found for this language, set an empty catalog.
++    base_lang_code = lang_code.split('-')[0]
++    if base_lang_code in dict(settings.LANGUAGES):
++        # If the base language is available, consider the sublanguage available
++        return True
++
++    # Check for the full language code
+             self._catalog = {}
+ 
+     def __repr__(self):

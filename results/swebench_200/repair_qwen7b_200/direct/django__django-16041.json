@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16041",
+  "input_patch_chars": 1000,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/forms/formsets.py...\nerror: while searching for:\n        self._errors = []\n        self._non_form_errors = []\n        self._changed_object_ids = []\n\n    def __iter__(self):\n        for form in self.forms:\n\nerror: patch failed: django/forms/formsets.py:102\nerror: django/forms/formsets.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/formsets.py...\nerror: while searching for:\n        self._errors = []\n        self._non_form_errors = []\n        self._changed_object_ids = []\n\n    def __iter__(self):\n        for form in self.forms:\n\nerror: patch failed: django/forms/formsets.py:102\nerror: while searching for:\n        for form in self.forms:\n            yield form\n\n        defaults = {\n            'auto_id': self.add_prefix(i),\n            'prefix': self.add_prefix(i),\n\nerror: patch failed: django/forms/formsets.py:112\nerror: while searching for:\n            'empty_permitted': self.empty_permitted,\n        }\n        defaults.update(kwargs)\n\n    def total_form_count(self):\n        \"\"\"Return the total number of forms in this FormSet, including empty forms.\"\"\"\n\nerror: patch failed: django/forms/formsets.py:120\nApplying patch django/forms/formsets.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1123
+}

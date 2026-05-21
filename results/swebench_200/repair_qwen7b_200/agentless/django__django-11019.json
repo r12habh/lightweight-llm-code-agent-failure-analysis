@@ -1,0 +1,26 @@
+{
+  "instance_id": "django__django-11019",
+  "input_patch_chars": 634,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/widgets.py...\nerror: while searching for:\n    pass\n\n@html_safe\nclass Media:\n    def __init__(self, media=None, css=None, js=None):\n        if media is not None:\n            css = getattr(media, 'css', {})\n\nerror: patch failed: django/forms/widgets.py:144\nHunk #2 succeeded at 45 (offset -107 lines).\nApplying patch django/forms/widgets.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/widgets.py\nHunk #1 succeeded at 38 with fuzz 1 (offset -106 lines).\nHunk #2 succeeded at 45 (offset -107 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

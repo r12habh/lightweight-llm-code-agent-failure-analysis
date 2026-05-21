@@ -1,0 +1,53 @@
+2026-05-20 16:20:50,038 - INFO - Creating container for sympy__sympy-17655...
+2026-05-20 16:20:50,098 - INFO - Container for sympy__sympy-17655 created: 731644209feb7a0fda69552394a62b6f69f638560f6b45d568ef39c469d060ef
+2026-05-20 16:20:50,198 - INFO - Container for sympy__sympy-17655 started: 731644209feb7a0fda69552394a62b6f69f638560f6b45d568ef39c469d060ef
+2026-05-20 16:20:50,198 - INFO - Intermediate patch for sympy__sympy-17655 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-17655/patch.diff, now applying to container...
+2026-05-20 16:20:50,378 - INFO - >>>>> Applied Patch:
+Checking patch sympy/geometry/point.py...
+Applied patch sympy/geometry/point.py cleanly.
+
+2026-05-20 16:20:50,802 - INFO - Git diff before:
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 7c978c47be..782e06d59a 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -216,7 +216,10 @@ def __add__(self, other):
+         try:
+             s, o = Point._normalize_dimension(self, Point(other, evaluate=False))
+         except TypeError:
+-            raise GeometryError("Don't know how to add {} and a Point object".format(other))
++            if isinstance(other, Expr) and not isinstance(other, Point):
++                return Point([simplify(a + b) for a, b in zip(self.args, [other]*len(self))])
++            else:
++                raise GeometryError("Don't know how to add {} and a Point object".format(other))
+ 
+         coords = [simplify(a + b) for a, b in zip(s, o)]
+         return Point(coords, evaluate=False)
+2026-05-20 16:20:50,803 - INFO - Eval script for sympy__sympy-17655 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-17655/eval.sh; copying to container...
+2026-05-20 16:21:05,671 - INFO - Test runtime: 14.81 seconds
+2026-05-20 16:21:05,673 - INFO - Test output for sympy__sympy-17655 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-17655/test_output.txt
+2026-05-20 16:21:05,779 - INFO - Git diff after:
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 7c978c47be..782e06d59a 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -216,7 +216,10 @@ def __add__(self, other):
+         try:
+             s, o = Point._normalize_dimension(self, Point(other, evaluate=False))
+         except TypeError:
+-            raise GeometryError("Don't know how to add {} and a Point object".format(other))
++            if isinstance(other, Expr) and not isinstance(other, Point):
++                return Point([simplify(a + b) for a, b in zip(self.args, [other]*len(self))])
++            else:
++                raise GeometryError("Don't know how to add {} and a Point object".format(other))
+ 
+         coords = [simplify(a + b) for a, b in zip(s, o)]
+         return Point(coords, evaluate=False)
+2026-05-20 16:21:05,779 - INFO - Grading answer for sympy__sympy-17655...
+2026-05-20 16:21:05,780 - INFO - report: {'sympy__sympy-17655': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_point', 'test_point3D']}, 'PASS_TO_PASS': {'success': ['test_Point2D', 'test_issue_9214', 'test_issue_11617', 'test_transform', 'test_concyclic_doctest_bug', 'test_arguments', 'test_unit', 'test_dot', 'test__normalize_dimension'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-17655: resolved: False
+2026-05-20 16:21:05,781 - INFO - Attempting to stop container sweb.eval.sympy__sympy-17655.qwen32b_300_agentless_repaired...
+2026-05-20 16:21:20,941 - INFO - Attempting to remove container sweb.eval.sympy__sympy-17655.qwen32b_300_agentless_repaired...
+2026-05-20 16:21:20,958 - INFO - Container sweb.eval.sympy__sympy-17655.qwen32b_300_agentless_repaired removed.
+2026-05-20 16:21:20,958 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-17655:latest...
+2026-05-20 16:21:20,967 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-17655:latest removed.

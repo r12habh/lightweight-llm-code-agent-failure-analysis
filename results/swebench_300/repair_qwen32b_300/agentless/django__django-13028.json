@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13028",
+  "input_patch_chars": 703,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n        if not isinstance(value, (BaseExpression, Model)):\n            raise TypeError(\"Field %r values must be instances of Model, not %r\" % (field, value))\n        if not value.pk:\n            raise NotSupportedError(\"%s is disallowed in the filter clause.\" % value.__class__.__name__)\n        return value.pk\n    elif isinstance(value, Model):\n        if not value.pk:\n\nerror: patch failed: django/db/models/sql/query.py:1128\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 FAILED at 1128.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/sql/query.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

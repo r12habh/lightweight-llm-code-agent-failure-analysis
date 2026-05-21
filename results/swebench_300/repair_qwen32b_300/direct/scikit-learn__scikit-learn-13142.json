@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13142",
+  "input_patch_chars": 944,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/mixture/_gaussian_mixture.py...\nerror: sklearn/mixture/_gaussian_mixture.py: No such file or directory\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/sklearn/mixture/_gaussian_mixture.py b/sklearn/mixture/_gaussian_mixture.py\n|index 1234567890..abcdef1234 100644\n|--- a/sklearn/mixture/_gaussian_mixture.py\n|+++ b/sklearn/mixture/_gaussian_mixture.py\n--------------------------\nNo file to patch.  Skipping patch.\n2 out of 2 hunks ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

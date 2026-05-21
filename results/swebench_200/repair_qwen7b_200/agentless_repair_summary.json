@@ -1,0 +1,23 @@
+{
+  "raw_dir": "outputs/repair_qwen7b_200/agentless",
+  "repaired_path": "outputs/final_predictions_qwen7b_agentless.repaired.jsonl",
+  "skip_invalid_path": "outputs/eval_predictions_qwen7b_agentless.repaired.skip_invalid.jsonl",
+  "counts": {
+    "records": 200,
+    "valid": 114,
+    "repaired": 113,
+    "invalid": 86,
+    "unchanged_or_invalid": 87
+  },
+  "apply_command_distribution": {
+    "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 75,
+    "git apply --verbose": 39,
+    "None": 86
+  },
+  "selected_candidate_distribution": {
+    "original": 114,
+    "None": 86
+  },
+  "skip_file_nonempty": 114,
+  "skip_file_empty": 86
+}

@@ -1,0 +1,32 @@
+{
+  "instance_id": "django__django-14534",
+  "raw": "```diff\ndiff --git a/django/forms/boundfield.py b/django/forms/boundfield.py\n--- a/django/forms/boundfield.py\n+++ b/django/forms/boundfield.py\n@@ -482,7 +482,7 @@\n \n     @property\n     def id_for_label(self):\n-        return 'id_%s_%s' % (self.data['name'], self.data['index'])\n+        return self.data['attrs']['id']\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19064,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 143,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19207
+    },
+    "patch": {
+      "input_tokens": 19119,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 100,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19219
+    }
+  },
+  "localized_files": [
+    "django/forms/boundfield.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/forms/boundfield.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"BoundWidget.id_for_label in BoundField does not use the id from subwidgets.\"\n    },\n    {\n      \"path\": \"docs/ref/forms/widgets.txt\",\n      \"confidence\": 0.6,\n      \"reason\": \"Documentation may need updates to reflect the behavior change in widgets.\"\n    },\n    {\n      \"path\": \"docs/topics/forms/index.txt\",\n      \"confidence\": 0.5,\n      \"reason\": \"Forms handling documentation may require clarification regarding id_for_label method.\"\n    }\n  ]\n}\n```"
+}

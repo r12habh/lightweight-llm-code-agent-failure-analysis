@@ -1,0 +1,46 @@
+2026-05-20 02:53:39,474 - INFO - Creating container for django__django-11630...
+2026-05-20 02:53:40,527 - INFO - Container for django__django-11630 created: 75fc9f2346914c50005f049a3150dbedb119ad3d6081c4660fc64586faa66c26
+2026-05-20 02:53:40,682 - INFO - Container for django__django-11630 started: 75fc9f2346914c50005f049a3150dbedb119ad3d6081c4660fc64586faa66c26
+2026-05-20 02:53:40,683 - INFO - Intermediate patch for django__django-11630 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-11630/patch.diff, now applying to container...
+2026-05-20 02:53:40,869 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 02:53:40,949 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 02:53:41,018 - INFO - >>>>> Applied Patch:
+patching file docs/ref/models/options.txt
+
+2026-05-20 02:53:41,842 - INFO - Git diff before:
+diff --git a/docs/ref/models/options.txt b/docs/ref/models/options.txt
+index e09547ec23..4636fee136 100644
+--- a/docs/ref/models/options.txt
++++ b/docs/ref/models/options.txt
+@@ -38,6 +38,8 @@ Available ``Meta`` options
+ 
+ .. attribute:: Options.base_manager_name
+ 
++   Django now requires that each model in an application has a unique `db_table`
++   name, even across different applications. Use `db_table` to avoid conflicts.
+     The name of the manager to use for the model's
+     :attr:`~django.db.models.Model._base_manager`.
+2026-05-20 02:53:41,843 - INFO - Eval script for django__django-11630 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-11630/eval.sh; copying to container...
+2026-05-20 02:53:59,943 - INFO - Test runtime: 18.03 seconds
+2026-05-20 02:53:59,945 - INFO - Test output for django__django-11630 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-11630/test_output.txt
+2026-05-20 02:54:00,134 - INFO - Git diff after:
+diff --git a/docs/ref/models/options.txt b/docs/ref/models/options.txt
+index e09547ec23..4636fee136 100644
+--- a/docs/ref/models/options.txt
++++ b/docs/ref/models/options.txt
+@@ -38,6 +38,8 @@ Available ``Meta`` options
+ 
+ .. attribute:: Options.base_manager_name
+ 
++   Django now requires that each model in an application has a unique `db_table`
++   name, even across different applications. Use `db_table` to avoid conflicts.
+     The name of the manager to use for the model's
+     :attr:`~django.db.models.Model._base_manager`.
+2026-05-20 02:54:00,134 - INFO - Grading answer for django__django-11630...
+2026-05-20 02:54:00,139 - INFO - report: {'django__django-11630': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_collision_across_apps_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)']}, 'PASS_TO_PASS': {'success': ['test_collision_abstract_model (check_framework.test_model_checks.IndexNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_collision_abstract_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_proxy_models (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_unmanaged_models (check_framework.test_model_checks.DuplicateDBTableTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11630: resolved: False
+2026-05-20 02:54:00,140 - INFO - Attempting to stop container sweb.eval.django__django-11630.gpt4omini_300_agentless_repaired...
+2026-05-20 02:54:15,297 - INFO - Attempting to remove container sweb.eval.django__django-11630.gpt4omini_300_agentless_repaired...
+2026-05-20 02:54:15,330 - INFO - Container sweb.eval.django__django-11630.gpt4omini_300_agentless_repaired removed.
+2026-05-20 02:54:15,331 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11630:latest...
+2026-05-20 02:54:16,463 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11630:latest removed.

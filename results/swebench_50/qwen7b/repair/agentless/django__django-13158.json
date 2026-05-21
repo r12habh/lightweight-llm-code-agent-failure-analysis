@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13158",
+  "input_patch_chars": 3471,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 22\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 21:              continue\n\n",
+          "stdout": "patching file django/forms/models.py\nHunk #1 succeeded at 70 with fuzz 2 (offset -30 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

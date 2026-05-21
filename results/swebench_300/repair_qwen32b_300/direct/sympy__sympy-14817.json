@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-14817",
+  "input_patch_chars": 626,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n        # Omit the + if the first argument is negative\n        # XXX: This assumes that the arguments of MatAdd have a certain form,\n        # and that they will always print a certain way if they are negative.\n        if S(item.args[0]).is_negative:\n            pform = self._print(item)\n        else:\n            pform = self._print_Add(item)\n\nerror: patch failed: sympy/printing/pretty/pretty.py:825\nApplying patch sympy/printing/pretty/pretty.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/printing/pretty/pretty.py\nHunk #1 FAILED at 825.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/printing/pretty/pretty.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,45 @@
+2026-05-19 22:11:03,658 - INFO - Creating container for django__django-13925...
+2026-05-19 22:11:03,992 - INFO - Container for django__django-13925 created: 52ce674691bc924fe5d44e256e4aa083c819d6c73cd23641f4c78cd234968331
+2026-05-19 22:11:04,104 - INFO - Container for django__django-13925 started: 52ce674691bc924fe5d44e256e4aa083c819d6c73cd23641f4c78cd234968331
+2026-05-19 22:11:04,105 - INFO - Intermediate patch for django__django-13925 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-13925/patch.diff, now applying to container...
+2026-05-19 22:11:04,282 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/fields/__init__.py...
+Applied patch django/db/models/fields/__init__.py cleanly.
+
+2026-05-19 22:11:04,889 - INFO - Git diff before:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0f53d9c30b..57af53965b 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -156,7 +156,6 @@ class Field(RegisterLookupMixin):
+         self.db_index = db_index
+         self.db_column = db_column
+         self._db_tablespace = db_tablespace
+-        self.auto_created = auto_created
+ 
+         # Adjust the appropriate creation counter, and save our local copy.
+         if auto_created:
+2026-05-19 22:11:04,890 - INFO - Eval script for django__django-13925 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-13925/eval.sh; copying to container...
+2026-05-19 22:11:09,476 - INFO - Test runtime: 4.52 seconds
+2026-05-19 22:11:09,478 - INFO - Test output for django__django-13925 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-13925/test_output.txt
+2026-05-19 22:11:09,604 - INFO - Git diff after:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0f53d9c30b..57af53965b 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -156,7 +156,6 @@ class Field(RegisterLookupMixin):
+         self.db_index = db_index
+         self.db_column = db_column
+         self._db_tablespace = db_tablespace
+-        self.auto_created = auto_created
+ 
+         # Adjust the appropriate creation counter, and save our local copy.
+         if auto_created:
+2026-05-19 22:11:09,604 - INFO - Grading answer for django__django-13925...
+2026-05-19 22:11:09,606 - INFO - report: {'django__django-13925': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_auto_created_inherited_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_inherited_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_app_default_auto_field (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_auto_created_inherited_parent_link (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_auto_created_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_default_auto_field_setting (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_inherited_parent_link (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_collision_abstract_model (check_framework.test_model_checks.IndexNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_collision_abstract_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_across_apps_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_proxy_models (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_unmanaged_models (check_framework.test_model_checks.DuplicateDBTableTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13925: resolved: False
+2026-05-19 22:11:09,606 - INFO - Attempting to stop container sweb.eval.django__django-13925.gpt4omini_300_direct_repaired...
+2026-05-19 22:11:24,830 - INFO - Attempting to remove container sweb.eval.django__django-13925.gpt4omini_300_direct_repaired...
+2026-05-19 22:11:24,842 - INFO - Container sweb.eval.django__django-13925.gpt4omini_300_direct_repaired removed.
+2026-05-19 22:11:24,843 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13925:latest...
+2026-05-19 22:11:25,711 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13925:latest removed.

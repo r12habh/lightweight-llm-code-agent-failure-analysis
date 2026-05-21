@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-22714",
+  "input_patch_chars": 936,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 13\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 13: @@ -1120,6 +1120\n\n",
+          "stdout": "patching file sympy/core/sympify.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 610 with fuzz 3 (offset -464 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

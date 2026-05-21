@@ -1,0 +1,12 @@
+diff --git a/sympy/printing/pretty/pretty.py b/sympy/printing/pretty/pretty.py
+index 7a3de33522..865686c06b 100644
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -393,6 +393,7 @@ def _print_PDF(self, pdf):
+         lim = prettyForm(*lim.right(self._print(pdf.domain[1])))
+         lim = prettyForm(*lim.parens())
+ 
++        sum_symbol = xsym('sum')
+         f = self._print(pdf.pdf.args[1])
+         f = prettyForm(*f.right(', '))
+         f = prettyForm(*f.right(lim))

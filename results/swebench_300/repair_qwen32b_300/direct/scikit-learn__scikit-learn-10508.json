@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-10508",
+  "input_patch_chars": 587,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/preprocessing/label.py...\nerror: while searching for:\n        \"\"\"\n        check_is_fitted(self, 'classes_')\n        y = column_or_1d(y, warn=True)\n        classes = np.unique(y)\n        if len(np.intersect1d(classes, self.classes_)) < len(classes):\n            diff = np.setdiff1d(classes, self.classes_)\n\nerror: patch failed: sklearn/preprocessing/label.py:131\nerror: sklearn/preprocessing/label.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/preprocessing/label.py...\nerror: while searching for:\n        \"\"\"\n        check_is_fitted(self, 'classes_')\n        y = column_or_1d(y, warn=True)\n        classes = np.unique(y)\n        if len(np.intersect1d(classes, self.classes_)) < len(classes):\n            diff = np.setdiff1d(classes, self.classes_)\n\nerror: patch failed: sklearn/preprocessing/label.py:131\nApplying patch sklearn/preprocessing/label.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 622
+}

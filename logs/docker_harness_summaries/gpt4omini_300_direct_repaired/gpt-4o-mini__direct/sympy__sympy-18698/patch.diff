@@ -1,0 +1,14 @@
+diff --git a/sympy/ntheory/factor_.py b/sympy/ntheory/factor_.py
+index be2d654f59..6734507895 100644
+--- a/sympy/ntheory/factor_.py
++++ b/sympy/ntheory/factor_.py
+@@ -248,7 +248,8 @@ def multiplicity(p, n):
+     """
+     Find the greatest integer m such that p**m divides n.
+ 
+-    Examples
++    Examples of correct outputs and their corresponding inputs are:
++    
+     ========
+ 
+     >>> from sympy.ntheory import multiplicity

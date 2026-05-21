@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-16503",
+  "input_patch_chars": 489,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n    def _print_Sum(self, e):\n        term = self._print(e.args[0])\n        limits = self._print(e.limits)\n        return prettyForm(*term.right(hobj(sum_symbol, term.width() + 1)))\n\n    def _print_Product(self, e):\n\nerror: patch failed: sympy/printing/pretty/pretty.py:393\nerror: sympy/printing/pretty/pretty.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n    def _print_Sum(self, e):\n        term = self._print(e.args[0])\n        limits = self._print(e.limits)\n        return prettyForm(*term.right(hobj(sum_symbol, term.width() + 1)))\n\n    def _print_Product(self, e):\n\nerror: patch failed: sympy/printing/pretty/pretty.py:393\nApplying patch sympy/printing/pretty/pretty.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 502
+}

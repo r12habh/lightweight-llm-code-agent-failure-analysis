@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11797",
+  "input_patch_chars": 514,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/auth/models.py...\nerror: while searching for:\n        return self.model.objects.get(pk__in=self._get_ids_for_perm(perm, obj))\n\n    def _get_ids_for_perm(self, perm, obj):\n        return self.filter(has_perm=perm)\n\n    def with_perm(self, perm, is_active=True, include_superusers=True, obj=None):\n        if isinstance(perm, str):\n\nerror: patch failed: django/contrib/auth/models.py:593\nApplying patch django/contrib/auth/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/auth/models.py\nHunk #1 FAILED at 593.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/auth/models.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

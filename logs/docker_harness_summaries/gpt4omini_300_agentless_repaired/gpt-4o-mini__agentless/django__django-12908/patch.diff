@@ -1,0 +1,17 @@
+diff --git a/tests/distinct_on_fields/tests.py b/tests/distinct_on_fields/tests.py
+index 009b0191fb..787efdd825 100644
+--- a/tests/distinct_on_fields/tests.py
++++ b/tests/distinct_on_fields/tests.py
+@@ -34,6 +34,12 @@ class DistinctOnTests(TestCase):
+ 
+     def test_basic_distinct_on(self):
+         """QuerySet.distinct('field', ...) works"""
++        # Ensuring the distinct works on union of querysets
++        qs1 = Staff.objects.distinct('name').order_by('name')
++        qs2 = Staff.objects.distinct('organisation').order_by('organisation', 'name')
++        combined_qs = qs1 | qs2
++        self.assertEqual(combined_qs.distinct('name').count(), 2)
++        
+         # (qset, expected) tuples
+         qsets = (
+             (

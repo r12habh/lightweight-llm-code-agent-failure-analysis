@@ -1,0 +1,13 @@
+diff --git a/django/core/cache/backends/filebased.py b/django/core/cache/backends/filebased.py
+index 631da49444..16289e3743 100644
+--- a/django/core/cache/backends/filebased.py
++++ b/django/core/cache/backends/filebased.py
+@@ -93,7 +93,7 @@ class FileBasedCache(BaseCache):
+         if os.path.exists(fname):
+             with open(fname, "rb") as f:
+                 return not self._is_expired(f)
+-        return False
++        return True
+ 
+     def _cull(self):
+         """

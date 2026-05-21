@@ -1,0 +1,27 @@
+{
+  "instance_id": "django__django-13658",
+  "input_patch_chars": 558,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/__init__.py...\nHunk #1 succeeded at 98 (offset -2 lines).\nApplied patch django/core/management/__init__.py cleanly.\n",
+          "stdout": "",
+          "note": "command succeeded but produced an empty git diff"
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/__init__.py\nHunk #1 succeeded at 98 (offset -2 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13895",
+  "input_patch_chars": 1177,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/simplify.py...\nHunk #1 succeeded at 18 (offset 8 lines).\nerror: while searching for:\n    expr = signsimp(expr)\n    expr = powsimp(expr, combine='all', deep=True, force=True)\n    expr = expand_power_exp(expr)\n    expr = expand_mul(expr, deep=True)\n    expr = expand_func(expr, deep=True)\n    expr = factor_terms(expr, radical=True)\n\nerror: patch failed: sympy/simplify/simplify.py:104\nApplying patch sympy/simplify/simplify.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/simplify/simplify.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 18 (offset 8 lines).\nHunk #2 FAILED at 104.\n1 out of 2 hunks FAILED -- saving rejects to file sympy/simplify/simplify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

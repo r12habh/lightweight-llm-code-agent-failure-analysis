@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-9359",
+  "input_patch_chars": 526,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch doc/en/how-to/assert.rst...\nerror: while searching for:\n\n    assert a % 2 == 0, \"value was odd, should be even\"\n\nthen no assertion introspection takes places at all and the message\nsimply shown in the traceback.\n\nSee :ref:`assert-details` for more information on assertion introspection.\n\nerror: patch failed: doc/en/how-to/assert.rst:100\nerror: doc/en/how-to/assert.rst: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/en/how-to/assert.rst...\nerror: while searching for:\n\n    assert a % 2 == 0, \"value was odd, should be even\"\n\nthen no assertion introspection takes places at all and the message\nsimply shown in the traceback.\n\nSee :ref:`assert-details` for more information on assertion introspection.\n\nerror: patch failed: doc/en/how-to/assert.rst:100\nApplying patch doc/en/how-to/assert.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 566
+}

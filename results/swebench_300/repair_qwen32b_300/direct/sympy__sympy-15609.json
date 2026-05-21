@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-15609",
+  "input_patch_chars": 467,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n        # calculate index for 1d array\n        dims = expr.shape\n        elem = S.Zero\n        offset = S.One\n        for i in reversed(range(expr.rank)):\n            elem += expr.indices[i]*offset\n            offset *= dims[i]\n\nerror: patch failed: sympy/printing/latex.py:1045\nApplying patch sympy/printing/latex.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/printing/latex.py\nHunk #1 FAILED at 1045.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/printing/latex.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

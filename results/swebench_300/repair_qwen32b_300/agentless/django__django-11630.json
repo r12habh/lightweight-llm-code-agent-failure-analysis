@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11630",
+  "input_patch_chars": 663,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/options.py...\nerror: while searching for:\n        if self.db_table:\n            return self.db_table\n        return '%s_%s' % (self.app_label, self.model_name)\n\n    def get_ordered_objects(self):\n        \"Returns an iterator of all related objects that have ordering defined.\"\n\nerror: patch failed: django/db/models/options.py:450\nerror: django/db/models/options.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/options.py...\nerror: while searching for:\n        if self.db_table:\n            return self.db_table\n        return '%s_%s' % (self.app_label, self.model_name)\n\n    def get_ordered_objects(self):\n        \"Returns an iterator of all related objects that have ordering defined.\"\n\nerror: patch failed: django/db/models/options.py:450\nApplying patch django/db/models/options.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 878
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18698",
+  "input_patch_chars": 700,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/polys/factortools.py...\nerror: while searching for:\n    \"\"\"\n    factors = {}\n\n    for factor, exp in factor_list(f, K):\n        if exp > 1:\n            factors[factor] = exp\n\n\nerror: patch failed: sympy/polys/factortools.py:1234\nerror: while searching for:\n    g = reduce(mul, (factor**exp for factor, exp in factors.items()), 1)\n\n    h = quo(f, g)\n    return h, [(h, 1)] + [(factor, exp) for factor, exp in factors.items()]\n\ndef sqf(f, K):\n    \"\"\"\n\nerror: patch failed: sympy/polys/factortools.py:1242\nApplying patch sympy/polys/factortools.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/polys/factortools.py\nHunk #1 FAILED at 1234.\nHunk #2 FAILED at 1242.\n2 out of 2 hunks FAILED -- saving rejects to file sympy/polys/factortools.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

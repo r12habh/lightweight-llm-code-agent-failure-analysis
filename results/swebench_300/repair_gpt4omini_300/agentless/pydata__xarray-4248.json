@@ -1,0 +1,25 @@
+{
+  "instance_id": "pydata__xarray-4248",
+  "input_patch_chars": 1213,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/dataset.py...\nerror: while searching for:\n\n    def __repr__(self) -> str:\n        # Present a human-readable representation of the dataset.\n        repr_str = \"xarray.Dataset\\n\"\n        repr_str += \"Dimensions:  \" + \", \".join(f\"({name}: {len(var)})\" for name, var in self.dims.items()) + \"\\n\"\n        repr_str += \"Coordinates:\\n\"\n        for name, var in self.coords.items():\n            repr_str += f\"  * {name}     ({name}) {var.dtype} {var.values}\\n\"\n        repr_str += \"Data variables:\\n\"\n        for name, var in self.data_vars.items():\n\nerror: patch failed: xarray/core/dataset.py:185\nApplying patch xarray/core/dataset.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file xarray/core/dataset.py\nHunk #1 FAILED at 185.\n1 out of 1 hunk FAILED -- saving rejects to file xarray/core/dataset.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

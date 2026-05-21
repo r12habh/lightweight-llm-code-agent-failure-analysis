@@ -1,0 +1,15 @@
+diff --git a/sympy/core/function.py b/sympy/core/function.py
+index 69df976b8b..854544c4e3 100644
+--- a/sympy/core/function.py
++++ b/sympy/core/function.py
+@@ -1045,6 +1045,10 @@ def matches(self, expr, repl_dict={}, old=False):
+         if len(expr.args) not in self.nargs:
+             return None
+ 
++            if self.args[0].kind is not UndefinedKind:
++                return self.args[0].kind
++            else:
++                return UndefinedKind
+         repl_dict = repl_dict.copy()
+         repl_dict[self] = expr
+         return repl_dict

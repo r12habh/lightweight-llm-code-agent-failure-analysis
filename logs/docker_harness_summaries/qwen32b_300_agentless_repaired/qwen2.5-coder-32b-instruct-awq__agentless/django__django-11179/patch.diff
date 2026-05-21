@@ -1,0 +1,12 @@
+diff --git a/django/db/models/deletion.py b/django/db/models/deletion.py
+index 92fe4affb9..acb002055a 100644
+--- a/django/db/models/deletion.py
++++ b/django/db/models/deletion.py
+@@ -279,6 +279,7 @@ class Collector:
+                     count = sql.DeleteQuery(model).delete_batch([instance.pk], self.using)
+                 return count, {model._meta.label: count}
+ 
++        instance.pk = None
+         with transaction.atomic(using=self.using, savepoint=False):
+             # send pre_delete signals
+             for model, obj in self.instances_with_model():

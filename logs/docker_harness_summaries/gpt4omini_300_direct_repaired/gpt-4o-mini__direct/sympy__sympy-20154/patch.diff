@@ -1,0 +1,12 @@
+diff --git a/sympy/utilities/iterables.py b/sympy/utilities/iterables.py
+index dd36dea304..29f57bb860 100644
+--- a/sympy/utilities/iterables.py
++++ b/sympy/utilities/iterables.py
+@@ -89,6 +89,7 @@ def flatten(iterable, levels=None, cls=None):
+ 
+     adapted from https://kogs-www.informatik.uni-hamburg.de/~meine/python_tricks
+     """
++    from copy import deepcopy
+     from sympy.tensor.array import NDimArray
+     if levels is not None:
+         if not levels:

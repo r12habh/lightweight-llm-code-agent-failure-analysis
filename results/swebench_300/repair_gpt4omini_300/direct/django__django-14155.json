@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14155",
+  "input_patch_chars": 795,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp7y801u6v.diff:12: trailing whitespace.\n        \nerror: corrupt patch at line 21\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 19:      def __repr__(self):\n\n",
+          "stdout": "patching file django/urls/resolvers.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

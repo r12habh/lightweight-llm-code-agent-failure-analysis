@@ -1,0 +1,4 @@
+system,bleu1,rougeL,meteor
+name_only_baseline,0.041,0.309,0.130
+rule_based_baseline,0.980,0.990,0.981
+zero_shot_language_model_baseline,0.535,0.565,0.519

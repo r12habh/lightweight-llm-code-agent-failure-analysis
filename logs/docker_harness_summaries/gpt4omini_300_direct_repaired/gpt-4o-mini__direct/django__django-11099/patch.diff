@@ -1,0 +1,13 @@
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..45e3d8f1b9 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -289,7 +289,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
+ 
+     Username and password are required. Other fields are optional.
+     """
+-    username_validator = UnicodeUsernameValidator()
++    username_validator = UnicodeUsernameValidator(regex=r'\A[\w.@+-]+\Z')
+ 
+     username = models.CharField(
+         _('username'),

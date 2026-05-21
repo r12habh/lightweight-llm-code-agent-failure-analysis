@@ -1,0 +1,15 @@
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 1f11e26d87..94016856d3 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -450,6 +450,10 @@ class Options:
+         # fields that are not private or with a m2m cardinality. Therefore we
+         # pass these three filters as filters to the generator.
+         # The third lambda is a longwinded way of checking f.related_model - we don't
++    def get_db_table(self, connection):
++        if connection.settings_dict.get('NAME') == 'your_central_database_name':
++            return self.db_table
++        return '%s_%s' % (self.app_label, self.model_name)
+         # use that property directly because related_model is a cached property,
+         # and all the models may not have been loaded yet; we don't want to cache
+         # the string reference to the related_model.

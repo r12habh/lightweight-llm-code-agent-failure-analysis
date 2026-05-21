@@ -1,0 +1,17 @@
+{
+  "instance_id": "pydata__xarray-4493",
+  "input_patch_chars": 461,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "git apply --verbose",
+      "errors": []
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "git apply --verbose",
+  "output_patch_chars": 493
+}

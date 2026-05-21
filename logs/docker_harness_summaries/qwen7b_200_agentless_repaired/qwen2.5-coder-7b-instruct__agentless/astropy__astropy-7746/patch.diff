@@ -1,0 +1,13 @@
+diff --git a/astropy/wcs/wcs.py b/astropy/wcs/wcs.py
+index d3a06f2b31..c4b044d990 100644
+--- a/astropy/wcs/wcs.py
++++ b/astropy/wcs/wcs.py
+@@ -1351,7 +1351,7 @@ reduce these to 2 dimensions using the naxis kwarg.
+             raise ValueError("No basic WCS settings were created.")
+         return self._array_converter(
+             lambda xy, o: self.wcs.p2s(xy, o)['world'],
+-            'output', *args, **kwargs)
++            'output', *args, **kwargs) or []
+     wcs_pix2world.__doc__ = """
+         Transforms pixel coordinates to world coordinates by doing
+         only the basic `wcslib`_ transformation.

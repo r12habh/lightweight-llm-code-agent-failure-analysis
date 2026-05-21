@@ -1,0 +1,17 @@
+diff --git a/src/_pytest/hookspec.py b/src/_pytest/hookspec.py
+index 8b45c5f9b..f6fb2c43d 100644
+--- a/src/_pytest/hookspec.py
++++ b/src/_pytest/hookspec.py
+@@ -45,6 +45,12 @@ def pytest_addoption(parser, pluginmanager):
+         files situated at the tests root directory due to how pytest
+         :ref:`discovers plugins during startup <pluginorder>`.
+ 
++    """register argparse-style options and ini-style config values,
++    called once at the beginning of a test run.
++
++    .. note::
++        Shortcut for `--collect-only` should also be defined here.
++    """
+     :arg _pytest.config.Parser parser: To add command line options, call
+         :py:func:`parser.addoption(...) <_pytest.config.Parser.addoption>`.
+         To add ini-file values call :py:func:`parser.addini(...)

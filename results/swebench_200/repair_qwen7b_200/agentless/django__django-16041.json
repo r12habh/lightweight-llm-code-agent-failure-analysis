@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16041",
+  "input_patch_chars": 758,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/forms/forms.py...\nerror: while searching for:\n        self._errors = ErrorDict()\n        self._cleaned_data = None\n        self._non_form_errors = ErrorList()\n\n    def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None,\n                 initial=None, error_class=ErrorList, label_suffix=None,\n\nerror: patch failed: django/forms/forms.py:100\nerror: django/forms/forms.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/forms.py...\nerror: while searching for:\n        self._errors = ErrorDict()\n        self._cleaned_data = None\n        self._non_form_errors = ErrorList()\n\n    def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None,\n                 initial=None, error_class=ErrorList, label_suffix=None,\n\nerror: patch failed: django/forms/forms.py:100\nerror: while searching for:\n        self.data = data or {}\n        self.files = files or {}\n        self.auto_id = auto_id\n        self.prefix = prefix\n        self.initial = initial or {}\n        self.error_class = error_class\n\nerror: patch failed: django/forms/forms.py:110\nApplying patch django/forms/forms.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 973
+}

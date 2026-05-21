@@ -1,0 +1,14 @@
+diff --git a/sphinx/builders/latex/__init__.py b/sphinx/builders/latex/__init__.py
+index 77825f0ea..b02e26292 100644
+--- a/sphinx/builders/latex/__init__.py
++++ b/sphinx/builders/latex/__init__.py
+@@ -268,7 +268,8 @@ class LaTeXBuilder(Builder):
+ 
+         for entry in self.document_data:
+             docname, targetname, title, author, themename = entry[:5]
+-            theme = self.themes.get(themename)
++            theme = self.themes.get(themename) if themename else None
++            if theme is None:
+             toctree_only = False
+             if len(entry) > 5:
+                 toctree_only = entry[5]

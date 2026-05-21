@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12700",
+  "input_patch_chars": 709,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/views/debug.py...\nerror: while searching for:\n            elif isinstance(value, dict):\n                cleansed = {k: self.cleanse_setting(k, v) for k, v in value.items()}\n            elif isinstance(value, (list, tuple)):\n                cleansed = value\n        except TypeError:\n            # If the key isn't regex-able, just return as-is.\n\nerror: patch failed: django/views/debug.py:100\nerror: django/views/debug.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/views/debug.py...\nerror: while searching for:\n            elif isinstance(value, dict):\n                cleansed = {k: self.cleanse_setting(k, v) for k, v in value.items()}\n            elif isinstance(value, (list, tuple)):\n                cleansed = value\n        except TypeError:\n            # If the key isn't regex-able, just return as-is.\n\nerror: patch failed: django/views/debug.py:100\nApplying patch django/views/debug.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 573
+}

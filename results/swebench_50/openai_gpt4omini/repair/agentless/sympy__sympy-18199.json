@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18199",
+  "input_patch_chars": 650,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/mod.py...\nerror: while searching for:\n\nclass Mod(Function):\n    \"\"\"Represents a modulo operation on symbolic expressions.\n\n    Receives two arguments, dividend p and divisor q.\n\n\nerror: patch failed: sympy/core/mod.py:24\nApplying patch sympy/core/mod.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/core/mod.py\nHunk #1 FAILED at 24.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/core/mod.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

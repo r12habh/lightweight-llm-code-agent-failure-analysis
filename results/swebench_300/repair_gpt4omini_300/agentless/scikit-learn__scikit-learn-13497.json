@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13497",
+  "input_patch_chars": 520,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/feature_selection/mutual_info_.py...\nerror: while searching for:\n    # Check if discrete_features is 'auto'\n    if discrete_features == 'auto':\n        discrete_features = issparse(X)\n    if discrete_features == 'auto':\n        discrete_features = np.array([False] * n_features)\n\n    if isinstance(discrete_features, bool):\n\nerror: patch failed: sklearn/feature_selection/mutual_info_.py:919\nerror: sklearn/feature_selection/mutual_info_.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/feature_selection/mutual_info_.py...\nerror: while searching for:\n    # Check if discrete_features is 'auto'\n    if discrete_features == 'auto':\n        discrete_features = issparse(X)\n    if discrete_features == 'auto':\n        discrete_features = np.array([False] * n_features)\n\n    if isinstance(discrete_features, bool):\n\nerror: patch failed: sklearn/feature_selection/mutual_info_.py:919\nApplying patch sklearn/feature_selection/mutual_info_.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 606
+}

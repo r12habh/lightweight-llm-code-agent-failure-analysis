@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13033",
+  "input_patch_chars": 634,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n                # If the field is a foreign key, use the related model's primary key\n                if isinstance(field, models.ForeignKey):\n                    field = field.target_field\n                if field.primary_key:\n                    joins.append(JoinInfo(\n                        final_field=field,\n                        targets=[(alias, field)],\n\nerror: patch failed: django/db/models/sql/query.py:1230\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 FAILED at 1230.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/sql/query.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

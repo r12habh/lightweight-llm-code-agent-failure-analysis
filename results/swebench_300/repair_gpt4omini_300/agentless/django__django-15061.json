@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15061",
+  "input_patch_chars": 588,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/topics/class-based-views/generic-display.txt...\nerror: while searching for:\n================================\nBuilt-in class-based generic views\n================================\n\nWriting web applications can be monotonous, because we repeat certain patterns\n\nerror: patch failed: docs/topics/class-based-views/generic-display.txt:1\nerror: docs/topics/class-based-views/generic-display.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/topics/class-based-views/generic-display.txt...\nerror: while searching for:\n================================\nBuilt-in class-based generic views\n================================\n\nWriting web applications can be monotonous, because we repeat certain patterns\n\nerror: patch failed: docs/topics/class-based-views/generic-display.txt:1\nApplying patch docs/topics/class-based-views/generic-display.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 519
+}

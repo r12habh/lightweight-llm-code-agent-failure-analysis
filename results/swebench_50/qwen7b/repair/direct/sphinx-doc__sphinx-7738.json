@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7738",
+  "input_patch_chars": 650,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/napoleon/docstring.py...\nerror: while searching for:\n        if self._sections:\n            self._sections = [self._format_section(section) for section in self._sections]\n        else:\n            self._sections = [self._format_section(section) for section in self._sections]\n\n    def _format_section(self, section):\n        if section[0] == 'Attributes':\n\nerror: patch failed: sphinx/ext/napoleon/docstring.py:102\nApplying patch sphinx/ext/napoleon/docstring.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/napoleon/docstring.py\nHunk #1 FAILED at 102.\n1 out of 1 hunk FAILED -- saving rejects to file sphinx/ext/napoleon/docstring.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

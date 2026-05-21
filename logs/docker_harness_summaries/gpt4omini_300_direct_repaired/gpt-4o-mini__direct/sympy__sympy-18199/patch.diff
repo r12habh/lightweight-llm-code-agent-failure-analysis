@@ -1,0 +1,15 @@
+diff --git a/sympy/functions/special/hyper.py b/sympy/functions/special/hyper.py
+index e00e54fd8e..f56ff4e852 100644
+--- a/sympy/functions/special/hyper.py
++++ b/sympy/functions/special/hyper.py
+@@ -25,6 +25,10 @@ def limit(self, x, xlim, dir='+'):
+ # TODO should constructors should check if parameters are sensible?
+ 
+ 
++from sympy.core import S
++from sympy import Mod
++
++
+ def _prep_tuple(v):
+     """
+     Turn an iterable argument *v* into a tuple and unpolarify, since both

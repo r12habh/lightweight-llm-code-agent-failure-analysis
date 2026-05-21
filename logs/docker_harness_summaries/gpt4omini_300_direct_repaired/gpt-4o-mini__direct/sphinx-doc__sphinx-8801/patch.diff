@@ -1,0 +1,13 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index dc413b5c2..f8ee94f45 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -172,6 +172,8 @@ def merge_members_option(options: Dict) -> None:
+         # merging is not needed when members: ALL
+         return
+ 
++    options['members'] = list(dict.fromkeys(options.get('members', [])))  # Preserve order and remove duplicates
++
+     members = options.setdefault('members', [])
+     for key in {'private-members', 'special-members'}:
+         if key in options and options[key] not in (ALL, None):

@@ -1,0 +1,14 @@
+diff --git a/sympy/printing/pretty/pretty.py b/sympy/printing/pretty/pretty.py
+index df7452ee87..c2595fc28f 100644
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -100,6 +100,10 @@ def _print_Cross(self, e):
+         pform = prettyForm(*pform.left(self._print(U('MULTIPLICATION SIGN'))))
+         pform = prettyForm(*pform.left(')'))
+         pform = prettyForm(*pform.left(self._print(vec1)))
++            if exp == '1/e':
++                return prettyForm(*base.right('**(1/e)'))
++            else:
++                return prettyForm(*base.right('**(' + exp + ')'))
+         pform = prettyForm(*pform.left('('))
+         return pform

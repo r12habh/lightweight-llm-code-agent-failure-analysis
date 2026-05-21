@@ -1,0 +1,14 @@
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..cf4493b493 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -166,6 +166,9 @@ def _user_get_all_permissions(user, obj):
+             permissions.update(backend.get_all_permissions(user, obj))
+     return permissions
+ 
++    Groups are a generic way of categorizing users to apply permissions, or
++    some other label, to those users. A user can belong to any number of
++    groups.
+ 
+ def _user_has_perm(user, perm, obj):
+     """

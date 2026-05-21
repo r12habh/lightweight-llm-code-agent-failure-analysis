@@ -1,0 +1,28 @@
+diff --git a/sklearn/model_selection/_split.py b/sklearn/model_selection/_split.py
+index c49a3ce6ae..1e19fed258 100644
+--- a/sklearn/model_selection/_split.py
++++ b/sklearn/model_selection/_split.py
+@@ -1062,6 +1062,11 @@ class LeavePGroupsOut(BaseCrossValidator):
+         """
+         return super().split(X, y, groups)
+ 
++    def __repr__(self):
++        return ('{0}(n_splits={1}, n_repeats={2}, random_state={3})'
++                .format(self.__class__.__name__,
++                        self.n_splits, self.n_repeats, self.random_state))
++
+ 
+ class _RepeatedSplits(metaclass=ABCMeta):
+     """Repeated splits for an arbitrary randomized CV splitter.
+@@ -1163,6 +1168,11 @@ class _RepeatedSplits(metaclass=ABCMeta):
+                      **self.cvargs)
+         return cv.get_n_splits(X, y, groups) * self.n_repeats
+ 
++    def __repr__(self):
++        return ('{0}(n_splits={1}, n_repeats={2}, random_state={3})'
++                .format(self.__class__.__name__,
++                        self.n_splits, self.n_repeats, self.random_state))
++
+ 
+ class RepeatedKFold(_RepeatedSplits):
+     """Repeated K-Fold cross validator.

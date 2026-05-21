@@ -1,0 +1,26 @@
+{
+  "instance_id": "django__django-14997",
+  "input_patch_chars": 593,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/backends/sqlite3/schema.py...\nerror: while searching for:\n                self.execute(sql)\n\n    def _remake_table(self, model, create_field=None, delete_field=None, alter_field=None):\n        \"\"\"\n        # Self-referential fields must be recreated rather than copied from\n        # the old model to ensure their remote_field.field_name doesn't refer\n        # to an altered field.\n\nerror: patch failed: django/db/backends/sqlite3/schema.py:362\nApplying patch django/db/backends/sqlite3/schema.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/backends/sqlite3/schema.py\nHunk #1 succeeded at 333 with fuzz 3 (offset -29 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

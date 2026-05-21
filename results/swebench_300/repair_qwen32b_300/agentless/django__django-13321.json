@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13321",
+  "input_patch_chars": 605,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/sessions/backends/base.py...\nerror: while searching for:\n        try:\n            encoded_data = base64.b64decode(session_data.encode('ascii'))\n        except (binascii.Error, ValueError):\n            return {}\n        try:\n            # could produce ValueError if there is no ':'\n            hash, serialized = encoded_data.split(b':', 1)\n\nerror: patch failed: django/contrib/sessions/backends/base.py:123\nerror: django/contrib/sessions/backends/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/sessions/backends/base.py...\nerror: while searching for:\n        try:\n            encoded_data = base64.b64decode(session_data.encode('ascii'))\n        except (binascii.Error, ValueError):\n            return {}\n        try:\n            # could produce ValueError if there is no ':'\n            hash, serialized = encoded_data.split(b':', 1)\n\nerror: patch failed: django/contrib/sessions/backends/base.py:123\nApplying patch django/contrib/sessions/backends/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 593
+}

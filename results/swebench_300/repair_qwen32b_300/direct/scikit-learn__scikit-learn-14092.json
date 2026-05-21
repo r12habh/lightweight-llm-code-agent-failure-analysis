@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14092",
+  "input_patch_chars": 1460,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/neighbors/nca.py...\nerror: while searching for:\n        if not isinstance(self.max_iter, int) or self.max_iter < 0:\n            raise ValueError(\"max_iter must be a non-negative integer, \"\n                             \"got %s.\" % self.max_iter)\n        if not isinstance(self.tol, float) or self.tol < 0:\n            raise ValueError(\"tol must be a non-negative float, \"\n                             \"got %s.\" % self.tol)\n        if not isinstance(self.verbose, bool):\n\nerror: patch failed: sklearn/neighbors/nca.py:112\nerror: while searching for:\n        if not isinstance(self.n_components, int) or self.n_components < 1:\n            raise ValueError(\"n_components must be an integer greater than 0, \"\n                             \"got %s.\" % self.n_components)\n        if not isinstance(self.n_neighbors, int) or self.n_neighbors < 1:\n            raise ValueError(\"n_neighbors must be an integer greater than 0, \"\n                             \"got %s.\" % self.n_neighbors)\n        if not isinstance(self.init, str) or self.init not in ['auto', 'pca', 'random', 'identity']:\n\nerror: patch failed: sklearn/neighbors/nca.py:121\nApplying patch sklearn/neighbors/nca.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/neighbors/nca.py\nHunk #1 FAILED at 112.\nHunk #2 FAILED at 121.\n2 out of 2 hunks FAILED -- saving rejects to file sklearn/neighbors/nca.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,13 @@
+diff --git a/xarray/core/variable.py b/xarray/core/variable.py
+index e19132b1..b20ebba4 100644
+--- a/xarray/core/variable.py
++++ b/xarray/core/variable.py
+@@ -332,7 +332,7 @@ class Variable(
+     @property
+     def data(self):
+         if hasattr(self._data, "__array_function__") or isinstance(
+-            self._data, dask_array_type
++            self._data, dask_array_type) or self.ndim == 0
+         ):
+             return self._data
+         else:

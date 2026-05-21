@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13551",
+  "input_patch_chars": 483,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/auth/tokens.py...\nerror: while searching for:\n        \"\"\"\n        return (\n            six.text_type(user.pk) + six.text_type(timestamp) +\n            six.text_type(user.is_active)\n        )\n\n    def _num_days(self, dt):\n\nerror: patch failed: django/contrib/auth/tokens.py:20\nApplying patch django/contrib/auth/tokens.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/auth/tokens.py\nHunk #1 FAILED at 20.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/auth/tokens.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

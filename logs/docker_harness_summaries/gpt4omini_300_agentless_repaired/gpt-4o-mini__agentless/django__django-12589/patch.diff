@@ -1,0 +1,13 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 78c4f47b5b..cb9b20c157 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -181,7 +181,7 @@ class Query(BaseExpression):
+         #  - A tuple of expressions: group by (at least) those expressions.
+         #    String refs are also allowed for now.
+         #  - True: group by all select fields of the model
+-        # See compiler.get_group_by() for details.
++        # See compiler.get_group_by() for details, and avoid ambiguous columns in the GROUP BY clause.
+         self.group_by = None
+         self.order_by = ()
+         self.low_mark, self.high_mark = 0, None  # Used for offset/limit

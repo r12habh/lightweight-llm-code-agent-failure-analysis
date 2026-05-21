@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12497",
+  "input_patch_chars": 798,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/howto/custom-model-fields.txt...\nerror: while searching for:\ncharacters by concatenating all the cards together in a pre-determined order --\nsay, all the *north* cards first, then the *east*, *south* and *west* cards. So\n``Hand`` objects can be saved to text or character columns in the database.\nIf you want to create a recursive relationship, use ForeignKey(\"%s\", symmetrical=False, through=\"%s\").\n\n.. note::\n    You might only be wanting to take advantage of custom database column\n\nerror: patch failed: docs/howto/custom-model-fields.txt:123\nApplying patch docs/howto/custom-model-fields.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file docs/howto/custom-model-fields.txt\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file docs/howto/custom-model-fields.txt.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

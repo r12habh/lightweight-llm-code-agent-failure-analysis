@@ -1,0 +1,16 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13496",
+  "raw": "```diff\ndiff --git a/sklearn/ensemble/iforest.py b/sklearn/ensemble/iforest.py\n--- a/sklearn/ensemble/iforest.py\n+++ b/sklearn/ensemble/iforest.py\n@@ -123,6 +123,8 @@\n    verbose : int, optional (default=0)\n        Controls the verbosity of the tree building process.\n \n+   warm_start : bool, optional (default=False)\n+       When set to ``True``, reuse the solution of the previous call to fit\n+       and add more estimators to the ensemble, otherwise, just fit a whole\n+       new forest. See :term:`the Glossary <warm_start>`.\n \n    Attributes\n    ----------\n@@ -126,6 +128,7 @@\n        The collection of fitted sub-estimators.\n \n    \"\"\"\n \n+   def __init__(self, ... , warm_start=False, ...):\n     super().__init__(...)\n\n     self.warm_start = warm_start\n```",
+  "usage": {
+    "input_tokens": 20201,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 210,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20411
+  },
+  "localized_files": []
+}

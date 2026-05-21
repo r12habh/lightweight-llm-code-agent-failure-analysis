@@ -1,0 +1,12 @@
+diff --git a/src/_pytest/python.py b/src/_pytest/python.py
+index b4d8f5ae0..3e337343a 100644
+--- a/src/_pytest/python.py
++++ b/src/_pytest/python.py
+@@ -155,6 +155,7 @@ def pytest_pyfunc_call(pyfuncitem):
+     testfunction = pyfuncitem.obj
+     iscoroutinefunction = getattr(inspect, "iscoroutinefunction", None)
+     if iscoroutinefunction is not None and iscoroutinefunction(testfunction):
++        # Ensure proper logging of exception message
+         msg = "Coroutine functions are not natively supported and have been skipped.\n"
+         msg += "You need to install a suitable plugin for your async framework, for example:\n"
+         msg += "  - pytest-asyncio\n"

@@ -1,0 +1,12 @@
+diff --git a/sphinx/ext/viewcode.py b/sphinx/ext/viewcode.py
+index a7d52a91c..919ed0e04 100644
+--- a/sphinx/ext/viewcode.py
++++ b/sphinx/ext/viewcode.py
+@@ -55,7 +55,7 @@ def doctree_read(app: Sphinx, doctree: Node) -> None:
+     if not hasattr(env, '_viewcode_modules'):
+         env._viewcode_modules = {}  # type: ignore
+     if app.builder.name == "singlehtml":
+-        return
++        return  # Skip generating pages if viewcode is disabled for EPUB.
+     if app.builder.name.startswith("epub") and not env.config.viewcode_enable_epub:
+         return

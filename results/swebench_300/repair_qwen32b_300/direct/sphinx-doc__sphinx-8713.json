@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8713",
+  "input_patch_chars": 1140,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/napoleon/docstring.py...\nerror: while searching for:\n        # type: (unicode) -> List[unicode]\n        return self._format_fields(_('Other Parameters'), self._consume_fields())\n\n    def _parse_parameters_section(self, section):\n        fields = self._consume_fields()\n        if self._config.napoleon_use_param:\n            return self._format_docutils_params(fields)\n\nerror: patch failed: sphinx/ext/napoleon/docstring.py:404\nerror: while searching for:\n            return self._format_fields(_('Parameters'), fields)\n\n    def _parse_other_parameters_section(self, section):\n        return self._format_fields(_('Other Parameters'), self._consume_fields())\n\n    def _parse_keyword_arguments_section(self, section):\n\nerror: patch failed: sphinx/ext/napoleon/docstring.py:412\nApplying patch sphinx/ext/napoleon/docstring.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/napoleon/docstring.py\nHunk #1 FAILED at 404.\nHunk #2 succeeded at 412 with fuzz 3.\n1 out of 2 hunks FAILED -- saving rejects to file sphinx/ext/napoleon/docstring.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

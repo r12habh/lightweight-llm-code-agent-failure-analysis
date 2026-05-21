@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-11905",
+  "raw": "```diff\ndiff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py\n--- a/django/db/models/sql/query.py\n+++ b/django/db/models/sql/query.py\n@@ -358,6 +358,12 @@\n \n class Query(BaseExpression):\n     # ... existing code ...\n \n+    def check_isnull_lookup_value(self, value):\n+        if not isinstance(value, bool):\n+            raise ValueError(\"The __isnull lookup requires a boolean value.\")\n+\n     def add_filter(self, filter_):\n         # ... existing code ...\n         # Call check for isnull before adding filters\n+        if 'isnull' in filter_:\n+            self.check_isnull_lookup_value(filter_['isnull'])\n         # ... existing code ...\n```",
+  "usage": {
+    "input_tokens": 18239,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 164,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18403
+  },
+  "localized_files": []
+}

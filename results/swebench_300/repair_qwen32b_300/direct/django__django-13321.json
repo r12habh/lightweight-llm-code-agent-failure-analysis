@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13321",
+  "input_patch_chars": 613,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/sessions/backends/base.py...\nerror: while searching for:\n        try:\n            return signing.loads(session_data, salt=self.key_salt, serializer=self.serializer)\n        except Exception:\n            return self._legacy_decode(session_data)\n\n    def _legacy_encode(self, session_dict):\n        # RemovedInDjango40Warning.\n\nerror: patch failed: django/contrib/sessions/backends/base.py:123\nerror: django/contrib/sessions/backends/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/sessions/backends/base.py...\nerror: while searching for:\n        try:\n            return signing.loads(session_data, salt=self.key_salt, serializer=self.serializer)\n        except Exception:\n            return self._legacy_decode(session_data)\n\n    def _legacy_encode(self, session_dict):\n        # RemovedInDjango40Warning.\n\nerror: patch failed: django/contrib/sessions/backends/base.py:123\nApplying patch django/contrib/sessions/backends/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 650
+}

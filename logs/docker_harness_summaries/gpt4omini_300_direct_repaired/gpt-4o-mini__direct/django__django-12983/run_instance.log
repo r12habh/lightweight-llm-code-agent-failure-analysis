@@ -1,0 +1,45 @@
+2026-05-19 21:46:53,585 - INFO - Creating container for django__django-12983...
+2026-05-19 21:46:54,712 - INFO - Container for django__django-12983 created: 429c2db884bc9d21ff442096c8b4cb91b4c1c22eea60ac4d63337690c903f547
+2026-05-19 21:46:54,807 - INFO - Container for django__django-12983 started: 429c2db884bc9d21ff442096c8b4cb91b4c1c22eea60ac4d63337690c903f547
+2026-05-19 21:46:54,810 - INFO - Intermediate patch for django__django-12983 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-12983/patch.diff, now applying to container...
+2026-05-19 21:46:54,968 - INFO - >>>>> Applied Patch:
+Checking patch django/utils/text.py...
+Applied patch django/utils/text.py cleanly.
+
+2026-05-19 21:46:55,658 - INFO - Git diff before:
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..850f08bcd4 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -188,6 +188,7 @@ class Truncator(SimpleLazyObject):
+                 continue
+             closing_tag, tagname, self_closing = tag.groups()
+             # Element names are always case-insensitive
++    value = re.sub(r'[-_]+', '', value)  # Strip dashes and underscores
+             tagname = tagname.lower()
+             if self_closing or tagname in html4_singlets:
+                 pass
+2026-05-19 21:46:55,659 - INFO - Eval script for django__django-12983 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-12983/eval.sh; copying to container...
+2026-05-19 21:47:09,601 - INFO - Test runtime: 13.87 seconds
+2026-05-19 21:47:09,607 - INFO - Test output for django__django-12983 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-12983/test_output.txt
+2026-05-19 21:47:09,744 - INFO - Git diff after:
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..850f08bcd4 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -188,6 +188,7 @@ class Truncator(SimpleLazyObject):
+                 continue
+             closing_tag, tagname, self_closing = tag.groups()
+             # Element names are always case-insensitive
++    value = re.sub(r'[-_]+', '', value)  # Strip dashes and underscores
+             tagname = tagname.lower()
+             if self_closing or tagname in html4_singlets:
+                 pass
+2026-05-19 21:47:09,744 - INFO - Grading answer for django__django-12983...
+2026-05-19 21:47:09,748 - INFO - report: {'django__django-12983': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_slugify (utils_tests.test_text.TestUtilsText)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_compress_sequence (utils_tests.test_text.TestUtilsText)', 'test_format_lazy (utils_tests.test_text.TestUtilsText)', 'test_get_text_list (utils_tests.test_text.TestUtilsText)', 'test_get_valid_filename (utils_tests.test_text.TestUtilsText)', 'test_normalize_newlines (utils_tests.test_text.TestUtilsText)', 'test_phone2numeric (utils_tests.test_text.TestUtilsText)', 'test_smart_split (utils_tests.test_text.TestUtilsText)', 'test_truncate_chars (utils_tests.test_text.TestUtilsText)', 'test_truncate_chars_html (utils_tests.test_text.TestUtilsText)', 'test_truncate_html_words (utils_tests.test_text.TestUtilsText)', 'test_truncate_words (utils_tests.test_text.TestUtilsText)', 'test_unescape_entities (utils_tests.test_text.TestUtilsText)', 'test_unescape_entities_deprecated (utils_tests.test_text.TestUtilsText)', 'test_unescape_string_literal (utils_tests.test_text.TestUtilsText)', 'test_wrap (utils_tests.test_text.TestUtilsText)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12983: resolved: False
+2026-05-19 21:47:09,749 - INFO - Attempting to stop container sweb.eval.django__django-12983.gpt4omini_300_direct_repaired...
+2026-05-19 21:47:24,956 - INFO - Attempting to remove container sweb.eval.django__django-12983.gpt4omini_300_direct_repaired...
+2026-05-19 21:47:24,969 - INFO - Container sweb.eval.django__django-12983.gpt4omini_300_direct_repaired removed.
+2026-05-19 21:47:24,969 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12983:latest...
+2026-05-19 21:47:25,982 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12983:latest removed.

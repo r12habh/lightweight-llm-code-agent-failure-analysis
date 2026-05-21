@@ -1,0 +1,15 @@
+diff --git a/sympy/core/function.py b/sympy/core/function.py
+index c730d8c9c8..e84def13b2 100644
+--- a/sympy/core/function.py
++++ b/sympy/core/function.py
+@@ -1234,6 +1234,10 @@ def _sort_variables(cls, vars):
+ 
+         Examples
+         ========
++                    return S.Zero
++                elif x.is_real and x.is_negative:
++                    return -x
++                elif x.is_real and x.is_positive:
+ 
+         >>> from sympy import Derivative, Function, symbols
+         >>> vsort = Derivative._sort_variables

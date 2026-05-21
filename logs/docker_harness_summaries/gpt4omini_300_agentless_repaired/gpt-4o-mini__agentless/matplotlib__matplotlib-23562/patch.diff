@@ -1,0 +1,22 @@
+diff --git a/lib/mpl_toolkits/mplot3d/axes3d.py b/lib/mpl_toolkits/mplot3d/axes3d.py
+index 05df0c16f2..52cd11d017 100644
+--- a/lib/mpl_toolkits/mplot3d/axes3d.py
++++ b/lib/mpl_toolkits/mplot3d/axes3d.py
+@@ -160,6 +160,9 @@ class Axes3D(Axes):
+         self.figure.canvas.callbacks._connect_picklable(
+             'button_press_event', self._button_press)
+         self.figure.canvas.callbacks._connect_picklable(
++            'motion_notify_event', self._on_move)
++        self.figure.canvas.callbacks._connect_picklable(
++            'button_press_event', self._button_press)
+             'button_release_event', self._button_release)
+         self.set_top_view()
+ 
+@@ -316,6 +319,7 @@ class Axes3D(Axes):
+         See Also
+         --------
+         mpl_toolkits.mplot3d.axes3d.Axes3D.set_box_aspect
++        # Ensure _facecolors2d is initialized
+         """
+         _api.check_in_list(('auto', 'equal', 'equalxy', 'equalyz', 'equalxz'),
+                            aspect=aspect)

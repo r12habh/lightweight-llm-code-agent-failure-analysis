@@ -1,0 +1,45 @@
+2026-05-20 08:48:20,823 - INFO - Creating container for django__django-16229...
+2026-05-20 08:48:20,875 - INFO - Container for django__django-16229 created: 1db3e7c4b209bd7ddd652633808eab74d547ef5b80fa666691172ef9bdb422a2
+2026-05-20 08:48:20,995 - INFO - Container for django__django-16229 started: 1db3e7c4b209bd7ddd652633808eab74d547ef5b80fa666691172ef9bdb422a2
+2026-05-20 08:48:20,996 - INFO - Intermediate patch for django__django-16229 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-16229/patch.diff, now applying to container...
+2026-05-20 08:48:21,173 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/fields/__init__.py...
+Applied patch django/db/models/fields/__init__.py cleanly.
+
+2026-05-20 08:48:22,096 - INFO - Git diff before:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 2a98396cad..d4de24f67e 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -114,6 +114,7 @@ class Field(RegisterLookupMixin):
+     """Base class for all field types"""
+ 
+     # Designates whether empty strings fundamentally are allowed at the
++        self.show_hidden_initial = kwargs.pop('show_hidden_initial', False)
+     # database level.
+     empty_strings_allowed = True
+     empty_values = list(validators.EMPTY_VALUES)
+2026-05-20 08:48:22,097 - INFO - Eval script for django__django-16229 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-16229/eval.sh; copying to container...
+2026-05-20 08:48:30,046 - INFO - Test runtime: 7.88 seconds
+2026-05-20 08:48:30,048 - INFO - Test output for django__django-16229 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-16229/test_output.txt
+2026-05-20 08:48:30,192 - INFO - Git diff after:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 2a98396cad..d4de24f67e 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -114,6 +114,7 @@ class Field(RegisterLookupMixin):
+     """Base class for all field types"""
+ 
+     # Designates whether empty strings fundamentally are allowed at the
++        self.show_hidden_initial = kwargs.pop('show_hidden_initial', False)
+     # database level.
+     empty_strings_allowed = True
+     empty_values = list(validators.EMPTY_VALUES)
+2026-05-20 08:48:30,192 - INFO - Grading answer for django__django-16229...
+2026-05-20 08:48:30,195 - INFO - report: {'django__django-16229': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_callable_default_hidden_widget_value_not_overridden (forms_tests.tests.tests.ModelFormCallableModelDefault)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['Test for issue 10405', "If a model's ManyToManyField has blank=True and is saved with no data,", 'test_m2m_field_exclusion (forms_tests.tests.tests.ManyToManyExclusionTestCase)', 'test_empty_field_char (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_empty_field_char_none (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_empty_field_integer (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_get_display_value_on_none (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_html_rendering_of_prepopulated_models (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_save_empty_label_forms (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_boundary_conditions (forms_tests.tests.tests.FormsModelTestCase)', 'test_formfield_initial (forms_tests.tests.tests.FormsModelTestCase)', 'test_unicode_filename (forms_tests.tests.tests.FormsModelTestCase)', 'test_empty_field_char (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_empty_field_char_none (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_empty_field_integer (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_get_display_value_on_none (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_html_rendering_of_prepopulated_models (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_save_empty_label_forms (forms_tests.tests.tests.EmptyLabelTestCase)', 'The initial value for a callable default returning a queryset is the', 'Initial instances for model fields may also be instances (refs #7287)', "If a model's ForeignKey has blank=False and a default, no empty option"]}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-16229: resolved: False
+2026-05-20 08:48:30,196 - INFO - Attempting to stop container sweb.eval.django__django-16229.gpt4omini_300_agentless_repaired...
+2026-05-20 08:48:45,326 - INFO - Attempting to remove container sweb.eval.django__django-16229.gpt4omini_300_agentless_repaired...
+2026-05-20 08:48:45,341 - INFO - Container sweb.eval.django__django-16229.gpt4omini_300_agentless_repaired removed.
+2026-05-20 08:48:45,341 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-16229:latest...
+2026-05-20 08:48:45,359 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-16229:latest removed.

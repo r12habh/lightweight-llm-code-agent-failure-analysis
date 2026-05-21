@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14999",
+  "input_patch_chars": 1047,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/postgres/constraints.py...\nHunk #1 succeeded at 3 (offset -7 lines).\nerror: while searching for:\n        if not isinstance(deferrable, (type(None), Deferrable)):\n            raise ValueError(\n                'ExclusionConstraint.deferrable must be a Deferrable instance.'\n        if not isinstance(include, (type(None), list, tuple)):\n            raise ValueError(\n                'ExclusionConstraint.include must be a list or tuple.'\n\nerror: patch failed: django/contrib/postgres/constraints.py:100\nApplying patch django/contrib/postgres/constraints.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/postgres/constraints.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 3 (offset -7 lines).\nHunk #2 FAILED at 100.\n1 out of 2 hunks FAILED -- saving rejects to file django/contrib/postgres/constraints.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

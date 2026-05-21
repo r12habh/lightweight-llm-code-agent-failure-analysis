@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13265",
+  "input_patch_chars": 1013,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 31\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 12:  \n\n",
+          "stdout": "can't find file to patch at input line 4\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/path/to/migrations/000X_auto.py b/path/to/migrations/000X_auto.py\n|--- a/path/to/migrations/000X_auto.py\n|+++ b/path/to/migrations/000X_auto.py\n--------------------------\nNo file to patch.  Skipping patch.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

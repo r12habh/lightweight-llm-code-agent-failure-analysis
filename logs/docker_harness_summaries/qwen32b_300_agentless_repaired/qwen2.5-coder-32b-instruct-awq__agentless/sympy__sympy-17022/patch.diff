@@ -1,0 +1,12 @@
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index a940509b47..a718da67ef 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -83,6 +83,7 @@
+ SCIPY_TRANSLATIONS = {}
+ 
+ TENSORFLOW_TRANSLATIONS = {
++    "Identity": "lambda n: np.eye(n)",
+     "Abs": "abs",
+     "ceiling": "ceil",
+     "im": "imag",

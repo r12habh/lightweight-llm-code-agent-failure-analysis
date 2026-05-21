@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13265",
+  "input_patch_chars": 1967,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 51\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 22:          migrations.CreateModel(\n\n",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/myapp/migrations/0001_initial.py b/myapp/migrations/0001_initial.py\n|index 1234567..abcdef8 100644\n|--- a/myapp/migrations/0001_initial.py\n|+++ b/myapp/migrations/0001_initial.py\n--------------------------\nNo file to patch.  Skipping patch.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

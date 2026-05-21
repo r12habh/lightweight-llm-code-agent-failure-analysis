@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14667",
+  "input_patch_chars": 1380,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n        self.select_related = False\n        # Arbitrary limit for select_related to prevents infinite recursion.\n        self.max_depth = 5\n\n        self._filtered_relations = {}\n\n\nerror: patch failed: django/db/models/sql/query.py:1234\nerror: django/db/models/sql/query.py: patch does not apply\nChecking patch django/db/models/query.py...\nerror: while searching for:\n        self.select_related = False\n        # Arbitrary limit for select_related to prevents infinite recursion.\n        self.max_depth = 5\n\n        self._filtered_relations = {}\n\n\nerror: patch failed: django/db/models/query.py:1234\nerror: django/db/models/query.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n        self.select_related = False\n        # Arbitrary limit for select_related to prevents infinite recursion.\n        self.max_depth = 5\n\n        self._filtered_relations = {}\n\n\nerror: patch failed: django/db/models/sql/query.py:1234\nHunk #2 succeeded at 231 (offset -1013 lines).\nChecking patch django/db/models/query.py...\nerror: while searching for:\n        self.select_related = False\n        # Arbitrary limit for select_related to prevents infinite recursion.\n        self.max_depth = 5\n\n        self._filtered_relations = {}\n\n\nerror: patch failed: django/db/models/query.py:1234\nerror: while searching for:\n        self.explain_query = False\n        self.explain_format = None\n        self.explain_options = {}\n\n    @property\n    def output_field(self):\n\nerror: patch failed: django/db/models/query.py:1243\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\nApplying patch django/db/models/query.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 2106
+}

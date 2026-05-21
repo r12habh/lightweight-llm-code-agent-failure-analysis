@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5227",
+  "input_patch_chars": 6590,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: patch fragment without header at line 167: @@ -212,7 +213,7 @@ class LogCaptureFixture(object):\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/logging.py\nHunk #1 succeeded at 13 (offset -1 lines).\nHunk #2 succeeded at 21 with fuzz 3 (offset -1 lines).\nHunk #3 succeeded at 49 with fuzz 3 (offset 8 lines).\nHunk #4 succeeded at 68 (offset 9 lines).\nHunk #5 succeeded at 77 (offset 8 lines).\nHunk #6 succeeded at 85 (offset 4 lines).\nHunk #7 FAILED at 91.\nHunk #8 FAILED at 101.\nHunk #9 FAILED at 111.\nHunk #10 FAILED at 121.\nHunk #11 FAILED at 131.\nHunk #12 FAILED at 141.\nHunk #13 FAILED at 151.\nHunk #14 succeeded at 168 with fuzz 3 (offset 7 lines).\nHunk #15 succeeded at 176 (offset 5 lines).\nHunk #16 succeeded at 186 (offset 5 lines).\nHunk #17 succeeded at 197 (offset 4 lines).\nHunk #18 succeeded at 206 with fuzz 3 (offset 3 lines).\n7 out of 18 hunks FAILED -- saving rejects to file src/_pytest/logging.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12284",
+  "input_patch_chars": 484,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/base.py...\nerror: while searching for:\n                new_class.add_to_class(obj_name, obj)\n\n        # All the fields of any type declared on this model\n        new_fields = chain(\n            new_class._meta.local_fields,\n            new_class._meta.local_many_to_many,\n\nerror: patch failed: django/db/models/base.py:123\nerror: django/db/models/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/base.py...\nerror: while searching for:\n                new_class.add_to_class(obj_name, obj)\n\n        # All the fields of any type declared on this model\n        new_fields = chain(\n            new_class._meta.local_fields,\n            new_class._meta.local_many_to_many,\n\nerror: patch failed: django/db/models/base.py:123\nApplying patch django/db/models/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 516
+}

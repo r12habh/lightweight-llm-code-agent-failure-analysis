@@ -1,0 +1,20 @@
+diff --git a/django/core/management/commands/makemigrations.py b/django/core/management/commands/makemigrations.py
+index 5c0a7829b4..7efbddcbbf 100644
+--- a/django/core/management/commands/makemigrations.py
++++ b/django/core/management/commands/makemigrations.py
+@@ -10,6 +10,7 @@ from django.core.management.base import (
+ )
+ from django.db import DEFAULT_DB_ALIAS, OperationalError, connections, router
+ from django.db.migrations import Migration
++from django.db.migrations.operations import RunPython
+ from django.db.migrations.autodetector import MigrationAutodetector
+ from django.db.migrations.loader import MigrationLoader
+ from django.db.migrations.questioner import (
+@@ -100,6 +101,7 @@ class Command(BaseCommand):
+                     for model in apps.get_app_config(app_label).get_models()
+             )):
+                 try:
++            operations=[RunPython(lambda app_config, using: None)]
+                     loader.check_consistent_history(connection)
+                 except OperationalError as error:
+                     warnings.warn(

@@ -1,0 +1,13 @@
+diff --git a/lib/mpl_toolkits/mplot3d/axes3d.py b/lib/mpl_toolkits/mplot3d/axes3d.py
+index e470295393..50326edb22 100644
+--- a/lib/mpl_toolkits/mplot3d/axes3d.py
++++ b/lib/mpl_toolkits/mplot3d/axes3d.py
+@@ -233,7 +233,7 @@ class Axes3D(Axes):
+ 
+     def unit_cube(self, vals=None):
+         minx, maxx, miny, maxy, minz, maxz = vals or self.get_w_lims()
+-        return [(minx, miny, minz),
++        return [(float(minx), float(miny), float(minz)),
+                 (maxx, miny, minz),
+                 (maxx, maxy, minz),
+                 (minx, maxy, minz),

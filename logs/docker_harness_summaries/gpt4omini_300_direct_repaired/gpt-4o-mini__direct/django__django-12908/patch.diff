@@ -1,0 +1,16 @@
+diff --git a/tests/distinct_on_fields/tests.py b/tests/distinct_on_fields/tests.py
+index 009b0191fb..3ff4251ef1 100644
+--- a/tests/distinct_on_fields/tests.py
++++ b/tests/distinct_on_fields/tests.py
+@@ -95,6 +95,12 @@ class DistinctOnTests(TestCase):
+         # Test join unreffing
+         c1 = Celebrity.objects.distinct('greatest_fan__id', 'greatest_fan__fan_of')
+         self.assertIn('OUTER JOIN', str(c1.query))
++        # Raise an error for union with distinct
++        c2 = c1.union(Celebrity.objects.distinct('greatest_fan__id', 'greatest_fan__fan_of'))
++        with self.assertRaises(TypeError):
++            c2.distinct('name').count()
++
++        # Ensure c1 still works
+         c2 = c1.distinct('pk')
+         self.assertNotIn('OUTER JOIN', str(c2.query))

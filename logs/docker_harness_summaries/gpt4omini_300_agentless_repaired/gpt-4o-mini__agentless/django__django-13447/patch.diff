@@ -1,0 +1,13 @@
+diff --git a/docs/ref/class-based-views/mixins-editing.txt b/docs/ref/class-based-views/mixins-editing.txt
+index d0bb200ae3..96c6046982 100644
+--- a/docs/ref/class-based-views/mixins-editing.txt
++++ b/docs/ref/class-based-views/mixins-editing.txt
+@@ -2,6 +2,8 @@
+ Editing mixins
+ ==============
+ 
++.. currentmodule:: django.views.generic.edit
++
+ The following mixins are used to construct Django's editing views:
+ 
+ * :class:`django.views.generic.edit.FormMixin`

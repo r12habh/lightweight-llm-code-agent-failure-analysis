@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/pyplot.py b/lib/matplotlib/pyplot.py
+index 193491f8a9..a316e09521 100644
+--- a/lib/matplotlib/pyplot.py
++++ b/lib/matplotlib/pyplot.py
+@@ -891,6 +891,7 @@ def get_figlabels():
+ def get_current_fig_manager():
+     """
+     Return the figure manager of the current figure.
++    from matplotlib.axes import _Axes3D 
+ 
+     The figure manager is a container for the actual backend-depended window
+     that displays the figure on screen.

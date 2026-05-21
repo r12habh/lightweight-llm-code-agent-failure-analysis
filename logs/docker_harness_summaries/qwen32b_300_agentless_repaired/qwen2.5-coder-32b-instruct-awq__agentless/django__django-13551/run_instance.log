@@ -1,0 +1,63 @@
+2026-05-20 14:31:54,041 - INFO - Creating container for django__django-13551...
+2026-05-20 14:31:54,106 - INFO - Container for django__django-13551 created: 5c1a900cb29efc44645a2f6e57621373485df4d0070f2a060c958e79ddb9ec4f
+2026-05-20 14:31:54,209 - INFO - Container for django__django-13551 started: 5c1a900cb29efc44645a2f6e57621373485df4d0070f2a060c958e79ddb9ec4f
+2026-05-20 14:31:54,210 - INFO - Intermediate patch for django__django-13551 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-13551/patch.diff, now applying to container...
+2026-05-20 14:31:54,398 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/auth/tokens.py...
+Applied patch django/contrib/auth/tokens.py cleanly.
+
+2026-05-20 14:31:55,426 - INFO - Git diff before:
+diff --git a/django/contrib/auth/tokens.py b/django/contrib/auth/tokens.py
+index 93e2d71af2..19d90a09b2 100644
+--- a/django/contrib/auth/tokens.py
++++ b/django/contrib/auth/tokens.py
+@@ -1,7 +1,7 @@
+ from datetime import datetime
+ 
+ from django.conf import settings
+-from django.utils.crypto import constant_time_compare, salted_hmac
++from django.utils.crypto import constant_time_compare, salted_hmac, get_random_string
+ from django.utils.http import base36_to_int, int_to_base36
+ 
+ 
+@@ -25,6 +25,7 @@ class PasswordResetTokenGenerator:
+         Return a token that can be used once to do a password reset
+         for the given user.
+         """
++            six.text_type(user.email) +
+         return self._make_token_with_timestamp(user, self._num_seconds(self._now()))
+ 
+     def check_token(self, user, token):
+2026-05-20 14:31:55,427 - INFO - Eval script for django__django-13551 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-13551/eval.sh; copying to container...
+2026-05-20 14:32:10,866 - INFO - Test runtime: 15.37 seconds
+2026-05-20 14:32:10,870 - INFO - Test output for django__django-13551 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-13551/test_output.txt
+2026-05-20 14:32:11,018 - INFO - Git diff after:
+diff --git a/django/contrib/auth/tokens.py b/django/contrib/auth/tokens.py
+index 93e2d71af2..19d90a09b2 100644
+--- a/django/contrib/auth/tokens.py
++++ b/django/contrib/auth/tokens.py
+@@ -1,7 +1,7 @@
+ from datetime import datetime
+ 
+ from django.conf import settings
+-from django.utils.crypto import constant_time_compare, salted_hmac
++from django.utils.crypto import constant_time_compare, salted_hmac, get_random_string
+ from django.utils.http import base36_to_int, int_to_base36
+ 
+ 
+@@ -25,6 +25,7 @@ class PasswordResetTokenGenerator:
+         Return a token that can be used once to do a password reset
+         for the given user.
+         """
++            six.text_type(user.email) +
+         return self._make_token_with_timestamp(user, self._num_seconds(self._now()))
+ 
+     def check_token(self, user, token):
+2026-05-20 14:32:11,018 - INFO - Grading answer for django__django-13551...
+2026-05-20 14:32:11,025 - INFO - report: {'django__django-13551': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['Updating the user email address invalidates the token.', 'test_token_with_different_secret (auth_tests.test_tokens.TokenGeneratorTest)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_str (auth_tests.test_models.GroupTests)', 'test_group_natural_key (auth_tests.test_models.NaturalKeysTestCase)', 'test_user_natural_key (auth_tests.test_models.NaturalKeysTestCase)', 'test_check_password (auth_tests.test_models.AnonymousUserTests)', 'test_delete (auth_tests.test_models.AnonymousUserTests)', 'test_eq (auth_tests.test_models.AnonymousUserTests)', 'test_hash (auth_tests.test_models.AnonymousUserTests)', 'test_int (auth_tests.test_models.AnonymousUserTests)', 'test_properties (auth_tests.test_models.AnonymousUserTests)', 'test_save (auth_tests.test_models.AnonymousUserTests)', 'test_set_password (auth_tests.test_models.AnonymousUserTests)', 'test_str (auth_tests.test_models.AnonymousUserTests)', 'test_create_superuser (auth_tests.test_models.TestCreateSuperUserSignals)', 'test_create_user (auth_tests.test_models.TestCreateSuperUserSignals)', 'test_str (auth_tests.test_models.PermissionTests)', 'test_load_data_with_user_permissions (auth_tests.test_models.LoadDataWithNaturalKeysAndMultipleDatabasesTestCase)', 'test_10265 (auth_tests.test_tokens.TokenGeneratorTest)', 'test_check_token_with_nonexistent_token_and_user (auth_tests.test_tokens.TokenGeneratorTest)', 'test_legacy_token_validation (auth_tests.test_tokens.TokenGeneratorTest)', 'test_make_token (auth_tests.test_tokens.TokenGeneratorTest)', 'The token is valid after n seconds, but no greater.', 'test_token_default_hashing_algorithm (auth_tests.test_tokens.TokenGeneratorTest)', 'test_user_is_created_and_added_to_group (auth_tests.test_models.LoadDataWithNaturalKeysTestCase)', 'test_user_is_created_and_added_to_group (auth_tests.test_models.LoadDataWithoutNaturalKeysTestCase)', 'test_backend_without_with_perm (auth_tests.test_models.UserWithPermTestCase)', 'test_basic (auth_tests.test_models.UserWithPermTestCase)', 'test_custom_backend (auth_tests.test_models.UserWithPermTestCase)', 'test_custom_backend_pass_obj (auth_tests.test_models.UserWithPermTestCase)', 'test_invalid_backend_type (auth_tests.test_models.UserWithPermTestCase)', 'test_invalid_permission_name (auth_tests.test_models.UserWithPermTestCase)', 'test_invalid_permission_type (auth_tests.test_models.UserWithPermTestCase)', 'test_multiple_backends (auth_tests.test_models.UserWithPermTestCase)', 'test_nonexistent_backend (auth_tests.test_models.UserWithPermTestCase)', 'test_nonexistent_permission (auth_tests.test_models.UserWithPermTestCase)', 'test_clean_normalize_username (auth_tests.test_models.AbstractBaseUserTests)', 'test_custom_email (auth_tests.test_models.AbstractBaseUserTests)', 'test_default_email (auth_tests.test_models.AbstractBaseUserTests)', 'test_has_usable_password (auth_tests.test_models.AbstractBaseUserTests)', 'test_normalize_username (auth_tests.test_models.AbstractBaseUserTests)', 'test_builtin_user_isactive (auth_tests.test_models.IsActiveTestCase)', 'test_is_active_field_default (auth_tests.test_models.IsActiveTestCase)', 'test_check_password_upgrade (auth_tests.test_models.AbstractUserTestCase)', 'test_email_user (auth_tests.test_models.AbstractUserTestCase)', 'test_last_login_default (auth_tests.test_models.AbstractUserTestCase)', 'test_user_clean_normalize_email (auth_tests.test_models.AbstractUserTestCase)', 'test_user_double_save (auth_tests.test_models.AbstractUserTestCase)', 'test_create_super_user_raises_error_on_false_is_superuser (auth_tests.test_models.UserManagerTestCase)', 'test_create_superuser_raises_error_on_false_is_staff (auth_tests.test_models.UserManagerTestCase)', 'test_create_user (auth_tests.test_models.UserManagerTestCase)', 'test_create_user_email_domain_normalize (auth_tests.test_models.UserManagerTestCase)', 'test_create_user_email_domain_normalize_rfc3696 (auth_tests.test_models.UserManagerTestCase)', 'test_create_user_email_domain_normalize_with_whitespace (auth_tests.test_models.UserManagerTestCase)', 'test_create_user_is_staff (auth_tests.test_models.UserManagerTestCase)', 'test_empty_username (auth_tests.test_models.UserManagerTestCase)', 'test_make_random_password (auth_tests.test_models.UserManagerTestCase)', 'test_runpython_manager_methods (auth_tests.test_models.UserManagerTestCase)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13551: resolved: False
+2026-05-20 14:32:11,025 - INFO - Attempting to stop container sweb.eval.django__django-13551.qwen32b_300_agentless_repaired...
+2026-05-20 14:32:26,244 - INFO - Attempting to remove container sweb.eval.django__django-13551.qwen32b_300_agentless_repaired...
+2026-05-20 14:32:26,297 - INFO - Container sweb.eval.django__django-13551.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:32:26,297 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13551:latest...
+2026-05-20 14:32:26,318 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13551:latest removed.

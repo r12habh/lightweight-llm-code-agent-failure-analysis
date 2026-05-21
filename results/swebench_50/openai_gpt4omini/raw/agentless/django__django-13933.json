@@ -1,0 +1,33 @@
+{
+  "instance_id": "django__django-13933",
+  "raw": "```diff\ndiff --git a/django/forms/models.py b/django/forms/models.py\nindex 4f4f5c1..8b2af77 100644\n--- a/django/forms/models.py\n+++ b/django/forms/models.py\n@@ -307,6 +307,7 @@ class ModelChoiceField(ChoiceField):\n     default_error_messages = {\n         'invalid_choice': _('Select a valid choice. That choice is not one of'\n                             ' the available choices.'),\n+        'invalid_choice': _('Select a valid choice. %(value)s is not one of the'\n+                            ' available choices.'),\n     }\n     ...\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19827,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 154,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19981
+    },
+    "patch": {
+      "input_tokens": 19889,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 137,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20026
+    }
+  },
+  "localized_files": [
+    "django/forms/models.py",
+    "tests/model_forms/test_modelchoicefield.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/forms/models.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains the ModelChoiceField class definition, likely to be affected by the proposed change.\"\n    },\n    {\n      \"path\": \"docs/ref/forms/validation.txt\",\n      \"confidence\": 0.8,\n      \"reason\": \"Describes form validation and error messages, relevant to changes in ValidationError handling.\"\n    },\n    {\n      \"path\": \"tests/model_forms/test_modelchoicefield.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"Contains tests for ModelChoiceField, likely to require updates for new validation error handling.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,11 @@
+diff --git a/django/core/handlers/exception.py b/django/core/handlers/exception.py
+index 3005a5eccb..17582126fc 100644
+--- a/django/core/handlers/exception.py
++++ b/django/core/handlers/exception.py
+@@ -102,6 +102,7 @@ def response_for_exception(request, exc):
+         )
+         if settings.DEBUG:
+             response = debug.technical_500_response(request, *sys.exc_info(), status_code=400)
++        logger.exception('SuspiciousOperation caught')
+         else:
+             response = get_exception_response(request, get_resolver(get_urlconf()), 400, exc)

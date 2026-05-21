@@ -1,0 +1,35 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14894",
+  "raw": "```diff\ndiff --git a/sklearn/svm/base.py b/sklearn/svm/base.py\n--- a/sklearn/svm/base.py\n+++ b/sklearn/svm/base.py\n@@ -270,7 +270,7 @@\n \n         dual_coef_indices = np.tile(np.arange(n_SV), n_class)\n         dual_coef_indptr = np.arange(0, dual_coef_indices.size + 1,\n-                                     dual_coef_indices.size / n_class)\n+                                     dual_coef_indices.size // n_class)\n         self.dual_coef_ = sp.csr_matrix(\n             (dual_coef_data, dual_coef_indices, dual_coef_indptr),\n             (n_class, n_SV))\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19380,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 207,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19587
+    },
+    "patch": {
+      "input_tokens": 19459,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 144,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19603
+    }
+  },
+  "localized_files": [
+    "sklearn/svm/base.py",
+    "sklearn/linear_model/sag.py",
+    "sklearn/linear_model/ridge.py",
+    "sklearn/kernel_ridge.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sklearn/svm/base.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains the _sparse_fit function, which may lead to ZeroDivisionError when support_vectors_ is empty.\"\n    },\n    {\n      \"path\": \"sklearn/linear_model/sag.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Contains functions related to SAG that might also experience division errors under specific conditions.\"\n    },\n    {\n      \"path\": \"sklearn/linear_model/ridge.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Implements regression models and might have edge cases similar to ZeroDivisionError.\"\n    },\n    {\n      \"path\": \"sklearn/kernel_ridge.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Contains regression implementations that may be related to SVM and thus could have similar issues.\"\n    }\n  ]\n}\n```"
+}

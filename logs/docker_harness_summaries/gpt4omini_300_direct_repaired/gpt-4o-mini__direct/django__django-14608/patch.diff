@@ -1,0 +1,12 @@
+diff --git a/django/forms/formsets.py b/django/forms/formsets.py
+index a89c35599f..a45b4dc2ee 100644
+--- a/django/forms/formsets.py
++++ b/django/forms/formsets.py
+@@ -20,6 +20,7 @@ DELETION_FIELD_NAME = 'DELETE'
+ 
+ # default minimum number of forms in a formset
+ DEFAULT_MIN_NUM = 0
++NON_FORM_ERROR_CSS_CLASS = 'nonform'
+ 
+ # default maximum number of forms in a formset, to prevent memory exhaustion
+ DEFAULT_MAX_NUM = 1000

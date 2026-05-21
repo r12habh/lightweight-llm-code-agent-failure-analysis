@@ -1,0 +1,13 @@
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..bb44c607fe 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -97,7 +97,7 @@ class Field:
+         if self.localize:
+             widget.is_localized = True
+ 
+-        # Let the widget know whether it should display as required.
++        # Let the widget know whether it should display as required and not raise ValueError.
+         widget.is_required = self.required
+ 
+         # Hook into self.widget_attrs() for any Field-specific HTML attributes.

@@ -1,0 +1,13 @@
+diff --git a/docs/user/quickstart.rst b/docs/user/quickstart.rst
+index cc6d32df..8b54e859 100644
+--- a/docs/user/quickstart.rst
++++ b/docs/user/quickstart.rst
+@@ -98,7 +98,7 @@ charsets are seamlessly decoded.
+ 
+ When you make a request, Requests makes educated guesses about the encoding of
+ the response based on the HTTP headers. The text encoding guessed by Requests
+-is used when you access ``r.text``. You can find out what encoding Requests is
++is used when you access ``r.text``. You can find out what encoding Requests uses
+ using, and change it, using the ``r.encoding`` property::
+ 
+     >>> r.encoding

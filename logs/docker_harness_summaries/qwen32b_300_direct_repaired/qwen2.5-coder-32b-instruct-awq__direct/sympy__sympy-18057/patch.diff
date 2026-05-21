@@ -1,0 +1,13 @@
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 24d89897f7..3fcb8096c0 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -123,7 +123,7 @@ def __eq__(self, other):
+         try:
+             other = sympify(other)
+             if not isinstance(other, Expr):
+-                return False
++                return False if isinstance(other, str) else False
+         except (SympifyError, SyntaxError):
+             return False
+         # check for pure number expr

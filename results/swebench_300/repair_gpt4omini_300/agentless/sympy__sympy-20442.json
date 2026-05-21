@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-20442",
+  "input_patch_chars": 756,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp1f5fh66h.diff:9: trailing whitespace.\n    Converts an expression into the same expression expressed in another unit. \nChecking patch sympy/physics/units/__init__.py...\nerror: while searching for:\n\ndef convert_to(expr, newunit):\n    \"\"\"\n    Converts an expression into the same expression expressed in another unit.\n    \n    Raises ValueError if the conversion isn't valid.\n    \"\"\"\n\nerror: patch failed: sympy/physics/units/__init__.py:281\nerror: while searching for:\n    if not isinstance(expr, Quantity):\n        raise ValueError(\"expr must be a Quantity.\")\n    if not isinstance(newunit, Unit):\n        raise ValueError(\"newunit must be a Unit.\")\n    \n    current_quantity = expr.get_dimension()\n\n\nerror: patch failed: sympy/physics/units/__init__.py:295\nApplying patch sympy/physics/units/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/physics/units/__init__.py\nHunk #1 FAILED at 281.\nHunk #2 FAILED at 295.\n2 out of 2 hunks FAILED -- saving rejects to file sympy/physics/units/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

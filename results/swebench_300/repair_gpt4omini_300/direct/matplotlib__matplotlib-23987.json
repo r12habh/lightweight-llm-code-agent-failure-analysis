@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23987",
+  "input_patch_chars": 836,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/_constrained_layout.py...\nerror: while searching for:\n\n    # Conditionally suppress warnings for incompatible layout engines\n    fig._constrained_layout_warning = False\n\n    layoutgrids = make_layoutgrids(fig, None, rect=rect)\n    if not layoutgrids['hasgrids']:\n\nerror: patch failed: lib/matplotlib/_constrained_layout.py:137\nerror: lib/matplotlib/_constrained_layout.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/_constrained_layout.py...\nerror: while searching for:\n\n    # Conditionally suppress warnings for incompatible layout engines\n    fig._constrained_layout_warning = False\n\n    layoutgrids = make_layoutgrids(fig, None, rect=rect)\n    if not layoutgrids['hasgrids']:\n\nerror: patch failed: lib/matplotlib/_constrained_layout.py:137\nerror: while searching for:\n        fig._constrained_layout_warning = True\n\n    for ax in fig.axes:\n        if ax.get_in_layout() and not fig._constrained_layout_warning:\n            if not ax.get_subplotspec().get_gridspec().is_visible():\n                fig._tight_layout_warning = True\n\nerror: patch failed: lib/matplotlib/_constrained_layout.py:160\nApplying patch lib/matplotlib/_constrained_layout.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1014
+}

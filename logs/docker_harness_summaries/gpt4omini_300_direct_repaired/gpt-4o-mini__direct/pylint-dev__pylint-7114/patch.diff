@@ -1,0 +1,16 @@
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index bc227d2c4..bfdaa798d 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -1253,3 +1253,11 @@ class PyLinter(
+                     confidence=HIGH,
+                 )
+         self._stashed_messages = collections.defaultdict(list)
++        self._module_stack = []  # Track module resolution stack to prevent recursion
++
++    def enter_module(self, module_name: str) -> None:
++        self._module_stack.append(module_name)
++
++    def exit_module(self) -> None:
++        self._module_stack.pop()
++

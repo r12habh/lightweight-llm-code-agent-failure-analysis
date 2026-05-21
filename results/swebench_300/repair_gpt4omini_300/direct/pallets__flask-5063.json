@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-5063",
+  "input_patch_chars": 749,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/app.py...\nerror: while searching for:\n                # Add the logic for displaying routes with corresponding subdomains\n                domain = \"\"\n                for rule in self.url_map.iter_rules():\n                    # Determine the subdomain based on SERVER_NAME\n                    subdomain = rule.subdomain if rule.subdomain else \"default\"\n                    domain = f\"{subdomain}.{self.config['SERVER_NAME']}\" if subdomain != \"main\" else self.config['SERVER_NAME']\n                    click.echo(f\"{domain:<20} {rule.endpoint:<40} {', '.join(rule.methods):<10} {rule}\\n\")\n\nerror: patch failed: src/flask/app.py:737\nApplying patch src/flask/app.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/flask/app.py\nHunk #1 FAILED at 737.\n1 out of 1 hunk FAILED -- saving rejects to file src/flask/app.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

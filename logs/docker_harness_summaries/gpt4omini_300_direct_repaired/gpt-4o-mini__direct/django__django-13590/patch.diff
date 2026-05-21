@@ -1,0 +1,13 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 4648daf395..0c97561100 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1081,7 +1081,7 @@ class Query(BaseExpression):
+                 self.resolve_lookup_value(sub_value, can_reuse, allow_joins)
+                 for sub_value in value
+             )
+-        return value
++        return tuple(value) if isinstance(value, Iterator) else value
+ 
+     def solve_lookup_type(self, lookup):
+         """

@@ -1,0 +1,12 @@
+diff --git a/django/utils/autoreload.py b/django/utils/autoreload.py
+index 7ca0d68fae..3500e244d9 100644
+--- a/django/utils/autoreload.py
++++ b/django/utils/autoreload.py
+@@ -50,6 +50,7 @@ def check_errors(fn):
+     @functools.wraps(fn)
+     def wrapper(*args, **kwargs):
+         global _exception
++        _watched_files.add('manage.py')
+         try:
+             fn(*args, **kwargs)
+         except Exception:

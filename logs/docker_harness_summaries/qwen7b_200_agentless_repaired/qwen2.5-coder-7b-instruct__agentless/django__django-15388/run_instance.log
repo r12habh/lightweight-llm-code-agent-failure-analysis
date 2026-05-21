@@ -1,0 +1,44 @@
+2026-05-20 19:32:51,364 - INFO - Creating container for django__django-15388...
+2026-05-20 19:32:51,400 - INFO - Container for django__django-15388 created: 2dfa0bafc1f93446039df2c2076d0a1ca4c98afe065c4850d55483ea8e68b0db
+2026-05-20 19:32:51,515 - INFO - Container for django__django-15388 started: 2dfa0bafc1f93446039df2c2076d0a1ca4c98afe065c4850d55483ea8e68b0db
+2026-05-20 19:32:51,515 - INFO - Intermediate patch for django__django-15388 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-15388/patch.diff, now applying to container...
+2026-05-20 19:32:51,720 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 19:32:51,795 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 19:32:51,881 - INFO - >>>>> Applied Patch:
+patching file docs/topics/settings.txt
+
+2026-05-20 19:32:53,030 - INFO - Git diff before:
+diff --git a/docs/topics/settings.txt b/docs/topics/settings.txt
+index 7c824b98f7..b97497e1d1 100644
+--- a/docs/topics/settings.txt
++++ b/docs/topics/settings.txt
+@@ -100,7 +100,6 @@ Here's the algorithm Django uses in compiling settings:
+ 
+ Note that a settings file should *not* import from ``global_settings``, because
+ that's redundant.
+-
+ Seeing which settings you've changed
+ ------------------------------------
+2026-05-20 19:32:53,031 - INFO - Eval script for django__django-15388 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-15388/eval.sh; copying to container...
+2026-05-20 19:33:00,779 - INFO - Test runtime: 7.68 seconds
+2026-05-20 19:33:00,780 - INFO - Test output for django__django-15388 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-15388/test_output.txt
+2026-05-20 19:33:00,925 - INFO - Git diff after:
+diff --git a/docs/topics/settings.txt b/docs/topics/settings.txt
+index 7c824b98f7..b97497e1d1 100644
+--- a/docs/topics/settings.txt
++++ b/docs/topics/settings.txt
+@@ -100,7 +100,6 @@ Here's the algorithm Django uses in compiling settings:
+ 
+ Note that a settings file should *not* import from ``global_settings``, because
+ that's redundant.
+-
+ Seeing which settings you've changed
+ ------------------------------------
+2026-05-20 19:33:00,925 - INFO - Grading answer for django__django-15388...
+2026-05-20 19:33:00,928 - INFO - report: {'django__django-15388': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_non_template_changed_in_template_directory (template_tests.test_autoreloader.TemplateReloadTests)']}, 'PASS_TO_PASS': {'success': ['test_get_template_directories (template_tests.test_autoreloader.Jinja2TemplateReloadTests)', 'test_reset_all_loaders (template_tests.test_autoreloader.Jinja2TemplateReloadTests)', 'test_watch_for_template_changes (template_tests.test_autoreloader.Jinja2TemplateReloadTests)', 'test_get_template_directories (template_tests.test_autoreloader.TemplateReloadTests)', 'test_non_template_changed (template_tests.test_autoreloader.TemplateReloadTests)', 'test_reset_all_loaders (template_tests.test_autoreloader.TemplateReloadTests)', 'test_template_changed (template_tests.test_autoreloader.TemplateReloadTests)', 'test_template_dirs_normalized_to_paths (template_tests.test_autoreloader.TemplateReloadTests)', 'test_watch_for_template_changes (template_tests.test_autoreloader.TemplateReloadTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15388: resolved: False
+2026-05-20 19:33:00,929 - INFO - Attempting to stop container sweb.eval.django__django-15388.qwen7b_200_agentless_repaired...
+2026-05-20 19:33:16,128 - INFO - Attempting to remove container sweb.eval.django__django-15388.qwen7b_200_agentless_repaired...
+2026-05-20 19:33:16,144 - INFO - Container sweb.eval.django__django-15388.qwen7b_200_agentless_repaired removed.
+2026-05-20 19:33:16,144 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15388:latest...
+2026-05-20 19:33:16,153 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15388:latest removed.

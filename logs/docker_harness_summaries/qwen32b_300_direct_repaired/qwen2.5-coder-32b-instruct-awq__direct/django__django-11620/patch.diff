@@ -1,0 +1,15 @@
+diff --git a/django/urls/resolvers.py b/django/urls/resolvers.py
+index 2154a46320..785b3136ff 100644
+--- a/django/urls/resolvers.py
++++ b/django/urls/resolvers.py
+@@ -600,6 +600,10 @@ class URLResolver:
+             # django.conf.urls imports this file.
+             from django.conf import urls
+             callback = getattr(urls, 'handler%s' % view_type)
++            if settings.DEBUG:
++                raise
++            else:
++                raise Resolver404({'path': path})
+         return get_callable(callback), {}
+ 
+     def reverse(self, lookup_view, *args, **kwargs):

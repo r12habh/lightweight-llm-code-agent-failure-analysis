@@ -1,0 +1,12 @@
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 0e28b6812a..b90866933f 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -234,6 +234,7 @@ class Options:
+             if not any(isinstance(field, OrderWrt) for field in model._meta.local_fields):
+                 model.add_to_class('_order', OrderWrt())
+         else:
++        self.related_fkey_lookups = OrderedSet()
+             self.order_with_respect_to = None
+ 
+         if self.pk is None:

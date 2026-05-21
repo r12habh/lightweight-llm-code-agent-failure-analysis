@@ -1,0 +1,46 @@
+2026-05-20 03:29:20,623 - INFO - Creating container for django__django-13448...
+2026-05-20 03:29:21,979 - INFO - Container for django__django-13448 created: 8e31eaf949f6b015f12c8c870353e92dfbad4272d98d5658991770e1b792f6fe
+2026-05-20 03:29:22,106 - INFO - Container for django__django-13448 started: 8e31eaf949f6b015f12c8c870353e92dfbad4272d98d5658991770e1b792f6fe
+2026-05-20 03:29:22,107 - INFO - Intermediate patch for django__django-13448 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13448/patch.diff, now applying to container...
+2026-05-20 03:29:22,295 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 03:29:22,366 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 03:29:22,442 - INFO - >>>>> Applied Patch:
+patching file django/db/backends/base/creation.py
+
+2026-05-20 03:29:23,377 - INFO - Git diff before:
+diff --git a/django/db/backends/base/creation.py b/django/db/backends/base/creation.py
+index 503f7f56fd..67fbc3b4d9 100644
+--- a/django/db/backends/base/creation.py
++++ b/django/db/backends/base/creation.py
+@@ -44,6 +44,8 @@ class BaseDatabaseCreation:
+ 
+             self.log('%s test database for alias %s...' % (
+                 action,
++            if self.connection.settings_dict['TEST'].get('MIGRATE') is False:
++                return test_database_name
+                 self._get_database_display_str(verbosity, test_database_name),
+             ))
+2026-05-20 03:29:23,378 - INFO - Eval script for django__django-13448 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13448/eval.sh; copying to container...
+2026-05-20 03:29:40,773 - INFO - Test runtime: 17.32 seconds
+2026-05-20 03:29:40,775 - INFO - Test output for django__django-13448 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13448/test_output.txt
+2026-05-20 03:29:40,921 - INFO - Git diff after:
+diff --git a/django/db/backends/base/creation.py b/django/db/backends/base/creation.py
+index 503f7f56fd..67fbc3b4d9 100644
+--- a/django/db/backends/base/creation.py
++++ b/django/db/backends/base/creation.py
+@@ -44,6 +44,8 @@ class BaseDatabaseCreation:
+ 
+             self.log('%s test database for alias %s...' % (
+                 action,
++            if self.connection.settings_dict['TEST'].get('MIGRATE') is False:
++                return test_database_name
+                 self._get_database_display_str(verbosity, test_database_name),
+             ))
+2026-05-20 03:29:40,922 - INFO - Grading answer for django__django-13448...
+2026-05-20 03:29:40,926 - INFO - report: {'django__django-13448': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_migrate_test_setting_false (backends.base.test_creation.TestDbCreationTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_custom_test_name (backends.base.test_creation.TestDbSignatureTests)', 'test_custom_test_name_with_test_prefix (backends.base.test_creation.TestDbSignatureTests)', 'test_default_name (backends.base.test_creation.TestDbSignatureTests)', 'test_migrate_test_setting_true (backends.base.test_creation.TestDbCreationTests)', 'test_circular_reference (backends.base.test_creation.TestDeserializeDbFromString)', 'test_circular_reference_with_natural_key (backends.base.test_creation.TestDeserializeDbFromString)', 'test_self_reference (backends.base.test_creation.TestDeserializeDbFromString)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13448: resolved: False
+2026-05-20 03:29:40,927 - INFO - Attempting to stop container sweb.eval.django__django-13448.gpt4omini_300_agentless_repaired...
+2026-05-20 03:29:56,083 - INFO - Attempting to remove container sweb.eval.django__django-13448.gpt4omini_300_agentless_repaired...
+2026-05-20 03:29:56,100 - INFO - Container sweb.eval.django__django-13448.gpt4omini_300_agentless_repaired removed.
+2026-05-20 03:29:56,100 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13448:latest...
+2026-05-20 03:29:56,111 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13448:latest removed.

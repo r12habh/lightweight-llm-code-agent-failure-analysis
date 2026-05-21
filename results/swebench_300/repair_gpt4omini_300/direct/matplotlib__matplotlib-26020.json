@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-26020",
+  "input_patch_chars": 588,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/__init__.py...\nerror: while searching for:\n    (\"kiwisolver\", \"1.0.1\"),\n    (\"numpy\", \"1.21\"),\n    (\"pyparsing\", \"2.3.1\"),\n]\nfor modname, minver in required_modules:\n    module = importlib.import_module(modname)\n\nerror: patch failed: lib/matplotlib/__init__.py:139\nerror: lib/matplotlib/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/__init__.py...\nerror: while searching for:\n    (\"kiwisolver\", \"1.0.1\"),\n    (\"numpy\", \"1.21\"),\n    (\"pyparsing\", \"2.3.1\"),\n]\nfor modname, minver in required_modules:\n    module = importlib.import_module(modname)\n\nerror: patch failed: lib/matplotlib/__init__.py:139\nApplying patch lib/matplotlib/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 379
+}

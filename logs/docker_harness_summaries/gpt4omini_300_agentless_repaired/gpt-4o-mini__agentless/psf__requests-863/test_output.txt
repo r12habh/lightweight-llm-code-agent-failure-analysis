@@ -1,0 +1,1969 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   requests/models.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	build/
+
+no changes added to commit (use "git add" and/or "git commit -a")
++ git show
+commit a0df2cbb10419037d11d04352b3175405ab52941
+Merge: 0342ddb5 cb44e165
+Author: Kenneth Reitz <me@kennethreitz.com>
+Date:   Wed Sep 12 23:36:36 2012 -0700
+
+    Merge pull request #853 from plaes/docs-license-missing-ref
+    
+    Create label for the ISC License, which is referenced from the index page
+
++ git -c core.fileMode=false diff a0df2cbb10419037d11d04352b3175405ab52941
+diff --git a/requests/models.py b/requests/models.py
+index d8456375..be5dcd14 100644
+--- a/requests/models.py
++++ b/requests/models.py
+@@ -144,12 +144,16 @@ class Request(object):
+         self.hooks = {}
+ 
+         for event in HOOKS:
+-            self.hooks[event] = []
++            self.hooks[event] = [] if event not in hooks else []
+ 
+         hooks = hooks or {}
+ 
+         for (k, v) in list(hooks.items()):
+-            self.register_hook(event=k, hook=v)
++            if isinstance(v, list):
++                for hook in v:
++                    self.register_hook(event=k, hook=hook)
++            else:
++                self.register_hook(event=k, hook=v)
+ 
+         #: Session.
+         self.session = session
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install .
+Processing /testbed
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Building wheels for collected packages: requests
+  Building wheel for requests (setup.py): started
+  Building wheel for requests (setup.py): finished with status 'done'
+  Created wheel for requests: filename=requests-0.14.0-py3-none-any.whl size=364896 sha256=f432f6128aa954a550182e554436a45785e29081b03475f65d931a324d904bc6
+  Stored in directory: /tmp/pip-ephem-wheel-cache-g5n4tslv/wheels/7d/66/67/70d1ee2124ccf21d601c352e25cdca10f611f7c8b3f9ffb9e4
+Successfully built requests
+Installing collected packages: requests
+  Attempting uninstall: requests
+    Found existing installation: requests 0.14.0
+    Uninstalling requests-0.14.0:
+      Successfully uninstalled requests-0.14.0
+Successfully installed requests-0.14.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git checkout a0df2cbb10419037d11d04352b3175405ab52941 tests/test_requests.py
+Updated 0 paths from a840744c
++ git apply -v -
+Checking patch tests/test_requests.py...
+Applied patch tests/test_requests.py cleanly.
++ : '>>>>> Start Test Output'
++ pytest -rA tests/test_requests.py
+============================= test session starts ==============================
+platform linux -- Python 3.9.20, pytest-7.4.4, pluggy-1.0.0
+rootdir: /testbed
+collected 76 items
+
+tests/test_requests.py ..FF.......F......F......F..........F.....FFF...F [ 64%]
+.FF....FF.....F.F..........                                              [100%]
+
+=================================== FAILURES ===================================
+______________ RequestsTestSuite.test_DIGESTAUTH_HTTP_200_OK_GET _______________
+
+self = <test_requests.RequestsTestSuite testMethod=test_DIGESTAUTH_HTTP_200_OK_GET>
+
+    def test_DIGESTAUTH_HTTP_200_OK_GET(self):
+    
+        for service in SERVICES:
+    
+            auth = HTTPDigestAuth('user', 'pass')
+            url = service('digest-auth', 'auth', 'user', 'pass')
+    
+>           r = get(url, auth=auth)
+
+tests/test_requests.py:280: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:234: in _build_response
+    r = build(resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:211: in build
+    extract_cookies_to_jar(self.cookies, self, resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/cookies.py:103: in extract_cookies_to_jar
+    jar.extract_cookies(res, req)
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1683: in extract_cookies
+    if self._policy.set_ok(cookie, request):
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:956: in set_ok
+    if not fn(cookie, request):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <http.cookiejar.DefaultCookiePolicy object at 0x7ffffde003d0>
+cookie = Cookie(version=0, name='stale_after', value='never', port=None, port_specified=False, domain='httpbin.org', domain_spe... path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={}, rfc2109=False)
+request = <requests.cookies.MockRequest object at 0x7ffffde008e0>
+
+    def set_ok_verifiability(self, cookie, request):
+>       if request.unverifiable and is_third_party(request):
+E       AttributeError: 'MockRequest' object has no attribute 'unverifiable'
+
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:977: AttributeError
+_____________ RequestsTestSuite.test_DIGESTAUTH_WRONG_HTTP_401_GET _____________
+
+self = <test_requests.RequestsTestSuite testMethod=test_DIGESTAUTH_WRONG_HTTP_401_GET>
+
+    def test_DIGESTAUTH_WRONG_HTTP_401_GET(self):
+    
+        for service in SERVICES:
+    
+            auth = HTTPDigestAuth('user', 'wrongpass')
+            url = service('digest-auth', 'auth', 'user', 'pass')
+    
+>           r = get(url, auth=auth)
+
+tests/test_requests.py:302: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:234: in _build_response
+    r = build(resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:211: in build
+    extract_cookies_to_jar(self.cookies, self, resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/cookies.py:103: in extract_cookies_to_jar
+    jar.extract_cookies(res, req)
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1683: in extract_cookies
+    if self._policy.set_ok(cookie, request):
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:956: in set_ok
+    if not fn(cookie, request):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <http.cookiejar.DefaultCookiePolicy object at 0x7ffffdbe34f0>
+cookie = Cookie(version=0, name='stale_after', value='never', port=None, port_specified=False, domain='httpbin.org', domain_spe... path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={}, rfc2109=False)
+request = <requests.cookies.MockRequest object at 0x7ffffdbe30d0>
+
+    def set_ok_verifiability(self, cookie, request):
+>       if request.unverifiable and is_third_party(request):
+E       AttributeError: 'MockRequest' object has no attribute 'unverifiable'
+
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:977: AttributeError
+______________ RequestsTestSuite.test_HTTP_302_ALLOW_REDIRECT_GET ______________
+
+self = <test_requests.RequestsTestSuite testMethod=test_HTTP_302_ALLOW_REDIRECT_GET>
+
+    def test_HTTP_302_ALLOW_REDIRECT_GET(self):
+>       r = get(httpbin('redirect', '1'))
+
+tests/test_requests.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:296: in _build_response
+    request = Request(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [GET]>, url = 'http://httpbin.org/get'
+headers = {'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'Accept': '*/*'}
+files = [], method = 'GET', data = [], params = OrderedDict(), auth = None
+cookies = <RequestsCookieJar[]>, timeout = None, redirect = True
+allow_redirects = False, proxies = {}, hooks = None
+config = {'base_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit'}, 'danger_mode': False, 'encode_uri': True, 'keep_alive': True, ...}
+prefetch = True
+_poolmanager = <requests.packages.urllib3.poolmanager.PoolManager object at 0x7ffffda48be0>
+verify = True, session = <requests-client at 0x7ffffda48e80>, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+_________ RequestsTestSuite.test_allow_list_of_hooks_to_register_hook __________
+
+self = <test_requests.RequestsTestSuite testMethod=test_allow_list_of_hooks_to_register_hook>
+
+    def test_allow_list_of_hooks_to_register_hook(self):
+        """Issue 785: https://github.com/kennethreitz/requests/issues/785"""
+        def add_foo_header(args):
+            if not args.get('headers'):
+                args['headers'] = {}
+    
+            args['headers'].update({
+                'X-Foo': 'foo'
+            })
+    
+            return args
+    
+        def add_bar_header(args):
+            if not args.get('headers'):
+                args['headers'] = {}
+    
+            args['headers'].update({
+                'X-Bar': 'bar'
+            })
+    
+            return args
+    
+        def assert_hooks_are_callable(hooks):
+            for h in hooks['args']:
+                assert callable(h) is True
+    
+        hooks = [add_foo_header, add_bar_header]
+>       r = requests.models.Request()
+
+tests/test_requests.py:774: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [None]>, url = None, headers = {}, files = None, method = None
+data = {}, params = {}, auth = None, cookies = None, timeout = None
+redirect = False, allow_redirects = False, proxies = None, hooks = None
+config = None, prefetch = True, _poolmanager = None, verify = None
+session = None, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+_________________ RequestsTestSuite.test_danger_mode_redirects _________________
+
+self = <test_requests.RequestsTestSuite testMethod=test_danger_mode_redirects>
+
+    def test_danger_mode_redirects(self):
+        s = requests.session()
+        s.config['danger_mode'] = True
+>       s.get(httpbin('redirect', '4'))
+
+tests/test_requests.py:1035: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:254: in get
+    return self.request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:296: in _build_response
+    request = Request(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [GET]>, url = 'http://httpbin.org/relative-redirect/3'
+headers = {'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'Accept': '*/*'}
+files = [], method = 'GET', data = [], params = OrderedDict(), auth = None
+cookies = <RequestsCookieJar[]>, timeout = None, redirect = True
+allow_redirects = False, proxies = {}, hooks = None
+config = {'base_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit'}, 'danger_mode': True, 'encode_uri': True, 'keep_alive': True, ...}
+prefetch = True
+_poolmanager = <requests.packages.urllib3.poolmanager.PoolManager object at 0x7ffffdc0f970>
+verify = True, session = <requests-client at 0x7ffffdc0f4f0>, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+_____________________ RequestsTestSuite.test_max_redirects _____________________
+
+self = <test_requests.RequestsTestSuite testMethod=test_max_redirects>
+
+    def test_max_redirects(self):
+        """Test the max_redirects config variable, normally and under safe_mode."""
+        def unsafe_callable():
+            requests.get(httpbin('redirect', '3'), config=dict(max_redirects=2))
+>       self.assertRaises(requests.exceptions.TooManyRedirects, unsafe_callable)
+
+tests/test_requests.py:1046: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_requests.py:1045: in unsafe_callable
+    requests.get(httpbin('redirect', '3'), config=dict(max_redirects=2))
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:296: in _build_response
+    request = Request(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+________________ RequestsTestSuite.test_params_accepts_kv_list _________________
+
+self = <test_requests.RequestsTestSuite testMethod=test_params_accepts_kv_list>
+
+    def test_params_accepts_kv_list(self):
+>       request = requests.Request('http://example.com/path',
+                params=[('a', 'b')])
+
+tests/test_requests.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [None]>, url = 'http://example.com/path', headers = {}
+files = None, method = None, data = {}, params = [('a', 'b')], auth = None
+cookies = None, timeout = None, redirect = False, allow_redirects = False
+proxies = None, hooks = None, config = None, prefetch = True
+_poolmanager = None, verify = None, session = None, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+___________ RequestsTestSuite.test_params_are_added_before_fragment ____________
+
+self = <test_requests.RequestsTestSuite testMethod=test_params_are_added_before_fragment>
+
+    def test_params_are_added_before_fragment(self):
+>       request = requests.Request(
+            "http://example.com/path#fragment", params={"a": "b"})
+
+tests/test_requests.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [None]>, url = 'http://example.com/path#fragment', headers = {}
+files = None, method = None, data = {}, params = {'a': 'b'}, auth = None
+cookies = None, timeout = None, redirect = False, allow_redirects = False
+proxies = None, hooks = None, config = None, prefetch = True
+_poolmanager = None, verify = None, session = None, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+______________ RequestsTestSuite.test_path_is_not_double_encoded _______________
+
+self = <test_requests.RequestsTestSuite testMethod=test_path_is_not_double_encoded>
+
+    def test_path_is_not_double_encoded(self):
+>       request = requests.Request("http://0.0.0.0/get/test case")
+
+tests/test_requests.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [None]>, url = 'http://0.0.0.0/get/test case', headers = {}
+files = None, method = None, data = {}, params = {}, auth = None, cookies = None
+timeout = None, redirect = False, allow_redirects = False, proxies = None
+hooks = None, config = None, prefetch = True, _poolmanager = None, verify = None
+session = None, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+_________________ RequestsTestSuite.test_prefetch_redirect_bug _________________
+
+self = <test_requests.RequestsTestSuite testMethod=test_prefetch_redirect_bug>
+
+    def test_prefetch_redirect_bug(self):
+        """Test that prefetch persists across redirections."""
+>       res = get(httpbin('redirect/2'), prefetch=False)
+
+tests/test_requests.py:1094: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:296: in _build_response
+    request = Request(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [GET]>, url = 'http://httpbin.org/relative-redirect/1'
+headers = {'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'Accept': '*/*'}
+files = [], method = 'GET', data = [], params = OrderedDict(), auth = None
+cookies = <RequestsCookieJar[]>, timeout = None, redirect = True
+allow_redirects = False, proxies = {}, hooks = None
+config = {'base_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit'}, 'danger_mode': False, 'encode_uri': True, 'keep_alive': True, ...}
+prefetch = False
+_poolmanager = <requests.packages.urllib3.poolmanager.PoolManager object at 0x7ffffdcd3a00>
+verify = True, session = <requests-client at 0x7ffffdcd3ee0>, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+___________________ RequestsTestSuite.test_redirect_history ____________________
+
+self = <test_requests.RequestsTestSuite testMethod=test_redirect_history>
+
+    def test_redirect_history(self):
+    
+        for service in SERVICES:
+    
+>           r = get(service('redirect', '3'))
+
+tests/test_requests.py:657: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:296: in _build_response
+    request = Request(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [GET]>, url = 'http://httpbin.org/relative-redirect/2'
+headers = {'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'Accept': '*/*'}
+files = [], method = 'GET', data = [], params = OrderedDict(), auth = None
+cookies = <RequestsCookieJar[]>, timeout = None, redirect = True
+allow_redirects = False, proxies = {}, hooks = None
+config = {'base_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit'}, 'danger_mode': False, 'encode_uri': True, 'keep_alive': True, ...}
+prefetch = True
+_poolmanager = <requests.packages.urllib3.poolmanager.PoolManager object at 0x7ffffda2cc10>
+verify = True, session = <requests-client at 0x7ffffda2c850>, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+_______________ RequestsTestSuite.test_relative_redirect_history _______________
+
+self = <test_requests.RequestsTestSuite testMethod=test_relative_redirect_history>
+
+    def test_relative_redirect_history(self):
+    
+        for service in SERVICES:
+    
+>           r = get(service('relative-redirect', '3'))
+
+tests/test_requests.py:665: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:296: in _build_response
+    request = Request(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Request [GET]>, url = 'http://httpbin.org/relative-redirect/2'
+headers = {'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'Accept': '*/*'}
+files = [], method = 'GET', data = [], params = OrderedDict(), auth = None
+cookies = <RequestsCookieJar[]>, timeout = None, redirect = True
+allow_redirects = False, proxies = {}, hooks = None
+config = {'base_headers': {'Accept': '*/*', 'Accept-Encoding': 'identity, deflate, compress, gzip', 'User-Agent': 'python-requests/0.14.0 CPython/3.9.20 Linux/6.10.14-linuxkit'}, 'danger_mode': False, 'encode_uri': True, 'keep_alive': True, ...}
+prefetch = True
+_poolmanager = <requests.packages.urllib3.poolmanager.PoolManager object at 0x7ffffde003d0>
+verify = True, session = <requests-client at 0x7ffffde00370>, cert = None
+
+    def __init__(self,
+        url=None,
+        headers=dict(),
+        files=None,
+        method=None,
+        data=dict(),
+        params=dict(),
+        auth=None,
+        cookies=None,
+        timeout=None,
+        redirect=False,
+        allow_redirects=False,
+        proxies=None,
+        hooks=None,
+        config=None,
+        prefetch=True,
+        _poolmanager=None,
+        verify=None,
+        session=None,
+        cert=None):
+    
+        #: Dictionary of configurations for this request.
+        self.config = dict(config or [])
+    
+        #: Float describes the timeout of the request.
+        #  (Use socket.setdefaulttimeout() as fallback)
+        self.timeout = timeout
+    
+        #: Request URL.
+        #: Accept objects that have string representations.
+        try:
+            self.url = unicode(url)
+        except NameError:
+            # We're on Python 3.
+            self.url = str(url)
+        except UnicodeDecodeError:
+            self.url = url
+    
+        #: Dictionary of HTTP Headers to attach to the :class:`Request <Request>`.
+        self.headers = dict(headers or [])
+    
+        #: Dictionary of files to multipart upload (``{filename: content}``).
+        self.files = None
+    
+        #: HTTP Method to use.
+        self.method = method
+    
+        #: Dictionary, bytes or file stream of request body data to attach to the
+        #: :class:`Request <Request>`.
+        self.data = None
+    
+        #: Dictionary or byte of querystring data to attach to the
+        #: :class:`Request <Request>`. The dictionary values can be lists for representing
+        #: multivalued query parameters.
+        self.params = None
+    
+        #: True if :class:`Request <Request>` is part of a redirect chain (disables history
+        #: and HTTPError storage).
+        self.redirect = redirect
+    
+        #: Set to True if full redirects are allowed (e.g. re-POST-ing of data at new ``Location``)
+        self.allow_redirects = allow_redirects
+    
+        # Dictionary mapping protocol to the URL of the proxy (e.g. {'http': 'foo.bar:3128'})
+        self.proxies = dict(proxies or [])
+    
+        for proxy_type,uri_ref in list(self.proxies.items()):
+            if not uri_ref:
+                del self.proxies[proxy_type]
+    
+        # If no proxies are given, allow configuration by environment variables
+        # HTTP_PROXY and HTTPS_PROXY.
+        if not self.proxies and self.config.get('trust_env'):
+            self.proxies = get_environ_proxies()
+    
+        self.data = data
+        self.params = params
+        self.files = files
+    
+        #: :class:`Response <Response>` instance, containing
+        #: content and metadata of HTTP Response, once :attr:`sent <send>`.
+        self.response = Response()
+    
+        #: Authentication tuple or object to attach to :class:`Request <Request>`.
+        self.auth = auth
+    
+        #: CookieJar to attach to :class:`Request <Request>`.
+        if isinstance(cookies, cookielib.CookieJar):
+            self.cookies = cookies
+        else:
+            self.cookies = cookiejar_from_dict(cookies)
+    
+        #: True if Request has been sent.
+        self.sent = False
+    
+        #: Event-handling hooks.
+        self.hooks = {}
+    
+        for event in HOOKS:
+>           self.hooks[event] = [] if event not in hooks else []
+E           TypeError: argument of type 'NoneType' is not iterable
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:147: TypeError
+______ RequestsTestSuite.test_session_cookies_with_return_response_false _______
+
+self = <test_requests.RequestsTestSuite testMethod=test_session_cookies_with_return_response_false>
+
+    def test_session_cookies_with_return_response_false(self):
+        s = requests.session()
+        # return_response=False as it does requests.async.get
+        rq = get(httpbin('cookies', 'set', 'k', 'v'), return_response=False,
+                 allow_redirects=True, session=s)
+>       rq.send(prefetch=True)
+
+tests/test_requests.py:853: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:234: in _build_response
+    r = build(resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:211: in build
+    extract_cookies_to_jar(self.cookies, self, resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/cookies.py:103: in extract_cookies_to_jar
+    jar.extract_cookies(res, req)
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1683: in extract_cookies
+    if self._policy.set_ok(cookie, request):
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:956: in set_ok
+    if not fn(cookie, request):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <http.cookiejar.DefaultCookiePolicy object at 0x7ffffd9f0190>
+cookie = Cookie(version=0, name='k', value='v', port=None, port_specified=False, domain='httpbin.org', domain_specified=False, ... path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={}, rfc2109=False)
+request = <requests.cookies.MockRequest object at 0x7ffffd9f0700>
+
+    def set_ok_verifiability(self, cookie, request):
+>       if request.unverifiable and is_third_party(request):
+E       AttributeError: 'MockRequest' object has no attribute 'unverifiable'
+
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:977: AttributeError
+______________ RequestsTestSuite.test_session_persistent_cookies _______________
+
+self = <test_requests.RequestsTestSuite testMethod=test_session_persistent_cookies>
+
+    def test_session_persistent_cookies(self):
+    
+        s = requests.session()
+    
+        # Internally dispatched cookies are sent.
+        _c = {'kenneth': 'reitz', 'bessie': 'monke'}
+>       r = get(httpbin('cookies'), cookies=_c, session=s)
+
+tests/test_requests.py:787: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:607: in send
+    cookie_header = get_cookie_header(self.cookies, self)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/cookies.py:109: in get_cookie_header
+    jar.add_cookie_header(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1365: in add_cookie_header
+    cookies = self._cookies_for_request(request)
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1291: in _cookies_for_request
+    cookies.extend(self._cookies_for_domain(domain, request))
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1280: in _cookies_for_domain
+    if not self._policy.return_ok(cookie, request):
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1102: in return_ok
+    if not fn(cookie, request):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <http.cookiejar.DefaultCookiePolicy object at 0x7ffffdbe3820>
+cookie = Cookie(version=0, name='kenneth', value='reitz', port=None, port_specified=False, domain='', domain_specified=False, d...True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)
+request = <requests.cookies.MockRequest object at 0x7ffffdbe30a0>
+
+    def return_ok_verifiability(self, cookie, request):
+>       if request.unverifiable and is_third_party(request):
+E       AttributeError: 'MockRequest' object has no attribute 'unverifiable'
+
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1116: AttributeError
+_________________ RequestsTestSuite.test_str_data_content_type _________________
+
+self = <test_requests.RequestsTestSuite testMethod=test_str_data_content_type>
+
+    def test_str_data_content_type(self):
+        data = 'test string data'
+        r = post(httpbin('post'), data=data)
+        t = json.loads(r.text)
+>       self.assertEqual(t.get('headers').get('Content-Type'), '')
+E       AssertionError: None != ''
+
+tests/test_requests.py:1090: AssertionError
+______________ RequestsTestSuite.test_unpickled_session_requests _______________
+
+self = <test_requests.RequestsTestSuite testMethod=test_unpickled_session_requests>
+
+    def test_unpickled_session_requests(self):
+        s = requests.session()
+>       r = get(httpbin('cookies', 'set', 'k', 'v'), allow_redirects=True, session=s)
+
+tests/test_requests.py:877: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:65: in get
+    return request('get', url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/safe_mode.py:39: in wrapped
+    return function(method, url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/api.py:51: in request
+    return session.request(method=method, url=url, **kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/sessions.py:241: in request
+    r.send(prefetch=prefetch)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:647: in send
+    self._build_response(r)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:234: in _build_response
+    r = build(resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/models.py:211: in build
+    extract_cookies_to_jar(self.cookies, self, resp)
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/cookies.py:103: in extract_cookies_to_jar
+    jar.extract_cookies(res, req)
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:1683: in extract_cookies
+    if self._policy.set_ok(cookie, request):
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:956: in set_ok
+    if not fn(cookie, request):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <http.cookiejar.DefaultCookiePolicy object at 0x7ffffd865e20>
+cookie = Cookie(version=0, name='k', value='v', port=None, port_specified=False, domain='httpbin.org', domain_specified=False, ... path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={}, rfc2109=False)
+request = <requests.cookies.MockRequest object at 0x7ffffd8654f0>
+
+    def set_ok_verifiability(self, cookie, request):
+>       if request.unverifiable and is_third_party(request):
+E       AttributeError: 'MockRequest' object has no attribute 'unverifiable'
+
+/opt/miniconda3/envs/testbed/lib/python3.9/http/cookiejar.py:977: AttributeError
+=============================== warnings summary ===============================
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/packages/urllib3/_collections.py:7
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/requests/packages/urllib3/_collections.py:7: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+    from collections import MutableMapping
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_requests.py::RequestsTestSuite::test_BASICAUTH_HTTP_200_OK_GET
+PASSED tests/test_requests.py::RequestsTestSuite::test_BASICAUTH_TUPLE_HTTP_200_OK_GET
+PASSED tests/test_requests.py::RequestsTestSuite::test_GET_no_redirect
+PASSED tests/test_requests.py::RequestsTestSuite::test_HEAD_no_redirect
+PASSED tests/test_requests.py::RequestsTestSuite::test_HTTP_200_OK_GET
+PASSED tests/test_requests.py::RequestsTestSuite::test_HTTP_200_OK_GET_WITH_MIXED_PARAMS
+PASSED tests/test_requests.py::RequestsTestSuite::test_HTTP_200_OK_GET_WITH_PARAMS
+PASSED tests/test_requests.py::RequestsTestSuite::test_HTTP_200_OK_HEAD
+PASSED tests/test_requests.py::RequestsTestSuite::test_HTTP_200_OK_PUT
+PASSED tests/test_requests.py::RequestsTestSuite::test_HTTP_302_GET
+PASSED tests/test_requests.py::RequestsTestSuite::test_POSTBIN_GET_POST_FILES
+PASSED tests/test_requests.py::RequestsTestSuite::test_POSTBIN_GET_POST_FILES_STRINGS
+PASSED tests/test_requests.py::RequestsTestSuite::test_POSTBIN_GET_POST_FILES_WITH_HEADERS
+PASSED tests/test_requests.py::RequestsTestSuite::test_POSTBIN_GET_POST_FILES_WITH_PARAMS
+PASSED tests/test_requests.py::RequestsTestSuite::test_accept_objects_with_string_representations_as_urls
+PASSED tests/test_requests.py::RequestsTestSuite::test_bytes_files
+PASSED tests/test_requests.py::RequestsTestSuite::test_cached_response
+PASSED tests/test_requests.py::RequestsTestSuite::test_can_have_none_in_header_values
+PASSED tests/test_requests.py::RequestsTestSuite::test_connection_error
+PASSED tests/test_requests.py::RequestsTestSuite::test_connection_error_with_safe_mode
+PASSED tests/test_requests.py::RequestsTestSuite::test_connection_keepalive_and_close
+PASSED tests/test_requests.py::RequestsTestSuite::test_decompress_gzip
+PASSED tests/test_requests.py::RequestsTestSuite::test_default_status_raising
+PASSED tests/test_requests.py::RequestsTestSuite::test_empty_response
+PASSED tests/test_requests.py::RequestsTestSuite::test_entry_points
+PASSED tests/test_requests.py::RequestsTestSuite::test_file_post_data
+PASSED tests/test_requests.py::RequestsTestSuite::test_head_content
+PASSED tests/test_requests.py::RequestsTestSuite::test_httpauth_recursion
+PASSED tests/test_requests.py::RequestsTestSuite::test_invalid_url
+PASSED tests/test_requests.py::RequestsTestSuite::test_invalid_urls_throw_requests_exception
+PASSED tests/test_requests.py::RequestsTestSuite::test_iter_lines
+PASSED tests/test_requests.py::RequestsTestSuite::test_multiple_hooks
+PASSED tests/test_requests.py::RequestsTestSuite::test_none_vals_in_data_are_deleted
+PASSED tests/test_requests.py::RequestsTestSuite::test_nonurlencoded_post_data
+PASSED tests/test_requests.py::RequestsTestSuite::test_nonurlencoded_postdata
+PASSED tests/test_requests.py::RequestsTestSuite::test_nonzero_evaluation
+PASSED tests/test_requests.py::RequestsTestSuite::test_permissive_iter_content
+PASSED tests/test_requests.py::RequestsTestSuite::test_post_fields_with_multiple_values_and_files
+PASSED tests/test_requests.py::RequestsTestSuite::test_post_fields_with_multiple_values_and_files_as_tuples
+PASSED tests/test_requests.py::RequestsTestSuite::test_prefetch_return_response_interaction
+PASSED tests/test_requests.py::RequestsTestSuite::test_request_ok_set
+PASSED tests/test_requests.py::RequestsTestSuite::test_response_has_unicode_url
+PASSED tests/test_requests.py::RequestsTestSuite::test_response_sent
+PASSED tests/test_requests.py::RequestsTestSuite::test_session_HTTP_200_OK_GET
+PASSED tests/test_requests.py::RequestsTestSuite::test_session_persistent_headers
+PASSED tests/test_requests.py::RequestsTestSuite::test_session_persistent_params
+PASSED tests/test_requests.py::RequestsTestSuite::test_session_pickling
+PASSED tests/test_requests.py::RequestsTestSuite::test_single_hook
+PASSED tests/test_requests.py::RequestsTestSuite::test_status_raising
+PASSED tests/test_requests.py::RequestsTestSuite::test_unicode_get
+PASSED tests/test_requests.py::RequestsTestSuite::test_upload_binary_data
+PASSED tests/test_requests.py::RequestsTestSuite::test_urlencoded_get_query_multivalued_param
+PASSED tests/test_requests.py::RequestsTestSuite::test_urlencoded_post_data
+PASSED tests/test_requests.py::RequestsTestSuite::test_urlencoded_post_query_and_data
+PASSED tests/test_requests.py::RequestsTestSuite::test_urlencoded_post_query_multivalued_and_data
+PASSED tests/test_requests.py::RequestsTestSuite::test_urlencoded_post_querystring
+PASSED tests/test_requests.py::RequestsTestSuite::test_urlencoded_post_querystring_multivalued
+PASSED tests/test_requests.py::RequestsTestSuite::test_useful_exception_for_invalid_port
+PASSED tests/test_requests.py::RequestsTestSuite::test_useful_exception_for_invalid_scheme
+PASSED tests/test_requests.py::RequestsTestSuite::test_user_agent_transfers
+FAILED tests/test_requests.py::RequestsTestSuite::test_DIGESTAUTH_HTTP_200_OK_GET
+FAILED tests/test_requests.py::RequestsTestSuite::test_DIGESTAUTH_WRONG_HTTP_401_GET
+FAILED tests/test_requests.py::RequestsTestSuite::test_HTTP_302_ALLOW_REDIRECT_GET
+FAILED tests/test_requests.py::RequestsTestSuite::test_allow_list_of_hooks_to_register_hook
+FAILED tests/test_requests.py::RequestsTestSuite::test_danger_mode_redirects
+FAILED tests/test_requests.py::RequestsTestSuite::test_max_redirects - TypeEr...
+FAILED tests/test_requests.py::RequestsTestSuite::test_params_accepts_kv_list
+FAILED tests/test_requests.py::RequestsTestSuite::test_params_are_added_before_fragment
+FAILED tests/test_requests.py::RequestsTestSuite::test_path_is_not_double_encoded
+FAILED tests/test_requests.py::RequestsTestSuite::test_prefetch_redirect_bug
+FAILED tests/test_requests.py::RequestsTestSuite::test_redirect_history - Typ...
+FAILED tests/test_requests.py::RequestsTestSuite::test_relative_redirect_history
+FAILED tests/test_requests.py::RequestsTestSuite::test_session_cookies_with_return_response_false
+FAILED tests/test_requests.py::RequestsTestSuite::test_session_persistent_cookies
+FAILED tests/test_requests.py::RequestsTestSuite::test_str_data_content_type
+FAILED tests/test_requests.py::RequestsTestSuite::test_unpickled_session_requests
+================== 16 failed, 60 passed, 1 warning in 46.67s ===================
++ : '>>>>> End Test Output'
++ git checkout a0df2cbb10419037d11d04352b3175405ab52941 tests/test_requests.py
+Updated 1 path from a840744c

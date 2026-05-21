@@ -1,0 +1,111 @@
+2026-05-08 21:25:21,956 - INFO - Creating container for django__django-15252...
+2026-05-08 21:25:22,083 - INFO - Container for django__django-15252 created: 4effc5e604427a7f8a5f0ee48e8505ef7faaea189fe4525e9d193f47ae83e9ae
+2026-05-08 21:25:22,214 - INFO - Container for django__django-15252 started: 4effc5e604427a7f8a5f0ee48e8505ef7faaea189fe4525e9d193f47ae83e9ae
+2026-05-08 21:25:22,216 - INFO - Intermediate patch for django__django-15252 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-15252/patch.diff, now applying to container...
+2026-05-08 21:25:22,411 - INFO - >>>>> Applied Patch:
+Checking patch django/db/migrations/recorder.py...
+Applied patch django/db/migrations/recorder.py cleanly.
+
+2026-05-08 21:25:23,142 - INFO - Git diff before:
+diff --git a/django/db/migrations/recorder.py b/django/db/migrations/recorder.py
+index 1a37c6b7d0..80ffee5ab2 100644
+--- a/django/db/migrations/recorder.py
++++ b/django/db/migrations/recorder.py
+@@ -40,6 +40,9 @@ class MigrationRecorder:
+                 def __str__(self):
+                     return 'Migration %s for %s' % (self.name, self.app)
+ 
++            if not router.allow_migrate(self.connection.alias, Migration):
++                return None
++
+             cls._migration_class = Migration
+         return cls._migration_class
+ 
+@@ -50,6 +53,10 @@ class MigrationRecorder:
+     def migration_qs(self):
+         return self.Migration.objects.using(self.connection.alias)
+ 
++        """
++        if not router.allow_migrate(self.connection.alias, self.Migration):
++            return None
++        """
+     def has_table(self):
+         """Return True if the django_migrations table exists."""
+         with self.connection.cursor() as cursor:
+@@ -63,6 +70,9 @@ class MigrationRecorder:
+         if self.has_table():
+             return
+         # Make the table
++            if not router.allow_migrate(self.connection.alias, Migration):
++                return None
++
+         try:
+             with self.connection.schema_editor() as editor:
+                 editor.create_model(self.Migration)
+@@ -76,6 +86,9 @@ class MigrationRecorder:
+         """
+         if self.has_table():
+             return {(migration.app, migration.name): migration for migration in self.migration_qs}
++        if not router.allow_migrate(self.connection.alias, self.Migration):
++            return
++
+         else:
+             # If the django_migrations table doesn't exist, then no migrations
+             # are applied.
+2026-05-08 21:25:23,143 - INFO - Eval script for django__django-15252 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-15252/eval.sh; copying to container...
+2026-05-08 21:25:30,800 - INFO - Test runtime: 7.60 seconds
+2026-05-08 21:25:30,801 - INFO - Test output for django__django-15252 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-15252/test_output.txt
+2026-05-08 21:25:30,924 - INFO - Git diff after:
+diff --git a/django/db/migrations/recorder.py b/django/db/migrations/recorder.py
+index 1a37c6b7d0..80ffee5ab2 100644
+--- a/django/db/migrations/recorder.py
++++ b/django/db/migrations/recorder.py
+@@ -40,6 +40,9 @@ class MigrationRecorder:
+                 def __str__(self):
+                     return 'Migration %s for %s' % (self.name, self.app)
+ 
++            if not router.allow_migrate(self.connection.alias, Migration):
++                return None
++
+             cls._migration_class = Migration
+         return cls._migration_class
+ 
+@@ -50,6 +53,10 @@ class MigrationRecorder:
+     def migration_qs(self):
+         return self.Migration.objects.using(self.connection.alias)
+ 
++        """
++        if not router.allow_migrate(self.connection.alias, self.Migration):
++            return None
++        """
+     def has_table(self):
+         """Return True if the django_migrations table exists."""
+         with self.connection.cursor() as cursor:
+@@ -63,6 +70,9 @@ class MigrationRecorder:
+         if self.has_table():
+             return
+         # Make the table
++            if not router.allow_migrate(self.connection.alias, Migration):
++                return None
++
+         try:
+             with self.connection.schema_editor() as editor:
+                 editor.create_model(self.Migration)
+@@ -76,6 +86,9 @@ class MigrationRecorder:
+         """
+         if self.has_table():
+             return {(migration.app, migration.name): migration for migration in self.migration_qs}
++        if not router.allow_migrate(self.connection.alias, self.Migration):
++            return
++
+         else:
+             # If the django_migrations table doesn't exist, then no migrations
+             # are applied.
+2026-05-08 21:25:30,924 - INFO - Grading answer for django__django-15252...
+2026-05-08 21:25:30,927 - INFO - report: {'django__django-15252': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_migrate_test_setting_false_ensure_schema (backends.base.test_creation.TestDbCreationTests)', 'The django_migrations table is not created if there are no migrations']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_mark_expected_failures_and_skips (backends.base.test_creation.TestMarkTests)', 'test_custom_test_name (backends.base.test_creation.TestDbSignatureTests)', 'test_custom_test_name_with_test_prefix (backends.base.test_creation.TestDbSignatureTests)', 'test_default_name (backends.base.test_creation.TestDbSignatureTests)', 'If the current state satisfies the given target, do nothing.', 'Minimize unnecessary rollbacks in connected apps.', 'Minimize rollbacks when target has multiple in-app children.', "mark_expected_failures_and_skips() isn't called unless", 'test_migrate_test_setting_false (backends.base.test_creation.TestDbCreationTests)', 'test_migrate_test_setting_true (backends.base.test_creation.TestDbCreationTests)', 'test_circular_reference (backends.base.test_creation.TestDeserializeDbFromString)', 'test_circular_reference_with_natural_key (backends.base.test_creation.TestDeserializeDbFromString)', 'test_self_reference (backends.base.test_creation.TestDeserializeDbFromString)', 'test_serialize_db_to_string_base_manager (backends.base.test_creation.TestDeserializeDbFromString)', 'test_alter_id_type_with_fk (migrations.test_executor.ExecutorTests)', 'Applying all replaced migrations marks replacement as applied (#24628).', 'An atomic operation is properly rolled back inside a non-atomic', 'Regression test for #22325 - references to a custom user model defined in the', 'executor.detect_soft_applied() detects ManyToManyField tables from an', "Re-planning a full migration of a fully-migrated set doesn't", 'test_migrate_backward_to_squashed_migration (migrations.test_executor.ExecutorTests)', 'A new squash migration will be marked as applied even if all its', 'test_migrate_marks_replacement_unapplied (migrations.test_executor.ExecutorTests)', 'Migrations are applied and recorded atomically.', 'Migrations are not recorded if deferred SQL application fails.', 'Although the MigrationExecutor interfaces allows for mixed migration', 'Applying a non-atomic migration works as expected.', '#24129 - Tests callback process', 'Tests running a simple set of migrations.', 'Tests running a squashed migration from zero (should ignore what it replaces)', 'Tests detection of initial migrations already having been applied.', '#26647 - Unrelated applied migrations should be part of the final', '#24123 - All models of apps being unapplied which are', '#24123 - All models of apps already applied which are']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15252: resolved: False
+2026-05-08 21:25:30,928 - INFO - Attempting to stop container sweb.eval.django__django-15252.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:25:46,095 - INFO - Attempting to remove container sweb.eval.django__django-15252.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:25:46,112 - INFO - Container sweb.eval.django__django-15252.hf_qwen25_coder32b_awq_50_direct_repaired removed.
+2026-05-08 21:25:46,112 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15252:latest...
+2026-05-08 21:25:46,909 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15252:latest removed.

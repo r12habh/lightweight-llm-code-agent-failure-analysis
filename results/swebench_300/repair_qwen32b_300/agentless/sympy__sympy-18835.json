@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18835",
+  "input_patch_chars": 1208,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 34\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file sympy/core/containers.py\nHunk #1 succeeded at 15 with fuzz 1 (offset 5 lines).\nHunk #2 succeeded at 27 with fuzz 1 (offset 8 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

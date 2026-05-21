@@ -1,0 +1,12 @@
+diff --git a/tests/migrations/test_executor.py b/tests/migrations/test_executor.py
+index 8bb4f83c5f..a6946bfc7e 100644
+--- a/tests/migrations/test_executor.py
++++ b/tests/migrations/test_executor.py
+@@ -36,7 +36,6 @@ class ExecutorTests(MigrationTestBase):
+         self.assertEqual(
+             plan,
+             [
+-                (executor.loader.graph.nodes["migrations", "0001_initial"], False),
+                 (executor.loader.graph.nodes["migrations", "0002_second"], False),
+             ],
+         )

@@ -1,0 +1,26 @@
+{
+  "instance_id": "psf__requests-3362",
+  "input_patch_chars": 397,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/utils.py...\nerror: while searching for:\n    \"\"\"\n    Returns encodings from given HTTP Header Dict.\n\n    :param headers: dictionary to extract encoding from.\n    \"\"\"\n\n    content_type = headers.get('content-type')\n\nerror: patch failed: requests/utils.py:100\nApplying patch requests/utils.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file requests/utils.py\nHunk #1 succeeded at 339 with fuzz 2 (offset 239 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13158",
+  "input_patch_chars": 480,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/models.py...\nerror: while searching for:\n                'fields': None,\n                'exclude': None,\n                'formfield_callback': None,\n                'widgets': None,\n                'localized_fields': None,\n                'labels': None,\n                'help_texts': None,\n\nerror: patch failed: django/forms/models.py:102\nApplying patch django/forms/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/models.py\nHunk #1 FAILED at 102.\n1 out of 1 hunk FAILED -- saving rejects to file django/forms/models.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

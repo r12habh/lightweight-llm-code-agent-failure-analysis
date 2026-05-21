@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-12471",
+  "input_patch_chars": 817,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/preprocessing/_encoders.py...\nerror: while searching for:\n            if not np.all(np.sort(cats) == np.array(cats)):\n                raise ValueError(\"Unsorted categories are not \"\n                                 \"supported for numerical categories\")\n        if len(self._categories) != n_features:\n            raise ValueError(\"Shape mismatch: if n_values is an array,\"\n                             \" it has to be of shape (n_features,).\")\n\nerror: patch failed: sklearn/preprocessing/_encoders.py:102\nerror: sklearn/preprocessing/_encoders.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/preprocessing/_encoders.py...\nerror: while searching for:\n            if not np.all(np.sort(cats) == np.array(cats)):\n                raise ValueError(\"Unsorted categories are not \"\n                                 \"supported for numerical categories\")\n        if len(self._categories) != n_features:\n            raise ValueError(\"Shape mismatch: if n_values is an array,\"\n                             \" it has to be of shape (n_features,).\")\n\nerror: patch failed: sklearn/preprocessing/_encoders.py:102\nApplying patch sklearn/preprocessing/_encoders.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 750
+}

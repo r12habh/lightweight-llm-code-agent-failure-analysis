@@ -1,0 +1,13 @@
+diff --git a/pylint/config/config_initialization.py b/pylint/config/config_initialization.py
+index 24e453a73..126911861 100644
+--- a/pylint/config/config_initialization.py
++++ b/pylint/config/config_initialization.py
+@@ -85,7 +85,7 @@ def _config_initialization(
+         raise _UnrecognizedOptionError(options=unrecognized_options)
+ 
+     # Set the current module to configuration as we don't know where
+-    # the --load-plugins key is coming from
++    # the --load-plugins key is coming from or --exit-zero
+     linter.set_current_module("Command line or configuration file")
+ 
+     # We have loaded configuration from config file and command line. Now, we can

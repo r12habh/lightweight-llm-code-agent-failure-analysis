@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-17051",
+  "input_patch_chars": 612,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/query.py...\nerror: while searching for:\n                if not isinstance(value, tuple):\n                    value = (value,)\n                value = [self.model._meta.get_field(f).get_prep_value(v) for f, v in value]\n                self.query.add_update(value, self.model._meta.pk.name)\n            else:\n                self.query.add_update(value, field.name)\n\nerror: patch failed: django/db/models/query.py:1234\nerror: django/db/models/query.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/query.py...\nerror: while searching for:\n                if not isinstance(value, tuple):\n                    value = (value,)\n                value = [self.model._meta.get_field(f).get_prep_value(v) for f, v in value]\n                self.query.add_update(value, self.model._meta.pk.name)\n            else:\n                self.query.add_update(value, field.name)\n\nerror: patch failed: django/db/models/query.py:1234\nApplying patch django/db/models/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 610
+}

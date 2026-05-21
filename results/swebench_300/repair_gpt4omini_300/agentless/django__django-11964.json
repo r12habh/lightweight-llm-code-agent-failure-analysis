@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11964",
+  "input_patch_chars": 462,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 13\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 12:          # When the input is not a geometry or raster, attempt to construct one\n\n",
+          "stdout": "can't find file to patch at input line 4\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/django/db/models/fields.py b/django/db/models/fields.py\n|--- a/django/db/models/fields.py\n|+++ b/django/db/models/fields.py\n--------------------------\nNo file to patch.  Skipping patch.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

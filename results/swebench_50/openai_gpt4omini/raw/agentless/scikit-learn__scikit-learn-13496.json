@@ -1,0 +1,33 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13496",
+  "raw": "```diff\ndiff --git a/sklearn/ensemble/iforest.py b/sklearn/ensemble/iforest.py\n--- a/sklearn/ensemble/iforest.py\n+++ b/sklearn/ensemble/iforest.py\n@@ -24,6 +24,7 @@\n \n from .bagging import BaseBagging\n \n+__all__ = [\"IsolationForest\"]\n \n INTEGER_TYPES = (numbers.Integral, np.integer)\n \n class IsolationForest(BaseBagging, OutlierMixin):\n     \"\"\"Isolation Forest Algorithm\n     \n     ...\n     \n     Parameters\n     ----------\n     n_estimators : int, optional (default=100)\n         The number of base estimators in the ensemble.\n         \n+    warm_start : bool, optional (default=False)\n+        When set to ``True``, reuse the solution of the previous call to fit\n+        and add more estimators to the ensemble, otherwise, just fit a whole\n+        new forest. See :term:`the Glossary <warm_start>`.\n     \n     ...\n \n     def __init__(self,\n                  n_estimators=100,\n                  max_samples=\"auto\",\n                  contamination=\"legacy\",\n                  max_features=1.,\n                  bootstrap=False,\n                  n_jobs=None,\n                  behaviour='old',\n                  random_state=None,\n                  verbose=0,\n+                 warm_start=False):\n         super().__init__(\n             base_estimator=ExtraTreeRegressor(\n                 max_features=1,\n                 splitter='random',\n                 random_state=random_state),\n             bootstrap=bootstrap,\n             bootstrap_features=False,\n             n_estimators=n_estimators,\n             max_samples=max_samples,\n             max_features=max_features,\n             n_jobs=n_jobs,\n             random_state=random_state,\n             verbose=verbose)\n \n         self.behaviour = behaviour\n         self.contamination = contamination\n+        self.warm_start = warm_start\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 20150,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 231,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20381
+    },
+    "patch": {
+      "input_tokens": 21421,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 379,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21800
+    }
+  },
+  "localized_files": [
+    "sklearn/ensemble/iforest.py",
+    "sklearn/ensemble/base.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sklearn/ensemble/iforest.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains the IsolationForest class, needs to expose warm_start.\"\n    },\n    {\n      \"path\": \"doc/glossary.rst\",\n      \"confidence\": 0.7,\n      \"reason\": \"May require updates to document the warm_start parameter.\"\n    },\n    {\n      \"path\": \"doc/whats_new/v0.22.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"Should mention the addition of warm_start in the changelog.\"\n    },\n    {\n      \"path\": \"sklearn/ensemble/base.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Could require reference to warm_start parameter in the base class.\"\n    },\n    {\n      \"path\": \"doc/developers/tips.rst\",\n      \"confidence\": 0.5,\n      \"reason\": \"Might need details about testing changes related to warm_start.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,52 @@
+diff --git a/django/forms/formsets.py b/django/forms/formsets.py
+index a89c35599f..a98f10a829 100644
+--- a/django/forms/formsets.py
++++ b/django/forms/formsets.py
+@@ -298,7 +298,7 @@ class BaseFormSet:
+         return self._non_form_errors
+ 
+     @property
+-    def errors(self):
++    def errors(self, error_class=ErrorList):
+         """Return a list of form.errors for every form in self.forms."""
+         if self._errors is None:
+             self.full_clean()
+diff --git a/docs/topics/forms/formsets.txt b/docs/topics/forms/formsets.txt
+index 1f2c7c3fad..5ab8905699 100644
+--- a/docs/topics/forms/formsets.txt
++++ b/docs/topics/forms/formsets.txt
+@@ -202,6 +202,12 @@ include HTML attributes such as ``maxlength`` for browser validation. However,
+ form fields of formsets won't include the ``required`` attribute as that
+ validation may be incorrect when adding and deleting forms.
+ 
++Non-form errors (errors that are associated with the formset itself, rather than with an individual form in the formset) are available via the ``non_form_errors()`` method. These errors are rendered with the ``nonform`` CSS class.
++
++    >>> formset.non_form_errors()
++    []
++
++
+ .. method:: BaseFormSet.total_error_count()
+ 
+ To check how many errors there are in the formset, we can use the
+diff --git a/tests/forms_tests/tests/test_formsets.py b/tests/forms_tests/tests/test_formsets.py
+index 889560aa74..90a716c6ca 100644
+--- a/tests/forms_tests/tests/test_formsets.py
++++ b/tests/forms_tests/tests/test_formsets.py
+@@ -202,6 +202,17 @@ class FormsFormsetTestCase(SimpleTestCase):
+ <li>Choice: <input type="text" name="choices-1-choice"></li>
+ <li>Votes: <input type="number" name="choices-1-votes"></li>"""
+         )
++        # Test non-form errors
++        formset._non_form_errors = ErrorList(['A non-form error'], error_class='nonform')
++        self.assertHTMLEqual(
++            str(formset.non_form_errors()),
++            '<ul class="errorlist nonform"><li>A non-form error</li></ul>'
++        )
++        # Test that non-form errors are included in the formset's errors
++        self.assertHTMLEqual(
++            str(formset.errors),
++            '<ul class="errorlist nonform"><li>A non-form error</li></ul>'
++        )
+ 
+     def test_blank_form_unfilled(self):
+         """A form that's displayed as blank may be submitted as blank."""

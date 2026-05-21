@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-9359",
+  "input_patch_chars": 439,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch path/to/file.py...\nerror: path/to/file.py: No such file or directory\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 4\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/path/to/file.py b/path/to/file.py\n|--- a/path/to/file.py\n|+++ b/path/to/file.py\n--------------------------\nNo file to patch.  Skipping patch.\n1 out of 1 hunk ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

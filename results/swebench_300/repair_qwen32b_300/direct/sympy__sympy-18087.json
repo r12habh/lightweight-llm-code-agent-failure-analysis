@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-18087",
+  "input_patch_chars": 902,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n                return cos(a)/sin(a)\n        return rv\n\n\n    def f(rv):\n        if isinstance(rv, tan):\n\nerror: patch failed: sympy/simplify/fu.py:104\nerror: sympy/simplify/fu.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n                return cos(a)/sin(a)\n        return rv\n\n\n    def f(rv):\n        if isinstance(rv, tan):\n\nerror: patch failed: sympy/simplify/fu.py:104\nHunk #2 succeeded at 275 (offset 159 lines).\nerror: while searching for:\n    return bottom_up(rv, f)\n\ndef TR2i(rv, half=False):\n    \"\"\"Converts ratios involving sin and cos as follows::\n        sin(x)/cos(x) -> tan(x)\n        sin(x)/(cos(x) + 1) -> tan(x/2) if half=True\n\nerror: patch failed: sympy/simplify/fu.py:120\nApplying patch sympy/simplify/fu.py with 2 rejects...\nRejected hunk #1.\nHunk #2 applied cleanly.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1220
+}

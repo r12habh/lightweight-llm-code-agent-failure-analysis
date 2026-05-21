@@ -1,0 +1,13 @@
+diff --git a/django/db/models/expressions.py b/django/db/models/expressions.py
+index ffc3a7fda5..f337a27eb3 100644
+--- a/django/db/models/expressions.py
++++ b/django/db/models/expressions.py
+@@ -1108,6 +1108,8 @@ class Subquery(Expression):
+             kwargs['queryset'] = self.query
+         state['_constructor_args'] = args, kwargs
+         return state
++            return Q(self) & Q(other)
++        elif isinstance(other, Exists):
+ 
+     def get_source_expressions(self):
+         return [self.query]

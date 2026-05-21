@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16379",
+  "input_patch_chars": 667,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpneecg6yk.diff:11: trailing whitespace.\n        \nChecking patch django/core/cache/backends/filebased.py...\nerror: while searching for:\n\n    def has_key(self, key, version=None):\n        fname = self._key_to_file(key, version)\n            if os.path.exists(fname):\n                with open(fname, \"rb\") as f:\n                    return not self._is_expired(f)\n\nerror: patch failed: django/core/cache/backends/filebased.py:90\nerror: django/core/cache/backends/filebased.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpneecg6yk.diff:11: trailing whitespace.\n        \nChecking patch django/core/cache/backends/filebased.py...\nerror: while searching for:\n\n    def has_key(self, key, version=None):\n        fname = self._key_to_file(key, version)\n            if os.path.exists(fname):\n                with open(fname, \"rb\") as f:\n                    return not self._is_expired(f)\n\nerror: patch failed: django/core/cache/backends/filebased.py:90\nApplying patch django/core/cache/backends/filebased.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 724
+}

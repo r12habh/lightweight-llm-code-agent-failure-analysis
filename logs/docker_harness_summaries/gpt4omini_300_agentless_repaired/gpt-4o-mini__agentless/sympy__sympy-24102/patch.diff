@@ -1,0 +1,14 @@
+diff --git a/sympy/parsing/mathematica.py b/sympy/parsing/mathematica.py
+index 7ea14ce33a..0e397f8ea1 100644
+--- a/sympy/parsing/mathematica.py
++++ b/sympy/parsing/mathematica.py
+@@ -217,6 +217,9 @@ class MathematicaParser:
+                 )
+                 [A-Z][a-zA-Z\d]*    # Function
+                 (?=\[)              # [ as a character
++    # Add support for Greek characters and other new characters
++    s = s.replace('λ', 'Lambda').replace('μ', 'Mu')
++
+                 ''', re.VERBOSE)
+ 
+     # list or matrix pattern (for future usage)

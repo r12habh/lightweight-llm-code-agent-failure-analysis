@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13439",
+  "input_patch_chars": 427,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpy7t8epk_.diff:9: trailing whitespace.\n    \nChecking patch sklearn/pipeline.py...\nerror: while searching for:\n        self.steps = steps\n        self.memory = memory\n        self.named_steps = Bunch()\n\n    def _validate_steps(self):\n        names, estimators = zip(*self.steps)\n\nerror: patch failed: sklearn/pipeline.py:123\nerror: sklearn/pipeline.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpy7t8epk_.diff:9: trailing whitespace.\n    \nChecking patch sklearn/pipeline.py...\nerror: while searching for:\n        self.steps = steps\n        self.memory = memory\n        self.named_steps = Bunch()\n\n    def _validate_steps(self):\n        names, estimators = zip(*self.steps)\n\nerror: patch failed: sklearn/pipeline.py:123\nApplying patch sklearn/pipeline.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 352
+}

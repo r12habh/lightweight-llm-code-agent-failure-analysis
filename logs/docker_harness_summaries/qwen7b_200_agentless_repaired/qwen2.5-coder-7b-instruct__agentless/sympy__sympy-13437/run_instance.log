@@ -1,0 +1,45 @@
+2026-05-08 12:55:21,360 - INFO - Creating container for sympy__sympy-13437...
+2026-05-08 12:55:21,489 - INFO - Container for sympy__sympy-13437 created: 2d8bd7ef09732165b0e8d94d3d6b6bfd9bd3ff91e30ab488f6ec87c12ee40e71
+2026-05-08 12:55:21,616 - INFO - Container for sympy__sympy-13437 started: 2d8bd7ef09732165b0e8d94d3d6b6bfd9bd3ff91e30ab488f6ec87c12ee40e71
+2026-05-08 12:55:21,617 - INFO - Intermediate patch for sympy__sympy-13437 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/sympy__sympy-13437/patch.diff, now applying to container...
+2026-05-08 12:55:21,793 - INFO - >>>>> Applied Patch:
+Checking patch sympy/functions/combinatorial/numbers.py...
+Applied patch sympy/functions/combinatorial/numbers.py cleanly.
+
+2026-05-08 12:55:22,223 - INFO - Git diff before:
+diff --git a/sympy/functions/combinatorial/numbers.py b/sympy/functions/combinatorial/numbers.py
+index 896729ac87..a898e03ef6 100644
+--- a/sympy/functions/combinatorial/numbers.py
++++ b/sympy/functions/combinatorial/numbers.py
+@@ -99,6 +99,7 @@ def _fibpoly(n, prev):
+     def eval(cls, n, sym=None):
+         if n is S.Infinity:
+             return S.Infinity
++            return S.Infinity
+ 
+         if n.is_Integer:
+             n = int(n)
+2026-05-08 12:55:22,224 - INFO - Eval script for sympy__sympy-13437 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/sympy__sympy-13437/eval.sh; copying to container...
+2026-05-08 12:55:37,033 - INFO - Test runtime: 14.73 seconds
+2026-05-08 12:55:37,034 - INFO - Test output for sympy__sympy-13437 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/sympy__sympy-13437/test_output.txt
+2026-05-08 12:55:37,155 - INFO - Git diff after:
+diff --git a/sympy/functions/combinatorial/numbers.py b/sympy/functions/combinatorial/numbers.py
+index 896729ac87..a898e03ef6 100644
+--- a/sympy/functions/combinatorial/numbers.py
++++ b/sympy/functions/combinatorial/numbers.py
+@@ -99,6 +99,7 @@ def _fibpoly(n, prev):
+     def eval(cls, n, sym=None):
+         if n is S.Infinity:
+             return S.Infinity
++            return S.Infinity
+ 
+         if n.is_Integer:
+             n = int(n)
+2026-05-08 12:55:37,155 - INFO - Grading answer for sympy__sympy-13437...
+2026-05-08 12:55:37,158 - INFO - report: {'sympy__sympy-13437': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_bell']}, 'PASS_TO_PASS': {'success': ['test_bernoulli', 'test_fibonacci', 'test_harmonic', 'test_harmonic_rational', 'test_harmonic_evalf', 'test_harmonic_rewrite_polygamma', 'test_harmonic_rewrite_sum', 'test_euler', 'test_euler_odd', 'test_euler_polynomials', 'test_euler_polynomial_rewrite', 'test_catalan', 'test_genocchi', 'test_nC_nP_nT', 'test_issue_8496'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-13437: resolved: False
+2026-05-08 12:55:37,159 - INFO - Attempting to stop container sweb.eval.sympy__sympy-13437.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 12:55:52,320 - INFO - Attempting to remove container sweb.eval.sympy__sympy-13437.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 12:55:52,339 - INFO - Container sweb.eval.sympy__sympy-13437.hf_qwen25_coder7b_50_agentless_repaired removed.
+2026-05-08 12:55:52,340 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-13437:latest...
+2026-05-08 12:55:53,091 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-13437:latest removed.

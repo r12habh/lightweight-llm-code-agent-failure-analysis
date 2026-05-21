@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2674",
+  "input_patch_chars": 589,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/adapters.py...\nerror: while searching for:\n                raise ConnectionError(e, request=request)\n\n            except urllib3.exceptions.TimeoutError as e:\n                raise Timeout(e, request=request)\n\n            except urllib3.exceptions.SSLError as e:\n\nerror: patch failed: requests/adapters.py:430\nerror: requests/adapters.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/adapters.py...\nerror: while searching for:\n                raise ConnectionError(e, request=request)\n\n            except urllib3.exceptions.TimeoutError as e:\n                raise Timeout(e, request=request)\n\n            except urllib3.exceptions.SSLError as e:\n\nerror: patch failed: requests/adapters.py:430\nApplying patch requests/adapters.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 566
+}

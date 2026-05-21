@@ -1,0 +1,12 @@
+diff --git a/sympy/simplify/simplify.py b/sympy/simplify/simplify.py
+index 5f5eab3b9d..ad0f507981 100644
+--- a/sympy/simplify/simplify.py
++++ b/sympy/simplify/simplify.py
+@@ -25,6 +25,7 @@
+ from sympy.functions.special.tensor_functions import KroneckerDelta
+ from sympy.polys import together, cancel, factor
+ from sympy.simplify.combsimp import combsimp
++from sympy.core.symbol import Symbol
+ from sympy.simplify.cse_opts import sub_pre, sub_post
+ from sympy.simplify.powsimp import powsimp
+ from sympy.simplify.radsimp import radsimp, fraction, collect_abs

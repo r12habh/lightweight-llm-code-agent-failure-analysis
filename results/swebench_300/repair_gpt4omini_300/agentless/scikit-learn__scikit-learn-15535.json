@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15535",
+  "input_patch_chars": 541,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpt0pl5sl_.diff:10: trailing whitespace.\nimport numpy as np                                                                                 \nChecking patch sklearn/metrics/cluster/_unsupervised.py...\nerror: while searching for:\n\nfrom ...utils import check_random_state\nfrom ...utils import check_X_y\nfrom ...utils import _safe_indexing\nimport numpy as np\n\ndef check_number_of_labels(n_labels, n_samples):\n\nerror: patch failed: sklearn/metrics/cluster/_unsupervised.py:41\nerror: sklearn/metrics/cluster/_unsupervised.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpt0pl5sl_.diff:10: trailing whitespace.\nimport numpy as np                                                                                 \nChecking patch sklearn/metrics/cluster/_unsupervised.py...\nerror: while searching for:\n\nfrom ...utils import check_random_state\nfrom ...utils import check_X_y\nfrom ...utils import _safe_indexing\nimport numpy as np\n\ndef check_number_of_labels(n_labels, n_samples):\n\nerror: patch failed: sklearn/metrics/cluster/_unsupervised.py:41\nApplying patch sklearn/metrics/cluster/_unsupervised.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 461
+}

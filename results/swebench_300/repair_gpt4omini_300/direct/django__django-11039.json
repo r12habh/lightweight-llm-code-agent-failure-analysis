@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11039",
+  "input_patch_chars": 583,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/management/commands/sqlmigrate.py...\nerror: django/db/migrations/management/commands/sqlmigrate.py: No such file or directory\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 4\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/django/db/migrations/management/commands/sqlmigrate.py b/django/db/migrations/management/commands/sqlmigrate.py\n|--- a/django/db/migrations/management/commands/sqlmigrate.py\n|+++ b/django/db/migrations/management/commands/sqlmigrate.py\n--------------------------\nNo file to patch.  Skipping patch.\n1 out of 1 hunk ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

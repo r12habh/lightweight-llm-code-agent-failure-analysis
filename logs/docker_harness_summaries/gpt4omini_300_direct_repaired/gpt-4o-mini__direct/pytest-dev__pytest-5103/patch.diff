@@ -1,0 +1,25 @@
+diff --git a/src/_pytest/assertion/rewrite.py b/src/_pytest/assertion/rewrite.py
+index 2903b8995..1ccec8037 100644
+--- a/src/_pytest/assertion/rewrite.py
++++ b/src/_pytest/assertion/rewrite.py
+@@ -309,6 +309,8 @@ class AssertionRewritingHook(object):
+         try:
+             fd, fn, desc = self._imp_find_module(name)
+         except ImportError:
++        from _pytest.assertion.util import get_assertion_data
++
+             return False
+         if fd is not None:
+             fd.close()
+@@ -377,6 +379,11 @@ def _rewrite_test(config, fn):
+     try:
+         stat = fn.stat()
+         source = fn.read("rb")
++            # Unroll any generator expressions for all() or any()
++            if 'all(' in match[1] or 'any(' in match[1]:
++                iterables = get_assertion_data(match[1])
++                assertions.extend(iterables)
++
+     except EnvironmentError:
+         return None, None
+     if ASCII_IS_DEFAULT_ENCODING:

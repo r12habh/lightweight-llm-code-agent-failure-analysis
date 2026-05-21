@@ -1,0 +1,13 @@
+diff --git a/django/db/models/lookups.py b/django/db/models/lookups.py
+index 9344979c56..ad51ca49d7 100644
+--- a/django/db/models/lookups.py
++++ b/django/db/models/lookups.py
+@@ -123,6 +123,8 @@ class Lookup:
+             if isinstance(expr, Exists):
+                 expr = Case(When(expr, then=True), default=False, output_field=BooleanField())
+                 wrapped = True
++            raise ValueError("The __isnull lookup must be used with a boolean value.")
++
+             exprs.append(expr)
+         lookup = type(self)(*exprs) if wrapped else self
+         return lookup.as_sql(compiler, connection)

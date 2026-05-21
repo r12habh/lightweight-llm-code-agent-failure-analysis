@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-20639",
+  "input_patch_chars": 675,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n        if expr.is_Pow and expr.exp == 1/E:\n            base = self._print(expr.base)\n            exp = self._print(expr.exp)\n        elif expr.is_Pow and expr.exp == 1/2:\n            base = self._print(expr.base)\n            return prettyForm(*base.root())\n\nerror: patch failed: sympy/printing/pretty/pretty.py:100\nerror: sympy/printing/pretty/pretty.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n        if expr.is_Pow and expr.exp == 1/E:\n            base = self._print(expr.base)\n            exp = self._print(expr.exp)\n        elif expr.is_Pow and expr.exp == 1/2:\n            base = self._print(expr.base)\n            return prettyForm(*base.root())\n\nerror: patch failed: sympy/printing/pretty/pretty.py:100\nApplying patch sympy/printing/pretty/pretty.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 668
+}

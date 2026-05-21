@@ -1,0 +1,28 @@
+{
+  "instance_id": "pydata__xarray-4493",
+  "input_patch_chars": 432,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch xarray/core/variable.py...\nerror: while searching for:\n        self._data = as_compatible_data(data, fastpath=fastpath)\n        self._dims = self._parse_dimensions(dims)\n        self._attrs = None\n        if attrs is not None:\n            self.attrs = attrs\n        if encoding is not None:\n\nerror: patch failed: xarray/core/variable.py:100\nerror: xarray/core/variable.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/variable.py...\nerror: while searching for:\n        self._data = as_compatible_data(data, fastpath=fastpath)\n        self._dims = self._parse_dimensions(dims)\n        self._attrs = None\n        if attrs is not None:\n            self.attrs = attrs\n        if encoding is not None:\n\nerror: patch failed: xarray/core/variable.py:100\nApplying patch xarray/core/variable.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 464
+}

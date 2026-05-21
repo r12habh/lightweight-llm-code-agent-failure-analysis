@@ -1,0 +1,13 @@
+diff --git a/django/contrib/messages/storage/base.py b/django/contrib/messages/storage/base.py
+index 01422066a6..3f1b1eff73 100644
+--- a/django/contrib/messages/storage/base.py
++++ b/django/contrib/messages/storage/base.py
+@@ -14,7 +14,7 @@ class Message:
+     def __init__(self, level, message, extra_tags=None):
+         self.level = int(level)
+         self.message = message
+-        self.extra_tags = extra_tags
++        self.extra_tags = extra_tags if extra_tags is not None else ""
+ 
+     def _prepare(self):
+         """

@@ -1,0 +1,28 @@
+{
+  "instance_id": "pydata__xarray-4094",
+  "input_patch_chars": 488,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch xarray/core/variable.py...\nerror: while searching for:\n    def __init__(self, dims, data, attrs=None, encoding=None, fastpath=False):\n        \"\"\"\n        Parameters\n        dims : str or sequence of str\n            Name(s) of the the data dimension(s). Must be either a string (only\n            for 1D data) or a sequence of strings with length equal to the\n\nerror: patch failed: xarray/core/variable.py:100\nerror: xarray/core/variable.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/variable.py...\nerror: while searching for:\n    def __init__(self, dims, data, attrs=None, encoding=None, fastpath=False):\n        \"\"\"\n        Parameters\n        dims : str or sequence of str\n            Name(s) of the the data dimension(s). Must be either a string (only\n            for 1D data) or a sequence of strings with length equal to the\n\nerror: patch failed: xarray/core/variable.py:100\nApplying patch xarray/core/variable.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 520
+}

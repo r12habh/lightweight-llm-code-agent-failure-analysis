@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11283",
+  "input_patch_chars": 567,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/auth/migrations/0011_update_proxy_permissions.py...\nerror: while searching for:\n\n    dependencies = [\n        ('auth', '0010_alter_group_name_max_length'),\n        ('contenttypes', '0002_remove_content_type_name'),\n    ]\n\n    operations = [\n\nerror: patch failed: django/contrib/auth/migrations/0011_update_proxy_permissions.py:10\nerror: django/contrib/auth/migrations/0011_update_proxy_permissions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/auth/migrations/0011_update_proxy_permissions.py...\nerror: while searching for:\n\n    dependencies = [\n        ('auth', '0010_alter_group_name_max_length'),\n        ('contenttypes', '0002_remove_content_type_name'),\n    ]\n\n    operations = [\n\nerror: patch failed: django/contrib/auth/migrations/0011_update_proxy_permissions.py:10\nApplying patch django/contrib/auth/migrations/0011_update_proxy_permissions.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 752
+}

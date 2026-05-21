@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-11281",
+  "input_patch_chars": 331,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch doc/modules/mixture.rst...\nerror: while searching for:\n.. _mixture:\n\n.. _gmm:\n\n=======================\n\nerror: patch failed: doc/modules/mixture.rst:1\nerror: doc/modules/mixture.rst: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/modules/mixture.rst...\nerror: while searching for:\n.. _mixture:\n\n.. _gmm:\n\n=======================\n\nerror: patch failed: doc/modules/mixture.rst:1\nApplying patch doc/modules/mixture.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 321
+}

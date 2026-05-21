@@ -1,0 +1,12 @@
+diff --git a/docs/ref/contrib/sitemaps.txt b/docs/ref/contrib/sitemaps.txt
+index 936567411e..1cb3853477 100644
+--- a/docs/ref/contrib/sitemaps.txt
++++ b/docs/ref/contrib/sitemaps.txt
+@@ -10,6 +10,8 @@ XML files.
+ 
+ .. _sitemap: https://www.sitemaps.org/
+ 
++.. _sitemap: https://www.sitemaps.org/
++
+ Overview
+ ========

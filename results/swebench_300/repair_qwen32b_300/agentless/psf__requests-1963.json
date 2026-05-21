@@ -1,0 +1,26 @@
+{
+  "instance_id": "psf__requests-1963",
+  "input_patch_chars": 1504,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/sessions.py...\nerror: while searching for:\n        while resp.is_redirect:\n            prepared_request = req.copy()\n\n            resp.content  # Consume socket so it can be released\n            resp.close()\n\n            url = resp.headers['location']\n\nerror: patch failed: requests/sessions.py:164\nHunk #2 succeeded at 116 (offset -68 lines).\nerror: while searching for:\n            if resp.status_code == codes.moved and method == 'POST':\n                method = 'GET'\n\n            prepared_request.method = method\n\n            if resp.status_code not in (codes.temporary, codes.resume):\n                if 'Content-Length' in prepared_request.headers:\n\nerror: patch failed: requests/sessions.py:204\nHunk #4 succeeded at 169 (offset -55 lines).\nApplying patch requests/sessions.py with 2 rejects...\nRejected hunk #1.\nHunk #2 applied cleanly.\nRejected hunk #3.\nHunk #4 applied cleanly.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file requests/sessions.py\nHunk #1 succeeded at 90 with fuzz 3 (offset -74 lines).\nHunk #2 succeeded at 116 (offset -68 lines).\nHunk #3 succeeded at 135 with fuzz 2 (offset -69 lines).\nHunk #4 succeeded at 169 (offset -55 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

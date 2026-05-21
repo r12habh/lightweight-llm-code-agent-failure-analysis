@@ -1,0 +1,12 @@
+diff --git a/lib/mpl_toolkits/mplot3d/axes3d.py b/lib/mpl_toolkits/mplot3d/axes3d.py
+index 9db44b7994..c70066d386 100644
+--- a/lib/mpl_toolkits/mplot3d/axes3d.py
++++ b/lib/mpl_toolkits/mplot3d/axes3d.py
+@@ -115,6 +115,7 @@ class Axes3D(Axes):
+             Other optional keyword arguments:
+ 
+             %(Axes3D:kwdoc)s
++        self.patch.set_visible(b)
+         """
+ 
+         if rect is None:

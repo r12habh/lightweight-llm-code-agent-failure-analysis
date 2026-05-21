@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16139",
+  "input_patch_chars": 630,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/options.py...\nerror: while searching for:\n        password = self.fields.get(\"password\")\n        if password:\n            password.help_text = password.help_text.format(\"../password/\")\n            password.help_text = password.help_text.format(f\"../../{self.instance.pk}/password/\")\n\n    def get_queryset(self, request):\n        \"\"\"\n\nerror: patch failed: django/contrib/admin/options.py:123\nApplying patch django/contrib/admin/options.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/admin/options.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/admin/options.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

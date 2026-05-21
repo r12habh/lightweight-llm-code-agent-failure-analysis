@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15902",
+  "input_patch_chars": 791,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/formsets.py...\nerror: while searching for:\n        if self.is_bound:\n            self.management_form = ManagementForm(self.data, auto_id=self.auto_id, prefix=self.prefix)\n            if not self.management_form.is_valid():\n                raise ValidationError(self.management_form.errors)\n        else:\n            initial_data = {'TOTAL_FORMS': self.total_form_count(), 'INITIAL_FORMS': self.initial_form_count()}\n            self.management_form = ManagementForm(initial=initial_data, auto_id=self.auto_id, prefix=self.prefix)\n\nerror: patch failed: django/forms/formsets.py:450\nApplying patch django/forms/formsets.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/formsets.py\nHunk #1 FAILED at 450.\n1 out of 1 hunk FAILED -- saving rejects to file django/forms/formsets.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

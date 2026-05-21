@@ -1,0 +1,14 @@
+diff --git a/src/flask/app.py b/src/flask/app.py
+index f3b2126b..39affdb1 100644
+--- a/src/flask/app.py
++++ b/src/flask/app.py
+@@ -1482,6 +1482,9 @@ class Flask(Scaffold):
+         # otherwise dispatch to the handler for that endpoint
+         view_args: t.Dict[str, t.Any] = req.view_args  # type: ignore[assignment]
+         return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
++        print("Domain                Endpoint                                             Methods    Rule")
++        print("-----------------   ----------------------------------------------------  ----------  ------------------------------------------------")
++
+ 
+     def full_dispatch_request(self) -> Response:
+         """Dispatches the request and on top of that performs request

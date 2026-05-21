@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14411",
+  "input_patch_chars": 570,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/admin/sites.py...\nerror: while searching for:\n\n    def register(self, model_or_iterable, admin_class=None, **options):\n        \"\"\"\n        Register the given model(s) with the given admin class.\n        \"\"\"\n        admin_class = admin_class or ModelAdmin\n        if isinstance(model_or_iterable, ModelBase):\n\nerror: patch failed: django/contrib/admin/sites.py:302\nerror: django/contrib/admin/sites.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/sites.py...\nerror: while searching for:\n\n    def register(self, model_or_iterable, admin_class=None, **options):\n        \"\"\"\n        Register the given model(s) with the given admin class.\n        \"\"\"\n        admin_class = admin_class or ModelAdmin\n        if isinstance(model_or_iterable, ModelBase):\n\nerror: patch failed: django/contrib/admin/sites.py:302\nApplying patch django/contrib/admin/sites.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 552
+}

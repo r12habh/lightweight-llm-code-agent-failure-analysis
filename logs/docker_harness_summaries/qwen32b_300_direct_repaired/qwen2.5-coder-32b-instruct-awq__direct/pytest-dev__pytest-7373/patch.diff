@@ -1,0 +1,25 @@
+diff --git a/src/_pytest/mark/evaluate.py b/src/_pytest/mark/evaluate.py
+index 759191668..e1543e744 100644
+--- a/src/_pytest/mark/evaluate.py
++++ b/src/_pytest/mark/evaluate.py
+@@ -24,19 +24,7 @@ def cached_eval(config: Config, expr: str, d: Dict[str, object]) -> Any:
+     try:
+         return evalcache[expr]
+     except KeyError:
+-        import _pytest._code
+-
+-        exprcode = _pytest._code.compile(expr, mode="eval")
+-        evalcache[expr] = x = eval(exprcode, d)
+-        return x
+-
+-
+-class MarkEvaluator:
+-    def __init__(self, item: Item, name: str) -> None:
+-        self.item = item
+-        self._marks = None  # type: Optional[List[Mark]]
+-        self._mark = None  # type: Optional[Mark]
+-        self._mark_name = name
++        return eval(expr, d)
+ 
+     def __bool__(self) -> bool:
+         # don't cache here to prevent staleness

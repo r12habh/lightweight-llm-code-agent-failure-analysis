@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15535",
+  "input_patch_chars": 1015,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/metrics/cluster/_supervised.py...\nerror: while searching for:\nfrom ._expected_mutual_info_fast import expected_mutual_information\nfrom ...utils.validation import check_array, check_consistent_length\nfrom ...utils.fixes import comb, _astype_copy_false\n\ndef _comb2(n):\n    # the exact version is faster for k == 2: use it by default globally in\n\nerror: patch failed: sklearn/metrics/cluster/_supervised.py:10\nerror: sklearn/metrics/cluster/_supervised.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/metrics/cluster/_supervised.py...\nerror: while searching for:\nfrom ._expected_mutual_info_fast import expected_mutual_information\nfrom ...utils.validation import check_array, check_consistent_length\nfrom ...utils.fixes import comb, _astype_copy_false\n\ndef _comb2(n):\n    # the exact version is faster for k == 2: use it by default globally in\n\nerror: patch failed: sklearn/metrics/cluster/_supervised.py:10\nerror: while searching for:\n    \"\"\"\n    labels_true, labels_pred = check_clusterings(labels_true, labels_pred)\n\n    if contingency is None:\n        contingency = contingency_matrix(labels_true, labels_pred, sparse=True)\n    contingency = np.asarray(contingency)\n\nerror: patch failed: sklearn/metrics/cluster/_supervised.py:104\nApplying patch sklearn/metrics/cluster/_supervised.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1056
+}

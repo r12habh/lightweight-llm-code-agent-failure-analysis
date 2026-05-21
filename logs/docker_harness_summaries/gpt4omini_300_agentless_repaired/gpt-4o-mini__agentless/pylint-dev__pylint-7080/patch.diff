@@ -1,0 +1,11 @@
+diff --git a/examples/pyproject.toml b/examples/pyproject.toml
+index 138907a68..8deed579d 100644
+--- a/examples/pyproject.toml
++++ b/examples/pyproject.toml
+@@ -16,6 +16,7 @@
+ # A comma-separated list of package or module names from where C extensions may
+ # be loaded. Extensions are loading into the active Python interpreter and may
+ # run arbitrary code. (This is an alternative name to extension-pkg-allow-list
++ignore-paths = ["^src/gen/.*$"]
+ # for backward compatibility.)
+ # extension-pkg-whitelist =

@@ -1,0 +1,15 @@
+diff --git a/lib/matplotlib/image.py b/lib/matplotlib/image.py
+index 13776101b1..951e3b67cf 100644
+--- a/lib/matplotlib/image.py
++++ b/lib/matplotlib/image.py
+@@ -220,6 +220,10 @@ def _rgb_to_rgba(A):
+     """
+     rgba = np.zeros((A.shape[0], A.shape[1], 4), dtype=A.dtype)
+     rgba[:, :, :3] = A
++        if isinstance(alpha, np.ndarray) and alpha.ndim > 2:
++            raise TypeError('alpha must be a float, two-dimensional array, or None')
++        if np.ndim(alpha) not in (0, 2):
++            raise TypeError('alpha must be a float, two-dimensional array, or None')
+     if rgba.dtype == np.uint8:
+         rgba[:, :, 3] = 255
+     else:

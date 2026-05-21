@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15851",
+  "input_patch_chars": 876,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/base.py...\nerror: while searching for:\n        \"\"\"\n        return self.style.SUCCESS('...'))\n\n    def handle(self, *args, **options):\n        \"\"\"\n        The actual logic of the command. Subclasses must implement this method.\n\n\nerror: patch failed: django/core/management/base.py:100\nerror: while searching for:\n        It may return a string which will be printed to ``stdout`` (wrapped\n        by ``BEGIN;`` and ``COMMIT;`` if :attr:`output_transaction` is ``True``).\n        \"\"\"\n        raise NotImplementedError('Subclasses must implement handle()')\n\n    def check(self, app_configs=None, tags=None, display_num_errors=False):\n        \"\"\"\n\nerror: patch failed: django/core/management/base.py:110\nApplying patch django/core/management/base.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/base.py\nHunk #1 succeeded at 586 with fuzz 2 (offset 486 lines).\nHunk #2 FAILED at 110.\n1 out of 2 hunks FAILED -- saving rejects to file django/core/management/base.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

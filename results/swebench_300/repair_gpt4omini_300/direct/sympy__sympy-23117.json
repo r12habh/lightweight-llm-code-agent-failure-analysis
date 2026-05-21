@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-23117",
+  "input_patch_chars": 789,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/tensor/array/ndim_array.py...\nerror: while searching for:\n        from sympy.tensor.array import ImmutableDenseNDimArray\n        return ImmutableDenseNDimArray(iterable, shape, **kwargs)\n\n\n    def _handle_ndarray_creation_inputs(cls, iterable=None, shape=None, **kwargs):\n        from sympy.matrices.matrices import MatrixBase\n        from sympy.tensor.array import SparseNDimArray\n\n        if shape is None:\n\nerror: patch failed: sympy/tensor/array/ndim_array.py:130\nerror: sympy/tensor/array/ndim_array.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/tensor/array/ndim_array.py...\nerror: while searching for:\n        from sympy.tensor.array import ImmutableDenseNDimArray\n        return ImmutableDenseNDimArray(iterable, shape, **kwargs)\n\n\n    def _handle_ndarray_creation_inputs(cls, iterable=None, shape=None, **kwargs):\n        from sympy.matrices.matrices import MatrixBase\n        from sympy.tensor.array import SparseNDimArray\n\n        if shape is None:\n\nerror: patch failed: sympy/tensor/array/ndim_array.py:130\nApplying patch sympy/tensor/array/ndim_array.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 442
+}

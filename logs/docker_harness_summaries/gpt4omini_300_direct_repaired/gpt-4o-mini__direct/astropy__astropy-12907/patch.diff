@@ -1,0 +1,12 @@
+diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py
+index a308e27297..eb7ec7b932 100644
+--- a/astropy/modeling/separable.py
++++ b/astropy/modeling/separable.py
+@@ -8,6 +8,7 @@ It analyzes ``n_inputs``, ``n_outputs`` and the operators
+ in a compound model by stepping through the transforms
+ and creating a ``coord_matrix`` of shape (``n_outputs``, ``n_inputs``).
+ 
++ The current implementation doesn't properly handle separability for nested CompoundModels.
+ 
+ Each modeling operator is represented by a function which
+ takes two simple models (or two ``coord_matrix`` arrays) and

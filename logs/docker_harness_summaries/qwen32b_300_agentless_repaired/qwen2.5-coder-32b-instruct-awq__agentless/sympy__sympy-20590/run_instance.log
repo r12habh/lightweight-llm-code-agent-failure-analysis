@@ -1,0 +1,47 @@
+2026-05-20 16:29:13,386 - INFO - Creating container for sympy__sympy-20590...
+2026-05-20 16:29:14,528 - INFO - Container for sympy__sympy-20590 created: e40cf30afd2baf54551854ff44146714133972882e3ccb4c2754788ce5dbdf1c
+2026-05-20 16:29:14,708 - INFO - Container for sympy__sympy-20590 started: e40cf30afd2baf54551854ff44146714133972882e3ccb4c2754788ce5dbdf1c
+2026-05-20 16:29:14,709 - INFO - Intermediate patch for sympy__sympy-20590 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-20590/patch.diff, now applying to container...
+2026-05-20 16:29:14,909 - INFO - >>>>> Applied Patch:
+Checking patch sympy/core/symbol.py...
+Applied patch sympy/core/symbol.py cleanly.
+
+2026-05-20 16:29:15,394 - INFO - Git diff before:
+diff --git a/sympy/core/symbol.py b/sympy/core/symbol.py
+index 70e6953559..d0f170a52f 100644
+--- a/sympy/core/symbol.py
++++ b/sympy/core/symbol.py
+@@ -203,7 +203,7 @@ class Symbol(AtomicExpr, Boolean):
+     __slots__ = ('name',)
+ 
+     is_Symbol = True
+-    is_symbol = True
++    __dict__ = {}
+ 
+     @property
+     def _diff_wrt(self):
+2026-05-20 16:29:15,398 - INFO - Eval script for sympy__sympy-20590 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-20590/eval.sh; copying to container...
+2026-05-20 16:29:19,836 - INFO - Test runtime: 4.37 seconds
+2026-05-20 16:29:19,836 - INFO - Test output for sympy__sympy-20590 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-20590/test_output.txt
+2026-05-20 16:29:19,939 - INFO - Git diff after:
+diff --git a/sympy/core/symbol.py b/sympy/core/symbol.py
+index 70e6953559..d0f170a52f 100644
+--- a/sympy/core/symbol.py
++++ b/sympy/core/symbol.py
+@@ -203,7 +203,7 @@ class Symbol(AtomicExpr, Boolean):
+     __slots__ = ('name',)
+ 
+     is_Symbol = True
+-    is_symbol = True
++    __dict__ = {}
+ 
+     @property
+     def _diff_wrt(self):
+2026-05-20 16:29:19,940 - INFO - Grading answer for sympy__sympy-20590...
+2026-05-20 16:29:19,944 - INFO - report: {'sympy__sympy-20590': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_immutable']}, 'PASS_TO_PASS': {'success': ['test__aresame', 'test_structure', 'test_equality', 'test_matches_basic', 'test_has', 'test_subs', 'test_subs_with_unicode_symbols', 'test_atoms', 'test_free_symbols_empty', 'test_doit', 'test_S', 'test_xreplace', 'test_preorder_traversal', 'test_sorted_args', 'test_rewrite', 'test_literal_evalf_is_number_is_zero_is_comparable', 'test_as_Basic', 'test_atomic', 'test_canonical_variables'], 'failure': ['test_call', 'test_as_dummy']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-20590: resolved: False
+2026-05-20 16:29:19,944 - INFO - Attempting to stop container sweb.eval.sympy__sympy-20590.qwen32b_300_agentless_repaired...
+2026-05-20 16:29:35,119 - INFO - Attempting to remove container sweb.eval.sympy__sympy-20590.qwen32b_300_agentless_repaired...
+2026-05-20 16:29:35,137 - INFO - Container sweb.eval.sympy__sympy-20590.qwen32b_300_agentless_repaired removed.
+2026-05-20 16:29:35,137 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-20590:latest...
+2026-05-20 16:29:35,142 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-20590:latest removed.

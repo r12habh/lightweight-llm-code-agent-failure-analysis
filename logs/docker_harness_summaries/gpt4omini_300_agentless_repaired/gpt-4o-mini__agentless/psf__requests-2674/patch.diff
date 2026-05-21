@@ -1,0 +1,13 @@
+diff --git a/requests/packages/urllib3/exceptions.py b/requests/packages/urllib3/exceptions.py
+index 31bda1c0..26054bc5 100644
+--- a/requests/packages/urllib3/exceptions.py
++++ b/requests/packages/urllib3/exceptions.py
+@@ -97,8 +97,6 @@ class TimeoutError(HTTPError):
+ 
+     Catching this error will catch both :exc:`ReadTimeoutErrors
+     <ReadTimeoutError>` and :exc:`ConnectTimeoutErrors <ConnectTimeoutError>`.
+-    """
+-    pass
+ 
+ 
+ class ReadTimeoutError(TimeoutError, RequestError):

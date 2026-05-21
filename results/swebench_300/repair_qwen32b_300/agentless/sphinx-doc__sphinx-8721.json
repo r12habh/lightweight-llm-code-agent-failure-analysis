@@ -1,0 +1,27 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8721",
+  "input_patch_chars": 557,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/viewcode.py...\nHunk #1 succeeded at 57 (offset -47 lines).\nApplied patch sphinx/ext/viewcode.py cleanly.\n",
+          "stdout": "",
+          "note": "command succeeded but produced an empty git diff"
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/viewcode.py\nHunk #1 succeeded at 57 (offset -47 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

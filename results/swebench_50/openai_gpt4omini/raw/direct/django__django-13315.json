@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-13315",
+  "raw": "```diff\ndiff --git a/django/db/models/options.py b/django/db/models/options.py\n--- a/django/db/models/options.py\n+++ b/django/db/models/options.py\n@@ -234,6 +234,7 @@\n \n         # List of all lookups defined in ForeignKey 'limit_choices_to' options\n         # from *other* models. Needed for some admin checks. Internal use only.\n+        self.related_fkey_lookups = OrderedSet()\n \n         # A custom app registry to use, if you're making a separate model set.\n         self.apps = self.default_apps\n```",
+  "usage": {
+    "input_tokens": 18469,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 128,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18597
+  },
+  "localized_files": []
+}

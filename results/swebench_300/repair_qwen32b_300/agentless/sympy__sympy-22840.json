@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-22840",
+  "input_patch_chars": 837,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/codeprinter.py...\nerror: while searching for:\n                if expr in dummies and not ([list(f.keys()) for f in dummies[term]]\n                        == [[None] for f in dummies[term]]):\n                    # If one factor in the term has it's own internal\n                    # raise NotImplementedError(\n                    #     \"FIXME: no support for contractions in factor yet\")\n                else:\n\nerror: patch failed: sympy/printing/codeprinter.py:265\nerror: sympy/printing/codeprinter.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/codeprinter.py...\nerror: while searching for:\n                if expr in dummies and not ([list(f.keys()) for f in dummies[term]]\n                        == [[None] for f in dummies[term]]):\n                    # If one factor in the term has it's own internal\n                    # raise NotImplementedError(\n                    #     \"FIXME: no support for contractions in factor yet\")\n                else:\n\nerror: patch failed: sympy/printing/codeprinter.py:265\nApplying patch sympy/printing/codeprinter.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 622
+}

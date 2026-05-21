@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12113",
+  "input_patch_chars": 689,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch tests/admin_views/test_multidb.py...\nerror: while searching for:\n    @classmethod\n    def setUpTestData(cls):\n        # Create a user on the 'default' database, which will be used to\n        # test views that don't specify a using= parameter.\n        cls.u1 = User.objects.db_manager('default').create_superuser(\n            username='admin', password='something', email='test@test.org',\n        )\n\nerror: patch failed: tests/admin_views/test_multidb.py:37\nApplying patch tests/admin_views/test_multidb.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file tests/admin_views/test_multidb.py\nHunk #1 FAILED at 37.\n1 out of 1 hunk FAILED -- saving rejects to file tests/admin_views/test_multidb.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

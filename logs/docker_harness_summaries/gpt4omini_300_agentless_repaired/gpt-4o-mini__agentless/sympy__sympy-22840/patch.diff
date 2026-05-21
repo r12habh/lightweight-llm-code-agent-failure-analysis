@@ -1,0 +1,17 @@
+diff --git a/sympy/utilities/codegen.py b/sympy/utilities/codegen.py
+index 2b212a9c8b..545dff3b01 100644
+--- a/sympy/utilities/codegen.py
++++ b/sympy/utilities/codegen.py
+@@ -117,13 +117,6 @@
+ class Routine:
+     """Generic description of evaluation routine for set of expressions.
+ 
+-    A CodeGen class can translate instances of this class into code in a
+-    particular language.  The routine specification covers all the features
+-    present in these languages.  The CodeGen part must raise an exception
+-    when certain features are not present in the target language.  For
+-    example, multiple return values are possible in Python, but not in C or
+-    Fortran.  Another example: Fortran and Python support complex numbers,
+-    while C does not.
+ 
+     """

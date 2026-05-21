@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-20049",
+  "input_patch_chars": 766,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/physics/vector/point.py...\nerror: while searching for:\n        if not (frame in self._vel_dict):\n            raise ValueError('Velocity of point ' + self.name + ' has not been'\n                             ' defined in ReferenceFrame ' + frame.name)\n        return self._vel_dict[frame]\n    def _pdict_list(self, other, num):\n        \"\"\"Returns a list of points that gives the shortest path with respect\n        to position, velocity, or acceleration from this point to the provided\n\nerror: patch failed: sympy/physics/vector/point.py:452\nerror: sympy/physics/vector/point.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/physics/vector/point.py...\nerror: while searching for:\n        if not (frame in self._vel_dict):\n            raise ValueError('Velocity of point ' + self.name + ' has not been'\n                             ' defined in ReferenceFrame ' + frame.name)\n        return self._vel_dict[frame]\n    def _pdict_list(self, other, num):\n        \"\"\"Returns a list of points that gives the shortest path with respect\n        to position, velocity, or acceleration from this point to the provided\n\nerror: patch failed: sympy/physics/vector/point.py:452\nApplying patch sympy/physics/vector/point.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 710
+}

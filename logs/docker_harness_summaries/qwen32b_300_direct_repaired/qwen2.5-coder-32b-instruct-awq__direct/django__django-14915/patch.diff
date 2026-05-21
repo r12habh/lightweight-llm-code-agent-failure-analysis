@@ -1,0 +1,40 @@
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 5dcf923c12..95a590af9e 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -123,6 +123,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     named fields from the returned fields, even if they are listed in the
+     ``fields`` argument.
+ 
++        self._value_map = {str(self.choice_value(obj)): obj for obj in queryset}
+     ``widgets`` is a dictionary of model field names mapped to a widget.
+ 
+     ``formfield_callback`` is a callable that takes a model field and returns
+@@ -131,6 +132,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ``localized_fields`` is a list of names of fields which should be localized.
+ 
+     ``labels`` is a dictionary of model field names mapped to a label.
++        self._value_map = {str(self.choice_value(obj)): obj for obj in self.queryset}
+ 
+     ``help_texts`` is a dictionary of model field names mapped to a help text.
+ 
+@@ -140,6 +142,11 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ``field_classes`` is a dictionary of model field names mapped to a form
+     field class.
+ 
++        if hasattr(obj, '_meta'):
++            return str(getattr(obj, self.field_name))
++        return str(obj)
++
++    def choice_label(self, obj):
+     ``apply_limit_choices_to`` is a boolean indicating if limit_choices_to
+     should be applied to a field's queryset.
+     """
+@@ -147,6 +154,7 @@ def fields_for_model(model, fields=None, exclude=None, widgets=None,
+     ignored = []
+     opts = model._meta
+     # Avoid circular import
++        return value in self._value_map
+     from django.db.models import Field as ModelField
+     sortable_private_fields = [f for f in opts.private_fields if isinstance(f, ModelField)]
+     for f in sorted(chain(opts.concrete_fields, sortable_private_fields, opts.many_to_many)):

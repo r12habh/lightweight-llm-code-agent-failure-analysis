@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-10297",
+  "input_patch_chars": 3065,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 30\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 29:      elif solver == 'cholesky':\n\n",
+          "stdout": "patching file sklearn/linear_model/ridge.py\nHunk #1 succeeded at 10 with fuzz 3.\nHunk #2 succeeded at 21 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

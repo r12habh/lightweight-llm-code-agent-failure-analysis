@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13768",
+  "input_patch_chars": 656,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/template/base.py...\nerror: while searching for:\nfrom .exceptions import TemplateSyntaxError\n\nlogger = logging.getLogger('django.template')\n\n\nclass TokenType(Enum):\n\nerror: patch failed: django/template/base.py:66\nerror: django/template/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/template/base.py...\nerror: while searching for:\nfrom .exceptions import TemplateSyntaxError\n\nlogger = logging.getLogger('django.template')\n\n\nclass TokenType(Enum):\n\nerror: patch failed: django/template/base.py:66\nerror: while searching for:\n                try:\n                    result = receiver(self, *args, **kwargs)\n                except Exception as e:\n                    if failure:\n                        failure = e\n                    if not ignore_failure:\n\nerror: patch failed: django/template/base.py:704\nApplying patch django/template/base.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 746
+}

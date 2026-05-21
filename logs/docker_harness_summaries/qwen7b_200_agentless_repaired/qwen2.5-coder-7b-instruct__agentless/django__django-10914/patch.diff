@@ -1,0 +1,12 @@
+diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py
+index acee9887d2..c2ad2bd0c8 100644
+--- a/django/conf/global_settings.py
++++ b/django/conf/global_settings.py
+@@ -100,6 +100,7 @@ LANGUAGES = [
+     ('kab', gettext_noop('Kabyle')),
+     ('kk', gettext_noop('Kazakh')),
+     ('km', gettext_noop('Khmer')),
++
+     ('kn', gettext_noop('Kannada')),
+     ('ko', gettext_noop('Korean')),
+     ('lb', gettext_noop('Luxembourgish')),

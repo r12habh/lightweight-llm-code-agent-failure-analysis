@@ -1,0 +1,47 @@
+2026-05-20 10:40:41,281 - INFO - Creating container for scikit-learn__scikit-learn-13584...
+2026-05-20 10:40:42,056 - INFO - Container for scikit-learn__scikit-learn-13584 created: d043b3ab6630ded1891af03982b90b465d140e00f0552d0423f7310278f9306d
+2026-05-20 10:40:42,193 - INFO - Container for scikit-learn__scikit-learn-13584 started: d043b3ab6630ded1891af03982b90b465d140e00f0552d0423f7310278f9306d
+2026-05-20 10:40:42,193 - INFO - Intermediate patch for scikit-learn__scikit-learn-13584 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13584/patch.diff, now applying to container...
+2026-05-20 10:40:42,382 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/calibration.py...
+Applied patch sklearn/calibration.py cleanly.
+
+2026-05-20 10:40:42,700 - INFO - Git diff before:
+diff --git a/sklearn/calibration.py b/sklearn/calibration.py
+index 4329eba81..87c00f830 100644
+--- a/sklearn/calibration.py
++++ b/sklearn/calibration.py
+@@ -138,7 +138,7 @@ class CalibratedClassifierCV(BaseEstimator, ClassifierMixin):
+ 
+         # Check that each cross-validation fold can have at least one
+         # example per class
+-        n_folds = self.cv if isinstance(self.cv, int) \
++        n_folds = self.cv if isinstance(self.cv, (int, np.integer)) \
+             else self.cv.n_folds if hasattr(self.cv, "n_folds") else None
+         if n_folds and \
+                 np.any([np.sum(y == class_) < n_folds for class_ in
+2026-05-20 10:40:42,700 - INFO - Eval script for scikit-learn__scikit-learn-13584 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13584/eval.sh; copying to container...
+2026-05-20 10:40:48,255 - INFO - Test runtime: 5.49 seconds
+2026-05-20 10:40:48,256 - INFO - Test output for scikit-learn__scikit-learn-13584 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13584/test_output.txt
+2026-05-20 10:40:48,377 - INFO - Git diff after:
+diff --git a/sklearn/calibration.py b/sklearn/calibration.py
+index 4329eba81..87c00f830 100644
+--- a/sklearn/calibration.py
++++ b/sklearn/calibration.py
+@@ -138,7 +138,7 @@ class CalibratedClassifierCV(BaseEstimator, ClassifierMixin):
+ 
+         # Check that each cross-validation fold can have at least one
+         # example per class
+-        n_folds = self.cv if isinstance(self.cv, int) \
++        n_folds = self.cv if isinstance(self.cv, (int, np.integer)) \
+             else self.cv.n_folds if hasattr(self.cv, "n_folds") else None
+         if n_folds and \
+                 np.any([np.sum(y == class_) < n_folds for class_ in
+2026-05-20 10:40:48,377 - INFO - Grading answer for scikit-learn__scikit-learn-13584...
+2026-05-20 10:40:48,381 - INFO - report: {'scikit-learn__scikit-learn-13584': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/utils/tests/test_pprint.py::test_changed_only', 'sklearn/utils/tests/test_pprint.py::test_pipeline', 'sklearn/utils/tests/test_pprint.py::test_deeply_nested', 'sklearn/utils/tests/test_pprint.py::test_gridsearch', 'sklearn/utils/tests/test_pprint.py::test_gridsearch_pipeline', 'sklearn/utils/tests/test_pprint.py::test_n_max_elements_to_show']}, 'PASS_TO_PASS': {'success': ['sklearn/utils/tests/test_pprint.py::test_basic', 'sklearn/utils/tests/test_pprint.py::test_length_constraint', 'sklearn/utils/tests/test_pprint.py::test_builtin_prettyprinter'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-13584: resolved: False
+2026-05-20 10:40:48,381 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-13584.gpt4omini_300_agentless_repaired...
+2026-05-20 10:41:03,576 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-13584.gpt4omini_300_agentless_repaired...
+2026-05-20 10:41:03,659 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13584.gpt4omini_300_agentless_repaired removed.
+2026-05-20 10:41:03,659 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13584:latest...
+2026-05-20 10:41:03,672 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13584:latest removed.

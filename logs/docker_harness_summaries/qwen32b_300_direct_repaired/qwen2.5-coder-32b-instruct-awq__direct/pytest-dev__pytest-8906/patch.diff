@@ -1,0 +1,15 @@
+diff --git a/doc/en/how-to/skipping.rst b/doc/en/how-to/skipping.rst
+index 156570062..3c0036549 100644
+--- a/doc/en/how-to/skipping.rst
++++ b/doc/en/how-to/skipping.rst
+@@ -155,6 +155,10 @@ each of the test methods of that class.
+ If you want to skip all test functions of a module, you may use the
+ :globalvar:`pytestmark` global:
+ 
++.. note::
++    When skipping a module, ensure that the skip call is made before any imports that may fail in older Python versions.
++
++
+ .. code-block:: python
+ 
+     # test_module.py

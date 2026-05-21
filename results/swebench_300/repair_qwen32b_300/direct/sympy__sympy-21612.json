@@ -1,0 +1,27 @@
+{
+  "instance_id": "sympy__sympy-21612",
+  "input_patch_chars": 145,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch .swebench_empty_patch...\nApplied patch .swebench_empty_patch cleanly.\n",
+          "stdout": "",
+          "note": "command succeeded but produced an empty git diff"
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file .swebench_empty_patch\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

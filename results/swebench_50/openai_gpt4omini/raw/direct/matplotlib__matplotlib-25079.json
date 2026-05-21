@@ -1,0 +1,16 @@
+{
+  "instance_id": "matplotlib__matplotlib-25079",
+  "raw": "```diff\ndiff --git a/lib/matplotlib/colorbar.py b/lib/matplotlib/colorbar.py\n--- a/lib/matplotlib/colorbar.py\n+++ b/lib/matplotlib/colorbar.py\n@@ -468,6 +468,7 @@\n        # Ensure the given mappable's norm has appropriate vmin and vmax\n        # set even if mappable.draw has not yet been called.\n        if mappable.get_array() is not None:\n+            norm.vmin = mappable.norm.vmin\n+            norm.vmax = mappable.norm.vmax\n            mappable.autoscale_None()\n \n        self.mappable = mappable\n```",
+  "usage": {
+    "input_tokens": 21432,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 138,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 21570
+  },
+  "localized_files": []
+}

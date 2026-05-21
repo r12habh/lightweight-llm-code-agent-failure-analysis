@@ -1,0 +1,12 @@
+diff --git a/doc/modules/mixture.rst b/doc/modules/mixture.rst
+index fb8e897270..5a1b858b34 100644
+--- a/doc/modules/mixture.rst
++++ b/doc/modules/mixture.rst
+@@ -3,6 +3,8 @@
+ .. _gmm:
+ 
+ =======================
++Clusterer-Compatible Interface
++=========================
+ Gaussian mixture models
+ =======================

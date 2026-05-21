@@ -1,0 +1,25 @@
+{
+  "instance_id": "psf__requests-2317",
+  "input_patch_chars": 6169,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 23\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 21:          return session_hooks\n\n",
+          "stdout": "patching file requests/sessions.py\nHunk #1 succeeded at 69 (offset -31 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "astropy__astropy-14365",
+  "input_patch_chars": 661,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch astropy/io/ascii/qdp.py...\nHunk #1 succeeded at 2 (offset -8 lines).\nerror: while searching for:\n    \"\"\"\n    Interpret a QDP file line.\n\n    Parameters\n    ----------\n    line : str\n        a single line of the file\n\nerror: patch failed: astropy/io/ascii/qdp.py:100\nerror: astropy/io/ascii/qdp.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/io/ascii/qdp.py...\nHunk #1 succeeded at 2 (offset -8 lines).\nerror: while searching for:\n    \"\"\"\n    Interpret a QDP file line.\n\n    Parameters\n    ----------\n    line : str\n        a single line of the file\n\nerror: patch failed: astropy/io/ascii/qdp.py:100\nApplying patch astropy/io/ascii/qdp.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 472
+}

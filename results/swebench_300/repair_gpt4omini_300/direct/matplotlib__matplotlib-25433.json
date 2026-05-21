@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25433",
+  "input_patch_chars": 748,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpi00yic7f.diff:19: trailing whitespace.\n        \nerror: corrupt patch at line 24\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 23:              self._observers.process('clicked', event)\n\n",
+          "stdout": "patching file lib/matplotlib/widgets.py\nHunk #1 succeeded at 107 with fuzz 1 (offset -98 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15388",
+  "input_patch_chars": 428,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/topics/settings.txt...\nerror: while searching for:\n===============\nDjango settings\n===============\n\nA Django settings file contains all the configuration of your Django\n\nerror: patch failed: docs/topics/settings.txt:1\nerror: docs/topics/settings.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/topics/settings.txt...\nerror: while searching for:\n===============\nDjango settings\n===============\n\nA Django settings file contains all the configuration of your Django\n\nerror: patch failed: docs/topics/settings.txt:1\nApplying patch docs/topics/settings.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 447
+}

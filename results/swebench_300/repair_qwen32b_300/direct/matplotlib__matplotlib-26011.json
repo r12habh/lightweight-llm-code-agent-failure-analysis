@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-26011",
+  "input_patch_chars": 852,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/axes/_base.py...\nerror: while searching for:\n            self.viewLim.intervalx = Interval(left, right)\n            self.transData.invalidate()\n            self.transAxes.invalidate()\n            if emit:\n                self.callbacks.process('xlim_changed', self)\n            # Call all of the other x-axes that are shared with this one\n            for other in self._shared_x_axes.get_siblings(self):\n                if other is not self:\n                    other.set_xlim(self.viewLim.intervalx, emit=False, auto=auto)\n        return self.viewLim.intervalx\n\nerror: patch failed: lib/matplotlib/axes/_base.py:2410\nApplying patch lib/matplotlib/axes/_base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/axes/_base.py\nHunk #1 FAILED at 2410.\n1 out of 1 hunk FAILED -- saving rejects to file lib/matplotlib/axes/_base.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

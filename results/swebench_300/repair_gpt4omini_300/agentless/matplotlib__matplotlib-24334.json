@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-24334",
+  "input_patch_chars": 972,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 18\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 12: -.Axis.set_xticks` now validates `kwargs` even when `labels` are not provided, raising warnings for invalid `Text` properties.\"\n\n",
+          "stdout": "patching file doc/api/prev_api_changes/api_changes_3.2.0/behavior.rst\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

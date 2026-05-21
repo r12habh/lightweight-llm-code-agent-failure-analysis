@@ -1,0 +1,25 @@
+{
+  "instance_id": "pylint-dev__pylint-7993",
+  "input_patch_chars": 453,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch pylint/reporters/text.py...\nerror: while searching for:\n\nMESSAGE_FIELDS = {i.name for i in fields(Message)}\n\"\"\"All fields of the Message class.\"\"\"\nMESSAGE_TEMPLATE_RE = re.compile(r\"\\{([^{]*)\\}\")  # Matches placeholders\n\n\ndef _get_ansi_code(msg_style: MessageStyle) -> str:\n\nerror: patch failed: pylint/reporters/text.py:80\nApplying patch pylint/reporters/text.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file pylint/reporters/text.py\nHunk #1 FAILED at 80.\n1 out of 1 hunk FAILED -- saving rejects to file pylint/reporters/text.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

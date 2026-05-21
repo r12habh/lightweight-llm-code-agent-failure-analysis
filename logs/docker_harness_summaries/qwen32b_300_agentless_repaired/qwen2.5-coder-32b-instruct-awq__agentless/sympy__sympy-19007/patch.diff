@@ -1,0 +1,13 @@
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index b821c42845..b706dd696c 100644
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -237,7 +237,7 @@ def _entry(self, i, j, **kwargs):
+         for row_block, numrows in enumerate(self.rowblocksizes):
+             if (i < numrows) != False:
+                 break
+-            else:
++            i -= numrows
+                 i -= numrows
+         for col_block, numcols in enumerate(self.colblocksizes):
+             if (j < numcols) != False:

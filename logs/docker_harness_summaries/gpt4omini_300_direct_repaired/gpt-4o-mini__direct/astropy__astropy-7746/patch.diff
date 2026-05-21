@@ -1,0 +1,14 @@
+diff --git a/astropy/wcs/wcs.py b/astropy/wcs/wcs.py
+index d3a06f2b31..dbd1703c46 100644
+--- a/astropy/wcs/wcs.py
++++ b/astropy/wcs/wcs.py
+@@ -1818,6 +1818,9 @@ reduce these to 2 dimensions using the naxis kwarg.
+         if self.wcs is None:
+             raise ValueError("No basic WCS settings were created.")
+ 
++        # Handle case for empty pixel arrays
++        if len(args[0]) == 0:
++            return np.empty((0, 2))  # assuming 2D output
+         return self._array_converter(
+             lambda *args, **kwargs:
+             self._all_world2pix(

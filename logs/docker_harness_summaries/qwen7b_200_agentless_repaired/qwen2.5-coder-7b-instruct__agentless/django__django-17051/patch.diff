@@ -1,0 +1,12 @@
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index 5ac2407ea3..a7fa3818f3 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -1234,6 +1234,7 @@ class QuerySet(AltersData):
+         """
+         A version of update() that accepts field objects instead of field names.
+         Used primarily for model saving and not intended for use by general
++                value.append(self.model._meta.pk.get_prep_value(self.model._meta.pk.get_default()))
+         code (it requires too much poking around at model internals to be
+         useful at that level).
+         """

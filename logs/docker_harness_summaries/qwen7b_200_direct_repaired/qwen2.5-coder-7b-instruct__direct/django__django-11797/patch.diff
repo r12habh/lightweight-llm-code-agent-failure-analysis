@@ -1,0 +1,13 @@
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 27278af4d2..213db10de0 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -104,7 +104,7 @@ class Group(models.Model):
+     do special things to those users -- such as giving them access to a
+     members-only portion of your site, or sending them members-only email
+     messages.
+-    """
++    """ This class is used to represent a user in the system. """
+     name = models.CharField(_('name'), max_length=150, unique=True)
+     permissions = models.ManyToManyField(
+         Permission,

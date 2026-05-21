@@ -1,0 +1,15 @@
+diff --git a/seaborn/_core/data.py b/seaborn/_core/data.py
+index 535fafe8..d85bbe72 100644
+--- a/seaborn/_core/data.py
++++ b/seaborn/_core/data.py
+@@ -104,6 +104,10 @@ class PlotData:
+         names.update(new.names)
+ 
+         ids = {k: v for k, v in self.ids.items() if k not in disinherit}
++            elif isinstance(col, tuple):
++                # Flatten the tuple to a string if it's a MultiIndex
++                var = "_".join(map(str, col))
++                frame[var] = data[col]
+         ids.update(new.ids)
+ 
+         new.frame = frame

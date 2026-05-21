@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13768",
+  "input_patch_chars": 497,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/handlers/exception.py...\nerror: while searching for:\n        response = get_exception_response(request, get_resolver(get_urlconf()), 400, exc)\n        log_response(\n            '%s: %s', str(exc), request.path,\n            response=response,\n            request=request,\n        )\n\nerror: patch failed: django/core/handlers/exception.py:100\nerror: django/core/handlers/exception.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/handlers/exception.py...\nerror: while searching for:\n        response = get_exception_response(request, get_resolver(get_urlconf()), 400, exc)\n        log_response(\n            '%s: %s', str(exc), request.path,\n            response=response,\n            request=request,\n        )\n\nerror: patch failed: django/core/handlers/exception.py:100\nApplying patch django/core/handlers/exception.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 562
+}

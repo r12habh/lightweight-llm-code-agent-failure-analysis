@@ -1,0 +1,117 @@
+2026-05-20 13:02:43,660 - INFO - Creating container for pytest-dev__pytest-5692...
+2026-05-20 13:02:43,689 - INFO - Container for pytest-dev__pytest-5692 created: 11294ed2d05d61ad90eaad960b2250a5f7ed23ff287474c4bfd6865069d03ad9
+2026-05-20 13:02:43,780 - INFO - Container for pytest-dev__pytest-5692 started: 11294ed2d05d61ad90eaad960b2250a5f7ed23ff287474c4bfd6865069d03ad9
+2026-05-20 13:02:43,781 - INFO - Intermediate patch for pytest-dev__pytest-5692 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/pytest-dev__pytest-5692/patch.diff, now applying to container...
+2026-05-20 13:02:43,955 - INFO - >>>>> Applied Patch:
+Checking patch src/_pytest/junitxml.py...
+Applied patch src/_pytest/junitxml.py cleanly.
+
+2026-05-20 13:02:44,125 - INFO - Git diff before:
+diff --git a/src/_pytest/junitxml.py b/src/_pytest/junitxml.py
+index 15c630b1d..e3f611e4b 100644
+--- a/src/_pytest/junitxml.py
++++ b/src/_pytest/junitxml.py
+@@ -10,6 +10,7 @@ src/main/resources/org/jenkinsci/plugins/xunit/types/model/xsd/junit-10.xsd
+ """
+ import functools
+ import os
++import socket
+ import re
+ import sys
+ import time
+@@ -80,6 +81,8 @@ families["xunit2"] = families["_base"]
+ 
+ 
+ class _NodeReporter:
++    hostname = socket.gethostname()
++    timestamp = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+     def __init__(self, nodeid, xml):
+         self.id = nodeid
+         self.xml = xml
+@@ -121,6 +124,8 @@ class _NodeReporter:
+         if self.xml.prefix:
+             classnames.insert(0, self.xml.prefix)
+         attrs = {
++            "hostname": self.hostname,
++            "timestamp": self.timestamp,
+             "classname": ".".join(classnames),
+             "name": bin_xml_escape(names[-1]),
+             "file": testreport.location[0],
+@@ -200,6 +205,8 @@ class _NodeReporter:
+                             content_log,
+                         ]
+                     )
++    hostname = socket.gethostname()
++    timestamp = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+                 else:
+                     content = content_log
+             else:
+@@ -300,6 +307,8 @@ def record_property(request):
+ 
+     Example::
+ 
++            "hostname": self.hostname,
++            "timestamp": self.timestamp,
+         def test_function(record_property):
+             record_property("example_key", 1)
+     """
+2026-05-20 13:02:44,126 - INFO - Eval script for pytest-dev__pytest-5692 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/pytest-dev__pytest-5692/eval.sh; copying to container...
+2026-05-20 13:02:50,145 - INFO - Test runtime: 5.95 seconds
+2026-05-20 13:02:50,148 - INFO - Test output for pytest-dev__pytest-5692 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/pytest-dev__pytest-5692/test_output.txt
+2026-05-20 13:02:50,242 - INFO - Git diff after:
+diff --git a/src/_pytest/junitxml.py b/src/_pytest/junitxml.py
+index 15c630b1d..e3f611e4b 100644
+--- a/src/_pytest/junitxml.py
++++ b/src/_pytest/junitxml.py
+@@ -10,6 +10,7 @@ src/main/resources/org/jenkinsci/plugins/xunit/types/model/xsd/junit-10.xsd
+ """
+ import functools
+ import os
++import socket
+ import re
+ import sys
+ import time
+@@ -80,6 +81,8 @@ families["xunit2"] = families["_base"]
+ 
+ 
+ class _NodeReporter:
++    hostname = socket.gethostname()
++    timestamp = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+     def __init__(self, nodeid, xml):
+         self.id = nodeid
+         self.xml = xml
+@@ -121,6 +124,8 @@ class _NodeReporter:
+         if self.xml.prefix:
+             classnames.insert(0, self.xml.prefix)
+         attrs = {
++            "hostname": self.hostname,
++            "timestamp": self.timestamp,
+             "classname": ".".join(classnames),
+             "name": bin_xml_escape(names[-1]),
+             "file": testreport.location[0],
+@@ -200,6 +205,8 @@ class _NodeReporter:
+                             content_log,
+                         ]
+                     )
++    hostname = socket.gethostname()
++    timestamp = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+                 else:
+                     content = content_log
+             else:
+@@ -300,6 +307,8 @@ def record_property(request):
+ 
+     Example::
+ 
++            "hostname": self.hostname,
++            "timestamp": self.timestamp,
+         def test_function(record_property):
+             record_property("example_key", 1)
+     """
+2026-05-20 13:02:50,242 - INFO - Grading answer for pytest-dev__pytest-5692...
+2026-05-20 13:02:50,244 - INFO - report: {'pytest-dev__pytest-5692': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['testing/test_junitxml.py::TestPython::test_hostname_in_xml', 'testing/test_junitxml.py::TestPython::test_timestamp_in_xml']}, 'PASS_TO_PASS': {'success': [], 'failure': ['testing/test_junitxml.py::test_mangle_test_address', 'testing/test_junitxml.py::test_dont_configure_on_slaves', 'testing/test_junitxml.py::test_invalid_xml_escape', 'testing/test_junitxml.py::test_logxml_path_expansion', 'testing/test_junitxml.py::TestPython::test_summing_simple', 'testing/test_junitxml.py::TestPython::test_summing_simple_with_errors', 'testing/test_junitxml.py::TestPython::test_timing_function', 'testing/test_junitxml.py::TestPython::test_junit_duration_report[call]', 'testing/test_junitxml.py::TestPython::test_junit_duration_report[total]', 'testing/test_junitxml.py::TestPython::test_setup_error', 'testing/test_junitxml.py::TestPython::test_teardown_error', 'testing/test_junitxml.py::TestPython::test_call_failure_teardown_error', 'testing/test_junitxml.py::TestPython::test_skip_contains_name_reason', 'testing/test_junitxml.py::TestPython::test_mark_skip_contains_name_reason', 'testing/test_junitxml.py::TestPython::test_mark_skipif_contains_name_reason', 'testing/test_junitxml.py::TestPython::test_mark_skip_doesnt_capture_output', 'testing/test_junitxml.py::TestPython::test_classname_instance', 'testing/test_junitxml.py::TestPython::test_classname_nested_dir', 'testing/test_junitxml.py::TestPython::test_internal_error', 'testing/test_junitxml.py::TestPython::test_failure_function[no]', 'testing/test_junitxml.py::TestPython::test_failure_function[system-out]', 'testing/test_junitxml.py::TestPython::test_failure_function[system-err]', 'testing/test_junitxml.py::TestPython::test_failure_verbose_message', 'testing/test_junitxml.py::TestPython::test_failure_escape', 'testing/test_junitxml.py::TestPython::test_junit_prefixing', 'testing/test_junitxml.py::TestPython::test_xfailure_function', 'testing/test_junitxml.py::TestPython::test_xfailure_marker', 'testing/test_junitxml.py::TestPython::test_xfail_captures_output_once', 'testing/test_junitxml.py::TestPython::test_xfailure_xpass', 'testing/test_junitxml.py::TestPython::test_xfailure_xpass_strict', 'testing/test_junitxml.py::TestPython::test_collect_error', 'testing/test_junitxml.py::TestPython::test_unicode', 'testing/test_junitxml.py::TestPython::test_assertion_binchars', 'testing/test_junitxml.py::TestPython::test_pass_captures_stdout', 'testing/test_junitxml.py::TestPython::test_pass_captures_stderr', 'testing/test_junitxml.py::TestPython::test_setup_error_captures_stdout', 'testing/test_junitxml.py::TestPython::test_setup_error_captures_stderr', 'testing/test_junitxml.py::TestPython::test_avoid_double_stdout', 'testing/test_junitxml.py::TestNonPython::test_summing_simple', 'testing/test_junitxml.py::test_nullbyte', 'testing/test_junitxml.py::test_nullbyte_replace', 'testing/test_junitxml.py::test_logxml_changingdir', 'testing/test_junitxml.py::test_logxml_makedir', 'testing/test_junitxml.py::test_logxml_check_isdir', 'testing/test_junitxml.py::test_escaped_parametrized_names_xml', 'testing/test_junitxml.py::test_double_colon_split_function_issue469', 'testing/test_junitxml.py::test_double_colon_split_method_issue469', 'testing/test_junitxml.py::test_unicode_issue368', 'testing/test_junitxml.py::test_record_property', 'testing/test_junitxml.py::test_record_property_same_name', 'testing/test_junitxml.py::test_record_fixtures_without_junitxml[record_property]', 'testing/test_junitxml.py::test_record_fixtures_without_junitxml[record_xml_attribute]', 'testing/test_junitxml.py::test_record_attribute', 'testing/test_junitxml.py::test_record_fixtures_xunit2[record_xml_attribute]', 'testing/test_junitxml.py::test_record_fixtures_xunit2[record_property]', 'testing/test_junitxml.py::test_root_testsuites_tag', 'testing/test_junitxml.py::test_runs_twice', 'testing/test_junitxml.py::test_fancy_items_regression', 'testing/test_junitxml.py::test_global_properties', 'testing/test_junitxml.py::test_url_property', 'testing/test_junitxml.py::test_record_testsuite_property', 'testing/test_junitxml.py::test_record_testsuite_property_junit_disabled', 'testing/test_junitxml.py::test_record_testsuite_property_type_checking[True]', 'testing/test_junitxml.py::test_record_testsuite_property_type_checking[False]', 'testing/test_junitxml.py::test_set_suite_name[my_suite]', 'testing/test_junitxml.py::test_set_suite_name[]', 'testing/test_junitxml.py::test_escaped_skipreason_issue3533', 'testing/test_junitxml.py::test_logging_passing_tests_disabled_does_not_log_test_output']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pytest-dev__pytest-5692: resolved: False
+2026-05-20 13:02:50,245 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-5692.qwen32b_300_direct_repaired...
+2026-05-20 13:03:05,387 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-5692.qwen32b_300_direct_repaired...
+2026-05-20 13:03:05,398 - INFO - Container sweb.eval.pytest-dev__pytest-5692.qwen32b_300_direct_repaired removed.
+2026-05-20 13:03:05,398 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5692:latest...
+2026-05-20 13:03:05,405 - INFO - Image swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5692:latest removed.

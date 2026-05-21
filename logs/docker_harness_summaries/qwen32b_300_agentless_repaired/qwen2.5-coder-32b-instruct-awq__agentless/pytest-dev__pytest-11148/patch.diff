@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/config/__init__.py b/src/_pytest/config/__init__.py
+index 47651ad9f..44a154585 100644
+--- a/src/_pytest/config/__init__.py
++++ b/src/_pytest/config/__init__.py
+@@ -236,7 +236,7 @@ default_plugins = essential_plugins + (
+     "python",
+     "terminal",
+     "debugging",
+-    "unittest",
++    #"unittest",
+     "capture",
+     "skipping",
+     "legacypath",

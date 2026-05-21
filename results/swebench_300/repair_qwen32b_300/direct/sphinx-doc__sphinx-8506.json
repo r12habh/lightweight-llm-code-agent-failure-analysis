@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8506",
+  "input_patch_chars": 543,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/domains/std.py...\nerror: while searching for:\n        return False\n\n    def parse_option(self, sig, signode):\n        if not re.match(r'^[-/][-\\w]+(\\s+[-\\w]+)*$', sig):\n            raise ValueError('malformed option description')\n        for part in sig.split():\n            signode += addnodes.desc_addname(part, part)\n\nerror: patch failed: sphinx/domains/std.py:110\nApplying patch sphinx/domains/std.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/domains/std.py\nHunk #1 FAILED at 110.\n1 out of 1 hunk FAILED -- saving rejects to file sphinx/domains/std.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

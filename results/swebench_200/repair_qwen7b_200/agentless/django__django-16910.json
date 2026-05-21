@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16910",
+  "input_patch_chars": 525,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/reverse_related.py...\nerror: while searching for:\n    @property\n    def target_field(self):\n        \"\"\"\n        model against which the filtering should happen.\n        \"\"\"\n        target_fields = self.path_infos[-1].target_fields\n\nerror: patch failed: django/db/models/fields/reverse_related.py:100\nerror: django/db/models/fields/reverse_related.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/reverse_related.py...\nerror: while searching for:\n    @property\n    def target_field(self):\n        \"\"\"\n        model against which the filtering should happen.\n        \"\"\"\n        target_fields = self.path_infos[-1].target_fields\n\nerror: patch failed: django/db/models/fields/reverse_related.py:100\nApplying patch django/db/models/fields/reverse_related.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 559
+}

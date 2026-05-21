@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-17139",
+  "raw": "```diff\ndiff --git a/sympy/simplify/fu.py b/sympy/simplify/fu.py\nindex dff6195..bc4b78c 100644\n--- a/sympy/simplify/fu.py\n+++ b/sympy/simplify/fu.py\n@@ -501,7 +501,7 @@ def _futrig(e, **kwargs):\n         rv = rule(expr)\n         if isinstance(rv, Pow) and rv.base == cos and rv.exp.is_Integer:\n             # Extract base and exponent\n-            if (rv.exp < 0) == True:\n+            if not rv.exp.is_Add and (rv.exp < 0):\n                 raise ValueError(\"Invalid comparison of complex %s\" % I)\n \n         return rv\n```",
+  "usage": {
+    "input_tokens": 24333,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 168,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 24501
+  },
+  "localized_files": []
+}

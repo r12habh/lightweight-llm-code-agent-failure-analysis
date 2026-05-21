@@ -1,0 +1,25 @@
+{
+  "instance_id": "mwaskom__seaborn-3190",
+  "input_patch_chars": 390,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 12\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file seaborn/_core/scales.py\nHunk #1 FAILED at 348.\n1 out of 1 hunk FAILED -- saving rejects to file seaborn/_core/scales.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

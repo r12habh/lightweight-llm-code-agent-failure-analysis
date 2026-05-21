@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14155",
+  "input_patch_chars": 838,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/urls/resolvers.py...\nerror: while searching for:\nfrom django.utils.functional import cached_property, lazy\nfrom django.utils.regex_helper import normalize\nfrom django.utils.translation import gettext_lazy as _\n\n\nclass ResolverMatch:\n\nerror: patch failed: django/urls/resolvers.py:28\nerror: django/urls/resolvers.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/urls/resolvers.py...\nerror: while searching for:\nfrom django.utils.functional import cached_property, lazy\nfrom django.utils.regex_helper import normalize\nfrom django.utils.translation import gettext_lazy as _\n\n\nclass ResolverMatch:\n\nerror: patch failed: django/urls/resolvers.py:28\nerror: while searching for:\n        self.url_name = url_name\n        self.namespace = namespace\n        self.app_name = app_name\n        elif callable(view):\n            self.func = view\n        elif isinstance(view, (list, tuple)):\n\nerror: patch failed: django/urls/resolvers.py:111\nApplying patch django/urls/resolvers.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 808
+}

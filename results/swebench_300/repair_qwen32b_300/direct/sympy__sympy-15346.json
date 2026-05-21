@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-15346",
+  "input_patch_chars": 735,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/simplify/trigsimp.py...\nerror: while searching for:\n                trigterms.append(((c, s, t, rel))\n                trigdict[(coeff, fn)] = trigterms[-1]\n\n        # Our list of new generators - start with anything that we cannot\n        # work with (i.e. is not a trigonometric term)\n        freegens = [g for g in gens if g.func not in allfuncs]\n\nerror: patch failed: sympy/simplify/trigsimp.py:100\nerror: sympy/simplify/trigsimp.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/trigsimp.py...\nerror: while searching for:\n                trigterms.append(((c, s, t, rel))\n                trigdict[(coeff, fn)] = trigterms[-1]\n\n        # Our list of new generators - start with anything that we cannot\n        # work with (i.e. is not a trigonometric term)\n        freegens = [g for g in gens if g.func not in allfuncs]\n\nerror: patch failed: sympy/simplify/trigsimp.py:100\nApplying patch sympy/simplify/trigsimp.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 691
+}

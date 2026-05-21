@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14672",
+  "input_patch_chars": 505,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpjvk0ivif.diff:9: trailing whitespace.\n        \nChecking patch django/db/models/fields/reverse_related.py...\nerror: while searching for:\n\n        self.symmetrical = symmetrical\n        self.db_constraint = db_constraint\n        \n\n    @property\n    def identity(self):\n\nerror: patch failed: django/db/models/fields/reverse_related.py:131\nApplying patch django/db/models/fields/reverse_related.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/reverse_related.py\nHunk #1 FAILED at 131.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/fields/reverse_related.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

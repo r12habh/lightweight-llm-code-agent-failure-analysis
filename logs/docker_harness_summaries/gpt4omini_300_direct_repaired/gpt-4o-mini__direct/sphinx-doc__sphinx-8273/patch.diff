@@ -1,0 +1,10 @@
+diff --git a/sphinx/builders/manpage.py b/sphinx/builders/manpage.py
+index 4166dece9..327527cc4 100644
+--- a/sphinx/builders/manpage.py
++++ b/sphinx/builders/manpage.py
+@@ -121,3 +121,5 @@ def setup(app: Sphinx) -> Dict[str, Any]:
+         'parallel_read_safe': True,
+         'parallel_write_safe': True,
+     }
++            os.makedirs(output_dir)
++

@@ -1,0 +1,12 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index 171a3e7b0..5a214c23c 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -35,6 +35,7 @@ from sphinx.util.inspect import (evaluate_signature, getdoc, object_description,
+                                  stringify_signature)
+ from sphinx.util.typing import restify
+ from sphinx.util.typing import stringify as stringify_typehint
++from sphinx.ext.napoleon import Config
+ 
+ if False:
+     # For type annotation

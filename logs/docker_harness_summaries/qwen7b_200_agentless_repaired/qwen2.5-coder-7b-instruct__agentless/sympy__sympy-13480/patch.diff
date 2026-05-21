@@ -1,0 +1,12 @@
+diff --git a/sympy/functions/elementary/hyperbolic.py b/sympy/functions/elementary/hyperbolic.py
+index 2a4555d919..ca65d7e28b 100644
+--- a/sympy/functions/elementary/hyperbolic.py
++++ b/sympy/functions/elementary/hyperbolic.py
+@@ -533,6 +533,7 @@ def _eval_is_finite(self):
+         if arg.is_real:
+             return True
+ 
++from sympy.functions.elementary.trigonometric import cot
+ 
+ class coth(HyperbolicFunction):
+     r"""

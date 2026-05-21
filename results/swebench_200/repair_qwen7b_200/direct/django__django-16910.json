@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16910",
+  "input_patch_chars": 4728,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 37\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 36:          rel_query_name = self.related_query_name()\n\n",
+          "stdout": "patching file django/db/models/fields/related.py\nHunk #1 succeeded at 107 (offset 7 lines).\nHunk #2 succeeded at 117 (offset 6 lines).\nHunk #3 succeeded at 125 (offset 3 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

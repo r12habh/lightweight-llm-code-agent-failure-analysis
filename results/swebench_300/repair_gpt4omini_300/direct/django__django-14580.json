@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14580",
+  "input_patch_chars": 479,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/migrations/writer.py...\nerror: while searching for:\nfrom django import get_version\nfrom django.apps import apps\nfrom django.conf import SettingsReference  # NOQA\nfrom django.db import migrations\nfrom django.db.migrations.loader import MigrationLoader\nfrom django.db.migrations.serializer import Serializer, serializer_factory\n\nerror: patch failed: django/db/migrations/writer.py:23\nerror: django/db/migrations/writer.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/writer.py...\nerror: while searching for:\nfrom django import get_version\nfrom django.apps import apps\nfrom django.conf import SettingsReference  # NOQA\nfrom django.db import migrations\nfrom django.db.migrations.loader import MigrationLoader\nfrom django.db.migrations.serializer import Serializer, serializer_factory\n\nerror: patch failed: django/db/migrations/writer.py:23\nApplying patch django/db/migrations/writer.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 585
+}

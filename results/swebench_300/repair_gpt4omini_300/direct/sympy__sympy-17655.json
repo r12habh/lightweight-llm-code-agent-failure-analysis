@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-17655",
+  "input_patch_chars": 1216,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 15\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15: @@ -234,8 +234\n\n",
+          "stdout": "patching file sympy/geometry/point.py\nHunk #1 succeeded at 247 with fuzz 2 (offset 23 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

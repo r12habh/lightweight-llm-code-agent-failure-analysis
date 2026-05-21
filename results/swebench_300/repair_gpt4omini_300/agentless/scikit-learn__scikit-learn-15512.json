@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15512",
+  "input_patch_chars": 537,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/cluster/_affinity_propagation.py...\nerror: while searching for:\n   if K > 0:\n       c = np.argmax(S[:, I], axis=1)\n       c[I] = np.arange(K)  # Identify clusters\n\n       # Refine the final set of exemplars and clusters and return results\n       for k in range(K):\n\nerror: patch failed: sklearn/cluster/_affinity_propagation.py:99\nerror: sklearn/cluster/_affinity_propagation.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/cluster/_affinity_propagation.py...\nerror: while searching for:\n   if K > 0:\n       c = np.argmax(S[:, I], axis=1)\n       c[I] = np.arange(K)  # Identify clusters\n\n       # Refine the final set of exemplars and clusters and return results\n       for k in range(K):\n\nerror: patch failed: sklearn/cluster/_affinity_propagation.py:99\nApplying patch sklearn/cluster/_affinity_propagation.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 642
+}

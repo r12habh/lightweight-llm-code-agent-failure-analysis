@@ -1,0 +1,20 @@
+diff --git a/django/dispatch/dispatcher.py b/django/dispatch/dispatcher.py
+index b7d9d26389..6c03b476c5 100644
+--- a/django/dispatch/dispatcher.py
++++ b/django/dispatch/dispatcher.py
+@@ -15,6 +15,7 @@ def _make_id(target):
+ NONE_ID = _make_id(None)
+ 
+ # A marker for caching
++import logging
+ NO_RECEIVERS = object()
+ 
+ 
+@@ -143,6 +144,7 @@ class Signal:
+             self._clear_dead_receivers()
+             for index in range(len(self.receivers)):
+                 (r_key, _) = self.receivers[index]
++                    logger.exception("Error in signal receiver %s", receiver)
+                 if r_key == lookup_key:
+                     disconnected = True
+                     del self.receivers[index]

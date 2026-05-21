@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-25311",
+  "input_patch_chars": 1293,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/legend.py...\nerror: while searching for:\n        self._draggable = None\n        if draggable:\n            self._draggable = DraggableLegend(self, use_blit=use_blit, update=update)\n\n    def _init_legend_box(self, handles, labels, handlemap, renderer):\n        \"\"\"Create the legend box.\"\"\"\n\nerror: patch failed: lib/matplotlib/legend.py:123\nerror: lib/matplotlib/legend.py: patch does not apply\nChecking patch lib/matplotlib/tests/test_pickle.py...\nerror: while searching for:\n    ax = plt.subplot(121, projection='polar')\n    plt.plot(np.arange(10), label='foobar')\n    plt.legend()\n    pickle.dump(ax, BytesIO(), pickle.HIGHEST_PROTOCOL)\n\n#    ax = plt.subplot(121, projection='hammer')\n\nerror: patch failed: lib/matplotlib/tests/test_pickle.py:123\nerror: lib/matplotlib/tests/test_pickle.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/legend.py...\nerror: while searching for:\n        self._draggable = None\n        if draggable:\n            self._draggable = DraggableLegend(self, use_blit=use_blit, update=update)\n\n    def _init_legend_box(self, handles, labels, handlemap, renderer):\n        \"\"\"Create the legend box.\"\"\"\n\nerror: patch failed: lib/matplotlib/legend.py:123\nChecking patch lib/matplotlib/tests/test_pickle.py...\nerror: while searching for:\n    ax = plt.subplot(121, projection='polar')\n    plt.plot(np.arange(10), label='foobar')\n    plt.legend()\n    pickle.dump(ax, BytesIO(), pickle.HIGHEST_PROTOCOL)\n\n#    ax = plt.subplot(121, projection='hammer')\n\nerror: patch failed: lib/matplotlib/tests/test_pickle.py:123\nApplying patch lib/matplotlib/legend.py with 1 reject...\nRejected hunk #1.\nApplying patch lib/matplotlib/tests/test_pickle.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1311
+}

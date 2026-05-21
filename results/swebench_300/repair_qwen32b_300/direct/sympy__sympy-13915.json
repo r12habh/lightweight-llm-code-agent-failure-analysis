@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-13915",
+  "input_patch_chars": 556,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/basic.py...\nerror: while searching for:\n        if isinstance(value, Basic):\n            value = value.subs(*args, **kwargs)\n\n        # If the substitution is for a symbol, replace it in the args\n        if isinstance(key, Symbol):\n            new_args = []\n\nerror: patch failed: sympy/core/basic.py:1020\nerror: sympy/core/basic.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/basic.py...\nerror: while searching for:\n        if isinstance(value, Basic):\n            value = value.subs(*args, **kwargs)\n\n        # If the substitution is for a symbol, replace it in the args\n        if isinstance(key, Symbol):\n            new_args = []\n\nerror: patch failed: sympy/core/basic.py:1020\nApplying patch sympy/core/basic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 624
+}

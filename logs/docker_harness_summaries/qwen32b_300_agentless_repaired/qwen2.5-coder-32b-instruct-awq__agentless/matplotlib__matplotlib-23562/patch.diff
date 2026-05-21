@@ -1,0 +1,12 @@
+diff --git a/lib/mpl_toolkits/mplot3d/art3d.py b/lib/mpl_toolkits/mplot3d/art3d.py
+index 8fe6e7a9c1..90ac0e48f4 100644
+--- a/lib/mpl_toolkits/mplot3d/art3d.py
++++ b/lib/mpl_toolkits/mplot3d/art3d.py
+@@ -633,6 +633,7 @@ class Path3DCollection(PathCollection):
+         return self._maybe_depth_shade_and_sort_colors(super().get_edgecolor())
+ 
+ 
++        self._facecolors2d.setflags(write=False)
+ def patch_collection_2d_to_3d(col, zs=0, zdir='z', depthshade=True):
+     """
+     Convert a :class:`~matplotlib.collections.PatchCollection` into a

@@ -1,0 +1,15 @@
+diff --git a/django/core/handlers/base.py b/django/core/handlers/base.py
+index 728e449703..ca0ec27758 100644
+--- a/django/core/handlers/base.py
++++ b/django/core/handlers/base.py
+@@ -123,6 +123,10 @@ class BaseHandler:
+             return async_to_sync(method)
+         return method
+ 
++        if isinstance(self.func, functools.partial):
++            self.func = self.func.func
++            self.args = self.func.args + self.args
++            self.kwargs.update(self.func.keywords)
+     def get_response(self, request):
+         """Return an HttpResponse object for the given HttpRequest."""
+         # Setup default url resolver for this thread

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16400",
+  "input_patch_chars": 1381,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 32\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file django/core/management/base.py\nHunk #1 succeeded at 260 (offset 160 lines).\nHunk #2 succeeded at 271 (offset 160 lines).\nHunk #3 succeeded at 282 with fuzz 3 (offset 160 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

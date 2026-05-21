@@ -1,0 +1,25 @@
+{
+  "instance_id": "astropy__astropy-6938",
+  "input_patch_chars": 436,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 12\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file astropy/io/fits/column.py\nHunk #1 FAILED at 1277.\n1 out of 1 hunk FAILED -- saving rejects to file astropy/io/fits/column.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

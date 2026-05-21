@@ -1,0 +1,45 @@
+2026-05-20 14:31:28,443 - INFO - Creating container for django__django-13447...
+2026-05-20 14:31:29,095 - INFO - Container for django__django-13447 created: 7640139a2f2f0c605d1b4048d1267ebacc716012fe83ccdd5815e25e19d1b692
+2026-05-20 14:31:29,241 - INFO - Container for django__django-13447 started: 7640139a2f2f0c605d1b4048d1267ebacc716012fe83ccdd5815e25e19d1b692
+2026-05-20 14:31:29,242 - INFO - Intermediate patch for django__django-13447 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-13447/patch.diff, now applying to container...
+2026-05-20 14:31:29,442 - INFO - >>>>> Applied Patch:
+Checking patch docs/topics/class-based-views/generic-display.txt...
+Applied patch docs/topics/class-based-views/generic-display.txt cleanly.
+
+2026-05-20 14:31:30,382 - INFO - Git diff before:
+diff --git a/docs/topics/class-based-views/generic-display.txt b/docs/topics/class-based-views/generic-display.txt
+index e7ba5c99a2..745c09648e 100644
+--- a/docs/topics/class-based-views/generic-display.txt
++++ b/docs/topics/class-based-views/generic-display.txt
+@@ -125,6 +125,7 @@ Finally hook that view into your urls::
+ 
+ That's all the Python code we need to write. We still need to write a template,
+ however. We could explicitly tell the view which template to use by adding a
++``template_name`` attribute to the view, or
+ ``template_name`` attribute to the view, but in the absence of an explicit
+ template Django will infer one from the object's name. In this case, the
+ inferred template will be ``"books/publisher_list.html"`` -- the "books" part
+2026-05-20 14:31:30,383 - INFO - Eval script for django__django-13447 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-13447/eval.sh; copying to container...
+2026-05-20 14:31:38,608 - INFO - Test runtime: 8.16 seconds
+2026-05-20 14:31:38,611 - INFO - Test output for django__django-13447 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-13447/test_output.txt
+2026-05-20 14:31:38,761 - INFO - Git diff after:
+diff --git a/docs/topics/class-based-views/generic-display.txt b/docs/topics/class-based-views/generic-display.txt
+index e7ba5c99a2..745c09648e 100644
+--- a/docs/topics/class-based-views/generic-display.txt
++++ b/docs/topics/class-based-views/generic-display.txt
+@@ -125,6 +125,7 @@ Finally hook that view into your urls::
+ 
+ That's all the Python code we need to write. We still need to write a template,
+ however. We could explicitly tell the view which template to use by adding a
++``template_name`` attribute to the view, or
+ ``template_name`` attribute to the view, but in the absence of an explicit
+ template Django will infer one from the object's name. In this case, the
+ inferred template will be ``"books/publisher_list.html"`` -- the "books" part
+2026-05-20 14:31:38,761 - INFO - Grading answer for django__django-13447...
+2026-05-20 14:31:38,765 - INFO - report: {'django__django-13447': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_available_apps (admin_views.test_adminsite.SiteEachContextTest)']}, 'PASS_TO_PASS': {'success': ['test_add_action (admin_views.test_adminsite.SiteActionsTests)', 'test_disable_action (admin_views.test_adminsite.SiteActionsTests)', "AdminSite.get_action() returns an action even if it's disabled.", 'test_each_context (admin_views.test_adminsite.SiteEachContextTest)', 'test_each_context_site_url_with_script_name (admin_views.test_adminsite.SiteEachContextTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13447: resolved: False
+2026-05-20 14:31:38,766 - INFO - Attempting to stop container sweb.eval.django__django-13447.qwen32b_300_agentless_repaired...
+2026-05-20 14:31:54,004 - INFO - Attempting to remove container sweb.eval.django__django-13447.qwen32b_300_agentless_repaired...
+2026-05-20 14:31:54,023 - INFO - Container sweb.eval.django__django-13447.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:31:54,024 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13447:latest...
+2026-05-20 14:31:54,031 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13447:latest removed.

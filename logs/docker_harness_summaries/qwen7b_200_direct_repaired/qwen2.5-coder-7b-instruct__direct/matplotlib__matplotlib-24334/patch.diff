@@ -1,0 +1,15 @@
+diff --git a/lib/matplotlib/axes/_base.py b/lib/matplotlib/axes/_base.py
+index 015fd32945..574db1c482 100644
+--- a/lib/matplotlib/axes/_base.py
++++ b/lib/matplotlib/axes/_base.py
+@@ -207,6 +207,10 @@ def _process_plot_format(fmt, *, ambiguous_fmt_datakey=False):
+ 
+     return linestyle, marker, color
+ 
++        # Validate kwargs for all cases
++        for key, value in kwargs.items():
++            if not Text.supported_properties().get(key, False):
++                raise ValueError(f"Invalid keyword argument '{key}' for tick labels")
+ 
+ class _process_plot_var_args:
+     """

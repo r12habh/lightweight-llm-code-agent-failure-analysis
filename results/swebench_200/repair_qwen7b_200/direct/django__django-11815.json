@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11815",
+  "input_patch_chars": 5763,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 252\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 252: @@ -400,6 +43\n\n",
+          "stdout": "patching file django/db/models/fields/__init__.py\nHunk #1 succeeded at 10 with fuzz 3.\nHunk #2 succeeded at 101 with fuzz 3.\nHunk #3 succeeded at 112 with fuzz 3.\nHunk #4 succeeded at 123 with fuzz 3.\nHunk #5 succeeded at 134 with fuzz 3.\nHunk #6 succeeded at 145 with fuzz 3.\nHunk #7 succeeded at 156 with fuzz 3.\nHunk #8 succeeded at 167 with fuzz 3.\nHunk #9 succeeded at 178 with fuzz 3.\nHunk #10 succeeded at 189 with fuzz 3.\nHunk #11 succeeded at 200 with fuzz 3.\nHunk #12 succeeded at 211 with fuzz 3.\nHunk #13 succeeded at 222 with fuzz 3.\nHunk #14 succeeded at 233 with fuzz 3.\nHunk #15 succeeded at 244 with fuzz 3.\nHunk #16 succeeded at 255 with fuzz 3.\nHunk #17 succeeded at 266 with fuzz 3.\nHunk #18 succeeded at 277 with fuzz 3.\nHunk #19 succeeded at 288 with fuzz 3.\nHunk #20 succeeded at 299 with fuzz 3.\nHunk #21 succeeded at 310 with fuzz 3.\nHunk #22 succeeded at 321 with fuzz 3.\nHunk #23 succeeded at 332 with fuzz 3.\nHunk #24 succeeded at 343 with fuzz 3.\nHunk #25 succeeded at 354 with fuzz 3.\nHunk #26 succeeded at 365 with fuzz 3.\nHunk #27 succeeded at 376 with fuzz 3.\nHunk #28 succeeded at 387 with fuzz 3.\nHunk #29 succeeded at 398 with fuzz 3.\nHunk #30 succeeded at 409 with fuzz 3.\nHunk #31 succeeded at 420 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

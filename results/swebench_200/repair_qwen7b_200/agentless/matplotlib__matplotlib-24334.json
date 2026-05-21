@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-24334",
+  "input_patch_chars": 1067,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst...\nerror: while searching for:\n``FigureCanvasBase`` now always has a ``manager`` attribute, which may be None\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nPreviously, it did not necessarily have such an attribute.  A check for\n``.cbook.CallbackRegistry`` now propagates exceptions when no GUI event loop is running\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n``.cbook.CallbackRegistry`` now defaults to propagating exceptions thrown by\n\nerror: patch failed: doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst:123\nerror: doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst...\nerror: while searching for:\n``FigureCanvasBase`` now always has a ``manager`` attribute, which may be None\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nPreviously, it did not necessarily have such an attribute.  A check for\n``.cbook.CallbackRegistry`` now propagates exceptions when no GUI event loop is running\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n``.cbook.CallbackRegistry`` now defaults to propagating exceptions thrown by\n\nerror: patch failed: doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst:123\nApplying patch doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 748
+}

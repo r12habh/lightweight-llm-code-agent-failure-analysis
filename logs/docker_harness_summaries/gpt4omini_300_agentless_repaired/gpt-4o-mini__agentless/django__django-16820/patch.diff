@@ -1,0 +1,12 @@
+diff --git a/docs/internals/deprecation.txt b/docs/internals/deprecation.txt
+index b27348adb0..233aa0e169 100644
+--- a/docs/internals/deprecation.txt
++++ b/docs/internals/deprecation.txt
+@@ -50,7 +50,6 @@ details on these changes.
+ * The ``length_is`` template filter will be removed.
+ 
+ * The ``django.contrib.auth.hashers.SHA1PasswordHasher``,
+-  ``django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher``, and
+   ``django.contrib.auth.hashers.UnsaltedMD5PasswordHasher`` will be removed.
+ 
+ * The model ``django.contrib.postgres.fields.CICharField``,

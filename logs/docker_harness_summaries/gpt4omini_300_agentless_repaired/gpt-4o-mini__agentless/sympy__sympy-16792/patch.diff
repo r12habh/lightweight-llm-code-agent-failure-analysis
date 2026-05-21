@@ -1,0 +1,14 @@
+diff --git a/sympy/utilities/autowrap.py b/sympy/utilities/autowrap.py
+index bd6afb12d1..d5cef66d9f 100644
+--- a/sympy/utilities/autowrap.py
++++ b/sympy/utilities/autowrap.py
+@@ -96,7 +96,8 @@ class CodeWrapError(Exception):
+     pass
+ 
+ 
+-class CodeWrapper(object):
++class CodeWrapper:
++    """Base Class for code wrappers"""
+     """Base Class for code wrappers"""
+     _filename = "wrapped_code"
+     _module_basename = "wrapper_module"

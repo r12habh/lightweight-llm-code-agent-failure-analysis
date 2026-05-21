@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-23262",
+  "input_patch_chars": 690,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pycode.py...\nerror: while searching for:\n                return self._print(expr.args[0])\n            else:\n                items = [self._print(i) for i in expr.args]\n                return '(' + ', '.join(items) + ')'\n        elif isinstance(expr, Dict):\n            items = sorted(expr.args, key=default_sort_key)\n            return '{' + ', '.join('%s: %s' % (self._print(k), self._print(v)) for k, v in items) + '}'\n\nerror: patch failed: sympy/printing/pycode.py:123\nApplying patch sympy/printing/pycode.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/printing/pycode.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/printing/pycode.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

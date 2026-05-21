@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/figure.py b/lib/matplotlib/figure.py
+index c55864243a..9d04372f58 100644
+--- a/lib/matplotlib/figure.py
++++ b/lib/matplotlib/figure.py
+@@ -3281,7 +3281,7 @@ class Figure(FigureBase):
+         # Cleanup.
+         for mark in marks:
+             mark.remove()
+-        self.canvas.draw()
++        self.canvas.draw_idle()
+ 
+         return clicks

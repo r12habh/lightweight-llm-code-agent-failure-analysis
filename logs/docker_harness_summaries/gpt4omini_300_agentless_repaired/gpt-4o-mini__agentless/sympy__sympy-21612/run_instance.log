@@ -1,0 +1,41 @@
+2026-05-20 11:18:21,129 - INFO - Creating container for sympy__sympy-21612...
+2026-05-20 11:18:21,778 - INFO - Container for sympy__sympy-21612 created: e8bb78f8f152c171b594bccb2042d34cc297acff2f0bbbacaee0be71cd6c2e4d
+2026-05-20 11:18:21,929 - INFO - Container for sympy__sympy-21612 started: e8bb78f8f152c171b594bccb2042d34cc297acff2f0bbbacaee0be71cd6c2e4d
+2026-05-20 11:18:21,930 - INFO - Intermediate patch for sympy__sympy-21612 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/sympy__sympy-21612/patch.diff, now applying to container...
+2026-05-20 11:18:22,112 - INFO - >>>>> Applied Patch:
+Checking patch sympy/parsing/latex/_parse_latex_antlr.py...
+Applied patch sympy/parsing/latex/_parse_latex_antlr.py cleanly.
+
+2026-05-20 11:18:22,574 - INFO - Git diff before:
+diff --git a/sympy/parsing/latex/_parse_latex_antlr.py b/sympy/parsing/latex/_parse_latex_antlr.py
+index 2e4a45ad20..cf7817d480 100644
+--- a/sympy/parsing/latex/_parse_latex_antlr.py
++++ b/sympy/parsing/latex/_parse_latex_antlr.py
+@@ -592,3 +592,5 @@ def get_differential_var_str(text):
+     if text[0] == "\\":
+         text = text[1:]
+     return text
++        # Adding extra parenthesis in case of nested fractions
++        if left.is_Mul and left.args and left.args[0].is_Add:
+2026-05-20 11:18:22,575 - INFO - Eval script for sympy__sympy-21612 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/sympy__sympy-21612/eval.sh; copying to container...
+2026-05-20 11:18:28,149 - INFO - Test runtime: 5.45 seconds
+2026-05-20 11:18:28,151 - INFO - Test output for sympy__sympy-21612 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/sympy__sympy-21612/test_output.txt
+2026-05-20 11:18:28,268 - INFO - Git diff after:
+diff --git a/sympy/parsing/latex/_parse_latex_antlr.py b/sympy/parsing/latex/_parse_latex_antlr.py
+index 2e4a45ad20..cf7817d480 100644
+--- a/sympy/parsing/latex/_parse_latex_antlr.py
++++ b/sympy/parsing/latex/_parse_latex_antlr.py
+@@ -592,3 +592,5 @@ def get_differential_var_str(text):
+     if text[0] == "\\":
+         text = text[1:]
+     return text
++        # Adding extra parenthesis in case of nested fractions
++        if left.is_Mul and left.args and left.args[0].is_Add:
+2026-05-20 11:18:28,268 - INFO - Grading answer for sympy__sympy-21612...
+2026-05-20 11:18:28,269 - INFO - report: {'sympy__sympy-21612': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_Mul']}, 'PASS_TO_PASS': {'success': ['test_printmethod', 'test_Abs', 'test_Add', 'test_Catalan', 'test_ComplexInfinity', 'test_Derivative', 'test_dict', 'test_Dict', 'test_Dummy', 'test_EulerGamma', 'test_Exp', 'test_factorial', 'test_Function', 'test_Geometry', 'test_GoldenRatio', 'test_TribonacciConstant', 'test_ImaginaryUnit', 'test_Infinity', 'test_Integer', 'test_Integral', 'test_Interval', 'test_AccumBounds', 'test_Lambda', 'test_Limit', 'test_list', 'test_Matrix_str', 'test_NaN', 'test_NegativeInfinity', 'test_Order', 'test_Permutation_Cycle', 'test_Pi', 'test_Poly', 'test_PolyRing', 'test_FracField', 'test_PolyElement', 'test_FracElement', 'test_GaussianInteger', 'test_GaussianRational', 'test_Pow', 'test_sqrt', 'test_Rational', 'test_Float', 'test_Relational', 'test_AppliedBinaryRelation', 'test_CRootOf', 'test_RootSum', 'test_GroebnerBasis', 'test_set', 'test_SparseMatrix', 'test_Sum', 'test_Symbol', 'test_tuple', 'test_Series_str', 'test_TransferFunction_str', 'test_Parallel_str', 'test_Feedback_str', 'test_Quaternion_str_printer', 'test_Quantity_str', 'test_wild_str', 'test_wild_matchpy', 'test_zeta', 'test_issue_3101', 'test_issue_3103', 'test_issue_4021', 'test_sstrrepr', 'test_infinity', 'test_full_prec', 'test_noncommutative', 'test_empty_printer', 'test_settings', 'test_RandomDomain', 'test_FiniteSet', 'test_UniversalSet', 'test_PrettyPoly', 'test_categories', 'test_Tr', 'test_issue_6387', 'test_MatMul_MatAdd', 'test_MatrixSlice', 'test_true_false', 'test_Equivalent', 'test_Xor', 'test_Complement', 'test_SymmetricDifference', 'test_UnevaluatedExpr', 'test_MatrixElement_printing', 'test_MatrixSymbol_printing', 'test_MatrixExpressions', 'test_Subs_printing', 'test_issue_15716', 'test_str_special_matrices', 'test_issue_14567', 'test_issue_21119_21460', 'test_Str', 'test_diffgeom', 'test_NDimArray', 'test_Predicate', 'test_AppliedPredicate'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-21612: resolved: False
+2026-05-20 11:18:28,270 - INFO - Attempting to stop container sweb.eval.sympy__sympy-21612.gpt4omini_300_agentless_repaired...
+2026-05-20 11:18:43,413 - INFO - Attempting to remove container sweb.eval.sympy__sympy-21612.gpt4omini_300_agentless_repaired...
+2026-05-20 11:18:43,428 - INFO - Container sweb.eval.sympy__sympy-21612.gpt4omini_300_agentless_repaired removed.
+2026-05-20 11:18:43,428 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-21612:latest...
+2026-05-20 11:18:43,435 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-21612:latest removed.

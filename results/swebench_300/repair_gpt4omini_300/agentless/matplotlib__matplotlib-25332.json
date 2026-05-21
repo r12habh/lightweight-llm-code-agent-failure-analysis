@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25332",
+  "input_patch_chars": 536,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 16\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15:      for nn, ax in enumerate(axs.flat):\n\n",
+          "stdout": "patching file lib/matplotlib/tests/test_figure.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

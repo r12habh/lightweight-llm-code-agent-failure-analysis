@@ -1,0 +1,51 @@
+2026-05-08 23:08:17,954 - INFO - Creating container for scikit-learn__scikit-learn-15512...
+2026-05-08 23:08:18,193 - INFO - Container for scikit-learn__scikit-learn-15512 created: 5609cf4338c27f4bbc6309a138c8227ce83c81a412380bab29adbae9250068e8
+2026-05-08 23:08:18,323 - INFO - Container for scikit-learn__scikit-learn-15512 started: 5609cf4338c27f4bbc6309a138c8227ce83c81a412380bab29adbae9250068e8
+2026-05-08 23:08:18,325 - INFO - Intermediate patch for scikit-learn__scikit-learn-15512 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/scikit-learn__scikit-learn-15512/patch.diff, now applying to container...
+2026-05-08 23:08:18,512 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/cluster/_affinity_propagation.py...
+Applied patch sklearn/cluster/_affinity_propagation.py cleanly.
+
+2026-05-08 23:08:18,850 - INFO - Git diff before:
+diff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py
+index 4806afee9..1b58dceab 100644
+--- a/sklearn/cluster/_affinity_propagation.py
++++ b/sklearn/cluster/_affinity_propagation.py
+@@ -220,6 +220,10 @@ def affinity_propagation(S, preference=None, convergence_iter=15, max_iter=200,
+         cluster_centers_indices = np.unique(labels)
+         labels = np.searchsorted(cluster_centers_indices, labels)
+     else:
++            if n_iter == max_iter:
++                warnings.warn("Affinity propagation did not converge", ConvergenceWarning)
++                return (np.array([]), np.full(n_samples, -1), n_iter) if return_n_iter else (np.array([]), np.full(n_samples, -1))
++
+         warnings.warn("Affinity propagation did not converge, this model "
+                       "will not have any cluster centers.", ConvergenceWarning)
+         labels = np.array([-1] * n_samples)
+2026-05-08 23:08:18,851 - INFO - Eval script for scikit-learn__scikit-learn-15512 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/scikit-learn__scikit-learn-15512/eval.sh; copying to container...
+2026-05-08 23:08:24,860 - INFO - Test runtime: 5.94 seconds
+2026-05-08 23:08:24,860 - INFO - Test output for scikit-learn__scikit-learn-15512 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/scikit-learn__scikit-learn-15512/test_output.txt
+2026-05-08 23:08:24,953 - INFO - Git diff after:
+diff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py
+index 4806afee9..1b58dceab 100644
+--- a/sklearn/cluster/_affinity_propagation.py
++++ b/sklearn/cluster/_affinity_propagation.py
+@@ -220,6 +220,10 @@ def affinity_propagation(S, preference=None, convergence_iter=15, max_iter=200,
+         cluster_centers_indices = np.unique(labels)
+         labels = np.searchsorted(cluster_centers_indices, labels)
+     else:
++            if n_iter == max_iter:
++                warnings.warn("Affinity propagation did not converge", ConvergenceWarning)
++                return (np.array([]), np.full(n_samples, -1), n_iter) if return_n_iter else (np.array([]), np.full(n_samples, -1))
++
+         warnings.warn("Affinity propagation did not converge, this model "
+                       "will not have any cluster centers.", ConvergenceWarning)
+         labels = np.array([-1] * n_samples)
+2026-05-08 23:08:24,953 - INFO - Grading answer for scikit-learn__scikit-learn-15512...
+2026-05-08 23:08:24,954 - INFO - report: {'scikit-learn__scikit-learn-15512': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_non_convergence_regressiontest']}, 'PASS_TO_PASS': {'success': [], 'failure': ['sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_predict', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_predict_error', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_fit_non_convergence', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_equal_mutual_similarities', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_predict_non_convergence', 'sklearn/cluster/tests/test_affinity_propagation.py::test_equal_similarities_and_preferences', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_convergence_warning_dense_sparse[centers0]', 'sklearn/cluster/tests/test_affinity_propagation.py::test_affinity_propagation_convergence_warning_dense_sparse[centers1]']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-15512: resolved: False
+2026-05-08 23:08:24,954 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-15512.hf_qwen25_coder32b_awq_50_agentless_repaired...
+2026-05-08 23:08:40,093 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-15512.hf_qwen25_coder32b_awq_50_agentless_repaired...
+2026-05-08 23:08:40,106 - INFO - Container sweb.eval.scikit-learn__scikit-learn-15512.hf_qwen25_coder32b_awq_50_agentless_repaired removed.
+2026-05-08 23:08:40,106 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-15512:latest...
+2026-05-08 23:08:41,176 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-15512:latest removed.

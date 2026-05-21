@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14999",
+  "input_patch_chars": 787,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/migrations/operations/models.py...\nerror: while searching for:\n        self.allow_rename_table = allow_rename_table\n\n    def state_forwards(self, app_label, state):\n        new_name_lower = self.new_name_lower\n        old_model = state.models[app_label, self.old_name_lower]\n        state.models[app_label, new_name_lower] = old_model.clone(rel_name=new_name_lower)\n\nerror: patch failed: django/db/migrations/operations/models.py:450\nerror: django/db/migrations/operations/models.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/operations/models.py...\nerror: while searching for:\n        self.allow_rename_table = allow_rename_table\n\n    def state_forwards(self, app_label, state):\n        new_name_lower = self.new_name_lower\n        old_model = state.models[app_label, self.old_name_lower]\n        state.models[app_label, new_name_lower] = old_model.clone(rel_name=new_name_lower)\n\nerror: patch failed: django/db/migrations/operations/models.py:450\nApplying patch django/db/migrations/operations/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 802
+}

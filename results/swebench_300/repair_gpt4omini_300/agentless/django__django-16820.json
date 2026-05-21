@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16820",
+  "input_patch_chars": 641,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/internals/deprecation.txt...\nerror: while searching for:\n* The model's ``Meta.index_together`` option will be removed.\n* The ``length_is`` template filter will be removed.\n* The ``django.contrib.auth.hashers.SHA1PasswordHasher``,\n  ``django.contrib.auth.hashers.UnsaltedMD5PasswordHasher`` will be removed.\n* The model ``django.contrib.postgres.fields.CICharField``,\n  ``django.contrib.postgres.fields.CIEmailField``, and\n\nerror: patch failed: docs/internals/deprecation.txt:74\nerror: docs/internals/deprecation.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/internals/deprecation.txt...\nerror: while searching for:\n* The model's ``Meta.index_together`` option will be removed.\n* The ``length_is`` template filter will be removed.\n* The ``django.contrib.auth.hashers.SHA1PasswordHasher``,\n  ``django.contrib.auth.hashers.UnsaltedMD5PasswordHasher`` will be removed.\n* The model ``django.contrib.postgres.fields.CICharField``,\n  ``django.contrib.postgres.fields.CIEmailField``, and\n\nerror: patch failed: docs/internals/deprecation.txt:74\nApplying patch docs/internals/deprecation.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 554
+}

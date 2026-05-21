@@ -1,0 +1,16 @@
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 00c19e2c55..2c900f2152 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -540,6 +540,11 @@ class CheckboxInput(Input):
+         values = {'true': True, 'false': False}
+         if isinstance(value, str):
+             value = values.get(value.lower(), value)
++        # Aggregates to a single id for the entire MultiWidget
++        if id_:
++            id_ += '_0'
++        return id_
++
+         return bool(value)
+ 
+     def value_omitted_from_data(self, data, files, name):

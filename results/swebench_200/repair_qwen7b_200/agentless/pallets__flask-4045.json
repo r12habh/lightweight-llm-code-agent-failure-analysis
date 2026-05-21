@@ -1,0 +1,28 @@
+{
+  "instance_id": "pallets__flask-4045",
+  "input_patch_chars": 607,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/flask/blueprints.py...\nerror: while searching for:\n        self.url_prefix = url_prefix\n\n        self.name_prefix = self.options.get(\"name_prefix\", \"\")\n        #: A dictionary with URL defaults that is added to each and every\n        #: URL that was defined with the blueprint.\n        self.url_defaults = dict(self.blueprint.url_values_defaults)\n\nerror: patch failed: src/flask/blueprints.py:100\nerror: src/flask/blueprints.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/blueprints.py...\nerror: while searching for:\n        self.url_prefix = url_prefix\n\n        self.name_prefix = self.options.get(\"name_prefix\", \"\")\n        #: A dictionary with URL defaults that is added to each and every\n        #: URL that was defined with the blueprint.\n        self.url_defaults = dict(self.blueprint.url_values_defaults)\n\nerror: patch failed: src/flask/blueprints.py:100\nApplying patch src/flask/blueprints.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 516
+}

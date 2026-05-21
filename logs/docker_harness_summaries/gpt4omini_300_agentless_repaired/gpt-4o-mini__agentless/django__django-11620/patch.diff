@@ -1,0 +1,15 @@
+diff --git a/docs/topics/http/urls.txt b/docs/topics/http/urls.txt
+index ed7257d847..257d7c3826 100644
+--- a/docs/topics/http/urls.txt
++++ b/docs/topics/http/urls.txt
+@@ -218,6 +218,10 @@ aware that the type of the view arguments may change, and so you may need to
+ adapt your views.
+ 
+ Using unnamed regular expression groups
++  When :setting:`DEBUG` is ``True``, you can provide a message to ``Http404`` and
++  it will appear in the standard 404 debug template. Use these messages for
++  debugging purposes; they generally aren't suitable for use in a production 404
++  template.
+ ---------------------------------------
+ 
+ As well as the named group syntax, e.g. ``(?P<year>[0-9]{4})``, you can

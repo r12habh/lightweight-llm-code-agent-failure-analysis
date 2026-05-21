@@ -1,0 +1,12 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index c913267476..c24e91ac5d 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1246,6 +1246,7 @@ class Query(BaseExpression):
+             )
+         if hasattr(filter_expr, 'resolve_expression'):
+             if not getattr(filter_expr, 'conditional', False):
++        new_query.filter_is_sticky = True
+                 raise TypeError('Cannot filter against a non-conditional expression.')
+             condition = self.build_lookup(
+                 ['exact'], filter_expr.resolve_expression(self, allow_joins=allow_joins), True

@@ -1,0 +1,50 @@
+2026-05-20 13:34:26,681 - INFO - Creating container for sympy__sympy-14396...
+2026-05-20 13:34:27,899 - INFO - Container for sympy__sympy-14396 created: e8403669e55ff31210a69c08b515b37f78b4fa40ec5d129ecd30c41371d43107
+2026-05-20 13:34:28,089 - INFO - Container for sympy__sympy-14396 started: e8403669e55ff31210a69c08b515b37f78b4fa40ec5d129ecd30c41371d43107
+2026-05-20 13:34:28,090 - INFO - Intermediate patch for sympy__sympy-14396 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-14396/patch.diff, now applying to container...
+2026-05-20 13:34:28,480 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 13:34:28,551 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 13:34:28,620 - INFO - >>>>> Applied Patch:
+patching file sympy/polys/polyoptions.py
+
+2026-05-20 13:34:29,066 - INFO - Git diff before:
+diff --git a/sympy/polys/polyoptions.py b/sympy/polys/polyoptions.py
+index 6e504a3057..ad972a90e1 100644
+--- a/sympy/polys/polyoptions.py
++++ b/sympy/polys/polyoptions.py
+@@ -479,6 +479,10 @@ def preprocess(cls, domain):
+             if r is not None:
+                 gens = list(map(sympify, r.groups()[1].split(',')))
+                 return sympy.polys.domains.QQ.algebraic_field(*gens)
++        if r is not None:
++            domain, gens = r.groups()
++            return sympy.polys.domains.ZZ.poly_field(*gens)
++
+ 
+         raise OptionError('expected a valid domain specification, got %s' % domain)
+2026-05-20 13:34:29,068 - INFO - Eval script for sympy__sympy-14396 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-14396/eval.sh; copying to container...
+2026-05-20 13:34:33,497 - INFO - Test runtime: 4.36 seconds
+2026-05-20 13:34:33,498 - INFO - Test output for sympy__sympy-14396 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-14396/test_output.txt
+2026-05-20 13:34:33,608 - INFO - Git diff after:
+diff --git a/sympy/polys/polyoptions.py b/sympy/polys/polyoptions.py
+index 6e504a3057..ad972a90e1 100644
+--- a/sympy/polys/polyoptions.py
++++ b/sympy/polys/polyoptions.py
+@@ -479,6 +479,10 @@ def preprocess(cls, domain):
+             if r is not None:
+                 gens = list(map(sympify, r.groups()[1].split(',')))
+                 return sympy.polys.domains.QQ.algebraic_field(*gens)
++        if r is not None:
++            domain, gens = r.groups()
++            return sympy.polys.domains.ZZ.poly_field(*gens)
++
+ 
+         raise OptionError('expected a valid domain specification, got %s' % domain)
+2026-05-20 13:34:33,608 - INFO - Grading answer for sympy__sympy-14396...
+2026-05-20 13:34:33,610 - INFO - report: {'sympy__sympy-14396': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_Domain_preprocess']}, 'PASS_TO_PASS': {'success': ['test_Options_clone', 'test_Expand_preprocess', 'test_Expand_postprocess', 'test_Gens_preprocess', 'test_Gens_postprocess', 'test_Wrt_preprocess', 'test_Wrt_postprocess', 'test_Sort_preprocess', 'test_Sort_postprocess', 'test_Order_preprocess', 'test_Order_postprocess', 'test_Field_preprocess', 'test_Field_postprocess', 'test_Greedy_preprocess', 'test_Greedy_postprocess', 'test_Domain_postprocess', 'test_Split_preprocess', 'test_Split_postprocess', 'test_Gaussian_preprocess', 'test_Gaussian_postprocess', 'test_Extension_preprocess', 'test_Extension_postprocess', 'test_Modulus_preprocess', 'test_Modulus_postprocess', 'test_Symmetric_preprocess', 'test_Symmetric_postprocess', 'test_Strict_preprocess', 'test_Strict_postprocess', 'test_Auto_preprocess', 'test_Auto_postprocess', 'test_Frac_preprocess', 'test_Frac_postprocess', 'test_Formal_preprocess', 'test_Formal_postprocess', 'test_Polys_preprocess', 'test_Polys_postprocess', 'test_Include_preprocess', 'test_Include_postprocess', 'test_All_preprocess', 'test_All_postprocess', 'test_Gen_postprocess', 'test_Symbols_preprocess', 'test_Symbols_postprocess', 'test_Method_preprocess'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-14396: resolved: False
+2026-05-20 13:34:33,611 - INFO - Attempting to stop container sweb.eval.sympy__sympy-14396.qwen32b_300_direct_repaired...
+2026-05-20 13:34:48,847 - INFO - Attempting to remove container sweb.eval.sympy__sympy-14396.qwen32b_300_direct_repaired...
+2026-05-20 13:34:48,870 - INFO - Container sweb.eval.sympy__sympy-14396.qwen32b_300_direct_repaired removed.
+2026-05-20 13:34:48,872 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-14396:latest...
+2026-05-20 13:34:48,882 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-14396:latest removed.

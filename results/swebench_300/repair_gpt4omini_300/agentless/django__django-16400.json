@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16400",
+  "input_patch_chars": 1255,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/base.py...\nerror: while searching for:\n\nimport django\nfrom django.core import checks\nfrom django.core.exceptions import ImproperlyConfigured\nfrom django.core.management.color import color_style, no_style\n\n\nerror: patch failed: django/core/management/base.py:32\nerror: while searching for:\n\n    \"\"\"\n\n    # Other initialization code...\n    self.database = database or DEFAULT_DB_ALIAS\n    \n\nerror: patch failed: django/core/management/base.py:57\nerror: while searching for:\n\n    def execute(self, *args, **options):\n        \"\"\"\n        Tries to execute this command, performing system checks if needed (as \n        controlled by the :attr:`requires_system_checks` attribute). If the command \n        \"\"\"\n        if self.uses_database:\n            db_connection = connections[self.database]\n\nerror: patch failed: django/core/management/base.py:63\nApplying patch django/core/management/base.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/base.py\nHunk #1 succeeded at 10 with fuzz 1 (offset -22 lines).\nHunk #2 succeeded at 36 with fuzz 3 (offset -22 lines).\nHunk #3 FAILED at 65.\n1 out of 3 hunks FAILED -- saving rejects to file django/core/management/base.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

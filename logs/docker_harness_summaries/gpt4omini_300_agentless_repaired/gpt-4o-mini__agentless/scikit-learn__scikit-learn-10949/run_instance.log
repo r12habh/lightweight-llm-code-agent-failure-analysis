@@ -1,0 +1,66 @@
+2026-05-20 10:35:13,543 - INFO - Creating container for scikit-learn__scikit-learn-10949...
+2026-05-20 10:35:14,283 - INFO - Container for scikit-learn__scikit-learn-10949 created: 3d430d49bb2cb1fa389a5b3e1b574ee5ca7e87f33f2993b032bf08101a9b80c4
+2026-05-20 10:35:14,410 - INFO - Container for scikit-learn__scikit-learn-10949 started: 3d430d49bb2cb1fa389a5b3e1b574ee5ca7e87f33f2993b032bf08101a9b80c4
+2026-05-20 10:35:14,411 - INFO - Intermediate patch for scikit-learn__scikit-learn-10949 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-10949/patch.diff, now applying to container...
+2026-05-20 10:35:14,583 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 10:35:14,665 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 10:35:14,730 - INFO - >>>>> Applied Patch:
+patching file sklearn/utils/validation.py
+
+2026-05-20 10:35:15,038 - INFO - Git diff before:
+diff --git a/sklearn/utils/validation.py b/sklearn/utils/validation.py
+index fe1f7236e..be5e9b9b7 100644
+--- a/sklearn/utils/validation.py
++++ b/sklearn/utils/validation.py
+@@ -35,6 +35,8 @@ warnings.simplefilter('ignore', NonBLASDotWarning)
+ 
+ # checking whether large sparse are supported by scipy or not
+ LARGE_SPARSE_SUPPORTED = LooseVersion(scipy_version) >= '0.14.0'
++from ..exceptions import DataConversionWarning
++
+ 
+ 
+ def _assert_all_finite(X, allow_nan=False):
+@@ -224,6 +226,10 @@ def check_consistent_length(*arrays):
+     uniques = np.unique(lengths)
+     if len(uniques) > 1:
+         raise ValueError("Found input variables with inconsistent numbers of"
++                    warnings.warn(
++                        "Data with input dtype object was converted to float64.",
++                        DataConversionWarning,
++                    )
+                          " samples: %r" % [int(l) for l in lengths])
+2026-05-20 10:35:15,039 - INFO - Eval script for scikit-learn__scikit-learn-10949 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-10949/eval.sh; copying to container...
+2026-05-20 10:35:19,543 - INFO - Test runtime: 4.44 seconds
+2026-05-20 10:35:19,543 - INFO - Test output for scikit-learn__scikit-learn-10949 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-10949/test_output.txt
+2026-05-20 10:35:19,636 - INFO - Git diff after:
+diff --git a/sklearn/utils/validation.py b/sklearn/utils/validation.py
+index fe1f7236e..be5e9b9b7 100644
+--- a/sklearn/utils/validation.py
++++ b/sklearn/utils/validation.py
+@@ -35,6 +35,8 @@ warnings.simplefilter('ignore', NonBLASDotWarning)
+ 
+ # checking whether large sparse are supported by scipy or not
+ LARGE_SPARSE_SUPPORTED = LooseVersion(scipy_version) >= '0.14.0'
++from ..exceptions import DataConversionWarning
++
+ 
+ 
+ def _assert_all_finite(X, allow_nan=False):
+@@ -224,6 +226,10 @@ def check_consistent_length(*arrays):
+     uniques = np.unique(lengths)
+     if len(uniques) > 1:
+         raise ValueError("Found input variables with inconsistent numbers of"
++                    warnings.warn(
++                        "Data with input dtype object was converted to float64.",
++                        DataConversionWarning,
++                    )
+                          " samples: %r" % [int(l) for l in lengths])
+2026-05-20 10:35:19,636 - INFO - Grading answer for scikit-learn__scikit-learn-10949...
+2026-05-20 10:35:19,640 - INFO - report: {'scikit-learn__scikit-learn-10949': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/utils/tests/test_validation.py::test_check_dataframe_warns_on_dtype']}, 'PASS_TO_PASS': {'success': [], 'failure': ['sklearn/utils/tests/test_validation.py::test_as_float_array', 'sklearn/utils/tests/test_validation.py::test_as_float_array_nan[X0]', 'sklearn/utils/tests/test_validation.py::test_as_float_array_nan[X1]', 'sklearn/utils/tests/test_validation.py::test_np_matrix', 'sklearn/utils/tests/test_validation.py::test_memmap', 'sklearn/utils/tests/test_validation.py::test_ordering', 'sklearn/utils/tests/test_validation.py::test_check_array_force_all_finite_valid[asarray-inf-False]', 'sklearn/utils/tests/test_validation.py::test_check_array_force_all_finite_valid[asarray-nan-allow-nan]', 'sklearn/utils/tests/test_validation.py::test_check_array_force_all_finite_valid[asarray-nan-False]', 'sklearn/utils/tests/test_validation.py::test_check_array_force_all_finite_valid[csr_matrix-inf-False]', 'sklearn/utils/tests/test_validation.py::test_check_array_force_all_finite_valid[csr_matrix-nan-allow-nan]', 'sklearn/utils/tests/test_validation.py::test_check_array_force_all_finite_valid[csr_matrix-nan-False]', 'sklearn/utils/tests/test_validation.py::test_check_array', 'sklearn/utils/tests/test_validation.py::test_check_array_pandas_dtype_object_conversion', 'sklearn/utils/tests/test_validation.py::test_check_array_on_mock_dataframe', 'sklearn/utils/tests/test_validation.py::test_check_array_dtype_stability', 'sklearn/utils/tests/test_validation.py::test_check_array_dtype_warning', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_sparse_type_exception', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_sparse_no_exception', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_no_exception[csr]', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_no_exception[csc]', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_no_exception[coo]', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_no_exception[bsr]', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_raise_exception[csr]', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_raise_exception[csc]', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_raise_exception[coo]', 'sklearn/utils/tests/test_validation.py::test_check_array_accept_large_sparse_raise_exception[bsr]', 'sklearn/utils/tests/test_validation.py::test_check_array_large_indices_non_supported_scipy_version[csr]', 'sklearn/utils/tests/test_validation.py::test_check_array_large_indices_non_supported_scipy_version[csc]', 'sklearn/utils/tests/test_validation.py::test_check_array_large_indices_non_supported_scipy_version[coo]', 'sklearn/utils/tests/test_validation.py::test_check_array_large_indices_non_supported_scipy_version[bsr]', 'sklearn/utils/tests/test_validation.py::test_check_array_min_samples_and_features_messages', 'sklearn/utils/tests/test_validation.py::test_check_array_complex_data_error', 'sklearn/utils/tests/test_validation.py::test_has_fit_parameter', 'sklearn/utils/tests/test_validation.py::test_check_symmetric', 'sklearn/utils/tests/test_validation.py::test_check_is_fitted', 'sklearn/utils/tests/test_validation.py::test_check_consistent_length', 'sklearn/utils/tests/test_validation.py::test_check_dataframe_fit_attribute', 'sklearn/utils/tests/test_validation.py::test_suppress_validation', 'sklearn/utils/tests/test_validation.py::test_check_memory', 'sklearn/utils/tests/test_validation.py::test_check_array_memmap[True]', 'sklearn/utils/tests/test_validation.py::test_check_array_memmap[False]']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-10949: resolved: False
+2026-05-20 10:35:19,642 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-10949.gpt4omini_300_agentless_repaired...
+2026-05-20 10:35:34,866 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-10949.gpt4omini_300_agentless_repaired...
+2026-05-20 10:35:34,883 - INFO - Container sweb.eval.scikit-learn__scikit-learn-10949.gpt4omini_300_agentless_repaired removed.
+2026-05-20 10:35:34,883 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10949:latest...
+2026-05-20 10:35:34,905 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10949:latest removed.

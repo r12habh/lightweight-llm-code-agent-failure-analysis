@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12983",
+  "input_patch_chars": 450,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/utils/text.py...\nerror: while searching for:\n\n@keep_lazy_text\ndef slugify(value, allow_unicode=False):\n    \"\"\"Convert to a slug.\"\"\"\n    value = re.sub(r'[^\\w\\s-]', '', value)  # Remove invalid characters\n    return re.sub(r'[-\\s]+', '-', value)  # Replace spaces and dashes with a single dash\n\nerror: patch failed: django/utils/text.py:333\nerror: django/utils/text.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/utils/text.py...\nerror: while searching for:\n\n@keep_lazy_text\ndef slugify(value, allow_unicode=False):\n    \"\"\"Convert to a slug.\"\"\"\n    value = re.sub(r'[^\\w\\s-]', '', value)  # Remove invalid characters\n    return re.sub(r'[-\\s]+', '-', value)  # Replace spaces and dashes with a single dash\n\nerror: patch failed: django/utils/text.py:333\nApplying patch django/utils/text.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 438
+}

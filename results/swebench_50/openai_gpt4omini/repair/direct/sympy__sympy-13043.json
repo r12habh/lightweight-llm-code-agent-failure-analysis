@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-13043",
+  "input_patch_chars": 1137,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/operations.py...\nerror: while searching for:\nfrom sympy.core.sympify import _sympify, sympify\nfrom sympy.core.basic import Basic, _aresame\nfrom sympy.core.cache import cacheit\nfrom sympy.core.logic import fuzzy_and\nfrom sympy.core.evaluate import global_evaluate\n\n\nerror: patch failed: sympy/core/operations.py:24\nerror: sympy/core/operations.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/operations.py...\nerror: while searching for:\nfrom sympy.core.sympify import _sympify, sympify\nfrom sympy.core.basic import Basic, _aresame\nfrom sympy.core.cache import cacheit\nfrom sympy.core.logic import fuzzy_and\nfrom sympy.core.evaluate import global_evaluate\n\n\nerror: patch failed: sympy/core/operations.py:24\nApplying patch sympy/core/operations.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 405
+}

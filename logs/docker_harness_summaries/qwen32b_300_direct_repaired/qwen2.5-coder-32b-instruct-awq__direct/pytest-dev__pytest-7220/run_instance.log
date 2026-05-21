@@ -1,0 +1,57 @@
+2026-05-20 13:04:27,918 - INFO - Creating container for pytest-dev__pytest-7220...
+2026-05-20 13:04:27,978 - INFO - Container for pytest-dev__pytest-7220 created: d2cd9e6591c8a7b410b999885891c0ebc2387bd297f1808ea16a9046e09d347e
+2026-05-20 13:04:28,127 - INFO - Container for pytest-dev__pytest-7220 started: d2cd9e6591c8a7b410b999885891c0ebc2387bd297f1808ea16a9046e09d347e
+2026-05-20 13:04:28,127 - INFO - Intermediate patch for pytest-dev__pytest-7220 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/pytest-dev__pytest-7220/patch.diff, now applying to container...
+2026-05-20 13:04:28,289 - INFO - >>>>> Applied Patch:
+Checking patch src/_pytest/monkeypatch.py...
+Applied patch src/_pytest/monkeypatch.py cleanly.
+
+2026-05-20 13:04:28,477 - INFO - Git diff before:
+diff --git a/src/_pytest/monkeypatch.py b/src/_pytest/monkeypatch.py
+index 9d802a625..911d1b5cd 100644
+--- a/src/_pytest/monkeypatch.py
++++ b/src/_pytest/monkeypatch.py
+@@ -278,6 +278,7 @@ class MonkeyPatch:
+         """
+         if self._cwd is None:
+             self._cwd = os.getcwd()
++            self._original_cwd = self._cwd
+         if hasattr(path, "chdir"):
+             path.chdir()
+         elif isinstance(path, Path):
+@@ -321,4 +322,4 @@ class MonkeyPatch:
+ 
+         if self._cwd is not None:
+             os.chdir(self._cwd)
+-            self._cwd = None
++            self._cwd = self._original_cwd
+2026-05-20 13:04:28,478 - INFO - Eval script for pytest-dev__pytest-7220 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/pytest-dev__pytest-7220/eval.sh; copying to container...
+2026-05-20 13:04:34,691 - INFO - Test runtime: 6.15 seconds
+2026-05-20 13:04:34,693 - INFO - Test output for pytest-dev__pytest-7220 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/pytest-dev__pytest-7220/test_output.txt
+2026-05-20 13:04:34,777 - INFO - Git diff after:
+diff --git a/src/_pytest/monkeypatch.py b/src/_pytest/monkeypatch.py
+index 9d802a625..911d1b5cd 100644
+--- a/src/_pytest/monkeypatch.py
++++ b/src/_pytest/monkeypatch.py
+@@ -278,6 +278,7 @@ class MonkeyPatch:
+         """
+         if self._cwd is None:
+             self._cwd = os.getcwd()
++            self._original_cwd = self._cwd
+         if hasattr(path, "chdir"):
+             path.chdir()
+         elif isinstance(path, Path):
+@@ -321,4 +322,4 @@ class MonkeyPatch:
+ 
+         if self._cwd is not None:
+             os.chdir(self._cwd)
+-            self._cwd = None
++            self._cwd = self._original_cwd
+2026-05-20 13:04:34,777 - INFO - Grading answer for pytest-dev__pytest-7220...
+2026-05-20 13:04:34,778 - INFO - report: {'pytest-dev__pytest-7220': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['testing/test_nodes.py::test_failure_with_changed_cwd']}, 'PASS_TO_PASS': {'success': ['testing/test_nodes.py::test_ischildnode[--True]', 'testing/test_nodes.py::test_ischildnode[-foo-True]', 'testing/test_nodes.py::test_ischildnode[-foo/bar-True]', 'testing/test_nodes.py::test_ischildnode[-foo/bar::TestBaz-True]', 'testing/test_nodes.py::test_ischildnode[foo-food-False]', 'testing/test_nodes.py::test_ischildnode[foo/bar::TestBaz-foo/bar-False]', 'testing/test_nodes.py::test_ischildnode[foo/bar::TestBaz-foo/bar::TestBop-False]', 'testing/test_nodes.py::test_ischildnode[foo/bar-foo/bar::TestBop-True]', 'testing/test_nodes.py::test_node_from_parent_disallowed_arguments', 'testing/test_nodes.py::test__check_initialpaths_for_relpath', 'testing/test_nodes.py::test_std_warn_not_pytestwarning'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pytest-dev__pytest-7220: resolved: False
+2026-05-20 13:04:34,778 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-7220.qwen32b_300_direct_repaired...
+2026-05-20 13:04:49,914 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-7220.qwen32b_300_direct_repaired...
+2026-05-20 13:04:49,933 - INFO - Container sweb.eval.pytest-dev__pytest-7220.qwen32b_300_direct_repaired removed.
+2026-05-20 13:04:49,933 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7220:latest...
+2026-05-20 13:04:49,943 - INFO - Image swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7220:latest removed.

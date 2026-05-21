@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14997",
+  "input_patch_chars": 727,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/backends/sqlite3/schema.py...\nerror: while searching for:\n        # Provide isolated instances of the fields to the new model body so\n        # that the existing model's internals aren't interfered with when\n        # the dummy model is constructed.\n        body_copy = copy.deepcopy(body)\n\n        # Construct a new model class from the model body and options.\n        new_model = type(model.__name__, (model.__base__,), {\n\nerror: patch failed: django/db/backends/sqlite3/schema.py:300\nerror: django/db/backends/sqlite3/schema.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/backends/sqlite3/schema.py...\nerror: while searching for:\n        # Provide isolated instances of the fields to the new model body so\n        # that the existing model's internals aren't interfered with when\n        # the dummy model is constructed.\n        body_copy = copy.deepcopy(body)\n\n        # Construct a new model class from the model body and options.\n        new_model = type(model.__name__, (model.__base__,), {\n\nerror: patch failed: django/db/backends/sqlite3/schema.py:300\nApplying patch django/db/backends/sqlite3/schema.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 758
+}

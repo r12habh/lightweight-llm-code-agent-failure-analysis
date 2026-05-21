@@ -1,0 +1,61 @@
+2026-05-08 21:19:20,897 - INFO - Creating container for django__django-13768...
+2026-05-08 21:19:21,138 - INFO - Container for django__django-13768 created: 5b91ef1f27a3d8796aeb77786275e925347ef6fbe72d235e661d269555686c11
+2026-05-08 21:19:21,257 - INFO - Container for django__django-13768 started: 5b91ef1f27a3d8796aeb77786275e925347ef6fbe72d235e661d269555686c11
+2026-05-08 21:19:21,259 - INFO - Intermediate patch for django__django-13768 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-13768/patch.diff, now applying to container...
+2026-05-08 21:19:21,435 - INFO - >>>>> Applied Patch:
+Checking patch django/dispatch/dispatcher.py...
+Applied patch django/dispatch/dispatcher.py cleanly.
+
+2026-05-08 21:19:22,121 - INFO - Git diff before:
+diff --git a/django/dispatch/dispatcher.py b/django/dispatch/dispatcher.py
+index b7d9d26389..6c03b476c5 100644
+--- a/django/dispatch/dispatcher.py
++++ b/django/dispatch/dispatcher.py
+@@ -15,6 +15,7 @@ def _make_id(target):
+ NONE_ID = _make_id(None)
+ 
+ # A marker for caching
++import logging
+ NO_RECEIVERS = object()
+ 
+ 
+@@ -143,6 +144,7 @@ class Signal:
+             self._clear_dead_receivers()
+             for index in range(len(self.receivers)):
+                 (r_key, _) = self.receivers[index]
++                    logger.exception("Error in signal receiver %s", receiver)
+                 if r_key == lookup_key:
+                     disconnected = True
+                     del self.receivers[index]
+2026-05-08 21:19:22,122 - INFO - Eval script for django__django-13768 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-13768/eval.sh; copying to container...
+2026-05-08 21:19:37,149 - INFO - Test runtime: 14.96 seconds
+2026-05-08 21:19:37,152 - INFO - Test output for django__django-13768 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-13768/test_output.txt
+2026-05-08 21:19:37,283 - INFO - Git diff after:
+diff --git a/django/dispatch/dispatcher.py b/django/dispatch/dispatcher.py
+index b7d9d26389..6c03b476c5 100644
+--- a/django/dispatch/dispatcher.py
++++ b/django/dispatch/dispatcher.py
+@@ -15,6 +15,7 @@ def _make_id(target):
+ NONE_ID = _make_id(None)
+ 
+ # A marker for caching
++import logging
+ NO_RECEIVERS = object()
+ 
+ 
+@@ -143,6 +144,7 @@ class Signal:
+             self._clear_dead_receivers()
+             for index in range(len(self.receivers)):
+                 (r_key, _) = self.receivers[index]
++                    logger.exception("Error in signal receiver %s", receiver)
+                 if r_key == lookup_key:
+                     disconnected = True
+                     del self.receivers[index]
+2026-05-08 21:19:37,283 - INFO - Grading answer for django__django-13768...
+2026-05-08 21:19:37,285 - INFO - report: {'django__django-13768': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_send_robust_fail (dispatch.tests.DispatcherTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_receiver_signal_list (dispatch.tests.ReceiverTestCase)', 'test_receiver_single_signal (dispatch.tests.ReceiverTestCase)', 'test_cached_garbaged_collected (dispatch.tests.DispatcherTests)', 'test_cannot_connect_no_kwargs (dispatch.tests.DispatcherTests)', 'test_cannot_connect_non_callable (dispatch.tests.DispatcherTests)', 'test_disconnection (dispatch.tests.DispatcherTests)', 'test_garbage_collected (dispatch.tests.DispatcherTests)', 'test_has_listeners (dispatch.tests.DispatcherTests)', 'test_multiple_registration (dispatch.tests.DispatcherTests)', 'test_send (dispatch.tests.DispatcherTests)', 'test_send_connected_no_sender (dispatch.tests.DispatcherTests)', 'test_send_different_no_sender (dispatch.tests.DispatcherTests)', 'test_send_no_receivers (dispatch.tests.DispatcherTests)', 'test_send_robust_ignored_sender (dispatch.tests.DispatcherTests)', 'test_send_robust_no_receivers (dispatch.tests.DispatcherTests)', 'test_send_robust_success (dispatch.tests.DispatcherTests)', 'test_uid_registration (dispatch.tests.DispatcherTests)', 'test_values_returned_by_disconnection (dispatch.tests.DispatcherTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13768: resolved: False
+2026-05-08 21:19:37,285 - INFO - Attempting to stop container sweb.eval.django__django-13768.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:19:52,447 - INFO - Attempting to remove container sweb.eval.django__django-13768.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:19:52,465 - INFO - Container sweb.eval.django__django-13768.hf_qwen25_coder32b_awq_50_direct_repaired removed.
+2026-05-08 21:19:52,465 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13768:latest...
+2026-05-08 21:19:53,230 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13768:latest removed.

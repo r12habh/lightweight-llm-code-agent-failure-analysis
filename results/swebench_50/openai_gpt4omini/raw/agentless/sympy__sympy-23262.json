@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-23262",
+  "raw": "```diff\ndiff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py\n--- a/sympy/utilities/lambdify.py\n+++ b/sympy/utilities/lambdify.py\n@@ -249,7 +249,7 @@\n         if isinstance(args, tuple) and len(args) == 1:\n             # Handling tuple with one element\n             args = [args]\n-        expr = expr.xreplace(dict(zip(args, newargs)))\n+        expr = expr.xreplace(dict(zip(args, newargs))) if len(args) > 1 or args[0] is not None else expr\n         argstr = ', '.join([str(a) for a in newargs])\n         del syms, newargs, args\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 21014,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 232,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21246
+    },
+    "patch": {
+      "input_tokens": 21104,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 171,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21275
+    }
+  },
+  "localized_files": [
+    "sympy/printing/printer.py",
+    "sympy/utilities/lambdify.py",
+    "sympy/core/function.py",
+    "sympy/utilities/codegen.py",
+    "sympy/core/basic.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/printing/printer.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Printing logic likely needs modification to handle single-element tuples.\"\n    },\n    {\n      \"path\": \"sympy/utilities/lambdify.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Lambdify function may require changes to ensure tuple outputs are treated correctly.\"\n    },\n    {\n      \"path\": \"sympy/core/function.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Function handling may be affected by changes in how tuples are treated.\"\n    },\n    {\n      \"path\": \"sympy/utilities/codegen.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Code generation logic might need adjustments due to tuple handling changes.\"\n    },\n    {\n      \"path\": \"sympy/core/basic.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Base class functionality could be impacted, requiring attention on tuple handling.\"\n    }\n  ]\n}\n```"
+}

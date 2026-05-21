@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12589",
+  "input_patch_chars": 599,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/sql/compiler.py...\nerror: while searching for:\n                expressions.append(expr)\n        elif self.connection.features.allows_group_by_selected_pks:\n            pks = {\n                expr for expr in expressions\n                if (\n                    hasattr(expr, 'target') and\n                    expr.target.primary_key and\n\nerror: patch failed: django/db/models/sql/compiler.py:315\nerror: django/db/models/sql/compiler.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/compiler.py...\nerror: while searching for:\n                expressions.append(expr)\n        elif self.connection.features.allows_group_by_selected_pks:\n            pks = {\n                expr for expr in expressions\n                if (\n                    hasattr(expr, 'target') and\n                    expr.target.primary_key and\n\nerror: patch failed: django/db/models/sql/compiler.py:315\nApplying patch django/db/models/sql/compiler.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 652
+}

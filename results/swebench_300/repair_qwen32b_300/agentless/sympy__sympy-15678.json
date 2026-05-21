@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-15678",
+  "input_patch_chars": 817,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/geometry/util.py...\nerror: while searching for:\n    if not eq.has(y):\n        raise ValueError(\"expecting x-dependent symbol(s) but got: %s\" % y)\n\n    dydx = Dummy('dydx')\n    derivs = {Derivative(y, x): dydx}\n    for i in range(n):\n\nerror: patch failed: sympy/geometry/util.py:569\nerror: while searching for:\n        if not eq.has(dydx):\n            raise ValueError(\"Could not solve for derivative\")\n        try:\n            yp = solve(eq.diff(x), dydx)[0].subs(derivs)\n            if not yp:\n                raise IndexError\n            yp = yp[0].subs(derivs)\n\nerror: patch failed: sympy/geometry/util.py:576\nApplying patch sympy/geometry/util.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/geometry/util.py\nHunk #1 succeeded at 569 with fuzz 3.\nHunk #2 FAILED at 580.\n1 out of 2 hunks FAILED -- saving rejects to file sympy/geometry/util.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-10297",
+  "input_patch_chars": 919,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmprkocp1ws.diff:8: trailing whitespace.\n    \nerror: patch fragment without header at line 14: @@ -199,6 +200,7 @@\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmprkocp1ws.diff:8: trailing whitespace.\n    \nerror: patch fragment without header at line 14: @@ -199,6 +200,7 @@\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 405
+}

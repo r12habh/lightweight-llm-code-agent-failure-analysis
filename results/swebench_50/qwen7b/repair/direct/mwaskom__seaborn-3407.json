@@ -1,0 +1,28 @@
+{
+  "instance_id": "mwaskom__seaborn-3407",
+  "input_patch_chars": 544,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch seaborn/axisgrid.py...\nerror: while searching for:\n    diag_kws.setdefault(\"legend\", False)\n    if diag_kind == \"hist\":\n        grid.map_diag(histplot, **diag_kws)\n    elif diag_kind == \"kde\":\n        diag_kws.setdefault(\"fill\", True)\n    elif diag_kind == \"kde\":\n        diag_kws.setdefault(\"fill\", True)\n\nerror: patch failed: seaborn/axisgrid.py:2141\nerror: seaborn/axisgrid.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch seaborn/axisgrid.py...\nerror: while searching for:\n    diag_kws.setdefault(\"legend\", False)\n    if diag_kind == \"hist\":\n        grid.map_diag(histplot, **diag_kws)\n    elif diag_kind == \"kde\":\n        diag_kws.setdefault(\"fill\", True)\n    elif diag_kind == \"kde\":\n        diag_kws.setdefault(\"fill\", True)\n\nerror: patch failed: seaborn/axisgrid.py:2141\nApplying patch seaborn/axisgrid.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 531
+}

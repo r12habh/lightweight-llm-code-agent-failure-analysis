@@ -1,0 +1,47 @@
+2026-05-20 19:38:47,051 - INFO - Creating container for django__django-16046...
+2026-05-20 19:38:47,419 - INFO - Container for django__django-16046 created: ee5a75b4238f19e3cebff20ddf64e9a5f674bfc60693ba41e8d376d470b2ff67
+2026-05-20 19:38:47,578 - INFO - Container for django__django-16046 started: ee5a75b4238f19e3cebff20ddf64e9a5f674bfc60693ba41e8d376d470b2ff67
+2026-05-20 19:38:47,579 - INFO - Intermediate patch for django__django-16046 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-16046/patch.diff, now applying to container...
+2026-05-20 19:38:47,780 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/admin/templatetags/admin_list.py...
+Applied patch django/contrib/admin/templatetags/admin_list.py cleanly.
+
+2026-05-20 19:38:48,535 - INFO - Git diff before:
+diff --git a/django/contrib/admin/templatetags/admin_list.py b/django/contrib/admin/templatetags/admin_list.py
+index 5865843dce..3fa66473a3 100644
+--- a/django/contrib/admin/templatetags/admin_list.py
++++ b/django/contrib/admin/templatetags/admin_list.py
+@@ -111,7 +111,7 @@ def result_headers(cl):
+             if not admin_order_field:
+                 is_field_sortable = False
+ 
+-        if not is_field_sortable:
++        if not is_field_sortable and field_name != "action_checkbox":
+             # Not sortable
+             yield {
+                 "text": text,
+2026-05-20 19:38:48,537 - INFO - Eval script for django__django-16046 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-16046/eval.sh; copying to container...
+2026-05-20 19:38:55,775 - INFO - Test runtime: 7.16 seconds
+2026-05-20 19:38:55,777 - INFO - Test output for django__django-16046 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-16046/test_output.txt
+2026-05-20 19:38:55,901 - INFO - Git diff after:
+diff --git a/django/contrib/admin/templatetags/admin_list.py b/django/contrib/admin/templatetags/admin_list.py
+index 5865843dce..3fa66473a3 100644
+--- a/django/contrib/admin/templatetags/admin_list.py
++++ b/django/contrib/admin/templatetags/admin_list.py
+@@ -111,7 +111,7 @@ def result_headers(cl):
+             if not admin_order_field:
+                 is_field_sortable = False
+ 
+-        if not is_field_sortable:
++        if not is_field_sortable and field_name != "action_checkbox":
+             # Not sortable
+             yield {
+                 "text": text,
+2026-05-20 19:38:55,901 - INFO - Grading answer for django__django-16046...
+2026-05-20 19:38:55,902 - INFO - report: {'django__django-16046': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_empty (utils_tests.test_numberformat.TestNumberFormat)']}, 'PASS_TO_PASS': {'success': ['test_decimal_numbers (utils_tests.test_numberformat.TestNumberFormat)', 'test_decimal_subclass (utils_tests.test_numberformat.TestNumberFormat)', 'test_float_numbers (utils_tests.test_numberformat.TestNumberFormat)', 'test_format_number (utils_tests.test_numberformat.TestNumberFormat)', 'test_format_string (utils_tests.test_numberformat.TestNumberFormat)', 'test_large_number (utils_tests.test_numberformat.TestNumberFormat)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-16046: resolved: False
+2026-05-20 19:38:55,903 - INFO - Attempting to stop container sweb.eval.django__django-16046.qwen7b_200_agentless_repaired...
+2026-05-20 19:39:11,127 - INFO - Attempting to remove container sweb.eval.django__django-16046.qwen7b_200_agentless_repaired...
+2026-05-20 19:39:11,140 - INFO - Container sweb.eval.django__django-16046.qwen7b_200_agentless_repaired removed.
+2026-05-20 19:39:11,140 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-16046:latest...
+2026-05-20 19:39:11,145 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-16046:latest removed.

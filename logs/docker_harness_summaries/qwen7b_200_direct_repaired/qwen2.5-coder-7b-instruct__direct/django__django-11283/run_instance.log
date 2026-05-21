@@ -1,0 +1,47 @@
+2026-05-20 16:48:31,479 - INFO - Creating container for django__django-11283...
+2026-05-20 16:48:32,478 - INFO - Container for django__django-11283 created: 94f37d69a5ff6fa9beb68cb3cd3e9b147caa47b6e8c12a35b87e653d27ceecd2
+2026-05-20 16:48:32,641 - INFO - Container for django__django-11283 started: 94f37d69a5ff6fa9beb68cb3cd3e9b147caa47b6e8c12a35b87e653d27ceecd2
+2026-05-20 16:48:32,641 - INFO - Intermediate patch for django__django-11283 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11283/patch.diff, now applying to container...
+2026-05-20 16:48:32,833 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/auth/migrations/0011_update_proxy_permissions.py...
+Applied patch django/contrib/auth/migrations/0011_update_proxy_permissions.py cleanly.
+
+2026-05-20 16:48:33,631 - INFO - Git diff before:
+diff --git a/django/contrib/auth/migrations/0011_update_proxy_permissions.py b/django/contrib/auth/migrations/0011_update_proxy_permissions.py
+index 0e66649695..69cfce924b 100644
+--- a/django/contrib/auth/migrations/0011_update_proxy_permissions.py
++++ b/django/contrib/auth/migrations/0011_update_proxy_permissions.py
+@@ -41,7 +41,7 @@ def revert_proxy_model_permissions(apps, schema_editor):
+ class Migration(migrations.Migration):
+     dependencies = [
+         ('auth', '0010_alter_group_name_max_length'),
+-        ('contenttypes', '0002_remove_content_type_name'),
++        ('contenttypes', '0003_alter_content_type_name'),
+     ]
+     operations = [
+         migrations.RunPython(update_proxy_model_permissions, revert_proxy_model_permissions),
+2026-05-20 16:48:33,631 - INFO - Eval script for django__django-11283 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11283/eval.sh; copying to container...
+2026-05-20 16:48:47,888 - INFO - Test runtime: 14.19 seconds
+2026-05-20 16:48:47,889 - INFO - Test output for django__django-11283 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11283/test_output.txt
+2026-05-20 16:48:48,008 - INFO - Git diff after:
+diff --git a/django/contrib/auth/migrations/0011_update_proxy_permissions.py b/django/contrib/auth/migrations/0011_update_proxy_permissions.py
+index 0e66649695..69cfce924b 100644
+--- a/django/contrib/auth/migrations/0011_update_proxy_permissions.py
++++ b/django/contrib/auth/migrations/0011_update_proxy_permissions.py
+@@ -41,7 +41,7 @@ def revert_proxy_model_permissions(apps, schema_editor):
+ class Migration(migrations.Migration):
+     dependencies = [
+         ('auth', '0010_alter_group_name_max_length'),
+-        ('contenttypes', '0002_remove_content_type_name'),
++        ('contenttypes', '0003_alter_content_type_name'),
+     ]
+     operations = [
+         migrations.RunPython(update_proxy_model_permissions, revert_proxy_model_permissions),
+2026-05-20 16:48:48,008 - INFO - Grading answer for django__django-11283...
+2026-05-20 16:48:48,012 - INFO - report: {'django__django-11283': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_migrate_with_existing_target_permission (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)']}, 'PASS_TO_PASS': {'success': ['test_migrate_backwards (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_proxy_model_permissions_contenttype (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_user_has_now_proxy_model_permissions (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_user_keeps_same_permissions_after_migrating_backward (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_migrate_backwards (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_proxy_model_permissions_contenttype (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_user_keeps_same_permissions_after_migrating_backward (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_user_still_has_proxy_model_permissions (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11283: resolved: False
+2026-05-20 16:48:48,012 - INFO - Attempting to stop container sweb.eval.django__django-11283.qwen7b_200_direct_repaired...
+2026-05-20 16:49:03,187 - INFO - Attempting to remove container sweb.eval.django__django-11283.qwen7b_200_direct_repaired...
+2026-05-20 16:49:03,202 - INFO - Container sweb.eval.django__django-11283.qwen7b_200_direct_repaired removed.
+2026-05-20 16:49:03,202 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11283:latest...
+2026-05-20 16:49:03,210 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11283:latest removed.

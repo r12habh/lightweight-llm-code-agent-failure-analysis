@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13265",
+  "input_patch_chars": 1995,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/options.py...\nHunk #1 succeeded at 84 (offset -16 lines).\nHunk #2 succeeded at 100 (offset -18 lines).\nerror: while searching for:\n        self.proxy_for_model = None\n        self.concrete_model = None\n        self.swappable = None\n        self.parents = {}\n        self.auto_created = False\n\n\nerror: patch failed: django/db/models/options.py:130\nerror: while searching for:\n        self._expire_cache(reverse=False)\n\n    def setup_pk(self, field):\n        if not self.pk and field.primary_key:\n            self.pk = field\n            self.setup_pk(field)\n\nerror: patch failed: django/db/models/options.py:140\nerror: while searching for:\n        if self.order_with_respect_to:\n            query = self.order_with_respect_to\n            try:\n                self.order_with_respect_to = next(\n                    f for f in self._get_fields(reverse=False)\n                    if f.name == query or f.attname == query\n\nerror: patch failed: django/db/models/options.py:150\nerror: while searching for:\n                )\n            except StopIteration:\n                raise FieldDoesNotExist(\"%s has no field named '%s'\" % (self.object_name, query))\n            if not any(isinstance(field, OrderWrt) for field in model._meta.local_fields):\n                model.add_to_class('_order', OrderWrt())\n        else:\n\nerror: patch failed: django/db/models/options.py:160\nApplying patch django/db/models/options.py with 4 rejects...\nHunk #1 applied cleanly.\nHunk #2 applied cleanly.\nRejected hunk #3.\nRejected hunk #4.\nRejected hunk #5.\nRejected hunk #6.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/options.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 84 (offset -16 lines).\nHunk #2 succeeded at 99 (offset -18 lines).\nHunk #3 FAILED at 130.\nHunk #4 FAILED at 141.\nHunk #5 FAILED at 152.\nHunk #6 succeeded at 230 with fuzz 3 (offset 67 lines).\n3 out of 6 hunks FAILED -- saving rejects to file django/db/models/options.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

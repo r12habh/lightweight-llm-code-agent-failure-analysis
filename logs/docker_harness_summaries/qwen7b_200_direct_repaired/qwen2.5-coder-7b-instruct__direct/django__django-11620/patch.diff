@@ -1,0 +1,10 @@
+diff --git a/django/core/exceptions.py b/django/core/exceptions.py
+index dc084b8692..ddba871732 100644
+--- a/django/core/exceptions.py
++++ b/django/core/exceptions.py
+@@ -10,6 +10,7 @@ class FieldDoesNotExist(Exception):
+ 
+ class AppRegistryNotReady(Exception):
+     """The django.apps registry is not populated yet"""
++class Http404(DjangoError):
+     pass

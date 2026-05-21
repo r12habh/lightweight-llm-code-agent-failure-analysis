@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12747",
+  "input_patch_chars": 504,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/ref/models/querysets.txt...\nerror: while searching for:\n    # Latest by ascending order_date.\n    get_latest_by = \"order_date\"\n\n    # Latest by priority descending, order_date ascending.\n    get_latest_by = ['-priority', 'order_date']\n\n    See the :meth:`~django.db.models.query.QuerySet.latest` docs for more.\n\nerror: patch failed: docs/ref/models/querysets.txt:1234\nApplying patch docs/ref/models/querysets.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file docs/ref/models/querysets.txt\nHunk #1 FAILED at 1234.\n1 out of 1 hunk FAILED -- saving rejects to file docs/ref/models/querysets.txt.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

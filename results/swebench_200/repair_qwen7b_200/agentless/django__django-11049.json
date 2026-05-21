@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11049",
+  "input_patch_chars": 951,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    def to_python(self, value):\n        if value is None:\n            return value\n        if isinstance(value, datetime.timedelta):\n            return value\n        try:\n            return datetime.timedelta(seconds=float(value))\n\nerror: patch failed: django/db/models/fields/__init__.py:123\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    def to_python(self, value):\n        if value is None:\n            return value\n        if isinstance(value, datetime.timedelta):\n            return value\n        try:\n            return datetime.timedelta(seconds=float(value))\n\nerror: patch failed: django/db/models/fields/__init__.py:123\nerror: while searching for:\n            raise ValidationError(self.error_messages['invalid'], code='invalid')\n\n    def get_prep_value(self, value):\n        return super().get_prep_value(value)\n\n    def formfield(self, **kwargs):\n\nerror: patch failed: django/db/models/fields/__init__.py:132\nApplying patch django/db/models/fields/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 939
+}

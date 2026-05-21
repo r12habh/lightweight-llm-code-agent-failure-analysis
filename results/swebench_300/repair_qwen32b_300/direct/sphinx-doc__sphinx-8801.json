@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8801",
+  "input_patch_chars": 776,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\n        if not docstring:\n            docstring = inspect.getdoc(getattr(parent, self.objpath[-1]))\n\n        if not docstring and self.modname and self.objpath[-1] in self.imported_members:\n            # Check for type annotations in the module\n            docstring = self.get_annotation_docstring(self.module)\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:1000\nerror: sphinx/ext/autodoc/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\n        if not docstring:\n            docstring = inspect.getdoc(getattr(parent, self.objpath[-1]))\n\n        if not docstring and self.modname and self.objpath[-1] in self.imported_members:\n            # Check for type annotations in the module\n            docstring = self.get_annotation_docstring(self.module)\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:1000\nApplying patch sphinx/ext/autodoc/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 722
+}

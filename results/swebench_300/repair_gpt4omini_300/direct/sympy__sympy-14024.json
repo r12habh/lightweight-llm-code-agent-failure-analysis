@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-14024",
+  "input_patch_chars": 448,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/simplify.py...\nerror: while searching for:\n\n    # Simplification rules\n    if expr.has(Pow):\n        if expr.is_Mul and expr.has(-1):  # Detect if -1 is in the product\n            bargs = expr.as_base_exp()\n            if -1 in bargs:\n                bargs.remove(-1)\n\nerror: patch failed: sympy/simplify/simplify.py:1225\nApplying patch sympy/simplify/simplify.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/simplify/simplify.py\nHunk #1 FAILED at 1225.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/simplify/simplify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

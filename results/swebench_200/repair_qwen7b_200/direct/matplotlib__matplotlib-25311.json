@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-25311",
+  "input_patch_chars": 386,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/legend.py...\nerror: while searching for:\n    def draw(self, renderer):\n        if self._legend is None:\n            return\n        self._legend.draw(renderer)\n\n    def get_window_extent(self, renderer):\n\nerror: patch failed: lib/matplotlib/legend.py:100\nerror: lib/matplotlib/legend.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/legend.py...\nerror: while searching for:\n    def draw(self, renderer):\n        if self._legend is None:\n            return\n        self._legend.draw(renderer)\n\n    def get_window_extent(self, renderer):\n\nerror: patch failed: lib/matplotlib/legend.py:100\nApplying patch lib/matplotlib/legend.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 588
+}

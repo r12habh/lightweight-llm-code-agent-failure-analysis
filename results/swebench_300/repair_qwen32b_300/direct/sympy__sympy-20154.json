@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-20154",
+  "input_patch_chars": 900,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/utilities/iterables.py...\nerror: while searching for:\n    for p in multiset_partitions_taocp([n]):\n        yield {tuple(k): v for k, v in p.items()}\n\ndef _partitions(n, m, k, last):\n    \"\"\" Helper function for partitions. \"\"\"\n    if n == 0:\n        yield {}\n\nerror: patch failed: sympy/utilities/iterables.py:104\nerror: while searching for:\n        for i in range(last, 0, -1):\n            if i > n:\n                continue\n            for p in _partitions(n - i, m, k, i):\n                yield p\n\ndef multiset_partitions(multiset):\n\nerror: patch failed: sympy/utilities/iterables.py:116\nApplying patch sympy/utilities/iterables.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/utilities/iterables.py\nHunk #1 FAILED at 104.\nHunk #2 FAILED at 116.\n2 out of 2 hunks FAILED -- saving rejects to file sympy/utilities/iterables.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

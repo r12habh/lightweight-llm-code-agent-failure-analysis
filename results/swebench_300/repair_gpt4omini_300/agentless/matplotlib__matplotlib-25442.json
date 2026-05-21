@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25442",
+  "input_patch_chars": 989,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpzlynd27k.diff:27: trailing whitespace.\n   Matplotlib may have compatibility issues with certain third-party libraries \nerror: corrupt patch at line 34\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 29:  \n\n",
+          "stdout": "patching file lib/matplotlib/__init__.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,12 @@
+diff --git a/astropy/io/ascii/core.py b/astropy/io/ascii/core.py
+index 381b5b13db..05c779537b 100644
+--- a/astropy/io/ascii/core.py
++++ b/astropy/io/ascii/core.py
+@@ -1234,6 +1234,7 @@ class MetaBaseReader(type):
+             func.__doc__ += inspect.cleandoc(cls.__doc__).strip()
+             connect.io_registry.register_reader(io_format, Table, func)
+ 
++                         header_rows=kwargs.get('header_rows', []),
+             if dct.get("_io_registry_can_write", True):
+                 func = functools.partial(connect.io_write, io_format)
+                 header = f"ASCII writer '{io_format}' details\n"

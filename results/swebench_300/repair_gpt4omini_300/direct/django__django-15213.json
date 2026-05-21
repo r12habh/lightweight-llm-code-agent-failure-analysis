@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15213",
+  "input_patch_chars": 660,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/sql/where.py...\nerror: while searching for:\n           return '', []\n\n        conn = ' %s ' % self.connector\n        sql_string = conn.join(result)\n        if sql_string:\n            if self.negated:\n                # Some backends (Oracle at least) need parentheses\n                # around the inner SQL in the negated case, even if the\n                # inner SQL contains just a single expression.\n\nerror: patch failed: django/db/models/sql/where.py:152\nerror: django/db/models/sql/where.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/where.py...\nerror: while searching for:\n           return '', []\n\n        conn = ' %s ' % self.connector\n        sql_string = conn.join(result)\n        if sql_string:\n            if self.negated:\n                # Some backends (Oracle at least) need parentheses\n                # around the inner SQL in the negated case, even if the\n                # inner SQL contains just a single expression.\n\nerror: patch failed: django/db/models/sql/where.py:152\nApplying patch django/db/models/sql/where.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 797
+}

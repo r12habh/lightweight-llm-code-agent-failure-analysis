@@ -1,0 +1,13 @@
+diff --git a/django/core/management/templates.py b/django/core/management/templates.py
+index 8dc6068286..e8ceea77e5 100644
+--- a/django/core/management/templates.py
++++ b/django/core/management/templates.py
+@@ -67,7 +67,7 @@ class TemplateCommand(BaseCommand):
+         if target is None:
+             top_dir = os.path.join(os.getcwd(), name)
+             try:
+-                os.makedirs(top_dir)
++                os.makedirs(top_dir, exist_ok=True)
+             except FileExistsError:
+                 raise CommandError("'%s' already exists" % top_dir)
+             except OSError as e:

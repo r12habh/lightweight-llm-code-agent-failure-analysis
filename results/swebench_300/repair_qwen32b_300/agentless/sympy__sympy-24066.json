@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-24066",
+  "input_patch_chars": 721,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 14\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 13:              factor, dim = self._collect_factor_and_dimension(expr.args[0])\n\n",
+          "stdout": "patching file sympy/physics/units/systems/si.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

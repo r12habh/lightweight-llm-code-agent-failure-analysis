@@ -1,0 +1,36 @@
+{
+  "instance_id": "mwaskom__seaborn-3407",
+  "raw": "```diff\ndiff --git a/seaborn/axisgrid.py b/seaborn/axisgrid.py\n--- a/seaborn/axisgrid.py\n+++ b/seaborn/axisgrid.py\n@@ -1440,6 +1440,8 @@\n         # If the passed data is a DataFrame and has a MultiIndex,\n         # flatten it by concatenating the tuples in the index.\n         if isinstance(data, pd.DataFrame) and isinstance(data.columns, pd.MultiIndex):\n+            data.columns = [\"\".join(col) for col in data.columns]\n+\n             # Proceed with pairing logic\n             g = grid_map(data, **kws)\n \n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 20357,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 233,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20590
+    },
+    "patch": {
+      "input_tokens": 20444,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 141,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20585
+    }
+  },
+  "localized_files": [
+    "seaborn/axisgrid.py",
+    "seaborn/_core/data.py",
+    "seaborn/_core/plot.py",
+    "seaborn/_oldcore.py",
+    "seaborn/distributions.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"seaborn/axisgrid.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains the pairplot function which raises KeyError with MultiIndex DataFrame.\"\n    },\n    {\n      \"path\": \"seaborn/_core/data.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Handles data and variable assignments, likely involved in MultiIndex operations.\"\n    },\n    {\n      \"path\": \"seaborn/_core/plot.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Interfaces with data structures and plotting mechanisms potentially relevant to pairplot.\"\n    },\n    {\n      \"path\": \"seaborn/_oldcore.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Defines semantic mapping which could impact how MultiIndex data is handled.\"\n    },\n    {\n      \"path\": \"seaborn/distributions.py\",\n      \"confidence\": 0.4,\n      \"reason\": \"Includes distribution functions that could interact with data processing.\"\n    }\n  ]\n}\n```"
+}

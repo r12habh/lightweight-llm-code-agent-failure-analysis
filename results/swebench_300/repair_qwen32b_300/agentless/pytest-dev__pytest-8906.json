@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-8906",
+  "input_patch_chars": 1262,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch doc/en/how-to/skipping.rst...\nerror: while searching for:\n    class TestPosixCalls:\n        def test_function(self):\n            \"will not be setup or run under 'win32' platform\"\n.. _`whole class- or module level`: mark.html#scoped-marking\n\nSkipping files or directories\n\nerror: patch failed: doc/en/how-to/skipping.rst:100\nerror: doc/en/how-to/skipping.rst: patch does not apply\nChecking patch src/_pytest/outcomes.py...\nerror: while searching for:\n        OutcomeException.__init__(self, msg=msg, pytrace=pytrace)\n        self.allow_module_level = allow_module_level\n        # If true, the skip location is reported as the item's location,\n\nclass Failed(OutcomeException):\n    \"\"\"Raised from an explicit call to pytest.fail().\"\"\"\n\nerror: patch failed: src/_pytest/outcomes.py:123\nerror: src/_pytest/outcomes.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/en/how-to/skipping.rst...\nerror: while searching for:\n    class TestPosixCalls:\n        def test_function(self):\n            \"will not be setup or run under 'win32' platform\"\n.. _`whole class- or module level`: mark.html#scoped-marking\n\nSkipping files or directories\n\nerror: patch failed: doc/en/how-to/skipping.rst:100\nChecking patch src/_pytest/outcomes.py...\nerror: while searching for:\n        OutcomeException.__init__(self, msg=msg, pytrace=pytrace)\n        self.allow_module_level = allow_module_level\n        # If true, the skip location is reported as the item's location,\n\nclass Failed(OutcomeException):\n    \"\"\"Raised from an explicit call to pytest.fail().\"\"\"\n\nerror: patch failed: src/_pytest/outcomes.py:123\nApplying patch doc/en/how-to/skipping.rst with 1 reject...\nRejected hunk #1.\nApplying patch src/_pytest/outcomes.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1270
+}

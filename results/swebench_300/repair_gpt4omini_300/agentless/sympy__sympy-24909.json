@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-24909",
+  "input_patch_chars": 527,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 5\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 5: joule = joules = J = Quantity(\"joule\", abbrev=\"J\")\n\n",
+          "stdout": "patching file sympy/physics/units/definitions/unit_definitions.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

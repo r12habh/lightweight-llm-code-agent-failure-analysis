@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-7373",
+  "input_patch_chars": 5217,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "error: patch fragment without header at line 77: @@ -160,6 +169,7 @@ def check_strict_xfail(pyfuncitem: Function) -> None:\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: patch fragment without header at line 77: @@ -160,6 +169,7 @@ def check_strict_xfail(pyfuncitem: Function) -> None:\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 2897
+}

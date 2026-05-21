@@ -1,0 +1,22 @@
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 73c20334d0..d98af35684 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -157,12 +157,16 @@ def __new__(cls, *args, **kwargs):
+         if not all(isinstance(a, Expr) for a in coords):
+             raise TypeError('Coordinates must be valid SymPy expressions.')
+ 
++            # Check if evaluate is False and coordinates are integers
++            if not evaluate and any(a.is_integer for a in coords):
++                coords = Tuple(*(Integer(a) for a in coords))
++
+         # pad with zeros appropriately
+         coords = coords[:dim] + (S.Zero,)*(dim - len(coords))
+ 
+         # Turn any Floats into rationals and simplify
+         # any expressions before we instantiate
+-        if evaluate:
++        if evaluate and not evaluate.is_integer:
+             coords = coords.xreplace({
+                 f: simplify(nsimplify(f, rational=True))
+                  for f in coords.atoms(Float)})

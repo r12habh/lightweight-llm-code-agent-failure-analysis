@@ -1,0 +1,13 @@
+diff --git a/sklearn/metrics/cluster/_unsupervised.py b/sklearn/metrics/cluster/_unsupervised.py
+index f341f3e80b..7ed7e31633 100644
+--- a/sklearn/metrics/cluster/_unsupervised.py
++++ b/sklearn/metrics/cluster/_unsupervised.py
+@@ -8,7 +8,7 @@
+ 
+ import functools
+ 
+-import numpy as np
++import numpy as np                                                                                 
+ 
+ from ...utils import check_random_state
+ from ...utils import check_X_y

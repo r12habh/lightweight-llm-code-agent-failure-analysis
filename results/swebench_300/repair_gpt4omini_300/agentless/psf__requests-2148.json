@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2148",
+  "input_patch_chars": 812,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/packages/urllib3/response.py...\nerror: while searching for:\nfrom .exceptions import ProtocolError, DecodeError, ReadTimeoutError, ConnectionError\nfrom .packages.six import string_types as basestring, binary_type\nfrom .connection import HTTPException, BaseSSLError\n\n\nclass DeflateDecoder(object):\n\nerror: patch failed: requests/packages/urllib3/response.py:21\nerror: requests/packages/urllib3/response.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/packages/urllib3/response.py...\nerror: while searching for:\nfrom .exceptions import ProtocolError, DecodeError, ReadTimeoutError, ConnectionError\nfrom .packages.six import string_types as basestring, binary_type\nfrom .connection import HTTPException, BaseSSLError\n\n\nclass DeflateDecoder(object):\n\nerror: patch failed: requests/packages/urllib3/response.py:21\nerror: while searching for:\n\n            self._fp_bytes_read += len(data)\n\n\n        finally:\n            if self._original_response and self._original_response.isclosed():\n\nerror: patch failed: requests/packages/urllib3/response.py:150\nApplying patch requests/packages/urllib3/response.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 738
+}

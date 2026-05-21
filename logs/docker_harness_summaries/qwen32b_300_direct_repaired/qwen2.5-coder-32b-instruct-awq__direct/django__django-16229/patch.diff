@@ -1,0 +1,11 @@
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 35ecdc1c0d..ebd42b0d0d 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -112,6 +112,7 @@ def model_to_dict(instance, fields=None, exclude=None):
+             continue
+         if exclude and f.name in exclude:
+             continue
++            field.show_hidden_initial = False
+         data[f.name] = f.value_from_object(instance)
+     return data

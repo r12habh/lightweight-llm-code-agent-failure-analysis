@@ -1,0 +1,58 @@
+2026-05-20 03:13:47,582 - INFO - Creating container for django__django-12908...
+2026-05-20 03:13:49,002 - INFO - Container for django__django-12908 created: d9338294e266ee5616a572809b869bc2d40b6dd0a0cb4c926877a4d82552104f
+2026-05-20 03:13:49,159 - INFO - Container for django__django-12908 started: d9338294e266ee5616a572809b869bc2d40b6dd0a0cb4c926877a4d82552104f
+2026-05-20 03:13:49,160 - INFO - Intermediate patch for django__django-12908 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12908/patch.diff, now applying to container...
+2026-05-20 03:13:49,366 - INFO - >>>>> Applied Patch:
+/tmp/patch.diff:14: trailing whitespace.
+        
+Checking patch tests/distinct_on_fields/tests.py...
+Applied patch tests/distinct_on_fields/tests.py cleanly.
+warning: 1 line adds whitespace errors.
+
+2026-05-20 03:13:50,261 - INFO - Git diff before:
+diff --git a/tests/distinct_on_fields/tests.py b/tests/distinct_on_fields/tests.py
+index 009b0191fb..787efdd825 100644
+--- a/tests/distinct_on_fields/tests.py
++++ b/tests/distinct_on_fields/tests.py
+@@ -34,6 +34,12 @@ class DistinctOnTests(TestCase):
+ 
+     def test_basic_distinct_on(self):
+         """QuerySet.distinct('field', ...) works"""
++        # Ensuring the distinct works on union of querysets
++        qs1 = Staff.objects.distinct('name').order_by('name')
++        qs2 = Staff.objects.distinct('organisation').order_by('organisation', 'name')
++        combined_qs = qs1 | qs2
++        self.assertEqual(combined_qs.distinct('name').count(), 2)
++        
+         # (qset, expected) tuples
+         qsets = (
+             (
+2026-05-20 03:13:50,262 - INFO - Eval script for django__django-12908 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12908/eval.sh; copying to container...
+2026-05-20 03:14:08,799 - INFO - Test runtime: 18.46 seconds
+2026-05-20 03:14:08,800 - INFO - Test output for django__django-12908 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12908/test_output.txt
+2026-05-20 03:14:08,953 - INFO - Git diff after:
+diff --git a/tests/distinct_on_fields/tests.py b/tests/distinct_on_fields/tests.py
+index 009b0191fb..787efdd825 100644
+--- a/tests/distinct_on_fields/tests.py
++++ b/tests/distinct_on_fields/tests.py
+@@ -34,6 +34,12 @@ class DistinctOnTests(TestCase):
+ 
+     def test_basic_distinct_on(self):
+         """QuerySet.distinct('field', ...) works"""
++        # Ensuring the distinct works on union of querysets
++        qs1 = Staff.objects.distinct('name').order_by('name')
++        qs2 = Staff.objects.distinct('organisation').order_by('organisation', 'name')
++        combined_qs = qs1 | qs2
++        self.assertEqual(combined_qs.distinct('name').count(), 2)
++        
+         # (qset, expected) tuples
+         qsets = (
+             (
+2026-05-20 03:14:08,954 - INFO - Grading answer for django__django-12908...
+2026-05-20 03:14:08,957 - INFO - report: {'django__django-12908': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_unsupported_operations_on_combined_qs (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_unsupported_ordering_slicing_raises_db_error (queries.test_qs_combinators.QuerySetSetOperationTests)']}, 'PASS_TO_PASS': {'success': ['test_combining_multiple_models (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_count_difference (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_count_intersection (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_count_union (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_count_union_empty_result (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_difference_with_empty_qs (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_difference_with_values (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_intersection_with_empty_qs (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_intersection_with_values (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_limits (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_order_by_same_type (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_order_raises_on_non_selected_column (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_ordering (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_ordering_by_f_expression (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_qs_with_subcompound_qs (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_simple_difference (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_simple_intersection (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_simple_union (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_union_distinct (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_union_with_empty_qs (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_union_with_extra_and_values_list (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_union_with_two_annotated_values_list (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_union_with_values (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_union_with_values_list_and_order (queries.test_qs_combinators.QuerySetSetOperationTests)', 'test_union_with_values_list_on_annotated_and_unannotated (queries.test_qs_combinators.QuerySetSetOperationTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12908: resolved: False
+2026-05-20 03:14:08,957 - INFO - Attempting to stop container sweb.eval.django__django-12908.gpt4omini_300_agentless_repaired...
+2026-05-20 03:14:24,192 - INFO - Attempting to remove container sweb.eval.django__django-12908.gpt4omini_300_agentless_repaired...
+2026-05-20 03:14:24,227 - INFO - Container sweb.eval.django__django-12908.gpt4omini_300_agentless_repaired removed.
+2026-05-20 03:14:24,227 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12908:latest...
+2026-05-20 03:14:25,413 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12908:latest removed.

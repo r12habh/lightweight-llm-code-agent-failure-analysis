@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15388",
+  "input_patch_chars": 149,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 8\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "can't find file to patch at input line 4\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/mysite/settings.py b/mysite/settings.py\n|--- a/mysite/settings.py\n|+++ b/mysite/settings.py\n--------------------------\nNo file to patch.  Skipping patch.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

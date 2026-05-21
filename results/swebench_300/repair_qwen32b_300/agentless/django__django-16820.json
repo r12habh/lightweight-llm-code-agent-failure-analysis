@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16820",
+  "input_patch_chars": 1487,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/internals/deprecation.txt...\nerror: while searching for:\n.. _deprecation-removed-in-5.1:\n\n5.1\n\nSee the :ref:`Django 4.2 release notes <deprecated-features-4.2>` for more\ndetails on these changes.\n\nerror: patch failed: docs/internals/deprecation.txt:10\nerror: docs/internals/deprecation.txt: patch does not apply\nChecking patch docs/releases/4.1.txt...\nerror: while searching for:\n    * The ``CSRF_COOKIE_MASKED`` transitional setting will be removed in Django\n      5.0.\n\n* ``django.forms.renderers.DjangoDivFormRenderer`` and ``django.forms.renderers.Jinja2DivFormRenderer``:\n\n  * These transitional form renderers will be deprecated in Django 5.0, for removal in Django 6.0.\n\nerror: patch failed: docs/releases/4.1.txt:100\nerror: docs/releases/4.1.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/internals/deprecation.txt...\nerror: while searching for:\n.. _deprecation-removed-in-5.1:\n\n5.1\n\nSee the :ref:`Django 4.2 release notes <deprecated-features-4.2>` for more\ndetails on these changes.\n\nerror: patch failed: docs/internals/deprecation.txt:10\nerror: while searching for:\n\n* The model's ``Meta.index_together`` option will be removed.\n\n\n* The ``length_is`` template filter will be removed.\n\n\nerror: patch failed: docs/internals/deprecation.txt:20\nChecking patch docs/releases/4.1.txt...\nerror: while searching for:\n    * The ``CSRF_COOKIE_MASKED`` transitional setting will be removed in Django\n      5.0.\n\n* ``django.forms.renderers.DjangoDivFormRenderer`` and ``django.forms.renderers.Jinja2DivFormRenderer``:\n\n  * These transitional form renderers will be deprecated in Django 5.0, for removal in Django 6.0.\n\nerror: patch failed: docs/releases/4.1.txt:100\nApplying patch docs/internals/deprecation.txt with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\nApplying patch docs/releases/4.1.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1495
+}

@@ -1,0 +1,15 @@
+diff --git a/seaborn/_core/plot.py b/seaborn/_core/plot.py
+index 2469df00..3b7bc7ec 100644
+--- a/seaborn/_core/plot.py
++++ b/seaborn/_core/plot.py
+@@ -175,6 +175,10 @@ class Plot:
+         self._facet_spec = {}
+         self._pair_spec = {}
+ 
++        # Initialize hue_order if not provided
++        if "hue_order" not in variables:
++            variables["hue_order"] = None
++
+         self._target = None
+ 
+     def _resolve_positionals(

@@ -1,0 +1,47 @@
+2026-05-20 03:27:48,649 - INFO - Creating container for django__django-13447...
+2026-05-20 03:27:49,547 - INFO - Container for django__django-13447 created: 53764d8aa9948a7ddc92557f6ee8d800cd2a47ebd32d7b74033b260e62c50331
+2026-05-20 03:27:49,696 - INFO - Container for django__django-13447 started: 53764d8aa9948a7ddc92557f6ee8d800cd2a47ebd32d7b74033b260e62c50331
+2026-05-20 03:27:49,697 - INFO - Intermediate patch for django__django-13447 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13447/patch.diff, now applying to container...
+2026-05-20 03:27:49,904 - INFO - >>>>> Applied Patch:
+Checking patch docs/ref/class-based-views/mixins-editing.txt...
+Applied patch docs/ref/class-based-views/mixins-editing.txt cleanly.
+
+2026-05-20 03:27:50,925 - INFO - Git diff before:
+diff --git a/docs/ref/class-based-views/mixins-editing.txt b/docs/ref/class-based-views/mixins-editing.txt
+index d0bb200ae3..96c6046982 100644
+--- a/docs/ref/class-based-views/mixins-editing.txt
++++ b/docs/ref/class-based-views/mixins-editing.txt
+@@ -2,6 +2,8 @@
+ Editing mixins
+ ==============
+ 
++.. currentmodule:: django.views.generic.edit
++
+ The following mixins are used to construct Django's editing views:
+ 
+ * :class:`django.views.generic.edit.FormMixin`
+2026-05-20 03:27:50,925 - INFO - Eval script for django__django-13447 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13447/eval.sh; copying to container...
+2026-05-20 03:28:00,208 - INFO - Test runtime: 9.22 seconds
+2026-05-20 03:28:00,208 - INFO - Test output for django__django-13447 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13447/test_output.txt
+2026-05-20 03:28:00,352 - INFO - Git diff after:
+diff --git a/docs/ref/class-based-views/mixins-editing.txt b/docs/ref/class-based-views/mixins-editing.txt
+index d0bb200ae3..96c6046982 100644
+--- a/docs/ref/class-based-views/mixins-editing.txt
++++ b/docs/ref/class-based-views/mixins-editing.txt
+@@ -2,6 +2,8 @@
+ Editing mixins
+ ==============
+ 
++.. currentmodule:: django.views.generic.edit
++
+ The following mixins are used to construct Django's editing views:
+ 
+ * :class:`django.views.generic.edit.FormMixin`
+2026-05-20 03:28:00,352 - INFO - Grading answer for django__django-13447...
+2026-05-20 03:28:00,356 - INFO - report: {'django__django-13447': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_available_apps (admin_views.test_adminsite.SiteEachContextTest)']}, 'PASS_TO_PASS': {'success': ['test_add_action (admin_views.test_adminsite.SiteActionsTests)', 'test_disable_action (admin_views.test_adminsite.SiteActionsTests)', "AdminSite.get_action() returns an action even if it's disabled.", 'test_each_context (admin_views.test_adminsite.SiteEachContextTest)', 'test_each_context_site_url_with_script_name (admin_views.test_adminsite.SiteEachContextTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13447: resolved: False
+2026-05-20 03:28:00,356 - INFO - Attempting to stop container sweb.eval.django__django-13447.gpt4omini_300_agentless_repaired...
+2026-05-20 03:28:15,530 - INFO - Attempting to remove container sweb.eval.django__django-13447.gpt4omini_300_agentless_repaired...
+2026-05-20 03:28:15,543 - INFO - Container sweb.eval.django__django-13447.gpt4omini_300_agentless_repaired removed.
+2026-05-20 03:28:15,543 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13447:latest...
+2026-05-20 03:28:15,552 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13447:latest removed.

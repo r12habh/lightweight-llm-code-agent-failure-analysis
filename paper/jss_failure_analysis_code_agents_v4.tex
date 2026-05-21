@@ -1,0 +1,576 @@
+
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{adjustbox}
+\usepackage{microtype}
+\hypersetup{colorlinks=false,pdfborder={0 0 0}}
+\journal{Information and Software Technology}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=*}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Failure Analysis of Lightweight LLM Code Agents for Software Repair}
+
+\author[addr1]{Rishabh Singh\corref{cor1}}
+\ead{rishabhsingh@gwu.edu}
+\cortext[cor1]{Corresponding author.}
+\address[addr1]{Independent Researcher, Seattle, Washington, United States}
+
+\begin{abstract}
+Language-model code agents can produce plausible repair patches cheaply, but benchmark resolve rates hide where those patches fail. This paper reports an empirical failure analysis of lightweight code-agent workflows for software repair. A preliminary calibration study shows how small function-level checks can overstate utility: a six-function summarization task is sensitive to metric choice, and a toy bug detector that catches two handcrafted defects has zero recall on thirty BugsInPy-derived Tests4Py bug records. The main study evaluates direct prompting and agentless staged prompting on SWE-bench Lite with OpenAI \texttt{gpt-4o-mini}, \texttt{Qwen2.5-Coder-7B-Instruct}, and \texttt{Qwen2.5-Coder-32B-Instruct-AWQ}. In the initial 50-instance diagnostic slice, Qwen 32B AWQ staged prompting resolves 4 tasks versus 1 for direct prompting, but the paired exact test remains exploratory ($p=0.25$). A larger SWE-bench Lite evaluation reverses the apparent staged advantage in final resolution: \texttt{gpt-4o-mini} resolves 3/300 direct versus 1/300 staged, Qwen 32B AWQ resolves 8/300 direct versus 6/300 staged, and Qwen 7B resolves 2/200 in both modes. Staged prompting modestly increases completed harness executions in some conditions, but this does not reliably translate into repair success. The main finding is therefore not that staged prompting is better; it is that lightweight code-agent evaluation is dominated by the gap between generated text and valid repository repair, including malformed diffs, hunk mismatches, wrong paths, reversed changes, incomplete edits, and patches that apply but fail benchmark tests.
+\end{abstract}
+
+\begin{keyword}
+language models \sep software engineering \sep code agents \sep bug detection \sep empirical evaluation \sep repository benchmarks
+\end{keyword}
+
+\end{frontmatter}
+\section{Introduction}
+
+Software-engineering tools based on language models are now used for explanations, completions, debugging, tests, and repository search. The evidence for their value, however, is not as simple as the public benchmark tables make it appear. Function-level datasets such as HumanEval, MBPP, and DS-1000 made executable code generation measurable \cite{chen2021codex,austin2021mbpp,lai2022ds1000}. They remain useful, but they leave out much of day-to-day maintenance work: finding the relevant files, understanding local conventions, editing several locations, and making sure unrelated behavior is not broken.
+
+Repository-level work pushes closer to that setting. RepoBench, SWE-bench, SWE-agent, Agentless, SWE-bench Live, FEA-Bench, and SecRepoBench all move the discussion away from isolated snippets and toward repository context, issue repair, feature work, tool use, and security-sensitive validation \cite{liu2023repobench,jimenez2023swebench,yang2024sweagent,xia2024agentless,zhang2025swebenchlive,li2025feabench,shen2025secrepobench}. At the same time, productivity studies do not all point in the same direction. Some controlled or field settings show faster task completion with assistance, while another study reports slower completion for experienced maintainers working on mature open-source projects \cite{peng2023copilot,paradis2024speed,cui2026effects,becker2025maintainers}. A useful evaluation should therefore ask more than whether a patch passed one benchmark. It should also ask what context the system received, what process it followed, what it cost, what it failed to validate, and whether a developer would trust the result.
+
+The preliminary calibration layer starts from a narrower problem. An earlier version of the study used BLEU-1 by itself for summary scoring and checked defect detection on only two deliberately inserted bugs. Those choices made the results too easy to read as stronger than they were. This revision keeps the calibration scope visible but treats it as a sanity check, not as the paper's main contribution. It adds ROUGE-L and METEOR beside BLEU-1, reports two non-model summary baselines plus one zero-shot language-model baseline, and tests the detector against thirty BugsInPy-derived Tests4Py bug records paired with fixed records.
+
+The second layer moves the same cautionary question into repository repair. If a rule-based or lightweight prompting method looks useful on controlled inputs, the next question is whether its outputs remain usable after repository checkout, patch application, Docker evaluation, and test execution. The SWE-bench Lite runs therefore compare direct prompting with an agentless staged protocol using gpt-4o-mini, Qwen2.5-Coder-7B-Instruct, and Qwen2.5-Coder-32B-Instruct-AWQ. The two layers belong in one study because both test the same practical risk for LLM-assisted software-maintenance workflows: surface-level generated text can look plausible while failing once it is externally validated.
+
+The paper makes five contributions for empirical software-engineering evaluation. First, it uses a small preliminary calibration study to show how narrow metrics and defect examples can overstate utility. Second, it reports paired SWE-bench Lite executions for direct and staged prompting across one proprietary lightweight model and two open-weight code-model deployments. Third, it provides both quantitative and qualitative failure analysis, distinguishing unresolved tests from malformed diffs, hunk/context mismatches, wrong paths, duplicated or reversed changes, incomplete edits, and empty outputs. Fourth, it reports cost and executability measures alongside resolve rate, emphasizing outcomes that matter before code-agent outputs can be trusted in maintenance workflows. Fifth, it extends the repository experiment to a larger SWE-bench Lite evaluation, showing that staged prompting can improve executability without reliably improving final repair success. The paper is organized as follows: Introduction, Method, Results and Discussion, and Conclusion.
+
+\subsection{Related work and research gap}
+
+\subsubsection{Function-level benchmarks}
+Early code-model benchmarks focused on compact programming problems. HumanEval tied generation to executable tests for docstring-to-code tasks \cite{chen2021codex}. MBPP broadened short natural-language programming problems \cite{austin2021mbpp}. DS-1000 moved into library-heavy Python data-science tasks and used perturbations to reduce memorization risk \cite{lai2022ds1000}. EvalPlus later showed that weak tests can overstate correctness and even alter model rankings \cite{liu2023evalplus}. These datasets are still valuable for calibration and harness debugging. They are not, by themselves, a convincing substitute for repository maintenance, because they do not test navigation, multi-file editing, maintainability, or regression preservation.
+
+\subsubsection{Repository-level benchmarks}
+A second family of benchmarks treats the repository as part of the task. RepoBench focuses on repository-level completion and retrieval behavior \cite{liu2023repobench}. SWE-bench frames maintenance as patch verification: the system receives an issue and a repository snapshot, proposes an edit, and is judged by its evaluation tests \cite{jimenez2023swebench}. SWE-bench Live was introduced to reduce staleness by using newer tasks and reproducible execution settings \cite{zhang2025swebenchlive}. FEA-Bench shifts attention toward feature implementation \cite{li2025feabench}, while SecRepoBench adds the question of whether generated code is secure as well as functional \cite{shen2025secrepobench}. These benchmarks are harder to run than function tests, but they match more of the engineering situation that practitioners care about.
+
+\subsubsection{Agents and interfaces}
+A model is not the same thing as a coding system. SWE-agent studies what happens when a language model interacts with a software interface that offers search, edit, and execution operations \cite{yang2024sweagent}. Agentless makes the opposite point in a useful way: a staged non-agent procedure can still be competitive without giving the system broad autonomous control \cite{xia2024agentless}. For that reason, evaluations should report the interface condition explicitly. Direct prompting, staged prompting, retrieval, and tool-enabled execution are different interventions, even when the same underlying model is used.
+
+\subsubsection{Defect finding and validation}
+Bug detection is especially sensitive to unsupported claims. A language model may produce a convincing bug explanation while being wrong about the actual program behavior. Wang et al. study this problem by requiring candidate data-flow evidence and screening it with program-property checks; their reported results show that validation structure matters for bug-reasoning tasks \cite{wang2024llmsan}. The implication for this pilot is straightforward: a bug detector should not be trusted because it finds two handcrafted examples. It should be pushed against external records, and its failures should be reported rather than hidden.
+
+\subsubsection{Gap analysis}
+No single benchmark family covers the full engineering story. Function-level tests are executable and cheap, but narrow. Repository benchmarks are closer to practice, but they are expensive and may become stale or contaminated. Agent studies show that scaffolding affects outcomes, but they can also mix model ability with product-interface behavior. Security benchmarks remind us that ordinary correctness is not enough. The contribution of this paper is deliberately modest: it reports a concrete pilot with stronger metrics plus outside bug records, then adds three initial SWE-bench Lite backend configurations to test whether the staged protocol improves patch executability and task resolution under a real Docker harness. In both parts of the study, the central object of analysis is not a headline score but the gap between apparently successful generated text and artifacts that remain useful after external validation.
+
+\section{Method}
+
+\subsection{Research questions}
+
+The executed study answers six questions:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RQ1:} How do the summarization conclusions change when BLEU-1 is reported with ROUGE-L and METEOR?
+    \item \textbf{RQ2:} How does the deterministic rule-based summarizer compare with a name-only baseline and a zero-shot language-model baseline?
+    \item \textbf{RQ3:} Does the handcrafted bug-detection heuristic transfer beyond the two original pilot bugs?
+    \item \textbf{RQ4:} How do the pilot and repository results jointly inform language-model evaluation for software maintenance?
+    \item \textbf{RQ5:} In 50-instance SWE-bench Lite runs with gpt-4o-mini, Qwen2.5-Coder-7B-Instruct, and Qwen2.5-Coder-32B-Instruct-AWQ, does agentless staged prompting improve task resolution or patch executability over direct prompting?
+    \item \textbf{RQ6:} What changes when the same direct and staged infrastructure is extended to a larger SWE-bench Lite evaluation?
+\end{itemize}
+
+The following questions remain protocol-design questions for a larger follow-up, not empirical claims of the present paper:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{PDQ1:} Does broader tool use add benefit beyond retrieval and staged reasoning?
+    \item \textbf{PDQ2:} Do live or contamination-aware benchmarks change rankings relative to static calibration benchmarks?
+    \item \textbf{PDQ3:} Which process variables, including localization quality, retrieval precision, and validation-loop success, predict final task success?
+    \item \textbf{PDQ4:} Does security-aware evaluation change conclusions drawn from ordinary correctness alone?
+\end{itemize}
+
+\subsection{Preliminary calibration: summarization dataset}
+
+The summarization pilot uses six Python functions: factorial computation, mean calculation, primality testing, sorting, Fibonacci computation, and maximum-element selection. Each function has one reference summary written by the author. The set is intentionally small. Its purpose is to check the evaluation pipeline and to expose how easily a narrow task can reward a hand-tuned method.
+
+Three systems are compared. The \textit{name-only baseline} converts the function name into whitespace-separated tokens. The \textit{rule-based baseline} maps the known recognized names into short descriptions. The \textit{zero-shot language-model baseline} was generated in ChatGPT with the model picker set to \textit{Thinking}; OpenAI's ChatGPT documentation identifies that setting as GPT-5.5 Thinking \cite{openai2026gpt55}. The run date was 2026-05-07, and the prompt was: ``Provide one short English summary of the following Python function.'' Because this was not executed through a pinned public API checkpoint with provider logs, this result is used as an illustrative comparison inside the pilot, not as a vendor benchmark or leaderboard result.
+
+\subsection{Preliminary calibration metrics}
+
+BLEU-1 is reported with a brevity penalty. Without that penalty, a very short output can look better than it should. ROUGE-L is added because longest-common-subsequence overlap captures some sequence-level similarity that unigram precision misses \cite{lin2004rouge}. METEOR is added because it combines precision and recall and penalizes fragmented alignments \cite{lavie2007meteor}. In the local artifact, METEOR uses exact matches and Porter-stem matches only. Synonym matching is disabled because WordNet resources were not available in the offline environment. That limitation is kept visible so that the metric values can be reproduced.
+
+\subsection{Preliminary calibration: bug-detection datasets}
+
+The original pilot set contains six small Python functions. Two are defective by construction: the arithmetic-mean function returns \texttt{None} for an empty list, and the Fibonacci function contains an off-by-one error. The heuristic checks for a small set of known patterns and edge-case failures. This design was useful for a smoke test, but it was not a meaningful generalization test.
+
+To add external pressure, the study includes a BugsInPy-derived Tests4Py stress set. Tests4Py is a benchmark for system testing and debugging derived from BugsInPy, and it provides real-world Python bug subjects \cite{smytzek2023tests4py}. Thirty registered bug records were sampled from local Tests4Py package metadata across projects such as Ansible, Black, FastAPI, Keras, Luigi, Matplotlib, Pandas, Scrapy, TheFuck, Tornado, tqdm, and youtube-dl. Each buggy record was paired with its fixed-version record, giving sixty external stress-test instances. No project-specific rules were added to the detector. That choice is intentional: the experiment asks whether the original toy heuristic transfers without being repaired after seeing the external data.
+
+The external stress test is still not a full source-level bug-localization benchmark. The artifact converts each Tests4Py record into a normalized textual record containing the project name, bug identifier, bug-or-fixed label, registered test metadata, and locally available descriptor fields. The same toy-pattern rules are then applied to that textual record. A record is labeled buggy only if one of the original patterns appears. The zero-recall result is therefore interpreted as a metadata-level transfer failure, not as a claim about executing or repairing full repository states.
+
+\subsection{Preliminary calibration workflow}
+
+Figure \ref{fig:workflow} shows the revised pilot workflow. The two empirical tracks are kept separate: summarization goes through the three text metrics, while bug detection goes through the Tests4Py-derived stress set and the validity analysis.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\linewidth]{fig_workflow_clean_v5.pdf}
+\caption{Revised pilot evaluation workflow.}
+\label{fig:workflow}
+\end{figure}
+
+\subsection{Repository-level protocol and executed slice}
+
+The pilot results motivate a broader repository-level protocol. The current paper executes three lightweight backend configurations from that protocol on SWE-bench Lite, first as a 50-instance diagnostic slice and then as a larger SWE-bench Lite evaluation. Tool-augmented agents, human review, and live or security-focused benchmark tiers remain design elements for a fuller follow-up.
+
+\subsubsection{Benchmark tiers}
+The broader study should use a tiered benchmark design. The calibration tier should use HumanEval, MBPP, and DS-1000 to debug prompts and evaluation code. The repository runs in this paper use SWE-bench Lite because it provides a stable Docker-based issue-repair setting suitable for controlled execution. A later version should move from SWE-bench Lite to SWE-bench Live, because live or recent tasks reduce staleness risk. Secondary validation with FEA-Bench and SecRepoBench should be added only after the primary repair experiment runs cleanly; feature implementation and secure completion add separate validity demands.
+
+\subsubsection{Model and interface separation}
+The follow-up should separate base models from product surfaces. A base model is the inference target. A coding assistant is an interface that may add retrieval, sandboxing, repository instructions, tool permissions, and validation behavior. If those layers are merged in the analysis, the result may be impossible to interpret: an apparent model improvement may actually come from the surrounding interface.
+
+\subsubsection{Interaction modes}
+The extension should compare three modes. Direct prompting supplies the issue statement and bounded context without tool use. Agentless staged reasoning decomposes the task into localization, patch generation, and validation phases without open-ended autonomous action. Tool-augmented execution grants declared read, search, edit, shell, and test tools under a fixed action budget. Figure \ref{fig:repo_protocol} summarizes the proposed workflow.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\linewidth]{flowchart_protocol_v5.pdf}
+\caption{Repository-level evaluation protocol for the proposed follow-up study.}
+\label{fig:repo_protocol}
+\end{figure}
+
+\subsubsection{Process telemetry}
+Process telemetry should be fixed before the main run. Localization quality should be measured as file-level precision, recall, and F1 against the files changed by the accepted human patch or benchmark gold patch. Retrieval precision should be computed as the proportion of retrieved files or chunks that overlap oracle files or symbols. A validation loop should count as successful only when the system observes a failing test or diagnostic, changes its patch, and either improves the evaluator state or reaches a passing state. These variables can then be modeled as predictors of final success.
+
+\subsubsection{Human review}
+Human review should use blind expert raters. An expert reviewer should be a senior PhD student, postdoctoral researcher, or software engineer with at least three years of experience in the relevant language or repository ecosystem. The review sample should cover 10\% to 15\% of instances, stratified by benchmark, model, mode, and automated outcome. The rubric should score correctness, maintainability, minimality, explanation usefulness, and risk awareness. Krippendorff's alpha should be reported, with $\alpha \geq 0.67$ for exploratory claims and $\alpha \geq 0.80$ for confirmatory claims \cite{krippendorff2018content}.
+
+\subsubsection{Statistical analysis}
+The full-scale study should use paired inference by instance. For binary outcomes such as success or secure success, McNemar tests are appropriate, with mid-$p$ variants preferred when the number of discordant pairs is small or moderate \cite{fagerland2013mcnemar}. For paired continuous outcomes such as time, token cost, patch size, or reviewer score, Wilcoxon signed-rank tests are appropriate. For comparisons across more than two systems and multiple datasets, Friedman tests with corrected post hoc comparisons remain standard practice \cite{demsar2006statistical}. Figure \ref{fig:gantt} gives a compact follow-up timeline.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.86\linewidth]{fig_gantt_clean_v5.pdf}
+\caption{Clean timeline for the proposed repository-level follow-up study.}
+\label{fig:gantt}
+\end{figure}
+
+\subsection{SWE-bench Lite execution}
+
+The repository-level execution uses 50 instances from the \texttt{princeton-nlp/SWE-bench\_Lite} test split. The 50-instance slice is treated as an executed diagnostic study rather than a leaderboard-scale claim: it is large enough to expose patch-generation and harness-execution failure modes, while keeping the Docker evaluation and artifact inspection tractable for a first replication package. Two prompting modes are compared on three lightweight backend configurations. The first backend is \texttt{gpt-4o-mini}, selected as a low-cost accessible API baseline for testing the pipeline rather than as a state-of-the-art repair model. The official model page lists a 128,000-token context window, text output support, and token prices of US\$0.15 per one million input tokens and US\$0.60 per one million output tokens \cite{openai2026gpt4omini}. The second backend is \texttt{Qwen/Qwen2.5-Coder-7B-Instruct}, selected as a small open-weight code model that can be run outside a proprietary API \cite{qwen2026modelcard}. The third backend is \texttt{Qwen/Qwen2.5-Coder-32B-Instruct-AWQ}, selected to test whether a larger open-weight code model changes the direct-versus-staged pattern. The 32B AWQ model card identifies it as a 4-bit AWQ-quantized instruction-tuned Qwen2.5-Coder model with Apache-2.0 licensing, 32.5B parameters, and long-context support \cite{qwen2026modelcard32bawq}. The Qwen technical report describes the family as code-specialized models for generation, reasoning, and repair \cite{hui2024qwen25coder}.
+
+Before each model call, the script clones the target repository at the task's base commit and constructs a bounded repository context. Text files are scored using overlap between problem-statement tokens and file-path or file-content tokens; the context builder keeps at most 18 files, truncates each file at 12,000 characters, and caps the combined context at 90,000 characters. The direct mode sends one request per instance with the problem statement and this retrieved context. The agentless mode sends two requests per instance: first, a localization prompt asks for strict JSON containing one to five candidate file paths with confidence scores and short reasons; second, a patch-generation prompt receives the problem statement, the localized file list, and a rebuilt context in which localized files are preferred. Both prompts require a unified diff and prohibit prose outside the patch block. The exact prompt files are included in the replication bundle. For every backend and mode, all 50 submitted instances produced non-empty \texttt{diff --git} patches.
+
+The generated predictions are evaluated with the official Docker SWE-bench harness. A \textit{completed} instance means that the patch applied and the benchmark tests executed, even if the tests still failed. An \textit{error} instance means that the patch could not be evaluated because of a patch-application or path problem. The paired significance test uses McNemar's exact test, since the two modes are evaluated on the same task instances \cite{fagerland2013mcnemar}. Token cost is estimated from logged input and output tokens for the OpenAI run. The Qwen 7B generation job used Hugging Face Jobs with the \texttt{a10g-large} hardware flavor. The Qwen 32B AWQ generation job used \texttt{l40sx1}. Hugging Face Jobs pricing lists \texttt{a10g-large} at US\$1.50/hour and \texttt{l40sx1} at US\$1.80/hour, billed by running time \cite{huggingface2026jobspricing}. SWE-bench Lite itself contains 300 test tasks and was designed as a faster, lower-cost subset of SWE-bench \cite{swebenchlitepage,swebenchleaderboard}.
+
+\subsection{Larger SWE-bench Lite evaluation protocol}
+
+After the 50-instance study, a larger resumable extension was run to test whether the same infrastructure could scale toward the full SWE-bench Lite test split. The extension used the same prompt templates, context builder, repository checkout logic, and direct-versus-agentless staged modes as the 50-instance run. For \texttt{gpt-4o-mini} and Qwen 32B AWQ, the target was all 300 SWE-bench Lite test instances. For Qwen 7B, the target was the first 200 instances after lexicographic sorting by \texttt{instance\_id}. This Qwen 7B subset is deterministic and compute-bounded, but it is not a random or stratified sample and is therefore less directly comparable with the two 300-instance larger runs. The extension scripts treat the earlier 50-instance predictions as immutable seed data: before generation, each script checks whether an \texttt{instance\_id} already appears in the old, new, or merged output file, and it skips that instance rather than regenerating it.
+
+Every generated line is normalized to the SWE-bench prediction schema \{\texttt{instance\_id}, \texttt{model\_patch}, \texttt{model\_name\_or\_path}\}. If a model output lacks a \texttt{diff --git} header, the script writes a minimal valid empty-diff patch rather than leaving the patch field empty. Sidecar JSONL logs record \texttt{instance\_id}, mode, input tokens, output tokens, elapsed seconds, patch non-emptiness, patch-header status, and any recoverable error. At the end of each script, old and new predictions are merged, deduplicated by \texttt{instance\_id}, and sorted. The merged predictions are then repaired locally, invalid or empty patches are retained as submitted failures, and repaired non-empty patches are evaluated with the Docker SWE-bench harness using one worker to keep local disk use bounded.
+
+\section{Results and Discussion}
+
+\subsection{Preliminary calibration results}
+
+Table \ref{tab:summary} reports the summarization results. The rule-based baseline has the strongest scores across all three metrics. That outcome is not surprising. The references are short, and the rule system was written around the six function names. The zero-shot language-model baseline gives reasonable paraphrases, but it does not reuse the reference wording as closely. The name-only baseline performs poorly once brevity penalty and multi-token matching are considered.
+
+\begin{table}[htbp]
+\centering
+\caption{Summarization metric comparison}
+\label{tab:summary}
+\begin{tabular}{lccc}
+\toprule
+System & BLEU-1 & ROUGE-L & METEOR \\
+\midrule
+Name-only baseline & 0.041 & 0.309 & 0.130 \\
+Rule-based baseline & 0.980 & 0.990 & 0.981 \\
+Zero-shot language-model baseline & 0.535 & 0.565 & 0.519 \\
+\bottomrule
+\end{tabular}
+\vspace{0.5mm}
+\begin{minipage}{0.88\linewidth}
+\footnotesize\textit{Note:} METEOR was computed with exact and Porter-stem matches only; synonym matching was disabled in the offline environment.
+\end{minipage}
+\end{table}
+
+Figure \ref{fig:metrics} shows the same comparison. The point of the table is not that a rule-based method is a better summarizer in general. The point is narrower and more useful: with six predictable function names, a deterministic rule system can look excellent under surface-overlap metrics. A broader evaluation is needed before such a result can be treated as engineering evidence.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.86\linewidth]{fig_summary_metrics_v5.pdf}
+\caption{BLEU-1, ROUGE-L, and METEOR results for three summarization systems.}
+\label{fig:metrics}
+\end{figure}
+
+\subsection{Bug-detection results}
+
+Table \ref{tab:bug} reports the bug-detection results. The heuristic obtains 1.00 accuracy on the six-function pilot set, but that number is not the important result. The important result appears on the external stress test. The same detector identifies none of the thirty external bug records. Since it also leaves the paired fixed records clean, specificity is 1.00, recall is 0.00, F1 is 0.00, and overall accuracy is 0.50.
+
+\begin{table}[htbp]
+\centering
+\caption{Bug-detection results}
+\label{tab:bug}
+\begin{tabular}{lcccc}
+\toprule
+Dataset & Instances & Accuracy & Recall & F1 \\
+\midrule
+Six-function pilot & 6 & 1.00 & 1.00 & 1.00 \\
+Tests4Py stress set & 60 & 0.50 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Figure \ref{fig:confusion} shows the external-stress confusion matrix. The result changes the interpretation of the pilot. The heuristic did not merely perform worse outside the handcrafted examples; it failed to identify any external bug record. That failure is the central empirical finding of the bug-detection part of the study.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\linewidth]{fig_confusion_matrix_v5.pdf}
+\caption{Confusion matrix for the Tests4Py external stress test.}
+\label{fig:confusion}
+\end{figure}
+
+
+\subsection{SWE-bench Lite repository results}
+
+Table \ref{tab:leaderboard_context} contextualizes the SWE-bench Lite runs before the per-backend results are reported. The comparison is intentionally contextual rather than inferential: the public entries use different models, system scaffolds, attempt budgets, and full 300-task Lite submissions, while this paper reports low-cost diagnostic configurations. The table anchors scale. Public full-split systems range from the high 20s to about 60\% resolved in the selected rows, whereas the strongest larger-run configuration in this paper resolves 8/300 tasks and the strongest 50-instance diagnostic configuration resolves 4/50 tasks. The present results should therefore be read as low-cost diagnostic baselines, not leaderboard-level systems.
+
+\begin{table}[htbp]
+\centering
+\caption{Selected SWE-bench Lite leaderboard context}
+\label{tab:leaderboard_context}
+\footnotesize
+\begin{adjustbox}{max width=0.96\linewidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.40\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}@{}}
+\toprule
+System or configuration & Scope & Resolved & Role \\
+\midrule
+ExpeRepair-v1.0 + Claude 4 Sonnet & Public 300, 2+ tries & 181/300 (60.33\%) & Top selected \\
+SWE-agent + Claude 4 Sonnet & Public 300, one try & 170/300 (56.67\%) & SWE-agent \\
+OpenHands + CodeAct v2.1 & Public 300 & 125/300 (41.67\%) & Tool agent \\
+Agentless-1.5 + Claude 3.5 Sonnet & Public 300 & 122/300 (40.67\%) & Staged baseline \\
+Agentless + GPT-4o & Public 300 & 82/300 (27.33\%) & GPT-4o staged \\
+This paper: Qwen 32B AWQ direct & This paper, 300 tasks & 8/300 (2.67\%) & Larger here \\
+This paper: Qwen 32B AWQ agentless & This paper, 300 tasks & 6/300 (2.00\%) & Larger staged \\
+This paper: Qwen 32B AWQ agentless & This paper, 50 tasks & 4/50 (8.00\%) & Best here \\
+This paper: gpt-4o-mini agentless & This paper, 50 tasks & 1/50 (2.00\%) & Low-cost here \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{minipage}{0.92\linewidth}
+\footnotesize\textit{Note:} Public rows are selected from the official SWE-bench Lite leaderboard and Lite page \cite{swebenchleaderboard,swebenchlitepage}. They are not exhaustive and are included to contextualize the scale of this paper's diagnostic and extension results, not to rank these lightweight configurations against public submissions.
+\end{minipage}
+\end{table}
+
+Table \ref{tab:swebench_summary} reports the 50-instance SWE-bench Lite results for all three backend configurations. With \texttt{gpt-4o-mini}, direct prompting submitted 50 patches, completed 23 test executions, produced 27 patch-level errors, and resolved no task. Agentless staged prompting submitted 50 patches, completed 29 test executions, produced 21 patch-level errors, and resolved one task, \path{django__django-16139}. The paired table contains 49 both-failed tasks, one agentless-only success, no direct-only success, and no both-pass task; McNemar's exact test gives $p = 1.0$.
+
+The Qwen 7B run gives a different but related result. Direct prompting and agentless staged prompting both resolved one task, and both resolved the same instance, \path{sympy__sympy-14774}. The paired table contains 49 both-failed tasks, no direct-only success, no agentless-only success, and one both-pass task; McNemar's exact test is again $p = 1.0$. Agentless nevertheless improves executability for Qwen 7B: completed harness executions increase from 29 to 33 and patch-application errors fall from 21 to 17.
+
+The Qwen 32B AWQ run produces the strongest directional result. Direct prompting resolves one task, \path{scikit-learn__scikit-learn-13439}. Agentless staged prompting resolves four tasks: the same \path{scikit-learn__scikit-learn-13439} instance plus three agentless-only successes, \path{django__django-13315}, \path{django__django-13658}, and \path{pytest-dev__pytest-11143}. The paired table contains 46 both-failed tasks, no direct-only success, three agentless-only successes, and one both-pass task. McNemar's exact test gives $p = 0.25$, so the result is exploratory rather than statistically significant. This 8\% agentless result is the paper's clearest positive signal: it remains a small 50-instance diagnostic run, but it is the only configuration that moves beyond the 2\% level observed in the other lightweight backends.
+
+\begin{table}[htbp]
+\centering
+\caption{SWE-bench Lite execution summary}
+\label{tab:swebench_summary}
+\begin{adjustbox}{max width=0.94\linewidth}
+\begin{tabular}{llrrrrr}
+\toprule
+Backend & Mode & Submitted & Completed & Errors & Resolved & Rate \\
+\midrule
+OpenAI gpt-4o-mini & Direct & 50 & 23 & 27 & 0 & 0.0\% \\
+OpenAI gpt-4o-mini & Agentless & 50 & 29 & 21 & 1 & 2.0\% \\
+Qwen 7B & Direct & 50 & 29 & 21 & 1 & 2.0\% \\
+Qwen 7B & Agentless & 50 & 33 & 17 & 1 & 2.0\% \\
+Qwen 32B AWQ & Direct & 50 & 22 & 28 & 1 & 2.0\% \\
+Qwen 32B AWQ & Agentless & 50 & 23 & 27 & 4 & 8.0\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+Table \ref{tab:swebench_failures} and Figure \ref{fig:swebench_failures} break down the outcomes. Across all three backend configurations, staged prompting mainly improves whether patches reach executable form. For OpenAI, malformed patches fall from 18 to 10 and total patch-application errors fall from 27 to 21. For Qwen 7B, official patch-application errors fall from 21 to 17; hunk failures decrease from 11 to 9, malformed patches remain at 8, and file-not-found errors disappear. For Qwen 32B AWQ, patch-application errors fall slightly from 28 to 27 and completed evaluations rise from 22 to 23, while resolved tasks increase from 1 to 4. The 32B direct run has more patch-application errors than the 7B direct run, which is counterintuitive if model size is treated as a simple monotonic improvement. The logs explain the difference as an error-mix shift rather than a pure quality drop: the 32B direct run has more hunk/context failures and introduces a reversed-or-previously-applied category that does not appear in the 7B run. Because patch length was not measured, this paper does not claim that the 32B patches were longer; the observed point is narrower, namely that the larger model generated edits that more often depended on fragile context or duplicated/reversed existing changes. In the staged 32B run, hunk failures fall from 16 to 12, but malformed patches rise from 6 to 9. Most completed patches still fail the benchmark tests, so the dominant problem is repository-grounded patch validity rather than refusal or empty generation.
+
+\begin{table}[htbp]
+\centering
+\caption{SWE-bench Lite failure taxonomy}
+\label{tab:swebench_failures}
+\footnotesize
+\begin{adjustbox}{max width=0.94\linewidth}
+\begin{tabular}{lrrrrrr}
+\toprule
+Outcome category & OAI-D & OAI-A & Q7B-D & Q7B-A & Q32-D & Q32-A \\
+\midrule
+Patch applied but tests unresolved & 23 & 28 & 28 & 32 & 21 & 19 \\
+Malformed patch & 18 & 10 & 8 & 8 & 6 & 9 \\
+Hunk/context failure & 7 & 7 & 11 & 9 & 16 & 12 \\
+Reversed/previously applied & 0 & 0 & 0 & 0 & 3 & 3 \\
+Truncated patch & 1 & 3 & 0 & 0 & 0 & 1 \\
+Wrong path/file not found & 1 & 1 & 2 & 0 & 3 & 2 \\
+Resolved & 0 & 1 & 1 & 1 & 1 & 4 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{minipage}{0.92\linewidth}
+\footnotesize\textit{Note:} D = direct prompting; A = agentless staged prompting; Q7B = Qwen2.5-Coder-7B-Instruct; Q32 = Qwen2.5-Coder-32B-Instruct-AWQ.
+\end{minipage}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.86\linewidth]{fig_swebench_failures_v14.pdf}
+\caption{Completed evaluations, patch-application errors, and resolved tasks across the three SWE-bench Lite backend configurations.}
+\label{fig:swebench_failures}
+\end{figure}
+
+The reversed-or-previously-applied errors are also useful qualitatively. They suggest that a repair model can sometimes reconstruct a change that is already present in the base context or emit a patch whose direction is inconsistent with the benchmark state. This is different from a malformed diff: the patch can be syntactically recognizable but semantically misaligned with the repository snapshot.
+
+\subsection{Qualitative failure analysis}
+
+To deepen the taxonomy, Table \ref{tab:qualitative_failures} reports representative cases inspected from the raw prediction JSONL files, patch-repair summaries, gold patch paths, and SWE-bench per-instance harness reports. The examples are not an additional statistical sample; they are artifact-grounded cases chosen to illustrate root causes behind the aggregate categories in Table \ref{tab:swebench_failures}. Several failures occur before tests can run, but the more consequential cases are the ones that look locally plausible: they target a relevant file, sometimes even a line suggested by the issue report, yet still fail because the edit is stale, incomplete, or aimed at the wrong level of abstraction.
+
+\begin{table}[htbp]
+\centering
+\caption{Representative qualitative failure cases}
+\label{tab:qualitative_failures}
+\scriptsize
+\begin{adjustbox}{max width=0.97\linewidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.23\linewidth}>{\raggedright\arraybackslash}p{0.51\linewidth}@{}}
+\toprule
+Root cause & Example & Artifact evidence and interpretation \\
+\midrule
+Malformed/truncated diff & \path{pytest-dev__pytest-5692}, OAI-D & The generated patch targets the gold file \path{src/_pytest/junitxml.py}, but the repair log ends with \texttt{unexpected end of file in patch}. The model identified the right subsystem but produced a non-evaluable hunk. \\
+Wrong file localized & \path{django__django-13033}, OAI-D & The model edits \path{django/db/models/sql/query.py}; the gold patch edits \path{django/db/models/sql/compiler.py}. The self-referential ordering issue is therefore attacked in the wrong query layer and the hunk is rejected. \\
+Correct file, no effective fix & \path{matplotlib__matplotlib-24970}, OAI-D & The patch touches the gold file \path{lib/matplotlib/colors.py}, but it changes only a comment near the uint8 clipping logic and the hunk fails. This is a correct-location but non-repairing edit. \\
+Hint copied, stale hunk & \path{sympy__sympy-14774}, Q32-D & The issue text states the likely inverse-trig table change. The model emits that edit for \path{sympy/printing/latex.py}, but the hunk is rejected against the benchmark snapshot, showing that even an issue-suggested fix must be aligned with the checked-out base commit. \\
+Correct file, wrong logic & \path{django__django-12284}, Q32-A & The patch targets the gold file \path{django/db/models/fields/__init__.py}, but changes \texttt{except KeyError} to \texttt{except KeyError as e}. This does not address inherited choices and is rejected before testing. \\
+Repository-version path mismatch & \path{scikit-learn__scikit-learn-11281}, Q32-A & The prediction edits \path{sklearn/mixture/_base.py} and documentation with synthetic index lines, while the gold patch is in \path{sklearn/mixture/base.py}. The failure mixes path drift with malformed multi-hunk output. \\
+Reversed or already-applied edit & \path{django__django-16400}, OAI-D & GNU patch reports ``Reversed (or previously applied) patch detected'' for one hunk and rejects another. The generated edit is syntactically recognizable but semantically misaligned with the repository state. \\
+Incomplete multi-hunk repair & \path{django__django-12453}, Q32-D & The patch addresses \path{django/db/backends/base/creation.py}, the gold file for serialized rollback ordering, but one of two hunks is rejected. The repair cannot preserve the cross-model ordering invariant with only a partial edit. \\
+Wrong abstraction level & \path{matplotlib__matplotlib-26011}, Q7B-D & The issue concerns shared-axis callback propagation. The generated patch edits \path{lib/matplotlib/axes/_base.py}; the gold patch changes \path{lib/matplotlib/axis.py}. The edit is near the behavior but not at the abstraction that owns the fix. \\
+Applies but misses behavior & \path{astropy__astropy-12907}, Q32-D & The patch applies to \path{astropy/modeling/separable.py}, but the harness leaves two \texttt{FAIL\_TO\_PASS} tests failing for nested compound models. Applicability is therefore not sufficient evidence of repair. \\
+Local API assumption & \path{psf__requests-1963}, Q7B-D & The patch applies and modifies redirect handling, but \texttt{test\_requests\_are\_updated\_each\_time} still fails. The edit adds response data to an exception path rather than preserving the updated request method across redirects. \\
+Test-side distraction & \path{django__django-11964}, Q7B-A & The prediction edits \path{tests/get_or_create/tests.py}, while the gold fix is in \path{django/db/models/enums.py}. The generated change is a test-side artifact and does not repair the enum value type behavior. \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{minipage}{0.92\linewidth}
+\footnotesize\textit{Note:} OAI-D = \texttt{gpt-4o-mini} direct; Q32-A = Qwen 32B AWQ agentless; Q7B-D/A = Qwen 7B direct/agentless. Case labels are instance identifiers from the SWE-bench Lite test split.
+\end{minipage}
+\end{table}
+
+The cases show why resolve rate alone is a poor diagnostic signal. Some failures are purely syntactic and can be filtered before expensive execution. Others require repository-state checks, because the patch is pointed at a plausible file but the hunk no longer matches the base commit. The hardest cases are semantic: the patch applies and may pass many preservation tests, but it does not satisfy the issue-specific behavior. These modes call for different engineering responses. Better diff formatting helps the first group; stronger checkout-aware context helps the second; and validation loops, targeted tests, or human review are needed for the third.
+
+Table \ref{tab:swebench_cost} reports cost and runtime. The OpenAI direct mode used 1,033,803 input tokens and 9,311 output tokens across 50 API calls, for an estimated cost of US\$0.16. The OpenAI agentless mode used 2,066,916 input tokens and 19,149 output tokens across 100 API calls, for an estimated cost of US\$0.32. The total estimated OpenAI API cost was US\$0.48. The Qwen 7B generation job ran on Hugging Face Jobs with an \texttt{a10g-large} instance for 1,823 running seconds and 1,828 total seconds; at US\$1.50 per hour, the estimated generation cost is about US\$0.76. The Qwen 32B AWQ generation job ran on \texttt{l40sx1} for 1,671 running seconds and 1,745 total seconds; at US\$1.80 per hour, the estimated total-seconds cost is about US\$0.87 and the running-time-only cost is about US\$0.84. For both Hugging Face runs, direct and agentless generations were batched into the same job, so per-mode runtime is not separately available. These figures exclude the local Docker harness cost.
+
+\begin{table}[htbp]
+\centering
+\caption{SWE-bench Lite generation cost and runtime}
+\label{tab:swebench_cost}
+\begin{adjustbox}{max width=0.94\linewidth}
+\begin{tabular}{llrrr}
+\toprule
+Backend & Mode/job & Calls & Runtime & Cost \\
+\midrule
+OpenAI gpt-4o-mini & Direct & 50 & -- & US\$0.16 \\
+OpenAI gpt-4o-mini & Agentless & 100 & -- & US\$0.32 \\
+Qwen 7B/HF & Combined job & -- & 1,828 s & US\$0.76 \\
+Qwen 32B AWQ/HF & Combined job & -- & 1,745 s & US\$0.87 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Larger SWE-bench Lite evaluation}
+
+Table \ref{tab:extension_status} reports the larger SWE-bench Lite evaluation. The \texttt{gpt-4o-mini} direct and agentless files reached the full 300-instance target after merging the earlier 50 predictions with 250 newly generated predictions per mode. The Qwen 32B AWQ files also reached the full 300-instance target after the Hugging Face Jobs run completed on an \texttt{l40sx1} worker. The Qwen 7B extension uses the first 200 SWE-bench Lite test instances under lexicographic \texttt{instance\_id} order, matching the pre-registered compute-bounded protocol. Every submitted patch was passed through the same local repair step before Docker evaluation; empty or still-invalid patches were retained as submitted failures rather than dropped.
+
+The generation-cost pattern remains small relative to typical manual repair effort but nonzero. For the 250-new-instance OpenAI extension, direct generation used 5,127,606 input tokens and 48,459 output tokens for an estimated US\$0.798, while agentless generation used 10,253,596 input tokens and 100,551 output tokens for US\$1.598. Including the earlier 50-instance slice, the \texttt{gpt-4o-mini} generation total is approximately US\$2.88. The Qwen 32B AWQ extension job ran for 7,953 seconds wall-clock on \texttt{l40sx1}, about US\$3.98 at US\$1.80/hour; with the earlier 50-instance job, the generation total is about US\$4.85. The Qwen 7B extension job ran for 6,323 seconds wall-clock on \texttt{a10g-large}, about US\$2.63 at US\$1.50/hour; with the earlier 50-instance job, the generation total is about US\$3.40. These estimates exclude local Docker evaluation cost.
+
+\begin{table}[htbp]
+\centering
+\caption{Larger repaired-and-evaluated SWE-bench Lite extension}
+\label{tab:extension_status}
+\scriptsize
+\begin{adjustbox}{max width=0.96\linewidth}
+\begin{tabular}{llrrrrr}
+\toprule
+Backend & Mode & Target & Completed & Empty/invalid & Resolved & Rate \\
+\midrule
+OpenAI gpt-4o-mini & Direct & 300 & 151 & 149 & 3 & 1.00\% \\
+OpenAI gpt-4o-mini & Agentless & 300 & 157 & 143 & 1 & 0.33\% \\
+Qwen 32B AWQ & Direct & 300 & 155 & 145 & 8 & 2.67\% \\
+Qwen 32B AWQ & Agentless & 300 & 156 & 144 & 6 & 2.00\% \\
+Qwen 7B & Direct & 200 & 91 & 109 & 2 & 1.00\% \\
+Qwen 7B & Agentless & 200 & 114 & 86 & 2 & 1.00\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{minipage}{0.92\linewidth}
+\footnotesize\textit{Note:} ``Completed'' means the repaired patch applied and the official SWE-bench Docker harness executed the task. Empty or still-invalid patches are counted in the target denominator as submitted failures. Qwen 7B uses the first 200 test instances under lexicographic \texttt{instance\_id} order.
+\end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Paired outcomes in the larger evaluated extension}
+\label{tab:extension_pairs}
+\scriptsize
+\begin{adjustbox}{max width=0.96\linewidth}
+\begin{tabular}{lrrrrrr}
+\toprule
+Backend & $n$ & Both fail & Direct only & Agentless only & Both pass & McNemar $p$ \\
+\midrule
+OpenAI gpt-4o-mini & 300 & 296 & 3 & 1 & 0 & 0.625 \\
+Qwen 32B AWQ & 300 & 289 & 5 & 3 & 3 & 0.727 \\
+Qwen 7B & 200 & 197 & 1 & 1 & 1 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Interpretation}
+
+RQ1 and RQ2 show that metric choice changes how the summarization pilot should be read. BLEU-1 alone was too thin a view of the outputs, because it could not separate brevity effects from sequence overlap or alignment quality. RQ4 is answered by the combined pattern across the pilot and repository layers: methods that look usable under narrow surface checks can fail once external validation is applied. ROUGE-L and METEOR do not solve semantic evaluation, but they give a less fragile picture than unigram overlap alone. The language-model row should also be kept in its proper place. It is useful as a within-pilot comparison, but it is not a reproducible API benchmark because it was produced through a conversational interface rather than a pinned provider checkpoint with stored request logs.
+
+RQ3 gives the sharper lesson. The initial detector was good at detecting the two bugs it was effectively designed around. It did not transfer to the external records. This is exactly the kind of failure that a small pilot can hide. It also explains why more structured bug-reasoning work, such as the data-flow-constrained approach of Wang et al., places so much emphasis on program evidence rather than ad hoc textual cues \cite{wang2024llmsan}.
+
+RQ5 adds the repository-level result. Across the three 50-instance backend configurations, staged prompting improves completed harness execution more consistently than it improves final task resolution. In the OpenAI run, staging produces one agentless-only success and six more completed evaluations. In the Qwen 7B run, staging does not add a unique success, but it reduces patch-application errors and increases completed evaluations by four. In the Qwen 32B AWQ run, staging produces three agentless-only successes and raises the resolve rate from 2\% to 8\%, but the paired exact test remains non-significant at $p = 0.25$. The reliable conclusion is therefore diagnostic rather than comparative: the bottleneck is not refusal or empty output, but patch validity after repository application and test execution.
+
+RQ6 is answered by the larger SWE-bench Lite evaluation in Tables \ref{tab:extension_status} and \ref{tab:extension_pairs}. The larger runs do not preserve the apparent 50-instance Qwen 32B advantage for staged prompting. Instead, \texttt{gpt-4o-mini} resolves 3/300 tasks with direct prompting and 1/300 with staged prompting, Qwen 32B AWQ resolves 8/300 with direct prompting and 6/300 with staged prompting, and Qwen 7B resolves 2/200 in both modes. The paired exact tests are again descriptive rather than confirmatory. Staging still improves the number of patches that reach completed harness execution for \texttt{gpt-4o-mini} and Qwen 7B, but those executability gains do not translate reliably into more resolved tasks. PDQ1--PDQ4 therefore remain design questions for future work with stronger repository context, tool use, validation loops, and process telemetry.
+
+A practical implication follows for teams evaluating code-agent deployments in software-maintenance workflows. Low-cost staged prompting can be a useful gatekeeping strategy when the goal is to produce patches that at least reach executable form, but the runs here do not justify autonomous merging or reduced review. Teams should track patch-application errors, test execution, and cost per attempted repair alongside final resolve rate. The extension also shows a process lesson: prediction generation, patch repair, benchmark execution, and paired statistical comparison should be logged as separate stages, because each stage can change the interpretation of a code-agent run.
+
+\begin{table}[htbp]
+\centering
+\caption{Practitioner-facing measurement checklist for code-agent repair}
+\label{tab:practitioner_checklist}
+\footnotesize
+\begin{adjustbox}{max width=0.95\linewidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.24\linewidth}>{\raggedright\arraybackslash}p{0.34\linewidth}>{\raggedright\arraybackslash}p{0.32\linewidth}@{}}
+\toprule
+Measure & Why it matters & Minimal implementation \\
+\midrule
+Raw generation rate and cost & Cheap generation can still yield unusable artifacts. & Log token counts, wall-clock time, retry counts, and backend price assumptions per instance. \\
+Diff validity before execution & Malformed patches should not consume benchmark or review time. & Run \texttt{git apply --check}; record fallback repair attempts separately from raw model output. \\
+Repository-state alignment & Wrong paths, stale hunks, and reversed edits indicate context mismatch. & Log base commit, touched files, hunk offsets, rejects, and reversed-or-previously-applied messages. \\
+Completed harness execution & Applying a patch is a distinct milestone from resolving the issue. & Report submitted, empty/invalid, completed, unresolved, and resolved counts separately. \\
+Paired outcome table & Aggregate rates can hide direct-only and staged-only successes. & For each instance, report both-fail, direct-only, staged-only, and both-pass outcomes. \\
+Semantic failure notes & Applies-but-fails patches identify missing tests, wrong abstractions, or incomplete edits. & Sample failed reports for root-cause labels and retain per-instance test output for inspection. \\
+Artifact provenance & Repair studies are difficult to audit without raw and normalized outputs. & Archive prompts, raw predictions, repaired predictions, sidecar logs, harness summaries, and exact instance IDs. \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Responsible deployment}
+
+Language-model tools for software engineering should be run with bounded permissions and auditable validation. Network access should be disabled by default in controlled experiments unless the condition requires it and the access is logged. Secrets, credentials, and private repositories should not be sent to third-party systems without consent and clear data controls. Security-sensitive patches should be evaluated separately from ordinary functional correctness, because a patch can pass a local test suite and still introduce a vulnerability \cite{shen2025secrepobench}. These points belong in the evaluation design, not only in a deployment checklist.
+
+\subsection{Data and artifact availability}
+
+A replication bundle is prepared as supplementary material for this submission. It includes the metric script, summary outputs, Tests4Py stress-test record list, plots, LaTeX source, generated figures, prompt templates, final prediction JSONL files, patch-repair summaries, comparison JSON files, and SWE-bench Lite Docker harness summaries for the OpenAI, Qwen 7B, and Qwen 32B AWQ runs. The larger-evaluation artifacts include the merged \texttt{gpt-4o-mini} and Qwen 32B AWQ 300-instance prediction files, the Qwen 7B 200-instance prediction files, sidecar generation logs, repair outputs, and local harness reports. The complete per-instance prediction and harness logs are not printed in the manuscript PDF, but they are retained in the replication bundle for patch-level inspection and archival deposit.
+
+\subsection{Internal validity}
+
+The rule-based summarizer was written for the six function names in the preliminary calibration set. Its strong metric values therefore do not establish general summarization ability. The comparison baselines make the result more interpretable, but they do not remove the small-sample limitation. The bug detector has the same issue on the original two defects. The Tests4Py-derived stress test partially addresses that concern by showing non-transfer. However, because the stress test uses normalized benchmark metadata instead of full checked-out source states, the finding should be read carefully: the toy patterns do not transfer even to external benchmark descriptors, but this is not yet a full source-level bug-localization experiment. The SWE-bench Lite experiments are stronger because they use the official Docker harness. The initial 50-instance slice is still small, while the larger evaluation improves scale by evaluating all 300 instances for \texttt{gpt-4o-mini} and Qwen 32B AWQ and the first 200 lexicographic instances for Qwen 7B. Empty or invalid patches are retained as submitted failures rather than being dropped, and local Docker harness cost is excluded from the generation-cost tables. The OpenAI direct run in the initial 50-instance slice had a disk/Docker interruption before completion; this affects timing comparability for that mode, but it should not affect the reported resolve counts because the prediction JSONL files were generated before harness execution and the resumed official harness run evaluated the submitted patches.
+
+\subsection{Construct validity}
+
+BLEU-1, ROUGE-L, and METEOR measure overlap between a generated summary and a reference summary. They improve the earlier BLEU-only setup, but they still do not measure whether a developer would find the summary useful, whether the summary captures the right risk, or whether it is semantically complete. The METEOR implementation also omits synonym matching because WordNet was unavailable offline, so the scores are exact-and-stem METEOR values rather than full-resource METEOR values. Bug-detection accuracy, recall, and F1 are also limited constructs: they do not measure repair quality, causal explanation, security impact, or regression preservation. In the SWE-bench Lite runs, completed test execution is not the same as successful repair; it only means that the patch applied and the harness could run the tests. Patch repair is also a construct choice: it tests whether generated diffs can be normalized into an evaluable artifact, while empty or still-invalid patches are counted as failures. Finally, the zero-shot summarization baseline is illustrative rather than a pinned vendor result, while the repository runs use one named API model and two open-weight Qwen deployments under a minimal context strategy. The 32B Qwen run uses an AWQ-quantized model, so it should be interpreted as that deployment rather than as a full-precision 32B result.
+
+\subsection{External validity}
+
+The summarization set contains only six small Python functions. Results may not carry over to large repositories, typed languages, frontend systems, distributed services, security-critical code, or mature open-source projects. The Tests4Py stress set is a stronger test than handcrafted bugs, but it is still a small slice of the Python bug space. The SWE-bench Lite runs improve realism, yet they remain experiments on one benchmark split, three lightweight backend configurations, and two prompting modes. They should not be read as a general ranking of direct versus staged prompting or as a leaderboard submission. The larger evaluation reduces the small-sample concern for \texttt{gpt-4o-mini} and Qwen 32B AWQ, but Qwen 7B is evaluated on a deterministic 200-instance subset rather than the full 300-instance split. The zero-shot language-model summarization baseline should also not be compared with published API leaderboards, since it was produced through a ChatGPT model-picker setting rather than a logged API run.
+
+\subsection{Conclusion validity}
+
+The preliminary calibration results are descriptive. The summarization set is too small for inferential statistics, and the external bug stress test intentionally evaluates a narrow heuristic. The initial 50-instance SWE-bench Lite comparisons are paired by instance, but the OpenAI run has only one discordant success, the Qwen 7B run has no discordant successes, and the Qwen 32B AWQ run has three discordant agentless-only successes; McNemar's exact tests are $p = 1.0$, $p = 1.0$, and $p = 0.25$, respectively. The larger evaluation is also paired by instance and still has few successes, so the exact tests remain descriptive rather than confirmatory. The safest conclusion is therefore not that staged prompting is better in general. The conclusion is narrower: small curated pilots can mislead, and the repository-level runs suggest that patch executability and patch validity should be treated as primary outcomes alongside resolve rate.
+
+\section{Conclusion}
+
+This paper uses a preliminary calibration study and a repository-level SWE-bench Lite evaluation to analyze lightweight language-model code-agent workflows. The calibration layer adds ROUGE-L, METEOR, comparison baselines, and an external bug-detection stress test. It shows why the repository study is necessary: the rule-based summarizer scores best on six curated Python functions, while the original bug heuristic fails on the Tests4Py-derived external stress set, detecting none of thirty real bug records.
+
+The SWE-bench Lite runs keep the claim modest. With gpt-4o-mini on 50 instances, direct prompting resolves 0 tasks and agentless staged prompting resolves 1. With Qwen2.5-Coder-7B-Instruct, both modes resolve the same single task. With Qwen2.5-Coder-32B-Instruct-AWQ, direct prompting resolves 1 task and agentless staged prompting resolves 4, but the paired result is still exploratory ($p = 0.25$). The larger evaluation strengthens the empirical base while narrowing the conclusion: on the 300-instance \texttt{gpt-4o-mini} run, direct prompting resolves 3 tasks and staged prompting resolves 1; on the 300-instance Qwen 32B AWQ run, direct prompting resolves 8 and staged prompting resolves 6; on the 200-instance Qwen 7B subset, both modes resolve 2. Thus, the larger evidence does not support a general staged-prompting advantage in final resolution. The useful finding is more diagnostic: lightweight code-agent workflows can be run cheaply and reproducibly at larger scale, and staged prompting can modestly improve completed harness execution, but patch validity remains the bottleneck between plausible generated text and repair success. For practitioners, the immediate lesson is to evaluate code agents as software-maintenance tools, with explicit checks for patch validity, test execution, cost, checkpoint recovery, qualitative failure modes, and artifact provenance before any deployment decision. Future work should add stronger repository context, validation loops, and stronger open- and closed-model baselines before making broader claims about engineering utility.
+
+\section*{Declarations}
+
+\noindent\textbf{CRediT authorship contribution statement:} Rishabh Singh: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Visualization, Writing - original draft, Writing - review and editing, Project administration.
+
+\noindent\textbf{Funding:} This research received no external funding.
+
+\noindent\textbf{Competing interests:} The author declares no competing financial or personal interests that could have influenced the work reported in this paper.
+
+\noindent\textbf{Data and code availability:} The replication bundle is submitted as supplementary material and contains the metric scripts, prompt templates, summarized outputs, generated figures, prediction JSONL files, repair summaries, comparison JSON files, sidecar generation logs, and Docker harness summaries for the Tests4Py and SWE-bench Lite runs. Complete per-instance prediction and harness logs are included in the bundle for patch-level inspection and archival deposit.
+
+\noindent\textbf{Ethics statement:} The study uses public benchmark tasks and does not involve human subjects, private user data, or proprietary repositories.
+
+\noindent\textbf{Declaration of generative AI and AI-assisted technologies in manuscript preparation:} During the preparation of this work, the author used OpenAI ChatGPT to assist with language editing, organization, LaTeX formatting, and code-support tasks. The author reviewed, verified, and edited the content and takes full responsibility for the manuscript, experiments, and conclusions.
+
+\begin{thebibliography}{99}
+
+\bibitem{chen2021codex} M. Chen, J. Tworek, H. Jun, Q. Yuan, H. P. de Oliveira Pinto, et al., ``Evaluating large language models trained on code,'' arXiv:2107.03374, 2021, doi: 10.48550/arXiv.2107.03374.
+
+\bibitem{austin2021mbpp} J. Austin, A. Odena, M. Nye, M. Bosma, H. Michalewski, D. Dohan, E. Jiang, C. Cai, M. Terry, Q. Le, and C. Sutton, ``Program synthesis with large language models,'' arXiv:2108.07732, 2021, doi: 10.48550/arXiv.2108.07732.
+
+\bibitem{lai2022ds1000} Y. Lai, C. Li, Y. Wang, T. Zhang, R. Zhong, L. Zettlemoyer, S. W.-t. Yih, D. Fried, S. Wang, and T. Yu, ``DS-1000: A natural and reliable benchmark for data science code generation,'' arXiv:2211.11501, 2022, doi: 10.48550/arXiv.2211.11501.
+
+\bibitem{liu2023evalplus} J. Liu, C. S. Xia, Y. Wang, and L. Zhang, ``Is your code generated by ChatGPT really correct? Rigorous evaluation of large language models for code generation,'' arXiv:2305.01210, 2023, doi: 10.48550/arXiv.2305.01210.
+
+\bibitem{liu2023repobench} T. Liu, C. Xu, and J. McAuley, ``RepoBench: Benchmarking repository-level code auto-completion systems,'' arXiv:2306.03091, 2023, doi: 10.48550/arXiv.2306.03091.
+
+\bibitem{jimenez2023swebench} C. E. Jimenez, J. Yang, A. Wettig, S. Yao, K. Pei, O. Press, and K. Narasimhan, ``SWE-bench: Can language models resolve real-world GitHub issues?'' in \textit{Proc. International Conference on Learning Representations (ICLR)}, 2024. [Online]. Available: \url{https://proceedings.iclr.cc/paper_files/paper/2024/hash/edac78c3e300629acfe6cbe9ca88fb84-Abstract-Conference.html}
+
+\bibitem{yang2024sweagent} J. Yang, C. E. Jimenez, A. Wettig, K. Lieret, S. Yao, K. Narasimhan, and O. Press, ``SWE-agent: Agent-computer interfaces enable automated software engineering,'' in \textit{Advances in Neural Information Processing Systems}, vol. 37, 2024, doi: 10.48550/arXiv.2405.15793.
+
+\bibitem{xia2024agentless} C. S. Xia, Y. Deng, S. Dunn, and L. Zhang, ``Agentless: Demystifying LLM-based software engineering agents,'' arXiv:2407.01489, 2024, doi: 10.48550/arXiv.2407.01489.
+
+\bibitem{zhang2025swebenchlive} L. Zhang, S. He, C. Zhang, Y. Kang, B. Li, C. Xie, J. Wang, M. Wang, Y. Huang, S. Fu, E. Nallipogu, Q. Lin, Y. Dang, S. Rajmohan, and D. Zhang, ``SWE-bench goes live,'' arXiv:2505.23419, 2025, doi: 10.48550/arXiv.2505.23419.
+
+\bibitem{li2025feabench} W. Li, X. Zhang, Z. Guo, S. Mao, W. Luo, G. Peng, Y. Huang, H. Wang, and S. Li, ``FEA-Bench: A benchmark for evaluating repository-level code generation for feature implementation,'' arXiv:2503.06680, 2025, doi: 10.48550/arXiv.2503.06680.
+
+\bibitem{shen2025secrepobench} C. Shen, C. Dilgren, P. Chiniya, L. Griffith, Y. Ding, and Y. Chen, ``SecRepoBench: Benchmarking code agents for secure code completion in real-world repositories,'' arXiv:2504.21205, 2025, doi: 10.48550/arXiv.2504.21205.
+
+\bibitem{peng2023copilot} S. Peng, E. Kalliamvakou, P. Cihon, and M. Demirer, ``The impact of AI on developer productivity: Evidence from GitHub Copilot,'' arXiv:2302.06590, 2023, doi: 10.48550/arXiv.2302.06590.
+
+\bibitem{paradis2024speed} E. Paradis, K. Grey, Q. Madison, D. Nam, A. Macvean, V. Meimand, N. Zhang, B. Ferrari-Church, and S. Chandra, ``How much does AI impact development speed? An enterprise-based randomized controlled trial,'' arXiv:2410.12944, 2024, doi: 10.48550/arXiv.2410.12944.
+
+\bibitem{cui2026effects} K. Z. Cui, M. Demirer, S. Jaffe, L. Musolff, S. Peng, and T. Salz, ``The effects of generative AI on high-skilled work: Evidence from three field experiments with software developers,'' \textit{Management Science}, published online Feb. 27, 2026, doi: 10.1287/mnsc.2025.00535.
+
+\bibitem{becker2025maintainers} J. Becker, N. Rush, E. Barnes, and D. Rein, ``Measuring the impact of early-2025 AI on experienced open-source developer productivity,'' arXiv:2507.09089, 2025, doi: 10.48550/arXiv.2507.09089.
+
+\bibitem{wang2024llmsan} C. Wang, W. Zhang, Z. Su, X. Xu, and X. Zhang, ``Sanitizing large language models in bug detection with data-flow,'' in \textit{Findings of the Association for Computational Linguistics: EMNLP 2024}, pp. 3790--3805, 2024, doi: 10.18653/v1/2024.findings-emnlp.217.
+
+\bibitem{lin2004rouge} C.-Y. Lin, ``ROUGE: A package for automatic evaluation of summaries,'' in \textit{Text Summarization Branches Out}, Association for Computational Linguistics, pp. 74--81, 2004. [Online]. Available: \url{https://aclanthology.org/W04-1013/}. [Accessed: May 9, 2026].
+
+\bibitem{lavie2007meteor} A. Lavie and A. Agarwal, ``METEOR: An automatic metric for MT evaluation with high levels of correlation with human judgments,'' in \textit{Proceedings of the Second Workshop on Statistical Machine Translation}, pp. 228--231, 2007, doi: 10.3115/1626355.1626389.
+
+\bibitem{smytzek2023tests4py} M. Smytzek, M. Eberlein, B. Serce, L. Grunske, and A. Zeller, ``Tests4Py: A benchmark for system testing,'' in \textit{Proc. ACM International Conference on the Foundations of Software Engineering (FSE Companion)}, 2024, doi: 10.1145/3663529.3663798.
+
+\bibitem{fagerland2013mcnemar} M. W. Fagerland, S. Lydersen, and P. Laake, ``The McNemar test for binary matched-pairs data: Mid-p and asymptotic are better than exact conditional,'' \textit{BMC Medical Research Methodology}, vol. 13, no. 91, 2013, doi: 10.1186/1471-2288-13-91.
+
+\bibitem{demsar2006statistical} J. Demsar, ``Statistical comparisons of classifiers over multiple data sets,'' \textit{Journal of Machine Learning Research}, vol. 7, pp. 1--30, 2006. [Online]. Available: \url{https://www.jmlr.org/papers/v7/demsar06a.html}
+
+\bibitem{krippendorff2018content} K. Krippendorff, \textit{Content Analysis: An Introduction to Its Methodology}, 4th ed. Thousand Oaks, CA, USA: Sage, 2018.
+
+\bibitem{swebenchlitepage} SWE-bench Team, ``SWE-bench Lite,'' SWE-bench, 2025. [Online]. Available: \url{https://www.swebench.com/lite.html}. [Accessed: May 8, 2026].
+
+\bibitem{swebenchleaderboard} SWE-bench Team, ``SWE-bench leaderboards,'' SWE-bench, 2026. [Online]. Available: \url{https://www.swebench.com/}. [Accessed: May 19, 2026].
+
+
+\bibitem{openai2026gpt55} OpenAI, ``GPT-5.5 in ChatGPT,'' OpenAI Help Center, 2026. [Online]. Available: \url{https://help.openai.com/en/articles/11909943-gpt-55-in-chatgpt}. [Accessed: May 7, 2026].
+
+
+\bibitem{qwen2026modelcard} Qwen, ``Qwen2.5-Coder-7B-Instruct,'' Hugging Face model card, 2026. [Online]. Available: \url{https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct}. [Accessed: May 8, 2026].
+
+\bibitem{qwen2026modelcard32bawq} Qwen, ``Qwen2.5-Coder-32B-Instruct-AWQ,'' Hugging Face model card, 2026. [Online]. Available: \url{https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct-AWQ}. [Accessed: May 9, 2026].
+
+\bibitem{hui2024qwen25coder} B. Hui, J. Yang, Z. Cui, J. Yang, D. Liu, L. Zhang, T. Liu, J. Zhang, B. Yu, K. Dang, A. Yang, R. Men, F. Huang, X. Ren, X. Ren, J. Zhou, and J. Lin, ``Qwen2.5-Coder technical report,'' arXiv:2409.12186, 2024, doi: 10.48550/arXiv.2409.12186.
+
+\bibitem{huggingface2026jobspricing} Hugging Face, ``Pricing and billing,'' Hugging Face Jobs documentation, 2026. [Online]. Available: \url{https://huggingface.co/docs/hub/en/jobs-pricing}. [Accessed: May 8, 2026].
+
+\bibitem{openai2026gpt4omini} OpenAI, ``GPT-4o mini model,'' OpenAI API Documentation, 2026. [Online]. Available: \url{https://platform.openai.com/docs/models/gpt-4o-mini}. [Accessed: May 8, 2026].
+
+\end{thebibliography}
+
+\end{document}

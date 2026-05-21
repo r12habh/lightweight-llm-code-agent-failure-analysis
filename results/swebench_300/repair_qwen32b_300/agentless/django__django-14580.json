@@ -1,0 +1,27 @@
+{
+  "instance_id": "django__django-14580",
+  "input_patch_chars": 703,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/writer.py...\nApplied patch django/db/migrations/writer.py cleanly.\n",
+          "stdout": "",
+          "note": "command succeeded but produced an empty git diff"
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/migrations/writer.py\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

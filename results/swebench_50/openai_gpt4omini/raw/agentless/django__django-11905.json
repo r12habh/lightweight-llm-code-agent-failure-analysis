@@ -1,0 +1,36 @@
+{
+  "instance_id": "django__django-11905",
+  "raw": "```diff\ndiff --git a/django/db/models/lookups.py b/django/db/models/lookups.py\n--- a/django/db/models/lookups.py\n+++ b/django/db/models/lookups.py\n@@ -42,7 +42,12 @@\n \n class Lookup:\n     lookup_name = None\n+    allow_non_boolean_rhs = False\n     prepare_rhs = True\n     can_use_none_as_rhs = False\n \n+    def __init__(self, lhs, rhs):\n+        if not self.allow_non_boolean_rhs and not isinstance(rhs, bool):\n+            raise ValueError(\"The __isnull lookup accepts only boolean values.\")\n+        self.lhs, self.rhs = lhs, rhs\n         self.rhs = self.get_prep_lookup()\n         if hasattr(self.lhs, 'get_bilateral_transforms'):\n             bilateral_transforms = self.lhs.get_bilateral_transforms()\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 18188,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 229,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18417
+    },
+    "patch": {
+      "input_tokens": 17246,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 188,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 17434
+    }
+  },
+  "localized_files": [
+    "django/db/models/sql/query.py",
+    "django/db/models/fields/related_lookups.py",
+    "django/db/models/lookups.py",
+    "django/db/models/query_utils.py",
+    "tests/test_utils/tests.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/db/models/sql/query.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"__isnull lookup handling likely needs modification for boolean checks\"\n    },\n    {\n      \"path\": \"django/db/models/fields/related_lookups.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"may contain related lookup logic affected by __isnull changes\"\n    },\n    {\n      \"path\": \"django/db/models/lookups.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"requires changes to validate __isnull inputs against boolean values\"\n    },\n    {\n      \"path\": \"django/db/models/query_utils.py\",\n      \"confidence\": 0.75,\n      \"reason\": \"could involve query manipulations related to __isnull checks\"\n    },\n    {\n      \"path\": \"tests/test_utils/tests.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"tests may need updates to cover new error cases for __isnull\"\n    }\n  ]\n}\n```"
+}

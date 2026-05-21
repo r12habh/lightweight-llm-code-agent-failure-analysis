@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14092",
+  "input_patch_chars": 2726,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 16\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 11:  from sklearn.metrics import pairwise_distances\n\n",
+          "stdout": "patching file sklearn/neighbors/tests/test_nca.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

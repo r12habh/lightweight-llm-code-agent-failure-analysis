@@ -1,0 +1,15 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 9ce46e3f73..f544cb1cc4 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -123,6 +123,10 @@ class Field(RegisterLookupMixin):
+     one_to_one = None
+     related_model = None
+ 
++                 choices=None, help_text='', db_column=None, db_tablespace=None,
++                 auto_created=False, validators=None, error_messages=None,
++                 unique_for_date=None, unique_for_month=None, unique_for_year=None,
++                 db_constraint=True, max_length=None):
+     descriptor_class = DeferredAttribute
+ 
+     # Generic field type description, usually overridden by subclasses

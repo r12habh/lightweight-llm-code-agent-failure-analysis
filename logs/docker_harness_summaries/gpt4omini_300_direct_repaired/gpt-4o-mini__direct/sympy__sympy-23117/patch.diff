@@ -1,0 +1,13 @@
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..efbfa1dce0 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -82,6 +82,8 @@ def _union(cls, kinds) -> 'ArrayKind':
+             elemkind = UndefinedKind
+         return ArrayKind(elemkind)
+ 
++        if len(iterable) == 0 and shape is None:
++            shape = ()
+ 
+ class NDimArray(Printable):
+     """

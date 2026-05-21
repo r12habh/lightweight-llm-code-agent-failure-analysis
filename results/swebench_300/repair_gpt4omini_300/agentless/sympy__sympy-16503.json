@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-16503",
+  "input_patch_chars": 509,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n        pform = prettyForm(*stringPict.next(l, op, r))\n        return pform\n        \n    def _print_Sum(self, e): \n        pform = self._print(e.args[0])\n        pform = prettyForm(*pform.left('\u03a3'))\n        # Place the index\n\nerror: patch failed: sympy/printing/pretty/pretty.py:257\nApplying patch sympy/printing/pretty/pretty.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/printing/pretty/pretty.py\nHunk #1 FAILED at 257.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/printing/pretty/pretty.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

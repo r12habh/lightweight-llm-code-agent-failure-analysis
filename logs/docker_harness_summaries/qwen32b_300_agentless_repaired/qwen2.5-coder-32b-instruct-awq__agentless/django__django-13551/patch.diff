@@ -1,0 +1,21 @@
+diff --git a/django/contrib/auth/tokens.py b/django/contrib/auth/tokens.py
+index 93e2d71af2..19d90a09b2 100644
+--- a/django/contrib/auth/tokens.py
++++ b/django/contrib/auth/tokens.py
+@@ -1,7 +1,7 @@
+ from datetime import datetime
+ 
+ from django.conf import settings
+-from django.utils.crypto import constant_time_compare, salted_hmac
++from django.utils.crypto import constant_time_compare, salted_hmac, get_random_string
+ from django.utils.http import base36_to_int, int_to_base36
+ 
+ 
+@@ -25,6 +25,7 @@ class PasswordResetTokenGenerator:
+         Return a token that can be used once to do a password reset
+         for the given user.
+         """
++            six.text_type(user.email) +
+         return self._make_token_with_timestamp(user, self._num_seconds(self._now()))
+ 
+     def check_token(self, user, token):

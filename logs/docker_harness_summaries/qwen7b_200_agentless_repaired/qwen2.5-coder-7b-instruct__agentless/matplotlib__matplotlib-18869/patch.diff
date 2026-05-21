@@ -1,0 +1,12 @@
+diff --git a/doc/devel/triage.rst b/doc/devel/triage.rst
+index a1cde30a58..123440903a 100644
+--- a/doc/devel/triage.rst
++++ b/doc/devel/triage.rst
+@@ -25,6 +25,7 @@ Working on issues to improve them
+ ---------------------------------
+ 
+ Improving issues increases their chances of being successfully resolved.
++Adding easily comparable version info to toplevel
+ Guidelines on submitting good issues can be found :ref:`here
+ <submitting-a-bug-report>`.
+ A third party can give useful feedback or even add

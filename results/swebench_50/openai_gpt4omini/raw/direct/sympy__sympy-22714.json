@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-22714",
+  "raw": "```diff\ndiff --git a/sympy/core/sympify.py b/sympy/core/sympify.py\n--- a/sympy/core/sympify.py\n+++ b/sympy/core/sympify.py\n@@ -1074,7 +1074,7 @@\n \n     if evaluate is None:\n         evaluate = global_parameters.evaluate\n-    \n+\n     if isinstance(a, CantSympify):\n         raise SympifyError(a)\n \n@@ -1120,6 +1120\n     coords = Tuple(*coords)\n \n     if len(coords) < 2:\n         raise ValueError(filldedent('''\n             Point requires 2 or more coordinates or\n             keyword `dim` > 1.'''))\n+    if any(a.is_number and im(a) for a in coords):\n+        if not evaluate:  # Allow for evaluate=False\n+            return GeometryEntity.__new__(cls, *coords)\n+        raise ValueError('Imaginary coordinates are not permitted.')\n     if len(coords) != dim:\n         message = (\"Dimension of {} needs to be changed \"\n                    \"from {} to {}.\").format(coords, len(coords), dim)\n         if on_morph == 'ignore':\n             pass\n```\n",
+  "usage": {
+    "input_tokens": 23925,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 262,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 24187
+  },
+  "localized_files": []
+}

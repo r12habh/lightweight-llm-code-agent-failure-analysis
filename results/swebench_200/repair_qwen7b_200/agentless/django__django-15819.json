@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15819",
+  "input_patch_chars": 8388,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 206\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 20: +                    % (\n\n",
+          "stdout": "patching file django/db/models/fields/related.py\nHunk #1 succeeded at 105 (offset 5 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

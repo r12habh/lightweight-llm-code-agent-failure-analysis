@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2148",
+  "input_patch_chars": 4317,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "error: patch fragment without header at line 93: @@ -185,6 +196,7 @@ class HTTPResponse(io.IOBase):\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: patch fragment without header at line 93: @@ -185,6 +196,7 @@ class HTTPResponse(io.IOBase):\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 3532
+}

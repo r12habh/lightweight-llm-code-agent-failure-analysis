@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15996",
+  "input_patch_chars": 1184,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/query_utils.py...\nerror: while searching for:\n\nfrom django.db import DEFAULT_DB_ALIAS, DatabaseError\nfrom django.db.models.constants import LOOKUP_SEP\nfrom django.utils import tree\n\n# PathInfo is used when converting lookups (fk__somecol). The contents\n\nerror: patch failed: django/db/models/query_utils.py:278\nerror: django/db/models/query_utils.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/query_utils.py...\nerror: while searching for:\n\nfrom django.db import DEFAULT_DB_ALIAS, DatabaseError\nfrom django.db.models.constants import LOOKUP_SEP\nfrom django.utils import tree\n\n# PathInfo is used when converting lookups (fk__somecol). The contents\n\nerror: patch failed: django/db/models/query_utils.py:278\nerror: while searching for:\n\ndef select_related_descend(field, restricted, requested, load_fields, reverse=False):\n    \"\"\"\n    if not field.remote_field:\n        return False\n    if field.remote_field.parent_link and not reverse:\n\nerror: patch failed: django/db/models/query_utils.py:421\nerror: while searching for:\n\ndef check_rel_lookup_compatibility(model, target_opts, field):\n    \"\"\"\n    \"\"\"\n\n    def check(opts):\n\nerror: patch failed: django/db/models/query_utils.py:461\nApplying patch django/db/models/query_utils.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1594
+}

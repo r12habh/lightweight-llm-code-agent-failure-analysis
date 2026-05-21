@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-22714",
+  "input_patch_chars": 574,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/geometry/point.py...\nerror: while searching for:\n        if any(a.is_number and im(a) for a in coords):\n            raise ValueError('Imaginary coordinates are not permitted.')\n        if not all(isinstance(a, Expr) for a in coords):\n            raise TypeError('Coordinates must be valid SymPy expressions.')\n        return cls._new(*coords, **kwargs)\n\n    def _new(cls, *args, **kwargs):\n\nerror: patch failed: sympy/geometry/point.py:150\nerror: sympy/geometry/point.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/geometry/point.py...\nerror: while searching for:\n        if any(a.is_number and im(a) for a in coords):\n            raise ValueError('Imaginary coordinates are not permitted.')\n        if not all(isinstance(a, Expr) for a in coords):\n            raise TypeError('Coordinates must be valid SymPy expressions.')\n        return cls._new(*coords, **kwargs)\n\n    def _new(cls, *args, **kwargs):\n\nerror: patch failed: sympy/geometry/point.py:150\nApplying patch sympy/geometry/point.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 602
+}

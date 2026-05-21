@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14999",
+  "input_patch_chars": 850,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpjlcl1iss.diff:17: trailing whitespace.\n        \nChecking patch django/contrib/postgres/constraints.py...\nerror: while searching for:\n       self.opclasses = opclasses\n       super().__init__(name=name)\n\n\n    def _get_expression_sql(self, compiler, schema_editor, query):\n        expressions = []\n\nerror: patch failed: django/contrib/postgres/constraints.py:66\nerror: django/contrib/postgres/constraints.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpjlcl1iss.diff:17: trailing whitespace.\n        \nChecking patch django/contrib/postgres/constraints.py...\nerror: while searching for:\n       self.opclasses = opclasses\n       super().__init__(name=name)\n\n\n    def _get_expression_sql(self, compiler, schema_editor, query):\n        expressions = []\n\nerror: patch failed: django/contrib/postgres/constraints.py:66\nerror: while searching for:\n\n    def create_sql(self, model, schema_editor):\n        if self.has_db_table:\n            self.check_supported(schema_editor)\n            return Statement(\n                'ALTER TABLE %(table)s ADD %(constraint)s',\n\nerror: patch failed: django/contrib/postgres/constraints.py:116\nApplying patch django/contrib/postgres/constraints.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 925
+}

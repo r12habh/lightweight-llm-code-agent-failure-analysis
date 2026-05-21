@@ -1,0 +1,15 @@
+diff --git a/sympy/physics/units/unitsystem.py b/sympy/physics/units/unitsystem.py
+index 3daf84c108..18c1f0d384 100644
+--- a/sympy/physics/units/unitsystem.py
++++ b/sympy/physics/units/unitsystem.py
+@@ -171,6 +171,10 @@ def _collect_factor_and_dimension(self, expr):
+                 exp_dim = 1
+             return factor ** exp_factor, dim ** (exp_factor * exp_dim)
+         elif isinstance(expr, Add):
++            # Check if all terms are dimensionless
++            if all(self.get_dimension_system().is_dimensionless(self._collect_factor_and_dimension(arg)[1]) for arg in expr.args):
++                return expr, Dimension(1)
++
+             factor, dim = self._collect_factor_and_dimension(expr.args[0])
+             for addend in expr.args[1:]:
+                 addend_factor, addend_dim = \

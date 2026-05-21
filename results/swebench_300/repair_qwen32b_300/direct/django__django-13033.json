@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13033",
+  "input_patch_chars": 731,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/compiler.py...\nerror: while searching for:\n                if not self.query.order_by:\n                    self.query.order_by = self.query.model._meta.ordering\n                else:\n                    self.query.order_by = self.query.order_by + self.query.model._meta.ordering\n        if self.query.distinct:\n            self.query.order_by = self.get_distinct()\n        if self.query.order_by:\n\nerror: patch failed: django/db/models/sql/compiler.py:123\nApplying patch django/db/models/sql/compiler.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/compiler.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/sql/compiler.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

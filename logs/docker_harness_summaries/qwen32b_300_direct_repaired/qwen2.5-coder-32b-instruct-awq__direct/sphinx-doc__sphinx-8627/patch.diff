@@ -1,0 +1,11 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index 95a991b17..95fd1009f 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -1234,6 +1234,7 @@ class DocstringSignatureMixin:
+                     # the signature have multiple signatures on docstring
+                     continue
+                 else:
++        'struct.Struct': ('struct', 'Struct'),
+                     # don't look any further
+                     break

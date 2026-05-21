@@ -1,0 +1,12 @@
+diff --git a/django/contrib/admin/options.py b/django/contrib/admin/options.py
+index dadd4acfa1..e42591c6a4 100644
+--- a/django/contrib/admin/options.py
++++ b/django/contrib/admin/options.py
+@@ -102,6 +102,7 @@ class BaseModelAdmin(metaclass=forms.MediaDefiningClass):
+     autocomplete_fields = ()
+     raw_id_fields = ()
+     fields = None
++            "formfield_callback": self.formfield_for_dbfield,
+     exclude = None
+     fieldsets = None
+     form = forms.ModelForm

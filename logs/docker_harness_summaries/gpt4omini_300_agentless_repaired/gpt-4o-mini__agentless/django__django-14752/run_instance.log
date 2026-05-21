@@ -1,0 +1,44 @@
+2026-05-20 08:20:07,347 - INFO - Creating container for django__django-14752...
+2026-05-20 08:20:08,287 - INFO - Container for django__django-14752 created: c8a3223d9cfea8b3bbb53bf3764e428d695eaaf957e64d09efb80fd9e15c6350
+2026-05-20 08:20:08,410 - INFO - Container for django__django-14752 started: c8a3223d9cfea8b3bbb53bf3764e428d695eaaf957e64d09efb80fd9e15c6350
+2026-05-20 08:20:08,411 - INFO - Intermediate patch for django__django-14752 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14752/patch.diff, now applying to container...
+2026-05-20 08:20:08,582 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 08:20:08,665 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 08:20:08,758 - INFO - >>>>> Applied Patch:
+patching file django/contrib/admin/views/autocomplete.py
+
+2026-05-20 08:20:09,556 - INFO - Git diff before:
+diff --git a/django/contrib/admin/views/autocomplete.py b/django/contrib/admin/views/autocomplete.py
+index 3903e4c98c..591b128b0d 100644
+--- a/django/contrib/admin/views/autocomplete.py
++++ b/django/contrib/admin/views/autocomplete.py
+@@ -6,6 +6,7 @@ from django.views.generic.list import BaseListView
+ 
+ class AutocompleteJsonView(BaseListView):
+     """Handle AutocompleteWidget's AJAX requests for data."""
++    
+     paginate_by = 20
+     admin_site = None
+2026-05-20 08:20:09,557 - INFO - Eval script for django__django-14752 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14752/eval.sh; copying to container...
+2026-05-20 08:20:25,519 - INFO - Test runtime: 15.89 seconds
+2026-05-20 08:20:25,521 - INFO - Test output for django__django-14752 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14752/test_output.txt
+2026-05-20 08:20:25,667 - INFO - Git diff after:
+diff --git a/django/contrib/admin/views/autocomplete.py b/django/contrib/admin/views/autocomplete.py
+index 3903e4c98c..591b128b0d 100644
+--- a/django/contrib/admin/views/autocomplete.py
++++ b/django/contrib/admin/views/autocomplete.py
+@@ -6,6 +6,7 @@ from django.views.generic.list import BaseListView
+ 
+ class AutocompleteJsonView(BaseListView):
+     """Handle AutocompleteWidget's AJAX requests for data."""
++    
+     paginate_by = 20
+     admin_site = None
+2026-05-20 08:20:25,667 - INFO - Grading answer for django__django-14752...
+2026-05-20 08:20:25,672 - INFO - report: {'django__django-14752': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_serialize_result (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)']}, 'PASS_TO_PASS': {'success': ['test_custom_to_field (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_custom_to_field_custom_pk (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_custom_to_field_permission_denied (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_field_does_not_allowed (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_field_does_not_exist (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_field_no_related_field (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'Search results are paginated.', 'Users require the change permission for the related model to the', 'test_limit_choices_to (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_missing_search_fields (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_must_be_logged_in (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'Searching across model relations use QuerySet.distinct() to avoid', 'test_success (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'test_to_field_resolution_with_fk_pk (admin_views.test_autocomplete_view.AutocompleteJsonViewTests)', 'to_field resolution should correctly resolve for target models using'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14752: resolved: False
+2026-05-20 08:20:25,672 - INFO - Attempting to stop container sweb.eval.django__django-14752.gpt4omini_300_agentless_repaired...
+2026-05-20 08:20:40,873 - INFO - Attempting to remove container sweb.eval.django__django-14752.gpt4omini_300_agentless_repaired...
+2026-05-20 08:20:40,892 - INFO - Container sweb.eval.django__django-14752.gpt4omini_300_agentless_repaired removed.
+2026-05-20 08:20:40,893 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14752:latest...
+2026-05-20 08:20:40,899 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14752:latest removed.

@@ -1,0 +1,47 @@
+2026-05-19 21:05:47,588 - INFO - Creating container for django__django-11099...
+2026-05-19 21:05:47,786 - INFO - Container for django__django-11099 created: 748e4c4818d2820bb6f593ce526ea1f1a8d92cf2003a846b04fc00ead723f787
+2026-05-19 21:05:47,892 - INFO - Container for django__django-11099 started: 748e4c4818d2820bb6f593ce526ea1f1a8d92cf2003a846b04fc00ead723f787
+2026-05-19 21:05:47,893 - INFO - Intermediate patch for django__django-11099 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11099/patch.diff, now applying to container...
+2026-05-19 21:05:48,046 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/auth/models.py...
+Applied patch django/contrib/auth/models.py cleanly.
+
+2026-05-19 21:05:49,102 - INFO - Git diff before:
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..45e3d8f1b9 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -289,7 +289,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
+ 
+     Username and password are required. Other fields are optional.
+     """
+-    username_validator = UnicodeUsernameValidator()
++    username_validator = UnicodeUsernameValidator(regex=r'\A[\w.@+-]+\Z')
+ 
+     username = models.CharField(
+         _('username'),
+2026-05-19 21:05:49,103 - INFO - Eval script for django__django-11099 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11099/eval.sh; copying to container...
+2026-05-19 21:06:04,788 - INFO - Test runtime: 15.61 seconds
+2026-05-19 21:06:04,790 - INFO - Test output for django__django-11099 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11099/test_output.txt
+2026-05-19 21:06:04,959 - INFO - Git diff after:
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..45e3d8f1b9 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -289,7 +289,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
+ 
+     Username and password are required. Other fields are optional.
+     """
+-    username_validator = UnicodeUsernameValidator()
++    username_validator = UnicodeUsernameValidator(regex=r'\A[\w.@+-]+\Z')
+ 
+     username = models.CharField(
+         _('username'),
+2026-05-19 21:06:04,959 - INFO - Grading answer for django__django-11099...
+2026-05-19 21:06:04,960 - INFO - report: {'django__django-11099': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)'], 'failure': ['test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests)', 'test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests)']}, 'PASS_TO_PASS': {'success': ['test_help_text (auth_tests.test_validators.MinimumLengthValidatorTest)', 'test_validate (auth_tests.test_validators.MinimumLengthValidatorTest)', 'test_help_text (auth_tests.test_validators.NumericPasswordValidatorTest)', 'test_validate (auth_tests.test_validators.NumericPasswordValidatorTest)', 'test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)', 'test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)', 'test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest)', 'test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest)', 'test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest)', 'test_password_changed (auth_tests.test_validators.PasswordValidationTest)', 'test_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest)', 'test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest)', 'test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest)', 'test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest)', 'test_validate_password (auth_tests.test_validators.PasswordValidationTest)', 'test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest)', 'test_validate (auth_tests.test_validators.CommonPasswordValidatorTest)', 'test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest)', 'test_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11099: resolved: False
+2026-05-19 21:06:04,960 - INFO - Attempting to stop container sweb.eval.django__django-11099.gpt4omini_300_direct_repaired...
+2026-05-19 21:06:20,171 - INFO - Attempting to remove container sweb.eval.django__django-11099.gpt4omini_300_direct_repaired...
+2026-05-19 21:06:20,191 - INFO - Container sweb.eval.django__django-11099.gpt4omini_300_direct_repaired removed.
+2026-05-19 21:06:20,191 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11099:latest...
+2026-05-19 21:06:21,221 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11099:latest removed.

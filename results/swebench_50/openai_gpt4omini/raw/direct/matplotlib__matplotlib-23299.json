@@ -1,0 +1,16 @@
+{
+  "instance_id": "matplotlib__matplotlib-23299",
+  "raw": "```diff\ndiff --git a/lib/matplotlib/_pylab_helpers.py b/lib/matplotlib/_pylab_helpers.py\nindex abcdef1..1234567 100644\n--- a/lib/matplotlib/_pylab_helpers.py\n+++ b/lib/matplotlib/_pylab_helpers.py\n@@ -100,6 +100,9 @@ class Gcf(object):\n         # to avoid recursion\n         if figure in self.figs.values():\n             return\n+        \n+        # Store the context state and restore it after backend switch\n+        context_state = get_current_context_state()\n         \n         self.figs[figure.number] = manager\n         self.num_figs += 1\n         self._backend = self._backend or figure.canvas.manager.backend\n\n+        restore_context_state(context_state)\n```\n",
+  "usage": {
+    "input_tokens": 19269,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 172,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 19441
+  },
+  "localized_files": []
+}

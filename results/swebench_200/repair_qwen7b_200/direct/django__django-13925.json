@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13925",
+  "input_patch_chars": 2048,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nHunk #1 succeeded at 15 (offset 5 lines).\nerror: while searching for:\n    empty_strings_allowed = True\n    empty_values = list(validators.EMPTY_VALUES)\n    creation_counter = 0\n    auto_creation_counter = -1\n    default_validators = []\n    default_error_messages = {\n\nerror: patch failed: django/db/models/fields/__init__.py:100\nerror: while searching for:\n    system_check_deprecated_details = None\n    system_check_removed_details = None\n    hidden = False\n    many_to_one = None\n    one_to_many = None\n    one_to_one = None\n\nerror: patch failed: django/db/models/fields/__init__.py:110\nerror: while searching for:\n    related_model = None\n    descriptor_class = DeferredAttribute\n    description = property(_description)\n    def __init__(self, verbose_name=None, name=None, primary_key=False,\n                 max_length=None, unique=False, blank=False, null=False,\n                 db_index=False, rel=None, default=NOT_PROVIDED, editable=True,\n\nerror: patch failed: django/db/models/fields/__init__.py:120\nHunk #5 succeeded at 136 (offset 2 lines).\nApplying patch django/db/models/fields/__init__.py with 3 rejects...\nHunk #1 applied cleanly.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\nHunk #5 applied cleanly.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/__init__.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 15 (offset 5 lines).\nHunk #2 FAILED at 100.\nHunk #3 succeeded at 113 with fuzz 3 (offset 2 lines).\nHunk #4 FAILED at 121.\nHunk #5 succeeded at 134 (offset 2 lines).\n2 out of 5 hunks FAILED -- saving rejects to file django/db/models/fields/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

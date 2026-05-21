@@ -1,0 +1,47 @@
+2026-05-20 01:49:00,437 - INFO - Creating container for sympy__sympy-15345...
+2026-05-20 01:49:01,451 - INFO - Container for sympy__sympy-15345 created: f43a49923c0c3affac9d5776ea2c6520d3e4147fc4f44ceb68a2a4b4bcca359f
+2026-05-20 01:49:01,622 - INFO - Container for sympy__sympy-15345 started: f43a49923c0c3affac9d5776ea2c6520d3e4147fc4f44ceb68a2a4b4bcca359f
+2026-05-20 01:49:01,623 - INFO - Intermediate patch for sympy__sympy-15345 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-15345/patch.diff, now applying to container...
+2026-05-20 01:49:01,824 - INFO - >>>>> Applied Patch:
+Checking patch sympy/printing/mathematica.py...
+Applied patch sympy/printing/mathematica.py cleanly.
+
+2026-05-20 01:49:02,297 - INFO - Git diff before:
+diff --git a/sympy/printing/mathematica.py b/sympy/printing/mathematica.py
+index ea7e3a2d9..8b7686df7 100644
+--- a/sympy/printing/mathematica.py
++++ b/sympy/printing/mathematica.py
+@@ -94,7 +94,7 @@ def _print_list(self, expr):
+     _print_Tuple = _print_list
+ 
+     def _print_Function(self, expr):
+-        if expr.func.__name__ in self.known_functions:
++        if expr.func.__name__ == 'Max':
+             cond_mfunc = self.known_functions[expr.func.__name__]
+             for cond, mfunc in cond_mfunc:
+                 if cond(*expr.args):
+2026-05-20 01:49:02,323 - INFO - Eval script for sympy__sympy-15345 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-15345/eval.sh; copying to container...
+2026-05-20 01:49:08,773 - INFO - Test runtime: 6.38 seconds
+2026-05-20 01:49:08,774 - INFO - Test output for sympy__sympy-15345 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-15345/test_output.txt
+2026-05-20 01:49:08,907 - INFO - Git diff after:
+diff --git a/sympy/printing/mathematica.py b/sympy/printing/mathematica.py
+index ea7e3a2d9..8b7686df7 100644
+--- a/sympy/printing/mathematica.py
++++ b/sympy/printing/mathematica.py
+@@ -94,7 +94,7 @@ def _print_list(self, expr):
+     _print_Tuple = _print_list
+ 
+     def _print_Function(self, expr):
+-        if expr.func.__name__ in self.known_functions:
++        if expr.func.__name__ == 'Max':
+             cond_mfunc = self.known_functions[expr.func.__name__]
+             for cond, mfunc in cond_mfunc:
+                 if cond(*expr.args):
+2026-05-20 01:49:08,907 - INFO - Grading answer for sympy__sympy-15345...
+2026-05-20 01:49:08,908 - INFO - report: {'sympy__sympy-15345': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_Function']}, 'PASS_TO_PASS': {'success': ['test_Integer', 'test_Rational', 'test_Pow', 'test_Mul', 'test_constants', 'test_containers'], 'failure': ['test_Integral', 'test_Derivative']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-15345: resolved: False
+2026-05-20 01:49:08,908 - INFO - Attempting to stop container sweb.eval.sympy__sympy-15345.gpt4omini_300_direct_repaired...
+2026-05-20 01:49:24,158 - INFO - Attempting to remove container sweb.eval.sympy__sympy-15345.gpt4omini_300_direct_repaired...
+2026-05-20 01:49:24,203 - INFO - Container sweb.eval.sympy__sympy-15345.gpt4omini_300_direct_repaired removed.
+2026-05-20 01:49:24,203 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-15345:latest...
+2026-05-20 01:49:25,389 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-15345:latest removed.

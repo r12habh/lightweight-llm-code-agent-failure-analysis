@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-14774",
+  "raw": "```diff\ndiff --git a/sympy/printing/latex.py b/sympy/printing/latex.py\n--- a/sympy/printing/latex.py\n+++ b/sympy/printing/latex.py\n@@ -112,7 +112,9 @@\n             inv_trig_table = [\"asin\", \"acos\", \"atan\", \"acot\"]\n+            inv_trig_table.extend([\"acsc\", \"asec\"])  # Add full inverse trig functions\n             \n             # If the function is an inverse trig function, handle the style\n             if func in inv_trig_table:\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 23095,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 255,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 23350
+    },
+    "patch": {
+      "input_tokens": 23196,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 127,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 23323
+    }
+  },
+  "localized_files": [
+    "sympy/printing/latex.py",
+    "sympy/printing/tests/test_latex.py",
+    "sympy/printing/printer.py",
+    "sympy/integrals/rubi/rules/inverse_trig.py",
+    "sympy/printing/octave.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/printing/latex.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Defines LaTeX printing logic; requires addition of 'acsc' and 'asec' handling.\"\n    },\n    {\n      \"path\": \"sympy/printing/tests/test_latex.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Contains tests for LaTeX output; should include tests for new inverse trig functions.\"\n    },\n    {\n      \"path\": \"sympy/printing/printer.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Central printing logic; may require checks for new functions.\"\n    },\n    {\n      \"path\": \"sympy/integrals/rubi/rules/inverse_trig.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Contains rules for integrals involving inverse trig functions; may need updates.\"\n    },\n    {\n      \"path\": \"sympy/printing/octave.py\",\n      \"confidence\": 0.4,\n      \"reason\": \"Handles printing for Octave; may need to account for new functions.\"\n    }\n  ]\n}\n```"
+}

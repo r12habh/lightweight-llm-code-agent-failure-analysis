@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11049",
+  "input_patch_chars": 537,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    default_error_messages = {\n        'invalid': _('Enter a valid duration.'),\n    }\n    re_duration = re.compile(r'^(\\d{1,2}):(\\d{2}):(\\d{2})(\\.\\d+)?$')\n\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n\nerror: patch failed: django/db/models/fields/__init__.py:123\nApplying patch django/db/models/fields/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/__init__.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/fields/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

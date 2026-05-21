@@ -1,0 +1,15 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index e16ab8ce5..c5121152f 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -123,6 +123,10 @@ def member_order_option(arg: Any) -> Optional[str]:
+ def class_doc_from_option(arg: Any) -> Optional[str]:
+     """Used to convert the :class-doc-from: option to autoclass directives."""
+     if arg in ('both', 'class', 'init'):
++        # Remove duplicate *args and **kwargs
++        sig = sig.replace(parameters=[p for i, p in enumerate(sig.parameters.values())
++                                     if not (p.kind == Parameter.VAR_POSITIONAL and any(p2.kind == Parameter.VAR_POSITIONAL for p2 in sig.parameters.values()[:i]))
++                                     and not (p.kind == Parameter.VAR_KEYWORD and any(p2.kind == Parameter.VAR_KEYWORD for p2 in sig.parameters.values()[:i]))])
+         return arg
+     else:
+         raise ValueError(__('invalid value for class-doc-from option: %s') % arg)

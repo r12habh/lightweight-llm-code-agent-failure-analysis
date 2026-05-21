@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-18189",
+  "input_patch_chars": 584,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/solvers/diophantine.py...\nerror: while searching for:\n                if not any([xy_coeff, x_coeff]):\n                    # means only x**2, y**2, z**2, const is present\n                    do_permute_signs = True\n                elif not x_coeff:\n                    permute_few_signs = True\n            elif len_var == 2:\n\nerror: patch failed: sympy/solvers/diophantine.py:420\nerror: sympy/solvers/diophantine.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/solvers/diophantine.py...\nerror: while searching for:\n                if not any([xy_coeff, x_coeff]):\n                    # means only x**2, y**2, z**2, const is present\n                    do_permute_signs = True\n                elif not x_coeff:\n                    permute_few_signs = True\n            elif len_var == 2:\n\nerror: patch failed: sympy/solvers/diophantine.py:420\nApplying patch sympy/solvers/diophantine.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 511
+}

@@ -1,0 +1,12 @@
+diff --git a/doc/faq.rst b/doc/faq.rst
+index 49723d134..abdb1e7ab 100644
+--- a/doc/faq.rst
++++ b/doc/faq.rst
+@@ -44,6 +44,8 @@ repository.
+ 
+ .. _usingwith:
+ 
++.. _symbols_issue: https://github.com/sphinx-doc/sphinx/issues/1234
++
+ Using Sphinx with...
+ --------------------

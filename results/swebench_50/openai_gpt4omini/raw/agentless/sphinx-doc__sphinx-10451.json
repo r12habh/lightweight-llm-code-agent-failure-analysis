@@ -1,0 +1,36 @@
+{
+  "instance_id": "sphinx-doc__sphinx-10451",
+  "raw": "```diff\ndiff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py\nindex 2d012f1..1d9eeb5 100644\n--- a/sphinx/ext/autodoc/__init__.py\n+++ b/sphinx/ext/autodoc/__init__.py\n@@ -307,6 +307,7 @@ def merge_members_option(options: Dict) -> None:\n         return\n     \n     members = options.setdefault('members', [])\n+    args_set = set()\n     for key in {'private-members', 'special-members'}:\n         if key in options and options[key] not in (ALL, None):\n             for member in options[key]:\n@@ -315,9 +316\n                 if member not in members:\n                     members.append(member)\n+\n+    # Remove duplicates for *args and **kwargs*\n+    members = [m for m in members if m not in args_set]\n     options['members'] = members\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 18669,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 263,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18932
+    },
+    "patch": {
+      "input_tokens": 18774,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 210,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18984
+    }
+  },
+  "localized_files": [
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/ext/napoleon/__init__.py",
+    "sphinx/ext/autodoc/type_comment.py",
+    "sphinx/ext/autodoc/preserve_defaults.py",
+    "sphinx/ext/napoleon/docstring.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sphinx/ext/autodoc/__init__.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Primary file for autodoc functionality; likely to contain *args/**kwargs handling.\"\n    },\n    {\n      \"path\": \"sphinx/ext/napoleon/__init__.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Handles docstring parsing; may affect how *args/**kwargs are processed.\"\n    },\n    {\n      \"path\": \"sphinx/ext/autodoc/type_comment.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Involves type annotation updates, which might relate to the handling of signatures.\"\n    },\n    {\n      \"path\": \"sphinx/ext/autodoc/preserve_defaults.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"May manage default argument values, potentially affecting how *args/**kwargs are represented.\"\n    },\n    {\n      \"path\": \"sphinx/ext/napoleon/docstring.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Could involve parsing that affects how function signatures, including *args/**kwargs, are rendered.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,181 @@
+2026-05-20 18:24:18,414 - INFO - Creating container for pydata__xarray-4248...
+2026-05-20 18:24:18,496 - INFO - Container for pydata__xarray-4248 created: cc35e561f1a5bdc4c4111149dda86158cb9719532979eb9068c376bb7047bfc4
+2026-05-20 18:24:18,622 - INFO - Container for pydata__xarray-4248 started: cc35e561f1a5bdc4c4111149dda86158cb9719532979eb9068c376bb7047bfc4
+2026-05-20 18:24:18,622 - INFO - Intermediate patch for pydata__xarray-4248 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/pydata__xarray-4248/patch.diff, now applying to container...
+2026-05-20 18:24:18,794 - INFO - >>>>> Applied Patch:
+Checking patch xarray/core/dataset.py...
+Applied patch xarray/core/dataset.py cleanly.
+
+2026-05-20 18:24:18,964 - INFO - Git diff before:
+diff --git a/xarray/core/dataset.py b/xarray/core/dataset.py
+index 9fbaf747..cfb6e0d3 100644
+--- a/xarray/core/dataset.py
++++ b/xarray/core/dataset.py
+@@ -100,6 +100,7 @@ from .variable import (
+     IndexVariable,
+     Variable,
+     as_variable,
++        self._units = {}
+     assert_unique_multiindex_level_names,
+     broadcast_variables,
+ )
+@@ -110,6 +111,7 @@ if TYPE_CHECKING:
+     from .merge import CoercibleMapping
+ 
+     T_DSorDA = TypeVar("T_DSorDA", DataArray, "Dataset")
++                    self._units[key] = getattr(value, 'units', None)
+ 
+     try:
+         from dask.delayed import Delayed
+@@ -120,6 +122,7 @@ if TYPE_CHECKING:
+ # list of attributes of pd.DatetimeIndex that are ndarrays of time info
+ _DATETIMEINDEX_COMPONENTS = [
+     "year",
++                    self._units[key] = getattr(value, 'units', None)
+     "month",
+     "day",
+     "hour",
+@@ -130,6 +133,7 @@ _DATETIMEINDEX_COMPONENTS = [
+     "date",
+     "time",
+     "dayofyear",
++    @property
+     "weekofyear",
+     "dayofweek",
+     "quarter",
+@@ -399,6 +403,11 @@ class DataVariables(Mapping[Hashable, "DataArray"]):
+     def __repr__(self) -> str:
+         return formatting.data_vars_repr(self)
+ 
++    @property
++    def units(self) -> Mapping[Hashable, str]:
++        """Dictionary mapping from variable names to their units."""
++        return self._units
++
+     @property
+     def variables(self) -> Mapping[Hashable, Variable]:
+         all_variables = self._dataset.variables
+@@ -409,6 +418,7 @@ class DataVariables(Mapping[Hashable, "DataArray"]):
+         return [
+             key
+             for key in self._dataset._ipython_key_completions_()
++    @property
+             if key not in self._dataset._coord_names
+         ]
+ 
+@@ -419,6 +429,7 @@ class _LocIndexer:
+     def __init__(self, dataset: "Dataset"):
+         self.dataset = dataset
+ 
++    @property
+     def __getitem__(self, key: Mapping[Hashable, Any]) -> "Dataset":
+         if not utils.is_dict_like(key):
+             raise TypeError("can only lookup dictionaries from Dataset.loc")
+@@ -429,6 +440,7 @@ class Dataset(Mapping, ImplementsDatasetReduce, DataWithCoords):
+     """A multi-dimensional, in memory, array database.
+ 
+     A dataset resembles an in-memory representation of a NetCDF file, and
++    def __repr__(self) -> str:
+     consists of variables, coordinates and attributes which together form a
+     self describing dataset.
+ 
+@@ -439,6 +451,7 @@ class Dataset(Mapping, ImplementsDatasetReduce, DataWithCoords):
+     coordinates used for label based indexing.
+     """
+ 
++    def _repr_html_(self) -> str:
+     _attrs: Optional[Dict[Hashable, Any]]
+     _cache: Dict[str, Any]
+     _coord_names: Set[Hashable]
+2026-05-20 18:24:18,964 - INFO - Eval script for pydata__xarray-4248 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/pydata__xarray-4248/eval.sh; copying to container...
+2026-05-20 18:24:27,070 - INFO - Test runtime: 8.04 seconds
+2026-05-20 18:24:27,073 - INFO - Test output for pydata__xarray-4248 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/pydata__xarray-4248/test_output.txt
+2026-05-20 18:24:27,182 - INFO - Git diff after:
+diff --git a/xarray/core/dataset.py b/xarray/core/dataset.py
+index 9fbaf747..cfb6e0d3 100644
+--- a/xarray/core/dataset.py
++++ b/xarray/core/dataset.py
+@@ -100,6 +100,7 @@ from .variable import (
+     IndexVariable,
+     Variable,
+     as_variable,
++        self._units = {}
+     assert_unique_multiindex_level_names,
+     broadcast_variables,
+ )
+@@ -110,6 +111,7 @@ if TYPE_CHECKING:
+     from .merge import CoercibleMapping
+ 
+     T_DSorDA = TypeVar("T_DSorDA", DataArray, "Dataset")
++                    self._units[key] = getattr(value, 'units', None)
+ 
+     try:
+         from dask.delayed import Delayed
+@@ -120,6 +122,7 @@ if TYPE_CHECKING:
+ # list of attributes of pd.DatetimeIndex that are ndarrays of time info
+ _DATETIMEINDEX_COMPONENTS = [
+     "year",
++                    self._units[key] = getattr(value, 'units', None)
+     "month",
+     "day",
+     "hour",
+@@ -130,6 +133,7 @@ _DATETIMEINDEX_COMPONENTS = [
+     "date",
+     "time",
+     "dayofyear",
++    @property
+     "weekofyear",
+     "dayofweek",
+     "quarter",
+@@ -399,6 +403,11 @@ class DataVariables(Mapping[Hashable, "DataArray"]):
+     def __repr__(self) -> str:
+         return formatting.data_vars_repr(self)
+ 
++    @property
++    def units(self) -> Mapping[Hashable, str]:
++        """Dictionary mapping from variable names to their units."""
++        return self._units
++
+     @property
+     def variables(self) -> Mapping[Hashable, Variable]:
+         all_variables = self._dataset.variables
+@@ -409,6 +418,7 @@ class DataVariables(Mapping[Hashable, "DataArray"]):
+         return [
+             key
+             for key in self._dataset._ipython_key_completions_()
++    @property
+             if key not in self._dataset._coord_names
+         ]
+ 
+@@ -419,6 +429,7 @@ class _LocIndexer:
+     def __init__(self, dataset: "Dataset"):
+         self.dataset = dataset
+ 
++    @property
+     def __getitem__(self, key: Mapping[Hashable, Any]) -> "Dataset":
+         if not utils.is_dict_like(key):
+             raise TypeError("can only lookup dictionaries from Dataset.loc")
+@@ -429,6 +440,7 @@ class Dataset(Mapping, ImplementsDatasetReduce, DataWithCoords):
+     """A multi-dimensional, in memory, array database.
+ 
+     A dataset resembles an in-memory representation of a NetCDF file, and
++    def __repr__(self) -> str:
+     consists of variables, coordinates and attributes which together form a
+     self describing dataset.
+ 
+@@ -439,6 +451,7 @@ class Dataset(Mapping, ImplementsDatasetReduce, DataWithCoords):
+     coordinates used for label based indexing.
+     """
+ 
++    def _repr_html_(self) -> str:
+     _attrs: Optional[Dict[Hashable, Any]]
+     _cache: Dict[str, Any]
+     _coord_names: Set[Hashable]
+2026-05-20 18:24:27,183 - INFO - Grading answer for pydata__xarray-4248...
+2026-05-20 18:24:27,183 - INFO - report: {'pydata__xarray-4248': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['xarray/tests/test_formatting.py::test_inline_variable_array_repr_custom_repr']}, 'PASS_TO_PASS': {'success': [], 'failure': ['xarray/tests/test_formatting.py::TestFormatting::test_get_indexer_at_least_n_items', 'xarray/tests/test_formatting.py::TestFormatting::test_first_n_items', 'xarray/tests/test_formatting.py::TestFormatting::test_last_n_items', 'xarray/tests/test_formatting.py::TestFormatting::test_last_item', 'xarray/tests/test_formatting.py::TestFormatting::test_format_item', 'xarray/tests/test_formatting.py::TestFormatting::test_format_items', 'xarray/tests/test_formatting.py::TestFormatting::test_format_array_flat', 'xarray/tests/test_formatting.py::TestFormatting::test_pretty_print', 'xarray/tests/test_formatting.py::TestFormatting::test_maybe_truncate', 'xarray/tests/test_formatting.py::TestFormatting::test_format_timestamp_out_of_bounds', 'xarray/tests/test_formatting.py::TestFormatting::test_attribute_repr', 'xarray/tests/test_formatting.py::TestFormatting::test_diff_array_repr', 'xarray/tests/test_formatting.py::TestFormatting::test_diff_attrs_repr_with_array', 'xarray/tests/test_formatting.py::TestFormatting::test_diff_dataset_repr', 'xarray/tests/test_formatting.py::TestFormatting::test_array_repr', 'xarray/tests/test_formatting.py::test_set_numpy_options', 'xarray/tests/test_formatting.py::test_short_numpy_repr', 'xarray/tests/test_formatting.py::test_large_array_repr_length']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pydata__xarray-4248: resolved: False
+2026-05-20 18:24:27,183 - INFO - Attempting to stop container sweb.eval.pydata__xarray-4248.qwen7b_200_direct_repaired...
+2026-05-20 18:24:42,406 - INFO - Attempting to remove container sweb.eval.pydata__xarray-4248.qwen7b_200_direct_repaired...
+2026-05-20 18:24:42,426 - INFO - Container sweb.eval.pydata__xarray-4248.qwen7b_200_direct_repaired removed.
+2026-05-20 18:24:42,426 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.pydata_1776_xarray-4248:latest...
+2026-05-20 18:24:42,435 - INFO - Image swebench/sweb.eval.x86_64.pydata_1776_xarray-4248:latest removed.

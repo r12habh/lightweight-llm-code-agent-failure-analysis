@@ -1,0 +1,15 @@
+diff --git a/xarray/core/dataset.py b/xarray/core/dataset.py
+index a024324b..efef0745 100644
+--- a/xarray/core/dataset.py
++++ b/xarray/core/dataset.py
+@@ -151,6 +151,10 @@ def _get_virtual_variable(
+         data = pd.Index(range(dim_sizes[key]), name=key)
+         variable = IndexVariable((key,), data)
+         return key, key, variable
++    elif key in variables:
++        # Handle single-dimension variables
++        variable = variables[key]
++        return key, key, variable
+ 
+     if not isinstance(key, str):
+         raise KeyError(key)

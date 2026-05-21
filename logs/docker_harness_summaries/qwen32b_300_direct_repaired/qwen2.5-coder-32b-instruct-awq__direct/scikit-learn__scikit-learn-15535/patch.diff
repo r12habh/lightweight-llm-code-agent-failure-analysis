@@ -1,0 +1,21 @@
+diff --git a/sklearn/metrics/cluster/_supervised.py b/sklearn/metrics/cluster/_supervised.py
+index 4bddae35c9..3f6e5e2a61 100644
+--- a/sklearn/metrics/cluster/_supervised.py
++++ b/sklearn/metrics/cluster/_supervised.py
+@@ -23,6 +23,7 @@ from scipy import sparse as sp
+ from ._expected_mutual_info_fast import expected_mutual_information
+ from ...utils.validation import check_array, check_consistent_length
+ from ...utils.fixes import comb, _astype_copy_false
++from ...utils.multiclass import unique_labels
+ 
+ 
+ def _comb2(n):
+@@ -117,6 +118,8 @@ def contingency_matrix(labels_true, labels_pred, eps=None, sparse=False):
+     n_clusters = clusters.shape[0]
+     # Using coo_matrix to accelerate simple histogram calculation,
+     # i.e. bins are consecutive integers
++    labels_true = unique_labels(labels_true)
++    labels_pred = unique_labels(labels_pred)
+     # Currently, coo_matrix is faster than histogram2d for simple cases
+     contingency = sp.coo_matrix((np.ones(class_idx.shape[0]),
+                                  (class_idx, cluster_idx)),

@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5495",
+  "input_patch_chars": 727,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/assertion/util.py...\nerror: while searching for:\n            if istext(left) and istext(right):\n                explanation = _diff_text(left, right, verbose)\n            elif isinstance(left, bytes) and isinstance(right, bytes): \n                explanation = _diff_text(left.decode(), right.decode(), verbose)\n            else:\n                if issequence(left) and issequence(right):\n                    explanation = _compare_eq_sequence(left, right, verbose)\n\nerror: patch failed: src/_pytest/assertion/util.py:144\nApplying patch src/_pytest/assertion/util.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/assertion/util.py\nHunk #1 FAILED at 144.\n1 out of 1 hunk FAILED -- saving rejects to file src/_pytest/assertion/util.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

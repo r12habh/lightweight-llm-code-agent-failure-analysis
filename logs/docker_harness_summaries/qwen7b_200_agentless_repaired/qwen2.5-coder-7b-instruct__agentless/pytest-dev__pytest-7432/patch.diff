@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py
+index 7bd975e5a..53b0d0da3 100644
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -265,7 +265,7 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):
+     # unittest special case, see setting of unexpectedsuccess_key
+     if unexpectedsuccess_key in item._store and rep.when == "call":
+         reason = item._store[unexpectedsuccess_key]
+-        if reason:
++        if reason and not item.config.option.runxfail:
+             rep.longrepr = "Unexpected success: {}".format(reason)
+         else:
+             rep.longrepr = "Unexpected success"

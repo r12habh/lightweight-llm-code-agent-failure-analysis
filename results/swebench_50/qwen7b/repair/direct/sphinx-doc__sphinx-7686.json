@@ -1,0 +1,26 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7686",
+  "input_patch_chars": 906,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autosummary/__init__.py...\nHunk #1 succeeded at 115 (offset 15 lines).\nerror: while searching for:\n                TocTree(env).note(env.docname, subnode[0])\n                continue\n            except IndexError:\n                continue\n            if not isinstance(subnode, nodes.section):\n                continue\n            if subnode not in crawled:\n\nerror: patch failed: sphinx/ext/autosummary/__init__.py:110\nApplying patch sphinx/ext/autosummary/__init__.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/autosummary/__init__.py\nHunk #1 succeeded at 115 (offset 15 lines).\nHunk #2 succeeded at 124 with fuzz 2 (offset 14 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

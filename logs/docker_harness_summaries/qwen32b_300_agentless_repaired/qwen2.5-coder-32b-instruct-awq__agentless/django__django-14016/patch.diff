@@ -1,0 +1,21 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 3b2211b3b3..3b06d4557f 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -14,6 +14,7 @@ from collections import Counter, namedtuple
+ from collections.abc import Iterator, Mapping
+ from itertools import chain, count, product
+ from string import ascii_uppercase
++from django.utils.functional import Promise
+ 
+ from django.core.exceptions import FieldDoesNotExist, FieldError
+ from django.db import DEFAULT_DB_ALIAS, NotSupportedError, connections
+@@ -54,6 +55,10 @@ def get_children_from_q(q):
+         if isinstance(child, Node):
+             yield from get_children_from_q(child)
+         else:
++            # Convert dict_keys to a list to make it pickleable
++            if isinstance(child[1], dict.keys):
++                child = (child[0], list(child[1]))
++
+             yield child

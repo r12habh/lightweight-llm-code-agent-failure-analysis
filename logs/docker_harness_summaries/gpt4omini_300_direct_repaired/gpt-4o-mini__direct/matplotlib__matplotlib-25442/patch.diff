@@ -1,0 +1,19 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index 53a3ab0398..300453a301 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -198,6 +198,14 @@ def _get_version():
+         )
+     else:  # Get the version from the _version.py setuptools_scm file.
+         return _version.version
++from matplotlib.backends.backend_qt import QtAgg
++
++def validate_backend_compatibility():
++    """
++    Ensures that the specified backend supports necessary operations for mplcursor.
++    """
++    if QtAgg is None:
++        raise ImportError("QtAgg backend required for mplcursor compatibility.")
+ 
+ 
+ @_api.caching_module_getattr

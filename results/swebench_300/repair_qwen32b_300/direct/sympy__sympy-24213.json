@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-24213",
+  "input_patch_chars": 639,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/physics/units/systems/si.py...\nerror: while searching for:\nSI.set_quantity_dimension(acceleration, length/time**2)\nSI.set_quantity_dimension(force, mass*length/time**2)\nSI.set_quantity_dimension(energy, mass*length**2/time**2)\nSI.set_quantity_dimension(power, energy/time)\nSI.set_quantity_dimension(pressure, force/length**2)\nSI.set_quantity_dimension(charge, current*time)\n\nerror: patch failed: sympy/physics/units/systems/si.py:104\nerror: sympy/physics/units/systems/si.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/physics/units/systems/si.py...\nerror: while searching for:\nSI.set_quantity_dimension(acceleration, length/time**2)\nSI.set_quantity_dimension(force, mass*length/time**2)\nSI.set_quantity_dimension(energy, mass*length**2/time**2)\nSI.set_quantity_dimension(power, energy/time)\nSI.set_quantity_dimension(pressure, force/length**2)\nSI.set_quantity_dimension(charge, current*time)\n\nerror: patch failed: sympy/physics/units/systems/si.py:104\nApplying patch sympy/physics/units/systems/si.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 409
+}

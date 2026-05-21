@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-11148",
+  "input_patch_chars": 665,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 15\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 14:      elif mode == ImportMode.PREPEND:\n\n",
+          "stdout": "patching file src/_pytest/pathlib.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "pydata__xarray-4493",
+  "input_patch_chars": 742,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/dataarray.py...\nerror: while searching for:\n    def __init__(self, data, coords=None, dims=None, name=None, attrs=None):\n        # Process data, coords, and dims\n        if isinstance(data, dask_array_type):  # Check if data is a dask array\n            data = as_compatible_data(data, fastpath=True)  # Force compatible data\n\n        self._variable = Variable(dims, data, attrs=attrs)\n        self._coords, self._dims = _infer_coords_and_dims(self.shape, coords, dims)\n\nerror: patch failed: xarray/core/dataarray.py:483\nApplying patch xarray/core/dataarray.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file xarray/core/dataarray.py\nHunk #1 FAILED at 483.\n1 out of 1 hunk FAILED -- saving rejects to file xarray/core/dataarray.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

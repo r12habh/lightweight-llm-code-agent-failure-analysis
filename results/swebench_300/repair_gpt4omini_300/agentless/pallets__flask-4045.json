@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-4045",
+  "input_patch_chars": 593,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/blueprints.py...\nerror: while searching for:\n\nclass Blueprint(Scaffold):\n    \"\"\"Represents a blueprint, a collection of routes and other\n    app-related functions that can be registered on a real application\n    later.\n    \"\"\"\n\nerror: patch failed: src/flask/blueprints.py:79\nApplying patch src/flask/blueprints.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/flask/blueprints.py\nHunk #1 FAILED at 79.\n1 out of 1 hunk FAILED -- saving rejects to file src/flask/blueprints.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

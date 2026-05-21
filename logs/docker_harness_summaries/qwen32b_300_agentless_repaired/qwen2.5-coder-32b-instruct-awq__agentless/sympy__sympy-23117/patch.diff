@@ -1,0 +1,14 @@
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..e7995cbc28 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -124,6 +124,9 @@ class NDimArray(Printable):
+     >>> b
+     [[1, 2], [3, 4]]
+ 
++                if not shapes:
++                    return [], ()
++                raise ValueError("could not determine shape unambiguously")
+     Arithmetic operations on N-dim arrays
+ 
+     >>> a = MutableDenseNDimArray([1, 1, 1, 1], (2, 2))

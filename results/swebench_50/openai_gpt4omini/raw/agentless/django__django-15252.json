@@ -1,0 +1,35 @@
+{
+  "instance_id": "django__django-15252",
+  "raw": "```diff\ndiff --git a/django/db/migrations/recorder.py b/django/db/migrations/recorder.py\n--- a/django/db/migrations/recorder.py\n+++ b/django/db/migrations/recorder.py\n@@ -81,7 +81,7 @@\n         \"\"\"Ensure the table exists and has the correct schema.\"\"\"\n         # If the table's there, that's fine - we've never changed its schema\n         # in the codebase.\n-        if self.has_table():\n+        if self.has_table() and router.allow_migrate(self.connection.alias, self.Migration):\n             return\n         # Make the table\n         try:\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 17910,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 232,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18142
+    },
+    "patch": {
+      "input_tokens": 18688,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 139,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18827
+    }
+  },
+  "localized_files": [
+    "django/db/migrations/recorder.py",
+    "django/db/migrations/executor.py",
+    "django/db/backends/base/creation.py",
+    "django/core/management/commands/migrate.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/db/migrations/recorder.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Directly involves MigrationRecorder and ensures schema behavior.\"\n    },\n    {\n      \"path\": \"django/db/migrations/executor.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Involves migration execution logic, relevant to migration application.\"\n    },\n    {\n      \"path\": \"django/db/backends/base/creation.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Manages creation of test databases which involves migrations and router behavior.\"\n    },\n    {\n      \"path\": \"django/core/management/commands/migrate.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"Handles the migration command logic, tightly coupled with migration rules.\"\n    },\n    {\n      \"path\": \"docs/topics/db/multi-db.txt\",\n      \"confidence\": 0.6,\n      \"reason\": \"Documentation related to multi-db setups that may require conceptual edits.\"\n    }\n  ]\n}\n```"
+}

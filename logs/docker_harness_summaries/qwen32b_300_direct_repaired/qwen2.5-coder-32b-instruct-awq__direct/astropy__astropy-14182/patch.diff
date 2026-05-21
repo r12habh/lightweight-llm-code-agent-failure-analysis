@@ -1,0 +1,20 @@
+diff --git a/astropy/io/ascii/core.py b/astropy/io/ascii/core.py
+index 381b5b13db..e3020cf652 100644
+--- a/astropy/io/ascii/core.py
++++ b/astropy/io/ascii/core.py
+@@ -1716,6 +1716,7 @@ def _get_reader(Reader, Inputter=None, Outputter=None, **kwargs):
+         reader.header.comment = kwargs["comment"]
+         reader.data.comment = kwargs["comment"]
+     if "quotechar" in kwargs:
++                 header_rows=None,
+         reader.header.splitter.quotechar = kwargs["quotechar"]
+         reader.data.splitter.quotechar = kwargs["quotechar"]
+     if "data_start" in kwargs:
+@@ -1730,6 +1731,7 @@ def _get_reader(Reader, Inputter=None, Outputter=None, **kwargs):
+             # So, ignore this Reader here.
+             if (
+                 ("data_start" not in kwargs)
++        self.header_rows = header_rows
+                 and (default_header_length is not None)
+                 and reader._format_name
+                 not in ["fixed_width_two_line", "commented_header"]

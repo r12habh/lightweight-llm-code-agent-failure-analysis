@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13925",
+  "input_patch_chars": 966,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/options.py...\nerror: while searching for:\n                if field.primary_key and not field.concrete:\n                    continue\n                if field.primary_key and field.auto_created:\n                    warnings.warn(\n                        \"Field %s.%s: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.\\n\"\n                        \"        HINT: Configure the DEFAULT_AUTO_FIELD setting or the %s.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.\"\n\nerror: patch failed: django/db/models/options.py:714\nerror: django/db/models/options.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/options.py...\nerror: while searching for:\n                if field.primary_key and not field.concrete:\n                    continue\n                if field.primary_key and field.auto_created:\n                    warnings.warn(\n                        \"Field %s.%s: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.\\n\"\n                        \"        HINT: Configure the DEFAULT_AUTO_FIELD setting or the %s.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.\"\n\nerror: patch failed: django/db/models/options.py:714\nApplying patch django/db/models/options.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 773
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-17051",
+  "input_patch_chars": 719,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/query.py...\nerror: while searching for:\n                if not self._deferred_filter:\n                    self._filter_or_exclude_inplace(negate, args, kwargs)\n                    self._deferred_filter = None\n            return self._query.get_compiler(using=self.db).execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)\n        else:\n            return self._query.get_compiler(using=self.db).execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)\n\nerror: patch failed: django/db/models/query.py:1234\nerror: django/db/models/query.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/query.py...\nerror: while searching for:\n                if not self._deferred_filter:\n                    self._filter_or_exclude_inplace(negate, args, kwargs)\n                    self._deferred_filter = None\n            return self._query.get_compiler(using=self.db).execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)\n        else:\n            return self._query.get_compiler(using=self.db).execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)\n\nerror: patch failed: django/db/models/query.py:1234\nApplying patch django/db/models/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 592
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8273",
+  "input_patch_chars": 615,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/builders/manpage.py...\nerror: while searching for:\n\n        # Create the output directory if it doesn't exist\n        if not os.path.exists(output_dir):\n            # Create section directories based on man page sections\n            for section in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:\n                section_dir = os.path.join(output_dir, f'man{section}')\n\nerror: patch failed: sphinx/builders/manpage.py:211\nerror: sphinx/builders/manpage.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/builders/manpage.py...\nerror: while searching for:\n\n        # Create the output directory if it doesn't exist\n        if not os.path.exists(output_dir):\n            # Create section directories based on man page sections\n            for section in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:\n                section_dir = os.path.join(output_dir, f'man{section}')\n\nerror: patch failed: sphinx/builders/manpage.py:211\nApplying patch sphinx/builders/manpage.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 352
+}

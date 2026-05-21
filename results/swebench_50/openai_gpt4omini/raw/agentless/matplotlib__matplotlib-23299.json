@@ -1,0 +1,35 @@
+{
+  "instance_id": "matplotlib__matplotlib-23299",
+  "raw": "```diff\ndiff --git a/lib/matplotlib/_pylab_helpers.py b/lib/matplotlib/_pylab_helpers.py\n--- a/lib/matplotlib/_pylab_helpers.py\n+++ b/lib/matplotlib/_pylab_helpers.py\n@@ -78,6 +78,10 @@\n     figs : OrderedDict\n         `OrderedDict` mapping numbers to managers; the active manager is at the\n         end.\n+    rc_context_active : bool\n+        Flag to indicate whether the figures were created in an rc_context.\n+        This helps manage figures properly according to the context.\n+   \n     figs = OrderedDict()\n+    rc_context_active = False\n\n     @classmethod\n     def get_fig_manager(cls, num):\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19218,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 237,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19455
+    },
+    "patch": {
+      "input_tokens": 20337,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 158,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20495
+    }
+  },
+  "localized_files": [
+    "lib/matplotlib/backends/backend_pdf.py",
+    "lib/matplotlib/pyplot.py",
+    "lib/matplotlib/tests/test_backend_qt.py",
+    "lib/matplotlib/_pylab_helpers.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"lib/matplotlib/backends/backend_pdf.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Potential modifications needed for figure management and backend consistency.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/pyplot.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Direct interaction with Gcf and backend functionalities need careful handling.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/tests/test_backend_qt.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Test cases might need updates to validate figure removal post backend calls.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/_pylab_helpers.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Core figure management might require investigation based on the bug.\"\n    },\n    {\n      \"path\": \"doc/users/explain/backends.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"Documentation may need updates to reflect any changes in backend usage.\"\n    }\n  ]\n}\n```"
+}

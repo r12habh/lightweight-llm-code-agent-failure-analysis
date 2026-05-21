@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16229",
+  "input_patch_chars": 763,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    # Field flags\n    hidden = False\n\n\n    many_to_many = None\n    many_to_one = None\n\nerror: patch failed: django/db/models/fields/__init__.py:123\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    # Field flags\n    hidden = False\n\n\n    many_to_many = None\n    many_to_one = None\n\nerror: patch failed: django/db/models/fields/__init__.py:123\nHunk #2 succeeded at 215 (offset 64 lines).\nApplying patch django/db/models/fields/__init__.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1074
+}

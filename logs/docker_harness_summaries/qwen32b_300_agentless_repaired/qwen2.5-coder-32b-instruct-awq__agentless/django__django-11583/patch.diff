@@ -1,0 +1,15 @@
+diff --git a/django/utils/autoreload.py b/django/utils/autoreload.py
+index 25c3b44250..79b4c53f60 100644
+--- a/django/utils/autoreload.py
++++ b/django/utils/autoreload.py
+@@ -130,6 +130,10 @@ def iter_modules_and_files(modules, extra_files):
+         # this is the case, skip them.
+         if spec.has_location:
+             origin = spec.loader.archive if isinstance(spec.loader, zipimporter) else spec.origin
++        if e.errno == 9:  # errno 9 corresponds to EBADF, which can be caused by a null byte in the path
++            logger.warning('Ignoring OSError: %s', e)
++            continue
++
+             sys_file_paths.append(origin)
+ 
+     results = set()

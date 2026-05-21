@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-14774",
+  "input_patch_chars": 611,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n            inv_trig_style = self._settings['inv_trig_style']\n            # If we are dealing with a power-style inverse trig function\n            inv_trig_power_case = False\n            inv_trig_table = [\"asin\", \"acos\", \"atan\", \"acot\"]\n\n            # If the function is an inverse trig function, handle the style\n            if func in inv_trig_table:\n\nerror: patch failed: sympy/printing/latex.py:740\nerror: sympy/printing/latex.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n            inv_trig_style = self._settings['inv_trig_style']\n            # If we are dealing with a power-style inverse trig function\n            inv_trig_power_case = False\n            inv_trig_table = [\"asin\", \"acos\", \"atan\", \"acot\"]\n\n            # If the function is an inverse trig function, handle the style\n            if func in inv_trig_table:\n\nerror: patch failed: sympy/printing/latex.py:740\nApplying patch sympy/printing/latex.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 588
+}

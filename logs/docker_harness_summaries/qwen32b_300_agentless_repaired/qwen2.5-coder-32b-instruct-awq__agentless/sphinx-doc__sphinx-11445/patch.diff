@@ -1,0 +1,11 @@
+diff --git a/sphinx/environment/__init__.py b/sphinx/environment/__init__.py
+index d2beffdd9..94b9428b0 100644
+--- a/sphinx/environment/__init__.py
++++ b/sphinx/environment/__init__.py
+@@ -163,6 +163,7 @@ class BuildEnvironment:
+         self.settings = default_settings.copy()
+         self.settings['env'] = self
+ 
++        self.settings['doctitle_xform'] = False
+         # All "docnames" here are /-separated and relative and exclude
+         # the source suffix.

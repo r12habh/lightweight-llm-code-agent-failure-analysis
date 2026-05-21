@@ -1,0 +1,14 @@
+diff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py
+index 4806afee90..42faf50598 100644
+--- a/sklearn/cluster/_affinity_propagation.py
++++ b/sklearn/cluster/_affinity_propagation.py
+@@ -99,6 +99,9 @@ def affinity_propagation(S, preference=None, convergence_iter=15, max_iter=200,
+     and label ``0`` for every sample will be returned. Otherwise, every
+     training sample becomes its own cluster center and is assigned a unique
+     label.
++    else:
++        # Ensure labels and centers are set for non-convergence
++        labels = np.array([-1] * n_samples)
+ 
+     References
+     ----------

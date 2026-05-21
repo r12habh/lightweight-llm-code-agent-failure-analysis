@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-20154",
+  "input_patch_chars": 2155,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/utilities/iterables.py...\nerror: while searching for:\n# this is the logical location of these functions\nfrom sympy.core.compatibility import (\n    as_int, default_sort_key, is_sequence, iterable, ordered\n)\n\ndef flatten(iterable, levels=None, cls=None):\n    \"\"\"\n\nerror: patch failed: sympy/utilities/iterables.py:17\nerror: sympy/utilities/iterables.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/utilities/iterables.py...\nerror: while searching for:\n# this is the logical location of these functions\nfrom sympy.core.compatibility import (\n    as_int, default_sort_key, is_sequence, iterable, ordered\n)\n\ndef flatten(iterable, levels=None, cls=None):\n    \"\"\"\n\nerror: patch failed: sympy/utilities/iterables.py:17\nApplying patch sympy/utilities/iterables.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 456
+}

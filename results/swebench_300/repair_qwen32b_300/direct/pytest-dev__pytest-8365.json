@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-8365",
+  "input_patch_chars": 682,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/tmpdir.py...\nHunk #1 succeeded at 152 (offset 48 lines).\nerror: while searching for:\n        return None\n    except KeyError:\n        return None\n    else:\n        # sanitize the username to be a valid directory name\n        return re.sub(r'[\\\\/:*?\"<>|]', \"\", user)\n\nerror: patch failed: src/_pytest/tmpdir.py:111\nApplying patch src/_pytest/tmpdir.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/tmpdir.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 152 (offset 48 lines).\nHunk #2 FAILED at 111.\n1 out of 2 hunks FAILED -- saving rejects to file src/_pytest/tmpdir.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

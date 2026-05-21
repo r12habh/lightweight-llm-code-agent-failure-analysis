@@ -1,0 +1,11 @@
+diff --git a/seaborn/_stats/regression.py b/seaborn/_stats/regression.py
+index 7b7ddc8d..7fb9ca7a 100644
+--- a/seaborn/_stats/regression.py
++++ b/seaborn/_stats/regression.py
+@@ -28,6 +28,7 @@ class PolyFit(Stat):
+             xx = yy = []
+         else:
+             p = np.polyfit(x, y, self.order)
++    def _fit_predict(self, data):
+             xx = np.linspace(x.min(), x.max(), self.gridsize)
+             yy = np.polyval(p, xx)

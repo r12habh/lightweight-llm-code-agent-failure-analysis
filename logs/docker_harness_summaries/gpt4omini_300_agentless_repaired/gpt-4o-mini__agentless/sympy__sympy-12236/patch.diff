@@ -1,0 +1,13 @@
+diff --git a/sympy/core/basic.py b/sympy/core/basic.py
+index b992b45c26..bc2d04b932 100644
+--- a/sympy/core/basic.py
++++ b/sympy/core/basic.py
+@@ -308,7 +308,7 @@ def __eq__(self, other):
+         if isinstance(self, UndefFunc) and isinstance(other, UndefFunc):
+             if self.class_key() == other.class_key():
+                 return True
+-            else:
++            else:            
+                 return False
+         if type(self) is not type(other):
+             # issue 6100 a**1.0 == a like a**2.0 == a**2

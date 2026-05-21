@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14017",
+  "input_patch_chars": 466,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/expressions.py...\nerror: while searching for:\n\n    def __rand__(self, other):\n        if isinstance(other, Q):\n            return Q() & self\n        raise NotImplementedError(\n            \"Use .bitand() and .bitor() for bitwise logical operations.\"\n\nerror: patch failed: django/db/models/expressions.py:1108\nerror: django/db/models/expressions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/expressions.py...\nerror: while searching for:\n\n    def __rand__(self, other):\n        if isinstance(other, Q):\n            return Q() & self\n        raise NotImplementedError(\n            \"Use .bitand() and .bitor() for bitwise logical operations.\"\n\nerror: patch failed: django/db/models/expressions.py:1108\nApplying patch django/db/models/expressions.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 509
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-5692",
+  "input_patch_chars": 941,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/_pytest/junitxml.py...\nerror: while searching for:\nimport time\n\nimport py\nimport pytest\nfrom _pytest import nodes\nfrom _pytest.config import filename_arg\n\nerror: patch failed: src/_pytest/junitxml.py:10\nerror: src/_pytest/junitxml.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/junitxml.py...\nerror: while searching for:\nimport time\n\nimport py\nimport pytest\nfrom _pytest import nodes\nfrom _pytest.config import filename_arg\n\nerror: patch failed: src/_pytest/junitxml.py:10\nHunk #2 succeeded at 80 (offset -125 lines).\nHunk #3 succeeded at 123 (offset -184 lines).\nApplying patch src/_pytest/junitxml.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\nHunk #3 applied cleanly.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1554
+}

@@ -1,0 +1,15 @@
+diff --git a/sympy/printing/codeprinter.py b/sympy/printing/codeprinter.py
+index 98f8615621..8ce7b80c1a 100644
+--- a/sympy/printing/codeprinter.py
++++ b/sympy/printing/codeprinter.py
+@@ -130,6 +130,10 @@ def _handle_assign_to(expr, assign_to):
+                 if expr.is_Matrix:
+                     assign_to = MatrixSymbol(assign_to, *expr.shape)
+                 else:
++                    if isinstance(assign_to, MatrixSymbol):
++                        # Ensure the assignment variable is a MatrixSymbol
++                        assign_to = MatrixSymbol(assign_to.name, *expr.shape)
++                    else:
+                     assign_to = Symbol(assign_to)
+             elif not isinstance(assign_to, Basic):
+                 raise TypeError("{} cannot assign to object of type {}".format(

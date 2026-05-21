@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16816",
+  "input_patch_chars": 669,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/admin/utils.py...\nerror: while searching for:\n        label = field.verbose_name\n    except AttributeError:\n        # field is likely a ForeignObjectRel\n        label = field.related_model._meta.verbose_name\nexcept FieldDoesNotExist:\n    if name == \"__str__\":\n\nerror: patch failed: django/contrib/admin/utils.py:165\nerror: django/contrib/admin/utils.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/utils.py...\nerror: while searching for:\n        label = field.verbose_name\n    except AttributeError:\n        # field is likely a ForeignObjectRel\n        label = field.related_model._meta.verbose_name\nexcept FieldDoesNotExist:\n    if name == \"__str__\":\n\nerror: patch failed: django/contrib/admin/utils.py:165\nApplying patch django/contrib/admin/utils.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 636
+}

@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-16139",
+  "raw": "```diff\ndiff --git a/django/contrib/auth/forms.py b/django/contrib/auth/forms.py\n--- a/django/contrib/auth/forms.py\n+++ b/django/contrib/auth/forms.py\n@@ -749,7 +749,7 @@\n             password.help_text = password.help_text.format(\"../password/\")\n+            password.help_text = password.help_text.format(f\"../../{self.instance.pk}/password/\")\n         user_permissions = self.fields.get(\"user_permissions\")\n         if user_permissions:\n             user_permissions.queryset = user_permissions.queryset.select_related(\n```",
+  "usage": {
+    "input_tokens": 18685,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 117,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18802
+  },
+  "localized_files": []
+}

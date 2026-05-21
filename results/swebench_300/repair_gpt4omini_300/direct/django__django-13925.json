@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13925",
+  "input_patch_chars": 1096,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpg0ptkp_3.diff:9: trailing whitespace.\n                 db_index=False, rel=None, default=NOT_PROVIDED, editable=True, \nChecking patch django/db/models/fields/__init__.py...\nHunk #1 succeeded at 130 (offset -70 lines).\nerror: while searching for:\n                 error_messages=None):\n        self.name = name\n        self.verbose_name = verbose_name  # May be set by set_attributes_from_name\n        self.primary_key = primary_key\n        self.max_length, self._unique = max_length, unique\n        self.blank, self.null = blank, null\n\nerror: patch failed: django/db/models/fields/__init__.py:205\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpg0ptkp_3.diff:9: trailing whitespace.\n                 db_index=False, rel=None, default=NOT_PROVIDED, editable=True, \nChecking patch django/db/models/fields/__init__.py...\nHunk #1 succeeded at 130 (offset -70 lines).\nerror: while searching for:\n                 error_messages=None):\n        self.name = name\n        self.verbose_name = verbose_name  # May be set by set_attributes_from_name\n        self.primary_key = primary_key\n        self.max_length, self._unique = max_length, unique\n        self.blank, self.null = blank, null\n\nerror: patch failed: django/db/models/fields/__init__.py:205\nApplying patch django/db/models/fields/__init__.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 523
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-14024",
+  "input_patch_chars": 1061,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/simplify.py...\nHunk #1 succeeded at 6 (offset -4 lines).\nerror: while searching for:\n    if expr.is_Pow:\n        expr = Pow(simplify(expr.base, ratio, measure, rational), expr.exp)\n\n    if expr.is_Add:\n        args = [simplify(arg, ratio, measure, rational) for arg in expr.args]\n        expr = Add(*args)\n\nerror: patch failed: sympy/simplify/simplify.py:104\nApplying patch sympy/simplify/simplify.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/simplify/simplify.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 6 (offset -4 lines).\nHunk #2 FAILED at 104.\n1 out of 2 hunks FAILED -- saving rejects to file sympy/simplify/simplify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

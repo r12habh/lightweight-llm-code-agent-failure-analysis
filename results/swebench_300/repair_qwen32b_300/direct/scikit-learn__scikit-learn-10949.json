@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-10949",
+  "input_patch_chars": 810,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/utils/validation.py...\nerror: while searching for:\n    if warn_on_dtype and dtype_orig is not None and dtype != dtype_orig:\n        warnings.warn(\"Data with input dtype %s was converted to %s.\"\n                      % (dtype_orig, dtype), DataConversionWarning)\n    if ensure_2d:\n        # If input is 1D raise error\n        if array.ndim == 1:\n\nerror: patch failed: sklearn/utils/validation.py:365\nerror: sklearn/utils/validation.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/utils/validation.py...\nerror: while searching for:\n    if warn_on_dtype and dtype_orig is not None and dtype != dtype_orig:\n        warnings.warn(\"Data with input dtype %s was converted to %s.\"\n                      % (dtype_orig, dtype), DataConversionWarning)\n    if ensure_2d:\n        # If input is 1D raise error\n        if array.ndim == 1:\n\nerror: patch failed: sklearn/utils/validation.py:365\nApplying patch sklearn/utils/validation.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 681
+}

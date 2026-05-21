@@ -1,0 +1,15 @@
+diff --git a/src/flask/blueprints.py b/src/flask/blueprints.py
+index 5fb84d86..670b1c74 100644
+--- a/src/flask/blueprints.py
++++ b/src/flask/blueprints.py
+@@ -100,6 +100,10 @@ class BlueprintSetupState:
+             rule,
+             f"{self.name_prefix}{self.blueprint.name}.{endpoint}",
+             view_func,
++
++        if '.' in self.name:
++            raise ValueError(f"Blueprint name '{self.name}' contains a dot, which is not allowed.")
++
+             defaults=defaults,
+             **options,
+         )

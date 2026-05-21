@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5692",
+  "input_patch_chars": 6835,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 167\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 167: @@ -290,6 +3\n\n",
+          "stdout": "patching file src/_pytest/junitxml.py\nHunk #1 succeeded at 19 with fuzz 2 (offset 9 lines).\nHunk #2 succeeded at 62 (offset -39 lines).\nHunk #3 succeeded at 76 with fuzz 3 (offset -39 lines).\nHunk #4 succeeded at 87 with fuzz 3 (offset -39 lines).\nHunk #5 succeeded at 98 with fuzz 3 (offset -39 lines).\nHunk #6 succeeded at 109 with fuzz 3 (offset -39 lines).\nHunk #7 succeeded at 120 with fuzz 3 (offset -39 lines).\nHunk #8 succeeded at 131 with fuzz 3 (offset -39 lines).\nHunk #9 succeeded at 142 with fuzz 3 (offset -39 lines).\nHunk #10 succeeded at 153 with fuzz 3 (offset -39 lines).\nHunk #11 succeeded at 164 with fuzz 3 (offset -39 lines).\nHunk #12 succeeded at 175 with fuzz 3 (offset -39 lines).\nHunk #13 succeeded at 186 with fuzz 3 (offset -39 lines).\nHunk #14 succeeded at 197 with fuzz 3 (offset -39 lines).\nHunk #15 succeeded at 208 with fuzz 3 (offset -39 lines).\nHunk #16 succeeded at 219 with fuzz 3 (offset -39 lines).\nHunk #17 succeeded at 230 with fuzz 3 (offset -39 lines).\nHunk #18 succeeded at 241 with fuzz 3 (offset -39 lines).\nHunk #19 succeeded at 252 with fuzz 3 (offset -39 lines).\nHunk #20 succeeded at 263 with fuzz 3 (offset -39 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

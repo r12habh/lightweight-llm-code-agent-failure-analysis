@@ -1,0 +1,19 @@
+diff --git a/django/contrib/postgres/constraints.py b/django/contrib/postgres/constraints.py
+index 3b12098fe9..d76f35d45f 100644
+--- a/django/contrib/postgres/constraints.py
++++ b/django/contrib/postgres/constraints.py
+@@ -1,5 +1,5 @@
+ from django.db import NotSupportedError
+-from django.db.backends.ddl_references import Statement, Table
++from django.db.backends.ddl_references import Statement, Table, RenameModel
+ from django.db.models import Deferrable, F, Q
+ from django.db.models.constraints import BaseConstraint
+ from django.db.models.expressions import Col
+@@ -48,6 +48,7 @@ class ExclusionConstraint(BaseConstraint):
+         if not isinstance(opclasses, (list, tuple)):
+             raise ValueError(
+                 'ExclusionConstraint.opclasses must be a list or tuple.'
++        self.check.rename = RenameModel(self.name)
+             )
+         if opclasses and len(expressions) != len(opclasses):
+             raise ValueError(

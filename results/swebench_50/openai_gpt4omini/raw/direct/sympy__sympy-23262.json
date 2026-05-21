@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-23262",
+  "raw": "```diff\ndiff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py\nindex 98b1aa1..1e0c199 100644\n--- a/sympy/utilities/lambdify.py\n+++ b/sympy/utilities/lambdify.py\n@@ -177,6 +177,7 @@ def lambdify(args: tUnion[Iterable, 'sympy.core.expr.Expr'], expr: 'sympy.core.\n     # Ensure tuples with a single element are returned correctly\n     if isinstance(expr, tuple) and len(expr) == 1:\n         return f\"({expr[0]},)  # Force tuple\"\n+    elif isinstance(expr, tuple) and len(expr) == 0:\n+        return ()\n \n     # The rest of the lambdify function follows as before...\n```",
+  "usage": {
+    "input_tokens": 21065,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 186,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 21251
+  },
+  "localized_files": []
+}

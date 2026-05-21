@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15902",
+  "input_patch_chars": 442,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp1wynowgn.diff:8: trailing whitespace.\n    \nerror: corrupt patch at line 16\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15:      True\n\n",
+          "stdout": "patching file docs/topics/forms/formsets.txt\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

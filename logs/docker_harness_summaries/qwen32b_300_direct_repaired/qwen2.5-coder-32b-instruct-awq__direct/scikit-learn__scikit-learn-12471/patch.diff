@@ -1,0 +1,12 @@
+diff --git a/sklearn/preprocessing/_encoders.py b/sklearn/preprocessing/_encoders.py
+index 1e05aba597..4c23d73728 100644
+--- a/sklearn/preprocessing/_encoders.py
++++ b/sklearn/preprocessing/_encoders.py
+@@ -104,6 +104,7 @@ class _BaseEncoder(BaseEstimator, TransformerMixin):
+                 if handle_unknown == 'error':
+                     msg = ("Found unknown categories {0} in column {1}"
+                            " during transform".format(diff, i))
++                    msg += " and will be set to the first category."
+                     raise ValueError(msg)
+                 else:
+                     # Set the problematic rows to an acceptable value and

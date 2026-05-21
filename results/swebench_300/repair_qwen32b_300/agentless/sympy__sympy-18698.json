@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18698",
+  "input_patch_chars": 406,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/ntheory/factor_.py...\nerror: while searching for:\n    \"\"\"\n    factors = {}\n    g = gcd(f, f.diff())\n    sqf = f // g\n    for factor, exp in factorint(sqf).items():\n        factors[factor] = exp\n    if all:\n\nerror: patch failed: sympy/ntheory/factor_.py:123\nApplying patch sympy/ntheory/factor_.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/ntheory/factor_.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/ntheory/factor_.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

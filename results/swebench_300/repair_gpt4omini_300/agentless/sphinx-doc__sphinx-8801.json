@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8801",
+  "input_patch_chars": 556,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autodoc/directive.py...\nerror: while searching for:\nAUTODOC_DEFAULT_OPTIONS = ['members', 'undoc-members', 'inherited-members',\n                           'show-inheritance', 'private-members', 'special-members',\n                           'ignore-module-all', 'exclude-members', 'member-order',\n                           'imported-members']\n\nclass DummyOptionSpec(dict):\n\nerror: patch failed: sphinx/ext/autodoc/directive.py:160\nerror: sphinx/ext/autodoc/directive.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/directive.py...\nerror: while searching for:\nAUTODOC_DEFAULT_OPTIONS = ['members', 'undoc-members', 'inherited-members',\n                           'show-inheritance', 'private-members', 'special-members',\n                           'ignore-module-all', 'exclude-members', 'member-order',\n                           'imported-members']\n\nclass DummyOptionSpec(dict):\n\nerror: patch failed: sphinx/ext/autodoc/directive.py:160\nApplying patch sphinx/ext/autodoc/directive.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 594
+}

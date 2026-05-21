@@ -1,0 +1,12 @@
+diff --git a/doc/usage/configuration.rst b/doc/usage/configuration.rst
+index 4881b8629..023b6c443 100644
+--- a/doc/usage/configuration.rst
++++ b/doc/usage/configuration.rst
+@@ -312,6 +312,7 @@ General configuration
+    * ``ref.footnote``
+    * ``ref.doc``
+    * ``ref.python``
++   * ``ref.numref``
+    * ``misc.highlighting_failure``
+    * ``toc.circular``
+    * ``toc.secnum``

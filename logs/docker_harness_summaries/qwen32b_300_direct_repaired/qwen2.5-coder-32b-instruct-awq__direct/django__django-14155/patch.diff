@@ -1,0 +1,23 @@
+diff --git a/django/urls/resolvers.py b/django/urls/resolvers.py
+index 9b00e24509..73013ea81f 100644
+--- a/django/urls/resolvers.py
++++ b/django/urls/resolvers.py
+@@ -28,6 +28,7 @@ from .converters import get_converter
+ from .exceptions import NoReverseMatch, Resolver404
+ from .utils import get_callable
+ 
++from functools import partial
+ 
+ class ResolverMatch:
+     def __init__(self, func, args, kwargs, url_name=None, app_names=None, namespaces=None, route=None, tried=None):
+@@ -111,6 +112,10 @@ class LocaleRegexDescriptor:
+ 
+ 
+ class CheckURLMixin:
++        if isinstance(view, partial):
++            self.func = view.func
++            self.args = view.args
++            self.kwargs = view.keywords
+     def describe(self):
+         """
+         Format the URL pattern for display in warning messages.

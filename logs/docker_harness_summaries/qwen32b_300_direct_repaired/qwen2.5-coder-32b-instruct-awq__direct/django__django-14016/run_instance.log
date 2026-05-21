@@ -1,0 +1,89 @@
+2026-05-20 11:54:04,043 - INFO - Creating container for django__django-14016...
+2026-05-20 11:54:04,099 - INFO - Container for django__django-14016 created: e4f807fc8cd8fcf13108983ebbcd118264149146d4e102ce3f8f9dbd49125afc
+2026-05-20 11:54:04,188 - INFO - Container for django__django-14016 started: e4f807fc8cd8fcf13108983ebbcd118264149146d4e102ce3f8f9dbd49125afc
+2026-05-20 11:54:04,189 - INFO - Intermediate patch for django__django-14016 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14016/patch.diff, now applying to container...
+2026-05-20 11:54:04,346 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/query_utils.py...
+Applied patch django/db/models/query_utils.py cleanly.
+
+2026-05-20 11:54:05,055 - INFO - Git diff before:
+diff --git a/django/db/models/query_utils.py b/django/db/models/query_utils.py
+index c2623f099f..70ce06a8b8 100644
+--- a/django/db/models/query_utils.py
++++ b/django/db/models/query_utils.py
+@@ -11,6 +11,7 @@ import inspect
+ from collections import namedtuple
+ 
+ from django.core.exceptions import FieldError
++
+ from django.db.models.constants import LOOKUP_SEP
+ from django.utils import tree
+ 
+@@ -60,6 +61,10 @@ class Q(tree.Node):
+     def __or__(self, other):
+         return self._combine(other, self.OR)
+ 
++    def __or__(self, other):
++        # Convert dict_keys to list to make it pickleable
++        return self._combine(other, self.__class__, OR, lambda x: list(x) if isinstance(x, dict_keys) else x)
++
+     def __and__(self, other):
+         return self._combine(other, self.AND)
+ 
+@@ -67,6 +72,10 @@ class Q(tree.Node):
+         obj = type(self)()
+         obj.add(self, self.AND)
+         obj.negate()
++        # Convert dict_keys to list to make it pickleable
++        return self._combine(other, self.__class__, OR, lambda x: list(x) if isinstance(x, dict_keys) else x)
++
++    def __and__(self, other):
+         return obj
+ 
+     def resolve_expression(self, query=None, allow_joins=True, reuse=None, summarize=False, for_save=False):
+2026-05-20 11:54:05,056 - INFO - Eval script for django__django-14016 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14016/eval.sh; copying to container...
+2026-05-20 11:54:12,072 - INFO - Test runtime: 6.96 seconds
+2026-05-20 11:54:12,074 - INFO - Test output for django__django-14016 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-14016/test_output.txt
+2026-05-20 11:54:12,193 - INFO - Git diff after:
+diff --git a/django/db/models/query_utils.py b/django/db/models/query_utils.py
+index c2623f099f..70ce06a8b8 100644
+--- a/django/db/models/query_utils.py
++++ b/django/db/models/query_utils.py
+@@ -11,6 +11,7 @@ import inspect
+ from collections import namedtuple
+ 
+ from django.core.exceptions import FieldError
++
+ from django.db.models.constants import LOOKUP_SEP
+ from django.utils import tree
+ 
+@@ -60,6 +61,10 @@ class Q(tree.Node):
+     def __or__(self, other):
+         return self._combine(other, self.OR)
+ 
++    def __or__(self, other):
++        # Convert dict_keys to list to make it pickleable
++        return self._combine(other, self.__class__, OR, lambda x: list(x) if isinstance(x, dict_keys) else x)
++
+     def __and__(self, other):
+         return self._combine(other, self.AND)
+ 
+@@ -67,6 +72,10 @@ class Q(tree.Node):
+         obj = type(self)()
+         obj.add(self, self.AND)
+         obj.negate()
++        # Convert dict_keys to list to make it pickleable
++        return self._combine(other, self.__class__, OR, lambda x: list(x) if isinstance(x, dict_keys) else x)
++
++    def __and__(self, other):
+         return obj
+ 
+     def resolve_expression(self, query=None, allow_joins=True, reuse=None, summarize=False, for_save=False):
+2026-05-20 11:54:12,193 - INFO - Grading answer for django__django-14016...
+2026-05-20 11:54:12,196 - INFO - report: {'django__django-14016': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_combine_and_empty (queries.test_q.QTests)', 'test_combine_or_empty (queries.test_q.QTests)']}, 'PASS_TO_PASS': {'success': ['test_deconstruct (queries.test_q.QTests)', 'test_deconstruct_multiple_kwargs (queries.test_q.QTests)', 'test_deconstruct_nested (queries.test_q.QTests)', 'test_reconstruct (queries.test_q.QTests)'], 'failure': ['test_combine_and_both_empty (queries.test_q.QTests)', 'test_combine_not_q_object (queries.test_q.QTests)', 'test_combine_or_both_empty (queries.test_q.QTests)', 'test_deconstruct_and (queries.test_q.QTests)', 'test_deconstruct_negated (queries.test_q.QTests)', 'test_deconstruct_or (queries.test_q.QTests)', 'test_reconstruct_and (queries.test_q.QTests)', 'test_reconstruct_negated (queries.test_q.QTests)', 'test_reconstruct_or (queries.test_q.QTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14016: resolved: False
+2026-05-20 11:54:12,196 - INFO - Attempting to stop container sweb.eval.django__django-14016.qwen32b_300_direct_repaired...
+2026-05-20 11:54:27,363 - INFO - Attempting to remove container sweb.eval.django__django-14016.qwen32b_300_direct_repaired...
+2026-05-20 11:54:27,382 - INFO - Container sweb.eval.django__django-14016.qwen32b_300_direct_repaired removed.
+2026-05-20 11:54:27,382 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14016:latest...
+2026-05-20 11:54:27,387 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14016:latest removed.

@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-23987",
+  "input_patch_chars": 3589,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/layout_engine.py...\nerror: while searching for:\n    \"\"\"\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self._params = {}\n\n    def set(self, **kwargs):\n        raise NotImplementedError\n\nerror: patch failed: lib/matplotlib/layout_engine.py:100\nChecking patch lib/matplotlib/tests/test_backend_pgf.py...\nerror: while searching for:\n    assert _tex_escape(plain_text) == escaped_text\n\n@needs_pgf_xelatex\n@pytest.mark.backend('pgf')\n@image_comparison(['pgf_xelatex.pdf'], style='default')\ndef test_xelatex():\n    rc_xelatex = {'font.family': 'serif',\n\nerror: patch failed: lib/matplotlib/tests/test_backend_pgf.py:100\nChecking patch tutorials/intermediate/tight_layout_guide.py...\nerror: while searching for:\n    ax.set_xlabel('x-label', fontsize=fontsize)\n    ax.set_ylabel('y-label', fontsize=fontsize)\n    ax.set_title('Title', fontsize=fontsize)\n    plt.tight_layout()\n\nplt.close('all')\nfig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2)\n\nerror: patch failed: tutorials/intermediate/tight_layout_guide.py:100\nChecking patch doc/api/prev_api_changes/api_changes_3.6.0/behaviour.rst...\nerror: while searching for:\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nFormerly, `~.pyplot.get_cmap` and `.cm.get_cmap` returned a global version of a\n.Colormap`. This was prone to errors as modification of the colormap would\npropagate from one location to another without warning. Now, a new copy of the\ncolormap is returned.\n\n\nerror: patch failed: doc/api/prev_api_changes/api_changes_3.6.0/behaviour.rst:100\nChecking patch lib/matplotlib/_constrained_layout.py...\nerror: while searching for:\n    \"\"\"\n    renderer = fig._get_renderer()\n    # make layoutgrid tree...\n    layoutgrids = make_layoutgrids(fig, None, rect=rect)\n    if not layoutgrids['hasgrids']:\n        _api.warn_external('There are no gridspecs with layoutgrids. '\n                           'Possibly did not call parent GridSpec with the'\n\nerror: patch failed: lib/matplotlib/_constrained_layout.py:100\nChecking patch lib/matplotlib/_tight_layout.py...\nerror: while searching for:\n    \"\"\"\n    renderer = fig._get_renderer()\n    # make layoutgrid tree...\n    layoutgrids = make_layoutgrids(fig, None, rect=rect)\n    if not layoutgrids['hasgrids']:\n        _api.warn_external('There are no gridspecs with layoutgrids. '\n                           'Possibly did not call parent GridSpec with the'\n\nerror: patch failed: lib/matplotlib/_tight_layout.py:100\nApplying patch lib/matplotlib/layout_engine.py with 1 reject...\nRejected hunk #1.\nApplying patch lib/matplotlib/tests/test_backend_pgf.py with 1 reject...\nRejected hunk #1.\nApplying patch tutorials/intermediate/tight_layout_guide.py with 1 reject...\nRejected hunk #1.\nApplying patch doc/api/prev_api_changes/api_changes_3.6.0/behaviour.rst with 1 reject...\nRejected hunk #1.\nApplying patch lib/matplotlib/_constrained_layout.py with 1 reject...\nRejected hunk #1.\nApplying patch lib/matplotlib/_tight_layout.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/layout_engine.py\nHunk #1 succeeded at 61 with fuzz 1 (offset -39 lines).\npatching file lib/matplotlib/tests/test_backend_pgf.py\nHunk #1 succeeded at 78 with fuzz 2 (offset -22 lines).\npatching file tutorials/intermediate/tight_layout_guide.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file tutorials/intermediate/tight_layout_guide.py.rej\npatching file doc/api/prev_api_changes/api_changes_3.6.0/behaviour.rst\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file doc/api/prev_api_changes/api_changes_3.6.0/behaviour.rst.rej\npatching file lib/matplotlib/_constrained_layout.py\nHunk #1 succeeded at 101 with fuzz 1 (offset 1 line).\npatching file lib/matplotlib/_tight_layout.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file lib/matplotlib/_tight_layout.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

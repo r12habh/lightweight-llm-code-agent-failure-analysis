@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-14308",
+  "input_patch_chars": 538,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/pretty/stringpict.py...\nerror: while searching for:\n       \"\"\"Initialize from string.\n       Multiline strings are centered.\n       \"\"\"\n        self.s = s\n       #picture is a string that just can be printed\n       self.picture = stringPict.equalLengths(s.splitlines())\n       #baseline is the line number of the \"base line\"\n\nerror: patch failed: sympy/printing/pretty/stringpict.py:27\nerror: sympy/printing/pretty/stringpict.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/stringpict.py...\nerror: while searching for:\n       \"\"\"Initialize from string.\n       Multiline strings are centered.\n       \"\"\"\n        self.s = s\n       #picture is a string that just can be printed\n       self.picture = stringPict.equalLengths(s.splitlines())\n       #baseline is the line number of the \"base line\"\n\nerror: patch failed: sympy/printing/pretty/stringpict.py:27\nApplying patch sympy/printing/pretty/stringpict.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 615
+}

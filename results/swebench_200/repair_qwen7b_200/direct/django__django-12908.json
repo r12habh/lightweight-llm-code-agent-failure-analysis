@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12908",
+  "input_patch_chars": 653,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch tests/gis_tests/geoapp/tests.py...\nerror: while searching for:\n        qs = City.objects.distinct('name').order_by('name', 'id')\n        qs = Staff.objects.filter(pk__in=qs).order_by('name')\n        self.assertSequenceEqual(qs, [self.p1_o1, self.p2_o1, self.p3_o1])\n        qs = Staff.objects.distinct('name').order_by('name', '-id')\n        qs = Staff.objects.filter(pk__in=qs).order_by('name')\n        self.assertSequenceEqual(qs, [self.p1_o2, self.p2_o1, self.p3_o1])\n\nerror: patch failed: tests/gis_tests/geoapp/tests.py:123\nerror: tests/gis_tests/geoapp/tests.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch tests/gis_tests/geoapp/tests.py...\nerror: while searching for:\n        qs = City.objects.distinct('name').order_by('name', 'id')\n        qs = Staff.objects.filter(pk__in=qs).order_by('name')\n        self.assertSequenceEqual(qs, [self.p1_o1, self.p2_o1, self.p3_o1])\n        qs = Staff.objects.distinct('name').order_by('name', '-id')\n        qs = Staff.objects.filter(pk__in=qs).order_by('name')\n        self.assertSequenceEqual(qs, [self.p1_o2, self.p2_o1, self.p3_o1])\n\nerror: patch failed: tests/gis_tests/geoapp/tests.py:123\nApplying patch tests/gis_tests/geoapp/tests.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 546
+}

@@ -1,0 +1,21 @@
+diff --git a/src/_pytest/tmpdir.py b/src/_pytest/tmpdir.py
+index 29c7e19d7..1dae11680 100644
+--- a/src/_pytest/tmpdir.py
++++ b/src/_pytest/tmpdir.py
+@@ -104,6 +104,7 @@ class TempPathFactory:
+         if self._basetemp is not None:
+             return self._basetemp
+ 
++    import re
+         if self._given_basetemp is not None:
+             basetemp = self._given_basetemp
+             ensure_reset_dir(basetemp)
+@@ -111,6 +112,8 @@ class TempPathFactory:
+         else:
+             from_env = os.environ.get("PYTEST_DEBUG_TEMPROOT")
+             temproot = Path(from_env or tempfile.gettempdir()).resolve()
++    except OSError:
++        return None
+             user = get_user() or "unknown"
+             # use a sub-directory in the temproot to speed-up
+             # make_numbered_dir() call

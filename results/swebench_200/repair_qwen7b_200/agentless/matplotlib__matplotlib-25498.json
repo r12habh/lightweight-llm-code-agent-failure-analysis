@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25498",
+  "input_patch_chars": 625,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 20\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/colorbar.py\nHunk #1 FAILED at 964.\nHunk #2 succeeded at 972 with fuzz 3.\n1 out of 2 hunks FAILED -- saving rejects to file lib/matplotlib/colorbar.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

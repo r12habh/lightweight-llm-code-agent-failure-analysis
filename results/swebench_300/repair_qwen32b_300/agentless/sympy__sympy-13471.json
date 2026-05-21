@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13471",
+  "input_patch_chars": 533,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/numbers.py...\nerror: while searching for:\n        if isinstance(arg, string_types):\n            if 'e' in arg or 'E' in arg:\n                return cls._parse_e(arg, prec)\n            elif 'L' in arg:\n                return cls._parse_long(arg, prec)\n            else:\n                return cls._parse_str(arg, prec)\n\nerror: patch failed: sympy/core/numbers.py:1042\nApplying patch sympy/core/numbers.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/core/numbers.py\nHunk #1 FAILED at 1042.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/core/numbers.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

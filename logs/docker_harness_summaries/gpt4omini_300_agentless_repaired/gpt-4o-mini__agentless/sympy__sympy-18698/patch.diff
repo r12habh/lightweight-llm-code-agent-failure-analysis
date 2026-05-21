@@ -1,0 +1,13 @@
+diff --git a/sympy/ntheory/factor_.py b/sympy/ntheory/factor_.py
+index be2d654f59..7095f5dfa2 100644
+--- a/sympy/ntheory/factor_.py
++++ b/sympy/ntheory/factor_.py
+@@ -633,7 +633,7 @@ def pollard_rho(n, s=2, a=1, retries=5, seed=1234, max_steps=None, F=None):
+         if not F:
+             F = lambda x: (pow(x, 2, n) + a) % n
+         j = 0
+-        while 1:
++        while True:
+             if max_steps and (j > max_steps):
+                 break
+             j += 1

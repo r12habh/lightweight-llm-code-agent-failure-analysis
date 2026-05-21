@@ -1,0 +1,12 @@
+diff --git a/pylint/checkers/misc.py b/pylint/checkers/misc.py
+index 69149e61a..54b44d40f 100644
+--- a/pylint/checkers/misc.py
++++ b/pylint/checkers/misc.py
+@@ -123,7 +123,7 @@ class EncodingChecker(BaseChecker):
+         if self.config.notes_rgx:
+             regex_string = rf"#\s*({notes}|{self.config.notes_rgx})\b"
+         else:
+-            regex_string = rf"#\s*({notes})\b"
++            regex_string = rf"#\s*({notes})\b|#\s*({notes})\s*\b"
+ 
+         self._fixme_pattern = re.compile(regex_string, re.I)

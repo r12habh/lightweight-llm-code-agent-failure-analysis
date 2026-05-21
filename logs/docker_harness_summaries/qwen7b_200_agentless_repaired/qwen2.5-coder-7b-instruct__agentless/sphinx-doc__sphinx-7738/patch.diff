@@ -1,0 +1,13 @@
+diff --git a/sphinx/ext/napoleon/docstring.py b/sphinx/ext/napoleon/docstring.py
+index 11409e6f6..63fc3b124 100644
+--- a/sphinx/ext/napoleon/docstring.py
++++ b/sphinx/ext/napoleon/docstring.py
+@@ -137,7 +137,7 @@ class GoogleDocstring:
+         self._line_iter = modify_iter(lines, modifier=lambda s: s.rstrip())
+         self._parsed_lines = []  # type: List[str]
+         self._is_in_section = False
+-        self._section_indent = 0
++        self._section_indent = 1
+         if not hasattr(self, '_directive_sections'):
+             self._directive_sections = []  # type: List[str]
+         if not hasattr(self, '_sections'):

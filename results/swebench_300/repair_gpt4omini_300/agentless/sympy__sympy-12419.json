@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-12419",
+  "input_patch_chars": 414,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/power.py...\nerror: while searching for:\n\n    # ... existing methods ...\n\n    # ... existing code ...\n\n        # Newlined portion to handle cases for identity matrix check \n\nerror: patch failed: sympy/core/power.py:657\nerror: sympy/core/power.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/power.py...\nerror: while searching for:\n\n    # ... existing methods ...\n\n    # ... existing code ...\n\n        # Newlined portion to handle cases for identity matrix check \n\nerror: patch failed: sympy/core/power.py:657\nApplying patch sympy/core/power.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 449
+}

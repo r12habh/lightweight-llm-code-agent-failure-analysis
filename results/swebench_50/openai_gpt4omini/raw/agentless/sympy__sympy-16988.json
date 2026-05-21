@@ -1,0 +1,34 @@
+{
+  "instance_id": "sympy__sympy-16988",
+  "raw": "```diff\ndiff --git a/sympy/sets/handlers/intersection.py b/sympy/sets/handlers/intersection.py\n--- a/sympy/sets/handlers/intersection.py\n+++ b/sympy/sets/handlers/intersection.py\n@@ -4,6 +4,7 @@\n \n @dispatch(ConditionSet, Set)\n def intersection_sets(a, b):\n+    b = FiniteSet(*b.args)  # Normalize b to remove duplicates\n     return ConditionSet(a.sym, a.condition, Intersection(a.base_set, b))\n \n @dispatch(Naturals, Integers)\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 22142,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 144,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22286
+    },
+    "patch": {
+      "input_tokens": 22221,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 130,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22351
+    }
+  },
+  "localized_files": [
+    "sympy/sets/handlers/intersection.py",
+    "sympy/functions/elementary/piecewise.py",
+    "sympy/concrete/guess.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/sets/handlers/intersection.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"The intersection logic may need to handle duplicate elements.\"\n    },\n    {\n      \"path\": \"sympy/functions/elementary/piecewise.py\",\n      \"confidence\": 0.75,\n      \"reason\": \"Piecewise handling may require updates for duplicate removal.\"\n    },\n    {\n      \"path\": \"sympy/concrete/guess.py\",\n      \"confidence\": 0.60,\n      \"reason\": \"Contains logic that might interact with sequence evaluations affected by duplicates.\"\n    }\n  ]\n}\n```"
+}

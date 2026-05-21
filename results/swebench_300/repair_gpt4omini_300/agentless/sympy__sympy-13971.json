@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13971",
+  "input_patch_chars": 780,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/interactive/printing.py...\nerror: while searching for:\n                   return '$$%s$$' % s\n\n    def _print_latex_png(o):\n        \"\"\"A function that returns a png rendered by an external latex\n        distribution, falling back to matplotlib rendering\n        \"\"\"\n        if _can_print_latex(o):\n\nerror: patch failed: sympy/interactive/printing.py:210\nHunk #2 succeeded at 148 (offset -109 lines).\nApplying patch sympy/interactive/printing.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/interactive/printing.py\nHunk #1 FAILED at 210.\nHunk #2 FAILED at 257.\n2 out of 2 hunks FAILED -- saving rejects to file sympy/interactive/printing.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

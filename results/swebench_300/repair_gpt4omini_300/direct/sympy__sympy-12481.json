@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-12481",
+  "input_patch_chars": 854,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 17\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 17: @@ -110,7 +113\n\n",
+          "stdout": "patching file sympy/combinatorics/permutations.py\nHunk #1 FAILED at 100.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

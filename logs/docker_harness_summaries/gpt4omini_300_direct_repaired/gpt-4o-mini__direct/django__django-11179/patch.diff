@@ -1,0 +1,16 @@
+diff --git a/django/db/models/deletion.py b/django/db/models/deletion.py
+index 92fe4affb9..33d69a19da 100644
+--- a/django/db/models/deletion.py
++++ b/django/db/models/deletion.py
+@@ -280,6 +280,11 @@ class Collector:
+                 return count, {model._meta.label: count}
+ 
+         with transaction.atomic(using=self.using, savepoint=False):
++            # Clear primary keys for models with no dependencies
++            if len(self.data) == 1 and len(instances) == 1:
++                instance = list(instances)[0]
++                instance.pk = None
++
+             # send pre_delete signals
+             for model, obj in self.instances_with_model():
+                 if not model._meta.auto_created:

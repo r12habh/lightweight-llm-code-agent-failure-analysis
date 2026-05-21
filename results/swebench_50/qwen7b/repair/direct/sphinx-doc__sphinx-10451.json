@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-10451",
+  "input_patch_chars": 567,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autodoc/type_comment.py...\nerror: while searching for:\n                params.append(param)\n\n    if node.args.vararg:\n        param = Parameter(node.args.vararg.arg, Parameter.VAR_POSITIONAL,\n        params.append(param)\n\n    for arg in node.args.kwonlyargs:\n\nerror: patch failed: sphinx/ext/autodoc/type_comment.py:100\nerror: sphinx/ext/autodoc/type_comment.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/type_comment.py...\nerror: while searching for:\n                params.append(param)\n\n    if node.args.vararg:\n        param = Parameter(node.args.vararg.arg, Parameter.VAR_POSITIONAL,\n        params.append(param)\n\n    for arg in node.args.kwonlyargs:\n\nerror: patch failed: sphinx/ext/autodoc/type_comment.py:100\nApplying patch sphinx/ext/autodoc/type_comment.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 639
+}

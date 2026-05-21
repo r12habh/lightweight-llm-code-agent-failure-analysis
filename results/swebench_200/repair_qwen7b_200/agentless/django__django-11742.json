@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11742",
+  "input_patch_chars": 551,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/howto/custom-model-fields.txt...\nerror: while searching for:\n        super().__init__(*args, **kwargs)\n\n    def get_prep_value(self, value):\n        return value\n\n    def from_db_value(self, value, expression, connection):\n\nerror: patch failed: docs/howto/custom-model-fields.txt:100\nerror: docs/howto/custom-model-fields.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/howto/custom-model-fields.txt...\nerror: while searching for:\n        super().__init__(*args, **kwargs)\n\n    def get_prep_value(self, value):\n        return value\n\n    def from_db_value(self, value, expression, connection):\n\nerror: patch failed: docs/howto/custom-model-fields.txt:100\nApplying patch docs/howto/custom-model-fields.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 811
+}

@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index 53a3ab0398..5e1b7d2af8 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -101,6 +101,7 @@ developed and maintained by a host of others.
+ Occasionally the internal documentation (python docstrings) will refer
+ to MATLAB®, a registered trademark of The MathWorks, Inc.
+ 
++A new feature to fix the bug.
+ """
+ 
+ import atexit

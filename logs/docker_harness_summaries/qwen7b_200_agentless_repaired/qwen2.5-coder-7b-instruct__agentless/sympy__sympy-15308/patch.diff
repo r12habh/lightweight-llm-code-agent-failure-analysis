@@ -1,0 +1,12 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index a0eb97792e..f5ac9b7570 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -100,6 +100,7 @@
+     # Faces
+     'bold': lambda s: r'\boldsymbol{'+s+r'}',
+     'bm': lambda s: r'\boldsymbol{'+s+r'}',
++        self._settings['fold_func_brackets'] = False
+     'cal': lambda s: r'\mathcal{'+s+r'}',
+     'scr': lambda s: r'\mathscr{'+s+r'}',
+     'frak': lambda s: r'\mathfrak{'+s+r'}',

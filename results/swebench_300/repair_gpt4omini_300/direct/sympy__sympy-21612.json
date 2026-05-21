@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-21612",
+  "input_patch_chars": 515,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/parsing/latex/_parse_latex_antlr.py...\nerror: while searching for:\n        # Handle fraction\n        if hasattr(comp, 'frac'):\n            return convert_frac(comp.frac())\n        elif comp.frac():\n            return convert_expr(comp.expr())\n        elif comp.binom():\n            return convert_binom(comp.binom())\n\nerror: patch failed: sympy/parsing/latex/_parse_latex_antlr.py:679\nApplying patch sympy/parsing/latex/_parse_latex_antlr.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/parsing/latex/_parse_latex_antlr.py\nHunk #1 FAILED at 679.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/parsing/latex/_parse_latex_antlr.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12856",
+  "input_patch_chars": 933,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpuek6taxl.diff:20: trailing whitespace.\n                \nerror: corrupt patch at line 24\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 23:              return ()\n\n",
+          "stdout": "patching file django/db/models/options.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

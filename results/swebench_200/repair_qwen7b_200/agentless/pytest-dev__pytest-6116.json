@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-6116",
+  "input_patch_chars": 1287,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/_pytest/runner.py...\nerror: while searching for:\nimport sys\nimport os\nimport re\n\nfrom _pytest.config import UsageError\nfrom _pytest.main import ExitCode\n\nerror: patch failed: src/_pytest/runner.py:10\nerror: src/_pytest/runner.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/runner.py...\nerror: while searching for:\nimport sys\nimport os\nimport re\n\nfrom _pytest.config import UsageError\nfrom _pytest.main import ExitCode\n\nerror: patch failed: src/_pytest/runner.py:10\nerror: while searching for:\n    parser.addoption(\n        \"--collect-only\", action=\"store_true\", help=\"only collect tests, no execution\"\n    )\n\ndef pytest_collection(session):\n    if session.config.getoption(\"--collect-only\"):\n\nerror: patch failed: src/_pytest/runner.py:100\nerror: while searching for:\n        session.perform_collection()\n        session.exitstatus = ExitCode.OK\n        session.config.hook.pytest_collection_modifyitems(session=session, config=session.config, items=session.items)\n    else:\n        session.perform_collection()\n        session.perform_run()\n\nerror: patch failed: src/_pytest/runner.py:110\nApplying patch src/_pytest/runner.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1160
+}

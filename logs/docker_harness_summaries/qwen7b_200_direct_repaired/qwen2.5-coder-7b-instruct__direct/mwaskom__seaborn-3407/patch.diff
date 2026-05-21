@@ -1,0 +1,13 @@
+diff --git a/seaborn/axisgrid.py b/seaborn/axisgrid.py
+index 75349099..5537288a 100644
+--- a/seaborn/axisgrid.py
++++ b/seaborn/axisgrid.py
+@@ -2142,7 +2142,7 @@ def pairplot(
+     diag_kws.setdefault("legend", False)
+     if diag_kind == "hist":
+         grid.map_diag(histplot, **diag_kws)
+-    elif diag_kind == "kde":
++    elif diag_kind == "kde" and not isinstance(data, pd.MultiIndex):
+         diag_kws.setdefault("fill", True)
+         diag_kws.setdefault("warn_singular", False)
+         grid.map_diag(kdeplot, **diag_kws)

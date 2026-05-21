@@ -1,0 +1,12 @@
+diff --git a/doc/man/sphinx-build.rst b/doc/man/sphinx-build.rst
+index 1ef0e07dc..c51d676bd 100644
+--- a/doc/man/sphinx-build.rst
++++ b/doc/man/sphinx-build.rst
+@@ -12,7 +12,7 @@ Description
+ :program:`sphinx-build` generates documentation from the files in
+ ``<sourcedir>`` and places it in the ``<outputdir>``.
+ 
+-:program:`sphinx-build` looks for ``<sourcedir>/conf.py`` for the configuration
++:program:`sphinx-build` looks for ``<sourcedir>/conf.py`` for the configuration settings.
+ settings.  :manpage:`sphinx-quickstart(1)` may be used to generate template
+ files, including ``conf.py``.

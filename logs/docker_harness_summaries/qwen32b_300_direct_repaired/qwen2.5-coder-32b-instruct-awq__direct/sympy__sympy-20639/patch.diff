@@ -1,0 +1,14 @@
+diff --git a/sympy/printing/pretty/pretty.py b/sympy/printing/pretty/pretty.py
+index df7452ee87..6eb54a1f62 100644
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -1044,6 +1044,10 @@ def _print_BasisDependent(self, expr):
+                 else:
+                     #We always wrap the measure numbers in
+                     #parentheses
++            if e.exp == E**-1:
++                pform = prettyForm(*pform.root())
++                pform = prettyForm(*pform.right('E'))
++            else:
+                     arg_str = self._print(
+                         v).parens()[0]

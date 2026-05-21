@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-15308",
+  "input_patch_chars": 447,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n        return r\"\\frac{1}{%s}\" % self._print(expr.args[0])\n\n    def _print_Trace(self, expr):\n\n    def _print_Transpose(self, expr):\n        return r\"%s^{\\top}\" % self._print(expr.args[0])\n\nerror: patch failed: sympy/printing/latex.py:100\nerror: sympy/printing/latex.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n        return r\"\\frac{1}{%s}\" % self._print(expr.args[0])\n\n    def _print_Trace(self, expr):\n\n    def _print_Transpose(self, expr):\n        return r\"%s^{\\top}\" % self._print(expr.args[0])\n\nerror: patch failed: sympy/printing/latex.py:100\nApplying patch sympy/printing/latex.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 495
+}

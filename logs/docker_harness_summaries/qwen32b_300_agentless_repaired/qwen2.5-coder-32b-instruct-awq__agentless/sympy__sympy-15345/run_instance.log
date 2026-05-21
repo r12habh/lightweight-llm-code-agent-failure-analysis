@@ -1,0 +1,46 @@
+2026-05-20 16:17:21,720 - INFO - Creating container for sympy__sympy-15345...
+2026-05-20 16:17:22,591 - INFO - Container for sympy__sympy-15345 created: f79bb577bb7b20acecef8c779fa6ecc784f33c166a5baf3543e35b018edd6759
+2026-05-20 16:17:22,766 - INFO - Container for sympy__sympy-15345 started: f79bb577bb7b20acecef8c779fa6ecc784f33c166a5baf3543e35b018edd6759
+2026-05-20 16:17:22,767 - INFO - Intermediate patch for sympy__sympy-15345 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-15345/patch.diff, now applying to container...
+2026-05-20 16:17:22,938 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 16:17:23,008 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 16:17:23,082 - INFO - >>>>> Applied Patch:
+patching file sympy/printing/mathematica.py
+
+2026-05-20 16:17:23,543 - INFO - Git diff before:
+diff --git a/sympy/printing/mathematica.py b/sympy/printing/mathematica.py
+index ea7e3a2d94..9ce3c4163f 100644
+--- a/sympy/printing/mathematica.py
++++ b/sympy/printing/mathematica.py
+@@ -97,7 +97,7 @@ def _print_Function(self, expr):
+         if expr.func.__name__ in self.known_functions:
+             cond_mfunc = self.known_functions[expr.func.__name__]
+             for cond, mfunc in cond_mfunc:
+-                if cond(*expr.args):
++                if cond(*expr.args) or expr.func.__name__ == 'Max':
+                     return "%s[%s]" % (mfunc, self.stringify(expr.args, ", "))
+         return expr.func.__name__ + "[%s]" % self.stringify(expr.args, ", ")
+2026-05-20 16:17:23,544 - INFO - Eval script for sympy__sympy-15345 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-15345/eval.sh; copying to container...
+2026-05-20 16:17:28,205 - INFO - Test runtime: 4.59 seconds
+2026-05-20 16:17:28,206 - INFO - Test output for sympy__sympy-15345 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/sympy__sympy-15345/test_output.txt
+2026-05-20 16:17:28,316 - INFO - Git diff after:
+diff --git a/sympy/printing/mathematica.py b/sympy/printing/mathematica.py
+index ea7e3a2d94..9ce3c4163f 100644
+--- a/sympy/printing/mathematica.py
++++ b/sympy/printing/mathematica.py
+@@ -97,7 +97,7 @@ def _print_Function(self, expr):
+         if expr.func.__name__ in self.known_functions:
+             cond_mfunc = self.known_functions[expr.func.__name__]
+             for cond, mfunc in cond_mfunc:
+-                if cond(*expr.args):
++                if cond(*expr.args) or expr.func.__name__ == 'Max':
+                     return "%s[%s]" % (mfunc, self.stringify(expr.args, ", "))
+         return expr.func.__name__ + "[%s]" % self.stringify(expr.args, ", ")
+2026-05-20 16:17:28,316 - INFO - Grading answer for sympy__sympy-15345...
+2026-05-20 16:17:28,317 - INFO - report: {'sympy__sympy-15345': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_Function']}, 'PASS_TO_PASS': {'success': ['test_Integer', 'test_Rational', 'test_Pow', 'test_Mul', 'test_constants', 'test_containers', 'test_Integral', 'test_Derivative'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-15345: resolved: False
+2026-05-20 16:17:28,318 - INFO - Attempting to stop container sweb.eval.sympy__sympy-15345.qwen32b_300_agentless_repaired...
+2026-05-20 16:17:43,464 - INFO - Attempting to remove container sweb.eval.sympy__sympy-15345.qwen32b_300_agentless_repaired...
+2026-05-20 16:17:43,484 - INFO - Container sweb.eval.sympy__sympy-15345.qwen32b_300_agentless_repaired removed.
+2026-05-20 16:17:43,487 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-15345:latest...
+2026-05-20 16:17:43,509 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-15345:latest removed.

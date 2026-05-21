@@ -1,0 +1,15 @@
+diff --git a/doc/usage/extensions/autodoc.rst b/doc/usage/extensions/autodoc.rst
+index e3d551dd4..fb9c1e89e 100644
+--- a/doc/usage/extensions/autodoc.rst
++++ b/doc/usage/extensions/autodoc.rst
+@@ -32,6 +32,11 @@ For this to work, the docstrings must of course be written in correct
+ reStructuredText.  You can then use all of the usual Sphinx markup in the
+ docstrings, and it will end up correctly in the documentation.  Together with
+ hand-written documentation, this technique eases the pain of having to maintain
++
++   .. admonition:: Note
++      :class: note
++      The `:inherited-members:` option now supports a list of classes to ignore inherited members from.
++
+ two locations for documentation, while at the same time avoiding
+ auto-generated-looking pure API documentation.

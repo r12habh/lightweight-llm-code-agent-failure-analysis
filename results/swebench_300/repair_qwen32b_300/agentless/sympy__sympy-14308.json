@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-14308",
+  "input_patch_chars": 644,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/physics/vector/printing.py...\nerror: while searching for:\n        pform = prettyForm(*pform.left('('))\n        pform = prettyForm(*pform.right(')'))\n        pform = prettyForm(*pform.left(self._print(U('MULTIPLICATION SIGN'))))\n        pform = prettyForm(*pform.left(')'))\n        pform = prettyForm(*pform.left(self._print(vec1)))\n        pform = prettyForm(*pform.left('('))\n        return pform\n\nerror: patch failed: sympy/physics/vector/printing.py:165\nApplying patch sympy/physics/vector/printing.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/physics/vector/printing.py\nHunk #1 FAILED at 165.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/physics/vector/printing.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

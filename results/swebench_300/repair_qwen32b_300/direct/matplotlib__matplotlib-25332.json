@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25332",
+  "input_patch_chars": 507,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/figure.py...\nerror: while searching for:\n        for ax in self.axes:\n            if ax in axes_dict:\n                ax.yaxis.set_label_coords(*axes_dict[ax])\n                ax.yaxis.label._picker = weakref.ref(ax)\n\n    def align_xlabels(self, axes=None):\n        \"\"\"\n\nerror: patch failed: lib/matplotlib/figure.py:1234\nApplying patch lib/matplotlib/figure.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/figure.py\nHunk #1 FAILED at 1234.\n1 out of 1 hunk FAILED -- saving rejects to file lib/matplotlib/figure.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

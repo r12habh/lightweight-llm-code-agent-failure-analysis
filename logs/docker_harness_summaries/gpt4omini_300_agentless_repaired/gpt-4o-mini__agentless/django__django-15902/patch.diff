@@ -1,0 +1,13 @@
+diff --git a/docs/ref/forms/validation.txt b/docs/ref/forms/validation.txt
+index c3fa968bdb..bc5dd66561 100644
+--- a/docs/ref/forms/validation.txt
++++ b/docs/ref/forms/validation.txt
+@@ -111,6 +111,9 @@ for all remaining fields are still executed.
+ 
+ .. _raising-validation-error:
+ 
++In order to avoid deprecation warnings for forms with hidden inputs, 
++consider using management forms which do not require rendering the form directly.
++
+ Raising ``ValidationError``
+ ===========================

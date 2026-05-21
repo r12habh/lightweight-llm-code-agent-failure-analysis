@@ -1,0 +1,36 @@
+{
+  "instance_id": "django__django-12113",
+  "raw": "```diff\ndiff --git a/tests/test_sqlite.py b/tests/test_sqlite.py\nindex f1b65f7d01..9ce4e32e14 100644\n--- a/tests/test_sqlite.py\n+++ b/tests/test_sqlite.py\n@@ -10,6 +10,12 @@ DATABASES = {\n     'default': {\n         'ENGINE': 'django.db.backends.sqlite3',\n+        'TEST': {\n+            'NAME': 'test_default.sqlite3'\n+        },\n     },\n     'other': {\n         'ENGINE': 'django.db.backends.sqlite3',\n+        'TEST': {\n+            'NAME': 'test_other.sqlite3'\n+        },\n     }\n }\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19203,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 229,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19432
+    },
+    "patch": {
+      "input_tokens": 19523,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 149,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19672
+    }
+  },
+  "localized_files": [
+    "tests/test_sqlite.py",
+    "django/contrib/auth/models.py",
+    "django/test/testcases.py",
+    "django/db/backends/base/features.py",
+    "django/contrib/admin/sites.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"tests/test_sqlite.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Directly related to the issue of the 'database is locked' error in tests.\"\n    },\n    {\n      \"path\": \"django/contrib/auth/models.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Involves user creation and modification, relevant to the error trace.\"\n    },\n    {\n      \"path\": \"django/test/testcases.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Contains utilities for tests, may need adjustments to handle database state.\"\n    },\n    {\n      \"path\": \"django/db/backends/base/features.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"May include configurations regarding database behavior affecting locked states.\"\n    },\n    {\n      \"path\": \"django/contrib/admin/sites.py\",\n      \"confidence\": 0.4,\n      \"reason\": \"Admin site management may indirectly relate to test operations causing locks.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,45 @@
+2026-05-20 13:34:48,890 - INFO - Creating container for sympy__sympy-15011...
+2026-05-20 13:34:48,934 - INFO - Container for sympy__sympy-15011 created: 140ac775009b7181548ca6e25764b54a0bfd19a11b28b2c0b223d7648d741144
+2026-05-20 13:34:49,055 - INFO - Container for sympy__sympy-15011 started: 140ac775009b7181548ca6e25764b54a0bfd19a11b28b2c0b223d7648d741144
+2026-05-20 13:34:49,056 - INFO - Intermediate patch for sympy__sympy-15011 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-15011/patch.diff, now applying to container...
+2026-05-20 13:34:49,247 - INFO - >>>>> Applied Patch:
+Checking patch sympy/utilities/lambdify.py...
+Applied patch sympy/utilities/lambdify.py cleanly.
+
+2026-05-20 13:34:49,746 - INFO - Git diff before:
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index f71bea25f5..38d1796adf 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -104,6 +104,7 @@ def _import(module, reload="False"):
+     """
+     Creates a global translation dictionary for module.
+ 
++        args = [Dummy(arg.name) if isinstance(arg, MatrixSymbol) else arg for arg in args]
+     The argument module has to be one of the following strings: "math",
+     "mpmath", "numpy", "sympy", "tensorflow".
+     These dictionaries map names of python functions to their equivalent in
+2026-05-20 13:34:49,749 - INFO - Eval script for sympy__sympy-15011 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-15011/eval.sh; copying to container...
+2026-05-20 13:34:55,824 - INFO - Test runtime: 6.02 seconds
+2026-05-20 13:34:55,826 - INFO - Test output for sympy__sympy-15011 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-15011/test_output.txt
+2026-05-20 13:34:55,938 - INFO - Git diff after:
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index f71bea25f5..38d1796adf 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -104,6 +104,7 @@ def _import(module, reload="False"):
+     """
+     Creates a global translation dictionary for module.
+ 
++        args = [Dummy(arg.name) if isinstance(arg, MatrixSymbol) else arg for arg in args]
+     The argument module has to be one of the following strings: "math",
+     "mpmath", "numpy", "sympy", "tensorflow".
+     These dictionaries map names of python functions to their equivalent in
+2026-05-20 13:34:55,939 - INFO - Grading answer for sympy__sympy-15011...
+2026-05-20 13:34:55,942 - INFO - report: {'sympy__sympy-15011': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_curly_matrix_symbol']}, 'PASS_TO_PASS': {'success': ['test_no_args', 'test_single_arg', 'test_list_args', 'test_nested_args', 'test_str_args', 'test_own_namespace_1', 'test_own_namespace_2', 'test_own_module', 'test_bad_args', 'test_atoms', 'test_sympy_lambda', 'test_math_lambda', 'test_mpmath_lambda', 'test_number_precision', 'test_mpmath_precision', 'test_math_transl', 'test_mpmath_transl', 'test_exponentiation', 'test_sqrt', 'test_trig', 'test_vector_simple', 'test_vector_discontinuous', 'test_trig_symbolic', 'test_trig_float', 'test_docs', 'test_math', 'test_sin', 'test_matrix', 'test_issue9474', 'test_integral', 'test_sym_single_arg', 'test_sym_list_args', 'test_sym_integral', 'test_namespace_order', 'test_namespace_type', 'test_imps', 'test_imps_errors', 'test_imps_wrong_args', 'test_lambdify_imps', 'test_dummification', 'test_python_keywords', 'test_lambdify_docstring', 'test_special_printers', 'test_true_false', 'test_issue_2790', 'test_issue_12092', 'test_ITE', 'test_Min_Max', 'test_issue_12173', 'test_sinc_mpmath', 'test_lambdify_dummy_arg', 'test_lambdify_mixed_symbol_dummy_args', 'test_lambdify_inspect'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-15011: resolved: False
+2026-05-20 13:34:55,943 - INFO - Attempting to stop container sweb.eval.sympy__sympy-15011.qwen32b_300_direct_repaired...
+2026-05-20 13:35:11,194 - INFO - Attempting to remove container sweb.eval.sympy__sympy-15011.qwen32b_300_direct_repaired...
+2026-05-20 13:35:11,232 - INFO - Container sweb.eval.sympy__sympy-15011.qwen32b_300_direct_repaired removed.
+2026-05-20 13:35:11,232 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-15011:latest...
+2026-05-20 13:35:11,238 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-15011:latest removed.

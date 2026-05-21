@@ -1,0 +1,34 @@
+{
+  "instance_id": "pytest-dev__pytest-5495",
+  "raw": "```diff\ndiff --git a/src/_pytest/assertion/util.py b/src/_pytest/assertion/util.py\n--- a/src/_pytest/assertion/util.py\n+++ b/src/_pytest/assertion/util.py\n@@ -275,7 +275,7 @@\n \n     if isinstance(left, bytes):\n         left = escape_for_readable_diff(left)\n-    if isinstance(right, bytes):\n+    if isinstance(right, bytes) and left != right:\n         right = escape_for_readable_diff(right)\n     if verbose < 1:\n         i = 0  # just in case left or right has zero length\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 20751,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 189,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20940
+    },
+    "patch": {
+      "input_tokens": 20825,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 129,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20954
+    }
+  },
+  "localized_files": [
+    "src/_pytest/assertion/util.py",
+    "testing/test_assertion.py",
+    "src/_pytest/assertion/__init__.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"doc/en/assert.rst\",\n      \"confidence\": 0.9,\n      \"reason\": \"Documentation on assertion messages may need clarification regarding byte strings.\"\n    },\n    {\n      \"path\": \"src/_pytest/assertion/util.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Utilities for assertion conversion may require adjustments for byte string handling.\"\n    },\n    {\n      \"path\": \"testing/test_assertion.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Test cases using assertions could be updated to reflect improved handling of byte string comparisons.\"\n    },\n    {\n      \"path\": \"src/_pytest/assertion/__init__.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Overall assertion mechanism might need updates to improve clarity on byte string comparisons.\"\n    }\n  ]\n}\n```"
+}

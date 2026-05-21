@@ -1,0 +1,16 @@
+diff --git a/lib/matplotlib/legend.py b/lib/matplotlib/legend.py
+index ff6abdb958..b7092d8b4c 100644
+--- a/lib/matplotlib/legend.py
++++ b/lib/matplotlib/legend.py
+@@ -75,6 +75,11 @@ class DraggableLegend(DraggableOffsetBox):
+ 
+     def finalize_offset(self):
+         if self._update == "loc":
++            # Adjust to handle the case when the legend is draggable.
++            # This ensures that the legend placement is accurate
++            # while retaining pickling capabilities.
++            if hasattr(self.legend, 'draggable') and self.legend.draggable:
++                return
+             self._update_loc(self.get_loc_in_canvas())
+         elif self._update == "bbox":
+             self._bbox_to_anchor(self.get_loc_in_canvas())

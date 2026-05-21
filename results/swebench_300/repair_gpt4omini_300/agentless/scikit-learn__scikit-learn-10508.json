@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-10508",
+  "input_patch_chars": 1003,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp88_1kp2y.diff:27: trailing whitespace.\n        \nerror: corrupt patch at line 32\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 18:          \"\"\"\n\n",
+          "stdout": "patching file sklearn/preprocessing/label.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

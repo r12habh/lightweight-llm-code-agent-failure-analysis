@@ -1,0 +1,13 @@
+diff --git a/django/forms/boundfield.py b/django/forms/boundfield.py
+index 2ff8b0ee26..57146e5324 100644
+--- a/django/forms/boundfield.py
++++ b/django/forms/boundfield.py
+@@ -83,7 +83,7 @@ class BoundField:
+         attributes passed as attrs. If a widget isn't specified, use the
+         field's default widget.
+         """
+-        widget = widget or self.field.widget
++        widget = widget or self.field.widget.subwidgets(self.html_name, self.value(), self.data['attrs'])
+         if self.field.localize:
+             widget.is_localized = True
+         attrs = attrs or {}

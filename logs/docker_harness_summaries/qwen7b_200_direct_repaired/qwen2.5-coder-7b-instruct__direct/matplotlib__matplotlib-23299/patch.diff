@@ -1,0 +1,20 @@
+diff --git a/lib/matplotlib/backends/backend_template.py b/lib/matplotlib/backends/backend_template.py
+index ebb9b413f5..f460523047 100644
+--- a/lib/matplotlib/backends/backend_template.py
++++ b/lib/matplotlib/backends/backend_template.py
+@@ -34,6 +34,7 @@ from matplotlib._pylab_helpers import Gcf
+ from matplotlib.backend_bases import (
+      FigureCanvasBase, FigureManagerBase, GraphicsContextBase, RendererBase)
+ from matplotlib.figure import Figure
++from matplotlib._pylab_helpers import Gcf
+ 
+ 
+ class RendererTemplate(RendererBase):
+@@ -80,6 +81,7 @@ class RendererTemplate(RendererBase):
+         pass
+ 
+     def draw_text(self, gc, x, y, s, prop, angle, ismath=False, mtext=None):
++        Gcf.figs[id(self.figure)] = self.figure
+         pass
+ 
+     def flipy(self):

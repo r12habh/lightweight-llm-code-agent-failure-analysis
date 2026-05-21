@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-16041",
+  "input_patch_chars": 618,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmprzqq572k.diff:11: trailing whitespace.\n                \nChecking patch django/forms/formsets.py...\nerror: while searching for:\n        # Create the empty form.\n        if self.empty_form:\n            # If we are using custom form kwargs, create an empty form\n            self.empty_form = self.form_class(prefix=self.add_prefix(self.prefix))\n\n        return self.empty_form\n\nerror: patch failed: django/forms/formsets.py:325\nerror: django/forms/formsets.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmprzqq572k.diff:11: trailing whitespace.\n                \nChecking patch django/forms/formsets.py...\nerror: while searching for:\n        # Create the empty form.\n        if self.empty_form:\n            # If we are using custom form kwargs, create an empty form\n            self.empty_form = self.form_class(prefix=self.add_prefix(self.prefix))\n\n        return self.empty_form\n\nerror: patch failed: django/forms/formsets.py:325\nApplying patch django/forms/formsets.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 691
+}

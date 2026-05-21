@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18057",
+  "input_patch_chars": 681,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/sympify.py...\nerror: while searching for:\n    if isinstance(a, string_types):\n        from sympy.parsing.sympy_parser import parse_expr\n        try:\n            expr = parse_expr(a, local_dict=locals, transformations=transformations, evaluate=evaluate)\n        except Exception as exc:\n            raise SympifyError(a, exc)\n        return expr\n\nerror: patch failed: sympy/core/sympify.py:382\nApplying patch sympy/core/sympify.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/core/sympify.py\nHunk #1 FAILED at 382.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/core/sympify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

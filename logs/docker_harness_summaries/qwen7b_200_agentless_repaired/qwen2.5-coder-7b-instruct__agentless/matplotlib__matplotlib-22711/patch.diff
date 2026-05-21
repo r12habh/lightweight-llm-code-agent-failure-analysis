@@ -1,0 +1,13 @@
+diff --git a/lib/matplotlib/widgets.py b/lib/matplotlib/widgets.py
+index da5b40a5ef..f3d6479aab 100644
+--- a/lib/matplotlib/widgets.py
++++ b/lib/matplotlib/widgets.py
+@@ -889,7 +889,7 @@ class RangeSlider(SliderBase):
+         """
+         Set slider value to *val*.
+ 
+-        Parameters
++        :param val: The new value for the slider.
+         ----------
+         val : tuple or array-like of float
+         """

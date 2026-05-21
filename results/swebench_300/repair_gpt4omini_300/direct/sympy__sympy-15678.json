@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-15678",
+  "input_patch_chars": 1014,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpxb5po96n.diff:19: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpxb5po96n.diff:26: trailing whitespace.\n    \nChecking patch sympy/geometry/util.py...\nerror: while searching for:\nfrom sympy import Function, Symbol, solve, Eq\nfrom sympy.core.compatibility import (\n    is_sequence, range, string_types, ordered)\nfrom sympy.core.containers import OrderedSet\nfrom .point import Point, Point2D\n\n\nerror: patch failed: sympy/geometry/util.py:57\nerror: sympy/geometry/util.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpxb5po96n.diff:19: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpxb5po96n.diff:26: trailing whitespace.\n    \nChecking patch sympy/geometry/util.py...\nerror: while searching for:\nfrom sympy import Function, Symbol, solve, Eq\nfrom sympy.core.compatibility import (\n    is_sequence, range, string_types, ordered)\nfrom sympy.core.containers import OrderedSet\nfrom .point import Point, Point2D\n\n\nerror: patch failed: sympy/geometry/util.py:57\nerror: while searching for:\n        free.add(xab[0])\n        continue\n    \n    \n    derivs = {dydx: Derivative(eq, x)}\n    yp = solve(eq.diff(x), dydx)[0].subs(derivs)\n\nerror: patch failed: sympy/geometry/util.py:108\nApplying patch sympy/geometry/util.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1111
+}

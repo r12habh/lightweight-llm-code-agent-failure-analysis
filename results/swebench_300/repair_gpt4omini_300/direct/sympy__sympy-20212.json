@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-20212",
+  "input_patch_chars": 652,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/power.py...\nerror: while searching for:\n               S.NaN in (b, e):  # XXX S.NaN**x -> S.NaN under assumption that x != 0\n                   return S.NaN\n               elif b is S.One:\n                   if abs(e).is_infinite:\n                       return S.NaN\n                   return S.One\n\nerror: patch failed: sympy/core/power.py:696\nApplying patch sympy/core/power.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/core/power.py\nHunk #1 FAILED at 696.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/core/power.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,26 @@
+{
+  "instance_id": "sympy__sympy-16281",
+  "input_patch_chars": 2462,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/pretty_symbology.py...\nHunk #1 succeeded at 262 (offset -82 lines).\nerror: while searching for:\n    '|':    U('BOX DRAWINGS LIGHT VERTICAL'),\n\n    '<':    ((U('BOX DRAWINGS LIGHT VERTICAL'),\n              U('BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT'),\n             U('BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT')), '<'),\n\n    '>':    ((U('BOX DRAWINGS LIGHT VERTICAL'),\n\nerror: patch failed: sympy/printing/pretty/pretty_symbology.py:353\nHunk #3 succeeded at 280 (offset -83 lines).\nHunk #4 succeeded at 288 (offset -84 lines).\nerror: while searching for:\n    #'-':    U('HORIZONTAL SCAN LINE-9'),\n\n    '/':    U('BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT'),\n    '\\\\':   U('BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT'),\n}\n\n_xobj_ascii = {\n\nerror: patch failed: sympy/printing/pretty/pretty_symbology.py:381\nApplying patch sympy/printing/pretty/pretty_symbology.py with 2 rejects...\nHunk #1 applied cleanly.\nRejected hunk #2.\nHunk #3 applied cleanly.\nHunk #4 applied cleanly.\nRejected hunk #5.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/printing/pretty/pretty_symbology.py\nHunk #1 succeeded at 262 (offset -82 lines).\nHunk #2 succeeded at 270 with fuzz 3 (offset -83 lines).\nHunk #3 succeeded at 280 (offset -83 lines).\nHunk #4 succeeded at 288 (offset -84 lines).\nHunk #5 succeeded at 296 with fuzz 2 (offset -85 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

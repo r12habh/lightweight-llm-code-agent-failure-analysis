@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-11281",
+  "input_patch_chars": 6352,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 75\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 75: @@ -151,6 +159,7 @@ class BaseMixture(BaseEstimator, ClusterMixin):\n\n",
+          "stdout": "can't find file to patch at input line 4\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/sklearn/mixture/_base.py b/sklearn/mixture/_base.py\n|--- a/sklearn/mixture/_base.py\n|+++ b/sklearn/mixture/_base.py\n--------------------------\nNo file to patch.  Skipping patch.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

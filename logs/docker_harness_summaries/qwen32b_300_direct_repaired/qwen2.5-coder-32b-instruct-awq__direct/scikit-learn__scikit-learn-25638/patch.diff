@@ -1,0 +1,13 @@
+diff --git a/sklearn/utils/multiclass.py b/sklearn/utils/multiclass.py
+index 5eaef2fde8..9174bea6a8 100644
+--- a/sklearn/utils/multiclass.py
++++ b/sklearn/utils/multiclass.py
+@@ -204,6 +204,10 @@ def check_classification_targets(y):
+         "multilabel-indicator",
+         "multilabel-sequences",
+     ]:
++        if isinstance(y, pd.Series) and y.dtype.name in ["Int64", "Float64", "boolean"]:
++            # Convert nullable pandas dtypes to their non-nullable counterparts
++            y = y.astype(y.dtype.numpy_dtype)
++        y = xp.asarray(y, dtype=object)
+         raise ValueError("Unknown label type: %r" % y_type)

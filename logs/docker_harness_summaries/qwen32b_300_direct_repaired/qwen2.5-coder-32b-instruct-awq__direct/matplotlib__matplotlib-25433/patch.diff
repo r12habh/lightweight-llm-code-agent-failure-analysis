@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/pyplot.py b/lib/matplotlib/pyplot.py
+index 5a71207a2a..06301b8812 100644
+--- a/lib/matplotlib/pyplot.py
++++ b/lib/matplotlib/pyplot.py
+@@ -1700,6 +1700,7 @@ def twinx(ax=None):
+ 
+ def twiny(ax=None):
+     """
++        manager.canvas.mpl_connect('draw_event', lambda event: manager.canvas.draw_idle())
+     Make and return a second axes that shares the *y*-axis.  The new axes will
+     overlay *ax* (or the current axes if *ax* is *None*), and its ticks will be
+     on the top.

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14382",
+  "input_patch_chars": 777,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/templates.py...\nerror: while searching for:\n            top_dir = os.path.abspath(os.path.expanduser(target))\n            if not os.path.exists(top_dir):\n                raise CommandError(\"Destination directory '%s' does not \"\n                                   \"exist, please create it first.\" % top_dir)\n            self.validate_name(os.path.basename(target), 'directory')\n\n        extensions = tuple(handle_extensions(options['extensions']))\n\nerror: patch failed: django/core/management/templates.py:74\nApplying patch django/core/management/templates.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/templates.py\nHunk #1 FAILED at 74.\n1 out of 1 hunk FAILED -- saving rejects to file django/core/management/templates.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

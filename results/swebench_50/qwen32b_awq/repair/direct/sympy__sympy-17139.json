@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-17139",
+  "input_patch_chars": 530,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n        if rv.is_Pow:\n            if rv.base.is_Function and rv.base.func in (sin, cos):\n                if rv.exp.is_real:\n                    if (rv.exp < 0) == True:\n                        return _f(rv.base**(-rv.exp))**(-1)\n                    else:\n                        return _f(rv.base**rv.exp)\n\nerror: patch failed: sympy/simplify/fu.py:501\nApplying patch sympy/simplify/fu.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/simplify/fu.py\nHunk #1 FAILED at 501.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/simplify/fu.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

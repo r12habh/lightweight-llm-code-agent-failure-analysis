@@ -1,0 +1,26 @@
+{
+  "instance_id": "pydata__xarray-5131",
+  "input_patch_chars": 426,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/user-guide/groupby.rst...\nerror: while searching for:\nThis object works very similarly to a pandas GroupBy object. You can view\nthe group indices with the ``groups`` attribute:\n\n.. ipython:: python\n    ds.groupby(\"letters\")\n\nThis object works very similarly to a pandas GroupBy object. You can view\n\nerror: patch failed: doc/user-guide/groupby.rst:76\nApplying patch doc/user-guide/groupby.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file doc/user-guide/groupby.rst\nHunk #1 succeeded at 80 with fuzz 3 (offset 4 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

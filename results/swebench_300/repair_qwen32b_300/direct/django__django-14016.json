@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14016",
+  "input_patch_chars": 1326,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/query_utils.py...\nerror: while searching for:\nfrom django.utils.tree import Node\n\n__all__ = ['Q', 'check_rel_lookup_compatibility', 'refs_expression']\n\nclass Q(Node):\n    \"\"\"\n\nerror: patch failed: django/db/models/query_utils.py:11\nerror: django/db/models/query_utils.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/query_utils.py...\nerror: while searching for:\nfrom django.utils.tree import Node\n\n__all__ = ['Q', 'check_rel_lookup_compatibility', 'refs_expression']\n\nclass Q(Node):\n    \"\"\"\n\nerror: patch failed: django/db/models/query_utils.py:11\nerror: while searching for:\n        \"\"\"\n        return self._combine(other, self.__class__, conjunction)\n\n    def __and__(self, other):\n        return self._combine(other, self.__class__, AND)\n\n\nerror: patch failed: django/db/models/query_utils.py:124\nerror: while searching for:\n        return self._combine(other, self.__class__, AND, lambda x: list(x) if isinstance(x, dict_keys) else x)\n\n    def __or__(self, other):\n        return self._combine(other, self.__class__, AND, lambda x: list(x) if isinstance(x, dict_keys) else x)\n\n    def __invert__(self):\n\nerror: patch failed: django/db/models/query_utils.py:131\nApplying patch django/db/models/query_utils.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1251
+}

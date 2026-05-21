@@ -1,0 +1,13 @@
+diff --git a/astropy/io/ascii/qdp.py b/astropy/io/ascii/qdp.py
+index 83a4f004aa..af590565de 100644
+--- a/astropy/io/ascii/qdp.py
++++ b/astropy/io/ascii/qdp.py
+@@ -2,7 +2,7 @@
+ """
+ This package contains functions for reading and writing QDP tables that are
+ not meant to be used directly, but instead are available as readers/writers in
+-`astropy.table`. See :ref:`astropy:table_io` for more details.
++`astropy.table`. See :ref:`astropy:table_io` for more details. QDP commands are not case sensitive.
+ """
+ import copy
+ import re

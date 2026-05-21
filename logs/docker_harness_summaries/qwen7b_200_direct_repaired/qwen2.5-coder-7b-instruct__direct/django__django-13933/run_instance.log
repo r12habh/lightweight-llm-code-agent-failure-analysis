@@ -1,0 +1,61 @@
+2026-05-08 10:02:01,444 - INFO - Creating container for django__django-13933...
+2026-05-08 10:02:02,420 - INFO - Container for django__django-13933 created: eb97194eabc915fcfaca356d825f42193c704f3d0d122f6b27792e3eb17022a4
+2026-05-08 10:02:02,583 - INFO - Container for django__django-13933 started: eb97194eabc915fcfaca356d825f42193c704f3d0d122f6b27792e3eb17022a4
+2026-05-08 10:02:02,584 - INFO - Intermediate patch for django__django-13933 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-13933/patch.diff, now applying to container...
+2026-05-08 10:02:02,790 - INFO - >>>>> Applied Patch:
+Checking patch django/forms/fields.py...
+Applied patch django/forms/fields.py cleanly.
+
+2026-05-08 10:02:03,605 - INFO - Git diff before:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index daa65d61eb..b068d03a30 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -84,6 +84,7 @@ class Field:
+         self.required, self.label, self.initial = required, label, initial
+         self.show_hidden_initial = show_hidden_initial
+         self.help_text = help_text
++        self.error_messages = error_messages or {}
+         self.disabled = disabled
+         self.label_suffix = label_suffix
+         widget = widget or self.widget
+@@ -101,6 +102,7 @@ class Field:
+         widget.is_required = self.required
+ 
+         # Hook into self.widget_attrs() for any Field-specific HTML attributes.
++        self.widget.error_messages = self.error_messages
+         extra_attrs = self.widget_attrs(widget)
+         if extra_attrs:
+             widget.attrs.update(extra_attrs)
+2026-05-08 10:02:03,606 - INFO - Eval script for django__django-13933 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-13933/eval.sh; copying to container...
+2026-05-08 10:02:09,687 - INFO - Test runtime: 6.01 seconds
+2026-05-08 10:02:09,687 - INFO - Test output for django__django-13933 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-13933/test_output.txt
+2026-05-08 10:02:09,829 - INFO - Git diff after:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index daa65d61eb..b068d03a30 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -84,6 +84,7 @@ class Field:
+         self.required, self.label, self.initial = required, label, initial
+         self.show_hidden_initial = show_hidden_initial
+         self.help_text = help_text
++        self.error_messages = error_messages or {}
+         self.disabled = disabled
+         self.label_suffix = label_suffix
+         widget = widget or self.widget
+@@ -101,6 +102,7 @@ class Field:
+         widget.is_required = self.required
+ 
+         # Hook into self.widget_attrs() for any Field-specific HTML attributes.
++        self.widget.error_messages = self.error_messages
+         extra_attrs = self.widget_attrs(widget)
+         if extra_attrs:
+             widget.attrs.update(extra_attrs)
+2026-05-08 10:02:09,829 - INFO - Grading answer for django__django-13933...
+2026-05-08 10:02:09,830 - INFO - report: {'django__django-13933': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_modelchoicefield_value_placeholder (forms_tests.tests.test_error_messages.ModelChoiceFieldErrorMessagesTestCase)']}, 'PASS_TO_PASS': {'success': ['test_modelchoicefield (forms_tests.tests.test_error_messages.ModelChoiceFieldErrorMessagesTestCase)', 'test_booleanfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_charfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_choicefield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_datefield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_datetimefield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_decimalfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_emailfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_error_messages_escaping (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_filefield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_floatfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_generic_ipaddressfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_integerfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_multiplechoicefield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_regexfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_splitdatetimefield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_subclassing_errorlist (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_timefield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)', 'test_urlfield (forms_tests.tests.test_error_messages.FormsErrorMessagesTestCase)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13933: resolved: False
+2026-05-08 10:02:09,830 - INFO - Attempting to stop container sweb.eval.django__django-13933.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 10:02:24,996 - INFO - Attempting to remove container sweb.eval.django__django-13933.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 10:02:25,016 - INFO - Container sweb.eval.django__django-13933.hf_qwen25_coder7b_50_direct_repaired removed.
+2026-05-08 10:02:25,016 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13933:latest...
+2026-05-08 10:02:26,071 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13933:latest removed.

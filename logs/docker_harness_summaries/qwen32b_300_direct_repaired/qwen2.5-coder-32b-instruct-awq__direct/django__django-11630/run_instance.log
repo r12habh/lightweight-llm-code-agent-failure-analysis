@@ -1,0 +1,51 @@
+2026-05-20 11:38:25,457 - INFO - Creating container for django__django-11630...
+2026-05-20 11:38:25,737 - INFO - Container for django__django-11630 created: 511d12785ab643cf5007aec97f029d1dc84b32f8b0f5d4bb440375ec87254098
+2026-05-20 11:38:25,871 - INFO - Container for django__django-11630 started: 511d12785ab643cf5007aec97f029d1dc84b32f8b0f5d4bb440375ec87254098
+2026-05-20 11:38:25,872 - INFO - Intermediate patch for django__django-11630 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-11630/patch.diff, now applying to container...
+2026-05-20 11:38:26,040 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/options.py...
+Applied patch django/db/models/options.py cleanly.
+
+2026-05-20 11:38:26,860 - INFO - Git diff before:
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 1f11e26d87..0ae663ca90 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -74,6 +74,10 @@ class Options:
+ 
+     def __init__(self, meta, app_label=None):
+         self._get_fields_cache = {}
++        if db_table:
++            # Allow multiple apps to have models with the same db_table name
++            self.managed = False
++
+         self.local_fields = []
+         self.local_many_to_many = []
+         self.private_fields = []
+2026-05-20 11:38:26,860 - INFO - Eval script for django__django-11630 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-11630/eval.sh; copying to container...
+2026-05-20 11:38:41,200 - INFO - Test runtime: 14.26 seconds
+2026-05-20 11:38:41,201 - INFO - Test output for django__django-11630 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-11630/test_output.txt
+2026-05-20 11:38:41,327 - INFO - Git diff after:
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 1f11e26d87..0ae663ca90 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -74,6 +74,10 @@ class Options:
+ 
+     def __init__(self, meta, app_label=None):
+         self._get_fields_cache = {}
++        if db_table:
++            # Allow multiple apps to have models with the same db_table name
++            self.managed = False
++
+         self.local_fields = []
+         self.local_many_to_many = []
+         self.private_fields = []
+2026-05-20 11:38:41,327 - INFO - Grading answer for django__django-11630...
+2026-05-20 11:38:41,330 - INFO - report: {'django__django-11630': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_collision_across_apps_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_collision_abstract_model (check_framework.test_model_checks.IndexNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_collision_abstract_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_proxy_models (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_unmanaged_models (check_framework.test_model_checks.DuplicateDBTableTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11630: resolved: False
+2026-05-20 11:38:41,330 - INFO - Attempting to stop container sweb.eval.django__django-11630.qwen32b_300_direct_repaired...
+2026-05-20 11:38:56,545 - INFO - Attempting to remove container sweb.eval.django__django-11630.qwen32b_300_direct_repaired...
+2026-05-20 11:38:56,562 - INFO - Container sweb.eval.django__django-11630.qwen32b_300_direct_repaired removed.
+2026-05-20 11:38:56,562 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11630:latest...
+2026-05-20 11:38:56,569 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11630:latest removed.

@@ -1,0 +1,15 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0f53d9c30b..3904a86746 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -104,6 +104,10 @@ class Field(RegisterLookupMixin):
+                     'already exists.'),
+         # Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+         # Eg: "Title must be unique for pub_date year"
++        # Allow subclasses of BigAutoField and SmallAutoField
++        if issubclass(subclass, (BigAutoField, SmallAutoField)):
++            return True
++
+         'unique_for_date': _("%(field_label)s must be unique for "
+                              "%(date_field_label)s %(lookup_type)s."),
+     }

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-11445",
+  "input_patch_chars": 485,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch doc/usage/configuration.rst...\nerror: while searching for:\n\n.. confval:: rst_prolog\n\n   A string of reStructuredText that will be included at the beginning of every\n   source file that is read.  This is a possible place to add substitutions that should\n   be available in every file (another being :confval:`rst_epilog`).  An example::\n\nerror: patch failed: doc/usage/configuration.rst:386\nerror: doc/usage/configuration.rst: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/usage/configuration.rst...\nerror: while searching for:\n\n.. confval:: rst_prolog\n\n   A string of reStructuredText that will be included at the beginning of every\n   source file that is read.  This is a possible place to add substitutions that should\n   be available in every file (another being :confval:`rst_epilog`).  An example::\n\nerror: patch failed: doc/usage/configuration.rst:386\nApplying patch doc/usage/configuration.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 549
+}

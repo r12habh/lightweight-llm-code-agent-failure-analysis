@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/pyplot.py b/lib/matplotlib/pyplot.py
+index f09090fc7f..5847f78f94 100644
+--- a/lib/matplotlib/pyplot.py
++++ b/lib/matplotlib/pyplot.py
+@@ -160,6 +160,7 @@ def uninstall_repl_displayhook():
+     """Disconnect from the display hook of the current shell."""
+     global _REPL_DISPLAYHOOK
+     if _REPL_DISPLAYHOOK is _ReplDisplayHook.IPYTHON:
++    import matplotlib.figure
+         from IPython import get_ipython
+         ip = get_ipython()
+         ip.events.unregister("post_execute", _draw_all_if_interactive)

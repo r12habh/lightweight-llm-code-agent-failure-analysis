@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/legend.py b/lib/matplotlib/legend.py
+index ff6abdb958..8877ba995a 100644
+--- a/lib/matplotlib/legend.py
++++ b/lib/matplotlib/legend.py
+@@ -100,6 +100,7 @@ bbox_to_anchor : `.BboxBase`, 2-tuple, or 4-tuple of floats
+     Defaults to `axes.bbox` (if called as a method to `.Axes.legend`) or
+     `figure.bbox` (if `.Figure.legend`).  This argument allows arbitrary
+     placement of the legend.
++        self._legend.set_draggable(False)
+ 
+     Bbox coordinates are interpreted in the coordinate system given by
+     *bbox_transform*, with the default transform

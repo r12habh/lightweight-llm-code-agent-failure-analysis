@@ -1,0 +1,28 @@
+{
+  "instance_id": "astropy__astropy-14182",
+  "input_patch_chars": 1104,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch astropy/io/ascii/core.py...\nerror: while searching for:\n    def __init__(self, delimiter=' ', comment='\\\\', quotechar='\"', fast_writer=True,\n                 fast_reader=True, header_start=None, data_start=None, data_end=None,\n                 converters=None, data_Splitter=None, header_Splitter=None, names=None,\n                 include_names=None, exclude_names=None, fill_values=None,\n                 fill_include_names=None, fill_exclude_names=None, bookend=True,\n                 bookend_char='=', write_comment=True, **kwargs):\n\nerror: patch failed: astropy/io/ascii/core.py:1716\nerror: astropy/io/ascii/core.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/io/ascii/core.py...\nerror: while searching for:\n    def __init__(self, delimiter=' ', comment='\\\\', quotechar='\"', fast_writer=True,\n                 fast_reader=True, header_start=None, data_start=None, data_end=None,\n                 converters=None, data_Splitter=None, header_Splitter=None, names=None,\n                 include_names=None, exclude_names=None, fill_values=None,\n                 fill_include_names=None, fill_exclude_names=None, bookend=True,\n                 bookend_char='=', write_comment=True, **kwargs):\n\nerror: patch failed: astropy/io/ascii/core.py:1716\nerror: while searching for:\n        self.data_Splitter = data_Splitter or WhitespaceSplitter()\n        self.header_Splitter = header_Splitter or WhitespaceSplitter()\n        self.names = names\n        self.include_names = include_names\n        self.exclude_names = exclude_names\n        self.fill_values = fill_values\n\nerror: patch failed: astropy/io/ascii/core.py:1730\nApplying patch astropy/io/ascii/core.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 979
+}

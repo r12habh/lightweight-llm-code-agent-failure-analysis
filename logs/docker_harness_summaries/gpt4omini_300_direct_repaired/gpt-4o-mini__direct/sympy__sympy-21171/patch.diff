@@ -1,0 +1,13 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 43f9e6ad8d..a942993187 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -869,7 +869,7 @@ def _print_Function(self, expr, exp=None):
+         expr is the expression involving the function
+         exp is an exponent
+         '''
+-        func = expr.func.__name__
++        func = expr.func.__name__ if isinstance(expr, Function) else expr.func
+         if hasattr(self, '_print_' + func) and \
+                 not isinstance(expr, AppliedUndef):
+             return getattr(self, '_print_' + func)(expr, exp)

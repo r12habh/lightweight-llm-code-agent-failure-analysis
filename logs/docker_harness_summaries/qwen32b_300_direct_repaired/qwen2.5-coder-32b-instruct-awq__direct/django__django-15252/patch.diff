@@ -1,0 +1,45 @@
+diff --git a/django/db/migrations/recorder.py b/django/db/migrations/recorder.py
+index 1a37c6b7d0..80ffee5ab2 100644
+--- a/django/db/migrations/recorder.py
++++ b/django/db/migrations/recorder.py
+@@ -40,6 +40,9 @@ class MigrationRecorder:
+                 def __str__(self):
+                     return 'Migration %s for %s' % (self.name, self.app)
+ 
++            if not router.allow_migrate(self.connection.alias, Migration):
++                return None
++
+             cls._migration_class = Migration
+         return cls._migration_class
+ 
+@@ -50,6 +53,10 @@ class MigrationRecorder:
+     def migration_qs(self):
+         return self.Migration.objects.using(self.connection.alias)
+ 
++        """
++        if not router.allow_migrate(self.connection.alias, self.Migration):
++            return None
++        """
+     def has_table(self):
+         """Return True if the django_migrations table exists."""
+         with self.connection.cursor() as cursor:
+@@ -63,6 +70,9 @@ class MigrationRecorder:
+         if self.has_table():
+             return
+         # Make the table
++            if not router.allow_migrate(self.connection.alias, Migration):
++                return None
++
+         try:
+             with self.connection.schema_editor() as editor:
+                 editor.create_model(self.Migration)
+@@ -76,6 +86,9 @@ class MigrationRecorder:
+         """
+         if self.has_table():
+             return {(migration.app, migration.name): migration for migration in self.migration_qs}
++        if not router.allow_migrate(self.connection.alias, self.Migration):
++            return
++
+         else:
+             # If the django_migrations table doesn't exist, then no migrations
+             # are applied.

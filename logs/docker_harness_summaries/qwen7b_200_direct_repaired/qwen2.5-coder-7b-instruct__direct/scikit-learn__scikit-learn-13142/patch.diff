@@ -1,0 +1,19 @@
+diff --git a/sklearn/mixture/gaussian_mixture.py b/sklearn/mixture/gaussian_mixture.py
+index 9e3bf3cb4c..f744f082e1 100644
+--- a/sklearn/mixture/gaussian_mixture.py
++++ b/sklearn/mixture/gaussian_mixture.py
+@@ -102,6 +102,7 @@ def _check_precisions(precisions, covariance_type, n_components, n_features):
+     precisions : array-like
+         'full' : shape of (n_components, n_features, n_features)
+         'tied' : shape of (n_features, n_features)
++        Parameters
+         'diag' : shape of (n_components, n_features)
+         'spherical' : shape of (n_components,)
+ 
+@@ -110,6 +111,7 @@ def _check_precisions(precisions, covariance_type, n_components, n_features):
+     n_components : int
+         Number of components.
+ 
++        Returns
+     n_features : int
+         Number of features.

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12589",
+  "input_patch_chars": 1201,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/sql/compiler.py...\nerror: while searching for:\n                expressions.append(expr)\n        elif self.connection.features.allows_group_by_selected_pks:\n            # Filter out all expressions associated with a table's primary key\n            # present in the grouped columns. This is done by identifying all\n            # tables that have their primary key included in the grouped\n            # columns and removing non-primary key columns referring to them.\n            # Unmanaged models are excluded because they could be representing\n\nerror: patch failed: django/db/models/sql/compiler.py:415\nerror: django/db/models/sql/compiler.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/compiler.py...\nerror: while searching for:\n                expressions.append(expr)\n        elif self.connection.features.allows_group_by_selected_pks:\n            # Filter out all expressions associated with a table's primary key\n            # present in the grouped columns. This is done by identifying all\n            # tables that have their primary key included in the grouped\n            # columns and removing non-primary key columns referring to them.\n            # Unmanaged models are excluded because they could be representing\n\nerror: patch failed: django/db/models/sql/compiler.py:415\nerror: while searching for:\n            pks = {\n                expr for expr in expressions\n                if (\n                    hasattr(expr, 'target') and\n                    self.connection.features.allows_group_by_selected_pks_on_model(expr.target.model)\n                )\n            }\n\nerror: patch failed: django/db/models/sql/compiler.py:424\nApplying patch django/db/models/sql/compiler.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 620
+}

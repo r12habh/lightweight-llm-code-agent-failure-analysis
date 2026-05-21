@@ -1,0 +1,11 @@
+diff --git a/sklearn/preprocessing/_encoders.py b/sklearn/preprocessing/_encoders.py
+index 1e05aba597..f5b38684fa 100644
+--- a/sklearn/preprocessing/_encoders.py
++++ b/sklearn/preprocessing/_encoders.py
+@@ -133,6 +133,7 @@ class OneHotEncoder(_BaseEncoder):
+     The OneHotEncoder previously assumed that the input features take on
+     values in the range [0, max(values)). This behaviour is deprecated.
+ 
++                Xi = Xi.astype(object)
+     This encoding is needed for feeding categorical data to many scikit-learn
+     estimators, notably linear models and SVMs with the standard kernels.

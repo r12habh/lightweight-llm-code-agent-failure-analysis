@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13768",
+  "input_patch_chars": 596,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/dispatch/dispatcher.py...\nerror: while searching for:\n                try:\n                    response = receiver(signal=self, sender=sender, **named)\n                except Exception as err:\n                    responses.append((receiver, err))\n                else:\n                    responses.append((receiver, response))\n\nerror: patch failed: django/dispatch/dispatcher.py:150\nerror: django/dispatch/dispatcher.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/dispatch/dispatcher.py...\nerror: while searching for:\n                try:\n                    response = receiver(signal=self, sender=sender, **named)\n                except Exception as err:\n                    responses.append((receiver, err))\n                else:\n                    responses.append((receiver, response))\n\nerror: patch failed: django/dispatch/dispatcher.py:150\nApplying patch django/dispatch/dispatcher.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 496
+}

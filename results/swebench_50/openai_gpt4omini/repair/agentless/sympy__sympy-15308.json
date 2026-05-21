@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-15308",
+  "input_patch_chars": 708,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\nfrom sympy import Matrix, MatrixSymbol, trace\nfrom sympy.core import Add, Symbol, S, Mul\n\n# ... [TRUNCATED]\n\nclass LatexPrinter(Printer):\n\nerror: patch failed: sympy/printing/latex.py:199\nerror: sympy/printing/latex.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\nfrom sympy import Matrix, MatrixSymbol, trace\nfrom sympy.core import Add, Symbol, S, Mul\n\n# ... [TRUNCATED]\n\nclass LatexPrinter(Printer):\n\nerror: patch failed: sympy/printing/latex.py:199\nerror: while searching for:\n        return r\"\\mathrm{%s}\" % e\n\n    def _print_MatrixSymbol(self, expr):\n        return r\"\\mathbf{%s}\" % expr.name\n\n    def _print_Trace(self, expr):\n\nerror: patch failed: sympy/printing/latex.py:476\nApplying patch sympy/printing/latex.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 992
+}

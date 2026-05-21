@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-25638",
+  "input_patch_chars": 752,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/utils/multiclass.py...\nerror: while searching for:\n        y = xp.asarray(y)\n    except (np.VisibleDeprecationWarning, ValueError):\n        # dtype=object should be provided explicitly for ragged arrays, see NEP 34\n\n    if not (hasattr(y, \"shape\") and y.ndim == 2 and y.shape[1] > 1):\n        return \"unknown\"\n\nerror: patch failed: sklearn/utils/multiclass.py:204\nerror: sklearn/utils/multiclass.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/utils/multiclass.py...\nerror: while searching for:\n        y = xp.asarray(y)\n    except (np.VisibleDeprecationWarning, ValueError):\n        # dtype=object should be provided explicitly for ragged arrays, see NEP 34\n\n    if not (hasattr(y, \"shape\") and y.ndim == 2 and y.shape[1] > 1):\n        return \"unknown\"\n\nerror: patch failed: sklearn/utils/multiclass.py:204\nApplying patch sklearn/utils/multiclass.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 627
+}

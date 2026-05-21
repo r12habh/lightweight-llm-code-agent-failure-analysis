@@ -1,0 +1,44 @@
+2026-05-20 18:16:04,229 - INFO - Creating container for mwaskom__seaborn-3010...
+2026-05-20 18:16:04,472 - INFO - Container for mwaskom__seaborn-3010 created: 6a283a7ca803608679636c8fb6a494c16d42d5a22906a6c835ab8bbe16fc4547
+2026-05-20 18:16:04,644 - INFO - Container for mwaskom__seaborn-3010 started: 6a283a7ca803608679636c8fb6a494c16d42d5a22906a6c835ab8bbe16fc4547
+2026-05-20 18:16:04,644 - INFO - Intermediate patch for mwaskom__seaborn-3010 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/mwaskom__seaborn-3010/patch.diff, now applying to container...
+2026-05-20 18:16:04,830 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 18:16:04,898 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 18:16:04,970 - INFO - >>>>> Applied Patch:
+patching file seaborn/_stats/regression.py
+
+2026-05-20 18:16:05,203 - INFO - Git diff before:
+diff --git a/seaborn/_stats/regression.py b/seaborn/_stats/regression.py
+index 7b7ddc8d..7fb9ca7a 100644
+--- a/seaborn/_stats/regression.py
++++ b/seaborn/_stats/regression.py
+@@ -28,6 +28,7 @@ class PolyFit(Stat):
+             xx = yy = []
+         else:
+             p = np.polyfit(x, y, self.order)
++    def _fit_predict(self, data):
+             xx = np.linspace(x.min(), x.max(), self.gridsize)
+             yy = np.polyval(p, xx)
+2026-05-20 18:16:05,211 - INFO - Eval script for mwaskom__seaborn-3010 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/mwaskom__seaborn-3010/eval.sh; copying to container...
+2026-05-20 18:16:11,509 - INFO - Test runtime: 6.23 seconds
+2026-05-20 18:16:11,510 - INFO - Test output for mwaskom__seaborn-3010 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/mwaskom__seaborn-3010/test_output.txt
+2026-05-20 18:16:11,600 - INFO - Git diff after:
+diff --git a/seaborn/_stats/regression.py b/seaborn/_stats/regression.py
+index 7b7ddc8d..7fb9ca7a 100644
+--- a/seaborn/_stats/regression.py
++++ b/seaborn/_stats/regression.py
+@@ -28,6 +28,7 @@ class PolyFit(Stat):
+             xx = yy = []
+         else:
+             p = np.polyfit(x, y, self.order)
++    def _fit_predict(self, data):
+             xx = np.linspace(x.min(), x.max(), self.gridsize)
+             yy = np.polyval(p, xx)
+2026-05-20 18:16:11,600 - INFO - Grading answer for mwaskom__seaborn-3010...
+2026-05-20 18:16:11,601 - INFO - report: {'mwaskom__seaborn-3010': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['tests/_stats/test_regression.py::TestPolyFit::test_missing_data']}, 'PASS_TO_PASS': {'success': [], 'failure': ['tests/_stats/test_regression.py::TestPolyFit::test_no_grouper', 'tests/_stats/test_regression.py::TestPolyFit::test_one_grouper']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for mwaskom__seaborn-3010: resolved: False
+2026-05-20 18:16:11,601 - INFO - Attempting to stop container sweb.eval.mwaskom__seaborn-3010.qwen7b_200_direct_repaired...
+2026-05-20 18:16:26,749 - INFO - Attempting to remove container sweb.eval.mwaskom__seaborn-3010.qwen7b_200_direct_repaired...
+2026-05-20 18:16:26,759 - INFO - Container sweb.eval.mwaskom__seaborn-3010.qwen7b_200_direct_repaired removed.
+2026-05-20 18:16:26,759 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3010:latest...
+2026-05-20 18:16:26,764 - INFO - Image swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3010:latest removed.

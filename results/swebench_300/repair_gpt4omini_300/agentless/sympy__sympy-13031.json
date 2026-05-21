@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13031",
+  "input_patch_chars": 521,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpr64a_d86.diff:9: trailing whitespace.\n                            sum(L[i, k]**2 for k in range(i)))        \nChecking patch sympy/matrices/dense.py...\nerror: while searching for:\n            L[i, j] = (1 / L[j, j])*(self[i, j] -\n                                         sum(L[i, k]*L[j, k] for k in range(j)))\n            L[i, i] = sqrt(self[i, i] -\n                            sum(L[i, k]**2 for k in range(i)))\n        return self._new(L)\n\n    def _diagonal_solve(self, rhs):\n\nerror: patch failed: sympy/matrices/dense.py:470\nApplying patch sympy/matrices/dense.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/matrices/dense.py\nHunk #1 FAILED at 470.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/matrices/dense.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

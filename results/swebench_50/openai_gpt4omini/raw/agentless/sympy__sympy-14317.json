@@ -1,0 +1,35 @@
+{
+  "instance_id": "sympy__sympy-14317",
+  "raw": "```diff\ndiff --git a/sympy/printing/latex.py b/sympy/printing/latex.py\n--- a/sympy/printing/latex.py\n+++ b/sympy/printing/latex.py\n@@ -339,6 +339,7 @@\n                 terms = [f for f in terms if f.has(ExprSymbol)]\n             tex = \"\"\n+            terms = sorted(terms, key=lambda term: self.order.index(term.as_ordered_terms()[0].as_poly().degree()))  # Sort terms by degree\n             for i, term in enumerate(terms):\n                 if i == 0:\n                     pass\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 22136,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 198,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22334
+    },
+    "patch": {
+      "input_tokens": 22223,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 135,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22358
+    }
+  },
+  "localized_files": [
+    "sympy/printing/latex.py",
+    "sympy/printing/printer.py",
+    "sympy/printing/pretty/pretty.py",
+    "sympy/printing/tests/test_latex.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/printing/latex.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"LaTeX printer implementation likely affects ordering of monomials.\"\n    },\n    {\n      \"path\": \"sympy/printing/printer.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Core printer functionality may need adjustments for consistent monomial ordering.\"\n    },\n    {\n      \"path\": \"sympy/printing/pretty/pretty.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Pretty printer could reference monomial ordering for alignment with LaTeX output.\"\n    },\n    {\n      \"path\": \"sympy/printing/tests/test_latex.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Test cases need updates to ensure LaTeX output matches expected monomial order.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-25442",
+  "input_patch_chars": 727,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/__init__.py...\nerror: while searching for:\n# cbook must import matplotlib only within function\n# definitions, so it is safe to import from it here.\nfrom . import _api, _version, cbook, _docstring, rcsetup\n\n# ... existing code ...\n\n\nerror: patch failed: lib/matplotlib/__init__.py:198\nerror: lib/matplotlib/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/__init__.py...\nerror: while searching for:\n# cbook must import matplotlib only within function\n# definitions, so it is safe to import from it here.\nfrom . import _api, _version, cbook, _docstring, rcsetup\n\n# ... existing code ...\n\n\nerror: patch failed: lib/matplotlib/__init__.py:198\nApplying patch lib/matplotlib/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 661
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-21055",
+  "input_patch_chars": 817,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmprdht3l49.diff:10: trailing whitespace.\n            return self \nerror: corrupt patch at line 19\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 15:          rfap = Tuple(*[RisingFactorial(a, n) for a in ap])\n\n",
+          "stdout": "patching file sympy/functions/special/hyper.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

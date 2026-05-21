@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-5063",
+  "input_patch_chars": 6867,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 175\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file src/flask/app.py\nHunk #1 succeeded at 100 with fuzz 3.\nHunk #2 succeeded at 111 with fuzz 3.\nHunk #3 succeeded at 122 with fuzz 3.\nHunk #4 succeeded at 133 with fuzz 3.\nHunk #5 succeeded at 144 with fuzz 3.\nHunk #6 succeeded at 155 with fuzz 3.\nHunk #7 succeeded at 166 with fuzz 3.\nHunk #8 succeeded at 177 with fuzz 3.\nHunk #9 succeeded at 188 with fuzz 3.\nHunk #10 succeeded at 199 with fuzz 3.\nHunk #11 succeeded at 210 with fuzz 3.\nHunk #12 succeeded at 221 with fuzz 3.\nHunk #13 succeeded at 232 with fuzz 3.\nHunk #14 succeeded at 243 with fuzz 3.\nHunk #15 succeeded at 254 with fuzz 3.\nHunk #16 succeeded at 265 with fuzz 3.\nHunk #17 succeeded at 276 with fuzz 3.\nHunk #18 succeeded at 287 with fuzz 3.\nHunk #19 succeeded at 298 with fuzz 3.\nHunk #20 succeeded at 309 with fuzz 3.\nHunk #21 succeeded at 320 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

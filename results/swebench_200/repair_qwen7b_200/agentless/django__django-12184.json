@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12184",
+  "input_patch_chars": 536,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/handlers/base.py...\nerror: while searching for:\n        \"\"\"\n        response = self._middleware_chain(request)\n        response._closable_objects.append(request)\n        if response.status_code >= 400:\n            log_response(\n                '%s: %s', response.reason_phrase, request.path,\n                response=response,\n\nerror: patch failed: django/core/handlers/base.py:110\nerror: django/core/handlers/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/handlers/base.py...\nerror: while searching for:\n        \"\"\"\n        response = self._middleware_chain(request)\n        response._closable_objects.append(request)\n        if response.status_code >= 400:\n            log_response(\n                '%s: %s', response.reason_phrase, request.path,\n                response=response,\n\nerror: patch failed: django/core/handlers/base.py:110\nApplying patch django/core/handlers/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 601
+}

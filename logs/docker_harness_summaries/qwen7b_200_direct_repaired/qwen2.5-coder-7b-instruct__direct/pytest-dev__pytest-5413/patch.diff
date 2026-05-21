@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/python.py b/src/_pytest/python.py
+index b4d8f5ae0..7d47c6c49 100644
+--- a/src/_pytest/python.py
++++ b/src/_pytest/python.py
+@@ -151,7 +151,7 @@ def pytest_configure(config):
+ 
+ 
+ @hookimpl(trylast=True)
+-def pytest_pyfunc_call(pyfuncitem):
++def pytest_pyfunc_call(pyfuncitem, **kwargs):
+     testfunction = pyfuncitem.obj
+     iscoroutinefunction = getattr(inspect, "iscoroutinefunction", None)
+     if iscoroutinefunction is not None and iscoroutinefunction(testfunction):

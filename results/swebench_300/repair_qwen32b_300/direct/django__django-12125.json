@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12125",
+  "input_patch_chars": 689,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/serializer.py...\nerror: while searching for:\n    elif isinstance(value, ModelBase):\n        return \"%s.%s\" % (value._meta.app_label, value._meta.object_name)\n    elif isinstance(value, Field):\n        return \"%s.%s\" % (value.__class__.__module__, value.__class__.__name__)\n    elif isinstance(value, datetime.datetime):\n        return value.isoformat()\n    elif isinstance(value, datetime.date):\n\nerror: patch failed: django/db/migrations/serializer.py:214\nApplying patch django/db/migrations/serializer.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/migrations/serializer.py\nHunk #1 FAILED at 214.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/migrations/serializer.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

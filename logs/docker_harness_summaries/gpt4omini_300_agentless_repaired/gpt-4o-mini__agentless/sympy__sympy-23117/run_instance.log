@@ -1,0 +1,46 @@
+2026-05-20 11:21:11,632 - INFO - Creating container for sympy__sympy-23117...
+2026-05-20 11:21:11,661 - INFO - Container for sympy__sympy-23117 created: 9ff7417cdf4e43193365d65e573dc3e1eab288adeb47cd4fc05fe4621fd6a21c
+2026-05-20 11:21:11,770 - INFO - Container for sympy__sympy-23117 started: 9ff7417cdf4e43193365d65e573dc3e1eab288adeb47cd4fc05fe4621fd6a21c
+2026-05-20 11:21:11,770 - INFO - Intermediate patch for sympy__sympy-23117 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/sympy__sympy-23117/patch.diff, now applying to container...
+2026-05-20 11:21:11,940 - INFO - >>>>> Applied Patch:
+Checking patch sympy/tensor/array/ndim_array.py...
+/tmp/patch.diff:11: new blank line at EOF.
++
+Applied patch sympy/tensor/array/ndim_array.py cleanly.
+warning: 1 line adds whitespace errors.
+
+2026-05-20 11:21:12,442 - INFO - Git diff before:
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..6c9b96e15c 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -590,3 +590,6 @@ def as_immutable(self):
+ 
+     def as_mutable(self):
+         raise NotImplementedError("abstract method")
++        if iterable == []:
++            return ImmutableDenseNDimArray([], (0,), **kwargs)
++
+2026-05-20 11:21:12,443 - INFO - Eval script for sympy__sympy-23117 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/sympy__sympy-23117/eval.sh; copying to container...
+2026-05-20 11:21:17,792 - INFO - Test runtime: 5.29 seconds
+2026-05-20 11:21:17,795 - INFO - Test output for sympy__sympy-23117 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/sympy__sympy-23117/test_output.txt
+2026-05-20 11:21:17,900 - INFO - Git diff after:
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..6c9b96e15c 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -590,3 +590,6 @@ def as_immutable(self):
+ 
+     def as_mutable(self):
+         raise NotImplementedError("abstract method")
++        if iterable == []:
++            return ImmutableDenseNDimArray([], (0,), **kwargs)
++
+2026-05-20 11:21:17,900 - INFO - Grading answer for sympy__sympy-23117...
+2026-05-20 11:21:17,903 - INFO - report: {'sympy__sympy-23117': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_issue_17851']}, 'PASS_TO_PASS': {'success': ['test_array_negative_indices', 'test_issue_18361', 'test_issue_20222'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-23117: resolved: False
+2026-05-20 11:21:17,903 - INFO - Attempting to stop container sweb.eval.sympy__sympy-23117.gpt4omini_300_agentless_repaired...
+2026-05-20 11:21:33,063 - INFO - Attempting to remove container sweb.eval.sympy__sympy-23117.gpt4omini_300_agentless_repaired...
+2026-05-20 11:21:33,079 - INFO - Container sweb.eval.sympy__sympy-23117.gpt4omini_300_agentless_repaired removed.
+2026-05-20 11:21:33,079 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-23117:latest...
+2026-05-20 11:21:33,090 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-23117:latest removed.

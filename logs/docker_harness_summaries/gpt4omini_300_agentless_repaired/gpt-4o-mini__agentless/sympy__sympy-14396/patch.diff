@@ -1,0 +1,12 @@
+diff --git a/sympy/polys/polyoptions.py b/sympy/polys/polyoptions.py
+index 6e504a3057..f0339283e0 100644
+--- a/sympy/polys/polyoptions.py
++++ b/sympy/polys/polyoptions.py
+@@ -393,7 +393,7 @@ def default(cls):
+ 
+ 
+ class Domain(with_metaclass(OptionType, Option)):
+-    """``domain`` option to polynomial manipulation functions. """
++    """``domain`` option to polynomial manipulation functions, expecting a valid domain format. """
+ 
+     option = 'domain'

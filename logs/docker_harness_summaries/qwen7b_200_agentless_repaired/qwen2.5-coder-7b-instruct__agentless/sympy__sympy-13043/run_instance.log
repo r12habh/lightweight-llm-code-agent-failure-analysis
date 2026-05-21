@@ -1,0 +1,47 @@
+2026-05-08 12:53:16,987 - INFO - Creating container for sympy__sympy-13043...
+2026-05-08 12:53:17,090 - INFO - Container for sympy__sympy-13043 created: b570f9ae670886a8d1200b0ffd9346b4cf41087cdea810afdf3432719611de74
+2026-05-08 12:53:17,219 - INFO - Container for sympy__sympy-13043 started: b570f9ae670886a8d1200b0ffd9346b4cf41087cdea810afdf3432719611de74
+2026-05-08 12:53:17,220 - INFO - Intermediate patch for sympy__sympy-13043 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/sympy__sympy-13043/patch.diff, now applying to container...
+2026-05-08 12:53:17,432 - INFO - >>>>> Applied Patch:
+Checking patch sympy/core/operations.py...
+Applied patch sympy/core/operations.py cleanly.
+
+2026-05-08 12:53:17,783 - INFO - Git diff before:
+diff --git a/sympy/core/operations.py b/sympy/core/operations.py
+index 4c4a7b95f2..d11b6fcc89 100644
+--- a/sympy/core/operations.py
++++ b/sympy/core/operations.py
+@@ -36,7 +36,7 @@ def __new__(cls, *args, **options):
+         if len(args) == 0:
+             return cls.identity
+         if len(args) == 1:
+-            return args[0]
++            return sorted(args, key=default_sort_key)
+ 
+         c_part, nc_part, order_symbols = cls.flatten(args)
+         is_commutative = not nc_part
+2026-05-08 12:53:17,783 - INFO - Eval script for sympy__sympy-13043 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/sympy__sympy-13043/eval.sh; copying to container...
+2026-05-08 12:53:22,376 - INFO - Test runtime: 4.53 seconds
+2026-05-08 12:53:22,377 - INFO - Test output for sympy__sympy-13043 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/sympy__sympy-13043/test_output.txt
+2026-05-08 12:53:22,487 - INFO - Git diff after:
+diff --git a/sympy/core/operations.py b/sympy/core/operations.py
+index 4c4a7b95f2..d11b6fcc89 100644
+--- a/sympy/core/operations.py
++++ b/sympy/core/operations.py
+@@ -36,7 +36,7 @@ def __new__(cls, *args, **options):
+         if len(args) == 0:
+             return cls.identity
+         if len(args) == 1:
+-            return args[0]
++            return sorted(args, key=default_sort_key)
+ 
+         c_part, nc_part, order_symbols = cls.flatten(args)
+         is_commutative = not nc_part
+2026-05-08 12:53:22,487 - INFO - Grading answer for sympy__sympy-13043...
+2026-05-08 12:53:22,489 - INFO - report: {'sympy__sympy-13043': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_decompose']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_best_origin']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-13043: resolved: False
+2026-05-08 12:53:22,489 - INFO - Attempting to stop container sweb.eval.sympy__sympy-13043.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 12:53:37,642 - INFO - Attempting to remove container sweb.eval.sympy__sympy-13043.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 12:53:37,659 - INFO - Container sweb.eval.sympy__sympy-13043.hf_qwen25_coder7b_50_agentless_repaired removed.
+2026-05-08 12:53:37,660 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-13043:latest...
+2026-05-08 12:53:38,462 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-13043:latest removed.

@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13142",
+  "input_patch_chars": 758,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 22\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 21: +        assert_array_equal(c1, c2)\n\n",
+          "stdout": "patching file sklearn/mixture/gaussian_mixture.py\nHunk #1 succeeded at 123 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

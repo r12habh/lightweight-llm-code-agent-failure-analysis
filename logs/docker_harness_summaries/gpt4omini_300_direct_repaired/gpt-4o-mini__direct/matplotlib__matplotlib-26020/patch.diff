@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index fb3f7288b5..061b7767b7 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -139,6 +139,7 @@ from collections.abc import MutableMapping
+ import contextlib
+ import functools
+ import importlib
++    ("cartopy", "0.17.0"),
+ import inspect
+ from inspect import Parameter
+ import locale

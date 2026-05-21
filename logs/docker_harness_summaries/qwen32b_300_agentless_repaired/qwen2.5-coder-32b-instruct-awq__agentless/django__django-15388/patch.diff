@@ -1,0 +1,13 @@
+diff --git a/docs/intro/tutorial07.txt b/docs/intro/tutorial07.txt
+index 9f6c775267..de30b490cc 100644
+--- a/docs/intro/tutorial07.txt
++++ b/docs/intro/tutorial07.txt
+@@ -310,7 +310,7 @@ Open your settings file (:file:`mysite/settings.py`, remember) and add a
+ :setting:`DIRS <TEMPLATES-DIRS>` option in the :setting:`TEMPLATES` setting:
+ 
+ .. code-block:: python
+-    :caption: mysite/settings.py
++    :caption: mysite/settings.py (updated)
+ 
+     TEMPLATES = [
+         {

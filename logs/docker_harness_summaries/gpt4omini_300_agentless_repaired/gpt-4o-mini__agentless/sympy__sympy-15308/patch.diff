@@ -1,0 +1,24 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index a0eb97792e..f84ea84241 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -199,6 +199,7 @@ def doprint(self, expr):
+ 
+     def _needs_brackets(self, expr):
+         """
++from sympy.core.sympify import sympify
+         Returns True if the expression needs to be wrapped in brackets when
+         printed, False otherwise. For example: a + b => True; a => False;
+         10 => False; -10 => True.
+@@ -476,6 +477,11 @@ def convert(expr):
+                             % (convert(a), sdenom, separator, convert(b))
+                     else:
+                         tex += r"\frac{%s}{%s}%s%s" \
++        if expr.name.startswith('A'):
++            return r"A"
++        else:
++            return super()._print_MatrixSymbol(expr)
++
+                             % (convert(a), sdenom, separator, convert(b))
+                 else:
+                     tex += r"\frac{1}{%s}%s%s" % (sdenom, separator, snumer)

@@ -1,0 +1,12 @@
+diff --git a/sympy/core/symbol.py b/sympy/core/symbol.py
+index 70e6953559..382ba138fb 100644
+--- a/sympy/core/symbol.py
++++ b/sympy/core/symbol.py
+@@ -42,6 +42,7 @@ def __getnewargs__(self):
+     def _hashable_content(self):
+         return (self.name,)
+ 
++    __dict__ = None  # Ensures __slots__ prevent __dict__ from being created
+ 
+ def _filter_assumptions(kwargs):
+     """Split the given dict into assumptions and non-assumptions.

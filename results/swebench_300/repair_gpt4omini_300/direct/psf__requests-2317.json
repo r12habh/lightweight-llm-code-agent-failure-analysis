@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2317",
+  "input_patch_chars": 501,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/sessions.py...\nerror: while searching for:\n            # The scheme should be lower case...\n            parsed = urlparse(url)\n            url = parsed.geturl()\n\n            prepared_request.method = method\n\n            # Cache the url, unless it redirects to itself.\n\nerror: patch failed: requests/sessions.py:211\nerror: requests/sessions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/sessions.py...\nerror: while searching for:\n            # The scheme should be lower case...\n            parsed = urlparse(url)\n            url = parsed.geturl()\n\n            prepared_request.method = method\n\n            # Cache the url, unless it redirects to itself.\n\nerror: patch failed: requests/sessions.py:211\nApplying patch requests/sessions.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 572
+}

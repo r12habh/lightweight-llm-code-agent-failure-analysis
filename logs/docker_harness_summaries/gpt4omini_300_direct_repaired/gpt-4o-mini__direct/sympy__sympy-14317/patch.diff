@@ -1,0 +1,13 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 737e16cc74..b2e225191e 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -299,7 +299,7 @@ def _print_NoneType(self, e):
+         return r"\mathrm{%s}" % e
+ 
+ 
+-    def _print_Add(self, expr, order=None):
++    def _print_Add(self, expr, order='none'):
+         if self.order == 'none':
+             terms = list(expr.args)
+         else:

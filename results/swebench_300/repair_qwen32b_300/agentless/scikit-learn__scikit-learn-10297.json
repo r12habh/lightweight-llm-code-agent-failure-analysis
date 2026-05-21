@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-10297",
+  "input_patch_chars": 1705,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 38\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 37:          self.alpha_ = alphas[best_index]\n\n",
+          "stdout": "patching file sklearn/linear_model/ridge.py\nHunk #1 succeeded at 21 (offset 11 lines).\nHunk #2 succeeded at 1091 with fuzz 2 (offset 978 lines).\nHunk #3 succeeded at 1121 with fuzz 3 (offset 978 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

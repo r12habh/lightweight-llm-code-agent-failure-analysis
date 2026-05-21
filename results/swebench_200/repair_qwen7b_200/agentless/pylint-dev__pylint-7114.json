@@ -1,0 +1,28 @@
+{
+  "instance_id": "pylint-dev__pylint-7114",
+  "input_patch_chars": 513,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch pylint/lint/pylinter.py...\nerror: while searching for:\n        self.file_state = FileState(\"\", self.msgs_store, is_base_filestate=True)\n        self.current_name: str | None = None\n        self.current_file: str | None = None\n        self._ignore_file = False\n        self._ignore_file = False\n        self._ignore_file = False\n\nerror: patch failed: pylint/lint/pylinter.py:100\nerror: pylint/lint/pylinter.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch pylint/lint/pylinter.py...\nerror: while searching for:\n        self.file_state = FileState(\"\", self.msgs_store, is_base_filestate=True)\n        self.current_name: str | None = None\n        self.current_file: str | None = None\n        self._ignore_file = False\n        self._ignore_file = False\n        self._ignore_file = False\n\nerror: patch failed: pylint/lint/pylinter.py:100\nApplying patch pylint/lint/pylinter.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 432
+}

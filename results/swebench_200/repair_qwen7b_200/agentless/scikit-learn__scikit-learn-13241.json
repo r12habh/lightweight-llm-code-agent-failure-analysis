@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13241",
+  "input_patch_chars": 1051,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 23\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 20:          # remove eigenvectors with a zero eigenvalue\n\n",
+          "stdout": "patching file sklearn/decomposition/kernel_pca.py\nHunk #1 succeeded at 157 (offset 55 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

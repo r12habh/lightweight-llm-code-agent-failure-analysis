@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13447",
+  "input_patch_chars": 7534,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 160\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file django/contrib/admin/sites.py\nHunk #1 succeeded at 10 with fuzz 3.\nHunk #2 succeeded at 21 with fuzz 3.\nHunk #3 succeeded at 32 with fuzz 3.\nHunk #4 succeeded at 43 with fuzz 3.\nHunk #5 succeeded at 54 with fuzz 3.\nHunk #6 succeeded at 65 with fuzz 3.\nHunk #7 succeeded at 76 with fuzz 3.\nHunk #8 succeeded at 87 with fuzz 3.\nHunk #9 succeeded at 98 with fuzz 3.\nHunk #10 succeeded at 109 with fuzz 3.\nHunk #11 succeeded at 120 with fuzz 3.\nHunk #12 succeeded at 131 with fuzz 3.\nHunk #13 succeeded at 142 with fuzz 3.\nHunk #14 succeeded at 153 with fuzz 3.\nHunk #15 succeeded at 164 with fuzz 3.\nHunk #16 succeeded at 175 with fuzz 3.\nHunk #17 succeeded at 186 with fuzz 3.\nHunk #18 succeeded at 197 with fuzz 3.\nHunk #19 succeeded at 208 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

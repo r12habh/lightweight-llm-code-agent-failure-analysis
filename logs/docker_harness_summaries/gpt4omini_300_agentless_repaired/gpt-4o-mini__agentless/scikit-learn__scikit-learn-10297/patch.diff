@@ -1,0 +1,12 @@
+diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3b..d5a11ec64a 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -20,6 +20,7 @@ from scipy.sparse import linalg as sp_linalg
+ from .base import LinearClassifierMixin, LinearModel, _rescale_data
+ from .sag import sag_solver
+ from ..base import RegressorMixin
++    def __init__(self, *args, store_cv_values=False, **kwargs):
+ from ..utils.extmath import safe_sparse_dot
+ from ..utils.extmath import row_norms
+ from ..utils import check_X_y

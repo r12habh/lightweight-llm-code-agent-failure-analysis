@@ -1,0 +1,15 @@
+diff --git a/sympy/matrices/common.py b/sympy/matrices/common.py
+index 379a2917aa..4e608e7a75 100644
+--- a/sympy/matrices/common.py
++++ b/sympy/matrices/common.py
+@@ -123,6 +123,10 @@ def recurse_sub_blocks(M):
+                     to_the_bottom = M[i:, :i]
+                 if any(to_the_right) or any(to_the_bottom):
+                     i += 1
++        if not isinstance(other, MatrixBase):
++            raise ValueError("Scalar operands are not allowed, use '*' instead")
++        return self.multiply(other)
++
+                     continue
+                 else:
+                     sub_blocks.append(M[:i, :i])

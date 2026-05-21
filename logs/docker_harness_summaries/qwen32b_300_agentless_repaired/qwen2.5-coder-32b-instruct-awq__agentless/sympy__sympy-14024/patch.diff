@@ -1,0 +1,14 @@
+diff --git a/sympy/simplify/simplify.py b/sympy/simplify/simplify.py
+index 1acc00be3a..111d1f5abe 100644
+--- a/sympy/simplify/simplify.py
++++ b/sympy/simplify/simplify.py
+@@ -127,6 +127,10 @@ def _separatevars(expr, force):
+     if expr.is_Pow:
+         expr = Pow(separatevars(expr.base, force=force), expr.exp)
+ 
++    # Handle the specific case of (-a)**x * a**(-x)
++    if expr.is_Mul and len(expr.args) == 2 and expr.args[0].is_Pow and expr.args[1].is_Pow:
++        if expr.args[0].base == -expr.args[1].base and expr.args[0].exp == -expr.args[1].exp:
++            return (-1)**expr.args[0].exp
+     # First try other expansion methods
+     expr = expr.expand(mul=False, multinomial=False, force=force)

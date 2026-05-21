@@ -1,0 +1,15 @@
+diff --git a/sympy/core/basic.py b/sympy/core/basic.py
+index d4ca323e0d..d6dd41d401 100644
+--- a/sympy/core/basic.py
++++ b/sympy/core/basic.py
+@@ -1020,6 +1020,10 @@ def fallback(self, old, new):
+                             nonnumber.append(i)
+                     nonnumber = self.func(*nonnumber)
+                     if coeff is S.One:
++        # Handle the case where substitution leads to an undefined expression
++        if value.is_undefined:
++            return value
++
+                         return nonnumber
+                     else:
+                         return self.func(coeff, nonnumber, evaluate=False)

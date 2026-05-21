@@ -1,0 +1,13 @@
+diff --git a/sympy/physics/quantum/qexpr.py b/sympy/physics/quantum/qexpr.py
+index 46cb069428..b970162684 100644
+--- a/sympy/physics/quantum/qexpr.py
++++ b/sympy/physics/quantum/qexpr.py
+@@ -254,7 +254,7 @@ def _print_label(self, printer, *args):
+         """
+         return self._print_sequence(
+             self.label, self._label_separator, printer, *args
+-        )
++        ).replace('\\left[', '[').replace('\\right]', ']')
+ 
+     def _print_label_repr(self, printer, *args):
+         return self._print_sequence(

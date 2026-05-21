@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16873",
+  "input_patch_chars": 720,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/template/defaultfilters.py...\nerror: while searching for:\n    \"\"\"\n    Joins a list of strings with a string 'arg' as a separator. The result is\n    escaped if 'arg' is not safe.\n    \"\"\"\n    if not value:\n        return ''\n    value = iter(value)\n\nerror: patch failed: django/template/defaultfilters.py:100\nerror: while searching for:\n    result = next(value)\n    for item in value:\n        result += arg + item\n    return mark_safe(result)\n\n\n@register.filter(is_safe=True)\n\nerror: patch failed: django/template/defaultfilters.py:108\nApplying patch django/template/defaultfilters.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/template/defaultfilters.py\nHunk #1 succeeded at 94 with fuzz 3 (offset -6 lines).\nHunk #2 FAILED at 108.\n1 out of 2 hunks FAILED -- saving rejects to file django/template/defaultfilters.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

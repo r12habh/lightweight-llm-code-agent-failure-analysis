@@ -1,0 +1,15 @@
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index e0eeccefa6..0cecfe3b91 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -1310,6 +1310,10 @@ class QuerySet:
+         be treated as a single filter. This is only important when it comes to
+         determining when to reuse tables for many-to-many filters. Required so
+         that we can filter naturally on the results of related managers.
++        if self.query.combinator:
++            raise NotImplementedError("distinct() is not allowed after a"
++                                    " .union() or .intersection().")
++
+ 
+         This doesn't return a clone of the current QuerySet (it returns
+         "self"). The method is only used internally and should be immediately

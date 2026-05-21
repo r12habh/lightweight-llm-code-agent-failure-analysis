@@ -1,0 +1,47 @@
+2026-05-20 08:23:34,296 - INFO - Creating container for django__django-14787...
+2026-05-20 08:23:35,247 - INFO - Container for django__django-14787 created: 2715624df6f67a3f779155a26e224d75b3bc0a41d52ae222dc8fdc3662b4a1f9
+2026-05-20 08:23:35,375 - INFO - Container for django__django-14787 started: 2715624df6f67a3f779155a26e224d75b3bc0a41d52ae222dc8fdc3662b4a1f9
+2026-05-20 08:23:35,379 - INFO - Intermediate patch for django__django-14787 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14787/patch.diff, now applying to container...
+2026-05-20 08:23:35,562 - INFO - >>>>> Applied Patch:
+Checking patch django/utils/decorators.py...
+Applied patch django/utils/decorators.py cleanly.
+
+2026-05-20 08:23:36,302 - INFO - Git diff before:
+diff --git a/django/utils/decorators.py b/django/utils/decorators.py
+index 5c9a5d01c7..c2cb51a3ff 100644
+--- a/django/utils/decorators.py
++++ b/django/utils/decorators.py
+@@ -54,7 +54,7 @@ def method_decorator(decorator, name=''):
+     """
+     Convert a function decorator into a method decorator
+     """
+-    # 'obj' can be a class or a function. If 'obj' is a function at the time it
++    # 'obj' can be a class or a function. If 'obj' is not a callable at the time it
+     # is passed to _dec,  it will eventually be a method of the class it is
+     # defined on. If 'obj' is a class, the 'name' is required to be the name
+     # of the method that will be decorated.
+2026-05-20 08:23:36,302 - INFO - Eval script for django__django-14787 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14787/eval.sh; copying to container...
+2026-05-20 08:23:45,015 - INFO - Test runtime: 8.64 seconds
+2026-05-20 08:23:45,015 - INFO - Test output for django__django-14787 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-14787/test_output.txt
+2026-05-20 08:23:45,149 - INFO - Git diff after:
+diff --git a/django/utils/decorators.py b/django/utils/decorators.py
+index 5c9a5d01c7..c2cb51a3ff 100644
+--- a/django/utils/decorators.py
++++ b/django/utils/decorators.py
+@@ -54,7 +54,7 @@ def method_decorator(decorator, name=''):
+     """
+     Convert a function decorator into a method decorator
+     """
+-    # 'obj' can be a class or a function. If 'obj' is a function at the time it
++    # 'obj' can be a class or a function. If 'obj' is not a callable at the time it
+     # is passed to _dec,  it will eventually be a method of the class it is
+     # defined on. If 'obj' is a class, the 'name' is required to be the name
+     # of the method that will be decorated.
+2026-05-20 08:23:45,149 - INFO - Grading answer for django__django-14787...
+2026-05-20 08:23:45,150 - INFO - report: {'django__django-14787': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['@method_decorator preserves wrapper assignments.']}, 'PASS_TO_PASS': {'success': ['test_cache_control_decorator_http_request (decorators.tests.CacheControlDecoratorTest)', 'Ensures @xframe_options_deny properly sets the X-Frame-Options header.', 'Ensures @xframe_options_exempt properly instructs the', 'Ensures @xframe_options_sameorigin properly sets the X-Frame-Options', 'Built-in decorators set certain attributes of the wrapped function.', 'test_cache_page (decorators.tests.DecoratorsTest)', 'Test for the require_safe decorator.', 'The user_passes_test decorator can be applied multiple times (#9474).', 'test_never_cache_decorator (decorators.tests.NeverCacheDecoratorTest)', 'test_never_cache_decorator_http_request (decorators.tests.NeverCacheDecoratorTest)', 'test_argumented (decorators.tests.MethodDecoratorTests)', 'test_bad_iterable (decorators.tests.MethodDecoratorTests)', '@method_decorator can be used to decorate a class and its methods.', 'test_descriptors (decorators.tests.MethodDecoratorTests)', '@method_decorator on a nonexistent method raises an error.', '@method_decorator on a non-callable attribute raises an error.', 'A decorator that sets a new attribute on the method.', 'test_preserve_attributes (decorators.tests.MethodDecoratorTests)', 'test_preserve_signature (decorators.tests.MethodDecoratorTests)', '@method_decorator can accept a tuple of decorators.'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14787: resolved: False
+2026-05-20 08:23:45,151 - INFO - Attempting to stop container sweb.eval.django__django-14787.gpt4omini_300_agentless_repaired...
+2026-05-20 08:24:00,364 - INFO - Attempting to remove container sweb.eval.django__django-14787.gpt4omini_300_agentless_repaired...
+2026-05-20 08:24:00,403 - INFO - Container sweb.eval.django__django-14787.gpt4omini_300_agentless_repaired removed.
+2026-05-20 08:24:00,404 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14787:latest...
+2026-05-20 08:24:00,412 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14787:latest removed.

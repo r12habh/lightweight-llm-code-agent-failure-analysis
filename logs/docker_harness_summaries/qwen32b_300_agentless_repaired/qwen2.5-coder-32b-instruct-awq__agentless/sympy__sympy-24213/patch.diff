@@ -1,0 +1,13 @@
+diff --git a/sympy/physics/units/unitsystem.py b/sympy/physics/units/unitsystem.py
+index a436880c4b..74f20bef33 100644
+--- a/sympy/physics/units/unitsystem.py
++++ b/sympy/physics/units/unitsystem.py
+@@ -178,7 +178,7 @@ def _collect_factor_and_dimension(self, expr):
+                 if dim != addend_dim:
+                     raise ValueError(
+                         'Dimension of "{}" is {}, '
+-                        'but it should be {}'.format(
++                        'but it should be equivalent to {}'.format(
+                             addend, addend_dim, dim))
+                 factor += addend_factor
+             return factor, dim

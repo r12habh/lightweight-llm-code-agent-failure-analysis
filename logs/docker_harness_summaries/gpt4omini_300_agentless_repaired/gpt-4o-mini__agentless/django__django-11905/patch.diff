@@ -1,0 +1,19 @@
+diff --git a/django/db/models/lookups.py b/django/db/models/lookups.py
+index 9344979c56..87cb8c2b4f 100644
+--- a/django/db/models/lookups.py
++++ b/django/db/models/lookups.py
+@@ -14,9 +14,14 @@ from django.utils.functional import cached_property
+ 
+ class Lookup:
+     lookup_name = None
++    allow_non_boolean_rhs = False
+     prepare_rhs = True
+     can_use_none_as_rhs = False
+ 
++    def __init__(self, lhs, rhs):
++        if not self.allow_non_boolean_rhs and not isinstance(rhs, bool):
++            raise ValueError("The __isnull lookup accepts only boolean values.")
++        self.lhs, self.rhs = lhs, rhs
+     def __init__(self, lhs, rhs):
+         self.lhs, self.rhs = lhs, rhs
+         self.rhs = self.get_prep_lookup()

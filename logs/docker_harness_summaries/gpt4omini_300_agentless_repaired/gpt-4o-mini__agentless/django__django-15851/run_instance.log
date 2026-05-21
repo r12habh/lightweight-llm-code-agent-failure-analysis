@@ -1,0 +1,47 @@
+2026-05-20 08:40:55,908 - INFO - Creating container for django__django-15851...
+2026-05-20 08:40:56,941 - INFO - Container for django__django-15851 created: 4f337f8fd469f19b78e14420cc5ccc87223c43423883ba5b35f1659c3d01e79c
+2026-05-20 08:40:57,060 - INFO - Container for django__django-15851 started: 4f337f8fd469f19b78e14420cc5ccc87223c43423883ba5b35f1659c3d01e79c
+2026-05-20 08:40:57,060 - INFO - Intermediate patch for django__django-15851 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-15851/patch.diff, now applying to container...
+2026-05-20 08:40:57,244 - INFO - >>>>> Applied Patch:
+Checking patch docs/ref/django-admin.txt...
+Applied patch docs/ref/django-admin.txt cleanly.
+
+2026-05-20 08:40:58,030 - INFO - Git diff before:
+diff --git a/docs/ref/django-admin.txt b/docs/ref/django-admin.txt
+index 5016b25ea2..5bd8efa473 100644
+--- a/docs/ref/django-admin.txt
++++ b/docs/ref/django-admin.txt
+@@ -206,7 +206,7 @@ customize it or use the migrations framework.
+ 
+ Runs the command-line client for the database engine specified in your
+ :setting:`ENGINE <DATABASE-ENGINE>` setting, with the connection parameters
+-specified in your :setting:`USER`, :setting:`PASSWORD`, etc., settings.
++specified in your :setting:`USER`, :setting:`PASSWORD`, etc., settings, and any additional parameters must be placed before the database name.
+ 
+ * For PostgreSQL, this runs the ``psql`` command-line client.
+ * For MySQL, this runs the ``mysql`` command-line client.
+2026-05-20 08:40:58,030 - INFO - Eval script for django__django-15851 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-15851/eval.sh; copying to container...
+2026-05-20 08:41:07,353 - INFO - Test runtime: 9.25 seconds
+2026-05-20 08:41:07,354 - INFO - Test output for django__django-15851 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-15851/test_output.txt
+2026-05-20 08:41:07,498 - INFO - Git diff after:
+diff --git a/docs/ref/django-admin.txt b/docs/ref/django-admin.txt
+index 5016b25ea2..5bd8efa473 100644
+--- a/docs/ref/django-admin.txt
++++ b/docs/ref/django-admin.txt
+@@ -206,7 +206,7 @@ customize it or use the migrations framework.
+ 
+ Runs the command-line client for the database engine specified in your
+ :setting:`ENGINE <DATABASE-ENGINE>` setting, with the connection parameters
+-specified in your :setting:`USER`, :setting:`PASSWORD`, etc., settings.
++specified in your :setting:`USER`, :setting:`PASSWORD`, etc., settings, and any additional parameters must be placed before the database name.
+ 
+ * For PostgreSQL, this runs the ``psql`` command-line client.
+ * For MySQL, this runs the ``mysql`` command-line client.
+2026-05-20 08:41:07,498 - INFO - Grading answer for django__django-15851...
+2026-05-20 08:41:07,501 - INFO - report: {'django__django-15851': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_parameters (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)']}, 'PASS_TO_PASS': {'success': ['test_accent (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)', 'test_basic (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)', 'test_column (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)', 'test_crash_password_does_not_leak (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)', 'test_nopass (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)', 'test_passfile (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)', 'test_service (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)', 'test_ssl_certificate (dbshell.test_postgresql.PostgreSqlDbshellCommandTestCase)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15851: resolved: False
+2026-05-20 08:41:07,502 - INFO - Attempting to stop container sweb.eval.django__django-15851.gpt4omini_300_agentless_repaired...
+2026-05-20 08:41:22,662 - INFO - Attempting to remove container sweb.eval.django__django-15851.gpt4omini_300_agentless_repaired...
+2026-05-20 08:41:22,680 - INFO - Container sweb.eval.django__django-15851.gpt4omini_300_agentless_repaired removed.
+2026-05-20 08:41:22,680 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15851:latest...
+2026-05-20 08:41:22,686 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15851:latest removed.

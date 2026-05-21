@@ -1,0 +1,27 @@
+{
+  "instance_id": "django__django-15061",
+  "input_patch_chars": 1119,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/ref/class-based-views/index.txt...\nHunk #1 succeeded at 47 (offset -76 lines).\nHunk #2 succeeded at 55 (offset -77 lines).\nApplied patch docs/ref/class-based-views/index.txt cleanly.\n",
+          "stdout": "",
+          "note": "command succeeded but produced an empty git diff"
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file docs/ref/class-based-views/index.txt\nHunk #1 succeeded at 47 (offset -76 lines).\nHunk #2 succeeded at 55 (offset -77 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

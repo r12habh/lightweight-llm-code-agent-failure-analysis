@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13895",
+  "input_patch_chars": 663,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 24\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/simplify/simplify.py\nHunk #1 succeeded at 1445 with fuzz 3 (offset -524 lines).\nHunk #2 FAILED at 1992.\n1 out of 2 hunks FAILED -- saving rejects to file sympy/simplify/simplify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

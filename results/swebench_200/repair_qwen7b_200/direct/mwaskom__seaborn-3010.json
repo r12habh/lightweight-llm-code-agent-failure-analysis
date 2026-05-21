@@ -1,0 +1,28 @@
+{
+  "instance_id": "mwaskom__seaborn-3010",
+  "input_patch_chars": 410,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch seaborn/_stats/regression.py...\nerror: while searching for:\n    def __call__(self, data, groupby, orient, scales):\n        return groupby.apply(data, self._fit_predict)\n\n        x = data[self.x]\n        y = data[self.y]\n        if self.order > 1:\n\nerror: patch failed: seaborn/_stats/regression.py:28\nerror: seaborn/_stats/regression.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch seaborn/_stats/regression.py...\nerror: while searching for:\n    def __call__(self, data, groupby, orient, scales):\n        return groupby.apply(data, self._fit_predict)\n\n        x = data[self.x]\n        y = data[self.y]\n        if self.order > 1:\n\nerror: patch failed: seaborn/_stats/regression.py:28\nApplying patch seaborn/_stats/regression.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 435
+}

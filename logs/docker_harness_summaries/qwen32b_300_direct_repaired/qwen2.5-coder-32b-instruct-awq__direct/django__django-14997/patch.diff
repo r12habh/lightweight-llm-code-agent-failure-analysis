@@ -1,0 +1,13 @@
+diff --git a/django/db/backends/sqlite3/schema.py b/django/db/backends/sqlite3/schema.py
+index f0c81c123b..82029364e2 100644
+--- a/django/db/backends/sqlite3/schema.py
++++ b/django/db/backends/sqlite3/schema.py
+@@ -241,7 +241,7 @@ class DatabaseSchemaEditor(BaseDatabaseSchemaEditor):
+         # Provide isolated instances of the fields to the new model body so
+         # that the existing model's internals aren't interfered with when
+         # the dummy model is constructed.
+-        body_copy = copy.deepcopy(body)
++        body_copy = {name: field.clone() for name, field in body.items()}
+ 
+         # Construct a new model with the new fields to allow self referential
+         # primary key to resolve to. This model won't ever be materialized as a

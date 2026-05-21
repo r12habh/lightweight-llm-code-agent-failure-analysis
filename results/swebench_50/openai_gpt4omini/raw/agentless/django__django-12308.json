@@ -1,0 +1,35 @@
+{
+  "instance_id": "django__django-12308",
+  "raw": "```diff\ndiff --git a/django/contrib/admin/utils.py b/django/contrib/admin/utils.py\n--- a/django/contrib/admin/utils.py\n+++ b/django/contrib/admin/utils.py\n@@ -276,6 +276,12 @@\n \n from django.contrib.postgres.fields import JSONField\n \n+def display_for_field(value, field, empty_value_display):\n+    \"\"\"Display value for a field, handling JSONField formatting better.\"\"\"\n+    if isinstance(field, JSONField):\n+        return json.dumps(value) if value is not None else empty_value_display\n+    return formats.localize(value) if value is not None else empty_value_display\n+\n \n def display_for_value(value, empty_value_display, boolean=None):\n     \"\"\"Display value for the admin interface.\"\"\"\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 17072,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 238,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 17310
+    },
+    "patch": {
+      "input_tokens": 17156,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 163,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 17319
+    }
+  },
+  "localized_files": [
+    "django/contrib/admin/utils.py",
+    "django/contrib/admin/options.py",
+    "django/contrib/admin/templatetags/admin_list.py",
+    "django/contrib/admin/tests.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/contrib/admin/utils.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains display_for_field implementation related to JSONField value display.\"\n    },\n    {\n      \"path\": \"django/contrib/admin/options.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"Includes model and field handling logic which may interact with JSONField properties.\"\n    },\n    {\n      \"path\": \"django/contrib/admin/templatetags/admin_list.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Handles display functionality in the admin which could affect how JSONField data is rendered.\"\n    },\n    {\n      \"path\": \"django/contrib/admin/tests.py\",\n      \"confidence\": 0.65,\n      \"reason\": \"Possibly contains tests for admin functionality that might include JSONField cases.\"\n    },\n    {\n      \"path\": \"docs/ref/contrib/admin/index.txt\",\n      \"confidence\": 0.5,\n      \"reason\": \"Documentation may need updates regarding JSONField display in admin.\"\n    }\n  ]\n}\n```"
+}

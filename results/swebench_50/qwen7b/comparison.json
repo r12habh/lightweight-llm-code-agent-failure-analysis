@@ -1,0 +1,14 @@
+{
+  "n_paired": 50,
+  "direct_resolved": 1,
+  "agentless_resolved": 1,
+  "direct_rate": 0.02,
+  "agentless_rate": 0.02,
+  "paired_table": {
+    "both_fail": 49,
+    "direct_only": 0,
+    "agentless_only": 0,
+    "both_pass": 1
+  },
+  "mcnemar_exact_p": 1.0
+}

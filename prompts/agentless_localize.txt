@@ -1,0 +1,9 @@
+You are in localization mode for a controlled software-engineering benchmark.
+
+Task: Identify the files most likely to require edits.
+Rules:
+- Use only the issue statement and repository context supplied below.
+- Return strict JSON only.
+- JSON schema: {"files": [{"path": "relative/path.py", "confidence": 0.0, "reason": "short reason"}]}
+- Include 1 to 5 files.
+- Do not emit a patch.

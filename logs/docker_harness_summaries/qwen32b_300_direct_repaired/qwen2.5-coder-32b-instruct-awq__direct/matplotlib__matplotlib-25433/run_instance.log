@@ -1,0 +1,45 @@
+2026-05-08 21:41:50,615 - INFO - Creating container for matplotlib__matplotlib-25433...
+2026-05-08 21:41:51,149 - INFO - Container for matplotlib__matplotlib-25433 created: 6d008c8e3b06d3be4ed49526753fbc909460cb2212a577d26390bda2301014df
+2026-05-08 21:41:51,264 - INFO - Container for matplotlib__matplotlib-25433 started: 6d008c8e3b06d3be4ed49526753fbc909460cb2212a577d26390bda2301014df
+2026-05-08 21:41:51,267 - INFO - Intermediate patch for matplotlib__matplotlib-25433 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/matplotlib__matplotlib-25433/patch.diff, now applying to container...
+2026-05-08 21:41:51,450 - INFO - >>>>> Applied Patch:
+Checking patch lib/matplotlib/pyplot.py...
+Applied patch lib/matplotlib/pyplot.py cleanly.
+
+2026-05-08 21:41:52,548 - INFO - Git diff before:
+diff --git a/lib/matplotlib/pyplot.py b/lib/matplotlib/pyplot.py
+index 5a71207a2a..06301b8812 100644
+--- a/lib/matplotlib/pyplot.py
++++ b/lib/matplotlib/pyplot.py
+@@ -1700,6 +1700,7 @@ def twinx(ax=None):
+ 
+ def twiny(ax=None):
+     """
++        manager.canvas.mpl_connect('draw_event', lambda event: manager.canvas.draw_idle())
+     Make and return a second axes that shares the *y*-axis.  The new axes will
+     overlay *ax* (or the current axes if *ax* is *None*), and its ticks will be
+     on the top.
+2026-05-08 21:41:52,550 - INFO - Eval script for matplotlib__matplotlib-25433 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/matplotlib__matplotlib-25433/eval.sh; copying to container...
+2026-05-08 21:43:46,077 - INFO - Test runtime: 113.46 seconds
+2026-05-08 21:43:46,078 - INFO - Test output for matplotlib__matplotlib-25433 written to logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/matplotlib__matplotlib-25433/test_output.txt
+2026-05-08 21:43:46,206 - INFO - Git diff after:
+diff --git a/lib/matplotlib/pyplot.py b/lib/matplotlib/pyplot.py
+index 5a71207a2a..06301b8812 100644
+--- a/lib/matplotlib/pyplot.py
++++ b/lib/matplotlib/pyplot.py
+@@ -1700,6 +1700,7 @@ def twinx(ax=None):
+ 
+ def twiny(ax=None):
+     """
++        manager.canvas.mpl_connect('draw_event', lambda event: manager.canvas.draw_idle())
+     Make and return a second axes that shares the *y*-axis.  The new axes will
+     overlay *ax* (or the current axes if *ax* is *None*), and its ticks will be
+     on the top.
+2026-05-08 21:43:46,206 - INFO - Grading answer for matplotlib__matplotlib-25433...
+2026-05-08 21:43:46,209 - INFO - report: {'matplotlib__matplotlib-25433': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['lib/matplotlib/tests/test_backend_bases.py::test_grab_clear']}, 'PASS_TO_PASS': {'success': ['lib/matplotlib/tests/test_backend_bases.py::test_uses_per_path', 'lib/matplotlib/tests/test_backend_bases.py::test_canvas_ctor', 'lib/matplotlib/tests/test_backend_bases.py::test_get_default_filename', 'lib/matplotlib/tests/test_backend_bases.py::test_canvas_change', 'lib/matplotlib/tests/test_backend_bases.py::test_non_gui_warning', 'lib/matplotlib/tests/test_backend_bases.py::test_location_event_position[42-24]', 'lib/matplotlib/tests/test_backend_bases.py::test_location_event_position[None-42]', 'lib/matplotlib/tests/test_backend_bases.py::test_location_event_position[None-None]', 'lib/matplotlib/tests/test_backend_bases.py::test_location_event_position[200-100.01]', 'lib/matplotlib/tests/test_backend_bases.py::test_location_event_position[205.75-2.0]', 'lib/matplotlib/tests/test_backend_bases.py::test_pick', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_zoom', 'lib/matplotlib/tests/test_backend_bases.py::test_widgetlock_zoompan', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-1-expected0-vertical-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-1-expected0-vertical-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-1-expected0-horizontal-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-1-expected0-horizontal-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-3-expected1-vertical-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-3-expected1-vertical-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-3-expected1-horizontal-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[zoom-3-expected1-horizontal-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-1-expected2-vertical-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-1-expected2-vertical-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-1-expected2-horizontal-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-1-expected2-horizontal-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-3-expected3-vertical-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-3-expected3-vertical-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-3-expected3-horizontal-imshow]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_colorbar[pan-3-expected3-horizontal-contourf]', 'lib/matplotlib/tests/test_backend_bases.py::test_toolbar_zoompan', 'lib/matplotlib/tests/test_backend_bases.py::test_draw[svg]', 'lib/matplotlib/tests/test_backend_bases.py::test_draw[ps]', 'lib/matplotlib/tests/test_backend_bases.py::test_draw[pdf]', 'lib/matplotlib/tests/test_backend_bases.py::test_draw[pgf]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend0-expectedxlim0-expectedylim0]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend1-expectedxlim1-expectedylim1]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend2-expectedxlim2-expectedylim2]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend3-expectedxlim3-expectedylim3]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend4-expectedxlim4-expectedylim4]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend5-expectedxlim5-expectedylim5]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend6-expectedxlim6-expectedylim6]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[None-mouseend7-expectedxlim7-expectedylim7]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[shift-mouseend8-expectedxlim8-expectedylim8]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[shift-mouseend9-expectedxlim9-expectedylim9]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[shift-mouseend10-expectedxlim10-expectedylim10]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[shift-mouseend11-expectedxlim11-expectedylim11]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[shift-mouseend12-expectedxlim12-expectedylim12]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[shift-mouseend13-expectedxlim13-expectedylim13]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[x-mouseend14-expectedxlim14-expectedylim14]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[y-mouseend15-expectedxlim15-expectedylim15]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[control-mouseend16-expectedxlim16-expectedylim16]', 'lib/matplotlib/tests/test_backend_bases.py::test_interactive_pan[control-mouseend17-expectedxlim17-expectedylim17]', 'lib/matplotlib/tests/test_backend_bases.py::test_toolmanager_remove', 'lib/matplotlib/tests/test_backend_bases.py::test_toolmanager_get_tool', 'lib/matplotlib/tests/test_backend_bases.py::test_toolmanager_update_keymap'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for matplotlib__matplotlib-25433: resolved: False
+2026-05-08 21:43:46,210 - INFO - Attempting to stop container sweb.eval.matplotlib__matplotlib-25433.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:44:01,401 - INFO - Attempting to remove container sweb.eval.matplotlib__matplotlib-25433.hf_qwen25_coder32b_awq_50_direct_repaired...
+2026-05-08 21:44:01,421 - INFO - Container sweb.eval.matplotlib__matplotlib-25433.hf_qwen25_coder32b_awq_50_direct_repaired removed.
+2026-05-08 21:44:01,421 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25433:latest...
+2026-05-08 21:44:04,040 - INFO - Image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25433:latest removed.

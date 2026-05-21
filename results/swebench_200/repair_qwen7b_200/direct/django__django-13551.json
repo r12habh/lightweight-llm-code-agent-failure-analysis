@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13551",
+  "input_patch_chars": 1153,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/auth/tokens.py...\nerror: while searching for:\nfrom django.conf import settings\nfrom django.contrib.auth import get_user_model\nfrom django.utils.crypto import salted_hmac, get_random_string\nfrom django.utils.http import urlsafe_base64_encode\n\n\n\nerror: patch failed: django/contrib/auth/tokens.py:1\nerror: while searching for:\n    def _make_hash_value(self, user, timestamp):\n        \"\"\"\n        Hash the user's primary key and some user state that's sure to change\n        after a password reset request (the user's password is reset).\n        \"\"\"\n        return (\n            force_text(user.pk) + force_text(user.password) +\n\nerror: patch failed: django/contrib/auth/tokens.py:18\nerror: while searching for:\n            force_text(timestamp)\n        )\n\n        return (\n            force_text(user.pk) + force_text(user.password) +\n            force_text(timestamp) + force_text(user_email)\n\nerror: patch failed: django/contrib/auth/tokens.py:26\nApplying patch django/contrib/auth/tokens.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/auth/tokens.py\nHunk #1 succeeded at 1 with fuzz 3.\nHunk #2 FAILED at 19.\nHunk #3 succeeded at 27 with fuzz 3.\n1 out of 3 hunks FAILED -- saving rejects to file django/contrib/auth/tokens.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

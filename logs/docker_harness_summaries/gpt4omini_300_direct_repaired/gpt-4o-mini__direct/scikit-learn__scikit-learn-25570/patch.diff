@@ -1,0 +1,13 @@
+diff --git a/sklearn/compose/_column_transformer.py b/sklearn/compose/_column_transformer.py
+index a261451177..2f24169690 100644
+--- a/sklearn/compose/_column_transformer.py
++++ b/sklearn/compose/_column_transformer.py
+@@ -857,6 +857,8 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
+                 # If all transformers define `get_feature_names_out`, then transform
+                 # will adjust the column names to be consistent with
+                 # verbose_feature_names_out. Here we prefix the feature names if
++            feature_names = []
++            return transformed_data, feature_names
+                 # verbose_feature_names_out=True.
+ 
+                 if not self.verbose_feature_names_out:

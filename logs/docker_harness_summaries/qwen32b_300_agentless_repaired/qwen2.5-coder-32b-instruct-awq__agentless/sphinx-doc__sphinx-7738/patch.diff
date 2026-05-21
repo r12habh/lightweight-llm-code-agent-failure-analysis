@@ -1,0 +1,11 @@
+diff --git a/sphinx/ext/napoleon/docstring.py b/sphinx/ext/napoleon/docstring.py
+index 11409e6f6..5e1c865b9 100644
+--- a/sphinx/ext/napoleon/docstring.py
++++ b/sphinx/ext/napoleon/docstring.py
+@@ -123,6 +123,7 @@ class GoogleDocstring:
+                 what = 'module'
+             elif callable(obj):
+                 what = 'function'
++                    type_ = type_.rstrip('\\')
+             else:
+                 what = 'object'

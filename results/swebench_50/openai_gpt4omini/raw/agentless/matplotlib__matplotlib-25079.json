@@ -1,0 +1,36 @@
+{
+  "instance_id": "matplotlib__matplotlib-25079",
+  "raw": "```diff\ndiff --git a/lib/matplotlib/colorbar.py b/lib/matplotlib/colorbar.py\n--- a/lib/matplotlib/colorbar.py\n+++ b/lib/matplotlib/colorbar.py\n@@ -351,6 +351,8 @@\n         if isinstance(mappable, contour.ContourSet):\n             cs = mappable\n             alpha = cs.get_alpha()\n+            # Ensure the norm is valid for log scale\n+            if isinstance(norm, colors.LogNorm):\n+                norm.vmin = max(norm.vmin, 1e-10)  # Set lower limit to avoid invalid vmin error\n             boundaries = cs._levels\n             values = cs.cvalues\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 21381,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 230,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21611
+    },
+    "patch": {
+      "input_tokens": 21459,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 146,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21605
+    }
+  },
+  "localized_files": [
+    "lib/matplotlib/colorbar.py",
+    "lib/matplotlib/backends/backend_agg.py",
+    "lib/matplotlib/image.py",
+    "lib/matplotlib/artist.py",
+    "lib/matplotlib/axes/_base.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"lib/matplotlib/colorbar.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Issues with norm in colorbar when using LogNorm.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/backends/backend_agg.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Potential interaction with rendering process affecting color scaling.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/image.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Color mapping and image drawing may be affected by norm changes.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/artist.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"General drawing behavior could affect how artists handle color scaling.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/axes/_base.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Axes-level interactions with scalars might need adjustments based on norm changes.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15738",
+  "input_patch_chars": 1037,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: patch fragment without header at line 25: @@ -22,7 +21,6 @@ class Project(models.Model):\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/app_name/models.py b/app_name/models.py\n|index 1234567..89abcde 100644\n|--- a/app_name/models.py\n|+++ b/app_name/models.py\n--------------------------\nNo file to patch.  Skipping patch.\n1 out of 1 hunk ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

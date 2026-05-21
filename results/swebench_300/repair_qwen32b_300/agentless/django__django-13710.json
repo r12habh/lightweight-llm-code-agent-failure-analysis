@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13710",
+  "input_patch_chars": 1666,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/admin/options.py...\nerror: while searching for:\n    verbose_name = None\n    verbose_name_plural = None\n    template = None\n\n    def __str__(self):\n        return \"%s.%s\" % (self.__class__.__module__, self.__class__.__name__)\n\nerror: patch failed: django/contrib/admin/options.py:150\nerror: django/contrib/admin/options.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/options.py...\nerror: while searching for:\n    verbose_name = None\n    verbose_name_plural = None\n    template = None\n\n    def __str__(self):\n        return \"%s.%s\" % (self.__class__.__module__, self.__class__.__name__)\n\nerror: patch failed: django/contrib/admin/options.py:150\nerror: while searching for:\n        if self.verbose_name is None:\n            self.verbose_name = self.model._meta.verbose_name\n        if self.verbose_name_plural is None:\n            self.verbose_name_plural = self.model._meta.verbose_name_plural\n\n    def get_formset(self, request, obj=None, **kwargs):\n\nerror: patch failed: django/contrib/admin/options.py:160\nerror: while searching for:\n        if self.verbose_name is None:\n            self.verbose_name = self.model._meta.verbose_name\n        if self.verbose_name_plural is None:\n            self.verbose_name_plural = self.model._meta.verbose_name_plural\n        if self.fields is None:\n            self.fields = forms.ALL_FIELDS\n\nerror: patch failed: django/contrib/admin/options.py:171\nApplying patch django/contrib/admin/options.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1795
+}

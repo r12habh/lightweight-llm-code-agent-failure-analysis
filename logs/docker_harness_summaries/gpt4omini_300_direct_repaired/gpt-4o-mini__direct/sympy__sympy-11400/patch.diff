@@ -1,0 +1,12 @@
+diff --git a/sympy/printing/ccode.py b/sympy/printing/ccode.py
+index 30a07a7b59..c0d2d7d6fb 100644
+--- a/sympy/printing/ccode.py
++++ b/sympy/printing/ccode.py
+@@ -26,6 +26,7 @@
+     "Abs": [(lambda x: not x.is_integer, "fabs")],
+     "gamma": "tgamma",
+     "sin": "sin",
++   "sinc": "sinc",  # Add sinc function
+     "cos": "cos",
+     "tan": "tan",
+     "asin": "asin",

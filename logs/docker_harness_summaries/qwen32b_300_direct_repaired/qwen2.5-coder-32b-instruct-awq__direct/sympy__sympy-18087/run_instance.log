@@ -1,0 +1,99 @@
+2026-05-20 13:42:31,917 - INFO - Creating container for sympy__sympy-18087...
+2026-05-20 13:42:33,043 - INFO - Container for sympy__sympy-18087 created: 1f255663f39a83461e9ecb53a463ba891db3f252bd6700984fae872caadd1c6d
+2026-05-20 13:42:33,223 - INFO - Container for sympy__sympy-18087 started: 1f255663f39a83461e9ecb53a463ba891db3f252bd6700984fae872caadd1c6d
+2026-05-20 13:42:33,224 - INFO - Intermediate patch for sympy__sympy-18087 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-18087/patch.diff, now applying to container...
+2026-05-20 13:42:33,432 - INFO - >>>>> Applied Patch:
+Checking patch sympy/simplify/fu.py...
+Applied patch sympy/simplify/fu.py cleanly.
+
+2026-05-20 13:42:33,966 - INFO - Git diff before:
+diff --git a/sympy/simplify/fu.py b/sympy/simplify/fu.py
+index 612bc0bb69..4510cdeb77 100644
+--- a/sympy/simplify/fu.py
++++ b/sympy/simplify/fu.py
+@@ -214,6 +214,10 @@
+ 
+ from sympy import SYMPY_DEBUG
+ 
++    def handle_sqrt(expr):
++        if expr.is_Pow and expr.exp == S.Half:
++            return expr
++        return expr
+ 
+ # ================== Fu-like tools ===========================
+ 
+@@ -222,6 +226,7 @@ def TR0(rv):
+     """Simplification of rational polynomials, trying to simplify
+     the expression, e.g. combine things like 3*x + 2*x, etc....
+     """
++            return handle_sqrt(cos(a)**2/(sin(a)**2))
+     # although it would be nice to use cancel, it doesn't work
+     # with noncommutatives
+     return rv.normal().factor().expand()
+@@ -275,6 +280,7 @@ def f(rv):
+             return sin(a)/cos(a)
+         elif isinstance(rv, cot):
+             a = rv.args[0]
++            return handle_sqrt(cos(a)**2/(sin(a)**2))
+             return cos(a)/sin(a)
+         return rv
+ 
+@@ -282,6 +288,7 @@ def f(rv):
+ 
+ 
+ def TR2i(rv, half=False):
++    rv = TR2(rv)
+     """Converts ratios involving sin and cos as follows::
+         sin(x)/cos(x) -> tan(x)
+         sin(x)/(cos(x) + 1) -> tan(x/2) if half=True
+2026-05-20 13:42:33,967 - INFO - Eval script for sympy__sympy-18087 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-18087/eval.sh; copying to container...
+2026-05-20 13:42:37,628 - INFO - Test runtime: 3.59 seconds
+2026-05-20 13:42:37,629 - INFO - Test output for sympy__sympy-18087 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-18087/test_output.txt
+2026-05-20 13:42:37,745 - INFO - Git diff after:
+diff --git a/sympy/simplify/fu.py b/sympy/simplify/fu.py
+index 612bc0bb69..4510cdeb77 100644
+--- a/sympy/simplify/fu.py
++++ b/sympy/simplify/fu.py
+@@ -214,6 +214,10 @@
+ 
+ from sympy import SYMPY_DEBUG
+ 
++    def handle_sqrt(expr):
++        if expr.is_Pow and expr.exp == S.Half:
++            return expr
++        return expr
+ 
+ # ================== Fu-like tools ===========================
+ 
+@@ -222,6 +226,7 @@ def TR0(rv):
+     """Simplification of rational polynomials, trying to simplify
+     the expression, e.g. combine things like 3*x + 2*x, etc....
+     """
++            return handle_sqrt(cos(a)**2/(sin(a)**2))
+     # although it would be nice to use cancel, it doesn't work
+     # with noncommutatives
+     return rv.normal().factor().expand()
+@@ -275,6 +280,7 @@ def f(rv):
+             return sin(a)/cos(a)
+         elif isinstance(rv, cot):
+             a = rv.args[0]
++            return handle_sqrt(cos(a)**2/(sin(a)**2))
+             return cos(a)/sin(a)
+         return rv
+ 
+@@ -282,6 +288,7 @@ def f(rv):
+ 
+ 
+ def TR2i(rv, half=False):
++    rv = TR2(rv)
+     """Converts ratios involving sin and cos as follows::
+         sin(x)/cos(x) -> tan(x)
+         sin(x)/(cos(x) + 1) -> tan(x/2) if half=True
+2026-05-20 13:42:37,745 - INFO - Grading answer for sympy__sympy-18087...
+2026-05-20 13:42:37,748 - INFO - report: {'sympy__sympy-18087': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_Factors', 'test_fu']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_decompose_power', 'test_Term', 'test_gcd_terms', 'test_factor_terms', 'test_xreplace', 'test_factor_nc', 'test_issue_6360', 'test_issue_7903', 'test_issue_8263', 'test_monotonic_sign', 'test_TR1', 'test_TR2', 'test_TR2i', 'test_TR3', 'test__TR56', 'test_TR5', 'test_TR6', 'test_TR7', 'test_TR8', 'test_TR9', 'test_TR10', 'test_TR10i', 'test_TR11', 'test_TR12', 'test_TR13', 'test_L', 'test_objective', 'test_process_common_addends', 'test_trig_split', 'test_TRmorrie', 'test_TRpower', 'test_hyper_as_trig', 'test_TR12i', 'test_TR14', 'test_TR15_16_17']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-18087: resolved: False
+2026-05-20 13:42:37,749 - INFO - Attempting to stop container sweb.eval.sympy__sympy-18087.qwen32b_300_direct_repaired...
+2026-05-20 13:42:52,947 - INFO - Attempting to remove container sweb.eval.sympy__sympy-18087.qwen32b_300_direct_repaired...
+2026-05-20 13:42:52,963 - INFO - Container sweb.eval.sympy__sympy-18087.qwen32b_300_direct_repaired removed.
+2026-05-20 13:42:52,963 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-18087:latest...
+2026-05-20 13:42:52,971 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-18087:latest removed.

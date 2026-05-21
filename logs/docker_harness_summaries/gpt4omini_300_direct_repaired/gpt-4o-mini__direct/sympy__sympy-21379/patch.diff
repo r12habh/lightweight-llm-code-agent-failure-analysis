@@ -1,0 +1,13 @@
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 1c7ef70b6a..8eae6c7c83 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -673,6 +673,8 @@ def check_denominator_zeros(expression):
+                     b = None
+                 if b is not None and b is not S.NaN and b.equals(a) is False:
+                     return False
++        if self.has(Piecewise):
++            return self
+                 # try random real
+                 b = expr._random(None, -1, 0, 1, 0)
+                 if b is not None and b is not S.NaN and b.equals(a) is False:

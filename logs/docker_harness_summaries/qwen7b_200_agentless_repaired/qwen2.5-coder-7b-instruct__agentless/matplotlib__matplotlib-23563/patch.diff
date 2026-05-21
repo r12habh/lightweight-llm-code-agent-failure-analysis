@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/axes/_base.py b/lib/matplotlib/axes/_base.py
+index 04e34080c1..7eb8cab574 100644
+--- a/lib/matplotlib/axes/_base.py
++++ b/lib/matplotlib/axes/_base.py
+@@ -123,6 +123,7 @@ def _process_plot_format(fmt, *, ambiguous_fmt_datakey=False):
+     *marker*, *color*) tuple.
+ 
+     Example format strings include:
++        self.yaxis = YAxis(self)
+ 
+     * 'ko': black circles
+     * '.b': blue dots

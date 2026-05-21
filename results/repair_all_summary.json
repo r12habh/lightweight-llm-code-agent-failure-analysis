@@ -1,0 +1,104 @@
+{
+  "gpt4omini": {
+    "agentless": {
+      "records": 300,
+      "valid": 157,
+      "invalid": 143,
+      "nonempty_eval_patches": 157,
+      "empty_eval_patches": 143,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 128,
+        "None": 143,
+        "git apply --verbose": 29
+      },
+      "selected_candidate_distribution": {
+        "None": 143,
+        "original": 157
+      }
+    },
+    "direct": {
+      "records": 300,
+      "valid": 151,
+      "invalid": 149,
+      "nonempty_eval_patches": 151,
+      "empty_eval_patches": 149,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 126,
+        "None": 149,
+        "git apply --verbose": 25
+      },
+      "selected_candidate_distribution": {
+        "None": 149,
+        "original": 151
+      }
+    }
+  },
+  "qwen32b": {
+    "direct": {
+      "records": 300,
+      "valid": 155,
+      "invalid": 145,
+      "nonempty_eval_patches": 155,
+      "empty_eval_patches": 145,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 129,
+        "None": 145,
+        "git apply --verbose": 26
+      },
+      "selected_candidate_distribution": {
+        "original": 155,
+        "None": 145
+      }
+    },
+    "agentless": {
+      "records": 300,
+      "valid": 156,
+      "invalid": 144,
+      "nonempty_eval_patches": 156,
+      "empty_eval_patches": 144,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 122,
+        "None": 144,
+        "git apply --verbose": 34
+      },
+      "selected_candidate_distribution": {
+        "original": 156,
+        "None": 144
+      }
+    }
+  },
+  "qwen7b": {
+    "direct": {
+      "records": 200,
+      "valid": 91,
+      "invalid": 109,
+      "nonempty_eval_patches": 91,
+      "empty_eval_patches": 109,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 73,
+        "None": 109,
+        "git apply --verbose": 18
+      },
+      "selected_candidate_distribution": {
+        "original": 91,
+        "None": 109
+      }
+    },
+    "agentless": {
+      "records": 200,
+      "valid": 114,
+      "invalid": 86,
+      "nonempty_eval_patches": 114,
+      "empty_eval_patches": 86,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 75,
+        "git apply --verbose": 39,
+        "None": 86
+      },
+      "selected_candidate_distribution": {
+        "original": 114,
+        "None": 86
+      }
+    }
+  }
+}

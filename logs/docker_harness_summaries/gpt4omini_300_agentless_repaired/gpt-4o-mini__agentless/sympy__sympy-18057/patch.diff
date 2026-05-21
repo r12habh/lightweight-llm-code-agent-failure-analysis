@@ -1,0 +1,12 @@
+diff --git a/sympy/parsing/sympy_parser.py b/sympy/parsing/sympy_parser.py
+index 2ab43d9b31..45334e5143 100644
+--- a/sympy/parsing/sympy_parser.py
++++ b/sympy/parsing/sympy_parser.py
+@@ -187,7 +187,7 @@ def _apply_functions(tokens, local_dict, global_dict):
+             else:
+                 result.extend(tok)
+         else:
+-            symbol = None
++            symbol = None  # Reset to allow matching next function
+             result.append(tok)
+     return result

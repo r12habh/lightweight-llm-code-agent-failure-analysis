@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-15011",
+  "input_patch_chars": 603,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/utilities/lambdify.py...\nerror: while searching for:\n    if dummify:\n        if isinstance(args, string_types):\n            raise ValueError(\"dummify=True is not supported when args is a string\")\n\n    # Create a dictionary to map sympy functions to the appropriate module functions\n    namespace = {}\n\nerror: patch failed: sympy/utilities/lambdify.py:100\nerror: sympy/utilities/lambdify.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/utilities/lambdify.py...\nerror: while searching for:\n    if dummify:\n        if isinstance(args, string_types):\n            raise ValueError(\"dummify=True is not supported when args is a string\")\n\n    # Create a dictionary to map sympy functions to the appropriate module functions\n    namespace = {}\n\nerror: patch failed: sympy/utilities/lambdify.py:100\nApplying patch sympy/utilities/lambdify.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 398
+}

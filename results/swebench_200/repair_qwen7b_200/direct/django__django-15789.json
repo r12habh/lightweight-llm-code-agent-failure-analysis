@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15789",
+  "input_patch_chars": 945,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/utils/html.py...\nerror: while searching for:\n    \"\"\"\n    Escape all the HTML/XML special characters with their unicode escapes, so\n    value is safe to be output anywhere except for inside a tag attribute. Wrap\n    \"\"\"\n    from django.core.serializers.json import DjangoJSONEncoder\n\n\nerror: patch failed: django/utils/html.py:100\nerror: django/utils/html.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/utils/html.py...\nerror: while searching for:\n    \"\"\"\n    Escape all the HTML/XML special characters with their unicode escapes, so\n    value is safe to be output anywhere except for inside a tag attribute. Wrap\n    \"\"\"\n    from django.core.serializers.json import DjangoJSONEncoder\n\n\nerror: patch failed: django/utils/html.py:100\nerror: while searching for:\n    json_str = json.dumps(value, cls=DjangoJSONEncoder).translate(_json_script_escapes)\n    if element_id:\n        template = '<script id=\"{}\" type=\"application/json\">{}</script>'\n    else:\n        template = '<script type=\"application/json\">{}</script>'\n        args = (mark_safe(json_str),)\n\nerror: patch failed: django/utils/html.py:107\nApplying patch django/utils/html.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 840
+}

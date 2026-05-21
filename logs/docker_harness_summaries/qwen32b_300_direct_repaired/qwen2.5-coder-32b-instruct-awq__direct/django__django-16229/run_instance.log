@@ -1,0 +1,44 @@
+2026-05-20 12:09:21,398 - INFO - Creating container for django__django-16229...
+2026-05-20 12:09:22,666 - INFO - Container for django__django-16229 created: f4fb87ec9f81df9428f653261c0588e29764ea27d9daf7ae3e3f034b7f0223b4
+2026-05-20 12:09:22,837 - INFO - Container for django__django-16229 started: f4fb87ec9f81df9428f653261c0588e29764ea27d9daf7ae3e3f034b7f0223b4
+2026-05-20 12:09:22,839 - INFO - Intermediate patch for django__django-16229 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-16229/patch.diff, now applying to container...
+2026-05-20 12:09:23,017 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 12:09:23,085 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 12:09:23,158 - INFO - >>>>> Applied Patch:
+patching file django/forms/models.py
+
+2026-05-20 12:09:23,901 - INFO - Git diff before:
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 35ecdc1c0d..ebd42b0d0d 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -112,6 +112,7 @@ def model_to_dict(instance, fields=None, exclude=None):
+             continue
+         if exclude and f.name in exclude:
+             continue
++            field.show_hidden_initial = False
+         data[f.name] = f.value_from_object(instance)
+     return data
+2026-05-20 12:09:23,901 - INFO - Eval script for django__django-16229 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-16229/eval.sh; copying to container...
+2026-05-20 12:09:31,174 - INFO - Test runtime: 7.20 seconds
+2026-05-20 12:09:31,178 - INFO - Test output for django__django-16229 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-16229/test_output.txt
+2026-05-20 12:09:31,307 - INFO - Git diff after:
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 35ecdc1c0d..ebd42b0d0d 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -112,6 +112,7 @@ def model_to_dict(instance, fields=None, exclude=None):
+             continue
+         if exclude and f.name in exclude:
+             continue
++            field.show_hidden_initial = False
+         data[f.name] = f.value_from_object(instance)
+     return data
+2026-05-20 12:09:31,307 - INFO - Grading answer for django__django-16229...
+2026-05-20 12:09:31,308 - INFO - report: {'django__django-16229': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_callable_default_hidden_widget_value_not_overridden (forms_tests.tests.tests.ModelFormCallableModelDefault)']}, 'PASS_TO_PASS': {'success': ['Test for issue 10405', "If a model's ManyToManyField has blank=True and is saved with no data,", 'test_m2m_field_exclusion (forms_tests.tests.tests.ManyToManyExclusionTestCase)', 'test_empty_field_char (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_empty_field_char_none (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_empty_field_integer (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_get_display_value_on_none (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_html_rendering_of_prepopulated_models (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_save_empty_label_forms (forms_tests.tests.tests.Jinja2EmptyLabelTestCase)', 'test_boundary_conditions (forms_tests.tests.tests.FormsModelTestCase)', 'test_formfield_initial (forms_tests.tests.tests.FormsModelTestCase)', 'test_unicode_filename (forms_tests.tests.tests.FormsModelTestCase)', 'test_empty_field_char (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_empty_field_char_none (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_empty_field_integer (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_get_display_value_on_none (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_html_rendering_of_prepopulated_models (forms_tests.tests.tests.EmptyLabelTestCase)', 'test_save_empty_label_forms (forms_tests.tests.tests.EmptyLabelTestCase)', 'The initial value for a callable default returning a queryset is the', 'Initial instances for model fields may also be instances (refs #7287)', "If a model's ForeignKey has blank=False and a default, no empty option"], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-16229: resolved: False
+2026-05-20 12:09:31,309 - INFO - Attempting to stop container sweb.eval.django__django-16229.qwen32b_300_direct_repaired...
+2026-05-20 12:09:46,486 - INFO - Attempting to remove container sweb.eval.django__django-16229.qwen32b_300_direct_repaired...
+2026-05-20 12:09:46,498 - INFO - Container sweb.eval.django__django-16229.qwen32b_300_direct_repaired removed.
+2026-05-20 12:09:46,499 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-16229:latest...
+2026-05-20 12:09:46,523 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-16229:latest removed.

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13925",
+  "input_patch_chars": 384,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n   'PositiveIntegerField', 'PositiveSmallIntegerField', 'SlugField', 'SmallAutoField',\n   'SmallIntegerField', 'TextField', 'TimeField', 'URLField', 'UUIDField',\n]\n\nclass Empty:\n    pass\n\nerror: patch failed: django/db/models/fields/__init__.py:12\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n   'PositiveIntegerField', 'PositiveSmallIntegerField', 'SlugField', 'SmallAutoField',\n   'SmallIntegerField', 'TextField', 'TimeField', 'URLField', 'UUIDField',\n]\n\nclass Empty:\n    pass\n\nerror: patch failed: django/db/models/fields/__init__.py:12\nApplying patch django/db/models/fields/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 270
+}

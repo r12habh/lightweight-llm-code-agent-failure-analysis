@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-14396",
+  "input_patch_chars": 475,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/polys/polyoptions.py...\nerror: while searching for:\n        raise OptionError('expected a valid domain specification, got %s' % domain)\n\n    @classmethod\n    def preprocess(cls, domain):\n        if isinstance(domain_str, sympy.polys.domains.Domain):\n            return domain_str\n        elif hasattr(domain_str, 'to_domain'):\n\nerror: patch failed: sympy/polys/polyoptions.py:481\nerror: sympy/polys/polyoptions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/polys/polyoptions.py...\nerror: while searching for:\n        raise OptionError('expected a valid domain specification, got %s' % domain)\n\n    @classmethod\n    def preprocess(cls, domain):\n        if isinstance(domain_str, sympy.polys.domains.Domain):\n            return domain_str\n        elif hasattr(domain_str, 'to_domain'):\n\nerror: patch failed: sympy/polys/polyoptions.py:481\nApplying patch sympy/polys/polyoptions.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 517
+}

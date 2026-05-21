@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15347",
+  "input_patch_chars": 1175,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/messages/storage/cookie.py...\nerror: while searching for:\n        if isinstance(obj, Message):\n            # Using 0/1 here instead of False/True to produce more compact json\n            is_safedata = 1 if isinstance(obj.message, SafeData) else 0\n            message = [self.message_key, is_safedata, obj.level, obj.message]\n            return message\n        return super().default(obj)\n\n\nerror: patch failed: django/contrib/messages/storage/cookie.py:34\nerror: django/contrib/messages/storage/cookie.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/messages/storage/cookie.py...\nerror: while searching for:\n        if isinstance(obj, Message):\n            # Using 0/1 here instead of False/True to produce more compact json\n            is_safedata = 1 if isinstance(obj.message, SafeData) else 0\n            message = [self.message_key, is_safedata, obj.level, obj.message]\n            return message\n        return super().default(obj)\n\n\nerror: patch failed: django/contrib/messages/storage/cookie.py:34\nerror: while searching for:\n                if obj[1]:\n                    obj[3] = mark_safe(obj[3])\n                # Add extra_tags if present\n                return Message(*obj[2:])\n            return [self.process_messages(item) for item in obj]\n        if isinstance(obj, dict):\n            return {key: self.process_messages(value)\n\nerror: patch failed: django/contrib/messages/storage/cookie.py:50\nApplying patch django/contrib/messages/storage/cookie.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1231
+}

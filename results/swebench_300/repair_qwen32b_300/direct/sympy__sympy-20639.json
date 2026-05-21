@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-20639",
+  "input_patch_chars": 629,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n        if e.exp == Rational(1, 2):\n            pform = prettyForm(*pform.root())\n        else:\n            pform = prettyForm(*pform.right('**'))\n            pform = prettyForm(*pform.right(self._print(e.exp)))\n        return pform\n\nerror: patch failed: sympy/printing/pretty/pretty.py:1044\nerror: sympy/printing/pretty/pretty.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/pretty.py...\nerror: while searching for:\n        if e.exp == Rational(1, 2):\n            pform = prettyForm(*pform.root())\n        else:\n            pform = prettyForm(*pform.right('**'))\n            pform = prettyForm(*pform.right(self._print(e.exp)))\n        return pform\n\nerror: patch failed: sympy/printing/pretty/pretty.py:1044\nApplying patch sympy/printing/pretty/pretty.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 611
+}

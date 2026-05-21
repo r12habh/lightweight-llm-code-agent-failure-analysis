@@ -1,0 +1,31 @@
+diff --git a/sklearn/neighbors/tests/test_nca.py b/sklearn/neighbors/tests/test_nca.py
+index 2397af5bc0..b0ef2d17b0 100644
+--- a/sklearn/neighbors/tests/test_nca.py
++++ b/sklearn/neighbors/tests/test_nca.py
+@@ -11,6 +11,7 @@ import pytest
+ import re
+ import numpy as np
+ from numpy.testing import assert_array_equal, assert_array_almost_equal
++from sklearn.utils.validation import check_param
+ from scipy.optimize import check_grad
+ from sklearn import clone
+ from sklearn.exceptions import ConvergenceWarning
+@@ -123,6 +124,10 @@ def test_params_validation():
+     # Test that invalid parameters raise value error
+     X = np.arange(12).reshape(4, 3)
+     y = [1, 1, 2, 2]
++    valid_options = {
++        numbers.Real: None,
++        str: ['frobenius', 'kullback-leibler', 'itakura-saito']
++    }
+     NCA = NeighborhoodComponentsAnalysis
+     rng = np.random.RandomState(42)
+ 
+@@ -133,6 +138,7 @@ def test_params_validation():
+     assert_raises(TypeError, NCA(n_components='invalid').fit, X, y)
+     assert_raises(TypeError, NCA(warm_start=1).fit, X, y)
+ 
++        check_param('max_iter', 'max_iter', valid_options)
+     # ValueError
+     assert_raise_message(ValueError,
+                          "`init` must be 'auto', 'pca', 'lda', 'identity', "

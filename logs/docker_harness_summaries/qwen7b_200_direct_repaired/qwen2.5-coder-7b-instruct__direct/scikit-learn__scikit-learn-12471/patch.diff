@@ -1,0 +1,15 @@
+diff --git a/sklearn/preprocessing/_encoders.py b/sklearn/preprocessing/_encoders.py
+index 1e05aba597..72c9656f42 100644
+--- a/sklearn/preprocessing/_encoders.py
++++ b/sklearn/preprocessing/_encoders.py
+@@ -102,6 +102,10 @@ class _BaseEncoder(BaseEstimator, TransformerMixin):
+ 
+             if not np.all(valid_mask):
+                 if handle_unknown == 'error':
++        if X.dtype == np.object and self.handle_unknown == 'ignore':
++            for i in range(n_features):
++                Xi = X[:, i]
++                Xi[Xi == 'unknown'] = self.categories_[i][0]
+                     msg = ("Found unknown categories {0} in column {1}"
+                            " during transform".format(diff, i))
+                     raise ValueError(msg)

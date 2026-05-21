@@ -1,0 +1,49 @@
+2026-05-20 02:28:07,168 - INFO - Creating container for sympy__sympy-24152...
+2026-05-20 02:28:07,960 - INFO - Container for sympy__sympy-24152 created: 972f16da8be5afd5f4317a375a952ce28a0a11fb7357c0bec5c4d2a6cae8a1f1
+2026-05-20 02:28:08,092 - INFO - Container for sympy__sympy-24152 started: 972f16da8be5afd5f4317a375a952ce28a0a11fb7357c0bec5c4d2a6cae8a1f1
+2026-05-20 02:28:08,096 - INFO - Intermediate patch for sympy__sympy-24152 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-24152/patch.diff, now applying to container...
+2026-05-20 02:28:08,288 - INFO - >>>>> Applied Patch:
+Checking patch sympy/physics/quantum/tensorproduct.py...
+Applied patch sympy/physics/quantum/tensorproduct.py cleanly.
+
+2026-05-20 02:28:08,812 - INFO - Git diff before:
+diff --git a/sympy/physics/quantum/tensorproduct.py b/sympy/physics/quantum/tensorproduct.py
+index 78accaf295..b7b90de71b 100644
+--- a/sympy/physics/quantum/tensorproduct.py
++++ b/sympy/physics/quantum/tensorproduct.py
+@@ -245,7 +245,8 @@ def _eval_expand_tensorproduct(self, **hints):
+         for i in range(len(args)):
+             if isinstance(args[i], Add):
+                 for aa in args[i].args:
+-                    tp = TensorProduct(*args[:i] + (aa,) + args[i + 1:])
++                    tp = TensorProduct(*(c_part + [aa] + nc_part))
++                    c_part, nc_part = tp.args_cnc()
+                     if isinstance(tp, TensorProduct):
+                         tp = tp._eval_expand_tensorproduct()
+                     add_args.append(tp)
+2026-05-20 02:28:08,813 - INFO - Eval script for sympy__sympy-24152 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-24152/eval.sh; copying to container...
+2026-05-20 02:28:14,782 - INFO - Test runtime: 5.90 seconds
+2026-05-20 02:28:14,784 - INFO - Test output for sympy__sympy-24152 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-24152/test_output.txt
+2026-05-20 02:28:14,905 - INFO - Git diff after:
+diff --git a/sympy/physics/quantum/tensorproduct.py b/sympy/physics/quantum/tensorproduct.py
+index 78accaf295..b7b90de71b 100644
+--- a/sympy/physics/quantum/tensorproduct.py
++++ b/sympy/physics/quantum/tensorproduct.py
+@@ -245,7 +245,8 @@ def _eval_expand_tensorproduct(self, **hints):
+         for i in range(len(args)):
+             if isinstance(args[i], Add):
+                 for aa in args[i].args:
+-                    tp = TensorProduct(*args[:i] + (aa,) + args[i + 1:])
++                    tp = TensorProduct(*(c_part + [aa] + nc_part))
++                    c_part, nc_part = tp.args_cnc()
+                     if isinstance(tp, TensorProduct):
+                         tp = tp._eval_expand_tensorproduct()
+                     add_args.append(tp)
+2026-05-20 02:28:14,906 - INFO - Grading answer for sympy__sympy-24152...
+2026-05-20 02:28:14,907 - INFO - report: {'sympy__sympy-24152': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_tensor_product_expand']}, 'PASS_TO_PASS': {'success': ['test_sparse_matrices', 'test_tensor_product_dagger', 'test_tensor_product_abstract', 'test_tensor_product_simp', 'test_issue_5923'], 'failure': ['test_tensor_product_commutator']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-24152: resolved: False
+2026-05-20 02:28:14,908 - INFO - Attempting to stop container sweb.eval.sympy__sympy-24152.gpt4omini_300_direct_repaired...
+2026-05-20 02:28:30,044 - INFO - Attempting to remove container sweb.eval.sympy__sympy-24152.gpt4omini_300_direct_repaired...
+2026-05-20 02:28:30,058 - INFO - Container sweb.eval.sympy__sympy-24152.gpt4omini_300_direct_repaired removed.
+2026-05-20 02:28:30,058 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-24152:latest...
+2026-05-20 02:28:31,004 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-24152:latest removed.

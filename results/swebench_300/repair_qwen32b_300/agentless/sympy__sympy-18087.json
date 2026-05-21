@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-18087",
+  "input_patch_chars": 648,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n                k.is_Add and\n                len(k.args) >= 2 and\n                any(any(isinstance(ai, cos) or ai.is_Pow and ai.base is cos\n                any(any(isinstance(ai, cos) or ai.is_Pow and ai.base is cos\n                    for ai in Mul.make_args(a))\n                    for a in k.args))):\n\nerror: patch failed: sympy/simplify/fu.py:100\nerror: sympy/simplify/fu.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/fu.py...\nerror: while searching for:\n                k.is_Add and\n                len(k.args) >= 2 and\n                any(any(isinstance(ai, cos) or ai.is_Pow and ai.base is cos\n                any(any(isinstance(ai, cos) or ai.is_Pow and ai.base is cos\n                    for ai in Mul.make_args(a))\n                    for a in k.args))):\n\nerror: patch failed: sympy/simplify/fu.py:100\nApplying patch sympy/simplify/fu.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 442
+}

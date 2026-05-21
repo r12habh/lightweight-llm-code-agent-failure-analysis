@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-23191",
+  "input_patch_chars": 564,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/physics/vector/printing.py...\nerror: while searching for:\n                base += '_' + base_split[1]\n            return base\n\n        pform = self._print_Function(deriv.expr)\n\n        # the following condition would happen with some sort of non-standard\n        # dynamic symbol I guess, so we'll just print the SymPy way\n\nerror: patch failed: sympy/physics/vector/printing.py:165\nApplying patch sympy/physics/vector/printing.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/physics/vector/printing.py\nHunk #1 FAILED at 165.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/physics/vector/printing.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

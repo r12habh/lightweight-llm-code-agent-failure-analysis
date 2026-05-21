@@ -1,0 +1,11 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index 569cf59977..0fb9ff5ed6 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -1485,3 +1485,6 @@ _log.debug('platform is %s', sys.platform)
+ # colormap creation depends on rcParams
+ from matplotlib.cm import _colormaps as colormaps
+ from matplotlib.colors import _color_sequences as color_sequences
++    ("seaborn", "0.11.0"),  # Ensure seaborn is above version that provides colorblind style
++    ("seaborn", "0.10.0"),  # Ensure seaborn is not below the min required version with 'colorblind' style
++

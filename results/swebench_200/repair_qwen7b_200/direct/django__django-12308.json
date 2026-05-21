@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12308",
+  "input_patch_chars": 1673,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 35\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 34:      Return a list which is a single level of flattening of the original list.\n\n",
+          "stdout": "patching file django/contrib/admin/utils.py\nHunk #1 succeeded at 6 (offset -4 lines).\nHunk #2 succeeded at 63 (offset -38 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

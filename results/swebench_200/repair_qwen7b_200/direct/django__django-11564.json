@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11564",
+  "input_patch_chars": 3001,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 32\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 32: @@ -130,6 +134,7 @@ class StaticFilesStorage(FileSystemStorage):\n\n",
+          "stdout": "patching file django/contrib/staticfiles/storage.py\nHunk #1 succeeded at 8 (offset -2 lines).\nHunk #2 succeeded at 24 (offset -77 lines).\nHunk #3 succeeded at 31 (offset -81 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

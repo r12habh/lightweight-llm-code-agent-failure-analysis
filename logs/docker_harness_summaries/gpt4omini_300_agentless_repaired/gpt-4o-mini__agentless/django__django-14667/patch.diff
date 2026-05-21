@@ -1,0 +1,12 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..6c87a61a58 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -719,6 +719,7 @@ class Query(BaseExpression):
+             # models.
+             workset = {}
+             for model, values in seen.items():
++        self.deferred_loading = (self.deferred_loading[0].difference(fields), True)
+                 for field in model._meta.local_fields:
+                     if field not in values:
+                         m = field.model._meta.concrete_model

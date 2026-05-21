@@ -1,0 +1,47 @@
+2026-05-20 10:38:55,050 - INFO - Creating container for scikit-learn__scikit-learn-13497...
+2026-05-20 10:38:55,100 - INFO - Container for scikit-learn__scikit-learn-13497 created: 8797c64d640884e0bb4e3be2d3569ba96937d9ea51cdbc111cdc0ae0c68e5dc2
+2026-05-20 10:38:55,185 - INFO - Container for scikit-learn__scikit-learn-13497 started: 8797c64d640884e0bb4e3be2d3569ba96937d9ea51cdbc111cdc0ae0c68e5dc2
+2026-05-20 10:38:55,185 - INFO - Intermediate patch for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13497/patch.diff, now applying to container...
+2026-05-20 10:38:55,343 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/feature_selection/mutual_info_.py...
+Applied patch sklearn/feature_selection/mutual_info_.py cleanly.
+
+2026-05-20 10:38:55,624 - INFO - Git diff before:
+diff --git a/sklearn/feature_selection/mutual_info_.py b/sklearn/feature_selection/mutual_info_.py
+index d5d1b7fb5..79c1b27af 100644
+--- a/sklearn/feature_selection/mutual_info_.py
++++ b/sklearn/feature_selection/mutual_info_.py
+@@ -247,7 +247,7 @@ def _estimate_mi(X, y, discrete_features='auto', discrete_target=False,
+     X, y = check_X_y(X, y, accept_sparse='csc', y_numeric=not discrete_target)
+     n_samples, n_features = X.shape
+ 
+-    if discrete_features == 'auto':
++    elif discrete_features == 'auto':
+         discrete_features = issparse(X)
+ 
+     if isinstance(discrete_features, bool):
+2026-05-20 10:38:55,625 - INFO - Eval script for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13497/eval.sh; copying to container...
+2026-05-20 10:39:00,870 - INFO - Test runtime: 5.18 seconds
+2026-05-20 10:39:00,872 - INFO - Test output for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13497/test_output.txt
+2026-05-20 10:39:00,974 - INFO - Git diff after:
+diff --git a/sklearn/feature_selection/mutual_info_.py b/sklearn/feature_selection/mutual_info_.py
+index d5d1b7fb5..79c1b27af 100644
+--- a/sklearn/feature_selection/mutual_info_.py
++++ b/sklearn/feature_selection/mutual_info_.py
+@@ -247,7 +247,7 @@ def _estimate_mi(X, y, discrete_features='auto', discrete_target=False,
+     X, y = check_X_y(X, y, accept_sparse='csc', y_numeric=not discrete_target)
+     n_samples, n_features = X.shape
+ 
+-    if discrete_features == 'auto':
++    elif discrete_features == 'auto':
+         discrete_features = issparse(X)
+ 
+     if isinstance(discrete_features, bool):
+2026-05-20 10:39:00,975 - INFO - Grading answer for scikit-learn__scikit-learn-13497...
+2026-05-20 10:39:00,976 - INFO - report: {'scikit-learn__scikit-learn-13497': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_options']}, 'PASS_TO_PASS': {'success': [], 'failure': ['sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_dd', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cc', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cd', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cd_unique_label', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_classif_discrete', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_regression', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_classif_mixed']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-13497: resolved: False
+2026-05-20 10:39:00,977 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-13497.gpt4omini_300_agentless_repaired...
+2026-05-20 10:39:16,128 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-13497.gpt4omini_300_agentless_repaired...
+2026-05-20 10:39:16,139 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13497.gpt4omini_300_agentless_repaired removed.
+2026-05-20 10:39:16,140 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest...
+2026-05-20 10:39:16,159 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest removed.

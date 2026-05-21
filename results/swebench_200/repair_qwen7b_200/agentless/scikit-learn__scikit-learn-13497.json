@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13497",
+  "input_patch_chars": 914,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/cluster/k_means_.py...\nerror: while searching for:\n    \"\"\"\n    Parameters\n    -----------\n    X : array or sparse matrix, shape (n_samples, n_features)\n        The data to pick seeds for. To avoid memory copy, the input data\n        should be double precision (dtype=np.float64).\n\n\nerror: patch failed: sklearn/cluster/k_means_.py:100\nerror: sklearn/cluster/k_means_.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/cluster/k_means_.py...\nerror: while searching for:\n    \"\"\"\n    Parameters\n    -----------\n    X : array or sparse matrix, shape (n_samples, n_features)\n        The data to pick seeds for. To avoid memory copy, the input data\n        should be double precision (dtype=np.float64).\n\n\nerror: patch failed: sklearn/cluster/k_means_.py:100\nHunk #2 succeeded at 52 (offset -58 lines).\nApplying patch sklearn/cluster/k_means_.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1231
+}

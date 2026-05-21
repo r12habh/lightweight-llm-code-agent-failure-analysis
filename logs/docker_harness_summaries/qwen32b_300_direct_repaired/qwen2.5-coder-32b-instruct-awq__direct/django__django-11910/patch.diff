@@ -1,0 +1,17 @@
+diff --git a/django/db/migrations/operations/fields.py b/django/db/migrations/operations/fields.py
+index 402dae2829..8abb143e2f 100644
+--- a/django/db/migrations/operations/fields.py
++++ b/django/db/migrations/operations/fields.py
+@@ -165,6 +165,12 @@ class RemoveField(FieldOperation):
+         for name, instance in state.models[app_label, self.model_name_lower].fields:
+             if name != self.name:
+                 new_fields.append((name, instance))
++                if through and isinstance(through, str):
++                    through = apps.get_model(*through.split('.'))
++                if (through and ModelTuple.from_model(through) == model_tuple and
++                        (getattr(remote_field, 'through_fields', None) is None or
++                            name in remote_field.through_fields)):
++                    return True
+             else:
+                 old_field = instance
+         state.models[app_label, self.model_name_lower].fields = new_fields

@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-23913",
+  "input_patch_chars": 1533,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 40\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 38:          The alpha transparency of the legend's background.\n\n",
+          "stdout": "patching file lib/matplotlib/legend.py\nHunk #1 succeeded at 293 with fuzz 2 (offset 170 lines).\nHunk #2 succeeded at 321 with fuzz 3 (offset 170 lines).\nHunk #3 succeeded at 373 with fuzz 3 (offset 170 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

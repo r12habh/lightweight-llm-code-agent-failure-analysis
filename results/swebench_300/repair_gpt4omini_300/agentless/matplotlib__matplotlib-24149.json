@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-24149",
+  "input_patch_chars": 552,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/axes/_axes.py...\nerror: while searching for:\n            x0 = cbook._safe_first_finite(x0)\n            # If all values are NaN, it will raise a StopIteration.\n            except StopIteration:\n                raise ValueError(\"At least one x position must be finite.\")\n\n        # If we got here, we have valid x positions\n        # Conversion and other preprocessing can continue\n\nerror: patch failed: lib/matplotlib/axes/_axes.py:2371\nApplying patch lib/matplotlib/axes/_axes.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/axes/_axes.py\nHunk #1 FAILED at 2371.\n1 out of 1 hunk FAILED -- saving rejects to file lib/matplotlib/axes/_axes.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

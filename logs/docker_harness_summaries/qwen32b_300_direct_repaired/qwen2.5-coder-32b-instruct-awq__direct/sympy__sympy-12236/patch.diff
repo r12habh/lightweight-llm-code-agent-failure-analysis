@@ -1,0 +1,15 @@
+diff --git a/sympy/core/add.py b/sympy/core/add.py
+index 004b071f0c..0d972f26d5 100644
+--- a/sympy/core/add.py
++++ b/sympy/core/add.py
+@@ -123,6 +123,10 @@ def flatten(cls, seq):
+                     continue
+                 order_factors = [o] + [
+                     o1 for o1 in order_factors if not o.contains(o1)]
++        # Handle the case where the expression is a Mul with a Rational coefficient
++        if isinstance(self, Mul) and any(arg.is_Rational for arg in self.args):
++            return self.as_coeff_Mul(*args, **kwargs)
++
+                 continue
+ 
+             # 3 or NaN

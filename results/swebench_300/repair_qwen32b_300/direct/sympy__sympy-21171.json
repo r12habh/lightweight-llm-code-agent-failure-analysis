@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-21171",
+  "input_patch_chars": 652,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n        else:\n            if expr.base.is_Function:\n                return self._print(expr.base, exp=self._print(expr.exp))\n            else:\n                tex = r\"%s^{%s}\" % (self.parenthesize(expr.base, PRECEDENCE['Pow']), self.parenthesize(expr.exp, PRECEDENCE['Pow']))\n                if self._settings['parenthesize_super']:\n                    tex = self.parenthesize_super(tex)\n\nerror: patch failed: sympy/printing/latex.py:648\nerror: sympy/printing/latex.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/latex.py...\nerror: while searching for:\n        else:\n            if expr.base.is_Function:\n                return self._print(expr.base, exp=self._print(expr.exp))\n            else:\n                tex = r\"%s^{%s}\" % (self.parenthesize(expr.base, PRECEDENCE['Pow']), self.parenthesize(expr.exp, PRECEDENCE['Pow']))\n                if self._settings['parenthesize_super']:\n                    tex = self.parenthesize_super(tex)\n\nerror: patch failed: sympy/printing/latex.py:648\nApplying patch sympy/printing/latex.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 513
+}

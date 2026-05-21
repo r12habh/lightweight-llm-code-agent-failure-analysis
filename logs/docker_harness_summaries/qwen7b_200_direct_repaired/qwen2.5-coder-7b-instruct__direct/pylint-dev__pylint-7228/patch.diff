@@ -1,0 +1,13 @@
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index bc227d2c4..e892aee61 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -270,7 +270,7 @@ class PyLinter(
+         self,
+         options: Options = (),
+         reporter: reporters.BaseReporter | reporters.MultiReporter | None = None,
+-        option_groups: tuple[tuple[str, str], ...] = (),
++        option_groups: tuple[tuple[str, str], ...] = (("Messages control", "Options controlling analysis messages"),),
+         # TODO: Deprecate passing the pylintrc parameter
+         pylintrc: str | None = None,  # pylint: disable=unused-argument
+     ) -> None:

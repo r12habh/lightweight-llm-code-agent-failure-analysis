@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2674",
+  "input_patch_chars": 2766,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/adapters.py...\nerror: while searching for:\n    ConnectTimeoutError, HTTPError as _HTTPError, MaxRetryError,\n    ProxyError as _ProxyError, ProtocolError, ReadTimeoutError,\n    SSLError as _SSLError, ResponseError)\nfrom .cookies import extract_cookies_to_jar\nfrom .exceptions import (ConnectionError, ConnectTimeout, ReadTimeout, SSLError,\n                        ProxyError, RetryError)\n\nerror: patch failed: requests/adapters.py:10\nerror: requests/adapters.py: patch does not apply\nChecking patch requests/models.py...\nerror: while searching for:\nfrom .packages.urllib3.filepost import encode_multipart_formdata\nfrom .packages.urllib3.util import parse_url\nfrom .packages.urllib3.exceptions import (\nfrom .exceptions import (\n    HTTPError, MissingSchema, InvalidURL, ChunkedEncodingError,\n    ContentDecodingError, ConnectionError, StreamConsumedError)\n\nerror: patch failed: requests/models.py:10\nerror: requests/models.py: patch does not apply\nChecking patch requests/sessions.py...\nerror: while searching for:\nfrom .compat import cookielib, OrderedDict, urljoin, urlparse\nfrom .cookies import (\n    cookiejar_from_dict, extract_cookies_to_jar, RequestsCookieJar, merge_cookies)\nfrom .hooks import default_hooks, dispatch_hook\nfrom .utils import to_key_val_list, default_headers, to_native_string\nfrom .exceptions import (\n\nerror: patch failed: requests/sessions.py:10\nerror: requests/sessions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/adapters.py...\nerror: while searching for:\n    ConnectTimeoutError, HTTPError as _HTTPError, MaxRetryError,\n    ProxyError as _ProxyError, ProtocolError, ReadTimeoutError,\n    SSLError as _SSLError, ResponseError)\nfrom .cookies import extract_cookies_to_jar\nfrom .exceptions import (ConnectionError, ConnectTimeout, ReadTimeout, SSLError,\n                        ProxyError, RetryError)\n\nerror: patch failed: requests/adapters.py:10\nerror: while searching for:\n                raise ProxyError(e, request=request)\n            elif isinstance(e, _SSLError):\n                raise SSLError(e, request=request)\n            elif isinstance(e, _HTTPError):\n                raise HTTPError(e, request=request)\n            else:\n\nerror: patch failed: requests/adapters.py:184\nChecking patch requests/models.py...\nerror: while searching for:\nfrom .packages.urllib3.filepost import encode_multipart_formdata\nfrom .packages.urllib3.util import parse_url\nfrom .packages.urllib3.exceptions import (\nfrom .exceptions import (\n    HTTPError, MissingSchema, InvalidURL, ChunkedEncodingError,\n    ContentDecodingError, ConnectionError, StreamConsumedError)\n\nerror: patch failed: requests/models.py:10\nChecking patch requests/sessions.py...\nerror: while searching for:\nfrom .compat import cookielib, OrderedDict, urljoin, urlparse\nfrom .cookies import (\n    cookiejar_from_dict, extract_cookies_to_jar, RequestsCookieJar, merge_cookies)\nfrom .hooks import default_hooks, dispatch_hook\nfrom .utils import to_key_val_list, default_headers, to_native_string\nfrom .exceptions import (\n\nerror: patch failed: requests/sessions.py:10\nerror: while searching for:\n    ChunkedEncodingError, ContentDecodingError)\nfrom .packages.urllib3._collections import RecentlyUsedContainer\nfrom .structures import CaseInsensitiveDict\nfrom .adapters import HTTPAdapter\nfrom .utils import (\n    requote_uri, get_environ_proxies, get_netrc_auth, should_bypass_proxies,\n\nerror: patch failed: requests/sessions.py:18\nApplying patch requests/adapters.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\nApplying patch requests/models.py with 1 reject...\nRejected hunk #1.\nApplying patch requests/sessions.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 2236
+}

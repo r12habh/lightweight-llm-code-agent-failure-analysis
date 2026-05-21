@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-6116",
+  "input_patch_chars": 610,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp_eda_mpy.diff:9: trailing whitespace.\n    \nChecking patch src/_pytest/hookspec.py...\nerror: while searching for:\ndef pytest_addoption(parser, pluginmanager):\n    \"\"\"register argparse-style options and ini-style config values,\n    called once at the beginning of a test run.\n    .. note::\n        This function should be implemented only in plugins or ``conftest.py``\n        files situated at the tests root directory due to how pytest\n\nerror: patch failed: src/_pytest/hookspec.py:30\nerror: src/_pytest/hookspec.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp_eda_mpy.diff:9: trailing whitespace.\n    \nChecking patch src/_pytest/hookspec.py...\nerror: while searching for:\ndef pytest_addoption(parser, pluginmanager):\n    \"\"\"register argparse-style options and ini-style config values,\n    called once at the beginning of a test run.\n    .. note::\n        This function should be implemented only in plugins or ``conftest.py``\n        files situated at the tests root directory due to how pytest\n\nerror: patch failed: src/_pytest/hookspec.py:30\nApplying patch src/_pytest/hookspec.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 394
+}

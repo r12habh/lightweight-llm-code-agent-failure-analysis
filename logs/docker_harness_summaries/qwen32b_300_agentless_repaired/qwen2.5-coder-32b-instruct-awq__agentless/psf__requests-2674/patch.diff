@@ -1,0 +1,55 @@
+diff --git a/requests/adapters.py b/requests/adapters.py
+index 841cbbfe..e67c9c79 100644
+--- a/requests/adapters.py
++++ b/requests/adapters.py
+@@ -10,6 +10,7 @@ and maintain connections.
+ 
+ import socket
+ 
++from .packages.urllib3.exceptions import DecodeError, TimeoutError
+ from .models import Response
+ from .packages.urllib3.poolmanager import PoolManager, proxy_from_url
+ from .packages.urllib3.response import HTTPResponse
+@@ -184,6 +185,10 @@ class HTTPAdapter(BaseAdapter):
+             conn.cert_reqs = 'CERT_REQUIRED'
+             conn.ca_certs = cert_loc
+         else:
++            elif isinstance(e, DecodeError):
++                raise ContentDecodingError(e, request=request)
++            elif isinstance(e, TimeoutError):
++                raise Timeout(e, request=request)
+             conn.cert_reqs = 'CERT_NONE'
+             conn.ca_certs = None
+ 
+diff --git a/requests/models.py b/requests/models.py
+index 4270c647..29a73044 100644
+--- a/requests/models.py
++++ b/requests/models.py
+@@ -10,6 +10,7 @@ This module contains the primary objects that power Requests.
+ import collections
+ import datetime
+ 
++    DecodeError, TimeoutError, ReadTimeoutError, ProtocolError, LocationParseError)
+ from io import BytesIO, UnsupportedOperation
+ from .hooks import default_hooks
+ from .structures import CaseInsensitiveDict
+diff --git a/requests/sessions.py b/requests/sessions.py
+index 820919ee..ff02aa25 100644
+--- a/requests/sessions.py
++++ b/requests/sessions.py
+@@ -10,6 +10,7 @@ requests (cookies, auth, proxies).
+ """
+ import os
+ from collections import Mapping
++from .models import Request, PreparedRequest, DEFAULT_REDIRECT_LIMIT, ContentDecodingError, Timeout
+ from datetime import datetime
+ 
+ from .auth import _basic_auth_str
+@@ -18,6 +19,7 @@ from .cookies import (
+     cookiejar_from_dict, extract_cookies_to_jar, RequestsCookieJar, merge_cookies)
+ from .models import Request, PreparedRequest, DEFAULT_REDIRECT_LIMIT
+ from .hooks import default_hooks, dispatch_hook
++from .packages.urllib3.exceptions import DecodeError, TimeoutError
+ from .utils import to_key_val_list, default_headers, to_native_string
+ from .exceptions import (
+     TooManyRedirects, InvalidSchema, ChunkedEncodingError, ContentDecodingError)

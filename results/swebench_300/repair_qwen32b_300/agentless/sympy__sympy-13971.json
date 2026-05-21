@@ -1,0 +1,26 @@
+{
+  "instance_id": "sympy__sympy-13971",
+  "input_patch_chars": 719,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/physics/quantum/state.py...\nerror: while searching for:\n    lbracket_latex = r'\\left|'\n    rbracket_latex = r'\\right\\rangle '\n\n    def _latex(self, printer, *args):\n        contents = self._print_contents_latex(printer, *args)\n        # The extra {} brackets are needed to get matplotlib's latex\n        # rendered to render this properly.\n\nerror: patch failed: sympy/physics/quantum/state.py:104\nApplying patch sympy/physics/quantum/state.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/physics/quantum/state.py\nHunk #1 succeeded at 183 with fuzz 2 (offset 79 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

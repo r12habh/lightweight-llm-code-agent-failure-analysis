@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25498",
+  "input_patch_chars": 575,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/colorbar.py...\nerror: while searching for:\n        self._process_values()\n\n    def _process_values(self):\n        b = self.norm.inverse(self._uniform_y(self.cmap.N + 1))\n        self._values = b\n        self._boundaries = np.concatenate(([self.norm.vmin], b, [self.norm.vmax]))\n        self._boundaries = np.unique(self._boundaries)\n\nerror: patch failed: lib/matplotlib/colorbar.py:964\nApplying patch lib/matplotlib/colorbar.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/colorbar.py\nHunk #1 FAILED at 964.\n1 out of 1 hunk FAILED -- saving rejects to file lib/matplotlib/colorbar.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

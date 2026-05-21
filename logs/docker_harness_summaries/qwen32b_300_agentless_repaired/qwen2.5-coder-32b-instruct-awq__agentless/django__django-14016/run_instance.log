@@ -1,0 +1,64 @@
+2026-05-20 14:35:33,387 - INFO - Creating container for django__django-14016...
+2026-05-20 14:35:33,435 - INFO - Container for django__django-14016 created: fa781f862a4c76f06c0f1f17064a0574bdde4cf316c2edeaada3a08856464f70
+2026-05-20 14:35:33,555 - INFO - Container for django__django-14016 started: fa781f862a4c76f06c0f1f17064a0574bdde4cf316c2edeaada3a08856464f70
+2026-05-20 14:35:33,555 - INFO - Intermediate patch for django__django-14016 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-14016/patch.diff, now applying to container...
+2026-05-20 14:35:33,738 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 14:35:33,811 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 14:35:33,889 - INFO - >>>>> Applied Patch:
+patching file django/db/models/sql/query.py
+
+2026-05-20 14:35:34,801 - INFO - Git diff before:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 3b2211b3b3..3b06d4557f 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -14,6 +14,7 @@ from collections import Counter, namedtuple
+ from collections.abc import Iterator, Mapping
+ from itertools import chain, count, product
+ from string import ascii_uppercase
++from django.utils.functional import Promise
+ 
+ from django.core.exceptions import FieldDoesNotExist, FieldError
+ from django.db import DEFAULT_DB_ALIAS, NotSupportedError, connections
+@@ -54,6 +55,10 @@ def get_children_from_q(q):
+         if isinstance(child, Node):
+             yield from get_children_from_q(child)
+         else:
++            # Convert dict_keys to a list to make it pickleable
++            if isinstance(child[1], dict.keys):
++                child = (child[0], list(child[1]))
++
+             yield child
+2026-05-20 14:35:34,801 - INFO - Eval script for django__django-14016 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-14016/eval.sh; copying to container...
+2026-05-20 14:35:42,364 - INFO - Test runtime: 7.49 seconds
+2026-05-20 14:35:42,365 - INFO - Test output for django__django-14016 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-14016/test_output.txt
+2026-05-20 14:35:42,494 - INFO - Git diff after:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 3b2211b3b3..3b06d4557f 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -14,6 +14,7 @@ from collections import Counter, namedtuple
+ from collections.abc import Iterator, Mapping
+ from itertools import chain, count, product
+ from string import ascii_uppercase
++from django.utils.functional import Promise
+ 
+ from django.core.exceptions import FieldDoesNotExist, FieldError
+ from django.db import DEFAULT_DB_ALIAS, NotSupportedError, connections
+@@ -54,6 +55,10 @@ def get_children_from_q(q):
+         if isinstance(child, Node):
+             yield from get_children_from_q(child)
+         else:
++            # Convert dict_keys to a list to make it pickleable
++            if isinstance(child[1], dict.keys):
++                child = (child[0], list(child[1]))
++
+             yield child
+2026-05-20 14:35:42,494 - INFO - Grading answer for django__django-14016...
+2026-05-20 14:35:42,495 - INFO - report: {'django__django-14016': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_combine_and_empty (queries.test_q.QTests)', 'test_combine_or_empty (queries.test_q.QTests)']}, 'PASS_TO_PASS': {'success': ['test_combine_and_both_empty (queries.test_q.QTests)', 'test_combine_not_q_object (queries.test_q.QTests)', 'test_combine_or_both_empty (queries.test_q.QTests)', 'test_deconstruct (queries.test_q.QTests)', 'test_deconstruct_and (queries.test_q.QTests)', 'test_deconstruct_multiple_kwargs (queries.test_q.QTests)', 'test_deconstruct_negated (queries.test_q.QTests)', 'test_deconstruct_nested (queries.test_q.QTests)', 'test_deconstruct_or (queries.test_q.QTests)', 'test_reconstruct (queries.test_q.QTests)', 'test_reconstruct_and (queries.test_q.QTests)', 'test_reconstruct_negated (queries.test_q.QTests)', 'test_reconstruct_or (queries.test_q.QTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14016: resolved: False
+2026-05-20 14:35:42,497 - INFO - Attempting to stop container sweb.eval.django__django-14016.qwen32b_300_agentless_repaired...
+2026-05-20 14:35:57,751 - INFO - Attempting to remove container sweb.eval.django__django-14016.qwen32b_300_agentless_repaired...
+2026-05-20 14:35:57,785 - INFO - Container sweb.eval.django__django-14016.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:35:57,785 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14016:latest...
+2026-05-20 14:35:57,799 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14016:latest removed.

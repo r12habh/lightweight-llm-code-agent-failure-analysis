@@ -1,0 +1,13 @@
+diff --git a/django/db/migrations/executor.py b/django/db/migrations/executor.py
+index 4aaa91ef33..72d1221b96 100644
+--- a/django/db/migrations/executor.py
++++ b/django/db/migrations/executor.py
+@@ -217,7 +217,7 @@ class MigrationExecutor:
+         """
+         statements = []
+         state = None
+-        for migration, backwards in plan:
++        for migration, backwards in plan if self.connection.features.can_rollback_ddl:
+             with self.connection.schema_editor(collect_sql=True, atomic=migration.atomic) as schema_editor:
+                 if state is None:
+                     state = self.loader.project_state((migration.app_label, migration.name), at_end=False)

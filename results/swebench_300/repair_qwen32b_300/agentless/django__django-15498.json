@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15498",
+  "input_patch_chars": 483,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/sessions/backends/base.py...\nerror: while searching for:\n        \"\"\"\n        return signing.dumps(\n            session_dict,\n        )\n\n    def decode(self, session_data):\n\nerror: patch failed: django/contrib/sessions/backends/base.py:104\nerror: django/contrib/sessions/backends/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/sessions/backends/base.py...\nerror: while searching for:\n        \"\"\"\n        return signing.dumps(\n            session_dict,\n        )\n\n    def decode(self, session_data):\n\nerror: patch failed: django/contrib/sessions/backends/base.py:104\nApplying patch django/contrib/sessions/backends/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 657
+}

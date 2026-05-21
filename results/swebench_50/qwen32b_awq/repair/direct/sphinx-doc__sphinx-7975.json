@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7975",
+  "input_patch_chars": 559,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/directives/other.py...\nerror: while searching for:\n        # Determine the section name based on the first character\n        first_char = entry[0]\n        if first_char.isalpha():\n            section_name = 'Symbols'\n        elif first_char.isdigit():\n            section_name = 'Numbers'\n        else:\n\nerror: patch failed: sphinx/directives/other.py:123\nApplying patch sphinx/directives/other.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/directives/other.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file sphinx/directives/other.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

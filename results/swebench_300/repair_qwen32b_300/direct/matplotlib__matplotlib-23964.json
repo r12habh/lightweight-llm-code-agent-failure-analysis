@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23964",
+  "input_patch_chars": 583,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_ps.py...\nerror: while searching for:\n        stream = self._text2path.get_text_path(prop, s, ismath=ismath)\n        if stream is None:\n            return\n        for ps_name, xs_names in stream:\n            self._output_text(curr_stream, ps_name, xs_names, gc, x, y)\n        self._output_text(curr_stream, 'show', [], gc, x, y)\n\nerror: patch failed: lib/matplotlib/backends/backend_ps.py:666\nerror: lib/matplotlib/backends/backend_ps.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_ps.py...\nerror: while searching for:\n        stream = self._text2path.get_text_path(prop, s, ismath=ismath)\n        if stream is None:\n            return\n        for ps_name, xs_names in stream:\n            self._output_text(curr_stream, ps_name, xs_names, gc, x, y)\n        self._output_text(curr_stream, 'show', [], gc, x, y)\n\nerror: patch failed: lib/matplotlib/backends/backend_ps.py:666\nApplying patch lib/matplotlib/backends/backend_ps.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 483
+}

@@ -1,0 +1,27 @@
+{
+  "instance_id": "sympy__sympy-13647",
+  "input_patch_chars": 409,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/matrices/common.py...\nHunk #1 succeeded at 83 (offset -106 lines).\nApplied patch sympy/matrices/common.py cleanly.\n",
+          "stdout": "",
+          "note": "command succeeded but produced an empty git diff"
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/matrices/common.py\nHunk #1 succeeded at 83 (offset -106 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

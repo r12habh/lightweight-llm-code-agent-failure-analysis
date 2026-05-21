@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14155",
+  "input_patch_chars": 599,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/handlers/base.py...\nerror: while searching for:\n        self.func = func\n        self.args = args\n        self.kwargs = kwargs\n        self.url_name = url_name\n        self.app_name = app_name\n        self.namespace = namespace\n\nerror: patch failed: django/core/handlers/base.py:123\nerror: django/core/handlers/base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/handlers/base.py...\nerror: while searching for:\n        self.func = func\n        self.args = args\n        self.kwargs = kwargs\n        self.url_name = url_name\n        self.app_name = app_name\n        self.namespace = namespace\n\nerror: patch failed: django/core/handlers/base.py:123\nApplying patch django/core/handlers/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 648
+}

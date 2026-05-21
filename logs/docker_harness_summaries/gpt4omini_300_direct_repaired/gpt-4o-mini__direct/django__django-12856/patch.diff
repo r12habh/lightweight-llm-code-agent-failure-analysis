@@ -1,0 +1,17 @@
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 0e28b6812a..739a0cba9c 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -59,6 +59,12 @@ def normalize_together(option_together):
+ def make_immutable_fields_list(name, data):
+     return ImmutableList(data, warning=IMMUTABLE_WARNING % name)
+ 
++    def check_unique_constraints(self):
++        for constraint in self.constraints:
++            if isinstance(constraint, UniqueConstraint):
++                for field in constraint.fields:
++                    if not hasattr(self.model, field):
++                        return [checks.Error(f"Field '{field}' specified in UniqueConstraint does not exist.", obj=self.model, id='fields.E013')]
+ 
+ class Options:
+     FORWARD_PROPERTIES = {

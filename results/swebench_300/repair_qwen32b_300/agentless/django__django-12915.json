@@ -1,0 +1,17 @@
+{
+  "instance_id": "django__django-12915",
+  "input_patch_chars": 820,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "git apply --verbose",
+      "errors": []
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "git apply --verbose",
+  "output_patch_chars": 826
+}

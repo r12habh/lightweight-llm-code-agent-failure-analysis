@@ -1,0 +1,36 @@
+{
+  "instance_id": "matplotlib__matplotlib-23314",
+  "raw": "```diff\ndiff --git a/lib/matplotlib/pyplot.py b/lib/matplotlib/pyplot.py\n--- a/lib/matplotlib/pyplot.py\n+++ b/lib/matplotlib/pyplot.py\n@@ -890,6 +890,7 @@\n def _make_subplots(nrows, ncols, sharex=None, sharey=None, figsize=None,\n                     layout=None, **kwargs):\n     # ... (existing code)\n     \n+    from matplotlib.axes import _Axes3D \n     # Create a new Figure and Axes\n     fig = figure()\n \n@@ -933,6 +934,20 @@\n     # Return the axes as an array\n     return axs\n     \n+def set_visible(ax, visible):\n+    \"\"\"\n+    Set the visibility of an Axes.\n+    \n+    Parameters\n+    ----------\n+    ax: Axes\n+        The axes to modify.\n+    visible: bool\n+        Visibility flag.\n+    \"\"\"\n+    if isinstance(ax, _Axes3D):\n+        ax.set_box_aspect(visible)\n+    else:\n+        ax.set_visible(visible)\n \n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 20573,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 269,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20842
+    },
+    "patch": {
+      "input_tokens": 20773,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 242,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21015
+    }
+  },
+  "localized_files": [
+    "lib/matplotlib/pyplot.py",
+    "lib/matplotlib/tests/test_pyplot.py",
+    "lib/matplotlib/backends/backend_template.py",
+    "lib/matplotlib/tests/test_backend_qt.py",
+    "lib/matplotlib/backends/backend_qt.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"lib/matplotlib/pyplot.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"The issue involves a specific function set_visible which might need to be investigated in the pyplot implementation.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/tests/test_pyplot.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"The bug relates to the visibility functionality, which should have relevant tests or cases in the test suite.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/backends/backend_template.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"The backend might need to handle the visibility function for 3D projections.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/tests/test_backend_qt.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"The interactions of GUI backends with the visibility property could be affected and may need validation.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/backends/backend_qt.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"This backend may also need to ensure correct functionality for visibility in 3D projections.\"\n    }\n  ]\n}\n```"
+}

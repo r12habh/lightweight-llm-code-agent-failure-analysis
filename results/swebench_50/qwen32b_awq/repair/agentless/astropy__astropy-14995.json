@@ -1,0 +1,28 @@
+{
+  "instance_id": "astropy__astropy-14995",
+  "input_patch_chars": 613,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch astropy/nddata/mixins/ndarithmetic.py...\nerror: while searching for:\n        if handle_mask is None:\n            result_mask = None\n        elif handle_mask == 'first_found':\n            else:\n                result_mask = operand1.mask\n        else:\n\nerror: patch failed: astropy/nddata/mixins/ndarithmetic.py:150\nerror: astropy/nddata/mixins/ndarithmetic.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/nddata/mixins/ndarithmetic.py...\nerror: while searching for:\n        if handle_mask is None:\n            result_mask = None\n        elif handle_mask == 'first_found':\n            else:\n                result_mask = operand1.mask\n        else:\n\nerror: patch failed: astropy/nddata/mixins/ndarithmetic.py:150\nApplying patch astropy/nddata/mixins/ndarithmetic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 575
+}

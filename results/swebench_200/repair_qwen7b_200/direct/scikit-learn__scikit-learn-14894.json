@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14894",
+  "input_patch_chars": 598,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/svm/base.py...\nerror: while searching for:\n    dual_coef_indices = np.where(dual_coef != 0)[0]\n    n_class = dual_coef.shape[0] + 1\n    n_support = np.diff(sv_locs)\n    dual_coef_indices.size / n_class)\n    dual_coef = dual_coef[dual_coef_indices]\n    support_vectors = support_vectors[sv_locs[dual_coef_indices], :]\n    dual_coef_indices = dual_coef_indices[dual_coef_indices != 0]\n\nerror: patch failed: sklearn/svm/base.py:300\nApplying patch sklearn/svm/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/svm/base.py\nHunk #1 FAILED at 300.\n1 out of 1 hunk FAILED -- saving rejects to file sklearn/svm/base.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

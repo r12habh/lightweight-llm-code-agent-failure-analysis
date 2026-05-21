@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-4992",
+  "input_patch_chars": 1306,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/config.py...\nerror: while searching for:\n        :param defaults: an optional dictionary of default values\n        \"\"\"\n        super().__init__(defaults or {})\n\n    def from_envvar(self, variable_name: str, silent: bool = False) -> bool:\n        \"\"\"Loads a configuration from an environment variable pointing to\n\nerror: patch failed: src/flask/config.py:102\nHunk #2 succeeded at 170 (offset -31 lines).\nerror: while searching for:\n        filename = os.path.join(self.root_path, filename)\n        d = types.ModuleType(\"config\")\n        d.__file__ = filename\n        try:\n            with open(filename, mode=mode) as config_file:\n                exec(compile(config_file.read(), filename, \"exec\"), d.__dict__)\n\nerror: patch failed: src/flask/config.py:207\nApplying patch src/flask/config.py with 2 rejects...\nRejected hunk #1.\nHunk #2 applied cleanly.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/flask/config.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 72 with fuzz 2 (offset -30 lines).\nHunk #2 succeeded at 169 (offset -31 lines).\nHunk #3 FAILED at 207.\n1 out of 3 hunks FAILED -- saving rejects to file src/flask/config.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

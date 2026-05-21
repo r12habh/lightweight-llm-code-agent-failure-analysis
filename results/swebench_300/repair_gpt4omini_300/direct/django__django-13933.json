@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13933",
+  "input_patch_chars": 492,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/models.py...\nerror: while searching for:\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        self.default_error_messages['invalid_choice'] = _(\n            'Select a valid choice. That choice is not one of'\n            ' available choices.'\n\n# ModelMultipleChoiceField ...\n\nerror: patch failed: django/forms/models.py:40\nApplying patch django/forms/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/models.py\nHunk #1 FAILED at 40.\n1 out of 1 hunk FAILED -- saving rejects to file django/forms/models.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

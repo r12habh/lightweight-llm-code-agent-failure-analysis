@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/legend.py b/lib/matplotlib/legend.py
+index 9e5b903d59..2e88307e4f 100644
+--- a/lib/matplotlib/legend.py
++++ b/lib/matplotlib/legend.py
+@@ -93,6 +93,7 @@ class DraggableLegend(DraggableOffsetBox):
+         loc_in_bbox = self.legend.axes.transAxes.transform(loc_in_canvas)
+         self.legend.set_bbox_to_anchor(loc_in_bbox)
+ 
++        self.set_draggable(self.draggable)
+ 
+ _docstring.interpd.update(_legend_kw_doc="""
+ loc : str or pair of floats, default: :rc:`legend.loc` ('best' for axes, \

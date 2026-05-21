@@ -1,0 +1,63 @@
+2026-05-20 19:28:20,246 - INFO - Creating container for django__django-14915...
+2026-05-20 19:28:21,500 - INFO - Container for django__django-14915 created: c8fdb79155052cfe737b8b220ede1fc5da6701aec51c60b7fac924e74bad5746
+2026-05-20 19:28:21,704 - INFO - Container for django__django-14915 started: c8fdb79155052cfe737b8b220ede1fc5da6701aec51c60b7fac924e74bad5746
+2026-05-20 19:28:21,705 - INFO - Intermediate patch for django__django-14915 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-14915/patch.diff, now applying to container...
+2026-05-20 19:28:21,904 - INFO - >>>>> Applied Patch:
+Checking patch django/forms/fields.py...
+Applied patch django/forms/fields.py cleanly.
+
+2026-05-20 19:28:22,886 - INFO - Git diff before:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..a4b4ded894 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -123,7 +123,7 @@ class Field:
+     def to_python(self, value):
+         return value
+ 
+-    def validate(self, value):
++    def validate(self, value, model_instance=None):
+         if value in self.empty_values and self.required:
+             raise ValidationError(self.error_messages['required'], code='required')
+ 
+@@ -134,6 +134,7 @@ class Field:
+         for v in self.validators:
+             try:
+                 v(value)
++                v(value, model_instance)
+             except ValidationError as e:
+                 if hasattr(e, 'code') and e.code in self.error_messages:
+                     e.message = self.error_messages[e.code]
+2026-05-20 19:28:22,887 - INFO - Eval script for django__django-14915 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-14915/eval.sh; copying to container...
+2026-05-20 19:28:30,538 - INFO - Test runtime: 7.59 seconds
+2026-05-20 19:28:30,540 - INFO - Test output for django__django-14915 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-14915/test_output.txt
+2026-05-20 19:28:30,657 - INFO - Git diff after:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..a4b4ded894 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -123,7 +123,7 @@ class Field:
+     def to_python(self, value):
+         return value
+ 
+-    def validate(self, value):
++    def validate(self, value, model_instance=None):
+         if value in self.empty_values and self.required:
+             raise ValidationError(self.error_messages['required'], code='required')
+ 
+@@ -134,6 +134,7 @@ class Field:
+         for v in self.validators:
+             try:
+                 v(value)
++                v(value, model_instance)
+             except ValidationError as e:
+                 if hasattr(e, 'code') and e.code in self.error_messages:
+                     e.message = self.error_messages[e.code]
+2026-05-20 19:28:30,658 - INFO - Grading answer for django__django-14915...
+2026-05-20 19:28:30,660 - INFO - report: {'django__django-14915': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_choice_value_hash (model_forms.test_modelchoicefield.ModelChoiceFieldTests)']}, 'PASS_TO_PASS': {'success': ['test_basics (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choice_iterator_passes_model_to_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_bool (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_bool_empty_label (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_freshness (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_not_fetched_when_not_rendering (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_choices_radio_blank (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_clean_model_instance (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_clean_to_field_name (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_custom_choice_iterator_passes_model_to_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_deepcopies_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelchoicefield (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelchoicefield_has_changed (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelchoicefield_initial_model_instance (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_modelmultiplechoicefield_has_changed (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_disabled_multiplemodelchoicefield (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', "ModelChoiceField with RadioSelect widget doesn't produce unnecessary", "Widgets that render multiple subwidgets shouldn't make more than one", 'Iterator defaults to ModelChoiceIterator and can be overridden with', 'test_queryset_manager (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_queryset_none (model_forms.test_modelchoicefield.ModelChoiceFieldTests)', 'test_result_cache_not_shared (model_forms.test_modelchoicefield.ModelChoiceFieldTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14915: resolved: False
+2026-05-20 19:28:30,660 - INFO - Attempting to stop container sweb.eval.django__django-14915.qwen7b_200_agentless_repaired...
+2026-05-20 19:28:45,839 - INFO - Attempting to remove container sweb.eval.django__django-14915.qwen7b_200_agentless_repaired...
+2026-05-20 19:28:45,857 - INFO - Container sweb.eval.django__django-14915.qwen7b_200_agentless_repaired removed.
+2026-05-20 19:28:45,857 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-14915:latest...
+2026-05-20 19:28:45,865 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-14915:latest removed.

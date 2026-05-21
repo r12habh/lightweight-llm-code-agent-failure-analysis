@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8627",
+  "input_patch_chars": 1488,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 35\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 28: +    except (ImportError, AttributeError):\n\n",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/sphinx/ext/autodoc/annotation.py b/sphinx/ext/autodoc/annotation.py\n|index 0a12345..b678901 100644\n|--- a/sphinx/ext/autodoc/annotation.py\n|+++ b/sphinx/ext/autodoc/annotation.py\n--------------------------\nNo file to patch.  Skipping patch.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

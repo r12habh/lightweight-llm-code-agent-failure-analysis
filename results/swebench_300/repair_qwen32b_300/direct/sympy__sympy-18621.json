@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-18621",
+  "input_patch_chars": 584,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/matrices/expressions/blockmatrix.py...\nerror: while searching for:\n        for row_block, numrows in enumerate(self.rowblocksizes):\n            if (i < numrows) != False:\n                break\n            else:\n        for col_block, numcols in enumerate(self.colblocksizes):\n            if (j < numcols) != False:\n                break\n\nerror: patch failed: sympy/matrices/expressions/blockmatrix.py:245\nerror: sympy/matrices/expressions/blockmatrix.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/matrices/expressions/blockmatrix.py...\nerror: while searching for:\n        for row_block, numrows in enumerate(self.rowblocksizes):\n            if (i < numrows) != False:\n                break\n            else:\n        for col_block, numcols in enumerate(self.colblocksizes):\n            if (j < numcols) != False:\n                break\n\nerror: patch failed: sympy/matrices/expressions/blockmatrix.py:245\nApplying patch sympy/matrices/expressions/blockmatrix.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 545
+}

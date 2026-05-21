@@ -1,0 +1,12 @@
+diff --git a/docs/ref/models/options.txt b/docs/ref/models/options.txt
+index e09547ec23..4636fee136 100644
+--- a/docs/ref/models/options.txt
++++ b/docs/ref/models/options.txt
+@@ -38,6 +38,8 @@ Available ``Meta`` options
+ 
+ .. attribute:: Options.base_manager_name
+ 
++   Django now requires that each model in an application has a unique `db_table`
++   name, even across different applications. Use `db_table` to avoid conflicts.
+     The name of the manager to use for the model's
+     :attr:`~django.db.models.Model._base_manager`.

@@ -1,0 +1,12 @@
+diff --git a/src/_pytest/hookspec.py b/src/_pytest/hookspec.py
+index 8b45c5f9b..40bb26271 100644
+--- a/src/_pytest/hookspec.py
++++ b/src/_pytest/hookspec.py
+@@ -120,6 +120,7 @@ def pytest_cmdline_preparse(config, args):
+     .. note::
+         This hook will not be called for ``conftest.py`` files, only for setuptools plugins.
+ 
++        short_option="-C",
+     :param _pytest.config.Config config: pytest config object
+     :param list[str] args: list of arguments passed on the command line
+     """

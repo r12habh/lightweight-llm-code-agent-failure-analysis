@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-19254",
+  "raw": "```diff\ndiff --git a/sympy/polys/factortools.py b/sympy/polys/factortools.py\n--- a/sympy/polys/factortools.py\n+++ b/sympy/polys/factortools.py\n@@ -21,6 +21,7 @@\n \n from sympy.polys.densearith import (\n     dup_neg, dmp_neg,\n     dup_add, dmp_add,\n     dup_sub, dmp_sub,\n     dup_mul, dmp_mul,\n     dup_sqr,\n     dmp_pow,\n     dup_div, dmp_div,\n     dup_quo, dmp_quo,\n     dmp_expand,\n     dmp_add_mul,\n     dup_sub_mul, dmp_sub_mul,\n     dup_lshift,\n     dup_max_norm, dmp_max_norm,\n     dup_l1_norm,\n     dup_mul_ground, dmp_mul_ground,\n     dup_quo_ground, dmp_quo_ground)\n \n+from sympy.polys.densetools import dmp_zz_knuth_cohen_bound\n from sympy.polys.densetools import (\n     dup_clear_denoms, dmp_clear_denoms,\n     dup_trunc, dmp_ground_trunc,\n     dup_content,\n     dup_monic, dmp_ground_monic,\n     dup_primitive, dmp_ground_primitive,\n     dmp_eval_tail,\n     dmp_eval_in, dmp_diff_eval_in,\n     dmp_compose,\n     dup_shift, dup_mirror)\n\n def dup_trial_division(f, factors, K):\n     \"\"\"\n     Determine multiplicities of factors for a univariate polynomial\n     using trial division.\n     \"\"\"\n \n@@ -139,12 +140,12 @@\n     b = abs(dup_LC(f, K))\n     n = dup_degree(f)\n \n-    return K.sqrt(K(n + 1))*2**n*a*b\n+    return dmp_zz_knuth_cohen_bound(f, K)\n \n def dmp_zz_mignotte_bound(f, u, K):\n     \"\"\"Mignotte bound for multivariate polynomials in `K[X]`. \"\"\"\n     a = dmp_max_norm(f, u, K)\n     b = abs(dmp_ground_LC(f, u, K))\n     n = sum(dmp_degree_list(f, u))\n \n-    return K.sqrt(K(n + 1))*2**n*a*b\n+    return dmp_zz_knuth_cohen_bound(f, u, K)\n```",
+  "usage": {
+    "input_tokens": 24009,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 528,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 24537
+  },
+  "localized_files": []
+}

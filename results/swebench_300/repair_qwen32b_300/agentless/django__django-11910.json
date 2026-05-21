@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11910",
+  "input_patch_chars": 898,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/migrations/operations/fields.py...\nerror: while searching for:\n        model_state.fields[index] = (self.new_name, field)\n\n        # Update any foreign keys pointing to this field.\n        state.reload_model(app_label, self.model_name_lower)\n\n    def database_forwards(self, app_label, schema_editor, from_state, to_state):\n\nerror: patch failed: django/db/migrations/operations/fields.py:214\nerror: django/db/migrations/operations/fields.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/operations/fields.py...\nerror: while searching for:\n        model_state.fields[index] = (self.new_name, field)\n\n        # Update any foreign keys pointing to this field.\n        state.reload_model(app_label, self.model_name_lower)\n\n    def database_forwards(self, app_label, schema_editor, from_state, to_state):\n\nerror: patch failed: django/db/migrations/operations/fields.py:214\nApplying patch django/db/migrations/operations/fields.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 740
+}

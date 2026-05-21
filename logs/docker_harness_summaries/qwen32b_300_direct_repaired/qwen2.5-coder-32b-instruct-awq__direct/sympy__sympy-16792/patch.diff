@@ -1,0 +1,15 @@
+diff --git a/sympy/utilities/autowrap.py b/sympy/utilities/autowrap.py
+index bd6afb12d1..f12114b92a 100644
+--- a/sympy/utilities/autowrap.py
++++ b/sympy/utilities/autowrap.py
+@@ -315,6 +315,10 @@ def _prepare_files(self, routine, build_dir=os.curdir):
+         # pyx
+         with open(os.path.join(build_dir, pyxfilename), 'w') as f:
+             self.dump_pyx([routine], f, self.filename)
++            # Ensure all arguments are included in the function signature
++            for arg in routine.arguments:
++                if isinstance(arg, (InputArgument, InOutArgument)):
++                    self._need_numpy = True if isinstance(arg.name, MatrixSymbol) else self._need_numpy
+ 
+         # setup.py
+         ext_args = [repr(self.module_name), repr([pyxfilename, codefilename])]

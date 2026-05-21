@@ -1,0 +1,49 @@
+2026-05-19 20:58:13,035 - INFO - Creating container for astropy__astropy-7746...
+2026-05-19 20:58:13,831 - INFO - Container for astropy__astropy-7746 created: a73f730ae9bf8d63e4ca1b2226e00623bbbc49ba59de6789aaddda07ea19fa8a
+2026-05-19 20:58:13,919 - INFO - Container for astropy__astropy-7746 started: a73f730ae9bf8d63e4ca1b2226e00623bbbc49ba59de6789aaddda07ea19fa8a
+2026-05-19 20:58:13,920 - INFO - Intermediate patch for astropy__astropy-7746 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/astropy__astropy-7746/patch.diff, now applying to container...
+2026-05-19 20:58:14,061 - INFO - >>>>> Applied Patch:
+Checking patch astropy/wcs/wcs.py...
+Applied patch astropy/wcs/wcs.py cleanly.
+
+2026-05-19 20:58:14,514 - INFO - Git diff before:
+diff --git a/astropy/wcs/wcs.py b/astropy/wcs/wcs.py
+index d3a06f2b31..dbd1703c46 100644
+--- a/astropy/wcs/wcs.py
++++ b/astropy/wcs/wcs.py
+@@ -1818,6 +1818,9 @@ reduce these to 2 dimensions using the naxis kwarg.
+         if self.wcs is None:
+             raise ValueError("No basic WCS settings were created.")
+ 
++        # Handle case for empty pixel arrays
++        if len(args[0]) == 0:
++            return np.empty((0, 2))  # assuming 2D output
+         return self._array_converter(
+             lambda *args, **kwargs:
+             self._all_world2pix(
+2026-05-19 20:58:14,514 - INFO - Eval script for astropy__astropy-7746 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/astropy__astropy-7746/eval.sh; copying to container...
+2026-05-19 20:58:23,971 - INFO - Test runtime: 9.40 seconds
+2026-05-19 20:58:23,972 - INFO - Test output for astropy__astropy-7746 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/astropy__astropy-7746/test_output.txt
+2026-05-19 20:58:24,134 - INFO - Git diff after:
+diff --git a/astropy/wcs/wcs.py b/astropy/wcs/wcs.py
+index d3a06f2b31..dbd1703c46 100644
+--- a/astropy/wcs/wcs.py
++++ b/astropy/wcs/wcs.py
+@@ -1818,6 +1818,9 @@ reduce these to 2 dimensions using the naxis kwarg.
+         if self.wcs is None:
+             raise ValueError("No basic WCS settings were created.")
+ 
++        # Handle case for empty pixel arrays
++        if len(args[0]) == 0:
++            return np.empty((0, 2))  # assuming 2D output
+         return self._array_converter(
+             lambda *args, **kwargs:
+             self._all_world2pix(
+2026-05-19 20:58:24,134 - INFO - Grading answer for astropy__astropy-7746...
+2026-05-19 20:58:24,135 - INFO - report: {'astropy__astropy-7746': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['astropy/wcs/tests/test_wcs.py::test_zero_size_input']}, 'PASS_TO_PASS': {'success': ['astropy/wcs/tests/test_wcs.py::TestMaps::test_consistency', 'astropy/wcs/tests/test_wcs.py::TestMaps::test_maps', 'astropy/wcs/tests/test_wcs.py::TestSpectra::test_consistency', 'astropy/wcs/tests/test_wcs.py::TestSpectra::test_spectra', 'astropy/wcs/tests/test_wcs.py::test_fixes', 'astropy/wcs/tests/test_wcs.py::test_outside_sky', 'astropy/wcs/tests/test_wcs.py::test_pix2world', 'astropy/wcs/tests/test_wcs.py::test_load_fits_path', 'astropy/wcs/tests/test_wcs.py::test_dict_init', 'astropy/wcs/tests/test_wcs.py::test_extra_kwarg', 'astropy/wcs/tests/test_wcs.py::test_3d_shapes', 'astropy/wcs/tests/test_wcs.py::test_preserve_shape', 'astropy/wcs/tests/test_wcs.py::test_broadcasting', 'astropy/wcs/tests/test_wcs.py::test_shape_mismatch', 'astropy/wcs/tests/test_wcs.py::test_invalid_shape', 'astropy/wcs/tests/test_wcs.py::test_warning_about_defunct_keywords', 'astropy/wcs/tests/test_wcs.py::test_warning_about_defunct_keywords_exception', 'astropy/wcs/tests/test_wcs.py::test_to_header_string', 'astropy/wcs/tests/test_wcs.py::test_to_fits', 'astropy/wcs/tests/test_wcs.py::test_to_header_warning', 'astropy/wcs/tests/test_wcs.py::test_no_comments_in_header', 'astropy/wcs/tests/test_wcs.py::test_find_all_wcs_crash', 'astropy/wcs/tests/test_wcs.py::test_validate', 'astropy/wcs/tests/test_wcs.py::test_validate_with_2_wcses', 'astropy/wcs/tests/test_wcs.py::test_crpix_maps_to_crval', 'astropy/wcs/tests/test_wcs.py::test_all_world2pix', 'astropy/wcs/tests/test_wcs.py::test_scamp_sip_distortion_parameters', 'astropy/wcs/tests/test_wcs.py::test_fixes2', 'astropy/wcs/tests/test_wcs.py::test_unit_normalization', 'astropy/wcs/tests/test_wcs.py::test_footprint_to_file', 'astropy/wcs/tests/test_wcs.py::test_validate_faulty_wcs', 'astropy/wcs/tests/test_wcs.py::test_error_message', 'astropy/wcs/tests/test_wcs.py::test_out_of_bounds', 'astropy/wcs/tests/test_wcs.py::test_calc_footprint_1', 'astropy/wcs/tests/test_wcs.py::test_calc_footprint_2', 'astropy/wcs/tests/test_wcs.py::test_calc_footprint_3', 'astropy/wcs/tests/test_wcs.py::test_sip', 'astropy/wcs/tests/test_wcs.py::test_printwcs', 'astropy/wcs/tests/test_wcs.py::test_invalid_spherical', 'astropy/wcs/tests/test_wcs.py::test_no_iteration', 'astropy/wcs/tests/test_wcs.py::test_sip_tpv_agreement', 'astropy/wcs/tests/test_wcs.py::test_tpv_copy', 'astropy/wcs/tests/test_wcs.py::test_hst_wcs', 'astropy/wcs/tests/test_wcs.py::test_list_naxis', 'astropy/wcs/tests/test_wcs.py::test_sip_broken', 'astropy/wcs/tests/test_wcs.py::test_no_truncate_crval', 'astropy/wcs/tests/test_wcs.py::test_no_truncate_crval_try2', 'astropy/wcs/tests/test_wcs.py::test_no_truncate_crval_p17', 'astropy/wcs/tests/test_wcs.py::test_no_truncate_using_compare', 'astropy/wcs/tests/test_wcs.py::test_passing_ImageHDU', 'astropy/wcs/tests/test_wcs.py::test_inconsistent_sip', 'astropy/wcs/tests/test_wcs.py::test_bounds_check', 'astropy/wcs/tests/test_wcs.py::test_naxis', 'astropy/wcs/tests/test_wcs.py::test_sip_with_altkey', 'astropy/wcs/tests/test_wcs.py::test_to_fits_1', 'astropy/wcs/tests/test_wcs.py::test_keyedsip'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for astropy__astropy-7746: resolved: False
+2026-05-19 20:58:24,135 - INFO - Attempting to stop container sweb.eval.astropy__astropy-7746.gpt4omini_300_direct_repaired...
+2026-05-19 20:58:39,320 - INFO - Attempting to remove container sweb.eval.astropy__astropy-7746.gpt4omini_300_direct_repaired...
+2026-05-19 20:58:39,332 - INFO - Container sweb.eval.astropy__astropy-7746.gpt4omini_300_direct_repaired removed.
+2026-05-19 20:58:39,332 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.astropy_1776_astropy-7746:latest...
+2026-05-19 20:58:40,152 - INFO - Image swebench/sweb.eval.x86_64.astropy_1776_astropy-7746:latest removed.

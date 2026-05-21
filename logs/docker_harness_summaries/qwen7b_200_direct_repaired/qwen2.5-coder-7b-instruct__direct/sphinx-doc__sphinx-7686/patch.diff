@@ -1,0 +1,21 @@
+diff --git a/sphinx/ext/autosummary/__init__.py b/sphinx/ext/autosummary/__init__.py
+--- a/sphinx/ext/autosummary/__init__.py
++++ b/sphinx/ext/autosummary/__init__.py
+@@ -100,7 +100,7 @@ def process_autosummary_toc(app: Sphinx, doctree: nodes.document) -> None:
+     env = app.builder.env
+     crawled = {}
+ 
+-    def crawl_toc(node: Element, depth: int = 1) -> None:
++    def crawl_toc(node: Element, depth: int = 1) -> None:
+         crawled[node] = True
+         for j, subnode in enumerate(node):
+             try:
+@@ -110,7 +110,7 @@ def process_autosummary_toc(app: Sphinx, doctree: nodes.document) -> None:
+                 TocTree(env).note(env.docname, subnode[0])
+                 continue
+             except IndexError:
+-                continue
++                continue
+             if not isinstance(subnode, nodes.section):
+                 continue
+             if subnode not in crawled:

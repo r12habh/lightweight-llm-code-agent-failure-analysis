@@ -1,0 +1,15 @@
+diff --git a/django/utils/http.py b/django/utils/http.py
+index 0292713235..ade2b328a9 100644
+--- a/django/utils/http.py
++++ b/django/utils/http.py
+@@ -259,7 +259,10 @@ def url_has_allowed_host_and_scheme(url, allowed_hosts, require_https=False):
+     Note: "True" doesn't entail that a URL is "safe". It may still be e.g.
+     quoted incorrectly. Ensure to also use django.utils.encoding.iri_to_uri()
+     on the path component of untrusted URLs.
++    If the input is an empty string, it returns None.
+     """
++    if not date:
++        return None
+     if url is not None:
+         url = url.strip()
+     if not url:

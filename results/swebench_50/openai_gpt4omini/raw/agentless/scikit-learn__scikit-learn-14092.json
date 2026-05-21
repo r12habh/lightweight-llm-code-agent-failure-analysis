@@ -1,0 +1,33 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14092",
+  "raw": "```diff\ndiff --git a/sklearn/neighbors/nca.py b/sklearn/neighbors/nca.py\n--- a/sklearn/neighbors/nca.py\n+++ b/sklearn/neighbors/nca.py\n@@ -149,7 +149,7 @@\n                 max_iter=50, tol=1e-5, callback=None, verbose=0,\n                 random_state=None):\n         self.n_components = n_components\n-        self.init = init\n+        self.init = init  # Possible to be a numpy array\n         self.warm_start = warm_start\n         self.max_iter = max_iter\n         self.tol = tol\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19466,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 236,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19702
+    },
+    "patch": {
+      "input_tokens": 19529,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 135,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19664
+    }
+  },
+  "localized_files": [
+    "sklearn/neighbors/nca.py",
+    "sklearn/model_selection/_search.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sklearn/neighbors/nca.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Parameter checks for 'tol' and 'n_components' are likely causing issues in GridSearch\"\n    },\n    {\n      \"path\": \"sklearn/model_selection/_search.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Manages parameter spaces and validation, could impact performance with strict type checks\"\n    },\n    {\n      \"path\": \"doc/modules/grid_search.rst\",\n      \"confidence\": 0.7,\n      \"reason\": \"Documentation on GridSearchCV may need updates regarding parameter validation practices\"\n    },\n    {\n      \"path\": \"doc/roadmap.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"Roadmap discussions may influence strategies for parameter validations\"\n    },\n    {\n      \"path\": \"doc/glossary.rst\",\n      \"confidence\": 0.5,\n      \"reason\": \"Glossary may need entries related to new or updated validation strategies\"\n    }\n  ]\n}\n```"
+}

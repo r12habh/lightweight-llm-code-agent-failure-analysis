@@ -1,0 +1,47 @@
+2026-05-08 11:17:56,769 - INFO - Creating container for sympy__sympy-22714...
+2026-05-08 11:17:57,222 - INFO - Container for sympy__sympy-22714 created: 56bc8737ac2f651a46725dc81c8779af994cb11b5c28c470ad1409bf7674e870
+2026-05-08 11:17:57,335 - INFO - Container for sympy__sympy-22714 started: 56bc8737ac2f651a46725dc81c8779af994cb11b5c28c470ad1409bf7674e870
+2026-05-08 11:17:57,335 - INFO - Intermediate patch for sympy__sympy-22714 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/sympy__sympy-22714/patch.diff, now applying to container...
+2026-05-08 11:17:57,539 - INFO - >>>>> Applied Patch:
+Checking patch sympy/geometry/point.py...
+Applied patch sympy/geometry/point.py cleanly.
+
+2026-05-08 11:17:58,045 - INFO - Git diff before:
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 73c20334d0..f33cc71001 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -162,7 +162,7 @@ def __new__(cls, *args, **kwargs):
+ 
+         # Turn any Floats into rationals and simplify
+         # any expressions before we instantiate
+-        if evaluate:
++        if evaluate and any(a.is_real is False for a in coords):
+             coords = coords.xreplace({
+                 f: simplify(nsimplify(f, rational=True))
+                  for f in coords.atoms(Float)})
+2026-05-08 11:17:58,046 - INFO - Eval script for sympy__sympy-22714 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/sympy__sympy-22714/eval.sh; copying to container...
+2026-05-08 11:18:04,106 - INFO - Test runtime: 5.99 seconds
+2026-05-08 11:18:04,107 - INFO - Test output for sympy__sympy-22714 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/sympy__sympy-22714/test_output.txt
+2026-05-08 11:18:04,229 - INFO - Git diff after:
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 73c20334d0..f33cc71001 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -162,7 +162,7 @@ def __new__(cls, *args, **kwargs):
+ 
+         # Turn any Floats into rationals and simplify
+         # any expressions before we instantiate
+-        if evaluate:
++        if evaluate and any(a.is_real is False for a in coords):
+             coords = coords.xreplace({
+                 f: simplify(nsimplify(f, rational=True))
+                  for f in coords.atoms(Float)})
+2026-05-08 11:18:04,230 - INFO - Grading answer for sympy__sympy-22714...
+2026-05-08 11:18:04,232 - INFO - report: {'sympy__sympy-22714': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_issue_22684']}, 'PASS_TO_PASS': {'success': ['test_issue_9214', 'test_issue_11617', 'test_transform', 'test_concyclic_doctest_bug', 'test_arguments', 'test_unit', 'test_dot', 'test__normalize_dimension'], 'failure': ['test_point', 'test_point3D', 'test_Point2D']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-22714: resolved: False
+2026-05-08 11:18:04,233 - INFO - Attempting to stop container sweb.eval.sympy__sympy-22714.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 11:18:19,393 - INFO - Attempting to remove container sweb.eval.sympy__sympy-22714.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 11:18:19,410 - INFO - Container sweb.eval.sympy__sympy-22714.hf_qwen25_coder7b_50_direct_repaired removed.
+2026-05-08 11:18:19,410 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-22714:latest...
+2026-05-08 11:18:20,196 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-22714:latest removed.

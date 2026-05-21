@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12983",
+  "input_patch_chars": 1011,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/utils/text.py...\nerror: while searching for:\n    value = unicodedata.normalize('NFKD', value)\n    value = str(re.sub(r'[^\\w\\s-]', '', value).strip().lower())\n    if not allow_unicode:\n        value = re.sub(r'[-\\s]+', '-', value)\n    else:\n        value = re.sub(r'[\\s]+', '-', value)\n\nerror: patch failed: django/utils/text.py:303\nerror: django/utils/text.py: patch does not apply\nChecking patch tests/utils_tests/test_text.py...\nerror: while searching for:\n        ('    foo \u0131\u00e7 bar', 'foo-\u0131\u00e7-bar', True),\n        ('    foo \u0131\u00e7 bar', 'foo-\u0131\u00e7-bar', True),\n        ('\u4f60\u597d', '\u4f60\u597d', True),\n        ('\u0130stanbul', 'istanbul', True),\n    )\n    for value, output, is_unicode in items:\n\nerror: patch failed: tests/utils_tests/test_text.py:104\nerror: tests/utils_tests/test_text.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/utils/text.py...\nerror: while searching for:\n    value = unicodedata.normalize('NFKD', value)\n    value = str(re.sub(r'[^\\w\\s-]', '', value).strip().lower())\n    if not allow_unicode:\n        value = re.sub(r'[-\\s]+', '-', value)\n    else:\n        value = re.sub(r'[\\s]+', '-', value)\n\nerror: patch failed: django/utils/text.py:303\nChecking patch tests/utils_tests/test_text.py...\nerror: while searching for:\n        ('    foo \u0131\u00e7 bar', 'foo-\u0131\u00e7-bar', True),\n        ('    foo \u0131\u00e7 bar', 'foo-\u0131\u00e7-bar', True),\n        ('\u4f60\u597d', '\u4f60\u597d', True),\n        ('\u0130stanbul', 'istanbul', True),\n    )\n    for value, output, is_unicode in items:\n\nerror: patch failed: tests/utils_tests/test_text.py:104\nApplying patch django/utils/text.py with 1 reject...\nRejected hunk #1.\nApplying patch tests/utils_tests/test_text.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1164
+}

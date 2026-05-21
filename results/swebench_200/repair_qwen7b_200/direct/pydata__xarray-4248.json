@@ -1,0 +1,28 @@
+{
+  "instance_id": "pydata__xarray-4248",
+  "input_patch_chars": 3054,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch xarray/core/dataset.py...\nerror: while searching for:\n        self._coord_names = set()\n        self._dims = {}\n        self._indexes = None\n\n        # initialize variables and coordinates\n        if isinstance(data_vars, Mapping):\n\nerror: patch failed: xarray/core/dataset.py:100\nerror: xarray/core/dataset.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/dataset.py...\nerror: while searching for:\n        self._coord_names = set()\n        self._dims = {}\n        self._indexes = None\n\n        # initialize variables and coordinates\n        if isinstance(data_vars, Mapping):\n\nerror: patch failed: xarray/core/dataset.py:100\nerror: while searching for:\n                self._variables[key] = as_variable(value)\n                if key in dims:\n                    self._coord_names.add(key)\n\n        if isinstance(coords, Mapping):\n            for key, value in coords.items():\n\nerror: patch failed: xarray/core/dataset.py:110\nerror: while searching for:\n                self._variables[key] = as_variable(value)\n                if key in dims:\n                    self._coord_names.add(key)\n\n        if isinstance(attrs, Mapping):\n            self.attrs.update(attrs)\n\nerror: patch failed: xarray/core/dataset.py:120\nerror: while searching for:\n        self._data_vars = DataVariables(self)\n        self._coords = DatasetCoordinates(self)\n\n    def dims(self) -> Mapping[Hashable, int]:\n        \"\"\"Dictionary mapping from dimension names to the fixed length of each dimension.\"\"\"\n        return self._dims\n\nerror: patch failed: xarray/core/dataset.py:130\nerror: while searching for:\n        \"\"\"Dictionary-like container of DataArrays corresponding to variables.\"\"\"\n        return self._data_vars\n\n    @property\n    def coords(self) -> Mapping[Hashable, \"DataArray\"]:\n        \"\"\"Dictionary-like container of DataArrays intended to label points used in data_vars.\"\"\"\n\nerror: patch failed: xarray/core/dataset.py:140\nerror: while searching for:\n        \"\"\"Arbitrary metadata.\"\"\"\n        return self._attrs\n\n    def data_vars(self) -> Mapping[Hashable, \"DataArray\"]:\n        \"\"\"Dictionary-like container of DataArrays corresponding to variables.\"\"\"\n        return self._data_vars\n\nerror: patch failed: xarray/core/dataset.py:150\nerror: while searching for:\n        \"\"\"Dictionary-like container of DataArrays intended to label points used in data_vars.\"\"\"\n        return self._coords\n\n    def _variables(self) -> Mapping[Hashable, Variable]:\n        \"\"\"Dictionary mapping from variable names to their underlying Variable objects.\"\"\"\n        return self._variables\n\nerror: patch failed: xarray/core/dataset.py:160\nerror: while searching for:\n        \"\"\"Dictionary mapping from variable names to their underlying Variable objects.\"\"\"\n        return self._variables\n?\n    def __repr__(self) -> str:\n        # ... (existing code)\n        return formatting.dataset_repr(self)\n\nerror: patch failed: xarray/core/dataset.py:170\nerror: while searching for:\n        # ... (existing code)\n        return formatting.dataset_repr(self)\n?\n    def _repr_html_(self) -> str:\n        # ... (existing code)\n        return formatting_html.dataset_repr_html(self)\n\nerror: patch failed: xarray/core/dataset.py:180\nApplying patch xarray/core/dataset.py with 9 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\nRejected hunk #5.\nRejected hunk #6.\nRejected hunk #7.\nRejected hunk #8.\nRejected hunk #9.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 2695
+}

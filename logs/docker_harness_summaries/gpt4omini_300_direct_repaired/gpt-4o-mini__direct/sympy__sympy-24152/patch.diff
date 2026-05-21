@@ -1,0 +1,14 @@
+diff --git a/sympy/physics/quantum/tensorproduct.py b/sympy/physics/quantum/tensorproduct.py
+index 78accaf295..b7b90de71b 100644
+--- a/sympy/physics/quantum/tensorproduct.py
++++ b/sympy/physics/quantum/tensorproduct.py
+@@ -245,7 +245,8 @@ def _eval_expand_tensorproduct(self, **hints):
+         for i in range(len(args)):
+             if isinstance(args[i], Add):
+                 for aa in args[i].args:
+-                    tp = TensorProduct(*args[:i] + (aa,) + args[i + 1:])
++                    tp = TensorProduct(*(c_part + [aa] + nc_part))
++                    c_part, nc_part = tp.args_cnc()
+                     if isinstance(tp, TensorProduct):
+                         tp = tp._eval_expand_tensorproduct()
+                     add_args.append(tp)

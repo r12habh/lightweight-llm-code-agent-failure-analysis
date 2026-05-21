@@ -1,0 +1,39 @@
+diff --git a/sympy/simplify/fu.py b/sympy/simplify/fu.py
+index 612bc0bb69..4510cdeb77 100644
+--- a/sympy/simplify/fu.py
++++ b/sympy/simplify/fu.py
+@@ -214,6 +214,10 @@
+ 
+ from sympy import SYMPY_DEBUG
+ 
++    def handle_sqrt(expr):
++        if expr.is_Pow and expr.exp == S.Half:
++            return expr
++        return expr
+ 
+ # ================== Fu-like tools ===========================
+ 
+@@ -222,6 +226,7 @@ def TR0(rv):
+     """Simplification of rational polynomials, trying to simplify
+     the expression, e.g. combine things like 3*x + 2*x, etc....
+     """
++            return handle_sqrt(cos(a)**2/(sin(a)**2))
+     # although it would be nice to use cancel, it doesn't work
+     # with noncommutatives
+     return rv.normal().factor().expand()
+@@ -275,6 +280,7 @@ def f(rv):
+             return sin(a)/cos(a)
+         elif isinstance(rv, cot):
+             a = rv.args[0]
++            return handle_sqrt(cos(a)**2/(sin(a)**2))
+             return cos(a)/sin(a)
+         return rv
+ 
+@@ -282,6 +288,7 @@ def f(rv):
+ 
+ 
+ def TR2i(rv, half=False):
++    rv = TR2(rv)
+     """Converts ratios involving sin and cos as follows::
+         sin(x)/cos(x) -> tan(x)
+         sin(x)/(cos(x) + 1) -> tan(x/2) if half=True

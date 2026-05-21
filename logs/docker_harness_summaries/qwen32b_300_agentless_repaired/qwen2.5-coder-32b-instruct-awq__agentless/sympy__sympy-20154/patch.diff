@@ -1,0 +1,13 @@
+diff --git a/sympy/utilities/iterables.py b/sympy/utilities/iterables.py
+index dd36dea304..ee450b34d2 100644
+--- a/sympy/utilities/iterables.py
++++ b/sympy/utilities/iterables.py
+@@ -287,7 +287,7 @@ def iproduct(*iterables):
+     '''
+     if len(iterables) == 0:
+         yield ()
+-        return
++        return []
+     elif len(iterables) == 1:
+         for e in iterables[0]:
+             yield (e,)

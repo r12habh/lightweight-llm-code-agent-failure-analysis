@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15498",
+  "input_patch_chars": 1885,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: patch fragment without header at line 23: @@ -18,6 +20,7 @@\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/sessions/backends/base.py\nHunk #1 succeeded at 1 with fuzz 3.\nHunk #2 FAILED at 11.\n1 out of 2 hunks FAILED -- saving rejects to file django/contrib/sessions/backends/base.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

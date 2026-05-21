@@ -1,0 +1,16 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8595",
+  "raw": "```diff\ndiff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py\n+++ b/sphinx/ext/autodoc/__init__.py\n@@ -156,6 +156,11 @@ def members_option(arg: Any) -> Union[object, List[str]]:\n     return [x.strip() for x in arg.split(',') if x.strip()]\n\n\n+def should_document_all_members(options):\n+    return options.get('members') is ALL or options.get('include_all')\n+\n+\n def merge_members_option(options: Dict) -> None:\n     \"\"\"Merge :*-members: option to the :members: option.\"\"\"\n     if options.get('members') is ALL:\n@@ -160,7 +165\n         return\n\n     members = options.setdefault('members', [])\n+    if should_document_all_members(options):\n+        return\n\n     for key in {'private-members', 'special-members'}:\n         if key in options and options[key] not in (ALL, None):\n```",
+  "usage": {
+    "input_tokens": 21547,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 212,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 21759
+  },
+  "localized_files": []
+}

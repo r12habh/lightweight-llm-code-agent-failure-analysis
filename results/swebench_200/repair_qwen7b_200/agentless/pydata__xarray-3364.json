@@ -1,0 +1,25 @@
+{
+  "instance_id": "pydata__xarray-3364",
+  "input_patch_chars": 966,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 24\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 24: ~~~~~~~~~~~\n\n",
+          "stdout": "patching file doc/combining.rst\nHunk #1 succeeded at 27 with fuzz 2 (offset 17 lines).\nHunk #2 succeeded at 35 with fuzz 3 (offset 17 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

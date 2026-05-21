@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14382",
+  "input_patch_chars": 7314,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 159\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file django/core/management/templates.py\nHunk #1 succeeded at 78 (offset 4 lines).\nHunk #2 succeeded at 86 with fuzz 1 (offset 2 lines).\nHunk #3 succeeded at 96 (offset 2 lines).\nHunk #4 succeeded at 108 (offset -3 lines).\nHunk #5 succeeded at 119 with fuzz 3 (offset -2 lines).\nHunk #6 succeeded at 129 with fuzz 3 (offset -2 lines).\nHunk #7 succeeded at 142 with fuzz 2.\nHunk #8 succeeded at 155 (offset 1 line).\nHunk #9 succeeded at 167 (offset 3 lines).\nHunk #10 succeeded at 176 (offset 2 lines).\nHunk #11 succeeded at 185 (offset 1 line).\nHunk #12 succeeded at 205 with fuzz 3 (offset 4 lines).\nHunk #13 succeeded at 213 (offset 3 lines).\nHunk #14 FAILED at 224.\nHunk #15 FAILED at 235.\nHunk #16 succeeded at 246 (offset 2 lines).\nHunk #17 succeeded at 259 (offset -1 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

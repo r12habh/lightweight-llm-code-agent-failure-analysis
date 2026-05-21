@@ -1,0 +1,13 @@
+diff --git a/doc/en/example/simple.rst b/doc/en/example/simple.rst
+index e9952dad4..43c30809e 100644
+--- a/doc/en/example/simple.rst
++++ b/doc/en/example/simple.rst
+@@ -44,7 +44,7 @@ The actual command line executed is:
+     pytest -ra -q -v -m slow
+ 
+ Note that as usual for other command-line applications, in case of conflicting options the last one wins, so the example
+-above will show verbose output because ``-v`` overwrites ``-q``.
++above will show verbose output because ``-v`` overwrites ``-q``. However, with pytest 6.0.0rc0, dynamically adding xfail markers no longer ignores failures.
+ 
+ 
+ .. _request example:

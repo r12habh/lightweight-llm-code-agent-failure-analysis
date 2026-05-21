@@ -1,0 +1,36 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13439",
+  "raw": "```diff\ndiff --git a/sklearn/pipeline.py b/sklearn/pipeline.py\n--- a/sklearn/pipeline.py\n+++ b/sklearn/pipeline.py\n@@ -15,6 +15,7 @@\n \n class Pipeline(_BaseComposition):\n     \"\"\"Pipeline of transforms with a final estimator.\n+    \n     ...\n     \"\"\"\n \n@@ -163,6 +164,14 @@\n     def fit(self, X, y=None, **fit_params):\n         \"\"\"Fit the model\n         ...\n         \"\"\"\n         ...\n \n+    def __len__(self):\n+        \"\"\"Return the number of steps in the pipeline.\"\"\"\n+        return len(self.steps)\n+\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 21844,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 223,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22067
+    },
+    "patch": {
+      "input_tokens": 21927,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 139,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22066
+    }
+  },
+  "localized_files": [
+    "sklearn/pipeline.py",
+    "sklearn/tests/test_pipeline.py",
+    "sklearn/svm/classes.py",
+    "sklearn/tests/test_svm.py",
+    "sklearn/utils/_show_versions.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sklearn/pipeline.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Pipeline needs to implement __len__ for indexing support.\"\n    },\n    {\n      \"path\": \"sklearn/tests/test_pipeline.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Existing tests for Pipeline functionality may need adaptation for new indexing support.\"\n    },\n    {\n      \"path\": \"sklearn/svm/classes.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Dependencies of the pipeline may be impacted by changes in the indexing methods.\"\n    },\n    {\n      \"path\": \"sklearn/tests/test_svm.py\",\n      \"confidence\": 0.4,\n      \"reason\": \"Tests for SVM may need to evaluate behavior with indexed Pipeline.\"\n    },\n    {\n      \"path\": \"sklearn/utils/_show_versions.py\",\n      \"confidence\": 0.2,\n      \"reason\": \"Potential indirect dependencies on pipeline structure.\"\n    }\n  ]\n}\n```"
+}

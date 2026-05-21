@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16255",
+  "input_patch_chars": 513,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/sitemaps/__init__.py...\nerror: while searching for:\n                return max([self.lastmod(item) for item in self.items()])\n            except TypeError:\n                return None\n        except (TypeError, ValueError):\n            return None\n        else:\n            return self.lastmod\n\nerror: patch failed: django/contrib/sitemaps/__init__.py:170\nApplying patch django/contrib/sitemaps/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/sitemaps/__init__.py\nHunk #1 FAILED at 170.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/sitemaps/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

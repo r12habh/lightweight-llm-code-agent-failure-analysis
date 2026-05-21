@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13658",
+  "input_patch_chars": 830,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/management/__init__.py...\nerror: while searching for:\n        self.prog_name = os.path.basename(self.argv[0])\n        if self.prog_name == '__main__.py':\n            self.prog_name = 'python -m django'\n        parser = CommandParser(usage='%(prog)s subcommand [options] [args]', add_help=False, allow_abbrev=False)\n        parser.add_argument('--version', action='version', version=django.get_version())\n        options, args = parser.parse_known_args(self.argv[1:])\n        if options.settings:\n\nerror: patch failed: django/core/management/__init__.py:34\nerror: django/core/management/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/__init__.py...\nerror: while searching for:\n        self.prog_name = os.path.basename(self.argv[0])\n        if self.prog_name == '__main__.py':\n            self.prog_name = 'python -m django'\n        parser = CommandParser(usage='%(prog)s subcommand [options] [args]', add_help=False, allow_abbrev=False)\n        parser.add_argument('--version', action='version', version=django.get_version())\n        options, args = parser.parse_known_args(self.argv[1:])\n        if options.settings:\n\nerror: patch failed: django/core/management/__init__.py:34\nApplying patch django/core/management/__init__.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 831
+}

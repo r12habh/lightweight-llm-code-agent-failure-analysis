@@ -1,0 +1,15 @@
+diff --git a/sphinx/ext/autodoc/directive.py b/sphinx/ext/autodoc/directive.py
+index 9a3428f5d..6dcef9d49 100644
+--- a/sphinx/ext/autodoc/directive.py
++++ b/sphinx/ext/autodoc/directive.py
+@@ -105,6 +105,10 @@ def parse_generated_content(state: RSTState, content: StringList, documenter: Do
+ 
+         return node.children
+ 
++    # Respect __all__ if it is an empty list
++    if 'ignore-module-all' not in options or not options['ignore-module-all']:
++        if documenter.objtype == 'module' and documenter.modname in sys.modules and not sys.modules[documenter.modname].__all__:
++            options['members'] = []
+ 
+ class AutodocDirective(SphinxDirective):
+     """A directive class for all autodoc directives. It works as a dispatcher of Documenters.

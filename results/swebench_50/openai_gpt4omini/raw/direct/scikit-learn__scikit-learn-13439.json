@@ -1,0 +1,16 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13439",
+  "raw": "```diff\ndiff --git a/sklearn/pipeline.py b/sklearn/pipeline.py\n--- a/sklearn/pipeline.py\n+++ b/sklearn/pipeline.py\n@@ -54,6 +54,10 @@\n \n     def get_params(self, deep=True):\n         \"\"\"Get parameters for this estimator.\n+        \n+        Returns\n+        -------\n+        int\n+            The number of steps in the pipeline.\n         \"\"\"\n         return self._get_params('steps', deep=deep)\n \n@@ -117,6 +121,13 @@\n \n     # Estimator interface\n     \n+    def __len__(self):\n+        \"\"\"Return the number of steps in the pipeline.\"\"\"\n+        return len(self.steps)\n+\n+\n```",
+  "usage": {
+    "input_tokens": 21895,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 153,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 22048
+  },
+  "localized_files": []
+}

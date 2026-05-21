@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15202",
+  "input_patch_chars": 440,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/fields.py...\nerror: while searching for:\n        value = self.to_python(value)\n        self.validate(value)\n        try:\n            self.run_validators(value)\n        except ValidationError:\n            raise ValidationError(self.error_messages['invalid'], code='invalid')\n        return value\n\nerror: patch failed: django/forms/fields.py:137\nApplying patch django/forms/fields.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/fields.py\nHunk #1 FAILED at 137.\n1 out of 1 hunk FAILED -- saving rejects to file django/forms/fields.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

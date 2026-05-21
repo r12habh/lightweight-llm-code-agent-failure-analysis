@@ -1,0 +1,13 @@
+diff --git a/sympy/physics/units/prefixes.py b/sympy/physics/units/prefixes.py
+index ca6a642156..b4f17919f2 100644
+--- a/sympy/physics/units/prefixes.py
++++ b/sympy/physics/units/prefixes.py
+@@ -105,7 +105,7 @@ def __truediv__(self, other):
+         if fact == 1:
+             return 1
+         elif isinstance(other, Prefix):
+-            for p in PREFIXES:
++            for p in PREFIXES.values():
+                 if PREFIXES[p].scale_factor == fact:
+                     return PREFIXES[p]
+             return fact

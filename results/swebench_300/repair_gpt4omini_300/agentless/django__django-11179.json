@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11179",
+  "input_patch_chars": 679,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/deletion.py...\nerror: while searching for:\n        self.data = {model: {instances}}, later values become lists.\n        self.field_updates = {}  # {model: {(field, value): {instances}}}\n\n    def add(self, objs, source=None, nullable=False, reverse_dependency=False):\n        \"\"\"\n        Add 'objs' to the collection of objects to be deleted.  If the call is\n\nerror: patch failed: django/db/models/deletion.py:275\nerror: django/db/models/deletion.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/deletion.py...\nerror: while searching for:\n        self.data = {model: {instances}}, later values become lists.\n        self.field_updates = {}  # {model: {(field, value): {instances}}}\n\n    def add(self, objs, source=None, nullable=False, reverse_dependency=False):\n        \"\"\"\n        Add 'objs' to the collection of objects to be deleted.  If the call is\n\nerror: patch failed: django/db/models/deletion.py:275\nApplying patch django/db/models/deletion.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 657
+}

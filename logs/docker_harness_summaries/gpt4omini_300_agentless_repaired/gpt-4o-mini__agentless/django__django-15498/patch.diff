@@ -1,0 +1,12 @@
+diff --git a/docs/topics/conditional-view-processing.txt b/docs/topics/conditional-view-processing.txt
+index ed2c7f8363..74ecead1bf 100644
+--- a/docs/topics/conditional-view-processing.txt
++++ b/docs/topics/conditional-view-processing.txt
+@@ -9,6 +9,7 @@ something the client has already retrieved. However, the same headers can be
+ used for all HTTP methods (``POST``, ``PUT``, ``DELETE``, etc.).
+ 
+ For each page (response) that Django sends back from a view, it might provide
++web page (using an HTTP ``GET`` request) to avoid sending all the data for something the client has already retrieved. However, the same headers can be
+ two HTTP headers: the ``ETag`` header and the ``Last-Modified`` header. These
+ headers are optional on HTTP responses. They can be set by your view function,
+ or you can rely on the :class:`~django.middleware.http.ConditionalGetMiddleware`

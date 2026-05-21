@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-18199",
+  "input_patch_chars": 424,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/ntheory/residue_ntheory.py...\nerror: while searching for:\n    if a % p == 0:\n        if all_roots:\n            return [0]\n    if p == 2:\n        if a % p != 0:\n            return a % p\n\nerror: patch failed: sympy/ntheory/residue_ntheory.py:123\nerror: sympy/ntheory/residue_ntheory.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/ntheory/residue_ntheory.py...\nerror: while searching for:\n    if a % p == 0:\n        if all_roots:\n            return [0]\n    if p == 2:\n        if a % p != 0:\n            return a % p\n\nerror: patch failed: sympy/ntheory/residue_ntheory.py:123\nApplying patch sympy/ntheory/residue_ntheory.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 416
+}

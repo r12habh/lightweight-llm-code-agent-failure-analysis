@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11049",
+  "input_patch_chars": 603,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/fields.py...\nerror: while searching for:\n    default_error_messages = {\n        'invalid': _('Enter a valid duration.'),\n    }\n    default_help_text = _('Enter a valid duration: [DD] [HH:[MM:]]ss[.uuuuuu].')\n\n    def to_python(self, value):\n        \"\"\"Converts the string value to a datetime.timedelta, raises a ValidationError if the input is invalid.\"\"\"\n\nerror: patch failed: django/forms/fields.py:1044\nApplying patch django/forms/fields.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/fields.py\nHunk #1 FAILED at 1044.\n1 out of 1 hunk FAILED -- saving rejects to file django/forms/fields.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

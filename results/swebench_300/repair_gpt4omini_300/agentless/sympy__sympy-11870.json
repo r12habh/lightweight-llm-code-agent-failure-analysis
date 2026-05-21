@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-11870",
+  "input_patch_chars": 995,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpbcq5ckq2.diff:10: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpbcq5ckq2.diff:11: trailing whitespace.\n    This function applies various trigonometric identities to convert expressions \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpbcq5ckq2.diff:13: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpbcq5ckq2.diff:19: trailing whitespace.\n    \nerror: corrupt patch at line 29\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 21:      ----------\n\n",
+          "stdout": "patching file sympy/simplify/trigsimp.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

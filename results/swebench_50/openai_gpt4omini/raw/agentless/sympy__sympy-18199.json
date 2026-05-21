@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-18199",
+  "raw": "```diff\ndiff --git a/sympy/core/mod.py b/sympy/core/mod.py\n--- a/sympy/core/mod.py\n+++ b/sympy/core/mod.py\n@@ -24,6 +24,9 @@\n \n class Mod(Function):\n     \"\"\"Represents a modulo operation on symbolic expressions.\n \n     Receives two arguments, dividend p and divisor q.\n \n+    Also check for the case when p is zero, to return zero as a root if needed.\n+    \"\"\"\n+\n     @classmethod\n     def eval(cls, p, q):\n         from sympy.core.add import Add\n@@ -41,6 +44\n+            if p.is_zero:  # checking for the root case\n+                return S.Zero\n             if p is S.Zero or p == q or p == -q or (p.is_integer and q == 1):\n                 return S.Zero\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 22745,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 246,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22991
+    },
+    "patch": {
+      "input_tokens": 22835,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 190,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 23025
+    }
+  },
+  "localized_files": [
+    "sympy/core/mod.py",
+    "sympy/functions/special/hyper.py",
+    "sympy/printing/latex.py",
+    "sympy/integrals/risch.py",
+    "sympy/core/function.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/core/mod.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"The nthroot_mod function and Mod class may need adjustments for the case when a % p == 0.\"\n    },\n    {\n      \"path\": \"sympy/functions/special/hyper.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Hypergeometric functions may need to accommodate additional roots under specific conditions.\"\n    },\n    {\n      \"path\": \"sympy/printing/latex.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"The LaTeX printer may need updates to correctly format output involving new roots.\"\n    },\n    {\n      \"path\": \"sympy/integrals/risch.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Risch algorithm may need adjustments relating to transcendental function handling.\"\n    },\n    {\n      \"path\": \"sympy/core/function.py\",\n      \"confidence\": 0.4,\n      \"reason\": \"Potential need for modifications in function-related checks based on new input conditions.\"\n    }\n  ]\n}\n```"
+}

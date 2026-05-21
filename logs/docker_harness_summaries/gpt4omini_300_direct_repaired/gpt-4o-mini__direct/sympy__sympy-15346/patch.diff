@@ -1,0 +1,15 @@
+diff --git a/sympy/simplify/trigsimp.py b/sympy/simplify/trigsimp.py
+index 8ba346adbe..7500fb04cc 100644
+--- a/sympy/simplify/trigsimp.py
++++ b/sympy/simplify/trigsimp.py
+@@ -388,6 +388,10 @@ def analyse_gens(gens, hints):
+                 for p in ideal:
+                     p = Poly(p)
+                     if not ourgens.issuperset(p.gens) and \
++    if expr.is_Rational:
++        return expr.simplify()  # Ensure rational numbers simplify.
++
++    if expr.has(sin, cos):
+                        not p.has_only_gens(*set(p.gens).difference(ourgens)):
+                         changed = True
+                         ourgens.update(p.exclude().gens)

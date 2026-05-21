@@ -1,0 +1,21 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 9ce46e3f73..d1c0c17643 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -123,6 +123,16 @@ class Field(RegisterLookupMixin):
+     one_to_one = None
+     related_model = None
+ 
++        if choices and max_length is not None:
++            max_choice_length = max(len(str(choice[0])) for choice in choices)
++            if max_choice_length > max_length:
++                raise ValueError(
++                    "Field.max_length is too small for the longest value in Field.choices: "
++                    f"max_length={max_length}, longest choice={max_choice_length}"
++                )
++        elif choices and max_length is None:
++            raise ValueError("Field.max_length must be set when Field.choices is provided.")
++
+     descriptor_class = DeferredAttribute
+ 
+     # Generic field type description, usually overridden by subclasses

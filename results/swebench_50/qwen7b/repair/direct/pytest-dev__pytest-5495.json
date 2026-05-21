@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5495",
+  "input_patch_chars": 544,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/assertion/rewrite.py...\nerror: while searching for:\n        if isinstance(name, str):\n            self._rewrite_module(name)\n        else:\n            raise TypeError(\"expected module names as *args, got {0} instead\".format(repr(names)))\n\n    def _rewrite_module(self, name):\n        try:\n\nerror: patch failed: src/_pytest/assertion/rewrite.py:100\nApplying patch src/_pytest/assertion/rewrite.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/assertion/rewrite.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file src/_pytest/assertion/rewrite.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15213",
+  "input_patch_chars": 6233,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 174\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 succeeded at 190 with fuzz 2 (offset 67 lines).\nHunk #2 succeeded at 208 with fuzz 3 (offset 67 lines).\nHunk #3 succeeded at 226 with fuzz 3 (offset 67 lines).\nHunk #4 succeeded at 244 with fuzz 3 (offset 67 lines).\nHunk #5 succeeded at 271 with fuzz 3 (offset 67 lines).\nHunk #6 succeeded at 289 with fuzz 3 (offset 67 lines).\nHunk #7 succeeded at 307 with fuzz 3 (offset 67 lines).\nHunk #8 succeeded at 325 with fuzz 3 (offset 67 lines).\nHunk #9 succeeded at 352 with fuzz 3 (offset 67 lines).\nHunk #10 succeeded at 370 with fuzz 3 (offset 67 lines).\nHunk #11 succeeded at 388 with fuzz 3 (offset 67 lines).\nHunk #12 succeeded at 406 with fuzz 3 (offset 67 lines).\nHunk #13 succeeded at 433 with fuzz 3 (offset 67 lines).\nHunk #14 succeeded at 451 with fuzz 3 (offset 67 lines).\nHunk #15 succeeded at 469 with fuzz 3 (offset 67 lines).\nHunk #16 succeeded at 487 with fuzz 3 (offset 67 lines).\nHunk #17 succeeded at 514 with fuzz 3 (offset 67 lines).\nHunk #18 succeeded at 532 with fuzz 3 (offset 67 lines).\nHunk #19 succeeded at 550 with fuzz 3 (offset 67 lines).\nHunk #20 succeeded at 568 with fuzz 3 (offset 67 lines).\nHunk #21 succeeded at 595 with fuzz 3 (offset 67 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

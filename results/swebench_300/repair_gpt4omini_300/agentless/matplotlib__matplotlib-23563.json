@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23563",
+  "input_patch_chars": 617,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/mpl_toolkits/mplot3d/axes3d.py...\nerror: while searching for:\n\n    def unit_cube(self, vals=None):\n        minx, maxx, miny, maxy, minz, maxz = vals or self.get_w_lims()\n        return [(minx, miny, minz),\n                (float(maxx), float(miny), float(minz)),\n                (float(maxx), float(maxy), float(minz)),\n                (float(minx), float(maxy), float(minz)),\n\nerror: patch failed: lib/mpl_toolkits/mplot3d/axes3d.py:211\nerror: lib/mpl_toolkits/mplot3d/axes3d.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/mpl_toolkits/mplot3d/axes3d.py...\nerror: while searching for:\n\n    def unit_cube(self, vals=None):\n        minx, maxx, miny, maxy, minz, maxz = vals or self.get_w_lims()\n        return [(minx, miny, minz),\n                (float(maxx), float(miny), float(minz)),\n                (float(maxx), float(maxy), float(minz)),\n                (float(minx), float(maxy), float(minz)),\n\nerror: patch failed: lib/mpl_toolkits/mplot3d/axes3d.py:211\nApplying patch lib/mpl_toolkits/mplot3d/axes3d.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 560
+}

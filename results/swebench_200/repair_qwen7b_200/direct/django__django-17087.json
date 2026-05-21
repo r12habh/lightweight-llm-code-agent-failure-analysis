@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-17087",
+  "input_patch_chars": 557,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/postgres/fields/array.py...\nerror: while searching for:\n                \"default\": self.base_field.get_prep_value(self.default),\n            }\n        )\n        return migrations.AddField(\n            model_name=model_name,\n            name=self.name,\n            field=django.contrib.postgres.fields.ArrayField(\n\nerror: patch failed: django/contrib/postgres/fields/array.py:100\nApplying patch django/contrib/postgres/fields/array.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/postgres/fields/array.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/postgres/fields/array.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

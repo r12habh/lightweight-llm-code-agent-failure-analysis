@@ -1,0 +1,15 @@
+diff --git a/sympy/simplify/fu.py b/sympy/simplify/fu.py
+index 612bc0bb69..e1ae90b053 100644
+--- a/sympy/simplify/fu.py
++++ b/sympy/simplify/fu.py
+@@ -100,6 +100,10 @@
+ ... z) + 18)).expand(trig=True).expand()
+ 
+ In the expanded state, there are nearly 1000 trig functions:
++                    for ai in Mul.make_args(a))
++                    for a in k.args)) or
++                (half and
++                k.is_Add and
+ 
+ >>> L(expr)
+ 932

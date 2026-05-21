@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13447",
+  "input_patch_chars": 7110,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 177\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 11:      If ``paginate_by`` is specified, Django will paginate the results returned\n\n",
+          "stdout": "patching file docs/ref/class-based-views/mixins-multiple-object.txt\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

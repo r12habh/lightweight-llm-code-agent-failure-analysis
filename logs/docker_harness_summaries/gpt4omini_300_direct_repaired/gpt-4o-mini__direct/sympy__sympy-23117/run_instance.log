@@ -1,0 +1,47 @@
+2026-05-20 02:22:50,810 - INFO - Creating container for sympy__sympy-23117...
+2026-05-20 02:22:51,498 - INFO - Container for sympy__sympy-23117 created: f4ff55e170552a60d7dcbc827f402c45de37df6966f506c45464b5d526534eca
+2026-05-20 02:22:51,671 - INFO - Container for sympy__sympy-23117 started: f4ff55e170552a60d7dcbc827f402c45de37df6966f506c45464b5d526534eca
+2026-05-20 02:22:51,672 - INFO - Intermediate patch for sympy__sympy-23117 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-23117/patch.diff, now applying to container...
+2026-05-20 02:22:51,885 - INFO - >>>>> Applied Patch:
+Checking patch sympy/tensor/array/ndim_array.py...
+Applied patch sympy/tensor/array/ndim_array.py cleanly.
+
+2026-05-20 02:22:52,439 - INFO - Git diff before:
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..efbfa1dce0 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -82,6 +82,8 @@ def _union(cls, kinds) -> 'ArrayKind':
+             elemkind = UndefinedKind
+         return ArrayKind(elemkind)
+ 
++        if len(iterable) == 0 and shape is None:
++            shape = ()
+ 
+ class NDimArray(Printable):
+     """
+2026-05-20 02:22:52,439 - INFO - Eval script for sympy__sympy-23117 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-23117/eval.sh; copying to container...
+2026-05-20 02:22:59,359 - INFO - Test runtime: 6.85 seconds
+2026-05-20 02:22:59,360 - INFO - Test output for sympy__sympy-23117 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/sympy__sympy-23117/test_output.txt
+2026-05-20 02:22:59,478 - INFO - Git diff after:
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..efbfa1dce0 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -82,6 +82,8 @@ def _union(cls, kinds) -> 'ArrayKind':
+             elemkind = UndefinedKind
+         return ArrayKind(elemkind)
+ 
++        if len(iterable) == 0 and shape is None:
++            shape = ()
+ 
+ class NDimArray(Printable):
+     """
+2026-05-20 02:22:59,478 - INFO - Grading answer for sympy__sympy-23117...
+2026-05-20 02:22:59,480 - INFO - report: {'sympy__sympy-23117': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_issue_17851']}, 'PASS_TO_PASS': {'success': ['test_array_negative_indices', 'test_issue_18361', 'test_issue_20222'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-23117: resolved: False
+2026-05-20 02:22:59,480 - INFO - Attempting to stop container sweb.eval.sympy__sympy-23117.gpt4omini_300_direct_repaired...
+2026-05-20 02:23:14,626 - INFO - Attempting to remove container sweb.eval.sympy__sympy-23117.gpt4omini_300_direct_repaired...
+2026-05-20 02:23:14,641 - INFO - Container sweb.eval.sympy__sympy-23117.gpt4omini_300_direct_repaired removed.
+2026-05-20 02:23:14,641 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-23117:latest...
+2026-05-20 02:23:15,583 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-23117:latest removed.

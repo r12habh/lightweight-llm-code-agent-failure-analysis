@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15781",
+  "input_patch_chars": 521,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/base.py...\nerror: while searching for:\n        \"\"\"\n        help = \"\"\n\n        # Configuration shortcuts that alter various logic.\n        _called_from_command_line = False\n        output_transaction = False  # Whether to wrap the output in a \"BEGIN; COMMIT;\"\n        requires_migrations_checks = False\n\nerror: patch failed: django/core/management/base.py:100\nApplying patch django/core/management/base.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/base.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file django/core/management/base.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,36 @@
+{
+  "instance_id": "matplotlib__matplotlib-22835",
+  "raw": "```diff\ndiff --git a/lib/matplotlib/colors.py b/lib/matplotlib/colors.py\n--- a/lib/matplotlib/colors.py\n+++ b/lib/matplotlib/colors.py\n@@ -847,6 +847,12 @@\n     def to_rgba(c, alpha=None):\n         \"\"\"\n         Convert *c* to an RGBA color.\n         \"\"\"\n+        if isinstance(c, str) and c.lower() == \"none\":\n+            return (0., 0., 0., 0.)  # Handle \"none\" string\n+\n+        # If input is a BoundaryNorm instance, raise ValueError\n+        if isinstance(c, BoundaryNorm):\n+            raise ValueError(\"BoundaryNorm cannot be converted to RGBA.\")\n         \n         # Existing processing follows...\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 21618,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 226,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21844
+    },
+    "patch": {
+      "input_tokens": 22390,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 164,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22554
+    }
+  },
+  "localized_files": [
+    "lib/matplotlib/colors.py",
+    "lib/matplotlib/image.py",
+    "lib/matplotlib/tests/test_image.py",
+    "lib/matplotlib/collections.py",
+    "lib/matplotlib/tests/test_colors.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"lib/matplotlib/colors.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Involves BoundaryNorm which crashes with non-invertible checks.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/image.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Handles image rendering which may interface with BoundaryNorm.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/tests/test_image.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Contains tests related to image rendering and cursor interactions.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/collections.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Handles collections of patches which may be affected by colors normalization.\"\n    },\n    {\n      \"path\": \"lib/matplotlib/tests/test_colors.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Tests color mappings which could interact with BoundaryNorm functionality.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16400",
+  "input_patch_chars": 6978,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 101\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 100:  \n\n",
+          "stdout": "patching file django/core/management/base.py\nHunk #1 succeeded at 100 with fuzz 3.\nHunk #2 succeeded at 264 (offset 153 lines).\nHunk #3 succeeded at 272 (offset 150 lines).\nHunk #4 succeeded at 283 with fuzz 3 (offset 150 lines).\nHunk #5 succeeded at 296 (offset 152 lines).\nHunk #6 succeeded at 307 with fuzz 3 (offset 152 lines).\nHunk #7 succeeded at 318 with fuzz 3 (offset 152 lines).\nHunk #8 succeeded at 329 with fuzz 3 (offset 152 lines).\nHunk #9 succeeded at 340 with fuzz 3 (offset 152 lines).\nHunk #10 succeeded at 351 with fuzz 3 (offset 152 lines).\nHunk #11 succeeded at 362 with fuzz 3 (offset 152 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13915",
+  "input_patch_chars": 693,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/utilities/lambdify.py...\nerror: while searching for:\n       return lambdified_function\n\n   # Check for things like division by zero, which might make the expression undefined.\n    if isinstance(expr, (Add, Mul, Pow)) and any(isinstance(arg, (Add, Mul)) for arg in expr.args):\n       return lambda *args: expr.subs({a: b for a, b in zip(args, args)}).expand()\n\n   return expr\n\nerror: patch failed: sympy/utilities/lambdify.py:2062\nApplying patch sympy/utilities/lambdify.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/utilities/lambdify.py\nHunk #1 FAILED at 2062.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/utilities/lambdify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

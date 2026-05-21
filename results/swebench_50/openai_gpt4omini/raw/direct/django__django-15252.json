@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-15252",
+  "raw": "```diff\ndiff --git a/django/db/migrations/executor.py b/django/db/migrations/executor.py\nindex 15b5a56..7a4a73d 100644\n--- a/django/db/migrations/executor.py\n+++ b/django/db/migrations/executor.py\n@@ -42,6 +42,7 @@ from .exceptions import InvalidMigrationPlan\n from .loader import MigrationLoader\n from .recorder import MigrationRecorder\n from .state import ProjectState\n+from django.db import DEFAULT_DB_ALIAS\n \n \n class MigrationExecutor:\n@@ -56,6 +57,7 @@ class MigrationExecutor:\n         self.loader = MigrationLoader(self.connection)\n         self.recorder = MigrationRecorder(self.connection)\n         self.progress_callback = progress_callback\n+        self.using_db = self.connection.alias\n \n     def migration_plan(self, targets, clean_start=False):\n         \"\"\"\n@@ -73,8 +75,12 @@ class MigrationExecutor:\n             applied = dict(self.loader.applied_migrations)\n         for target in targets:\n             if target[1] is None:\n                 for root in self.loader.graph.root_nodes():\n-                    if root[0] == target[0]:\n+                    if root[0] == target[0] and self.recorder.allow_migrate(self.using_db, root[0]):\n                         for migration in self.loader.graph.backwards_plan(root):\n                             if migration in applied:\n                                 plan.append((self.loader.graph.nodes[migration], True))\n                                 applied.pop(migration)\n+                continue\n             elif target in applied:\n                 if (\n                     self.loader.replace_migrations and\n                     target not in self.loader.graph.node_map\n```",
+  "usage": {
+    "input_tokens": 17961,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 345,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18306
+  },
+  "localized_files": []
+}

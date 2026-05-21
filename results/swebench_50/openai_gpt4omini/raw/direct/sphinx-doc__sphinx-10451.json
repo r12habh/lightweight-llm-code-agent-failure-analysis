@@ -1,0 +1,16 @@
+{
+  "instance_id": "sphinx-doc__sphinx-10451",
+  "raw": "```diff\ndiff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py\nindex 71e6ba2..b2026b3 100644\n--- a/sphinx/ext/autodoc/__init__.py\n+++ b/sphinx/ext/autodoc/__init__.py\n@@ -216,7 +216,7 @@ def cut_lines(pre: int, post: int = 0, what: str = None) -> Callable:\n \n     # make sure there is a blank line at the end\n     if lines and lines[-1]:\n-        lines.append('')\n+        lines.append('\\n')\n     return process\n \n def between(marker: str, what: Sequence[str] = None, keepempty: bool = False,\n```",
+  "usage": {
+    "input_tokens": 18720,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 166,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18886
+  },
+  "localized_files": []
+}

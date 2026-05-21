@@ -1,0 +1,13 @@
+diff --git a/sympy/parsing/mathematica.py b/sympy/parsing/mathematica.py
+index 7ea14ce33a..ac4d0210f3 100644
+--- a/sympy/parsing/mathematica.py
++++ b/sympy/parsing/mathematica.py
+@@ -508,7 +508,7 @@ def _parse_old(self, s):
+         # uncover '*' hiding behind a whitespace
+         s = self._apply_rules(s, 'whitespace')
+ 
+-        # remove whitespace(s)
++        # replace whitespace(s) with '*'
+         s = self._replace(s, ' ')
+ 
+         # add omitted '*' character

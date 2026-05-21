@@ -1,0 +1,13 @@
+diff --git a/seaborn/axisgrid.py b/seaborn/axisgrid.py
+index 75349099..5feb6be1 100644
+--- a/seaborn/axisgrid.py
++++ b/seaborn/axisgrid.py
+@@ -1440,6 +1440,8 @@ class PairGrid(Grid):
+ 
+         """
+         # Add special diagonal axes for the univariate plot
++            data.columns = ["".join(col) for col in data.columns]
++
+         if self.diag_axes is None:
+             diag_vars = []
+             diag_axes = []

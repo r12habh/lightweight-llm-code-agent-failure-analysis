@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/backends/backend_template.py b/lib/matplotlib/backends/backend_template.py
+index ebb9b413f5..7566f6cde1 100644
+--- a/lib/matplotlib/backends/backend_template.py
++++ b/lib/matplotlib/backends/backend_template.py
+@@ -121,7 +121,6 @@ class GraphicsContextTemplate(GraphicsContextBase):
+     If it's more appropriate to wrap an instance (as in the cairo backend) and
+     do the mapping here, you'll need to override several of the setter
+     methods.
+-
+     The base GraphicsContext stores colors as a RGB tuple on the unit
+     interval, e.g., (0.5, 0.0, 1.0). You may need to map this to colors
+     appropriate for your backend.

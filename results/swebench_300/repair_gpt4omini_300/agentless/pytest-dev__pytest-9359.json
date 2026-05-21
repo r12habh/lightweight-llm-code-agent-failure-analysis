@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-9359",
+  "input_patch_chars": 410,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch doc/en/how-to/assert.rst...\nerror: while searching for:\n\n      assert f() == 4\n\nTo assert that your function returns a certain value. If this assertion fails\nyou will see the return value of the function call:\n\n.. code-block:: pytest\n\nerror: patch failed: doc/en/how-to/assert.rst:39\nApplying patch doc/en/how-to/assert.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file doc/en/how-to/assert.rst\nHunk #1 FAILED at 39.\n1 out of 1 hunk FAILED -- saving rejects to file doc/en/how-to/assert.rst.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

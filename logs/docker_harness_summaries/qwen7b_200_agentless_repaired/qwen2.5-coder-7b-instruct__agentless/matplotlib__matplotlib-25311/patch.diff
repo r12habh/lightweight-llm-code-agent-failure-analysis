@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/legend.py b/lib/matplotlib/legend.py
+index ff6abdb958..e4ec86b92a 100644
+--- a/lib/matplotlib/legend.py
++++ b/lib/matplotlib/legend.py
+@@ -55,6 +55,7 @@ class DraggableLegend(DraggableOffsetBox):
+         """
+         Wrapper around a `.Legend` to support mouse dragging.
+ 
++        This class is used to make legends draggable in interactive plots.
+         Parameters
+         ----------
+         legend : `.Legend`

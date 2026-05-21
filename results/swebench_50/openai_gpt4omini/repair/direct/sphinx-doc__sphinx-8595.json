@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8595",
+  "input_patch_chars": 789,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: git diff header lacks filename information (line 3)\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 14: @@ -160,7 +165\n\n",
+          "stdout": "patching file sphinx/ext/autodoc/__init__.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

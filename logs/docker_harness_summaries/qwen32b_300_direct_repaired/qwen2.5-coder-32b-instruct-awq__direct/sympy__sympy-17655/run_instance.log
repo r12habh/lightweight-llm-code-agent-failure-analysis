@@ -1,0 +1,47 @@
+2026-05-20 13:41:01,301 - INFO - Creating container for sympy__sympy-17655...
+2026-05-20 13:41:01,374 - INFO - Container for sympy__sympy-17655 created: c79b95338c55d9de8b20698e29438e084b0824175d72404b9ff835cafebe6cf2
+2026-05-20 13:41:01,466 - INFO - Container for sympy__sympy-17655 started: c79b95338c55d9de8b20698e29438e084b0824175d72404b9ff835cafebe6cf2
+2026-05-20 13:41:01,467 - INFO - Intermediate patch for sympy__sympy-17655 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17655/patch.diff, now applying to container...
+2026-05-20 13:41:01,628 - INFO - >>>>> Applied Patch:
+Checking patch sympy/geometry/point.py...
+Applied patch sympy/geometry/point.py cleanly.
+
+2026-05-20 13:41:02,054 - INFO - Git diff before:
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 7c978c47be..d2ea01b519 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -216,7 +216,7 @@ def __add__(self, other):
+         try:
+             s, o = Point._normalize_dimension(self, Point(other, evaluate=False))
+         except TypeError:
+-            raise GeometryError("Don't know how to add {} and a Point object".format(other))
++            return other + self
+ 
+         coords = [simplify(a + b) for a, b in zip(s, o)]
+         return Point(coords, evaluate=False)
+2026-05-20 13:41:02,055 - INFO - Eval script for sympy__sympy-17655 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17655/eval.sh; copying to container...
+2026-05-20 13:41:17,515 - INFO - Test runtime: 15.40 seconds
+2026-05-20 13:41:17,519 - INFO - Test output for sympy__sympy-17655 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17655/test_output.txt
+2026-05-20 13:41:17,643 - INFO - Git diff after:
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 7c978c47be..d2ea01b519 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -216,7 +216,7 @@ def __add__(self, other):
+         try:
+             s, o = Point._normalize_dimension(self, Point(other, evaluate=False))
+         except TypeError:
+-            raise GeometryError("Don't know how to add {} and a Point object".format(other))
++            return other + self
+ 
+         coords = [simplify(a + b) for a, b in zip(s, o)]
+         return Point(coords, evaluate=False)
+2026-05-20 13:41:17,643 - INFO - Grading answer for sympy__sympy-17655...
+2026-05-20 13:41:17,644 - INFO - report: {'sympy__sympy-17655': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_point', 'test_point3D']}, 'PASS_TO_PASS': {'success': ['test_Point2D', 'test_issue_9214', 'test_issue_11617', 'test_transform', 'test_concyclic_doctest_bug', 'test_arguments', 'test_unit', 'test_dot', 'test__normalize_dimension'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-17655: resolved: False
+2026-05-20 13:41:17,645 - INFO - Attempting to stop container sweb.eval.sympy__sympy-17655.qwen32b_300_direct_repaired...
+2026-05-20 13:41:32,911 - INFO - Attempting to remove container sweb.eval.sympy__sympy-17655.qwen32b_300_direct_repaired...
+2026-05-20 13:41:32,935 - INFO - Container sweb.eval.sympy__sympy-17655.qwen32b_300_direct_repaired removed.
+2026-05-20 13:41:32,936 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-17655:latest...
+2026-05-20 13:41:32,942 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-17655:latest removed.

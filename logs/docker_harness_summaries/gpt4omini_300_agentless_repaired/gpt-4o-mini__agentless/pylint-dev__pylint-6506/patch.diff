@@ -1,0 +1,13 @@
+diff --git a/pylint/config/config_initialization.py b/pylint/config/config_initialization.py
+index 24e453a73..b1aed0dd2 100644
+--- a/pylint/config/config_initialization.py
++++ b/pylint/config/config_initialization.py
+@@ -72,7 +72,7 @@ def _config_initialization(
+     # the configuration file
+     parsed_args_list = linter._parse_command_line_configuration(args_list)
+ 
+-    # Check if there are any options that we do not recognize
++    # Check if there are any command line options that we do not recognize
+     unrecognized_options: list[str] = []
+     for opt in parsed_args_list:
+         if opt.startswith("--"):

@@ -1,0 +1,20 @@
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index daa65d61eb..b068d03a30 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -84,6 +84,7 @@ class Field:
+         self.required, self.label, self.initial = required, label, initial
+         self.show_hidden_initial = show_hidden_initial
+         self.help_text = help_text
++        self.error_messages = error_messages or {}
+         self.disabled = disabled
+         self.label_suffix = label_suffix
+         widget = widget or self.widget
+@@ -101,6 +102,7 @@ class Field:
+         widget.is_required = self.required
+ 
+         # Hook into self.widget_attrs() for any Field-specific HTML attributes.
++        self.widget.error_messages = self.error_messages
+         extra_attrs = self.widget_attrs(widget)
+         if extra_attrs:
+             widget.attrs.update(extra_attrs)

@@ -1,0 +1,12 @@
+diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3b..b939bc8438 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -96,6 +96,7 @@ def _solve_lsqr(X, y, alpha, max_iter=None, tol=1e-3):
+     return coefs, n_iter
+ 
+ 
++    
+ def _solve_cholesky(X, y, alpha):
+     # w = inv(X^t X + alpha*Id) * X.T y
+     n_samples, n_features = X.shape

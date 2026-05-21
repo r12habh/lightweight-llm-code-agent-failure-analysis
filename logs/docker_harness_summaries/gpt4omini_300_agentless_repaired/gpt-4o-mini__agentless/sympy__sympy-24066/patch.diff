@@ -1,0 +1,12 @@
+diff --git a/sympy/physics/units/systems/si.py b/sympy/physics/units/systems/si.py
+index 700495ad9d..c811cf9489 100644
+--- a/sympy/physics/units/systems/si.py
++++ b/sympy/physics/units/systems/si.py
+@@ -59,6 +59,7 @@
+ all_units.extend(units)
+ all_units.extend([mol, cd, K, lux])
+ 
++SI.set_quantity_dimension(exp, 1)  # Exponential function is dimensionless
+ 
+ dimsys_SI = dimsys_MKSA.extend(
+     [

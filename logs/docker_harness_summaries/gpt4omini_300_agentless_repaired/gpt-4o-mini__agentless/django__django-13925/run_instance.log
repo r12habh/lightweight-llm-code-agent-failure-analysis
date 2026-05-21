@@ -1,0 +1,44 @@
+2026-05-20 08:08:27,370 - INFO - Creating container for django__django-13925...
+2026-05-20 08:08:28,155 - INFO - Container for django__django-13925 created: b1e7bfe1ec8e52c66d7a771a8c3d32fea3a92c390cfc52610020703f2072a613
+2026-05-20 08:08:28,280 - INFO - Container for django__django-13925 started: b1e7bfe1ec8e52c66d7a771a8c3d32fea3a92c390cfc52610020703f2072a613
+2026-05-20 08:08:28,282 - INFO - Intermediate patch for django__django-13925 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13925/patch.diff, now applying to container...
+2026-05-20 08:08:28,445 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 08:08:28,522 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 08:08:28,600 - INFO - >>>>> Applied Patch:
+patching file django/db/models/fields/__init__.py
+
+2026-05-20 08:08:29,338 - INFO - Git diff before:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0f53d9c30b..cf037e017d 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -39,6 +39,7 @@ __all__ = [
+ ]
+ 
+ 
++
+ class Empty:
+     pass
+2026-05-20 08:08:29,339 - INFO - Eval script for django__django-13925 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13925/eval.sh; copying to container...
+2026-05-20 08:08:34,789 - INFO - Test runtime: 5.38 seconds
+2026-05-20 08:08:34,790 - INFO - Test output for django__django-13925 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-13925/test_output.txt
+2026-05-20 08:08:34,927 - INFO - Git diff after:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0f53d9c30b..cf037e017d 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -39,6 +39,7 @@ __all__ = [
+ ]
+ 
+ 
++
+ class Empty:
+     pass
+2026-05-20 08:08:34,928 - INFO - Grading answer for django__django-13925...
+2026-05-20 08:08:34,930 - INFO - report: {'django__django-13925': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_auto_created_inherited_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_inherited_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)']}, 'PASS_TO_PASS': {'success': ['test_app_default_auto_field (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_auto_created_inherited_parent_link (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_auto_created_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_default_auto_field_setting (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_inherited_parent_link (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_collision_abstract_model (check_framework.test_model_checks.IndexNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_collision_abstract_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_across_apps_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_proxy_models (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_unmanaged_models (check_framework.test_model_checks.DuplicateDBTableTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13925: resolved: False
+2026-05-20 08:08:34,931 - INFO - Attempting to stop container sweb.eval.django__django-13925.gpt4omini_300_agentless_repaired...
+2026-05-20 08:08:50,060 - INFO - Attempting to remove container sweb.eval.django__django-13925.gpt4omini_300_agentless_repaired...
+2026-05-20 08:08:50,072 - INFO - Container sweb.eval.django__django-13925.gpt4omini_300_agentless_repaired removed.
+2026-05-20 08:08:50,072 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13925:latest...
+2026-05-20 08:08:50,080 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13925:latest removed.

@@ -1,0 +1,13 @@
+diff --git a/sklearn/svm/base.py b/sklearn/svm/base.py
+index 64cebe8375..b247443463 100644
+--- a/sklearn/svm/base.py
++++ b/sklearn/svm/base.py
+@@ -34,7 +34,7 @@ def _one_vs_one_coef(dual_coef, n_support, support_vectors):
+     n_class = dual_coef.shape[0] + 1
+ 
+     # XXX we could do preallocation of coef but
+-    # would have to take care in the sparse case
++    # would have to take care in the sparse case, and handle empty dual_coef
+     coef = []
+     sv_locs = np.cumsum(np.hstack([[0], n_support]))
+     for class1 in range(n_class):

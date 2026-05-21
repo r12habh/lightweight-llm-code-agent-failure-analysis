@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-23117",
+  "input_patch_chars": 631,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/tensor/array/ndim_array.py...\nerror: while searching for:\n                return f(iterable)\n            elems, shapes = zip(*[f(i) for i in pointer])\n            if len(set(shapes)) != 1:\n            for i in elems:\n                result.extend(i)\n            return result, (len(shapes),)+shapes[0]\n\nerror: patch failed: sympy/tensor/array/ndim_array.py:124\nerror: sympy/tensor/array/ndim_array.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/tensor/array/ndim_array.py...\nerror: while searching for:\n                return f(iterable)\n            elems, shapes = zip(*[f(i) for i in pointer])\n            if len(set(shapes)) != 1:\n            for i in elems:\n                result.extend(i)\n            return result, (len(shapes),)+shapes[0]\n\nerror: patch failed: sympy/tensor/array/ndim_array.py:124\nApplying patch sympy/tensor/array/ndim_array.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 524
+}

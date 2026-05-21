@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14087",
+  "input_patch_chars": 746,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/linear_model/logistic.py...\nerror: while searching for:\n                else:\n                    w = np.mean([coefs_paths[:, i, best_indices[i], :]\n                                 for i in range(len(folds))], axis=0)\n            best_indices_C = best_indices % len(self.Cs_)\n\n            if self.multi_class == 'multinomial':\n                self.coef_ = np.rollaxis(coefs_paths[:, :, best_indices_C, :], 2, 1)\n\nerror: patch failed: sklearn/linear_model/logistic.py:2191\nApplying patch sklearn/linear_model/logistic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/linear_model/logistic.py\nHunk #1 FAILED at 2191.\n1 out of 1 hunk FAILED -- saving rejects to file sklearn/linear_model/logistic.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

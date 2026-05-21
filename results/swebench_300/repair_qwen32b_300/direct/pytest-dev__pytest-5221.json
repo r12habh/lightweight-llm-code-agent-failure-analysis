@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5221",
+  "input_patch_chars": 1333,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/python.py...\nerror: while searching for:\n        showfixtures(config)\n        return 0\n    if config.option.show_fixtures_per_test:\n        return 0\n\n\n\nerror: patch failed: src/_pytest/python.py:100\nerror: while searching for:\n        for fixturedef in fixturemanager._arg2fixturedefs.values():\n            fixturedefs.extend(fixturedef)\n\n        config._outlinestep(\"fixtures\", fixtureinfo)\n\n\n\nerror: patch failed: src/_pytest/python.py:118\nApplying patch src/_pytest/python.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/python.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 126 (offset 26 lines).\nHunk #2 FAILED at 118.\n1 out of 2 hunks FAILED -- saving rejects to file src/_pytest/python.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

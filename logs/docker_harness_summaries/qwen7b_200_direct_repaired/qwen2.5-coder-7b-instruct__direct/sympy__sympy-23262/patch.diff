@@ -1,0 +1,13 @@
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index da67263b19..f0146c8c16 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -120,7 +120,7 @@ def _import(module, reload=False):
+     """
+     Creates a global translation dictionary for module.
+ 
+-    The argument module has to be one of the following strings: "math",
++    The argument module has to be one of the following strings: "math", "numpy",
+     "mpmath", "numpy", "sympy", "tensorflow".
+     These dictionaries map names of Python functions to their equivalent in
+     other modules.

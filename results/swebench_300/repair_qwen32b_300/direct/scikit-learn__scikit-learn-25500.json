@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-25500",
+  "input_patch_chars": 582,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/calibration.py...\nerror: while searching for:\n        for class_idx in range(n_classes):\n            if class_idx not in self.classes_:\n                continue\n            proba[:, class_idx] = calibrator.predict(this_pred)\n\n        # Normalize the predicted probabilities across all classes\n        proba /= proba.sum(axis=1)[:, np.newaxis]\n\nerror: patch failed: sklearn/calibration.py:761\nerror: sklearn/calibration.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/calibration.py...\nerror: while searching for:\n        for class_idx in range(n_classes):\n            if class_idx not in self.classes_:\n                continue\n            proba[:, class_idx] = calibrator.predict(this_pred)\n\n        # Normalize the predicted probabilities across all classes\n        proba /= proba.sum(axis=1)[:, np.newaxis]\n\nerror: patch failed: sklearn/calibration.py:761\nApplying patch sklearn/calibration.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 592
+}

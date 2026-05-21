@@ -1,0 +1,51 @@
+2026-05-20 15:51:37,038 - INFO - Creating container for scikit-learn__scikit-learn-11040...
+2026-05-20 15:51:37,110 - INFO - Container for scikit-learn__scikit-learn-11040 created: 48ce4580a517632130afa8922379a22de308c85eedf6e54ac19504a103fd9aa5
+2026-05-20 15:51:37,211 - INFO - Container for scikit-learn__scikit-learn-11040 started: 48ce4580a517632130afa8922379a22de308c85eedf6e54ac19504a103fd9aa5
+2026-05-20 15:51:37,211 - INFO - Intermediate patch for scikit-learn__scikit-learn-11040 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/scikit-learn__scikit-learn-11040/patch.diff, now applying to container...
+2026-05-20 15:51:37,391 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/neighbors/base.py...
+Applied patch sklearn/neighbors/base.py cleanly.
+
+2026-05-20 15:51:37,661 - INFO - Git diff before:
+diff --git a/sklearn/neighbors/base.py b/sklearn/neighbors/base.py
+index 3e5e729c2..e78dfe13b 100644
+--- a/sklearn/neighbors/base.py
++++ b/sklearn/neighbors/base.py
+@@ -110,6 +110,10 @@ class NeighborsBase(six.with_metaclass(ABCMeta, BaseEstimator)):
+         self.n_neighbors = n_neighbors
+         self.radius = radius
+         self.algorithm = algorithm
++        if n_neighbors is not None and not isinstance(n_neighbors, int):
++            raise ValueError("n_neighbors must be an integer, got %s" % type(n_neighbors))
++        if radius is not None and not isinstance(radius, numbers.Number):
++            raise ValueError("radius must be a number, got %s" % type(radius))
+         self.leaf_size = leaf_size
+         self.metric = metric
+         self.metric_params = metric_params
+2026-05-20 15:51:37,661 - INFO - Eval script for scikit-learn__scikit-learn-11040 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/scikit-learn__scikit-learn-11040/eval.sh; copying to container...
+2026-05-20 15:51:44,456 - INFO - Test runtime: 6.73 seconds
+2026-05-20 15:51:44,457 - INFO - Test output for scikit-learn__scikit-learn-11040 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/scikit-learn__scikit-learn-11040/test_output.txt
+2026-05-20 15:51:44,556 - INFO - Git diff after:
+diff --git a/sklearn/neighbors/base.py b/sklearn/neighbors/base.py
+index 3e5e729c2..e78dfe13b 100644
+--- a/sklearn/neighbors/base.py
++++ b/sklearn/neighbors/base.py
+@@ -110,6 +110,10 @@ class NeighborsBase(six.with_metaclass(ABCMeta, BaseEstimator)):
+         self.n_neighbors = n_neighbors
+         self.radius = radius
+         self.algorithm = algorithm
++        if n_neighbors is not None and not isinstance(n_neighbors, int):
++            raise ValueError("n_neighbors must be an integer, got %s" % type(n_neighbors))
++        if radius is not None and not isinstance(radius, numbers.Number):
++            raise ValueError("radius must be a number, got %s" % type(radius))
+         self.leaf_size = leaf_size
+         self.metric = metric
+         self.metric_params = metric_params
+2026-05-20 15:51:44,557 - INFO - Grading answer for scikit-learn__scikit-learn-11040...
+2026-05-20 15:51:44,567 - INFO - report: {'scikit-learn__scikit-learn-11040': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/neighbors/tests/test_neighbors.py::test_n_neighbors_datatype']}, 'PASS_TO_PASS': {'success': ['sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_classifier', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_classifier_float_labels', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_classifier_predict_proba', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_classifier_sparse', 'sklearn/neighbors/tests/test_neighbors.py::test_KNeighborsClassifier_multioutput', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_regressor', 'sklearn/neighbors/tests/test_neighbors.py::test_KNeighborsRegressor_multioutput_uniform_weight', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_regressor_multioutput', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_regressor_sparse', 'sklearn/neighbors/tests/test_neighbors.py::test_neighbors_iris', 'sklearn/neighbors/tests/test_neighbors.py::test_neighbors_digits', 'sklearn/neighbors/tests/test_neighbors.py::test_metric_params_interface', 'sklearn/neighbors/tests/test_neighbors.py::test_predict_sparse_ball_kd_tree', 'sklearn/neighbors/tests/test_neighbors.py::test_dtype_convert'], 'failure': ['sklearn/neighbors/tests/test_neighbors.py::test_unsupervised_kneighbors', 'sklearn/neighbors/tests/test_neighbors.py::test_unsupervised_inputs', 'sklearn/neighbors/tests/test_neighbors.py::test_precomputed', 'sklearn/neighbors/tests/test_neighbors.py::test_precomputed_cross_validation', 'sklearn/neighbors/tests/test_neighbors.py::test_unsupervised_radius_neighbors', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_classifier', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_classifier_when_no_neighbors', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_classifier_outlier_labeling', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_classifier_zero_distance', 'sklearn/neighbors/tests/test_neighbors.py::test_neighbors_regressors_zero_distance', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_boundary_handling', 'sklearn/neighbors/tests/test_neighbors.py::test_RadiusNeighborsClassifier_multioutput', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_regressor', 'sklearn/neighbors/tests/test_neighbors.py::test_RadiusNeighborsRegressor_multioutput_with_uniform_weight', 'sklearn/neighbors/tests/test_neighbors.py::test_RadiusNeighborsRegressor_multioutput', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_graph', 'sklearn/neighbors/tests/test_neighbors.py::test_kneighbors_graph_sparse', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_graph', 'sklearn/neighbors/tests/test_neighbors.py::test_radius_neighbors_graph_sparse', 'sklearn/neighbors/tests/test_neighbors.py::test_neighbors_badargs', 'sklearn/neighbors/tests/test_neighbors.py::test_neighbors_metrics', 'sklearn/neighbors/tests/test_neighbors.py::test_callable_metric', 'sklearn/neighbors/tests/test_neighbors.py::test_valid_brute_metric_for_auto_algorithm', 'sklearn/neighbors/tests/test_neighbors.py::test_non_euclidean_kneighbors', 'sklearn/neighbors/tests/test_neighbors.py::test_k_and_radius_neighbors_train_is_not_query', 'sklearn/neighbors/tests/test_neighbors.py::test_k_and_radius_neighbors_X_None', 'sklearn/neighbors/tests/test_neighbors.py::test_k_and_radius_neighbors_duplicates', 'sklearn/neighbors/tests/test_neighbors.py::test_include_self_neighbors_graph', 'sklearn/neighbors/tests/test_neighbors.py::test_sparse_metric_callable', 'sklearn/neighbors/tests/test_neighbors.py::test_pairwise_boolean_distance']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-11040: resolved: False
+2026-05-20 15:51:44,568 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-11040.qwen32b_300_agentless_repaired...
+2026-05-20 15:51:59,706 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-11040.qwen32b_300_agentless_repaired...
+2026-05-20 15:51:59,722 - INFO - Container sweb.eval.scikit-learn__scikit-learn-11040.qwen32b_300_agentless_repaired removed.
+2026-05-20 15:51:59,722 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11040:latest...
+2026-05-20 15:51:59,751 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11040:latest removed.

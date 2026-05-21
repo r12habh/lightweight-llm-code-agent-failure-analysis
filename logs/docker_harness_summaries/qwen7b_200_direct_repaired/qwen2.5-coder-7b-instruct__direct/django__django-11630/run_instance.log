@@ -1,0 +1,45 @@
+2026-05-20 16:51:50,664 - INFO - Creating container for django__django-11630...
+2026-05-20 16:51:51,189 - INFO - Container for django__django-11630 created: e08dfdb3989f25d870f72a79ac4c9f8adcc495084b6e2f2b34fd73439baef836
+2026-05-20 16:51:51,399 - INFO - Container for django__django-11630 started: e08dfdb3989f25d870f72a79ac4c9f8adcc495084b6e2f2b34fd73439baef836
+2026-05-20 16:51:51,400 - INFO - Intermediate patch for django__django-11630 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11630/patch.diff, now applying to container...
+2026-05-20 16:51:51,598 - INFO - >>>>> Applied Patch:
+Checking patch django/db/backends/base/features.py...
+Applied patch django/db/backends/base/features.py cleanly.
+
+2026-05-20 16:51:52,551 - INFO - Git diff before:
+diff --git a/django/db/backends/base/features.py b/django/db/backends/base/features.py
+index 70878f92a2..ecf94758e7 100644
+--- a/django/db/backends/base/features.py
++++ b/django/db/backends/base/features.py
+@@ -12,6 +12,7 @@ class BaseDatabaseFeatures:
+     # Does the backend distinguish between '' and None?
+     interprets_empty_strings_as_nulls = False
+ 
++    # Does the backend allow duplicate table names across apps?
+     # Does the backend allow inserting duplicate NULL rows in a nullable
+     # unique field? All core backends implement this correctly, but other
+     # databases such as SQL Server do not.
+2026-05-20 16:51:52,552 - INFO - Eval script for django__django-11630 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11630/eval.sh; copying to container...
+2026-05-20 16:52:07,742 - INFO - Test runtime: 15.12 seconds
+2026-05-20 16:52:07,745 - INFO - Test output for django__django-11630 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11630/test_output.txt
+2026-05-20 16:52:07,899 - INFO - Git diff after:
+diff --git a/django/db/backends/base/features.py b/django/db/backends/base/features.py
+index 70878f92a2..ecf94758e7 100644
+--- a/django/db/backends/base/features.py
++++ b/django/db/backends/base/features.py
+@@ -12,6 +12,7 @@ class BaseDatabaseFeatures:
+     # Does the backend distinguish between '' and None?
+     interprets_empty_strings_as_nulls = False
+ 
++    # Does the backend allow duplicate table names across apps?
+     # Does the backend allow inserting duplicate NULL rows in a nullable
+     # unique field? All core backends implement this correctly, but other
+     # databases such as SQL Server do not.
+2026-05-20 16:52:07,900 - INFO - Grading answer for django__django-11630...
+2026-05-20 16:52:07,902 - INFO - report: {'django__django-11630': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_collision_across_apps_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)']}, 'PASS_TO_PASS': {'success': ['test_collision_abstract_model (check_framework.test_model_checks.IndexNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_collision_abstract_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_proxy_models (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_unmanaged_models (check_framework.test_model_checks.DuplicateDBTableTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11630: resolved: False
+2026-05-20 16:52:07,903 - INFO - Attempting to stop container sweb.eval.django__django-11630.qwen7b_200_direct_repaired...
+2026-05-20 16:52:23,163 - INFO - Attempting to remove container sweb.eval.django__django-11630.qwen7b_200_direct_repaired...
+2026-05-20 16:52:23,190 - INFO - Container sweb.eval.django__django-11630.qwen7b_200_direct_repaired removed.
+2026-05-20 16:52:23,190 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11630:latest...
+2026-05-20 16:52:23,228 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11630:latest removed.

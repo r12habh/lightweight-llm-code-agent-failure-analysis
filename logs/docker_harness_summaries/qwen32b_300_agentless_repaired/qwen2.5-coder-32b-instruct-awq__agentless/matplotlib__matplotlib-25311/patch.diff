@@ -1,0 +1,33 @@
+diff --git a/lib/matplotlib/legend.py b/lib/matplotlib/legend.py
+index ff6abdb958..9b48eedd2f 100644
+--- a/lib/matplotlib/legend.py
++++ b/lib/matplotlib/legend.py
+@@ -123,6 +123,7 @@ ncols : int, default: 1
+ 
+     For backward compatibility, the spelling *ncol* is also supported
+     but it is discouraged. If both are given, *ncols* takes precedence.
++            self._draggable.set_active(False)
+ 
+ prop : None or `matplotlib.font_manager.FontProperties` or dict
+     The font properties of the legend. If None (default), the current
+diff --git a/lib/matplotlib/tests/test_pickle.py b/lib/matplotlib/tests/test_pickle.py
+index ec6bdcc2fe..08008d5fdc 100644
+--- a/lib/matplotlib/tests/test_pickle.py
++++ b/lib/matplotlib/tests/test_pickle.py
+@@ -123,6 +123,17 @@ def _pickle_load_subprocess():
+ def test_pickle_load_from_subprocess(fig_test, fig_ref, tmp_path):
+     _generate_complete_test_figure(fig_ref)
+ 
++    # Test pickling with draggable legend
++    leg = plt.legend()
++    leg.set_draggable(True)
++    pickle.dump(ax, BytesIO(), pickle.HIGHEST_PROTOCOL)
++
++    # Test pickling with draggable legend and figure
++    fig = plt.figure()
++    ax = plt.axes()
++    plt.plot(np.arange(10))
++    leg = ax.legend()
++    leg.set_draggable(True)
+     fp = tmp_path / 'sinus.pickle'
+     assert not fp.exists()

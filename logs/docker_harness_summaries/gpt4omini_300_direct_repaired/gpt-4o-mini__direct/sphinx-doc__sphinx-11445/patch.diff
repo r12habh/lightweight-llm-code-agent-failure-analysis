@@ -1,0 +1,12 @@
+diff --git a/doc/usage/configuration.rst b/doc/usage/configuration.rst
+index 133e2099d..f812b040b 100644
+--- a/doc/usage/configuration.rst
++++ b/doc/usage/configuration.rst
+@@ -276,6 +276,7 @@ General configuration
+ 
+    .. index:: pair: global; substitutions
+ 
++   .. index:: pair: global; substitutions
+    A string of reStructuredText that will be included at the beginning of every
+    source file that is read.  This is a possible place to add substitutions that
+    should be available in every file (another being :confval:`rst_epilog`).  An

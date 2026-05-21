@@ -1,0 +1,51 @@
+2026-05-20 20:27:04,787 - INFO - Creating container for mwaskom__seaborn-3010...
+2026-05-20 20:27:04,858 - INFO - Container for mwaskom__seaborn-3010 created: 774de6b54ef744f4413fb5a5d5356d2040f74f4e58387250248b325b8e79c6b0
+2026-05-20 20:27:04,991 - INFO - Container for mwaskom__seaborn-3010 started: 774de6b54ef744f4413fb5a5d5356d2040f74f4e58387250248b325b8e79c6b0
+2026-05-20 20:27:04,992 - INFO - Intermediate patch for mwaskom__seaborn-3010 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/mwaskom__seaborn-3010/patch.diff, now applying to container...
+2026-05-20 20:27:05,186 - INFO - >>>>> Applied Patch:
+Checking patch seaborn/_stats/regression.py...
+Applied patch seaborn/_stats/regression.py cleanly.
+
+2026-05-20 20:27:05,369 - INFO - Git diff before:
+diff --git a/seaborn/_stats/regression.py b/seaborn/_stats/regression.py
+index 7b7ddc8d..1f0a02f2 100644
+--- a/seaborn/_stats/regression.py
++++ b/seaborn/_stats/regression.py
+@@ -40,6 +40,10 @@ class PolyFit(Stat):
+ 
+         return groupby.apply(data, self._fit_predict)
+ 
++    def _fit_predict(self, data):
++        x = data[self.x]
++        y = data[self.y]
++        return np.polyfit(x, y, self.order)
+ 
+ @dataclass
+ class OLSFit(Stat):
+2026-05-20 20:27:05,370 - INFO - Eval script for mwaskom__seaborn-3010 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/mwaskom__seaborn-3010/eval.sh; copying to container...
+2026-05-20 20:27:12,042 - INFO - Test runtime: 6.61 seconds
+2026-05-20 20:27:12,043 - INFO - Test output for mwaskom__seaborn-3010 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/mwaskom__seaborn-3010/test_output.txt
+2026-05-20 20:27:12,250 - INFO - Git diff after:
+diff --git a/seaborn/_stats/regression.py b/seaborn/_stats/regression.py
+index 7b7ddc8d..1f0a02f2 100644
+--- a/seaborn/_stats/regression.py
++++ b/seaborn/_stats/regression.py
+@@ -40,6 +40,10 @@ class PolyFit(Stat):
+ 
+         return groupby.apply(data, self._fit_predict)
+ 
++    def _fit_predict(self, data):
++        x = data[self.x]
++        y = data[self.y]
++        return np.polyfit(x, y, self.order)
+ 
+ @dataclass
+ class OLSFit(Stat):
+2026-05-20 20:27:12,250 - INFO - Grading answer for mwaskom__seaborn-3010...
+2026-05-20 20:27:12,251 - INFO - report: {'mwaskom__seaborn-3010': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['tests/_stats/test_regression.py::TestPolyFit::test_missing_data']}, 'PASS_TO_PASS': {'success': [], 'failure': ['tests/_stats/test_regression.py::TestPolyFit::test_no_grouper', 'tests/_stats/test_regression.py::TestPolyFit::test_one_grouper']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for mwaskom__seaborn-3010: resolved: False
+2026-05-20 20:27:12,252 - INFO - Attempting to stop container sweb.eval.mwaskom__seaborn-3010.qwen7b_200_agentless_repaired...
+2026-05-20 20:27:27,417 - INFO - Attempting to remove container sweb.eval.mwaskom__seaborn-3010.qwen7b_200_agentless_repaired...
+2026-05-20 20:27:27,436 - INFO - Container sweb.eval.mwaskom__seaborn-3010.qwen7b_200_agentless_repaired removed.
+2026-05-20 20:27:27,436 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3010:latest...
+2026-05-20 20:27:27,573 - INFO - Image swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3010:latest removed.

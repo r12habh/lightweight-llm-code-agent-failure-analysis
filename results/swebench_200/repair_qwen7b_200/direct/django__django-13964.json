@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13964",
+  "input_patch_chars": 1162,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/related_descriptors.py...\nHunk #1 succeeded at 118 (offset 16 lines).\nerror: while searching for:\n        related_field = self.field.foreign_related_fields[0]\n        remote_field = self.field.remote_field\n\n        if remote_field.is_hidden() or len(self.field.foreign_related_fields) == 1:\n            query = {'%s__in' % related_field.name: {instance_attr(inst)[0] for inst in instances}}\n        else:\n            query = {'%s__in' % self.field.related_query_name(): instances}\n\nerror: patch failed: django/db/models/fields/related_descriptors.py:112\nApplying patch django/db/models/fields/related_descriptors.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/related_descriptors.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 118 (offset 16 lines).\nHunk #2 FAILED at 112.\n1 out of 2 hunks FAILED -- saving rejects to file django/db/models/fields/related_descriptors.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

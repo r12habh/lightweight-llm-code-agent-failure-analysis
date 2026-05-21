@@ -1,0 +1,12 @@
+diff --git a/sympy/core/sympify.py b/sympy/core/sympify.py
+index cbc5cad3a7..c26a4193fd 100644
+--- a/sympy/core/sympify.py
++++ b/sympy/core/sympify.py
+@@ -168,6 +168,7 @@ def sympify(a, locals=None, convert_xor=True, strict=False, rational=False,
+     >>> _clash1
+     {'C': C, 'E': E, 'I': I, 'N': N, 'O': O, 'Q': Q, 'S': S}
+     >>> sympify('I & Q', _clash1)
++    from sympy.matrices import Matrix
+     I & Q
+ 
+     Strict

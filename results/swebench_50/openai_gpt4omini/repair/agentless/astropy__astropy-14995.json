@@ -1,0 +1,25 @@
+{
+  "instance_id": "astropy__astropy-14995",
+  "input_patch_chars": 611,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/nddata/mixins/ndarithmetic.py...\nerror: while searching for:\n\n        # Check if operands have masks\n        if self.mask is None:\n            mask_self = np.ma.nomask\n        else:\n            mask_self = self.mask\n\n\nerror: patch failed: astropy/nddata/mixins/ndarithmetic.py:182\nApplying patch astropy/nddata/mixins/ndarithmetic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file astropy/nddata/mixins/ndarithmetic.py\nHunk #1 FAILED at 182.\n1 out of 1 hunk FAILED -- saving rejects to file astropy/nddata/mixins/ndarithmetic.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

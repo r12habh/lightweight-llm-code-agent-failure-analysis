@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5692",
+  "input_patch_chars": 944,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/junitxml.py...\nHunk #1 succeeded at 15 (offset 5 lines).\nerror: while searching for:\n\n\nclass XmlReporting:\n    def __init__(self, config, logfile, prefix=None):\n        self.config = config\n        self.logfile = logfile\n\nerror: patch failed: src/_pytest/junitxml.py:204\nerror: while searching for:\n        self._xml = Junit.testsuite(\n            errors=self.errors,\n            failures=self.failures,\n            name=self.prefix or self.config.inicfg.get(\"junit_suite_name\", \"pytest\"),\n            skipped=self.skipped,\n            tests=self.tests,\n\nerror: patch failed: src/_pytest/junitxml.py:224\nApplying patch src/_pytest/junitxml.py with 2 rejects...\nHunk #1 applied cleanly.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/junitxml.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 15 (offset 5 lines).\nHunk #2 FAILED at 204.\nHunk #3 FAILED at 226.\n2 out of 3 hunks FAILED -- saving rejects to file src/_pytest/junitxml.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

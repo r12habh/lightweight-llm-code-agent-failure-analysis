@@ -1,0 +1,22 @@
+diff --git a/sympy/core/basic.py b/sympy/core/basic.py
+index d4ca323e0d..aac65ad7b7 100644
+--- a/sympy/core/basic.py
++++ b/sympy/core/basic.py
+@@ -9,6 +9,7 @@
+ from .compatibility import (iterable, Iterator, ordered,
+     string_types, with_metaclass, zip_longest, range)
+ from .singleton import S
++from sympy.core.function import Function
+ 
+ from inspect import getmro
+ 
+@@ -322,6 +323,10 @@ def __eq__(self, other):
+         if type(self) is not type(other):
+             try:
+                 other = _sympify(other)
++            except SympifyError:
++                if isinstance(other, Function):
++                    return False
++                raise TypeError(
+             except SympifyError:
+                 return NotImplemented

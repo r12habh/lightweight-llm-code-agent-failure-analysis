@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-24149",
+  "input_patch_chars": 555,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/axes/_axes.py...\nerror: while searching for:\n        width = self._convert_dx(width, x0, x, self.convert_xunits)\n\n        if xerr is not None:\n            xerr = self._convert_dx(xerr, x0, x, self.convert_xunits)\n\n        if yerr is not None:\n            yerr = self._convert_dy(yerr, y0, y, self.convert_yunits)\n\nerror: patch failed: lib/matplotlib/axes/_axes.py:2371\nApplying patch lib/matplotlib/axes/_axes.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/axes/_axes.py\nHunk #1 FAILED at 2371.\n1 out of 1 hunk FAILED -- saving rejects to file lib/matplotlib/axes/_axes.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

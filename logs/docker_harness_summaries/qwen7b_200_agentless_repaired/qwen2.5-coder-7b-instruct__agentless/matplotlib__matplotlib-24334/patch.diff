@@ -1,0 +1,14 @@
+diff --git a/doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst b/doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst
+index 65807a184f..50d41ef856 100644
+--- a/doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst
++++ b/doc/api/prev_api_changes/api_changes_3.3.0/behaviour.rst
+@@ -123,6 +123,10 @@ applied by `.FigureCanvasBase.print_figure`, as they are normally called
+ through it.
+ 
+ This behavior is consistent with other figure saving methods
++``hasattr(figure.canvas, "manager")`` should now be replaced by
++``figure.canvas.manager is not None`` (or ``getattr(figure.canvas, "manager", None) is not None``
++for back-compatibility).
++
+ (`.FigureCanvasAgg.print_png`, `.FigureCanvasPdf.print_pdf`,
+ `.FigureCanvasSVG.print_svg`).

@@ -1,0 +1,22 @@
+diff --git a/src/_pytest/config/__init__.py b/src/_pytest/config/__init__.py
+index 47651ad9f..e01fd5b58 100644
+--- a/src/_pytest/config/__init__.py
++++ b/src/_pytest/config/__init__.py
+@@ -40,6 +40,7 @@ from typing import Union
+ from pluggy import HookimplMarker
+ from pluggy import HookspecMarker
+ from pluggy import PluginManager
++import importlib
+ 
+ import _pytest._code
+ import _pytest.deprecated
+@@ -55,6 +56,9 @@ from _pytest.outcomes import Skipped
+ from _pytest.pathlib import absolutepath
+ from _pytest.pathlib import bestrelpath
+ from _pytest.pathlib import import_path
++from _pytest._code import ExceptionInfo
++from _pytest._code import filter_traceback
++from _pytest._io import TerminalWriter
+ from _pytest.pathlib import ImportMode
+ from _pytest.pathlib import resolve_package_path
+ from _pytest.stash import Stash

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14608",
+  "input_patch_chars": 459,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/forms/formsets.py...\nerror: while searching for:\n        \"\"\"\n        if self._non_form_errors is None:\n            self.full_clean()\n        return self._non_form_errors\n    non_form_errors = property(non_form_errors)\n\n    @property\n\nerror: patch failed: django/forms/formsets.py:344\nerror: django/forms/formsets.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/formsets.py...\nerror: while searching for:\n        \"\"\"\n        if self._non_form_errors is None:\n            self.full_clean()\n        return self._non_form_errors\n    non_form_errors = property(non_form_errors)\n\n    @property\n\nerror: patch failed: django/forms/formsets.py:344\nApplying patch django/forms/formsets.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 439
+}

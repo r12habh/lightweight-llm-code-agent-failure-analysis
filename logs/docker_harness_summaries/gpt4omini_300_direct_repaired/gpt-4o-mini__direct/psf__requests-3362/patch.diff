@@ -1,0 +1,19 @@
+diff --git a/docs/user/quickstart.rst b/docs/user/quickstart.rst
+index cc6d32df..0c407a93 100644
+--- a/docs/user/quickstart.rst
++++ b/docs/user/quickstart.rst
+@@ -92,11 +92,13 @@ again::
+     >>> r = requests.get('https://api.github.com/events')
+     >>> r.text
+     u'[{"repository":{"open_issues":0,"url":"https://github.com/...
++    >>> r.iter_content(decode_unicode=True)
++    <generator object iter_content at 0x...>
+ 
+ Requests will automatically decode content from the server. Most unicode
+ charsets are seamlessly decoded.
+ 
+-When you make a request, Requests makes educated guesses about the encoding of
++When you make a request using `iter_content`, Requests makes educated guesses about the encoding of
+ the response based on the HTTP headers. The text encoding guessed by Requests
+ is used when you access ``r.text``. You can find out what encoding Requests is
+ using, and change it, using the ``r.encoding`` property::

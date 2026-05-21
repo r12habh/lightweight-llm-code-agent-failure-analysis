@@ -1,0 +1,13 @@
+diff --git a/doc/development/tutorials/helloworld.rst b/doc/development/tutorials/helloworld.rst
+index 6eae5d6a3..90c3dc4d6 100644
+--- a/doc/development/tutorials/helloworld.rst
++++ b/doc/development/tutorials/helloworld.rst
+@@ -2,7 +2,7 @@ Developing a "Hello world" extension
+ ====================================
+ 
+ The objective of this tutorial is to create a very basic extension that adds a
+-new directive. This directive will output a paragraph containing "hello world".
++new directive. This directive will output the string representation of the struct.Struct type.
+ 
+ Only basic information is provided in this tutorial. For more information, refer
+ to the :doc:`other tutorials <index>` that go into more details.

@@ -1,0 +1,50 @@
+2026-05-20 12:38:57,998 - INFO - Creating container for mwaskom__seaborn-2848...
+2026-05-20 12:38:58,510 - INFO - Container for mwaskom__seaborn-2848 created: 431063e0910488e737335f8290384c08fe4de4197aad2ac23cbcdc59ed73dc02
+2026-05-20 12:38:58,617 - INFO - Container for mwaskom__seaborn-2848 started: 431063e0910488e737335f8290384c08fe4de4197aad2ac23cbcdc59ed73dc02
+2026-05-20 12:38:58,618 - INFO - Intermediate patch for mwaskom__seaborn-2848 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/mwaskom__seaborn-2848/patch.diff, now applying to container...
+2026-05-20 12:38:58,798 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 12:38:58,859 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 12:38:58,918 - INFO - >>>>> Applied Patch:
+patching file seaborn/_oldcore.py
+
+2026-05-20 12:38:59,068 - INFO - Git diff before:
+diff --git a/seaborn/_oldcore.py b/seaborn/_oldcore.py
+index c9218c1f..9e4500ac 100644
+--- a/seaborn/_oldcore.py
++++ b/seaborn/_oldcore.py
+@@ -124,6 +124,10 @@ class HueMapping(SemanticMapping):
+                 levels, lookup_table = self.categorical_mapping(
+                     data, palette, order,
+                 )
++            elif map_type == "categorical" and not all(level in data for level in order):
++                # Filter out levels in order that are not in data
++                levels = [level for level in order if level in data]
++                lookup_table = self.categorical_mapping(data, palette, levels)[1]
+ 
+             # --- Option 3: datetime mapping
+2026-05-20 12:38:59,069 - INFO - Eval script for mwaskom__seaborn-2848 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/mwaskom__seaborn-2848/eval.sh; copying to container...
+2026-05-20 12:39:22,023 - INFO - Test runtime: 22.89 seconds
+2026-05-20 12:39:22,028 - INFO - Test output for mwaskom__seaborn-2848 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/mwaskom__seaborn-2848/test_output.txt
+2026-05-20 12:39:22,162 - INFO - Git diff after:
+diff --git a/seaborn/_oldcore.py b/seaborn/_oldcore.py
+index c9218c1f..9e4500ac 100644
+--- a/seaborn/_oldcore.py
++++ b/seaborn/_oldcore.py
+@@ -124,6 +124,10 @@ class HueMapping(SemanticMapping):
+                 levels, lookup_table = self.categorical_mapping(
+                     data, palette, order,
+                 )
++            elif map_type == "categorical" and not all(level in data for level in order):
++                # Filter out levels in order that are not in data
++                levels = [level for level in order if level in data]
++                lookup_table = self.categorical_mapping(data, palette, levels)[1]
+ 
+             # --- Option 3: datetime mapping
+2026-05-20 12:39:22,163 - INFO - Grading answer for mwaskom__seaborn-2848...
+2026-05-20 12:39:22,166 - INFO - report: {'mwaskom__seaborn-2848': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['tests/test_relational.py::TestScatterPlotter::test_hue_order']}, 'PASS_TO_PASS': {'success': ['tests/test_relational.py::TestRelationalPlotter::test_wide_df_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_df_with_nonnumeric_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_array_variables', 'tests/test_relational.py::TestRelationalPlotter::test_flat_array_variables', 'tests/test_relational.py::TestRelationalPlotter::test_flat_list_variables', 'tests/test_relational.py::TestRelationalPlotter::test_flat_series_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_list_of_series_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_list_of_arrays_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_list_of_list_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_dict_of_series_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_dict_of_arrays_variables', 'tests/test_relational.py::TestRelationalPlotter::test_wide_dict_of_lists_variables', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_complex', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_vectors[series]', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_vectors[numpy]', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_vectors[list]', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_wide', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_hues', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_sizes', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_styles', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_stringy_numerics', 'tests/test_relational.py::TestRelationalPlotter::test_relplot_data', 'tests/test_relational.py::TestRelationalPlotter::test_facet_variable_collision', 'tests/test_relational.py::TestRelationalPlotter::test_ax_kwarg_removal', 'tests/test_relational.py::TestLinePlotter::test_legend_data', 'tests/test_relational.py::TestLinePlotter::test_plot', 'tests/test_relational.py::TestLinePlotter::test_axis_labels', 'tests/test_relational.py::TestScatterPlotter::test_color', 'tests/test_relational.py::TestScatterPlotter::test_legend_data', 'tests/test_relational.py::TestScatterPlotter::test_plot', 'tests/test_relational.py::TestScatterPlotter::test_axis_labels', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_axes', 'tests/test_relational.py::TestScatterPlotter::test_literal_attribute_vectors', 'tests/test_relational.py::TestScatterPlotter::test_supplied_color_array', 'tests/test_relational.py::TestScatterPlotter::test_linewidths', 'tests/test_relational.py::TestScatterPlotter::test_size_norm_extrapolation', 'tests/test_relational.py::TestScatterPlotter::test_datetime_scale', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics0]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics1]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics2]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics3]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics4]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics5]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics6]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics7]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics8]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics9]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics10]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_vs_relplot[long_semantics11]', 'tests/test_relational.py::TestScatterPlotter::test_scatterplot_smoke'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for mwaskom__seaborn-2848: resolved: False
+2026-05-20 12:39:22,167 - INFO - Attempting to stop container sweb.eval.mwaskom__seaborn-2848.qwen32b_300_direct_repaired...
+2026-05-20 12:39:37,323 - INFO - Attempting to remove container sweb.eval.mwaskom__seaborn-2848.qwen32b_300_direct_repaired...
+2026-05-20 12:39:37,337 - INFO - Container sweb.eval.mwaskom__seaborn-2848.qwen32b_300_direct_repaired removed.
+2026-05-20 12:39:37,337 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-2848:latest...
+2026-05-20 12:39:37,344 - INFO - Image swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-2848:latest removed.

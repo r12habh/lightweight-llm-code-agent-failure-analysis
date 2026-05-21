@@ -1,0 +1,26 @@
+{
+  "instance_id": "pytest-dev__pytest-8365",
+  "input_patch_chars": 835,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/tmpdir.py...\nHunk #1 succeeded at 144 (offset 44 lines).\nerror: while searching for:\n    \"\"\"Return the current user name, or None if getuser() does not work\n    in the current environment (see #1010).\"\"\"\n    import getpass\n    try:\n        return getpass.getuser()\n    except (ImportError, KeyError):\n        return None\n\nerror: patch failed: src/_pytest/tmpdir.py:110\nApplying patch src/_pytest/tmpdir.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/tmpdir.py\nHunk #1 succeeded at 144 (offset 44 lines).\nHunk #2 succeeded at 153 with fuzz 3 (offset 43 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

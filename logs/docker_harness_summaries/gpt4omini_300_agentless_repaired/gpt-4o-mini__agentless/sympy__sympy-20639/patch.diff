@@ -1,0 +1,13 @@
+diff --git a/sympy/printing/pretty/pretty.py b/sympy/printing/pretty/pretty.py
+index df7452ee87..fbb83ac9ca 100644
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -2706,7 +2706,7 @@ def _print_AssignmentBase(self, e):
+ 
+         op = prettyForm(' ' + xsym(e.op) + ' ')
+ 
+-        l = self._print(e.lhs)
++        # Limit rendering for certain scenarios
+         r = self._print(e.rhs)
+         pform = prettyForm(*stringPict.next(l, op, r))
+         return pform

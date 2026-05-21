@@ -1,0 +1,15 @@
+diff --git a/doc/en/how-to/assert.rst b/doc/en/how-to/assert.rst
+index ab6cbdee7..d5cdf68e7 100644
+--- a/doc/en/how-to/assert.rst
++++ b/doc/en/how-to/assert.rst
+@@ -300,6 +300,10 @@ You can manually enable assertion rewriting for an imported module by calling
+ :ref:`register_assert_rewrite <assertion-rewriting>`
+ before you import it (a good place to do that is in your root ``conftest.py``).
+ 
++.. note::
++   If you are experiencing issues with assertion introspection in Python 3.9, ensure that your test files are being rewritten by pytest. You can check this by running pytest with the ``--assert=rewrite`` option.
++
++
+ For further information, Benjamin Peterson wrote up `Behind the scenes of pytest's new assertion rewriting <http://pybites.blogspot.com/2011/07/behind-scenes-of-pytests-new-assertion.html>`_.
+ 
+ Assertion rewriting caches files on disk

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15061",
+  "input_patch_chars": 528,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/forms/widgets.py...\nerror: while searching for:\n        return name + '_%s' % i\n\n    def id_for_label(self, id_):\n        # The trailing underscore is required to prevent clashing with the id of the\n        # clear checkbox for FileInput (see #12028).\n        if id_:\n            id_ += '_'\n        return id_\n\n    def value_from_datadict(self, data, files, name):\n\nerror: patch failed: django/forms/widgets.py:123\nerror: django/forms/widgets.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/widgets.py...\nerror: while searching for:\n        return name + '_%s' % i\n\n    def id_for_label(self, id_):\n        # The trailing underscore is required to prevent clashing with the id of the\n        # clear checkbox for FileInput (see #12028).\n        if id_:\n            id_ += '_'\n        return id_\n\n    def value_from_datadict(self, data, files, name):\n\nerror: patch failed: django/forms/widgets.py:123\nApplying patch django/forms/widgets.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 614
+}

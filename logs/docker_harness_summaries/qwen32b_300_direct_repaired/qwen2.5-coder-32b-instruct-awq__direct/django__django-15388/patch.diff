@@ -1,0 +1,13 @@
+diff --git a/docs/intro/tutorial07.txt b/docs/intro/tutorial07.txt
+index 9f6c775267..4ed8f38324 100644
+--- a/docs/intro/tutorial07.txt
++++ b/docs/intro/tutorial07.txt
+@@ -72,7 +72,7 @@ The first element of each tuple in
+ :attr:`~django.contrib.admin.ModelAdmin.fieldsets` is the title of the fieldset.
+ Here's what our form looks like now:
+ 
+-.. image:: _images/admin08t.png
++.. image:: _images/admin08.png
+    :alt: Form has fieldsets now
+ 
+ Adding related objects

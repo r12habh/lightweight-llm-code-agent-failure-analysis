@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-863",
+  "input_patch_chars": 391,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/models.py...\nerror: while searching for:\n        self.method = method\n        self.data = None\n        self.params = None\n        self.files = None\n        self.auth = auth\n        self.cookies = cookiejar_from_dict(cookies)\n        self.sent = False\n\nerror: patch failed: requests/models.py:100\nerror: requests/models.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/models.py...\nerror: while searching for:\n        self.method = method\n        self.data = None\n        self.params = None\n        self.files = None\n        self.auth = auth\n        self.cookies = cookiejar_from_dict(cookies)\n        self.sent = False\n\nerror: patch failed: requests/models.py:100\nApplying patch requests/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 420
+}

@@ -1,0 +1,48 @@
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index 71a52fb754..2470349b1c 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -1234,6 +1234,7 @@ class QuerySet:
+         if self._fields is not None:
+             raise TypeError("Cannot call only() after .values() or .values_list()")
+         if fields == (None,):
++        self.deferred_loading = (frozenset(), True)
+             # Can only pass None to defer(), not only(), as the rest option.
+             # That won't stop people trying to do this, so let's be explicit.
+             raise TypeError("Cannot pass None as an argument to only().")
+@@ -1243,6 +1244,7 @@ class QuerySet:
+                 raise ValueError('only() is not supported with FilteredRelation.')
+         clone = self._chain()
+         clone.query.add_immediate_loading(fields)
++        self.deferred_loading = (frozenset(), True)
+         return clone
+ 
+     def using(self, alias):
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..dcc41564a9 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -197,6 +197,7 @@ class Query(BaseExpression):
+         self.select_related = False
+         # Arbitrary limit for select_related to prevents infinite recursion.
+         self.max_depth = 5
++        self.deferred_loading = (frozenset(), True)
+ 
+         # Holds the selects defined by a call to values() or values_list()
+         # excluding annotation_select and extra_select.
+@@ -206,6 +207,7 @@ class Query(BaseExpression):
+         self.annotations = {}  # Maps alias -> Annotation Expression
+         self.annotation_select_mask = None
+         self._annotation_select_cache = None
++        self.deferred_loading = (frozenset(), True)
+ 
+         # Set combination attributes
+         self.combinator = None
+@@ -231,6 +233,7 @@ class Query(BaseExpression):
+         self.explain_query = False
+         self.explain_format = None
+         self.explain_options = {}
++        self.deferred_loading = (frozenset(), True)
+ 
+     @property
+     def output_field(self):

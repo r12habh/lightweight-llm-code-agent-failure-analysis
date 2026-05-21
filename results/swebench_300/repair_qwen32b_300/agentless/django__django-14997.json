@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14997",
+  "input_patch_chars": 568,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/backends/sqlite3/schema.py...\nerror: while searching for:\n        indexes = model._meta.indexes\n        if delete_field:\n            indexes = [\n                index for index in indexes\n            ]\n\n        constraints = list(model._meta.constraints)\n\nerror: patch failed: django/db/backends/sqlite3/schema.py:303\nerror: django/db/backends/sqlite3/schema.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/backends/sqlite3/schema.py...\nerror: while searching for:\n        indexes = model._meta.indexes\n        if delete_field:\n            indexes = [\n                index for index in indexes\n            ]\n\n        constraints = list(model._meta.constraints)\n\nerror: patch failed: django/db/backends/sqlite3/schema.py:303\nApplying patch django/db/backends/sqlite3/schema.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 577
+}

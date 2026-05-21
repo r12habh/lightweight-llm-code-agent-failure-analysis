@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-4992",
+  "input_patch_chars": 2674,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 74\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 34: +        using the ``load`` parameter. The loaded data is passed to the\n\n",
+          "stdout": "patching file src/flask/config.py\nHunk #1 succeeded at 256 (offset 52 lines).\nHunk #2 succeeded at 264 (offset 52 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

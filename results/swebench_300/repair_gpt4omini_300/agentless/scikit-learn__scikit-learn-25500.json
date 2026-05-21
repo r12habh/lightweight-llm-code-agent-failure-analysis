@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-25500",
+  "input_patch_chars": 450,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 10\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/calibration.py\nHunk #1 FAILED at 775.\n1 out of 1 hunk FAILED -- saving rejects to file sklearn/calibration.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

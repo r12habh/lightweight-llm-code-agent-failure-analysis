@@ -1,0 +1,65 @@
+2026-05-20 13:51:59,406 - INFO - Creating container for sympy__sympy-22005...
+2026-05-20 13:51:59,457 - INFO - Container for sympy__sympy-22005 created: 549cc94b68a45d5302eaf6636caf9ebb8f723779f2f650b7cc6c5fae7f5c3393
+2026-05-20 13:51:59,622 - INFO - Container for sympy__sympy-22005 started: 549cc94b68a45d5302eaf6636caf9ebb8f723779f2f650b7cc6c5fae7f5c3393
+2026-05-20 13:51:59,623 - INFO - Intermediate patch for sympy__sympy-22005 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-22005/patch.diff, now applying to container...
+2026-05-20 13:51:59,801 - INFO - >>>>> Applied Patch:
+Checking patch sympy/solvers/polysys.py...
+Checking patch sympy/solvers/tests/test_polysys.py...
+Applied patch sympy/solvers/polysys.py cleanly.
+Applied patch sympy/solvers/tests/test_polysys.py cleanly.
+
+2026-05-20 13:52:00,379 - INFO - Git diff before:
+diff --git a/sympy/solvers/polysys.py b/sympy/solvers/polysys.py
+index b9809fd4e9..674322d4eb 100644
+--- a/sympy/solvers/polysys.py
++++ b/sympy/solvers/polysys.py
+@@ -240,7 +240,7 @@ def _solve_reduced_system(system, gens, entry=False):
+ 
+         univariate = list(filter(_is_univariate, basis))
+ 
+-        if len(univariate) == 1:
++        if len(univariate) == 1 and len(gens) == 1:
+             f = univariate.pop()
+         else:
+             raise NotImplementedError(filldedent('''
+diff --git a/sympy/solvers/tests/test_polysys.py b/sympy/solvers/tests/test_polysys.py
+index 58419f8762..9e674a6fe6 100644
+--- a/sympy/solvers/tests/test_polysys.py
++++ b/sympy/solvers/tests/test_polysys.py
+@@ -48,6 +48,10 @@ def test_solve_poly_system():
+     raises(NotImplementedError, lambda: solve_poly_system(
+         [z, -2*x*y**2 + x + y**2*z, y**2*(-z - 4) + 2]))
+     raises(PolynomialError, lambda: solve_poly_system([1/x], x))
++    raises(NotImplementedError, lambda: solve_poly_system(
++        Poly(x - 1, x, y), (x, y)))
++    raises(NotImplementedError, lambda: solve_poly_system(
++        Poly(y - 1, x, y), (x, y)))
+ 
+ 
+ def test_solve_biquadratic():
+2026-05-20 13:52:00,380 - INFO - Eval script for sympy__sympy-22005 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-22005/eval.sh; copying to container...
+2026-05-20 13:52:07,112 - INFO - Test runtime: 6.67 seconds
+2026-05-20 13:52:07,115 - INFO - Test output for sympy__sympy-22005 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-22005/test_output.txt
+2026-05-20 13:52:07,227 - INFO - Git diff after:
+diff --git a/sympy/solvers/polysys.py b/sympy/solvers/polysys.py
+index b9809fd4e9..674322d4eb 100644
+--- a/sympy/solvers/polysys.py
++++ b/sympy/solvers/polysys.py
+@@ -240,7 +240,7 @@ def _solve_reduced_system(system, gens, entry=False):
+ 
+         univariate = list(filter(_is_univariate, basis))
+ 
+-        if len(univariate) == 1:
++        if len(univariate) == 1 and len(gens) == 1:
+             f = univariate.pop()
+         else:
+             raise NotImplementedError(filldedent('''
+2026-05-20 13:52:07,227 - INFO - Git diff changed after running eval script
+2026-05-20 13:52:07,227 - INFO - Grading answer for sympy__sympy-22005...
+2026-05-20 13:52:07,228 - INFO - report: {'sympy__sympy-22005': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_solve_poly_system']}, 'PASS_TO_PASS': {'success': ['test_solve_biquadratic', 'test_solve_triangulated'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-22005: resolved: False
+2026-05-20 13:52:07,229 - INFO - Attempting to stop container sweb.eval.sympy__sympy-22005.qwen32b_300_direct_repaired...
+2026-05-20 13:52:22,432 - INFO - Attempting to remove container sweb.eval.sympy__sympy-22005.qwen32b_300_direct_repaired...
+2026-05-20 13:52:22,450 - INFO - Container sweb.eval.sympy__sympy-22005.qwen32b_300_direct_repaired removed.
+2026-05-20 13:52:22,450 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-22005:latest...
+2026-05-20 13:52:22,462 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-22005:latest removed.

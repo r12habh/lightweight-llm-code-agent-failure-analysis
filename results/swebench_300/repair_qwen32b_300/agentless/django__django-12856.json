@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12856",
+  "input_patch_chars": 1575,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpylk094jo.diff:17: trailing whitespace.\n    \nerror: corrupt patch at line 31\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 30:          if not self.pk and field.primary_key:\n\n",
+          "stdout": "patching file django/db/models/options.py\nHunk #1 succeeded at 33 with fuzz 2 (offset 23 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

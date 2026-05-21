@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-14915",
+  "input_patch_chars": 1408,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/forms/models.py...\nerror: while searching for:\n        self.queryset = queryset\n        self.model = queryset.model\n        self.field_name = field_name\n\n    def __iter__(self):\n        if self.field_name:\n\nerror: patch failed: django/forms/models.py:123\nerror: django/forms/models.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/models.py...\nerror: while searching for:\n        self.queryset = queryset\n        self.model = queryset.model\n        self.field_name = field_name\n\n    def __iter__(self):\n        if self.field_name:\n\nerror: patch failed: django/forms/models.py:123\nerror: while searching for:\n                yield \"\", self.empty_label\n            for obj in self.queryset:\n                yield self.choice_value(obj), self.choice_label(obj)\n\n    def __len__(self):\n        return len(self.queryset) + 1\n\nerror: patch failed: django/forms/models.py:131\nerror: while searching for:\n        return self.queryset.count() + 1\n\n    def choice_value(self, obj):\n        return str(obj)\n\n    def __contains__(self, value):\n\nerror: patch failed: django/forms/models.py:140\nerror: while searching for:\n            value = self.queryset.get(**{self.field_name: value})\n        except self.queryset.model.DoesNotExist:\n            value = None\n\n\nclass ModelChoiceField(ChoiceField):\n\nerror: patch failed: django/forms/models.py:147\nApplying patch django/forms/models.py with 4 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1912
+}

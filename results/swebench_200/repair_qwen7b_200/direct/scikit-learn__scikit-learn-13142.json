@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13142",
+  "input_patch_chars": 818,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/mixture/gaussian_mixture.py...\nerror: while searching for:\n    def fit_predict(self, X, y=None):\n        \"\"\"Fit the GaussianMixture model and predict the labels for the samples.\n\n        X : array-like, shape (n_samples, n_features)\n            List of n_features-dimensional data points. Each row corresponds\n            to a single data point.\n\nerror: patch failed: sklearn/mixture/gaussian_mixture.py:102\nerror: sklearn/mixture/gaussian_mixture.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/mixture/gaussian_mixture.py...\nerror: while searching for:\n    def fit_predict(self, X, y=None):\n        \"\"\"Fit the GaussianMixture model and predict the labels for the samples.\n\n        X : array-like, shape (n_samples, n_features)\n            List of n_features-dimensional data points. Each row corresponds\n            to a single data point.\n\nerror: patch failed: sklearn/mixture/gaussian_mixture.py:102\nerror: while searching for:\n            List of n_features-dimensional data points. Each row corresponds\n            to a single data point.\n\n        labels : array, shape (n_samples,)\n            Component labels.\n        \"\"\"\n\nerror: patch failed: sklearn/mixture/gaussian_mixture.py:110\nApplying patch sklearn/mixture/gaussian_mixture.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 799
+}

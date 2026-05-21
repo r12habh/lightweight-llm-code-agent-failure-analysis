@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-13158",
+  "raw": "```diff\ndiff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py\n--- a/django/db/models/sql/query.py\n+++ b/django/db/models/sql/query.py\n@@ -1000,7 +1000,7 @@\n     def clone(self):\n         \"\"\"\n         Return a copy of the current Query. A lightweight alternative to\n         to deepcopy().\n         \"\"\"\n         obj = Empty()\n         obj.__class__ = self.__class__\n         # Ensure empty QuerySet for combined queries doesn't return all results\n-        if not self.combined_queries:\n+        if len(self.combined_queries) == 1 and self.combined_queries[0].select == ():\n             return self\n         # Copy references to everything.\n         obj.__dict__ = self.__dict__.copy()\n         # Clone attributes that can't use shallow copy.\n         obj.alias_refcount = self.alias_refcount.copy()\n         obj.alias_map = self.alias_map.copy()\n         obj.external_aliases = self.external_aliases.copy()\n         obj.table_map = self.table_map.copy()\n         obj.where = self.where.clone()\n         obj.annotations = self.annotations.copy()\n         if self.annotation_select_mask is None:\n             obj.annotation_select_mask = None\n         else:\n```",
+  "usage": {
+    "input_tokens": 19891,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 260,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20151
+  },
+  "localized_files": []
+}

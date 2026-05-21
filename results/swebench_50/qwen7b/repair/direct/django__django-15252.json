@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15252",
+  "input_patch_chars": 1742,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/migrations/executor.py...\nerror: while searching for:\n        self.loader = MigrationLoader(self.connection)\n        self.migration_plan = self.loader.migration_plan(target)\n        self.migration_progress_callback = migration_progress_callback\n\n    def apply_migration(self, app, name):\n        \"\"\"Apply a single migration.\"\"\"\n\nerror: patch failed: django/db/migrations/executor.py:102\nerror: django/db/migrations/executor.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/executor.py...\nerror: while searching for:\n        self.loader = MigrationLoader(self.connection)\n        self.migration_plan = self.loader.migration_plan(target)\n        self.migration_progress_callback = migration_progress_callback\n\n    def apply_migration(self, app, name):\n        \"\"\"Apply a single migration.\"\"\"\n\nerror: patch failed: django/db/migrations/executor.py:102\nerror: while searching for:\n        migration = self.loader.get_migration_by_name(app, name)\n        with self.connection.schema_editor() as schema_editor:\n            self.apply_migration_state_forwards(app, migration, schema_editor)\n\n    def apply_migration_state_forwards(self, app, migration, schema_editor):\n        \"\"\"Apply a single migration forwards.\"\"\"\n\nerror: patch failed: django/db/migrations/executor.py:110\nerror: while searching for:\n        project_state = self.loader.project_state()\n        project_state = migration.mutate_state(project_state)\n        migration.apply(project_state, schema_editor)\n\n    def record_applied(self, app, name):\n        \"\"\"Record that a migration was applied.\"\"\"\n\nerror: patch failed: django/db/migrations/executor.py:120\nApplying patch django/db/migrations/executor.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1351
+}

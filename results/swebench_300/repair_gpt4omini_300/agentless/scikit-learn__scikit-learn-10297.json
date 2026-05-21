@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-10297",
+  "input_patch_chars": 447,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/linear_model/ridge.py...\nerror: while searching for:\n\nclass RidgeClassifierCV(RidgeCV):\n    \"\"\"Ridge Classifier with built-in Cross-Validation.\"\"\"\n\n        super().__init__(*args, **kwargs)\n        self.store_cv_values = store_cv_values\n\nerror: patch failed: sklearn/linear_model/ridge.py:19\nerror: sklearn/linear_model/ridge.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/linear_model/ridge.py...\nerror: while searching for:\n\nclass RidgeClassifierCV(RidgeCV):\n    \"\"\"Ridge Classifier with built-in Cross-Validation.\"\"\"\n\n        super().__init__(*args, **kwargs)\n        self.store_cv_values = store_cv_values\n\nerror: patch failed: sklearn/linear_model/ridge.py:19\nApplying patch sklearn/linear_model/ridge.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 559
+}

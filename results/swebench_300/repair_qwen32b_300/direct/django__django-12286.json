@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12286",
+  "input_patch_chars": 721,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/checks/translation.py...\nerror: while searching for:\nfrom django.conf import settings\nfrom django.core.checks import Error, register\nfrom django.utils.translation.trans_real import languages\n\n\n\nerror: patch failed: django/core/checks/translation.py:1\nerror: django/core/checks/translation.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/checks/translation.py...\nerror: while searching for:\nfrom django.conf import settings\nfrom django.core.checks import Error, register\nfrom django.utils.translation.trans_real import languages\n\n\n\nerror: patch failed: django/core/checks/translation.py:1\nerror: while searching for:\n    if not settings.LANGUAGE_CODE:\n        return []\n\n    if settings.LANGUAGE_CODE not in languages:\n        return [\n            Error(\n\nerror: patch failed: django/core/checks/translation.py:21\nApplying patch django/core/checks/translation.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 701
+}

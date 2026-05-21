@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13241",
+  "input_patch_chars": 608,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/decomposition/kernel_pca.py...\nerror: while searching for:\n        # sort eigenvectors in descending order\n        indices = self.lambdas_.argsort()[::-1]\n        self.lambdas_ = self.lambdas_[indices]\n\n        # remove eigenvectors with a zero eigenvalue\n        if self.remove_zero_eig or self.n_components is None:\n\nerror: patch failed: sklearn/decomposition/kernel_pca.py:204\nerror: sklearn/decomposition/kernel_pca.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/decomposition/kernel_pca.py...\nerror: while searching for:\n        # sort eigenvectors in descending order\n        indices = self.lambdas_.argsort()[::-1]\n        self.lambdas_ = self.lambdas_[indices]\n\n        # remove eigenvectors with a zero eigenvalue\n        if self.remove_zero_eig or self.n_components is None:\n\nerror: patch failed: sklearn/decomposition/kernel_pca.py:204\nApplying patch sklearn/decomposition/kernel_pca.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 614
+}

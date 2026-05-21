@@ -1,0 +1,53 @@
+2026-05-20 11:41:35,432 - INFO - Creating container for django__django-11964...
+2026-05-20 11:41:35,485 - INFO - Container for django__django-11964 created: 431966f745015abf541e8d080912f930aa7731e135d145ac59ac7fb7b5f486f7
+2026-05-20 11:41:35,592 - INFO - Container for django__django-11964 started: 431966f745015abf541e8d080912f930aa7731e135d145ac59ac7fb7b5f486f7
+2026-05-20 11:41:35,592 - INFO - Intermediate patch for django__django-11964 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-11964/patch.diff, now applying to container...
+2026-05-20 11:41:35,744 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/fields/__init__.py...
+Applied patch django/db/models/fields/__init__.py cleanly.
+
+2026-05-20 11:41:36,439 - INFO - Git diff before:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index d610dc86f0..ede372f5ed 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -1149,6 +1149,11 @@ class DateField(DateTimeCheckMixin, Field):
+         return "DateField"
+ 
+     def to_python(self, value):
++        if isinstance(value, Enum):
++            # Return the actual value of the enum member
++            return value.value
++        return value
++
+         if value is None:
+             return value
+         if isinstance(value, datetime.datetime):
+2026-05-20 11:41:36,440 - INFO - Eval script for django__django-11964 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-11964/eval.sh; copying to container...
+2026-05-20 11:41:49,952 - INFO - Test runtime: 13.45 seconds
+2026-05-20 11:41:49,955 - INFO - Test output for django__django-11964 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-11964/test_output.txt
+2026-05-20 11:41:50,072 - INFO - Git diff after:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index d610dc86f0..ede372f5ed 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -1149,6 +1149,11 @@ class DateField(DateTimeCheckMixin, Field):
+         return "DateField"
+ 
+     def to_python(self, value):
++        if isinstance(value, Enum):
++            # Return the actual value of the enum member
++            return value.value
++        return value
++
+         if value is None:
+             return value
+         if isinstance(value, datetime.datetime):
+2026-05-20 11:41:50,072 - INFO - Grading answer for django__django-11964...
+2026-05-20 11:41:50,075 - INFO - report: {'django__django-11964': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_str (model_enums.tests.ChoicesTests)', 'test_textchoices (model_enums.tests.ChoicesTests)']}, 'PASS_TO_PASS': {'success': ['test_integerchoices (model_enums.tests.ChoicesTests)', 'test_integerchoices_auto_label (model_enums.tests.ChoicesTests)', 'test_integerchoices_containment (model_enums.tests.ChoicesTests)', 'test_integerchoices_empty_label (model_enums.tests.ChoicesTests)', 'test_integerchoices_functional_api (model_enums.tests.ChoicesTests)', 'test_invalid_definition (model_enums.tests.ChoicesTests)', 'test_textchoices_auto_label (model_enums.tests.ChoicesTests)', 'test_textchoices_blank_value (model_enums.tests.ChoicesTests)', 'test_textchoices_containment (model_enums.tests.ChoicesTests)', 'test_textchoices_empty_label (model_enums.tests.ChoicesTests)', 'test_textchoices_functional_api (model_enums.tests.ChoicesTests)', 'test_bool_unsupported (model_enums.tests.CustomChoicesTests)', 'test_labels_valid (model_enums.tests.CustomChoicesTests)', 'test_timezone_unsupported (model_enums.tests.CustomChoicesTests)', 'test_uuid_unsupported (model_enums.tests.CustomChoicesTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11964: resolved: False
+2026-05-20 11:41:50,076 - INFO - Attempting to stop container sweb.eval.django__django-11964.qwen32b_300_direct_repaired...
+2026-05-20 11:42:05,253 - INFO - Attempting to remove container sweb.eval.django__django-11964.qwen32b_300_direct_repaired...
+2026-05-20 11:42:05,269 - INFO - Container sweb.eval.django__django-11964.qwen32b_300_direct_repaired removed.
+2026-05-20 11:42:05,269 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11964:latest...
+2026-05-20 11:42:05,276 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11964:latest removed.

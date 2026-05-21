@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-23987",
+  "input_patch_chars": 644,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/_constrained_layout.py...\nHunk #1 succeeded at 96 (offset -58 lines).\nerror: while searching for:\n       w_pad, hspace, wspace, rect=(0, 0, 1, 1),\n       compress=False):\n    \"\"\"\n    Do the constrained_layout.  Called at draw time in\n    ``figure.constrained_layout()``\n\n    Parameters\n\nerror: patch failed: lib/matplotlib/_constrained_layout.py:184\nApplying patch lib/matplotlib/_constrained_layout.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/matplotlib/_constrained_layout.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 96 (offset -58 lines).\nHunk #2 FAILED at 184.\n1 out of 2 hunks FAILED -- saving rejects to file lib/matplotlib/_constrained_layout.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

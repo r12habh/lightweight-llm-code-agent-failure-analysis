@@ -1,0 +1,12 @@
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 1c7ef70b6a..01723f7592 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -99,6 +99,8 @@ def sort_key(self, order=None):
+                 expr, exp = Function("exp")(expr.exp), S.One
+             else:
+                 expr, exp = expr.args
++        """Return True if one can differentiate with respect to this
++        object, else False."""
+         else:
+             expr, exp = expr, S.One

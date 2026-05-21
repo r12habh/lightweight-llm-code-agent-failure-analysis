@@ -1,0 +1,60 @@
+2026-05-20 02:59:59,180 - INFO - Creating container for django__django-12113...
+2026-05-20 03:00:00,373 - INFO - Container for django__django-12113 created: 37876202024e81ffdd3271af4afc4d4b8f8e4fdcd75cbc52025a3e65965b207d
+2026-05-20 03:00:00,567 - INFO - Container for django__django-12113 started: 37876202024e81ffdd3271af4afc4d4b8f8e4fdcd75cbc52025a3e65965b207d
+2026-05-20 03:00:00,571 - INFO - Intermediate patch for django__django-12113 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12113/patch.diff, now applying to container...
+2026-05-20 03:00:00,775 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 03:00:00,871 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 03:00:00,954 - INFO - >>>>> Applied Patch:
+patching file tests/test_sqlite.py
+
+2026-05-20 03:00:01,955 - INFO - Git diff before:
+diff --git a/tests/test_sqlite.py b/tests/test_sqlite.py
+index f1b65f7d01..9ce4e32e14 100644
+--- a/tests/test_sqlite.py
++++ b/tests/test_sqlite.py
+@@ -15,9 +15,15 @@
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_default.sqlite3'
++        },
+     },
+     'other': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_other.sqlite3'
++        },
+     }
+ }
+2026-05-20 03:00:01,955 - INFO - Eval script for django__django-12113 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12113/eval.sh; copying to container...
+2026-05-20 03:00:19,650 - INFO - Test runtime: 17.62 seconds
+2026-05-20 03:00:19,652 - INFO - Test output for django__django-12113 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12113/test_output.txt
+2026-05-20 03:00:19,798 - INFO - Git diff after:
+diff --git a/tests/test_sqlite.py b/tests/test_sqlite.py
+index f1b65f7d01..9ce4e32e14 100644
+--- a/tests/test_sqlite.py
++++ b/tests/test_sqlite.py
+@@ -15,9 +15,15 @@
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_default.sqlite3'
++        },
+     },
+     'other': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_other.sqlite3'
++        },
+     }
+ }
+2026-05-20 03:00:19,798 - INFO - Grading answer for django__django-12113...
+2026-05-20 03:00:19,805 - INFO - report: {'django__django-12113': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_custom_test_name (backends.sqlite.test_creation.TestDbSignatureTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12113: resolved: False
+2026-05-20 03:00:19,806 - INFO - Attempting to stop container sweb.eval.django__django-12113.gpt4omini_300_agentless_repaired...
+2026-05-20 03:00:35,010 - INFO - Attempting to remove container sweb.eval.django__django-12113.gpt4omini_300_agentless_repaired...
+2026-05-20 03:00:35,032 - INFO - Container sweb.eval.django__django-12113.gpt4omini_300_agentless_repaired removed.
+2026-05-20 03:00:35,032 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12113:latest...
+2026-05-20 03:00:36,184 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12113:latest removed.

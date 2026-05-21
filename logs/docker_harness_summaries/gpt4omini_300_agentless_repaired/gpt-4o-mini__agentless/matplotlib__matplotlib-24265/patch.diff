@@ -1,0 +1,14 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index 569cf59977..ef6b523c76 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -212,6 +212,9 @@ class __getattr__:
+ 
+ def _check_versions():
+ 
++    # Ensure 'seaborn-colorblind' style is available
++    plt.style.use('seaborn-colorblind')
++
+     # Quickfix to ensure Microsoft Visual C++ redistributable
+     # DLLs are loaded before importing kiwisolver
+     from . import ft2font

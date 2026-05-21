@@ -1,0 +1,80 @@
+2026-05-20 21:05:11,323 - INFO - Creating container for scikit-learn__scikit-learn-13497...
+2026-05-20 21:05:11,690 - INFO - Container for scikit-learn__scikit-learn-13497 created: 9e4205d56b004d083055f5740cf983e27f05ed29244a170e9450cb60aa8cb0af
+2026-05-20 21:05:11,843 - INFO - Container for scikit-learn__scikit-learn-13497 started: 9e4205d56b004d083055f5740cf983e27f05ed29244a170e9450cb60aa8cb0af
+2026-05-20 21:05:11,844 - INFO - Intermediate patch for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/scikit-learn__scikit-learn-13497/patch.diff, now applying to container...
+2026-05-20 21:05:12,023 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 21:05:12,097 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 21:05:12,185 - INFO - >>>>> Applied Patch:
+patching file sklearn/cluster/k_means_.py
+
+2026-05-20 21:05:12,533 - INFO - Git diff before:
+diff --git a/sklearn/cluster/k_means_.py b/sklearn/cluster/k_means_.py
+index 042e6990b..14a7f6247 100644
+--- a/sklearn/cluster/k_means_.py
++++ b/sklearn/cluster/k_means_.py
+@@ -45,14 +45,14 @@ def _k_init(X, n_clusters, x_squared_norms, random_state, n_local_trials=None):
+ 
+     Parameters
+     -----------
+-    X : array or sparse matrix, shape (n_samples, n_features)
++    X : array-like or sparse matrix, shape (n_samples, n_features)
+         The data to pick seeds for. To avoid memory copy, the input data
+         should be double precision (dtype=np.float64).
+ 
+     n_clusters : integer
+         The number of seeds to choose
+ 
+-    x_squared_norms : array, shape (n_samples,)
++    x_squared_norms : array-like, shape (n_samples,)
+         Squared Euclidean norm of each data point.
+ 
+     random_state : int, RandomState instance
+@@ -641,7 +641,7 @@ def _labels_inertia(X, sample_weight, x_squared_norms, centers,
+     sample_weight : array-like, shape (n_samples,)
+         The weights for each observation in X.
+ 
+-    x_squared_norms : array, shape (n_samples,)
++    x_squared_norms : array-like, shape (n_samples,)
+         Precomputed squared euclidean norm of each data point, to speed up
+         computations.
+2026-05-20 21:05:12,534 - INFO - Eval script for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/scikit-learn__scikit-learn-13497/eval.sh; copying to container...
+2026-05-20 21:05:18,306 - INFO - Test runtime: 5.70 seconds
+2026-05-20 21:05:18,307 - INFO - Test output for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/scikit-learn__scikit-learn-13497/test_output.txt
+2026-05-20 21:05:18,398 - INFO - Git diff after:
+diff --git a/sklearn/cluster/k_means_.py b/sklearn/cluster/k_means_.py
+index 042e6990b..14a7f6247 100644
+--- a/sklearn/cluster/k_means_.py
++++ b/sklearn/cluster/k_means_.py
+@@ -45,14 +45,14 @@ def _k_init(X, n_clusters, x_squared_norms, random_state, n_local_trials=None):
+ 
+     Parameters
+     -----------
+-    X : array or sparse matrix, shape (n_samples, n_features)
++    X : array-like or sparse matrix, shape (n_samples, n_features)
+         The data to pick seeds for. To avoid memory copy, the input data
+         should be double precision (dtype=np.float64).
+ 
+     n_clusters : integer
+         The number of seeds to choose
+ 
+-    x_squared_norms : array, shape (n_samples,)
++    x_squared_norms : array-like, shape (n_samples,)
+         Squared Euclidean norm of each data point.
+ 
+     random_state : int, RandomState instance
+@@ -641,7 +641,7 @@ def _labels_inertia(X, sample_weight, x_squared_norms, centers,
+     sample_weight : array-like, shape (n_samples,)
+         The weights for each observation in X.
+ 
+-    x_squared_norms : array, shape (n_samples,)
++    x_squared_norms : array-like, shape (n_samples,)
+         Precomputed squared euclidean norm of each data point, to speed up
+         computations.
+2026-05-20 21:05:18,398 - INFO - Grading answer for scikit-learn__scikit-learn-13497...
+2026-05-20 21:05:18,401 - INFO - report: {'scikit-learn__scikit-learn-13497': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_options']}, 'PASS_TO_PASS': {'success': ['sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_dd', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cc', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cd', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cd_unique_label', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_classif_discrete', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_regression', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_classif_mixed'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-13497: resolved: False
+2026-05-20 21:05:18,401 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-13497.qwen7b_200_agentless_repaired...
+2026-05-20 21:05:33,559 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-13497.qwen7b_200_agentless_repaired...
+2026-05-20 21:05:33,568 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13497.qwen7b_200_agentless_repaired removed.
+2026-05-20 21:05:33,569 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest...
+2026-05-20 21:05:33,574 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest removed.

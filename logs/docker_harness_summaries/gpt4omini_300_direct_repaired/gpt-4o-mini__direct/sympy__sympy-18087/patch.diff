@@ -1,0 +1,13 @@
+diff --git a/sympy/simplify/gammasimp.py b/sympy/simplify/gammasimp.py
+index f4659c8aa6..5d01d47d8f 100644
+--- a/sympy/simplify/gammasimp.py
++++ b/sympy/simplify/gammasimp.py
+@@ -1,7 +1,7 @@
+ from __future__ import print_function, division
+ 
+ from sympy.core import Function, S, Mul, Pow, Add
+-from sympy.core.compatibility import ordered, default_sort_key
++from sympy.core.compatibility import ordered, default_sort_key, iterable
+ from sympy.core.function import count_ops, expand_func
+ from sympy.functions.combinatorial.factorials import binomial
+ from sympy.functions import gamma, sqrt, sin

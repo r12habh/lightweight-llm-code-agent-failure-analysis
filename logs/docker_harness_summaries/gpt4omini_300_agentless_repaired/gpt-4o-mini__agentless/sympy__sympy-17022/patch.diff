@@ -1,0 +1,14 @@
+diff --git a/sympy/printing/jscode.py b/sympy/printing/jscode.py
+index 6f456e45fd..172503edce 100644
+--- a/sympy/printing/jscode.py
++++ b/sympy/printing/jscode.py
+@@ -77,6 +77,10 @@ def _get_comment(self, text):
+     def _declare_number_const(self, name, value):
+         return "var {0} = {1};".format(name, value.evalf(self._settings['precision']))
+ 
++    def _print_Matrix(self, expr):
++        raise ValueError("Identity matrix cannot be directly printed as a scalar")
++
++
+     def _format_code(self, lines):
+         return self.indent_code(lines)

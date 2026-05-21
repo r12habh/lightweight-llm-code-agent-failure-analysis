@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8273",
+  "input_patch_chars": 716,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/builders/manpage.py...\nerror: while searching for:\n        self.info('writing %s file(s)... %s' % (self.name, outfilename))\n\n        # write the file\n        outfilename = path.join(outdir, outfilename)\n        try:\n            with open(outfilename, 'w', encoding='utf-8') as f:\n                f.write(self.writer.output)\n\nerror: patch failed: sphinx/builders/manpage.py:115\nApplying patch sphinx/builders/manpage.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/builders/manpage.py\nHunk #1 FAILED at 115.\n1 out of 1 hunk FAILED -- saving rejects to file sphinx/builders/manpage.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

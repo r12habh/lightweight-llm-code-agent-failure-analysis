@@ -1,0 +1,12 @@
+diff --git a/django/db/migrations/writer.py b/django/db/migrations/writer.py
+index 4918261fb0..21da00de1d 100644
+--- a/django/db/migrations/writer.py
++++ b/django/db/migrations/writer.py
+@@ -7,6 +7,7 @@ from django import get_version
+ from django.apps import apps
+ # SettingsReference imported for backwards compatibility in Django 2.2.
+ from django.conf import SettingsReference  # NOQA
++from django.db import models
+ from django.db import migrations
+ from django.db.migrations.loader import MigrationLoader
+ from django.db.migrations.serializer import Serializer, serializer_factory

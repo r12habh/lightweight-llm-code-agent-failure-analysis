@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-12171",
+  "input_patch_chars": 737,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/mathematica.py...\nerror: while searching for:\n        return \"%s[%s]\" % (mfunc, self.stringify(expr.args, \", \"))\n    return expr.func.__name__ + \"[%s]\" % self.stringify(expr.args, \", \")\n\n    def _print_Integral(self, expr):\n        if len(expr.variables) == 1 and not expr.limits[0][1:]:\n            args = [expr.args[0], expr.variables[0]]\n\nerror: patch failed: sympy/printing/mathematica.py:104\nerror: sympy/printing/mathematica.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/mathematica.py...\nerror: while searching for:\n        return \"%s[%s]\" % (mfunc, self.stringify(expr.args, \", \"))\n    return expr.func.__name__ + \"[%s]\" % self.stringify(expr.args, \", \")\n\n    def _print_Integral(self, expr):\n        if len(expr.variables) == 1 and not expr.limits[0][1:]:\n            args = [expr.args[0], expr.variables[0]]\n\nerror: patch failed: sympy/printing/mathematica.py:104\nApplying patch sympy/printing/mathematica.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 757
+}

@@ -1,0 +1,12 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 737e16cc74..84281b1841 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -338,6 +338,7 @@ def _print_Cycle(self, expr):
+         return term_tex
+ 
+     _print_Permutation = _print_Cycle
++            terms = sorted(terms, key=lambda term: self.order.index(term.as_ordered_terms()[0].as_poly().degree()))  # Sort terms by degree
+ 
+     def _print_Float(self, expr):
+         # Based off of that in StrPrinter

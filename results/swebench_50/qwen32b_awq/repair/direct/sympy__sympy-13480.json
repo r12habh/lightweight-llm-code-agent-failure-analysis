@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13480",
+  "input_patch_chars": 582,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/functions/elementary/hyperbolic.py...\nerror: while searching for:\n                if cotm is S.ComplexInfinity:\n                    return S.Zero\n                elif cotm.is_zero:\n                if cotm is S.ComplexInfinity:\n                    return S.ComplexInfinity\n                else:\n                    return 1 / cotm\n\nerror: patch failed: sympy/functions/elementary/hyperbolic.py:587\nApplying patch sympy/functions/elementary/hyperbolic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/functions/elementary/hyperbolic.py\nHunk #1 FAILED at 587.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/functions/elementary/hyperbolic.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

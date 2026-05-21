@@ -1,0 +1,28 @@
+{
+  "instance_id": "mwaskom__seaborn-2848",
+  "input_patch_chars": 699,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch seaborn/_oldcore.py...\nerror: while searching for:\n                levels, lookup_table = self.categorical_mapping(\n                    data, palette, order,\n                )\n\n            # --- Option 3: datetime mapping\n            else:\n\nerror: patch failed: seaborn/_oldcore.py:204\nerror: seaborn/_oldcore.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch seaborn/_oldcore.py...\nerror: while searching for:\n                levels, lookup_table = self.categorical_mapping(\n                    data, palette, order,\n                )\n\n            # --- Option 3: datetime mapping\n            else:\n\nerror: patch failed: seaborn/_oldcore.py:204\nApplying patch seaborn/_oldcore.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 682
+}

@@ -1,0 +1,34 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7738",
+  "raw": "```diff\ndiff --git a/sphinx/ext/napoleon/docstring.py b/sphinx/ext/napoleon/docstring.py\nindex d5e1e1c..d2a7581 100644\n--- a/sphinx/ext/napoleon/docstring.py\n+++ b/sphinx/ext/napoleon/docstring.py\n@@ -129,7 +129,7 @@ class GoogleDocstring:\n         return name\n     \n     def _escape_args_and_kwargs(self, name: str) -> str:\n-        if name.endswith('_'):\n+        if name.endswith('_') and not name.endswith(r'\\_'):\n             name = name[:-1] + r'\\_'\n \n         if name[:2] == '**':\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19818,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 265,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20083
+    },
+    "patch": {
+      "input_tokens": 20131,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 151,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20282
+    }
+  },
+  "localized_files": [
+    "sphinx/ext/napoleon/__init__.py",
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/ext/napoleon/docstring.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sphinx/ext/napoleon/__init__.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"The issue relates to how docstring attributes are parsed, handled in the Napoleon extension.\"\n    },\n    {\n      \"path\": \"sphinx/ext/autodoc/__init__.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"The issue may involve how autodoc processes and presents docstrings, coordinated with Napoleon.\"\n    },\n    {\n      \"path\": \"doc/usage/extensions/napoleon.rst\",\n      \"confidence\": 0.8,\n      \"reason\": \"Documentation related to Napoleon's handling of docstrings might need clarification on this behavior.\"\n    },\n    {\n      \"path\": \"doc/usage/extensions/autodoc.rst\",\n      \"confidence\": 0.75,\n      \"reason\": \"This documentation discusses how autodoc works with Napoleon; insights on the issue might be relevant.\"\n    },\n    {\n      \"path\": \"sphinx/ext/napoleon/docstring.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"The functionality of handling docstring formats directly relates to the overescaping issue reported.\"\n    }\n  ]\n}\n```"
+}

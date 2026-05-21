@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13710",
+  "input_patch_chars": 552,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/admin/options.py...\nerror: while searching for:\n    def get_formset(self, request, obj=None, **kwargs):\n        defaults = {\n            \"form\": self.form,\n            \"formset\": self.formset,\n            \"extra\": self.get_extra(request, obj),\n            \"can_delete\": self.get_can_delete(request, obj),\n\nerror: patch failed: django/contrib/admin/options.py:102\nerror: django/contrib/admin/options.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/options.py...\nerror: while searching for:\n    def get_formset(self, request, obj=None, **kwargs):\n        defaults = {\n            \"form\": self.form,\n            \"formset\": self.formset,\n            \"extra\": self.get_extra(request, obj),\n            \"can_delete\": self.get_can_delete(request, obj),\n\nerror: patch failed: django/contrib/admin/options.py:102\nApplying patch django/contrib/admin/options.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 475
+}

@@ -1,0 +1,26 @@
+{
+  "instance_id": "sympy__sympy-13647",
+  "input_patch_chars": 485,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/matrices/common.py...\nerror: while searching for:\n                return self[i, j] if j < pos else self[i, j + 1]\n        return self._new(self.rows, self.cols - 1, entry)\n\n    def _eval_col_insert(self, pos, other):\n        cols = self.cols\n\n        def entry(i, j):\n\nerror: patch failed: sympy/matrices/common.py:424\nApplying patch sympy/matrices/common.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/matrices/common.py\nHunk #1 succeeded at 78 with fuzz 1 (offset -346 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

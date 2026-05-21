@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13551",
+  "input_patch_chars": 631,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 16\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "The next patch would create the file docs/releases/3.1.txt,\nwhich already exists!  Assuming -R.\npatching file docs/releases/3.1.txt\nHunk #1 FAILED at 337.\nNot deleting file docs/releases/3.1.txt as content differs from patch\n1 out of 1 hunk FAILED -- saving rejects to file docs/releases/3.1.txt.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

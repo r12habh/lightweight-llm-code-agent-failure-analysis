@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-13177",
+  "input_patch_chars": 508,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/mod.py...\nerror: while searching for:\n                return S.Zero\n            if (p == q or p == -q or\n                    p.is_Pow and p.exp.is_Integer and p.base == q or\n                return S.Zero\n\n            if q.is_Number:\n\nerror: patch failed: sympy/core/mod.py:34\nerror: sympy/core/mod.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/mod.py...\nerror: while searching for:\n                return S.Zero\n            if (p == q or p == -q or\n                    p.is_Pow and p.exp.is_Integer and p.base == q or\n                return S.Zero\n\n            if q.is_Number:\n\nerror: patch failed: sympy/core/mod.py:34\nApplying patch sympy/core/mod.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 543
+}

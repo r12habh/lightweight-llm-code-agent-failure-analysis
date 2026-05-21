@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-18869",
+  "input_patch_chars": 418,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch matplotlib/__init__.py...\nerror: matplotlib/__init__.py: No such file or directory\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/matplotlib/__init__.py b/matplotlib/__init__.py\n|index 3a2b1c2..4d5e6f7 100644\n|--- a/matplotlib/__init__.py\n|+++ b/matplotlib/__init__.py\n--------------------------\nNo file to patch.  Skipping patch.\n1 out of 1 hunk ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

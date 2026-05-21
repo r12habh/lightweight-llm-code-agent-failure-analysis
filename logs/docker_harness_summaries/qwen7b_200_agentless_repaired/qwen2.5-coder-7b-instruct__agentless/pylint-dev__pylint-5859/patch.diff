@@ -1,0 +1,11 @@
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index 2f5389d61..cb8b9b590 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -214,7 +214,6 @@ class PyLinter(
+     name = MAIN_CHECKER_NAME
+     priority = 0
+     level = 0
+-    msgs = MSGS
+     # Will be used like this : datetime.now().strftime(crash_file_path)
+     crash_file_path: str = "pylint-crash-%Y-%m-%d-%H.txt"

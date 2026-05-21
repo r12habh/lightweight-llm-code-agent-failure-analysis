@@ -1,0 +1,47 @@
+2026-05-20 10:38:07,621 - INFO - Creating container for scikit-learn__scikit-learn-13241...
+2026-05-20 10:38:07,662 - INFO - Container for scikit-learn__scikit-learn-13241 created: 8eb2c272ed032e6cf95d481946cb7661465b2eedf992e3a805a1cce9be81b3ed
+2026-05-20 10:38:07,777 - INFO - Container for scikit-learn__scikit-learn-13241 started: 8eb2c272ed032e6cf95d481946cb7661465b2eedf992e3a805a1cce9be81b3ed
+2026-05-20 10:38:07,777 - INFO - Intermediate patch for scikit-learn__scikit-learn-13241 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13241/patch.diff, now applying to container...
+2026-05-20 10:38:07,951 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/decomposition/kernel_pca.py...
+Applied patch sklearn/decomposition/kernel_pca.py cleanly.
+
+2026-05-20 10:38:08,307 - INFO - Git diff before:
+diff --git a/sklearn/decomposition/kernel_pca.py b/sklearn/decomposition/kernel_pca.py
+index bb91d0cbb..8caf82551 100644
+--- a/sklearn/decomposition/kernel_pca.py
++++ b/sklearn/decomposition/kernel_pca.py
+@@ -212,7 +212,7 @@ class KernelPCA(BaseEstimator, TransformerMixin, _UnstableOn32BitMixin):
+ 
+         # sort eigenvectors in descending order
+         indices = self.lambdas_.argsort()[::-1]
+-        self.lambdas_ = self.lambdas_[indices]
++        self.lambdas_ = np.abs(self.lambdas_[indices])
+         self.alphas_ = self.alphas_[:, indices]
+ 
+         # remove eigenvectors with a zero eigenvalue
+2026-05-20 10:38:08,308 - INFO - Eval script for scikit-learn__scikit-learn-13241 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13241/eval.sh; copying to container...
+2026-05-20 10:38:14,955 - INFO - Test runtime: 6.58 seconds
+2026-05-20 10:38:14,957 - INFO - Test output for scikit-learn__scikit-learn-13241 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-13241/test_output.txt
+2026-05-20 10:38:15,054 - INFO - Git diff after:
+diff --git a/sklearn/decomposition/kernel_pca.py b/sklearn/decomposition/kernel_pca.py
+index bb91d0cbb..8caf82551 100644
+--- a/sklearn/decomposition/kernel_pca.py
++++ b/sklearn/decomposition/kernel_pca.py
+@@ -212,7 +212,7 @@ class KernelPCA(BaseEstimator, TransformerMixin, _UnstableOn32BitMixin):
+ 
+         # sort eigenvectors in descending order
+         indices = self.lambdas_.argsort()[::-1]
+-        self.lambdas_ = self.lambdas_[indices]
++        self.lambdas_ = np.abs(self.lambdas_[indices])
+         self.alphas_ = self.alphas_[:, indices]
+ 
+         # remove eigenvectors with a zero eigenvalue
+2026-05-20 10:38:15,054 - INFO - Grading answer for scikit-learn__scikit-learn-13241...
+2026-05-20 10:38:15,055 - INFO - report: {'scikit-learn__scikit-learn-13241': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_deterministic_output']}, 'PASS_TO_PASS': {'success': ['sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca', 'sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_invalid_parameters', 'sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_consistent_transform', 'sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_sparse', 'sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_linear_kernel', 'sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_n_components', 'sklearn/decomposition/tests/test_kernel_pca.py::test_remove_zero_eig', 'sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_precomputed', 'sklearn/decomposition/tests/test_kernel_pca.py::test_kernel_pca_invalid_kernel', 'sklearn/decomposition/tests/test_kernel_pca.py::test_gridsearch_pipeline', 'sklearn/decomposition/tests/test_kernel_pca.py::test_gridsearch_pipeline_precomputed', 'sklearn/decomposition/tests/test_kernel_pca.py::test_nested_circles', 'sklearn/decomposition/tests/test_pca.py::test_pca', 'sklearn/decomposition/tests/test_pca.py::test_pca_arpack_solver', 'sklearn/decomposition/tests/test_pca.py::test_pca_randomized_solver', 'sklearn/decomposition/tests/test_pca.py::test_no_empty_slice_warning', 'sklearn/decomposition/tests/test_pca.py::test_whitening', 'sklearn/decomposition/tests/test_pca.py::test_explained_variance', 'sklearn/decomposition/tests/test_pca.py::test_singular_values', 'sklearn/decomposition/tests/test_pca.py::test_pca_check_projection', 'sklearn/decomposition/tests/test_pca.py::test_pca_inverse', 'sklearn/decomposition/tests/test_pca.py::test_pca_validation[full]', 'sklearn/decomposition/tests/test_pca.py::test_pca_validation[arpack]', 'sklearn/decomposition/tests/test_pca.py::test_pca_validation[randomized]', 'sklearn/decomposition/tests/test_pca.py::test_pca_validation[auto]', 'sklearn/decomposition/tests/test_pca.py::test_n_components_none[full]', 'sklearn/decomposition/tests/test_pca.py::test_n_components_none[arpack]', 'sklearn/decomposition/tests/test_pca.py::test_n_components_none[randomized]', 'sklearn/decomposition/tests/test_pca.py::test_n_components_none[auto]', 'sklearn/decomposition/tests/test_pca.py::test_randomized_pca_check_projection', 'sklearn/decomposition/tests/test_pca.py::test_randomized_pca_check_list', 'sklearn/decomposition/tests/test_pca.py::test_randomized_pca_inverse', 'sklearn/decomposition/tests/test_pca.py::test_n_components_mle', 'sklearn/decomposition/tests/test_pca.py::test_pca_dim', 'sklearn/decomposition/tests/test_pca.py::test_infer_dim_1', 'sklearn/decomposition/tests/test_pca.py::test_infer_dim_2', 'sklearn/decomposition/tests/test_pca.py::test_infer_dim_3', 'sklearn/decomposition/tests/test_pca.py::test_infer_dim_by_explained_variance', 'sklearn/decomposition/tests/test_pca.py::test_pca_score', 'sklearn/decomposition/tests/test_pca.py::test_pca_score2', 'sklearn/decomposition/tests/test_pca.py::test_pca_score3', 'sklearn/decomposition/tests/test_pca.py::test_pca_score_with_different_solvers', 'sklearn/decomposition/tests/test_pca.py::test_pca_zero_noise_variance_edge_cases', 'sklearn/decomposition/tests/test_pca.py::test_svd_solver_auto', 'sklearn/decomposition/tests/test_pca.py::test_pca_sparse_input[full]', 'sklearn/decomposition/tests/test_pca.py::test_pca_sparse_input[arpack]', 'sklearn/decomposition/tests/test_pca.py::test_pca_sparse_input[randomized]', 'sklearn/decomposition/tests/test_pca.py::test_pca_sparse_input[auto]', 'sklearn/decomposition/tests/test_pca.py::test_pca_bad_solver', 'sklearn/decomposition/tests/test_pca.py::test_pca_dtype_preservation[full]', 'sklearn/decomposition/tests/test_pca.py::test_pca_dtype_preservation[arpack]', 'sklearn/decomposition/tests/test_pca.py::test_pca_dtype_preservation[randomized]', 'sklearn/decomposition/tests/test_pca.py::test_pca_dtype_preservation[auto]', 'sklearn/decomposition/tests/test_pca.py::test_pca_deterministic_output'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-13241: resolved: False
+2026-05-20 10:38:15,055 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-13241.gpt4omini_300_agentless_repaired...
+2026-05-20 10:38:30,242 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-13241.gpt4omini_300_agentless_repaired...
+2026-05-20 10:38:30,259 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13241.gpt4omini_300_agentless_repaired removed.
+2026-05-20 10:38:30,259 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13241:latest...
+2026-05-20 10:38:30,264 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13241:latest removed.

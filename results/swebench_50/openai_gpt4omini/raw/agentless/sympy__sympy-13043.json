@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-13043",
+  "raw": "```diff\ndiff --git a/sympy/core/basic.py b/sympy/core/basic.py\n--- a/sympy/core/basic.py\n+++ b/sympy/core/basic.py\n@@ -1,6 +1,7 @@\n \"\"\"Base class for all the objects in SymPy\"\"\"\n from __future__ import print_function, division\n from collections import Mapping, defaultdict\n \n+from sympy import default_sort_key\n from .assumptions import BasicMeta, ManagedProperties\n from .cache import cacheit\n from .sympify import _sympify, sympify, SympifyError\n@@ -1,84 +1,112 @@\n \n     def copy(self):\n         return self.func(*self.args)\n \n     def __reduce_ex__(self, proto):\n         \"\"\" Pickling support.\"\"\"\n         return type(self), self.__getnewargs__(), self.__getstate__()\n \n+    def sort_values(self):\n+        \"\"\"Sorts the values of the instance based on the default sort key.\"\"\"\n+        if hasattr(self, 'args'):\n+            return sorted(self.args, key=default_sort_key)\n+        return self.args  # Return as is if no sorting is applicable.\n  \n     def __getnewargs__(self):\n         return self.args\n \n     def __getstate__(self):\n         return {}\n \n     def __setstate__(self, state):\n         for k, v in state.items():\n             setattr(self, k, v)\n \n     def __hash__(self):\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 21265,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 229,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21494
+    },
+    "patch": {
+      "input_tokens": 21353,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 312,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21665
+    }
+  },
+  "localized_files": [
+    "sympy/core/basic.py",
+    "sympy/core/operations.py",
+    "sympy/core/sympify.py",
+    "sympy/core/function.py",
+    "sympy/core/compatibility.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/core/basic.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"Contains base class for all SymPy objects; likely relevant to decompose functionality.\"\n    },\n    {\n      \"path\": \"sympy/core/operations.py\",\n      \"confidence\": 0.75,\n      \"reason\": \"Contains operations regarding commutativity and associativity; could affect ordering.\"\n    },\n    {\n      \"path\": \"sympy/core/sympify.py\",\n      \"confidence\": 0.70,\n      \"reason\": \"Handles conversions to SymPy types; relevant for data ordering.\"\n    },\n    {\n      \"path\": \"sympy/core/function.py\",\n      \"confidence\": 0.90,\n      \"reason\": \"Contains Function and Application classes where decompose() is likely implemented.\"\n    },\n    {\n      \"path\": \"sympy/core/compatibility.py\",\n      \"confidence\": 0.65,\n      \"reason\": \"Compatibility functions; may indirectly affect sorting behaviors.\"\n    }\n  ]\n}\n```"
+}

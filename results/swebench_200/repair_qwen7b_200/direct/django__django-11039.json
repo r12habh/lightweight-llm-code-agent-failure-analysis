@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11039",
+  "input_patch_chars": 707,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/executor.py...\nerror: while searching for:\n        self.migration_plan = self.loader.graph.reduce_plan(self.migration_plan)\n\n    def _run_migration(self, migration, app_label, old_state, project_state, fake=False):\n        self.output_transaction = migration.atomic\n        with self.connection.schema_editor() as schema_editor:\n            migration.apply(schema_editor, project_state, fake=fake)\n        self.migration_plan.pop(0)\n\nerror: patch failed: django/db/migrations/executor.py:102\nApplying patch django/db/migrations/executor.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/migrations/executor.py\nHunk #1 FAILED at 102.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/migrations/executor.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

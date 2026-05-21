@@ -1,0 +1,10 @@
+diff --git a/sklearn/utils/validation.py b/sklearn/utils/validation.py
+index fe1f7236ec..97b56b49fd 100644
+--- a/sklearn/utils/validation.py
++++ b/sklearn/utils/validation.py
+@@ -936,3 +936,5 @@ def check_non_negative(X, whom):
+     X = X.data if sp.issparse(X) else X
+     if (X < 0).any():
+         raise ValueError("Negative values in data passed to %s" % whom)
++        if warn_on_dtype and X.dtype == object:
++            warnings.warn("Data with input dtype object was converted to float64.",

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-10924",
+  "input_patch_chars": 1364,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/files.py...\nHunk #1 succeeded at 8 (offset -2 lines).\nerror: while searching for:\n        if isinstance(self.upload_to, str) and self.upload_to.startswith('/'):\n            return [\n                checks.Error(\n                    hint='Remove the leading slash.',\n                )\n            ]\n\nerror: patch failed: django/db/models/fields/files.py:100\nerror: while searching for:\n        return []\n\n    def deconstruct(self):\n        name, path, args, kwargs = super().deconstruct()\n        if kwargs.get(\"max_length\") == 100:\n            del kwargs[\"max_length\"]\n\nerror: patch failed: django/db/models/fields/files.py:110\nApplying patch django/db/models/fields/files.py with 2 rejects...\nHunk #1 applied cleanly.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/files.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 8 (offset -2 lines).\nHunk #2 succeeded at 252 (offset 152 lines).\nHunk #3 FAILED at 110.\n1 out of 3 hunks FAILED -- saving rejects to file django/db/models/fields/files.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

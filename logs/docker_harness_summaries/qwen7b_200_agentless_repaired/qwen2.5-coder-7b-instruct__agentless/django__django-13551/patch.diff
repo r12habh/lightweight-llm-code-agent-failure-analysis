@@ -1,0 +1,28 @@
+diff --git a/docs/topics/auth/default.txt b/docs/topics/auth/default.txt
+index 343c44084e..c358432a01 100644
+--- a/docs/topics/auth/default.txt
++++ b/docs/topics/auth/default.txt
+@@ -100,6 +100,7 @@ You can also change a password programmatically, using
+     >>> from django.contrib.auth.models import User
+     >>> u = User.objects.get(username='john')
+     >>> u.set_password('new password')
++    # Add the user's email address to the password reset token
+     >>> u.save()
+ 
+ If you have the Django admin installed, you can also change user's passwords
+@@ -110,6 +111,7 @@ Django also provides :ref:`views <built-in-auth-views>` and :ref:`forms
+ passwords.
+ 
+ Changing a user's password will log out all their sessions. See
++    # Add the user's email address to the password reset token
+ :ref:`session-invalidation-on-password-change` for details.
+ 
+ Authenticating users
+@@ -120,6 +122,7 @@ Authenticating users
+     Use :func:`~django.contrib.auth.authenticate()` to verify a set of
+     credentials. It takes credentials as keyword arguments, ``username`` and
+     ``password`` for the default case, checks them against each
++        # Add the user's email address to the password reset token
+     :ref:`authentication backend <authentication-backends>`, and returns a
+     :class:`~django.contrib.auth.models.User` object if the credentials are
+     valid for a backend. If the credentials aren't valid for any backend or if

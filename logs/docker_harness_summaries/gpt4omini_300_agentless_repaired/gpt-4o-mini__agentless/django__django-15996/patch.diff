@@ -1,0 +1,32 @@
+diff --git a/django/db/models/query_utils.py b/django/db/models/query_utils.py
+index d566cc1883..6c9d3e9cdb 100644
+--- a/django/db/models/query_utils.py
++++ b/django/db/models/query_utils.py
+@@ -13,6 +13,7 @@ from collections import namedtuple
+ from django.core.exceptions import FieldError
+ from django.db import DEFAULT_DB_ALIAS, DatabaseError
+ from django.db.models.constants import LOOKUP_SEP
++from django.db.models import F
+ from django.utils import tree
+ 
+ logger = logging.getLogger("django.db.models")
+@@ -274,6 +275,11 @@ def select_related_descend(field, restricted, requested, load_fields, reverse=Fa
+      * load_fields - the set of fields to be loaded on this model
+      * reverse - boolean, True if we are checking a reverse select related
+     """
++    Return True if this field should be used to descend deeper for
++    select_related() purposes. Used by both the query construction code
++    (compiler.get_related_selections()) and the model instance creation code
++    (compiler.klass_info).
++    """
+     if not field.remote_field:
+         return False
+     if field.remote_field.parent_link and not reverse:
+@@ -314,6 +320,8 @@ def check_rel_lookup_compatibility(model, target_opts, field):
+     Check that self.model is compatible with target_opts. Compatibility
+     is OK if:
+       1) model and opts match (where proxy inheritance is removed)
++    Check that self.model is compatible with target_opts. Compatibility
++    is OK if the model and opts match or the model is parent of opts' model.
+       2) model is parent of opts' model or the other way around
+     """

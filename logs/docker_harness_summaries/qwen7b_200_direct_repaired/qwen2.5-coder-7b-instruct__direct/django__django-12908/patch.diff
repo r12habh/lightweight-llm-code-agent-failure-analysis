@@ -1,0 +1,12 @@
+diff --git a/tests/gis_tests/geoapp/tests.py b/tests/gis_tests/geoapp/tests.py
+index 4d441dcb94..69ac90a1f7 100644
+--- a/tests/gis_tests/geoapp/tests.py
++++ b/tests/gis_tests/geoapp/tests.py
+@@ -123,6 +123,7 @@ class GeoModelTest(TestCase):
+ 
+         # If the GeometryField SRID is -1, then we shouldn't perform any
+         # transformation if the SRID of the input geometry is different.
++        qs = qs.distinct('name')
+         m1 = MinusOneSRID(geom=Point(17, 23, srid=4326))
+         m1.save()
+         self.assertEqual(-1, m1.geom.srid)

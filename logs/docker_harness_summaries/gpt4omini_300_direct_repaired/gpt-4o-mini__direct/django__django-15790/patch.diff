@@ -1,0 +1,15 @@
+diff --git a/django/core/checks/templates.py b/django/core/checks/templates.py
+index 5214276987..4ac1a6e023 100644
+--- a/django/core/checks/templates.py
++++ b/django/core/checks/templates.py
+@@ -18,9 +18,9 @@ E002 = Error(
+ E003 = Error(
+     "{} is used for multiple template tag modules: {}",
+     id="templates.E003",
+-)
+ 
+ 
++)
+ @register(Tags.templates)
+ def check_setting_app_dirs_loaders(app_configs, **kwargs):
+     return (

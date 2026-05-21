@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/colorbar.py b/lib/matplotlib/colorbar.py
+index d3d53e3d98..7fe1c15dee 100644
+--- a/lib/matplotlib/colorbar.py
++++ b/lib/matplotlib/colorbar.py
+@@ -631,6 +631,7 @@ class Colorbar:
+             hatches = hatches[1:]
+         patches = []
+         for i in range(len(X) - 1):
++        mappable.autoscale_None()
+             xy = np.array([[X[i, 0], Y[i, 1]],
+                            [X[i, 1], Y[i, 0]],
+                            [X[i + 1, 1], Y[i + 1, 0]],

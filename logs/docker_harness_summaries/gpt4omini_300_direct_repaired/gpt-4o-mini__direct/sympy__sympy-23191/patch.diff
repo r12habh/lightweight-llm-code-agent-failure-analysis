@@ -1,0 +1,13 @@
+diff --git a/sympy/physics/vector/printing.py b/sympy/physics/vector/printing.py
+index 59efcd90e3..a4cc421487 100644
+--- a/sympy/physics/vector/printing.py
++++ b/sympy/physics/vector/printing.py
+@@ -130,7 +130,7 @@ def _print_Derivative(self, deriv):
+         # dynamic symbol I guess, so we'll just print the SymPy way
+         if len(pform.picture) > 1:
+             return super()._print_Derivative(deriv)
+-
++        
+         # There are only special symbols up to fourth-order derivatives
+         if dot_i >= 5:
+             return super()._print_Derivative(deriv)

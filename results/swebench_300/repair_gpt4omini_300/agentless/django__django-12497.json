@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12497",
+  "input_patch_chars": 757,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/ref/checks.txt...\nerror: while searching for:\n* **fields.E332**: Many-to-many fields with intermediate tables must not be\n  symmetrical.\n* **fields.E333**: The model is used as an intermediate model by ``<model>``,\n  but it has more than two foreign keys to ``<model>``, which is ambiguous.\n  * This check appeared before Django 3.0.\n* **fields.E334**: The model is used as an intermediate model by ``<model>``,\n  but it has more than one foreign key from ``<model>``, which is ambiguous.\n\nerror: patch failed: docs/ref/checks.txt:598\nerror: docs/ref/checks.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/ref/checks.txt...\nerror: while searching for:\n* **fields.E332**: Many-to-many fields with intermediate tables must not be\n  symmetrical.\n* **fields.E333**: The model is used as an intermediate model by ``<model>``,\n  but it has more than two foreign keys to ``<model>``, which is ambiguous.\n  * This check appeared before Django 3.0.\n* **fields.E334**: The model is used as an intermediate model by ``<model>``,\n  but it has more than one foreign key from ``<model>``, which is ambiguous.\n\nerror: patch failed: docs/ref/checks.txt:598\nApplying patch docs/ref/checks.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 836
+}

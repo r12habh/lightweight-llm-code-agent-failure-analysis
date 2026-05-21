@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-17022",
+  "input_patch_chars": 475,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/printing/jscode.py...\nerror: while searching for:\n\n    def _print_Identity(self, expr):\n        return \"Math.eye(%s)\" % self._print(expr.shape[0])\n\ndef jscode(expr, assign_to=None, **settings):\n    \"\"\"Converts an expr to a string of javascript code\n\nerror: patch failed: sympy/printing/jscode.py:76\nerror: sympy/printing/jscode.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/jscode.py...\nerror: while searching for:\n\n    def _print_Identity(self, expr):\n        return \"Math.eye(%s)\" % self._print(expr.shape[0])\n\ndef jscode(expr, assign_to=None, **settings):\n    \"\"\"Converts an expr to a string of javascript code\n\nerror: patch failed: sympy/printing/jscode.py:76\nApplying patch sympy/printing/jscode.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 553
+}

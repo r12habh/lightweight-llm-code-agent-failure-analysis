@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13401",
+  "input_patch_chars": 8354,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 179\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 36: +                 if not hasattr(self, 'model'):\n\n",
+          "stdout": "patching file django/db/models/fields/__init__.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 131 (offset 8 lines).\nHunk #2 FAILED at 130.\nHunk #3 FAILED at 141.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

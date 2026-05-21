@@ -1,0 +1,22 @@
+diff --git a/django/core/management/__init__.py b/django/core/management/__init__.py
+index 1ba093e51f..00ef0a0f4b 100644
+--- a/django/core/management/__init__.py
++++ b/django/core/management/__init__.py
+@@ -17,7 +17,7 @@ from django.core.management.base import (
+     BaseCommand, CommandError, CommandParser, handle_default_options,
+ )
+ from django.core.management.color import color_style
+-from django.utils import autoreload
++from django.utils import autoreload, timezone
+ 
+ 
+ def find_commands(management_dir):
+@@ -98,7 +98,7 @@ def call_command(command_name, *args, **options):
+     if isinstance(command_name, BaseCommand):
+         # Command object passed in.
+         command = command_name
+-        command_name = command.__class__.__module__.split('.')[-1]
++        command_name = command.__class__.__module__.split('.')[-1].replace('management', '')
+     else:
+         # Load the command object by name.
+         try:

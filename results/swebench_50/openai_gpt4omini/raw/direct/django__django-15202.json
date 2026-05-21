@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-15202",
+  "raw": "```diff\ndiff --git a/django/forms/fields.py b/django/forms/fields.py\n--- a/django/forms/fields.py\n+++ b/django/forms/fields.py\n@@ -137,7 +137,7 @@\n         value = self.to_python(value)\n         self.validate(value)\n         try:\n-            self.run_validators(value)\n+            self.run_validators(value)\n         except ValidationError:\n             raise ValidationError(self.error_messages['invalid'], code='invalid')\n         return value\n```",
+  "usage": {
+    "input_tokens": 20394,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 107,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20501
+  },
+  "localized_files": []
+}

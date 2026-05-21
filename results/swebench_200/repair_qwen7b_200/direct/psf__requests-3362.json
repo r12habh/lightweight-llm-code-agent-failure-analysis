@@ -1,0 +1,25 @@
+{
+  "instance_id": "psf__requests-3362",
+  "input_patch_chars": 853,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/models.py...\nerror: while searching for:\n        \"\"\"\n        Returns the response body as bytes.\n\n        :rtype: bytes\n        \"\"\"\n        if self._content is None:\n            self._content = self.raw.read()\n\nerror: patch failed: requests/models.py:1020\nerror: while searching for:\n        return self._content\n\n    @property\n    def text(self):\n        \"\"\"\n        Returns the response body as unicode.\n\n\nerror: patch failed: requests/models.py:1030\nerror: while searching for:\n        \"\"\"\n        if self._text is None:\n            self._text = self.content.decode(self.encoding or 'utf-8')\n        return self._text\n\n    @property\n    def json(self):\n\nerror: patch failed: requests/models.py:1040\nApplying patch requests/models.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file requests/models.py\nHunk #1 FAILED at 1020.\nHunk #2 succeeded at 755 with fuzz 3 (offset -275 lines).\nHunk #3 FAILED at 1040.\n2 out of 3 hunks FAILED -- saving rejects to file requests/models.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

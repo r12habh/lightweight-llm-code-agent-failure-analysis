@@ -1,0 +1,11 @@
+diff --git a/sympy/physics/units/systems/si.py b/sympy/physics/units/systems/si.py
+index 700495ad9d..ae2a9d7436 100644
+--- a/sympy/physics/units/systems/si.py
++++ b/sympy/physics/units/systems/si.py
+@@ -275,6 +275,7 @@
+ SI.set_quantity_dimension(planck_area, length ** 2)
+ SI.set_quantity_scale_factor(planck_area, planck_length**2)
+ 
++SI.set_quantity_dimension(exp, Dimension(1))  # Adding dimensionless status to exp
+ SI.set_quantity_dimension(planck_volume, length ** 3)
+ SI.set_quantity_scale_factor(planck_volume, planck_length**3)

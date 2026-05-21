@@ -1,0 +1,26 @@
+{
+  "instance_id": "django__django-13757",
+  "input_patch_chars": 585,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch tests/model_fields/test_jsonfield.py...\nerror: while searching for:\n        self.assertSequenceEqual(\n            NullableJSONModel.objects.filter(value__a__isnull=True),\n            self.objs[:3] + self.objs[5:],\n        )\n        self.assertSequenceEqual(\n            NullableJSONModel.objects.filter(value__j__isnull=True),\n            self.objs[:4] + self.objs[5:],\n\nerror: patch failed: tests/model_fields/test_jsonfield.py:204\nApplying patch tests/model_fields/test_jsonfield.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file tests/model_fields/test_jsonfield.py\nHunk #1 succeeded at 585 with fuzz 2 (offset 381 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

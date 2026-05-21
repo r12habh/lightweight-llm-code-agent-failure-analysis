@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-18057",
+  "raw": "```diff\ndiff --git a/sympy/parsing/sympy_parser.py b/sympy/parsing/sympy_parser.py\nindex 913d1e7..3e987b6 100644\n--- a/sympy/parsing/sympy_parser.py\n+++ b/sympy/parsing/sympy_parser.py\n@@ -912,7 +912,7 @@ def _apply_functions(tokens, local_dict, global_dict):\n             result[-1] = AppliedFunction(symbol, tok)\n             symbol = None\n         else:\n-            symbol = None\n+            symbol = None  # Reset to allow matching next function\n             result.append(tok)\n     return result\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 20680,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 237,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20917
+    },
+    "patch": {
+      "input_tokens": 20737,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 145,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20882
+    }
+  },
+  "localized_files": [
+    "sympy/core/sympify.py",
+    "sympy/core/expr.py",
+    "sympy/parsing/sympy_parser.py",
+    "sympy/core/function.py",
+    "sympy/core/numbers.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/core/sympify.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Uses eval which can execute arbitrary code and is exploited in equality checks.\"\n    },\n    {\n      \"path\": \"sympy/core/expr.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"__eq__ method uses sympify, relying on eval, which can execute unsafe code.\"\n    },\n    {\n      \"path\": \"sympy/parsing/sympy_parser.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"executes parsing expressions which could include eval, leading to security issues.\"\n    },\n    {\n      \"path\": \"sympy/core/function.py\",\n      \"confidence\": 0.75,\n      \"reason\": \"Manages applications of values which may involve unsafe evaluations.\"\n    },\n    {\n      \"path\": \"sympy/core/numbers.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Interacts with objects that can trigger eval in different contexts.\"\n    }\n  ]\n}\n```"
+}

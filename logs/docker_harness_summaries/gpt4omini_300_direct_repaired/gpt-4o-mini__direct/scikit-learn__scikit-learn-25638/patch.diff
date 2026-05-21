@@ -1,0 +1,16 @@
+diff --git a/sklearn/utils/multiclass.py b/sklearn/utils/multiclass.py
+index 5eaef2fde8..4ac32cd332 100644
+--- a/sklearn/utils/multiclass.py
++++ b/sklearn/utils/multiclass.py
+@@ -304,6 +304,11 @@ def type_of_target(y, input_name=""):
+     # value error (NumPy >= 1.24).
+     with warnings.catch_warnings():
+         warnings.simplefilter("error", np.VisibleDeprecationWarning)
++    We also accommodate nullable pandas dtypes for compatibility.
++    Specifically for dtypes: "Int64", "Float64", "boolean".
++
++    Note: These will be treated the same as their numpy equivalents.
++
+         if not issparse(y):
+             try:
+                 y = xp.asarray(y)

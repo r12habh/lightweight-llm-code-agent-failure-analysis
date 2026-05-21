@@ -1,0 +1,74 @@
+{
+  "agentless": {
+    "apply_command_distribution": {
+      "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 128,
+      "None": 143,
+      "git apply --verbose": 29
+    },
+    "empty_output": 143,
+    "invalid": 143,
+    "invalid_examples_first_10": [
+      "astropy__astropy-14995",
+      "astropy__astropy-6938",
+      "django__django-10914",
+      "django__django-10924",
+      "django__django-11039",
+      "django__django-11049",
+      "django__django-11099",
+      "django__django-11422",
+      "django__django-11564",
+      "django__django-11583"
+    ],
+    "nonempty_output": 157,
+    "records": 300,
+    "repaired": 157,
+    "repaired_jsonl_diff_header": 300,
+    "repaired_jsonl_duplicates": [],
+    "repaired_jsonl_exact_field_rows": 300,
+    "repaired_jsonl_nonempty_patch": 300,
+    "repaired_jsonl_rows": 300,
+    "repaired_jsonl_unique_instance_ids": 300,
+    "selected_candidate_distribution": {
+      "None": 143,
+      "original": 157
+    },
+    "unchanged": 143,
+    "valid": 157
+  },
+  "direct": {
+    "apply_command_distribution": {
+      "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 126,
+      "None": 149,
+      "git apply --verbose": 25
+    },
+    "empty_output": 149,
+    "invalid": 149,
+    "invalid_examples_first_10": [
+      "astropy__astropy-14182",
+      "astropy__astropy-6938",
+      "django__django-10914",
+      "django__django-10924",
+      "django__django-11001",
+      "django__django-11039",
+      "django__django-11133",
+      "django__django-11564",
+      "django__django-11620",
+      "django__django-11797"
+    ],
+    "nonempty_output": 151,
+    "records": 300,
+    "repaired": 150,
+    "repaired_jsonl_diff_header": 300,
+    "repaired_jsonl_duplicates": [],
+    "repaired_jsonl_exact_field_rows": 300,
+    "repaired_jsonl_nonempty_patch": 300,
+    "repaired_jsonl_rows": 300,
+    "repaired_jsonl_unique_instance_ids": 300,
+    "selected_candidate_distribution": {
+      "None": 149,
+      "original": 151
+    },
+    "unchanged": 150,
+    "valid": 151
+  }
+}

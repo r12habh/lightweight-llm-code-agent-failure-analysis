@@ -1,0 +1,28 @@
+{
+  "instance_id": "pytest-dev__pytest-7432",
+  "input_patch_chars": 463,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/_pytest/skipping.py...\nerror: while searching for:\n   elif (\n       item._store.get(skipped_by_mark_key, True)\n       and rep.skipped\n        and type(rep.longrepr) is tuple\n    ):\n        # skipped by mark.skipif; change the location of the failure\n        # to point to the item definition, otherwise it will display\n\nerror: patch failed: src/_pytest/skipping.py:184\nerror: src/_pytest/skipping.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/skipping.py...\nerror: while searching for:\n   elif (\n       item._store.get(skipped_by_mark_key, True)\n       and rep.skipped\n        and type(rep.longrepr) is tuple\n    ):\n        # skipped by mark.skipif; change the location of the failure\n        # to point to the item definition, otherwise it will display\n\nerror: patch failed: src/_pytest/skipping.py:184\nApplying patch src/_pytest/skipping.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 565
+}

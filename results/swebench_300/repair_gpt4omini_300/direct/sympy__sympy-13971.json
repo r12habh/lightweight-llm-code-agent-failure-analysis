@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-13971",
+  "input_patch_chars": 836,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: patch fragment without header at line 14: @@ -1,4 +1,4 @@\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/physics/quantum/qexpr.py\nHunk #1 FAILED at 1.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/physics/quantum/qexpr.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

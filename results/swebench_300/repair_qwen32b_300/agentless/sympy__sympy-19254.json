@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-19254",
+  "input_patch_chars": 802,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/polys/factortools.py...\nerror: while searching for:\n    \"\"\"Mignotte bound for univariate polynomials in `K[x]`. \"\"\"\n    a = dup_max_norm(f, K)\n    b = abs(dup_LC(f, K))\n    n = dup_degree(f)\n\n    return K.sqrt(K(n + 1))*2**n*a*b\n\ndef dmp_zz_mignotte_bound(f, u, K):\n    \"\"\"Mignotte bound for multivariate polynomials in `K[X]`. \"\"\"\n    a = dmp_max_norm(f, u, K)\n    b = abs(dmp_ground_LC(f, u, K))\n    n = sum(dmp_degree_list(f, u))\n\nerror: patch failed: sympy/polys/factortools.py:100\nApplying patch sympy/polys/factortools.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/polys/factortools.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/polys/factortools.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

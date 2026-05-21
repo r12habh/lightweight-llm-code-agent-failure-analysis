@@ -1,0 +1,1536 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   setup.py
+	modified:   sphinx/ext/autodoc/typehints.py
+	modified:   tox.ini
+
+no changes added to commit (use "git add" and/or "git commit -a")
++ git show
+commit 2c2335bbb8af99fa132e1573bbf45dc91584d5a2
+Author: Takeshi KOMIYA <i.tkomiya@gmail.com>
+Date:   Wed Oct 28 00:04:10 2020 +0900
+
+    Update CHANGES for PR #8304
+
+diff --git a/CHANGES b/CHANGES
+index d55972c8e..d86bd2eb6 100644
+--- a/CHANGES
++++ b/CHANGES
+@@ -29,6 +29,7 @@ Features added
+ * #8289: epub: Allow to suppress "duplicated ToC entry found" warnings from epub
+   builder using :confval:`suppress_warnings`.
+ * #8298: sphinx-quickstart: Add :option:`sphinx-quickstart --no-sep` option
++* #8304: sphinx.testing: Register public markers in sphinx.testing.fixtures
+ 
+ Bugs fixed
+ ----------
++ git -c core.fileMode=false diff 2c2335bbb8af99fa132e1573bbf45dc91584d5a2
+diff --git a/setup.py b/setup.py
+index 8505d2679..2571a3294 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,22 +15,22 @@ if sys.version_info < (3, 5):
+     sys.exit(1)
+ 
+ install_requires = [
+-    'sphinxcontrib-applehelp',
+-    'sphinxcontrib-devhelp',
++    'sphinxcontrib-applehelp<=1.0.7',
++    'sphinxcontrib-devhelp<=1.0.5',
+     'sphinxcontrib-jsmath',
+-    'sphinxcontrib-htmlhelp',
+-    'sphinxcontrib-serializinghtml',
+-    'sphinxcontrib-qthelp',
+-    'Jinja2>=2.3',
++    'sphinxcontrib-htmlhelp<=2.0.4',
++    'sphinxcontrib-serializinghtml<=1.1.9',
++    'sphinxcontrib-qthelp<=1.0.6',
++    'Jinja2<3.0',
+     'Pygments>=2.0',
+     'docutils>=0.12',
+     'snowballstemmer>=1.1',
+     'babel>=1.3',
+-    'alabaster>=0.7,<0.8',
++    'alabaster>=0.7,<0.7.12',
+     'imagesize',
+     'requests>=2.5.0',
+     'setuptools',
+-    'packaging',
++    'packaging', 'markupsafe<=2.0.1',
+ ]
+ 
+ extras_require = {
+diff --git a/sphinx/ext/autodoc/typehints.py b/sphinx/ext/autodoc/typehints.py
+index 4f81a6eae..e21587771 100644
+--- a/sphinx/ext/autodoc/typehints.py
++++ b/sphinx/ext/autodoc/typehints.py
+@@ -66,6 +66,9 @@ def merge_typehints(app: Sphinx, domain: str, objtype: str, contentnode: Element
+         for field_list in field_lists:
+             modify_field_list(field_list, annotations[fullname])
+ 
++                else:
++                    # Handle overloaded callables
++                    annotation[param.name] = None
+ 
+ def insert_field_list(node: Element) -> nodes.field_list:
+     field_list = nodes.field_list()
+diff --git a/tox.ini b/tox.ini
+index a61299979..e2baccc07 100644
+--- a/tox.ini
++++ b/tox.ini
+@@ -28,7 +28,7 @@ setenv =
+     PYTHONWARNINGS = all,ignore::ImportWarning:importlib._bootstrap_external,ignore::DeprecationWarning:site,ignore::DeprecationWarning:distutils
+     PYTEST_ADDOPTS = --color yes
+ commands=
+-    pytest --durations 25 {posargs}
++    pytest -rA --durations 25 {posargs}
+ 
+ [testenv:flake8]
+ basepython = python3
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e '.[test]'
+Obtaining file:///testbed
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: sphinxcontrib-applehelp<=1.0.7 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.0.4)
+Requirement already satisfied: sphinxcontrib-devhelp<=1.0.5 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.0.2)
+Requirement already satisfied: sphinxcontrib-jsmath in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.0.1)
+Requirement already satisfied: sphinxcontrib-htmlhelp<=2.0.4 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (2.0.1)
+Requirement already satisfied: sphinxcontrib-serializinghtml<=1.1.9 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.1.5)
+Requirement already satisfied: sphinxcontrib-qthelp<=1.0.6 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.0.3)
+Requirement already satisfied: Jinja2<3.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (2.11.3)
+Requirement already satisfied: Pygments>=2.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (2.18.0)
+Requirement already satisfied: docutils>=0.12 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (0.21.2)
+Requirement already satisfied: snowballstemmer>=1.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (2.2.0)
+Requirement already satisfied: babel>=1.3 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (2.16.0)
+Requirement already satisfied: alabaster<0.7.12,>=0.7 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (0.7.11)
+Requirement already satisfied: imagesize in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.4.1)
+Requirement already satisfied: requests>=2.5.0 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (2.32.3)
+Requirement already satisfied: setuptools in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (75.1.0)
+Requirement already satisfied: packaging in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (24.1)
+Requirement already satisfied: markupsafe<=2.0.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (2.0.1)
+Requirement already satisfied: pytest in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (8.3.3)
+Requirement already satisfied: pytest-cov in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (6.0.0)
+Requirement already satisfied: html5lib in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.1)
+Requirement already satisfied: typed_ast in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (1.5.5)
+Requirement already satisfied: cython in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from Sphinx==3.3.0.dev20260520) (3.0.11)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests>=2.5.0->Sphinx==3.3.0.dev20260520) (3.4.0)
+Requirement already satisfied: idna<4,>=2.5 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests>=2.5.0->Sphinx==3.3.0.dev20260520) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests>=2.5.0->Sphinx==3.3.0.dev20260520) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from requests>=2.5.0->Sphinx==3.3.0.dev20260520) (2024.8.30)
+Requirement already satisfied: six>=1.9 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from html5lib->Sphinx==3.3.0.dev20260520) (1.16.0)
+Requirement already satisfied: webencodings in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from html5lib->Sphinx==3.3.0.dev20260520) (0.5.1)
+Requirement already satisfied: iniconfig in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->Sphinx==3.3.0.dev20260520) (2.0.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->Sphinx==3.3.0.dev20260520) (1.5.0)
+Requirement already satisfied: exceptiongroup>=1.0.0rc8 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->Sphinx==3.3.0.dev20260520) (1.2.2)
+Requirement already satisfied: tomli>=1 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from pytest->Sphinx==3.3.0.dev20260520) (2.0.2)
+Requirement already satisfied: coverage>=7.5 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from coverage[toml]>=7.5->pytest-cov->Sphinx==3.3.0.dev20260520) (7.6.4)
+Installing collected packages: Sphinx
+  Attempting uninstall: Sphinx
+    Found existing installation: Sphinx 3.3.0.dev20241031
+    Uninstalling Sphinx-3.3.0.dev20241031:
+      Successfully uninstalled Sphinx-3.3.0.dev20241031
+  DEPRECATION: Legacy editable install of Sphinx[test]==3.3.0.dev20260520 from file:///testbed (setup.py develop) is deprecated. pip 25.0 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+  Running setup.py develop for Sphinx
+Successfully installed Sphinx
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git checkout 2c2335bbb8af99fa132e1573bbf45dc91584d5a2 tests/test_ext_autodoc_configs.py
+Updated 0 paths from e6f5e1ead
++ git apply -v -
+Checking patch tests/test_ext_autodoc_configs.py...
+Applied patch tests/test_ext_autodoc_configs.py cleanly.
++ : '>>>>> Start Test Output'
++ tox --current-env -epy39 -v -- tests/test_ext_autodoc_configs.py
+py39: commands[0]> pytest -rA --durations 25 tests/test_ext_autodoc_configs.py
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.20, pytest-8.3.3, pluggy-1.5.0
+cachedir: .tox/py39/.pytest_cache
+libraries: Sphinx-3.3.0+/2c2335bbb, docutils-0.21.2
+base tempdir: /tmp/pytest-of-root/pytest-0
+rootdir: /testbed
+configfile: setup.cfg
+plugins: cov-6.0.0
+collected 17 items
+
+tests/test_ext_autodoc_configs.py [31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31m                      [100%][0m
+
+==================================== ERRORS ====================================
+[31m[1m________________ ERROR at setup of test_autoclass_content_class ________________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc8a41f0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc8b2850>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m________________ ERROR at setup of test_autoclass_content_init _________________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffbf52040>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc358e20>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m________________ ERROR at setup of test_autoclass_content_both _________________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc432670>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc3f1a90>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m______________ ERROR at setup of test_autodoc_inherit_docstrings _______________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc14d040>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffbf0bf40>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m______________ ERROR at setup of test_autodoc_docstring_signature ______________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc12b670>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffce22730>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m____ ERROR at setup of test_autoclass_content_and_docstring_signature_class ____[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc4323a0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc2e98e0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m____ ERROR at setup of test_autoclass_content_and_docstring_signature_init _____[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc3279d0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc8b2610>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m____ ERROR at setup of test_autoclass_content_and_docstring_signature_both _____[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc12bee0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffbf0bb20>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m_________________ ERROR at setup of test_mocked_module_imports _________________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc453d30>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc263d30>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m______________ ERROR at setup of test_autodoc_typehints_signature ______________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'confoverrides': {'autodoc_typehints': 'signature'}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffbf64040>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffbf67670>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m________________ ERROR at setup of test_autodoc_typehints_none _________________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'confoverrides': {'autodoc_typehints': 'none'}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc8dad30>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffceb1ee0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m__________ ERROR at setup of test_autodoc_typehints_none_for_overload __________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'confoverrides': {'autodoc_typehints': 'none'}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc12bb80>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc348b20>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m_____________ ERROR at setup of test_autodoc_typehints_description _____________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['text'], kwargs={'confoverrides': {'autodoc_typehints': 'description'}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffdb54700>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc2d2220>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m____ ERROR at setup of test_autodoc_typehints_description_for_invalid_node _____[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['text'], kwargs={'confoverrides': {'autodoc_typehints': 'description'}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffbf52310>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc360610>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m_________________ ERROR at setup of test_autodoc_type_aliases __________________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['text'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc3f6550>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffce178e0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m________________ ERROR at setup of test_autodoc_default_options ________________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc8daaf0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc3dd520>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[31m[1m__________ ERROR at setup of test_autodoc_default_options_with_values __________[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['html'], kwargs={'srcdir': path('/tmp/pytest-of-root/pytest-0/ext-autodoc')})
+make_app = <function make_app.<locals>.make at 0x7ffffc1cb3a0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x7ffffc2dacd0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m [92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:196: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:245: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:429: in load_extension
+    [0mmetadata = setup(app)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:2281: in setup
+    [0mapp.setup_extension([33m'[39;49;00m[33msphinx.ext.autodoc.typehints[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:402: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+[1m[31msphinx/registry.py[0m:416: in load_extension
+    [0mmod = import_module(extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'sphinx.ext.autodoc.typehints', package = None
+
+    [0m[94mdef[39;49;00m [92mimport_module[39;49;00m(name, package=[94mNone[39;49;00m):[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Import a module.[39;49;00m
+    [33m[39;49;00m
+    [33m    The 'package' argument is required when performing a relative import. It[39;49;00m
+    [33m    specifies the package to use as the anchor point from which to resolve the[39;49;00m
+    [33m    relative import to an absolute import.[39;49;00m
+    [33m[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        level = [94m0[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m name.startswith([33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m):[90m[39;49;00m
+            [94mif[39;49;00m [95mnot[39;49;00m package:[90m[39;49;00m
+                msg = ([33m"[39;49;00m[33mthe [39;49;00m[33m'[39;49;00m[33mpackage[39;49;00m[33m'[39;49;00m[33m argument is required to perform a relative [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                       [33m"[39;49;00m[33mimport for [39;49;00m[33m{!r}[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+                [94mraise[39;49;00m [96mTypeError[39;49;00m(msg.format(name))[90m[39;49;00m
+            [94mfor[39;49;00m character [95min[39;49;00m name:[90m[39;49;00m
+                [94mif[39;49;00m character != [33m'[39;49;00m[33m.[39;49;00m[33m'[39;49;00m:[90m[39;49;00m
+                    [94mbreak[39;49;00m[90m[39;49;00m
+                level += [94m1[39;49;00m[90m[39;49;00m
+>       [94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31mE         File "/testbed/sphinx/ext/autodoc/typehints.py", line 69[0m
+[1m[31mE           else:[0m
+[1m[31mE       IndentationError: unexpected indent[0m
+
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: IndentationError
+[33m=============================== warnings summary ===============================[0m
+sphinx/util/docutils.py:45
+  /testbed/sphinx/util/docutils.py:45: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    __version_info__ = tuple(LooseVersion(docutils.__version__).version)
+
+sphinx/registry.py:22
+  /testbed/sphinx/registry.py:22: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    from pkg_resources import iter_entry_points
+
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3154
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3154
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3154
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3154
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+sphinx/directives/patches.py:15
+  /testbed/sphinx/directives/patches.py:15: DeprecationWarning: The `docutils.parsers.rst.directive.html` module will be removed in Docutils 2.0. Since Docutils 0.18, the "Meta" node is defined in `docutils.parsers.rst.directives.misc`.
+    from docutils.parsers.rst.directives import images, html, tables
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 25 durations =============================
+0.30s setup    tests/test_ext_autodoc_configs.py::test_autoclass_content_class
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_typehints_none
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_typehints_description
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_docstring_signature
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_typehints_none_for_overload
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autoclass_content_and_docstring_signature_both
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_typehints_description_for_invalid_node
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_type_aliases
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autoclass_content_and_docstring_signature_init
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_inherit_docstrings
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autoclass_content_init
+0.01s setup    tests/test_ext_autodoc_configs.py::test_mocked_module_imports
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_typehints_signature
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autoclass_content_both
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_default_options
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autoclass_content_and_docstring_signature_class
+0.01s setup    tests/test_ext_autodoc_configs.py::test_autodoc_default_options_with_values
+
+(8 durations < 0.005s hidden.  Use -vv to show these durations.)
+[36m[1m=========================== short test summary info ============================[0m
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autoclass_content_class[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autoclass_content_init[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autoclass_content_both[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_inherit_docstrings[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_docstring_signature[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autoclass_content_and_docstring_signature_class[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autoclass_content_and_docstring_signature_init[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autoclass_content_and_docstring_signature_both[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_mocked_module_imports[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_typehints_signature[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_typehints_none[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_typehints_none_for_overload[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_typehints_description[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_typehints_description_for_invalid_node[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_type_aliases[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_default_options[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31mERROR[0m tests/test_ext_autodoc_configs.py::[1mtest_autodoc_default_options_with_values[0m -   File "/testbed/sphinx/ext/autodoc/typehints.py", line 69
+[31m======================== [33m7 warnings[0m, [31m[1m17 errors[0m[31m in 1.83s[0m[31m ========================[0m
+py39: exit 1 (2.50 seconds) /testbed> pytest -rA --durations 25 tests/test_ext_autodoc_configs.py pid=78
+  py39: FAIL code 1 (2.53=setup[0.03]+cmd[2.50] seconds)
+  evaluation failed :( (2.61 seconds)
++ : '>>>>> End Test Output'
++ git checkout 2c2335bbb8af99fa132e1573bbf45dc91584d5a2 tests/test_ext_autodoc_configs.py
+Updated 1 path from e6f5e1ead

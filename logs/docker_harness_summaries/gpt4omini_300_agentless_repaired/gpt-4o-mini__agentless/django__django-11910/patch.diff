@@ -1,0 +1,13 @@
+diff --git a/django/db/migrations/operations/fields.py b/django/db/migrations/operations/fields.py
+index 402dae2829..fc4bae3e5a 100644
+--- a/django/db/migrations/operations/fields.py
++++ b/django/db/migrations/operations/fields.py
+@@ -274,7 +274,7 @@ class AlterField(FieldOperation):
+ class RenameField(FieldOperation):
+     """Rename a field on the model. Might affect db_column too."""
+ 
+-    def __init__(self, model_name, old_name, new_name):
++    def __init__(self, model_name, old_name, new_name, to_field=None):
+         self.old_name = old_name
+         self.new_name = new_name
+         super().__init__(model_name, old_name)

@@ -1,0 +1,45 @@
+2026-05-20 10:33:41,888 - INFO - Creating container for scikit-learn__scikit-learn-10297...
+2026-05-20 10:33:41,935 - INFO - Container for scikit-learn__scikit-learn-10297 created: 1c32c609093984ce199531a72a0b1e951239c6dce98379195dd45d65dc5d6c80
+2026-05-20 10:33:42,064 - INFO - Container for scikit-learn__scikit-learn-10297 started: 1c32c609093984ce199531a72a0b1e951239c6dce98379195dd45d65dc5d6c80
+2026-05-20 10:33:42,064 - INFO - Intermediate patch for scikit-learn__scikit-learn-10297 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-10297/patch.diff, now applying to container...
+2026-05-20 10:33:42,257 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/linear_model/ridge.py...
+Applied patch sklearn/linear_model/ridge.py cleanly.
+
+2026-05-20 10:33:42,645 - INFO - Git diff before:
+diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3..d5a11ec64 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -20,6 +20,7 @@ from scipy.sparse import linalg as sp_linalg
+ from .base import LinearClassifierMixin, LinearModel, _rescale_data
+ from .sag import sag_solver
+ from ..base import RegressorMixin
++    def __init__(self, *args, store_cv_values=False, **kwargs):
+ from ..utils.extmath import safe_sparse_dot
+ from ..utils.extmath import row_norms
+ from ..utils import check_X_y
+2026-05-20 10:33:42,646 - INFO - Eval script for scikit-learn__scikit-learn-10297 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-10297/eval.sh; copying to container...
+2026-05-20 10:33:47,855 - INFO - Test runtime: 5.14 seconds
+2026-05-20 10:33:47,856 - INFO - Test output for scikit-learn__scikit-learn-10297 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/scikit-learn__scikit-learn-10297/test_output.txt
+2026-05-20 10:33:47,955 - INFO - Git diff after:
+diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3..d5a11ec64 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -20,6 +20,7 @@ from scipy.sparse import linalg as sp_linalg
+ from .base import LinearClassifierMixin, LinearModel, _rescale_data
+ from .sag import sag_solver
+ from ..base import RegressorMixin
++    def __init__(self, *args, store_cv_values=False, **kwargs):
+ from ..utils.extmath import safe_sparse_dot
+ from ..utils.extmath import row_norms
+ from ..utils import check_X_y
+2026-05-20 10:33:47,955 - INFO - Grading answer for scikit-learn__scikit-learn-10297...
+2026-05-20 10:33:47,959 - INFO - report: {'scikit-learn__scikit-learn-10297': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/linear_model/tests/test_ridge.py::test_ridge_classifier_cv_store_cv_values']}, 'PASS_TO_PASS': {'success': [], 'failure': ['sklearn/linear_model/tests/test_ridge.py::test_ridge', 'sklearn/linear_model/tests/test_ridge.py::test_primal_dual_relationship', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_singular', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_regression_sample_weights', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_sample_weights', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_shapes', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_intercept', 'sklearn/linear_model/tests/test_ridge.py::test_toy_ridge_object', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_vs_lstsq', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_individual_penalties', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_cv_sparse_svd', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_sparse_svd', 'sklearn/linear_model/tests/test_ridge.py::test_class_weights', 'sklearn/linear_model/tests/test_ridge.py::test_class_weight_vs_sample_weight', 'sklearn/linear_model/tests/test_ridge.py::test_class_weights_cv', 'sklearn/linear_model/tests/test_ridge.py::test_ridgecv_store_cv_values', 'sklearn/linear_model/tests/test_ridge.py::test_ridgecv_sample_weight', 'sklearn/linear_model/tests/test_ridge.py::test_raises_value_error_if_sample_weights_greater_than_1d', 'sklearn/linear_model/tests/test_ridge.py::test_sparse_design_with_sample_weights', 'sklearn/linear_model/tests/test_ridge.py::test_raises_value_error_if_solver_not_supported', 'sklearn/linear_model/tests/test_ridge.py::test_sparse_cg_max_iter', 'sklearn/linear_model/tests/test_ridge.py::test_n_iter', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_fit_intercept_sparse', 'sklearn/linear_model/tests/test_ridge.py::test_errors_and_values_helper', 'sklearn/linear_model/tests/test_ridge.py::test_errors_and_values_svd_helper', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_classifier_no_support_multilabel', 'sklearn/linear_model/tests/test_ridge.py::test_dtype_match', 'sklearn/linear_model/tests/test_ridge.py::test_dtype_match_cholesky']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-10297: resolved: False
+2026-05-20 10:33:47,960 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-10297.gpt4omini_300_agentless_repaired...
+2026-05-20 10:34:03,166 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-10297.gpt4omini_300_agentless_repaired...
+2026-05-20 10:34:03,182 - INFO - Container sweb.eval.scikit-learn__scikit-learn-10297.gpt4omini_300_agentless_repaired removed.
+2026-05-20 10:34:03,182 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10297:latest...
+2026-05-20 10:34:03,188 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10297:latest removed.

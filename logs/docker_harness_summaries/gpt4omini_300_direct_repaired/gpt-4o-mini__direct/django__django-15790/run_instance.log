@@ -1,0 +1,51 @@
+2026-05-19 22:54:27,523 - INFO - Creating container for django__django-15790...
+2026-05-19 22:54:28,274 - INFO - Container for django__django-15790 created: 83d98e06ae01f6919b0bf674ea3456434b6fa371b5ffdd5752c8ed5f9ad7ffb7
+2026-05-19 22:54:28,397 - INFO - Container for django__django-15790 started: 83d98e06ae01f6919b0bf674ea3456434b6fa371b5ffdd5752c8ed5f9ad7ffb7
+2026-05-19 22:54:28,397 - INFO - Intermediate patch for django__django-15790 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-15790/patch.diff, now applying to container...
+2026-05-19 22:54:28,554 - INFO - >>>>> Applied Patch:
+Checking patch django/core/checks/templates.py...
+Applied patch django/core/checks/templates.py cleanly.
+
+2026-05-19 22:54:29,226 - INFO - Git diff before:
+diff --git a/django/core/checks/templates.py b/django/core/checks/templates.py
+index 5214276987..4ac1a6e023 100644
+--- a/django/core/checks/templates.py
++++ b/django/core/checks/templates.py
+@@ -18,9 +18,9 @@ E002 = Error(
+ E003 = Error(
+     "{} is used for multiple template tag modules: {}",
+     id="templates.E003",
+-)
+ 
+ 
++)
+ @register(Tags.templates)
+ def check_setting_app_dirs_loaders(app_configs, **kwargs):
+     return (
+2026-05-19 22:54:29,227 - INFO - Eval script for django__django-15790 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-15790/eval.sh; copying to container...
+2026-05-19 22:54:36,644 - INFO - Test runtime: 7.36 seconds
+2026-05-19 22:54:36,645 - INFO - Test output for django__django-15790 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-15790/test_output.txt
+2026-05-19 22:54:36,772 - INFO - Git diff after:
+diff --git a/django/core/checks/templates.py b/django/core/checks/templates.py
+index 5214276987..4ac1a6e023 100644
+--- a/django/core/checks/templates.py
++++ b/django/core/checks/templates.py
+@@ -18,9 +18,9 @@ E002 = Error(
+ E003 = Error(
+     "{} is used for multiple template tag modules: {}",
+     id="templates.E003",
+-)
+ 
+ 
++)
+ @register(Tags.templates)
+ def check_setting_app_dirs_loaders(app_configs, **kwargs):
+     return (
+2026-05-19 22:54:36,772 - INFO - Grading answer for django__django-15790...
+2026-05-19 22:54:36,773 - INFO - report: {'django__django-15790': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_template_tags_same_library_in_installed_apps_libraries (check_framework.test_templates.CheckTemplateTagLibrariesWithSameName)']}, 'PASS_TO_PASS': {'success': ['Error if template loaders are specified and APP_DIRS is True.', 'test_app_dirs_removed (check_framework.test_templates.CheckTemplateSettingsAppDirsTest)', 'test_loaders_removed (check_framework.test_templates.CheckTemplateSettingsAppDirsTest)', 'test_string_if_invalid_both_are_strings (check_framework.test_templates.CheckTemplateStringIfInvalidTest)', 'test_string_if_invalid_first_is_string (check_framework.test_templates.CheckTemplateStringIfInvalidTest)', 'test_string_if_invalid_not_specified (check_framework.test_templates.CheckTemplateStringIfInvalidTest)', 'test_string_if_invalid_not_string (check_framework.test_templates.CheckTemplateStringIfInvalidTest)', 'test_template_tags_with_different_library_name (check_framework.test_templates.CheckTemplateTagLibrariesWithSameName)', 'test_template_tags_with_different_name (check_framework.test_templates.CheckTemplateTagLibrariesWithSameName)', 'test_template_tags_with_same_library_name (check_framework.test_templates.CheckTemplateTagLibrariesWithSameName)', 'test_template_tags_with_same_library_name_and_module_name (check_framework.test_templates.CheckTemplateTagLibrariesWithSameName)', 'test_template_tags_with_same_name (check_framework.test_templates.CheckTemplateTagLibrariesWithSameName)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15790: resolved: False
+2026-05-19 22:54:36,773 - INFO - Attempting to stop container sweb.eval.django__django-15790.gpt4omini_300_direct_repaired...
+2026-05-19 22:54:52,130 - INFO - Attempting to remove container sweb.eval.django__django-15790.gpt4omini_300_direct_repaired...
+2026-05-19 22:54:52,166 - INFO - Container sweb.eval.django__django-15790.gpt4omini_300_direct_repaired removed.
+2026-05-19 22:54:52,166 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15790:latest...
+2026-05-19 22:54:53,265 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15790:latest removed.

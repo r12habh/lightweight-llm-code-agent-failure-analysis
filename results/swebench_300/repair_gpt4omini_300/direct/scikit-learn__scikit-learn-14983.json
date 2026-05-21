@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14983",
+  "input_patch_chars": 1368,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: git diff header lacks filename information (line 3)\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 20:      \"\"\"\n\n",
+          "stdout": "patching file sklearn/model_selection/_split.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

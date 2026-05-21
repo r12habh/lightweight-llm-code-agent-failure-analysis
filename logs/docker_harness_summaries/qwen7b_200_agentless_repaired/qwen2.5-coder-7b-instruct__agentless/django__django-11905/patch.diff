@@ -1,0 +1,45 @@
+diff --git a/django/db/backends/base/operations.py b/django/db/backends/base/operations.py
+index a6abe3769b..3ea566260c 100644
+--- a/django/db/backends/base/operations.py
++++ b/django/db/backends/base/operations.py
+@@ -100,6 +100,10 @@ class BaseDatabaseOperations:
+ 
+     def date_interval_sql(self, timedelta):
+         """
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         Implement the date interval functionality for expressions.
+         """
+         raise NotImplementedError('subclasses of BaseDatabaseOperations may require a date_interval_sql() method')
+diff --git a/django/db/models/lookups.py b/django/db/models/lookups.py
+index 9344979c56..622f7e58f6 100644
+--- a/django/db/models/lookups.py
++++ b/django/db/models/lookups.py
+@@ -100,6 +100,10 @@ class Lookup:
+ 
+     def relabeled_clone(self, relabels):
+         new = copy(self)
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         new.lhs = new.lhs.relabeled_clone(relabels)
+         if hasattr(new.rhs, 'relabeled_clone'):
+             new.rhs = new.rhs.relabeled_clone(relabels)
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index 794e0faae7..c89df30208 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -100,6 +100,10 @@ class ValuesIterable(BaseIterable):
+     def __iter__(self):
+         queryset = self.queryset
+         query = queryset.query
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         compiler = query.get_compiler(queryset.db)
+ 
+         # extra(select=...) cols are always at the start of the row.

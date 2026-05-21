@@ -1,0 +1,51 @@
+2026-05-20 18:34:12,585 - INFO - Creating container for scikit-learn__scikit-learn-12471...
+2026-05-20 18:34:12,652 - INFO - Container for scikit-learn__scikit-learn-12471 created: 3e6dd017e68d22e3ffd165c245f3b89206842625b4fba4caf8f2be6ab51b7984
+2026-05-20 18:34:12,782 - INFO - Container for scikit-learn__scikit-learn-12471 started: 3e6dd017e68d22e3ffd165c245f3b89206842625b4fba4caf8f2be6ab51b7984
+2026-05-20 18:34:12,782 - INFO - Intermediate patch for scikit-learn__scikit-learn-12471 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/scikit-learn__scikit-learn-12471/patch.diff, now applying to container...
+2026-05-20 18:34:12,984 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/preprocessing/_encoders.py...
+Applied patch sklearn/preprocessing/_encoders.py cleanly.
+
+2026-05-20 18:34:13,396 - INFO - Git diff before:
+diff --git a/sklearn/preprocessing/_encoders.py b/sklearn/preprocessing/_encoders.py
+index 1e05aba59..72c9656f4 100644
+--- a/sklearn/preprocessing/_encoders.py
++++ b/sklearn/preprocessing/_encoders.py
+@@ -102,6 +102,10 @@ class _BaseEncoder(BaseEstimator, TransformerMixin):
+ 
+             if not np.all(valid_mask):
+                 if handle_unknown == 'error':
++        if X.dtype == np.object and self.handle_unknown == 'ignore':
++            for i in range(n_features):
++                Xi = X[:, i]
++                Xi[Xi == 'unknown'] = self.categories_[i][0]
+                     msg = ("Found unknown categories {0} in column {1}"
+                            " during transform".format(diff, i))
+                     raise ValueError(msg)
+2026-05-20 18:34:13,397 - INFO - Eval script for scikit-learn__scikit-learn-12471 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/scikit-learn__scikit-learn-12471/eval.sh; copying to container...
+2026-05-20 18:34:19,587 - INFO - Test runtime: 6.12 seconds
+2026-05-20 18:34:19,588 - INFO - Test output for scikit-learn__scikit-learn-12471 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/scikit-learn__scikit-learn-12471/test_output.txt
+2026-05-20 18:34:19,689 - INFO - Git diff after:
+diff --git a/sklearn/preprocessing/_encoders.py b/sklearn/preprocessing/_encoders.py
+index 1e05aba59..72c9656f4 100644
+--- a/sklearn/preprocessing/_encoders.py
++++ b/sklearn/preprocessing/_encoders.py
+@@ -102,6 +102,10 @@ class _BaseEncoder(BaseEstimator, TransformerMixin):
+ 
+             if not np.all(valid_mask):
+                 if handle_unknown == 'error':
++        if X.dtype == np.object and self.handle_unknown == 'ignore':
++            for i in range(n_features):
++                Xi = X[:, i]
++                Xi[Xi == 'unknown'] = self.categories_[i][0]
+                     msg = ("Found unknown categories {0} in column {1}"
+                            " during transform".format(diff, i))
+                     raise ValueError(msg)
+2026-05-20 18:34:19,689 - INFO - Grading answer for scikit-learn__scikit-learn-12471...
+2026-05-20 18:34:19,690 - INFO - report: {'scikit-learn__scikit-learn-12471': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_handle_unknown_strings']}, 'PASS_TO_PASS': {'success': [], 'failure': ['sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_sparse', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dense', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_deprecationwarnings', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_force_new_behaviour', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_categorical_features', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_handle_unknown', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_not_fitted', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_no_categorical_features', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[int32-int32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[int32-float32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[int32-float64]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[float32-int32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[float32-float32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[float32-float64]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[float64-int32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[float64-float32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype[float64-float64]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype_pandas[int32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype_pandas[float32]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_dtype_pandas[float64]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_set_params', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder[mixed]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder[numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder[object]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_inverse', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_categories[mixed]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_categories[numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_categories[object]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_categories[string]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_specified_categories[object]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_specified_categories[numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_specified_categories[object-string-cat]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_unsorted_categories', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_specified_categories_mixed_columns', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_pandas', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_feature_names', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_feature_names_unicode', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_raise_missing[error-numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_raise_missing[error-object]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_raise_missing[ignore-numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_raise_missing[ignore-object]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder[mixed]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder[numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder[object]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder_specified_categories[object]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder_specified_categories[numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder_specified_categories[object-string-cat]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder_inverse', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder_raise_missing[numeric]', 'sklearn/preprocessing/tests/test_encoders.py::test_ordinal_encoder_raise_missing[object]', 'sklearn/preprocessing/tests/test_encoders.py::test_encoder_dtypes', 'sklearn/preprocessing/tests/test_encoders.py::test_encoder_dtypes_pandas', 'sklearn/preprocessing/tests/test_encoders.py::test_one_hot_encoder_warning']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-12471: resolved: False
+2026-05-20 18:34:19,691 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-12471.qwen7b_200_direct_repaired...
+2026-05-20 18:34:34,895 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-12471.qwen7b_200_direct_repaired...
+2026-05-20 18:34:34,909 - INFO - Container sweb.eval.scikit-learn__scikit-learn-12471.qwen7b_200_direct_repaired removed.
+2026-05-20 18:34:34,909 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-12471:latest...
+2026-05-20 18:34:34,919 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-12471:latest removed.

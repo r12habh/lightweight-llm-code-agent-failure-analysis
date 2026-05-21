@@ -1,0 +1,12 @@
+diff --git a/django/db/models/fields/files.py b/django/db/models/fields/files.py
+index 18900f7b85..7576b95238 100644
+--- a/django/db/models/fields/files.py
++++ b/django/db/models/fields/files.py
+@@ -24,7 +24,7 @@ class FieldFile(File):
+     def __eq__(self, other):
+         # Older code may be expecting FileField values to be simple strings.
+         # By overriding the == operator, it can remain backwards compatibility.
+-        if hasattr(other, 'name'):
++        if isinstance(other, FieldFile) or hasattr(other, 'name'):
+             return self.name == other.name
+         return self.name == other

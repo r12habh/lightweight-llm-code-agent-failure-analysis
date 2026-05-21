@@ -1,0 +1,34 @@
+{
+  "instance_id": "django__django-15202",
+  "raw": "```diff\ndiff --git a/django/forms/fields.py b/django/forms/fields.py\n--- a/django/forms/fields.py\n+++ b/django/forms/fields.py\n@@ -136,7 +136,7 @@\n \n     def clean(self, value):\n         \"\"\"\n-        Validate the given value and return its \"cleaned\" value as an\n+        Validate the given value and return its \"cleaned\" value as a\n         appropriate Python object. Raise ValidationError for any errors.\n         \"\"\"\n         value = self.to_python(value)\n@@ -144,8 +144,8 @@\n         self.validate(value)\n         self.run_validators(value)\n         return value\n+\n     def bound_data(self, data, initial):\n         \"\"\"\n-        Return the value that should be shown for this field on render of a\n-        bound form, given the submitted POST data for the field and the initial\n+        Return the value that should be shown for this field on render of a \n+        bound form, given the submitted POST data for the field and the initial \n         data, if any.\n         \"\"\"\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 20343,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 197,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20540
+    },
+    "patch": {
+      "input_tokens": 20416,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 234,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20650
+    }
+  },
+  "localized_files": [
+    "django/forms/fields.py",
+    "django/core/validators.py",
+    "tests/forms_tests/field_tests/test_urlfield.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/forms/fields.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"The URLField's clean method is directly related to the issue raised regarding URL validation.\"\n    },\n    {\n      \"path\": \"django/core/validators.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"The URL validation logic is implemented here, affecting how URLs are processed.\"\n    },\n    {\n      \"path\": \"tests/forms_tests/field_tests/test_urlfield.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Existing tests for URLField should be updated to reflect the new error handling.\"\n    },\n    {\n      \"path\": \"docs/ref/forms/fields.txt\",\n      \"confidence\": 0.7,\n      \"reason\": \"Documentation on URLField may need to be revised based on validation behavior changes.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,12 @@
+diff --git a/django/contrib/sitemaps/__init__.py b/django/contrib/sitemaps/__init__.py
+index 27756d9d96..98c614e211 100644
+--- a/django/contrib/sitemaps/__init__.py
++++ b/django/contrib/sitemaps/__init__.py
+@@ -169,7 +169,7 @@ class Sitemap:
+             try:
+                 return max([self.lastmod(item) for item in self.items()])
+             except TypeError:
+-                return None
++            except (TypeError, ValueError):
+         else:
+             return self.lastmod

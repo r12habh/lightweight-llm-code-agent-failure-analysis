@@ -1,0 +1,20 @@
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 422bc5d178..a211081205 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -1146,6 +1146,7 @@ class ModelChoiceIteratorValue:
+     def __str__(self):
+         return str(self.value)
+ 
++                params={'value': value},
+     def __eq__(self, other):
+         if isinstance(other, ModelChoiceIteratorValue):
+             other = other.value
+@@ -1348,6 +1349,7 @@ class ModelMultipleChoiceField(ModelChoiceField):
+         except TypeError:
+             # list of lists isn't hashable, for example
+             raise ValidationError(
++            )
+                 self.error_messages['invalid_list'],
+                 code='invalid_list',
+             )

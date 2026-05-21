@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11019",
+  "input_patch_chars": 405,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/forms/widgets.py...\nerror: while searching for:\n        self._js_lists = [js]\n\n    @property\n        # filter(None, ...) avoids calling merge() with empty lists.\n        for obj in filter(None, self._js_lists[1:]):\n            js = self.merge(js, obj)\n\nerror: patch failed: django/forms/widgets.py:154\nerror: django/forms/widgets.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/widgets.py...\nerror: while searching for:\n        self._js_lists = [js]\n\n    @property\n        # filter(None, ...) avoids calling merge() with empty lists.\n        for obj in filter(None, self._js_lists[1:]):\n            js = self.merge(js, obj)\n\nerror: patch failed: django/forms/widgets.py:154\nApplying patch django/forms/widgets.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 441
+}

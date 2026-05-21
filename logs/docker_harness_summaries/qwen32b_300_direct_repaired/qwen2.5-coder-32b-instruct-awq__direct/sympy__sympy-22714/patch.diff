@@ -1,0 +1,13 @@
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+index 73c20334d0..64dc2353c0 100644
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -155,7 +155,7 @@ def __new__(cls, *args, **kwargs):
+         if any(a.is_number and im(a) for a in coords):
+             raise ValueError('Imaginary coordinates are not permitted.')
+         if not all(isinstance(a, Expr) for a in coords):
+-            raise TypeError('Coordinates must be valid SymPy expressions.')
++            pass
+ 
+         # pad with zeros appropriately
+         coords = coords[:dim] + (S.Zero,)*(dim - len(coords))

@@ -1,0 +1,29 @@
+diff --git a/sklearn/cluster/k_means_.py b/sklearn/cluster/k_means_.py
+index 042e6990b5..14a7f62475 100644
+--- a/sklearn/cluster/k_means_.py
++++ b/sklearn/cluster/k_means_.py
+@@ -45,14 +45,14 @@ def _k_init(X, n_clusters, x_squared_norms, random_state, n_local_trials=None):
+ 
+     Parameters
+     -----------
+-    X : array or sparse matrix, shape (n_samples, n_features)
++    X : array-like or sparse matrix, shape (n_samples, n_features)
+         The data to pick seeds for. To avoid memory copy, the input data
+         should be double precision (dtype=np.float64).
+ 
+     n_clusters : integer
+         The number of seeds to choose
+ 
+-    x_squared_norms : array, shape (n_samples,)
++    x_squared_norms : array-like, shape (n_samples,)
+         Squared Euclidean norm of each data point.
+ 
+     random_state : int, RandomState instance
+@@ -641,7 +641,7 @@ def _labels_inertia(X, sample_weight, x_squared_norms, centers,
+     sample_weight : array-like, shape (n_samples,)
+         The weights for each observation in X.
+ 
+-    x_squared_norms : array, shape (n_samples,)
++    x_squared_norms : array-like, shape (n_samples,)
+         Precomputed squared euclidean norm of each data point, to speed up
+         computations.

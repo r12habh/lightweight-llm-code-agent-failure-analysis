@@ -1,0 +1,34 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7686",
+  "raw": "```diff\ndiff --git a/sphinx/ext/autosummary/generate.py b/sphinx/ext/autosummary/generate.py\n--- a/sphinx/ext/autosummary/generate.py\n+++ b/sphinx/ext/autosummary/generate.py\n@@ -641,7 +641,7 @@\n                 # skip imported members if expected\n-                if imported or getattr(value, '__module__', None) == obj.__name__:\n+                if imported_members or getattr(value, '__module__', None) == obj.__name__:\n                     skipped = skip_member(value, name, documenter.objtype)\n                     if skipped is True:\n                         pass\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 21321,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 223,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21544
+    },
+    "patch": {
+      "input_tokens": 21395,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 136,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21531
+    }
+  },
+  "localized_files": [
+    "sphinx/ext/autosummary/generate.py",
+    "sphinx/ext/autosummary/__init__.py",
+    "conf.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sphinx/ext/autosummary/generate.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Handles member extraction logic related to autosummary.\"\n    },\n    {\n      \"path\": \"sphinx/ext/autosummary/__init__.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Defines the autosummary directive, affecting how members are processed.\"\n    },\n    {\n      \"path\": \"doc/usage/extensions/autosummary.rst\",\n      \"confidence\": 0.7,\n      \"reason\": \"Documentation for the autosummary extension needs clarification.\"\n    },\n    {\n      \"path\": \"sphinx/ext/autosummary/templates/module.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"Template for module summaries relies on member data.\"\n    },\n    {\n      \"path\": \"conf.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"Configuration files containing autosummary settings may need adjustments.\"\n    }\n  ]\n}\n```"
+}

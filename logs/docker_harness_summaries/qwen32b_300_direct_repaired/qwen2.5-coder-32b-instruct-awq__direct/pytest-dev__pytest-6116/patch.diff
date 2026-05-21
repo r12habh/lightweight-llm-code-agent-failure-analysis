@@ -1,0 +1,32 @@
+diff --git a/src/_pytest/config/__init__.py b/src/_pytest/config/__init__.py
+index 8e11b56e5..d272756ba 100644
+--- a/src/_pytest/config/__init__.py
++++ b/src/_pytest/config/__init__.py
+@@ -123,6 +123,7 @@ def directory_arg(path, optname):
+     """Argparse type validator for directory arguments.
+ 
+     :path: path of directory
++    co = False
+     :optname: name of the option
+     """
+     if not os.path.isdir(path):
+@@ -400,6 +401,7 @@ class PytestPluginManager(PluginManager):
+             i = path.find("::")
+             if i != -1:
+                 path = path[:i]
++            dest="co",
+             anchor = current.join(path, abs=1)
+             if exists(anchor):  # we found some file object
+                 self._try_load_conftest(anchor)
+diff --git a/src/_pytest/main.py b/src/_pytest/main.py
+index 843c5b5f7..87e01de36 100644
+--- a/src/_pytest/main.py
++++ b/src/_pytest/main.py
+@@ -110,6 +110,7 @@ def pytest_addoption(parser):
+         "--collectonly",
+         "--collect-only",
+         action="store_true",
++        self.config.addinivalue_line("addopts", "-c,--collect-only")
+         help="only collect tests, don't execute them.",
+     ),
+     group.addoption(

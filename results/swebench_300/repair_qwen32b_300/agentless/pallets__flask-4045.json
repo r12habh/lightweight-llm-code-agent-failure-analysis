@@ -1,0 +1,28 @@
+{
+  "instance_id": "pallets__flask-4045",
+  "input_patch_chars": 1045,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch src/flask/blueprints.py...\nerror: while searching for:\n        :param root_path: By default, the blueprint will automatically set\n            this based on ``import_name``. In certain situations this\n            automatic detection can fail, so the path can be specified\n        \"\"\"\n        super().__init__(\n            import_name=import_name,\n\nerror: patch failed: src/flask/blueprints.py:40\nerror: src/flask/blueprints.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/blueprints.py...\nerror: while searching for:\n        :param root_path: By default, the blueprint will automatically set\n            this based on ``import_name``. In certain situations this\n            automatic detection can fail, so the path can be specified\n        \"\"\"\n        super().__init__(\n            import_name=import_name,\n\nerror: patch failed: src/flask/blueprints.py:40\nHunk #2 succeeded at 196 (offset 132 lines).\nApplying patch src/flask/blueprints.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1052
+}

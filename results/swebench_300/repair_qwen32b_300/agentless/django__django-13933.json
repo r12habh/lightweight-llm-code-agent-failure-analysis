@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13933",
+  "input_patch_chars": 2545,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 53\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/models.py\nHunk #1 succeeded at 1103 with fuzz 3 (offset 980 lines).\npatching file tests/model_forms/test_modelchoicefield.py\nHunk #1 succeeded at 59 with fuzz 3 (offset -1 lines).\nHunk #2 FAILED at 80.\nHunk #3 FAILED at 110.\nHunk #4 FAILED at 140.\n3 out of 4 hunks FAILED -- saving rejects to file tests/model_forms/test_modelchoicefield.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-17022",
+  "input_patch_chars": 1418,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 5\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 5: NUMPY_DEFAULT = {\"I\": 1j, \"Identity\": \"np.eye\"}  # Added Identity mapping\n\n",
+          "stdout": "patching file sympy/utilities/lambdify.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2148",
+  "input_patch_chars": 621,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/packages/urllib3/response.py...\nerror: while searching for:\n                data = self._fp.read(amt)\n            except SocketTimeout:\n                raise ReadTimeoutError(self._pool, None, 'Read timed out.')\n\n            except BaseSSLError as e:\n                # FIXME: Is there a better way to differentiate between SSLErrors?\n\nerror: patch failed: requests/packages/urllib3/response.py:184\nerror: requests/packages/urllib3/response.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/packages/urllib3/response.py...\nerror: while searching for:\n                data = self._fp.read(amt)\n            except SocketTimeout:\n                raise ReadTimeoutError(self._pool, None, 'Read timed out.')\n\n            except BaseSSLError as e:\n                # FIXME: Is there a better way to differentiate between SSLErrors?\n\nerror: patch failed: requests/packages/urllib3/response.py:184\nApplying patch requests/packages/urllib3/response.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 713
+}

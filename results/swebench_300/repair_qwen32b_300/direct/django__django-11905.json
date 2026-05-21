@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11905",
+  "input_patch_chars": 551,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/lookups.py...\nerror: while searching for:\n    def get_prep_lookup(self):\n        value = self.rhs\n        if not isinstance(value, bool):\n        if value:\n            return self.get_prep_value(None)\n        return self.get_prep_value(self.lhs.output_field.get_default())\n\nerror: patch failed: django/db/models/lookups.py:123\nerror: django/db/models/lookups.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/lookups.py...\nerror: while searching for:\n    def get_prep_lookup(self):\n        value = self.rhs\n        if not isinstance(value, bool):\n        if value:\n            return self.get_prep_value(None)\n        return self.get_prep_value(self.lhs.output_field.get_default())\n\nerror: patch failed: django/db/models/lookups.py:123\nApplying patch django/db/models/lookups.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 611
+}

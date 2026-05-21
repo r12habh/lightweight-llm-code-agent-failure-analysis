@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-17630",
+  "input_patch_chars": 684,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/matrices/expressions/blockmatrix.py...\nerror: while searching for:\n    @property\n    def colblocksizes(self):\n        return [self.blocks[0, i].cols for i in range(self.blockshape[1])]\n        return [self.blocks[0, i].cols for i in range(self.blockshape[1])]\n\n    def structurally_equal(self, other):\n        return (isinstance(other, BlockMatrix)\n\nerror: patch failed: sympy/matrices/expressions/blockmatrix.py:77\nerror: sympy/matrices/expressions/blockmatrix.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/matrices/expressions/blockmatrix.py...\nerror: while searching for:\n    @property\n    def colblocksizes(self):\n        return [self.blocks[0, i].cols for i in range(self.blockshape[1])]\n        return [self.blocks[0, i].cols for i in range(self.blockshape[1])]\n\n    def structurally_equal(self, other):\n        return (isinstance(other, BlockMatrix)\n\nerror: patch failed: sympy/matrices/expressions/blockmatrix.py:77\nApplying patch sympy/matrices/expressions/blockmatrix.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 612
+}

@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/assertion/rewrite.py b/src/_pytest/assertion/rewrite.py
+index 157903faf..1b20e2211 100644
+--- a/src/_pytest/assertion/rewrite.py
++++ b/src/_pytest/assertion/rewrite.py
+@@ -109,7 +109,7 @@ class AssertionRewritingHook(importlib.abc.MetaPathFinder, importlib.abc.Loader)
+         else:
+             fn = spec.origin
+ 
+-        if not self._should_rewrite(name, fn, state):
++        if not self._should_rewrite(name, fn, state) and not isinstance(fn, int):
+             return None
+ 
+         return importlib.util.spec_from_file_location(

@@ -1,0 +1,30 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7975",
+  "raw": "```diff\ndiff --git a/doc/faq.rst b/doc/faq.rst\n--- a/doc/faq.rst\n+++ b/doc/faq.rst\n@@ -1,6 +1,7 @@\n .. _faq:\n \n Sphinx FAQ\n ==========\n \n This is a list of Frequently Asked Questions about Sphinx.  Feel free to\n suggest new entries!\n+\n How do I...\n -----------\n \n ... create PDF files without LaTeX?\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 20118,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 227,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20345
+    },
+    "patch": {
+      "input_tokens": 20165,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 99,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20264
+    }
+  },
+  "localized_files": [],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"doc/usage/restructuredtext/directives.rst\",\n      \"confidence\": 0.8,\n      \"reason\": \"Contains directives and indexing that could affect Symbols section generation.\"\n    },\n    {\n      \"path\": \"doc/usage/builders/index.rst\",\n      \"confidence\": 0.7,\n      \"reason\": \"Builder settings may influence document rendering which impacts indexing.\"\n    },\n    {\n      \"path\": \"doc/faq.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"FAQs may contain references to index generation and symbols.\"\n    },\n    {\n      \"path\": \"doc/usage/restructuredtext/roles.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"Roles might relate to how the Symbols sections are interpreted.\"\n    },\n    {\n      \"path\": \"doc/templating.rst\",\n      \"confidence\": 0.5,\n      \"reason\": \"Templates could affect the rendering and positioning of symbols in output.\"\n    }\n  ]\n}\n```"
+}

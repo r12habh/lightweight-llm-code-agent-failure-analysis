@@ -1,0 +1,13 @@
+diff --git a/pylint/reporters/text.py b/pylint/reporters/text.py
+index 29bd46798..8822895cb 100644
+--- a/pylint/reporters/text.py
++++ b/pylint/reporters/text.py
+@@ -168,7 +168,7 @@ class TextReporter(BaseReporter):
+         template = str(self.linter.config.msg_template or self._template)
+ 
+         # Return early if the template is the same as the previous one
+-        if template == self._template:
++        if template == self._fixed_template:
+             return
+ 
+         # Set template to the currently selected template

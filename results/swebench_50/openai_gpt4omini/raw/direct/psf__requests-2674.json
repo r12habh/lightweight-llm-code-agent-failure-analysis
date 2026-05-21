@@ -1,0 +1,16 @@
+{
+  "instance_id": "psf__requests-2674",
+  "raw": "```diff\ndiff --git a/requests/packages/urllib3/exceptions.py b/requests/packages/urllib3/exceptions.py\n+++ b/requests/packages/urllib3/exceptions.py\n@@ -44,6 +44,8 @@ class ReadTimeoutError(TimeoutError, RequestError):\n     \"Raised when a socket timeout occurs while receiving data from a server\"\n     pass\n \n+class DecodeError(HTTPError):\n+    \"Raised when automatic decoding based on Content-Type fails.\"\n+\n class MaxRetryError(RequestError):\n     \"\"\"Raised when the maximum number of retries is exceeded.\n \n```",
+  "usage": {
+    "input_tokens": 19273,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 122,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 19395
+  },
+  "localized_files": []
+}

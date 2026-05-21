@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8435",
+  "input_patch_chars": 1029,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\nfrom sphinx.ext.autodoc.directive import DocumenterBridge\nfrom sphinx.ext.napoleon import Config as NapoleonConfig\n\nimport sphinx\nfrom sphinx.application import Sphinx\nfrom sphinx.config import ENUM, Config\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:54\nerror: sphinx/ext/autodoc/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\nfrom sphinx.ext.autodoc.directive import DocumenterBridge\nfrom sphinx.ext.napoleon import Config as NapoleonConfig\n\nimport sphinx\nfrom sphinx.application import Sphinx\nfrom sphinx.config import ENUM, Config\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:54\nerror: while searching for:\n    'special-members': merge_special_members_option,\n    'members': merge_members_option, \n    'noindex': bool_option,\n}\n\n\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:120\nApplying patch sphinx/ext/autodoc/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 711
+}

@@ -1,0 +1,28 @@
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..16128b2107 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -2,6 +2,7 @@ import html.entities
+ import re
+ import unicodedata
+ import warnings
++import string
+ from gzip import GzipFile
+ from io import BytesIO
+ 
+@@ -92,6 +93,7 @@ class Truncator(SimpleLazyObject):
+ 
+         # Calculate the length to truncate to (max length - end_text length)
+         truncate_len = length
++    Convert all characters to lowercase.
+         for char in self.add_truncation_text('', truncate):
+             if not unicodedata.combining(char):
+                 truncate_len -= 1
+@@ -102,6 +104,7 @@ class Truncator(SimpleLazyObject):
+         return self._text_chars(length, truncate, text, truncate_len)
+ 
+     def _text_chars(self, length, truncate, text, truncate_len):
++    # Remove dashes and underscores
+         """Truncate a string after a certain number of chars."""
+         s_len = 0
+         end_index = None

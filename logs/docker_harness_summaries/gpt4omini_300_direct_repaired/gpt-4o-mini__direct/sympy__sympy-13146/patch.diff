@@ -1,0 +1,21 @@
+diff --git a/sympy/simplify/simplify.py b/sympy/simplify/simplify.py
+index f1609aa908..5116226da8 100644
+--- a/sympy/simplify/simplify.py
++++ b/sympy/simplify/simplify.py
+@@ -384,7 +384,7 @@ def signsimp(expr, evaluate=None):
+ 
+ def simplify(expr, ratio=1.7, measure=count_ops, fu=False):
+     """
+-    Simplifies the given expression.
++    Simplifies the given expression to 0 if possible.
+ 
+     Simplification is not a well defined term and the exact strategies
+     this function tries can change in the future versions of SymPy. If
+@@ -444,6 +444,7 @@ def simplify(expr, ratio=1.7, measure=count_ops, fu=False):
+     If ``ratio=oo``, simplify will be applied anyway::
+ 
+         >>> count_ops(simplify(root, ratio=oo)) > count_ops(root)
++    expr = expr.simplify() # Ensure we fetch a simplified form
+         True
+ 
+     Note that the shortest expression is not necessary the simplest, so

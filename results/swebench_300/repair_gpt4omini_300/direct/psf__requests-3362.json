@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-3362",
+  "input_patch_chars": 912,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/user/quickstart.rst...\nerror: while searching for:\n    >>> r.text\n    u'[{\"repository\":{\"open_issues\":0,\"url\":\"https://github.com/...\n\n\nRequests will automatically decode content from the server. Most unicode\ncharsets are seamlessly decoded.\n\nWhen you make a request, Requests makes educated guesses about the encoding of\n\nerror: patch failed: docs/user/quickstart.rst:31\nerror: docs/user/quickstart.rst: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/user/quickstart.rst...\nerror: while searching for:\n    >>> r.text\n    u'[{\"repository\":{\"open_issues\":0,\"url\":\"https://github.com/...\n\n\nRequests will automatically decode content from the server. Most unicode\ncharsets are seamlessly decoded.\n\nWhen you make a request, Requests makes educated guesses about the encoding of\n\nerror: patch failed: docs/user/quickstart.rst:31\nApplying patch docs/user/quickstart.rst with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 933
+}

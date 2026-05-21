@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-25498",
+  "input_patch_chars": 623,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 22\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 21:      def draw_all(self):\n\n",
+          "stdout": "patching file lib/matplotlib/colorbar.py\nHunk #1 FAILED at 964.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-13915",
+  "input_patch_chars": 625,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/basic.py...\nerror: while searching for:\n\n    def __ne__(self, other):\n        \"\"\"a != b  -> Compare two symbolic trees and see whether they are different\n\n          a.compare(b) != 0\n\n\nerror: patch failed: sympy/core/basic.py:389\nerror: sympy/core/basic.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/basic.py...\nerror: while searching for:\n\n    def __ne__(self, other):\n        \"\"\"a != b  -> Compare two symbolic trees and see whether they are different\n\n          a.compare(b) != 0\n\n\nerror: patch failed: sympy/core/basic.py:389\nApplying patch sympy/core/basic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 373
+}

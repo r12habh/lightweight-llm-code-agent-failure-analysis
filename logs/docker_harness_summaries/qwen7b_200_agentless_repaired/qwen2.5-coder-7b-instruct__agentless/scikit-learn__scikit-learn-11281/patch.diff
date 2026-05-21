@@ -1,0 +1,15 @@
+diff --git a/doc/modules/mixture.rst b/doc/modules/mixture.rst
+index fb8e897270..8060da32b9 100644
+--- a/doc/modules/mixture.rst
++++ b/doc/modules/mixture.rst
+@@ -8,6 +8,10 @@ Gaussian mixture models
+ 
+ .. currentmodule:: sklearn.mixture
+ 
++.. note::
++   Mixture models should have a clusterer-compatible interface.
++
++
+ ``sklearn.mixture`` is a package which enables one to learn
+ Gaussian Mixture Models (diagonal, spherical, tied and full covariance
+ matrices supported), sample them, and estimate them from

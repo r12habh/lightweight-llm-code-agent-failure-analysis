@@ -1,0 +1,26 @@
+{
+  "instance_id": "django__django-13028",
+  "input_patch_chars": 598,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n        if not value.field.filterable:\n            raise NotSupportedError(\n                \"%s is disallowed in the filter clause.\" % value.field.model.__name__\n            )\n        if value.field.get_internal_type() == \"ManyToManyField\":\n            raise NotSupportedError(\n                \"ManyToManyField is disallowed in the filter clause.\"\n\nerror: patch failed: django/db/models/sql/query.py:1128\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 succeeded at 1128 with fuzz 3.\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

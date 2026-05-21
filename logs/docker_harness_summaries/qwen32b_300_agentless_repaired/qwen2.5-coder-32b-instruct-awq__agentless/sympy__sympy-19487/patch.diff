@@ -1,0 +1,63 @@
+diff --git a/sympy/functions/elementary/complexes.py b/sympy/functions/elementary/complexes.py
+index 7fda45982b..55e392f3a0 100644
+--- a/sympy/functions/elementary/complexes.py
++++ b/sympy/functions/elementary/complexes.py
+@@ -1,6 +1,7 @@
+ from sympy.core import S, Add, Mul, sympify, Symbol, Dummy, Basic
+ from sympy.core.expr import Expr
+ from sympy.core.exprtools import factor_terms
++from sympy.core.function import Application
+ from sympy.core.function import (Function, Derivative, ArgumentIndexError,
+     AppliedUndef)
+ from sympy.core.logic import fuzzy_not, fuzzy_or
+@@ -10,6 +11,7 @@
+ from sympy.functions.elementary.integers import ceiling
+ from sympy.functions.elementary.miscellaneous import sqrt
+ from sympy.functions.elementary.piecewise import Piecewise
++from sympy.core.sympify import sympify
+ from sympy.functions.elementary.trigonometric import atan, atan2
+ 
+ ###############################################################################
+@@ -100,6 +102,10 @@ def _eval_derivative(self, x):
+             return re(Derivative(self.args[0], x, evaluate=True))
+         if x.is_imaginary or self.args[0].is_imaginary:
+             return -S.ImaginaryUnit \
++    If `evaluate` is False, the expression is returned unevaluated.
++
++    Examples
++    ========
+                 * im(Derivative(self.args[0], x, evaluate=True))
+ 
+     def _eval_rewrite_as_im(self, arg, **kwargs):
+@@ -110,6 +116,10 @@ def _eval_is_algebraic(self):
+ 
+     def _eval_is_zero(self):
+         # is_imaginary implies nonzero
++    -1
++
++    >>> sign(0)
++    0
+         return fuzzy_or([self.args[0].is_imaginary, self.args[0].is_zero])
+ 
+     def _eval_is_finite(self):
+@@ -120,6 +130,10 @@ def _eval_is_complex(self):
+         if self.args[0].is_finite:
+             return True
+ 
++    x/Abs(x)
++
++    >>> sign(0).rewrite(Abs)
++    0
+     def _sage_(self):
+         import sage.all as sage
+         return sage.real_part(self.args[0]._sage_())
+@@ -130,6 +144,10 @@ class im(Function):
+     Returns imaginary part of expression. This function performs only
+     elementary analysis and so it will fail to decompose properly more
+     complicated expressions. If completely simplified result is needed then
++        if x.is_zero:
++            return S.Zero
++        return x / Abs(x)
++    else:
+     use Basic.as_real_imag() or perform complex expansion on instance of
+     this function.

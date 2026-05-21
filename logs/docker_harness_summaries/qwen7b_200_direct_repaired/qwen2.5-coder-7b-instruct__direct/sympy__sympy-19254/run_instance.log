@@ -1,0 +1,64 @@
+2026-05-08 11:16:53,640 - INFO - Creating container for sympy__sympy-19254...
+2026-05-08 11:16:54,466 - INFO - Container for sympy__sympy-19254 created: c24960bbb7581727028ad6823af2a56a9cb5084e04321100ffed74cd95a0ddb1
+2026-05-08 11:16:54,594 - INFO - Container for sympy__sympy-19254 started: c24960bbb7581727028ad6823af2a56a9cb5084e04321100ffed74cd95a0ddb1
+2026-05-08 11:16:54,595 - INFO - Intermediate patch for sympy__sympy-19254 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/sympy__sympy-19254/patch.diff, now applying to container...
+2026-05-08 11:16:54,773 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-08 11:16:54,853 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-08 11:16:54,932 - INFO - >>>>> Applied Patch:
+patching file sympy/polys/factortools.py
+
+2026-05-08 11:16:55,384 - INFO - Git diff before:
+diff --git a/sympy/polys/factortools.py b/sympy/polys/factortools.py
+index 93298f47e6..4e6c2419d2 100644
+--- a/sympy/polys/factortools.py
++++ b/sympy/polys/factortools.py
+@@ -127,7 +127,7 @@ def dup_zz_mignotte_bound(f, K):
+     """Mignotte bound for univariate polynomials in `K[x]`. """
+     a = dup_max_norm(f, K)
+     b = abs(dup_LC(f, K))
+-    n = dup_degree(f)
++    n = dup_degree(f, K)
+ 
+     return K.sqrt(K(n + 1))*2**n*a*b
+ 
+@@ -136,7 +136,7 @@ def dmp_zz_mignotte_bound(f, u, K):
+     """Mignotte bound for multivariate polynomials in `K[X]`. """
+     a = dmp_max_norm(f, u, K)
+     b = abs(dmp_ground_LC(f, u, K))
+-    n = sum(dmp_degree_list(f, u))
++    n = sum(dmp_degree_list(f, u, K))
+ 
+     return K.sqrt(K(n + 1))*2**n*a*b
+2026-05-08 11:16:55,385 - INFO - Eval script for sympy__sympy-19254 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/sympy__sympy-19254/eval.sh; copying to container...
+2026-05-08 11:17:01,214 - INFO - Test runtime: 5.76 seconds
+2026-05-08 11:17:01,214 - INFO - Test output for sympy__sympy-19254 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/sympy__sympy-19254/test_output.txt
+2026-05-08 11:17:01,335 - INFO - Git diff after:
+diff --git a/sympy/polys/factortools.py b/sympy/polys/factortools.py
+index 93298f47e6..4e6c2419d2 100644
+--- a/sympy/polys/factortools.py
++++ b/sympy/polys/factortools.py
+@@ -127,7 +127,7 @@ def dup_zz_mignotte_bound(f, K):
+     """Mignotte bound for univariate polynomials in `K[x]`. """
+     a = dup_max_norm(f, K)
+     b = abs(dup_LC(f, K))
+-    n = dup_degree(f)
++    n = dup_degree(f, K)
+ 
+     return K.sqrt(K(n + 1))*2**n*a*b
+ 
+@@ -136,7 +136,7 @@ def dmp_zz_mignotte_bound(f, u, K):
+     """Mignotte bound for multivariate polynomials in `K[X]`. """
+     a = dmp_max_norm(f, u, K)
+     b = abs(dmp_ground_LC(f, u, K))
+-    n = sum(dmp_degree_list(f, u))
++    n = sum(dmp_degree_list(f, u, K))
+ 
+     return K.sqrt(K(n + 1))*2**n*a*b
+2026-05-08 11:17:01,335 - INFO - Grading answer for sympy__sympy-19254...
+2026-05-08 11:17:01,336 - INFO - report: {'sympy__sympy-19254': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_dup_zz_mignotte_bound']}, 'PASS_TO_PASS': {'success': ['test_dup_trial_division', 'test_dmp_trial_division', 'test_dup_zz_hensel_step', 'test_dup_zz_hensel_lift', 'test_dup_zz_irreducible_p', 'test_dup_cyclotomic_p', 'test_dup_zz_cyclotomic_poly', 'test_dup_zz_cyclotomic_factor', 'test_dup_zz_factor', 'test_dup_ext_factor', 'test_dup_irreducible_p'], 'failure': ['test_dmp_zz_mignotte_bound', 'test_dmp_zz_wang', 'test_issue_6355', 'test_dmp_zz_factor', 'test_dmp_ext_factor', 'test_dup_factor_list', 'test_dmp_factor_list']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-19254: resolved: False
+2026-05-08 11:17:01,337 - INFO - Attempting to stop container sweb.eval.sympy__sympy-19254.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 11:17:16,461 - INFO - Attempting to remove container sweb.eval.sympy__sympy-19254.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 11:17:16,481 - INFO - Container sweb.eval.sympy__sympy-19254.hf_qwen25_coder7b_50_direct_repaired removed.
+2026-05-08 11:17:16,482 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-19254:latest...
+2026-05-08 11:17:17,254 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-19254:latest removed.

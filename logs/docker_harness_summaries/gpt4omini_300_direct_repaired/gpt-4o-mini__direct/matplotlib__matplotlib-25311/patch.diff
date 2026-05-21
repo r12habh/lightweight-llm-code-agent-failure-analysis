@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/legend.py b/lib/matplotlib/legend.py
+index ff6abdb958..b7fa71657d 100644
+--- a/lib/matplotlib/legend.py
++++ b/lib/matplotlib/legend.py
+@@ -75,7 +75,7 @@ class DraggableLegend(DraggableOffsetBox):
+ 
+     def finalize_offset(self):
+         if self._update == "loc":
+-            self._update_loc(self.get_loc_in_canvas())
++            self._update_loc(self.get_loc_in_canvas(), passive=True)
+         elif self._update == "bbox":
+             self._bbox_to_anchor(self.get_loc_in_canvas())

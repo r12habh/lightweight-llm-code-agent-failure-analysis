@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14855",
+  "input_patch_chars": 596,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/helpers.py...\nerror: while searching for:\n                help_text = help_text_for_field(class_name, form._meta.model)\n\n            if field in form.fields:\n                is_hidden = form.fields[field].widget.is_hidden\n            else:\n                is_hidden = False\n\n\nerror: patch failed: django/contrib/admin/helpers.py:100\nApplying patch django/contrib/admin/helpers.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/admin/helpers.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/admin/helpers.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

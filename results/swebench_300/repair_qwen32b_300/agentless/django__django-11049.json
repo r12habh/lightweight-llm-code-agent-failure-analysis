@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11049",
+  "input_patch_chars": 1277,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 35\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/__init__.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/fields/__init__.py.rej\npatching file docs/ref/models/fields.txt\nHunk #1 FAILED at 123.\nHunk #2 succeeded at 131 with fuzz 3.\n1 out of 2 hunks FAILED -- saving rejects to file docs/ref/models/fields.txt.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

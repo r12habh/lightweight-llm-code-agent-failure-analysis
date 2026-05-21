@@ -1,0 +1,17 @@
+diff --git a/django/db/models/base.py b/django/db/models/base.py
+index 8ea6c05ef9..ade0a162ab 100644
+--- a/django/db/models/base.py
++++ b/django/db/models/base.py
+@@ -310,6 +310,12 @@ class ModelBase(type):
+         new_class._meta.indexes = [copy.deepcopy(idx) for idx in new_class._meta.indexes]
+ 
+         if abstract:
++                raise TypeError(
++                    'Multiple concrete models cannot be inherited. '
++                    '%s inherited from %s' % (
++                        name, ', '.join(p.__name__ for p in concrete_parents)
++                    )
++                )
+             # Abstract base models can't be instantiated and don't appear in
+             # the list of models for an app. We do the final setup for them a
+             # little differently from normal models.

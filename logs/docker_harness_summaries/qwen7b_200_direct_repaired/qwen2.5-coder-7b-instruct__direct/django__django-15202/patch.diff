@@ -1,0 +1,13 @@
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..f8695751e4 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -274,7 +274,7 @@ class IntegerField(Field):
+         try:
+             value = int(self.re_decimal.sub('', str(value)))
+         except (ValueError, TypeError):
+-            raise ValidationError(self.error_messages['invalid'], code='invalid')
++            raise ValueError('Invalid IPv6 URL')
+         return value
+ 
+     def widget_attrs(self, widget):

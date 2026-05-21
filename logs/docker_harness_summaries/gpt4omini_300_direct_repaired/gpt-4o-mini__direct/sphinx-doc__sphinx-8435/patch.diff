@@ -1,0 +1,20 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index 171a3e7b0..17d55ef9c 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -20,6 +20,7 @@ from typing import (Any, Callable, Dict, Iterator, List, Optional, Sequence, Set
+ 
+ from docutils.statemachine import StringList
+ 
++from sphinx.ext.napoleon import Config as NapoleonConfig
+ import sphinx
+ from sphinx.application import Sphinx
+ from sphinx.config import ENUM, Config
+@@ -86,6 +87,7 @@ EMPTY = _Empty()
+ UNINITIALIZED_ATTR = object()
+ INSTANCEATTR = object()
+ SLOTSATTR = object()
++    'napoleon_type_aliases': merge_type_aliases
+ 
+ 
+ def members_option(arg: Any) -> Union[object, List[str]]:

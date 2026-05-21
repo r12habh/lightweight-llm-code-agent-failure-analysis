@@ -1,0 +1,13 @@
+diff --git a/django/utils/autoreload.py b/django/utils/autoreload.py
+index 7ca0d68fae..02fa1c924f 100644
+--- a/django/utils/autoreload.py
++++ b/django/utils/autoreload.py
+@@ -15,6 +15,8 @@ from pathlib import Path
+ from types import ModuleType
+ from zipimport import zipimporter
+ 
++import django
++
+ from django.apps import apps
+ from django.core.signals import request_finished
+ from django.dispatch import Signal

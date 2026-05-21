@@ -1,0 +1,47 @@
+2026-05-08 10:06:13,367 - INFO - Creating container for django__django-15202...
+2026-05-08 10:06:14,264 - INFO - Container for django__django-15202 created: 6d570105edd5d5f61f1b3a73f4d346d2ff2f1eb7af1ebdc50ae6568290fa9295
+2026-05-08 10:06:14,385 - INFO - Container for django__django-15202 started: 6d570105edd5d5f61f1b3a73f4d346d2ff2f1eb7af1ebdc50ae6568290fa9295
+2026-05-08 10:06:14,386 - INFO - Intermediate patch for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-15202/patch.diff, now applying to container...
+2026-05-08 10:06:14,575 - INFO - >>>>> Applied Patch:
+Checking patch django/forms/fields.py...
+Applied patch django/forms/fields.py cleanly.
+
+2026-05-08 10:06:15,313 - INFO - Git diff before:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..f8695751e4 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -274,7 +274,7 @@ class IntegerField(Field):
+         try:
+             value = int(self.re_decimal.sub('', str(value)))
+         except (ValueError, TypeError):
+-            raise ValidationError(self.error_messages['invalid'], code='invalid')
++            raise ValueError('Invalid IPv6 URL')
+         return value
+ 
+     def widget_attrs(self, widget):
+2026-05-08 10:06:15,313 - INFO - Eval script for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-15202/eval.sh; copying to container...
+2026-05-08 10:06:24,305 - INFO - Test runtime: 8.93 seconds
+2026-05-08 10:06:24,306 - INFO - Test output for django__django-15202 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-15202/test_output.txt
+2026-05-08 10:06:24,468 - INFO - Git diff after:
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..f8695751e4 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -274,7 +274,7 @@ class IntegerField(Field):
+         try:
+             value = int(self.re_decimal.sub('', str(value)))
+         except (ValueError, TypeError):
+-            raise ValidationError(self.error_messages['invalid'], code='invalid')
++            raise ValueError('Invalid IPv6 URL')
+         return value
+ 
+     def widget_attrs(self, widget):
+2026-05-08 10:06:24,468 - INFO - Grading answer for django__django-15202...
+2026-05-08 10:06:24,469 - INFO - report: {'django__django-15202': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_urlfield_clean_invalid (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_not_required (forms_tests.field_tests.test_urlfield.URLFieldTest)']}, 'PASS_TO_PASS': {'success': ['test_urlfield_clean (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_clean_required (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_strip_on_none_value (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_unable_to_set_strip_kwarg (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget (forms_tests.field_tests.test_urlfield.URLFieldTest)', 'test_urlfield_widget_max_min_length (forms_tests.field_tests.test_urlfield.URLFieldTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15202: resolved: False
+2026-05-08 10:06:24,469 - INFO - Attempting to stop container sweb.eval.django__django-15202.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 10:06:39,669 - INFO - Attempting to remove container sweb.eval.django__django-15202.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 10:06:39,686 - INFO - Container sweb.eval.django__django-15202.hf_qwen25_coder7b_50_direct_repaired removed.
+2026-05-08 10:06:39,686 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15202:latest...
+2026-05-08 10:06:40,756 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15202:latest removed.

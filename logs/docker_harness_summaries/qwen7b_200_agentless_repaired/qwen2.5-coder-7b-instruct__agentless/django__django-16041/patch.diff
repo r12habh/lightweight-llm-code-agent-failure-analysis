@@ -1,0 +1,20 @@
+diff --git a/django/forms/forms.py b/django/forms/forms.py
+index 35471345c9..54162217c2 100644
+--- a/django/forms/forms.py
++++ b/django/forms/forms.py
+@@ -100,6 +100,7 @@ class BaseForm(RenderableFormMixin):
+         self._errors = None  # Stores the errors after clean() has been called.
+ 
+         # The base_fields class attribute is the *class-wide* definition of
++        self.empty_permitted = empty_permitted
+         # fields. Because a particular *instance* of the class might want to
+         # alter self.fields, we create self.fields here by copying base_fields.
+         # Instances should always modify self.fields; they should not modify
+@@ -110,6 +111,7 @@ class BaseForm(RenderableFormMixin):
+ 
+         if use_required_attribute is not None:
+             self.use_required_attribute = use_required_attribute
++        self.empty_permitted = empty_permitted
+ 
+         if self.empty_permitted and self.use_required_attribute:
+             raise ValueError(

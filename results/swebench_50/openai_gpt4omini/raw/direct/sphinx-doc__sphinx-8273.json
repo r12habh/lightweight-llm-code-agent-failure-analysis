@@ -1,0 +1,16 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8273",
+  "raw": "```diff\ndiff --git a/sphinx/builders/manpage.py b/sphinx/builders/manpage.py\n--- a/sphinx/builders/manpage.py\n+++ b/sphinx/builders/manpage.py\n@@ -211,6 +211,8 @@\n \n         # Create the output directory if it doesn't exist\n         if not os.path.exists(output_dir):\n+            os.makedirs(output_dir)\n+\n             # Create section directories based on man page sections\n             for section in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:\n                 section_dir = os.path.join(output_dir, f'man{section}')\n                 if not os.path.exists(section_dir):\n                     os.makedirs(section_dir)\n```",
+  "usage": {
+    "input_tokens": 21544,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 158,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 21702
+  },
+  "localized_files": []
+}

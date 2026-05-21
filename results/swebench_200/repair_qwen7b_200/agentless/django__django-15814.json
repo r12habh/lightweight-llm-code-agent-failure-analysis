@@ -1,0 +1,26 @@
+{
+  "instance_id": "django__django-15814",
+  "input_patch_chars": 717,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nHunk #1 succeeded at 68 (offset -674 lines).\nerror: while searching for:\n\nJoinInfo = namedtuple(\n    \"JoinInfo\",\n    (\"final_field\", \"targets\", \"opts\", \"joins\", \"path\", \"transform_function\"),\n)\n\nclass RawQuery:\n\nerror: patch failed: django/db/models/sql/query.py:749\nApplying patch django/db/models/sql/query.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 succeeded at 68 (offset -674 lines).\nHunk #2 succeeded at 75 with fuzz 1 (offset -674 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

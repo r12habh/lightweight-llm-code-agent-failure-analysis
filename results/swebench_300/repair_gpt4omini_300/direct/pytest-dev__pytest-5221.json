@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5221",
+  "input_patch_chars": 947,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/fixtures.py...\nerror: while searching for:\n            yield fixturename\n            yield fixturedef\n            # Add the fixture's scope information\n\ndef showfixtures(config):\n    \"\"\"Show available fixtures, sorted by plugin appearance.\"\"\"\n\nerror: patch failed: src/_pytest/fixtures.py:1623\nerror: while searching for:\n    print(\"fixtures:\")\n    for fixturename in sorted(fixturemanager._arg2fixturedefs):\n        fixturedef = fixturemanager._arg2fixturedefs[fixturename][0]\n\n    if config.getvalue(\"show_fixtures_per_test\"):\n        show_fixtures_per_test(config)\n\nerror: patch failed: src/_pytest/fixtures.py:1640\nApplying patch src/_pytest/fixtures.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/fixtures.py\nHunk #1 succeeded at 1322 with fuzz 3 (offset -301 lines).\nHunk #2 FAILED at 1641.\n1 out of 2 hunks FAILED -- saving rejects to file src/_pytest/fixtures.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

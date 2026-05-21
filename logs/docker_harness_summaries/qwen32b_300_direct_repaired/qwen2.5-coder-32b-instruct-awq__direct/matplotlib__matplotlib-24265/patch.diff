@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/style/core.py b/lib/matplotlib/style/core.py
+index fb0a5426e6..77b1cbcba8 100644
+--- a/lib/matplotlib/style/core.py
++++ b/lib/matplotlib/style/core.py
+@@ -123,6 +123,7 @@ def use(style):
+                 "seaborn-deep",
+                 "seaborn-muted",
+                 "seaborn-notebook",
++        'seaborn-colorblind': 'seaborn-colorblind.mplstyle',
+                 "seaborn-paper",
+                 "seaborn-pastel",
+                 "seaborn-poster",

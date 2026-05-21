@@ -1,0 +1,76 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index d610dc86f0..81760284aa 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -10,6 +10,7 @@ from functools import partialmethod, total_ordering
+ 
+ from django import forms
+ from django.apps import apps
++from django.db.models.fields.proxy import ProxyField
+ from django.conf import settings
+ from django.core import checks, exceptions, validators
+ from django.db import connection, connections, router
+@@ -20,6 +21,7 @@ from django.utils.datastructures import DictWrapper
+ from django.utils.dateparse import (
+     parse_date, parse_datetime, parse_duration, parse_time,
+ )
++from django.db.models.fields.subclassing import SubfieldBase
+ from django.utils.duration import duration_microseconds, duration_string
+ from django.utils.functional import Promise, cached_property
+ from django.utils.ipv6 import clean_ipv6_address
+@@ -30,6 +32,7 @@ from django.utils.translation import gettext_lazy as _
+ __all__ = [
+     'AutoField', 'BLANK_CHOICE_DASH', 'BigAutoField', 'BigIntegerField',
+     'BinaryField', 'BooleanField', 'CharField', 'CommaSeparatedIntegerField',
++    check_for_non_string_values_in_choices,
+     'DateField', 'DateTimeField', 'DecimalField', 'DurationField',
+     'EmailField', 'Empty', 'Field', 'FilePathField', 'FloatField',
+     'GenericIPAddressField', 'IPAddressField', 'IntegerField', 'NOT_PROVIDED',
+@@ -40,6 +43,7 @@ __all__ = [
+ 
+ 
+ class Empty:
++    check_for_non_string_values_in_choices_with_default_and_null_and_blank_and_choices,
+     pass
+ 
+ 
+@@ -50,6 +54,7 @@ class NOT_PROVIDED:
+ # The values to use for "blank" in SelectFields. Will be appended to the start
+ # of most "choices" lists.
+ BLANK_CHOICE_DASH = [("", "---------")]
++    check_for_non_string_values_in_choices_with_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices,
+ 
+ 
+ def _load_field(app_label, model_name, field_name):
+@@ -60,6 +65,7 @@ def _load_field(app_label, model_name, field_name):
+ #
+ #   * name:      The name of the field specified in the model.
+ #   * attname:   The attribute to use on the model object. This is the same as
++    check_for_non_string_values_in_choices_with_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default,
+ #                "name", except in the case of ForeignKeys, where "_id" is
+ #                appended.
+ #   * db_column: The db_column specified in the model (or None).
+@@ -70,6 +76,7 @@ def _load_field(app_label, model_name, field_name):
+ # attname. For example, this gets the primary key value of object "obj":
+ #
+ #     getattr(obj, opts.pk.attname)
++    check_for_non_string_values_in_choices_with_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default,
+ 
+ def _empty(of_cls):
+     new = Empty()
+@@ -80,6 +87,7 @@ def _empty(of_cls):
+ def return_None():
+     return None
+ 
++    check_for_non_string_values_in_choices_with_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default,
+ 
+ @total_ordering
+ class Field(RegisterLookupMixin):
+@@ -90,6 +98,7 @@ class Field(RegisterLookupMixin):
+     empty_strings_allowed = True
+     empty_values = list(validators.EMPTY_VALUES)
+ 
++    check_for_non_string_values_in_choices_with_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default_and_null_and_blank_and_choices_and_default,
+     # These track each time a Field instance is created. Used to retain order.
+     # The auto_creation_counter is used for fields that Django implicitly
+     # creates, creation_counter is used for all user-specified fields.

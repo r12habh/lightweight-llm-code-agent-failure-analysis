@@ -1,0 +1,12 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 43f9e6ad8d..9563e1f99b 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -649,7 +649,7 @@ def _print_Pow(self, expr):
+         else:
+             if expr.base.is_Function:
+                 return self._print(expr.base, exp=self._print(expr.exp))
+-            else:
++            elif expr.exp.is_Integer:
+                 tex = r"%s^{%s}"
+                 return self._helper_print_standard_power(expr, tex)

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11133",
+  "input_patch_chars": 379,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/http/response.py...\nerror: while searching for:\n        self._headers = {}\n        self._closable_objects = []\n        self.cookies = SimpleCookie()\n        self.closed = False\n        if status is not None:\n            try:\n\nerror: patch failed: django/http/response.py:100\nerror: django/http/response.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/http/response.py...\nerror: while searching for:\n        self._headers = {}\n        self._closable_objects = []\n        self.cookies = SimpleCookie()\n        self.closed = False\n        if status is not None:\n            try:\n\nerror: patch failed: django/http/response.py:100\nApplying patch django/http/response.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 432
+}

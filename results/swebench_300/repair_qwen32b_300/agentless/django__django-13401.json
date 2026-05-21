@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13401",
+  "input_patch_chars": 1099,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n        return self.creation_counter < other.creation_counter\n\n    def __eq__(self, other):\n        # Allow comparing fields to their string representation; useful in shell.\n        if isinstance(other, str):\n            return self.name == other\n\nerror: patch failed: django/db/models/fields/__init__.py:150\nerror: django/db/models/fields/__init__.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n        return self.creation_counter < other.creation_counter\n\n    def __eq__(self, other):\n        # Allow comparing fields to their string representation; useful in shell.\n        if isinstance(other, str):\n            return self.name == other\n\nerror: patch failed: django/db/models/fields/__init__.py:150\nerror: while searching for:\n        return hash(self.creation_counter)\n\n    def __lt__(self, other):\n        # Allow comparing fields to their string representation; useful in shell.\n        if isinstance(other, str):\n            return self.name < other\n\nerror: patch failed: django/db/models/fields/__init__.py:160\nApplying patch django/db/models/fields/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1112
+}

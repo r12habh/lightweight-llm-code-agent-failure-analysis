@@ -1,0 +1,20 @@
+diff --git a/django/template/base.py b/django/template/base.py
+index 85ce3c2abd..3adc531e52 100644
+--- a/django/template/base.py
++++ b/django/template/base.py
+@@ -94,6 +94,7 @@ tag_re = (_lazy_re_compile('(%s.*?%s|%s.*?%s|%s.*?%s)' %
+            re.escape(COMMENT_TAG_START), re.escape(COMMENT_TAG_END))))
+ 
+ logger = logging.getLogger('django.template')
++logger.setLevel(logging.ERROR)  # Ensure we capture error logs
+ 
+ 
+ class TokenType(Enum):
+@@ -732,6 +733,7 @@ class Variable:
+ 
+         >>> c = {'article': {'section':'News'}}
+         >>> Variable('article.section').resolve(c)
++                    logger.exception("Exception in signal receiver:")
+         'News'
+         >>> Variable('article').resolve(c)
+         {'section': 'News'}

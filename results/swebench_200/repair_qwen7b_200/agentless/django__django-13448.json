@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13448",
+  "input_patch_chars": 694,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/test/runner.py...\nerror: while searching for:\n        self.connection.close()\n        settings.DATABASES[self.connection.alias][\"NAME\"] = test_database_name\n        self.connection.settings_dict[\"NAME\"] = test_database_name\n\n        if self.connection.settings_dict['TEST']['MIGRATE']:\n            # We report migrate messages at one level lower than that\n            # requested. This ensures we don't get flooded with messages during\n\nerror: patch failed: django/test/runner.py:616\nApplying patch django/test/runner.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/test/runner.py\nHunk #1 FAILED at 616.\n1 out of 1 hunk FAILED -- saving rejects to file django/test/runner.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

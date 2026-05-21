@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-16281",
+  "input_patch_chars": 674,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/printing/pretty/stringpict.py...\nerror: while searching for:\n       #stack the pictures, and center the result\n       newPicture = []\n       for obj in objects:\n           newPicture.extend(obj.picture)\n       newPicture = [line.center(newWidth) for line in newPicture]\n       newBaseline = objects[0].height() + objects[1].baseline\n       return '\\n'.join(newPicture), newBaseline\n\nerror: patch failed: sympy/printing/pretty/stringpict.py:165\nApplying patch sympy/printing/pretty/stringpict.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/printing/pretty/stringpict.py\nHunk #1 FAILED at 165.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/printing/pretty/stringpict.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

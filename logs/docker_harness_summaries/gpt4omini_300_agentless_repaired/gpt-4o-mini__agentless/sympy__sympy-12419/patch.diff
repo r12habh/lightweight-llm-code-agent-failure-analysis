@@ -1,0 +1,12 @@
+diff --git a/sympy/core/power.py b/sympy/core/power.py
+index 5e523e689e..acb1ce7398 100644
+--- a/sympy/core/power.py
++++ b/sympy/core/power.py
+@@ -657,6 +657,7 @@ def _eval_adjoint(self):
+         i, p = self.exp.is_integer, self.base.is_positive
+         if i:
+             return adjoint(self.base)**self.exp
++    def _eval_power(self, other):
+         if p:
+             return self.base**adjoint(self.exp)
+         if i is False and p is False:

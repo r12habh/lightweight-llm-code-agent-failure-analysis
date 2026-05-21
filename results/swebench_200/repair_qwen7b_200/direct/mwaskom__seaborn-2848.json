@@ -1,0 +1,25 @@
+{
+  "instance_id": "mwaskom__seaborn-2848",
+  "input_patch_chars": 1753,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch seaborn/_core/plot.py...\nHunk #1 succeeded at 175 (offset 75 lines).\nerror: while searching for:\n        variables = {}\n\n        unknown = [x for x in variables if x not in PROPERTIES]\n        if unknown:\n            err = f\"Plot() got unexpected keyword argument(s): {', '.join(unknown)}\"\n            raise TypeError(err)\n\nerror: patch failed: seaborn/_core/plot.py:110\nerror: while searching for:\n        self._data = PlotData(data, variables)\n        self._layers = []\n        self._scales = {}\n        self._subplot_spec = {}\n        self._facet_spec = {}\n        self._pair_spec = {}\n\nerror: patch failed: seaborn/_core/plot.py:120\nerror: while searching for:\n        self._target = None\n\n    def add(\n        self,\n        mark: Mark,\n        stat: Stat | None = None,\n\nerror: patch failed: seaborn/_core/plot.py:130\nerror: while searching for:\n        legend: bool = True,\n        data: DataSource = None,\n        **variables: VariableSpec,\n        if not isinstance(mark, Mark):\n            msg = f\"mark must be a Mark instance, not {type(mark)!r}.\"\n            raise TypeError(msg)\n\nerror: patch failed: seaborn/_core/plot.py:140\nerror: while searching for:\n            msg = f\"stat must be a Stat instance, not {type(stat)!r}.\"\n            raise TypeError(msg)\n\n        if stat is not None and not isinstance(stat, Stat):\n            msg = f\"stat must be a Stat instance, not {type(stat)!r}.\"\n            raise TypeError(msg)\n\nerror: patch failed: seaborn/_core/plot.py:150\nApplying patch seaborn/_core/plot.py with 5 rejects...\nHunk #1 applied cleanly.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\nRejected hunk #5.\nRejected hunk #6.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file seaborn/_core/plot.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 175 (offset 75 lines).\nHunk #2 FAILED at 110.\nHunk #3 FAILED at 121.\nHunk #4 FAILED at 132.\nHunk #5 succeeded at 304 with fuzz 3 (offset 161 lines).\nHunk #6 FAILED at 153.\n4 out of 6 hunks FAILED -- saving rejects to file seaborn/_core/plot.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

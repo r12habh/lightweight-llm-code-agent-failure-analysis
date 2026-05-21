@@ -1,0 +1,48 @@
+diff --git a/src/_pytest/junitxml.py b/src/_pytest/junitxml.py
+index 15c630b1d..e3f611e4b 100644
+--- a/src/_pytest/junitxml.py
++++ b/src/_pytest/junitxml.py
+@@ -10,6 +10,7 @@ src/main/resources/org/jenkinsci/plugins/xunit/types/model/xsd/junit-10.xsd
+ """
+ import functools
+ import os
++import socket
+ import re
+ import sys
+ import time
+@@ -80,6 +81,8 @@ families["xunit2"] = families["_base"]
+ 
+ 
+ class _NodeReporter:
++    hostname = socket.gethostname()
++    timestamp = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+     def __init__(self, nodeid, xml):
+         self.id = nodeid
+         self.xml = xml
+@@ -121,6 +124,8 @@ class _NodeReporter:
+         if self.xml.prefix:
+             classnames.insert(0, self.xml.prefix)
+         attrs = {
++            "hostname": self.hostname,
++            "timestamp": self.timestamp,
+             "classname": ".".join(classnames),
+             "name": bin_xml_escape(names[-1]),
+             "file": testreport.location[0],
+@@ -200,6 +205,8 @@ class _NodeReporter:
+                             content_log,
+                         ]
+                     )
++    hostname = socket.gethostname()
++    timestamp = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime())
+                 else:
+                     content = content_log
+             else:
+@@ -300,6 +307,8 @@ def record_property(request):
+ 
+     Example::
+ 
++            "hostname": self.hostname,
++            "timestamp": self.timestamp,
+         def test_function(record_property):
+             record_property("example_key", 1)
+     """

@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index b657a35cf7..8511e4e72d 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -111,6 +111,8 @@ from matplotlib.cbook import MatplotlibDeprecationWarning, sanitize_sequence
+ from matplotlib.cbook import mplDeprecation  # deprecated
+ from matplotlib.rcsetup import validate_backend, cycler
+ 
++version_info = (3, 5, 0)
++
+ 
+ _log = logging.getLogger(__name__)

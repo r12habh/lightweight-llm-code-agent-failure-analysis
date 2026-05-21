@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11999",
+  "input_patch_chars": 1159,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/fields/__init__.py...\nerror: while searching for:\n    def __init__(self, verbose_name=None, name=None, primary_key=False,\n                 max_length=None, unique=False, blank=False, null=False,\n                 db_index=False, rel=None, default=NOT_PROVIDED, editable=True,\n                 unique_for_year=None, choices=None, help_text='', db_column=None,\n                 db_tablespace=None, auto_created=False, validators=(),\n                 error_messages=None):\n\nerror: patch failed: django/db/models/fields/__init__.py:123\nerror: while searching for:\n                 self.db_column = db_column\n                 self._db_tablespace = db_tablespace\n                 self.auto_created = auto_created\n                 self._validators = list(validators)  # Store for deconstruction later\n                 messages = {}\n                 for c in reversed(self.__class__.__mro__):\n\nerror: patch failed: django/db/models/fields/__init__.py:130\nApplying patch django/db/models/fields/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/fields/__init__.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 131 (offset 8 lines).\nHunk #2 FAILED at 130.\n1 out of 2 hunks FAILED -- saving rejects to file django/db/models/fields/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

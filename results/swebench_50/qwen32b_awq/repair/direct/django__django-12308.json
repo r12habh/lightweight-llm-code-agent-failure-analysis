@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12308",
+  "input_patch_chars": 1022,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 24\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 23:      elif isinstance(field, models.TimeField):\n\n",
+          "stdout": "patching file django/contrib/admin/utils.py\nHunk #1 succeeded at 13 (offset 3 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13660",
+  "input_patch_chars": 448,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/management/commands/shell.py...\nerror: while searching for:\n\n        # Execute the command and exit.\n        if options['command']:\n            exec(options['command'])\n            return\n\n        # Execute stdin if it has anything to read and exit.\n\nerror: patch failed: django/core/management/commands/shell.py:69\nerror: django/core/management/commands/shell.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/commands/shell.py...\nerror: while searching for:\n\n        # Execute the command and exit.\n        if options['command']:\n            exec(options['command'])\n            return\n\n        # Execute stdin if it has anything to read and exit.\n\nerror: patch failed: django/core/management/commands/shell.py:69\nApplying patch django/core/management/commands/shell.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 544
+}

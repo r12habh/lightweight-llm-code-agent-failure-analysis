@@ -1,0 +1,47 @@
+2026-05-19 21:04:28,602 - INFO - Creating container for django__django-11049...
+2026-05-19 21:04:29,306 - INFO - Container for django__django-11049 created: 1da476a5231f93d5a08cb893c4553a0294dbc8eb978b5a67b83038cce1fc3daf
+2026-05-19 21:04:29,402 - INFO - Container for django__django-11049 started: 1da476a5231f93d5a08cb893c4553a0294dbc8eb978b5a67b83038cce1fc3daf
+2026-05-19 21:04:29,403 - INFO - Intermediate patch for django__django-11049 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11049/patch.diff, now applying to container...
+2026-05-19 21:04:29,547 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/fields/__init__.py...
+Applied patch django/db/models/fields/__init__.py cleanly.
+
+2026-05-19 21:04:30,211 - INFO - Git diff before:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index f32ce64629..7e7fdc1247 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -35,7 +35,7 @@ __all__ = [
+     'AutoField', 'BLANK_CHOICE_DASH', 'BigAutoField', 'BigIntegerField',
+     'BinaryField', 'BooleanField', 'CharField', 'CommaSeparatedIntegerField',
+     'DateField', 'DateTimeField', 'DecimalField', 'DurationField',
+-    'EmailField', 'Empty', 'Field', 'FieldDoesNotExist', 'FilePathField',
++    'EmailField', 'Empty', 'Field', 'FieldDoesNotExist', 'FilePathField', 'DurationField',
+     'FloatField', 'GenericIPAddressField', 'IPAddressField', 'IntegerField',
+     'NOT_PROVIDED', 'NullBooleanField', 'PositiveIntegerField',
+     'PositiveSmallIntegerField', 'SlugField', 'SmallIntegerField', 'TextField',
+2026-05-19 21:04:30,211 - INFO - Eval script for django__django-11049 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11049/eval.sh; copying to container...
+2026-05-19 21:04:45,776 - INFO - Test runtime: 15.50 seconds
+2026-05-19 21:04:45,778 - INFO - Test output for django__django-11049 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11049/test_output.txt
+2026-05-19 21:04:45,916 - INFO - Git diff after:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index f32ce64629..7e7fdc1247 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -35,7 +35,7 @@ __all__ = [
+     'AutoField', 'BLANK_CHOICE_DASH', 'BigAutoField', 'BigIntegerField',
+     'BinaryField', 'BooleanField', 'CharField', 'CommaSeparatedIntegerField',
+     'DateField', 'DateTimeField', 'DecimalField', 'DurationField',
+-    'EmailField', 'Empty', 'Field', 'FieldDoesNotExist', 'FilePathField',
++    'EmailField', 'Empty', 'Field', 'FieldDoesNotExist', 'FilePathField', 'DurationField',
+     'FloatField', 'GenericIPAddressField', 'IPAddressField', 'IntegerField',
+     'NOT_PROVIDED', 'NullBooleanField', 'PositiveIntegerField',
+     'PositiveSmallIntegerField', 'SlugField', 'SmallIntegerField', 'TextField',
+2026-05-19 21:04:45,916 - INFO - Grading answer for django__django-11049...
+2026-05-19 21:04:45,918 - INFO - report: {'django__django-11049': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_invalid_string (model_fields.test_durationfield.TestValidation)']}, 'PASS_TO_PASS': {'success': ['test_dumping (model_fields.test_durationfield.TestSerialization)', 'test_loading (model_fields.test_durationfield.TestSerialization)', 'test_formfield (model_fields.test_durationfield.TestFormField)', 'test_exact (model_fields.test_durationfield.TestQuerying)', 'test_gt (model_fields.test_durationfield.TestQuerying)', 'test_create_empty (model_fields.test_durationfield.TestSaveLoad)', 'test_fractional_seconds (model_fields.test_durationfield.TestSaveLoad)', 'test_simple_roundtrip (model_fields.test_durationfield.TestSaveLoad)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11049: resolved: False
+2026-05-19 21:04:45,919 - INFO - Attempting to stop container sweb.eval.django__django-11049.gpt4omini_300_direct_repaired...
+2026-05-19 21:05:01,175 - INFO - Attempting to remove container sweb.eval.django__django-11049.gpt4omini_300_direct_repaired...
+2026-05-19 21:05:01,201 - INFO - Container sweb.eval.django__django-11049.gpt4omini_300_direct_repaired removed.
+2026-05-19 21:05:01,201 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11049:latest...
+2026-05-19 21:05:02,061 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11049:latest removed.

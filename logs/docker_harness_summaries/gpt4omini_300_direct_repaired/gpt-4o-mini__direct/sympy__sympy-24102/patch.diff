@@ -1,0 +1,12 @@
+diff --git a/sympy/parsing/mathematica.py b/sympy/parsing/mathematica.py
+index 7ea14ce33a..b1be71ad31 100644
+--- a/sympy/parsing/mathematica.py
++++ b/sympy/parsing/mathematica.py
+@@ -338,6 +338,7 @@ def _compile_dictionary(cls, dic):
+ 
+     def _convert_function(self, s):
+         '''Parse Mathematica function to SymPy one'''
++        s = s.replace('λ', 'lambda')  # Replace Greek lambda with 'lambda'
+ 
+         # compiled regex object
+         pat = self.FM_PATTERN

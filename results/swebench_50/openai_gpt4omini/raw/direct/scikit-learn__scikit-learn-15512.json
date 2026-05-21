@@ -1,0 +1,16 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15512",
+  "raw": "```diff\ndiff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py\n+++ b/sklearn/cluster/_affinity_propagation.py\n@@ -236,6 +236,11 @@\n    else:\n        warnings.warn(\"Affinity propagation did not converge, this model \"\n                       \"will not have any cluster centers.\", ConvergenceWarning)\n+        cluster_centers_indices = []  # Ensure empty array for non-convergence\n+        labels = np.array([-1] * n_samples)  # Ensure all labels are -1\n+        \n+        # Added to assign proper attributes for expected behavior\n+        self.cluster_centers_indices_ = cluster_centers_indices\n     \n    if return_n_iter:\n        return cluster_centers_indices, labels, it + 1\n```",
+  "usage": {
+    "input_tokens": 19348,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 176,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 19524
+  },
+  "localized_files": []
+}

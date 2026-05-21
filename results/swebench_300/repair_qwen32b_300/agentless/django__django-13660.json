@@ -1,0 +1,26 @@
+{
+  "instance_id": "django__django-13660",
+  "input_patch_chars": 910,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/commands/shell.py...\nerror: while searching for:\n        # Execute the command and exit.\n        if options['command']:\n            exec(options['command'], {})\n            return\n\n        # Execute stdin if it has anything to read and exit.\n        # Not supported on Windows due to select.select() limitations.\n\nerror: patch failed: django/core/management/commands/shell.py:83\nerror: while searching for:\n            exec(sys.stdin.read(), {})\n            return\n\n        available_shells = [options['interface']] if options['interface'] else self.shells\n\n        for shell in available_shells:\n            try:\n\nerror: patch failed: django/core/management/commands/shell.py:92\nApplying patch django/core/management/commands/shell.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/commands/shell.py\nHunk #1 succeeded at 85 with fuzz 3 (offset 2 lines).\nHunk #2 succeeded at 93 with fuzz 1 (offset 1 line).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

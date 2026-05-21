@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12708",
+  "input_patch_chars": 944,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/backends/base/schema.py...\nerror: while searching for:\n        if self.connection.features.supports_atomic_references_rename and self._is_referenced_by_fk_constraint(old_db_table, old_column_name, ignore_self=True):\n            if self.connection.in_atomic_block:\n                raise NotSupportedError((\n                    'Renaming the %r.%r column while in a transaction is not '\n                ) % (model._meta.db_table, old_field_name))\n            with atomic(self.connection.alias):\n                super().alter_field(model, old_field, new_field, strict=strict)\n\nerror: patch failed: django/db/backends/base/schema.py:375\nApplying patch django/db/backends/base/schema.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/backends/base/schema.py\nHunk #1 FAILED at 375.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/backends/base/schema.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

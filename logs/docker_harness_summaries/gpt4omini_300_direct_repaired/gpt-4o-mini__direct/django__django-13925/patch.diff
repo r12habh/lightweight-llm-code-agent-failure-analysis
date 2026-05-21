@@ -1,0 +1,12 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0f53d9c30b..57af53965b 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -156,7 +156,6 @@ class Field(RegisterLookupMixin):
+         self.db_index = db_index
+         self.db_column = db_column
+         self._db_tablespace = db_tablespace
+-        self.auto_created = auto_created
+ 
+         # Adjust the appropriate creation counter, and save our local copy.
+         if auto_created:

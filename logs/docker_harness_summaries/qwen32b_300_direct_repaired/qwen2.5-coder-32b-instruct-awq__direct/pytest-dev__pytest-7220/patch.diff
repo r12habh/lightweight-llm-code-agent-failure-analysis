@@ -1,0 +1,18 @@
+diff --git a/src/_pytest/monkeypatch.py b/src/_pytest/monkeypatch.py
+index 9d802a625..911d1b5cd 100644
+--- a/src/_pytest/monkeypatch.py
++++ b/src/_pytest/monkeypatch.py
+@@ -278,6 +278,7 @@ class MonkeyPatch:
+         """
+         if self._cwd is None:
+             self._cwd = os.getcwd()
++            self._original_cwd = self._cwd
+         if hasattr(path, "chdir"):
+             path.chdir()
+         elif isinstance(path, Path):
+@@ -321,4 +322,4 @@ class MonkeyPatch:
+ 
+         if self._cwd is not None:
+             os.chdir(self._cwd)
+-            self._cwd = None
++            self._cwd = self._original_cwd

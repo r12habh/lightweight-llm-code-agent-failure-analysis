@@ -1,0 +1,13 @@
+diff --git a/django/contrib/postgres/fields/array.py b/django/contrib/postgres/fields/array.py
+index c8e8e132e0..7de2d704ce 100644
+--- a/django/contrib/postgres/fields/array.py
++++ b/django/contrib/postgres/fields/array.py
+@@ -36,7 +36,7 @@ class ArrayField(CheckFieldDefaultMixin, Field):
+         # implements it.
+         if hasattr(self.base_field, "from_db_value"):
+             self.from_db_value = self._from_db_value
+-        super().__init__(**kwargs)
++        super().__init__(default=kwargs.get('default'), **kwargs)
+ 
+     @property
+     def model(self):

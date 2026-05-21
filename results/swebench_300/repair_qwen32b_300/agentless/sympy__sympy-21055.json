@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-21055",
+  "input_patch_chars": 545,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/simplify/refine.py...\nerror: sympy/simplify/refine.py: No such file or directory\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "can't find file to patch at input line 5\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|diff --git a/sympy/simplify/refine.py b/sympy/simplify/refine.py\n|index 1234567..89abcde 100644\n|--- a/sympy/simplify/refine.py\n|+++ b/sympy/simplify/refine.py\n--------------------------\nNo file to patch.  Skipping patch.\n1 out of 1 hunk ignored\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

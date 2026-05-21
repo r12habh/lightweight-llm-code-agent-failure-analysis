@@ -1,0 +1,28 @@
+diff --git a/sklearn/model_selection/_split.py b/sklearn/model_selection/_split.py
+index c49a3ce6ae..f3b52cbf98 100644
+--- a/sklearn/model_selection/_split.py
++++ b/sklearn/model_selection/_split.py
+@@ -105,6 +105,11 @@ class BaseCrossValidator(metaclass=ABCMeta):
+     def __repr__(self):
+         return _build_repr(self)
+ 
++    def __repr__(self):
++        return _build_repr(self, n_splits=self.n_splits,
++                           n_repeats=self.n_repeats,
++                           random_state=self.random_state)
++
+ 
+ class LeaveOneOut(BaseCrossValidator):
+     """Leave-One-Out cross-validator
+@@ -186,6 +191,11 @@ class LeaveOneOut(BaseCrossValidator):
+             raise ValueError("The 'X' parameter should not be None.")
+         return _num_samples(X)
+ 
++    def __repr__(self):
++        return _build_repr(self, n_splits=self.n_splits,
++                           n_repeats=self.n_repeats,
++                           random_state=self.random_state)
++
+ 
+ class LeavePOut(BaseCrossValidator):
+     """Leave-P-Out cross-validator

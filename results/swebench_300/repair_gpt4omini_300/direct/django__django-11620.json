@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11620",
+  "input_patch_chars": 1047,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpgatw1_fs.diff:14: trailing whitespace.\n   an error response. Instead, **ValueError** should be raised to \nChecking patch docs/topics/http/urls.txt...\nerror: while searching for:\nWhen using regular expressions, there's nothing built-in that raises a\nspecific exception if the URL does not match. In general, Django will just\ntry the next pattern until one matches or return a 404 error if none do.\n\nHowever, for custom path converters, consider the following implementation\nthat raises a ValueError to let Django know the path does not match:\n\nclass FourDigitYearConverter:\n    regex = '[0-9]{4}'\n\n    def to_python(self, value):\n        return int(value)\n\nerror: patch failed: docs/topics/http/urls.txt:166\nApplying patch docs/topics/http/urls.txt with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file docs/topics/http/urls.txt\nHunk #1 FAILED at 166.\n1 out of 1 hunk FAILED -- saving rejects to file docs/topics/http/urls.txt.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

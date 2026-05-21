@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-7168",
+  "input_patch_chars": 654,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/reports.py...\nerror: while searching for:\n            s = _format_repr_exception(exc, x)\n        return s\n\n    def repr_instance(self, x):\n        s = _format_repr_exception(exc_info, x)\n        return s\n\n\nerror: patch failed: src/_pytest/reports.py:692\nerror: while searching for:\n        return s\n\n    def repr_args(self, entry):\n        s = self.repr_instance(entry)\n        return s\n\n    def repr_traceback_entry(self, entry, einfo):\n\nerror: patch failed: src/_pytest/reports.py:700\nApplying patch src/_pytest/reports.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/reports.py\nHunk #1 FAILED at 692.\nHunk #2 FAILED at 700.\n2 out of 2 hunks FAILED -- saving rejects to file src/_pytest/reports.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

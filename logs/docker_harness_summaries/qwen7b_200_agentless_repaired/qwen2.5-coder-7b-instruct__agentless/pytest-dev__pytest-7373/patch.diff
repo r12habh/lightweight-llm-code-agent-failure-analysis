@@ -1,0 +1,75 @@
+diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py
+index bbd4593fd..07eac29ff 100644
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -1,6 +1,7 @@
+ """ support for skip/xfail functions and markers. """
+ from typing import Optional
+ from typing import Tuple
++from typing import Dict
+ 
+ from _pytest.config import Config
+ from _pytest.config import hookimpl
+@@ -10,12 +11,14 @@ from _pytest.nodes import Item
+ from _pytest.outcomes import fail
+ from _pytest.outcomes import skip
+ from _pytest.outcomes import xfail
++from _pytest.outcomes import skip
+ from _pytest.python import Function
+ from _pytest.reports import BaseReport
+ from _pytest.runner import CallInfo
+ from _pytest.store import StoreKey
+ 
+ 
++evalcache_key = StoreKey[Dict[str, Any]]()
+ skipped_by_mark_key = StoreKey[bool]()
+ evalxfail_key = StoreKey[MarkEvaluator]()
+ unexpectedsuccess_key = StoreKey[str]()
+@@ -99,6 +102,7 @@ def pytest_runtest_setup(item: Item) -> None:
+             skip("unconditional skip")
+ 
+     item._store[evalxfail_key] = MarkEvaluator(item, "xfail")
++        "mark the test function as an expected failure if eval(condition) "
+     check_xfail_no_run(item)
+ 
+ 
+@@ -109,6 +113,7 @@ def pytest_pyfunc_call(pyfuncitem: Function):
+     passed = outcome.excinfo is None
+     if passed:
+         check_strict_xfail(pyfuncitem)
++@hookimpl(tryfirst=True)
+ 
+ 
+ def check_xfail_no_run(item: Item) -> None:
+@@ -120,6 +125,7 @@ def check_xfail_no_run(item: Item) -> None:
+                 xfail("[NOTRUN] " + evalxfail.getexplanation())
+ 
+ 
++
+ def check_strict_xfail(pyfuncitem: Function) -> None:
+     """check xfail(strict=True) for the given PASSING test"""
+     evalxfail = pyfuncitem._store[evalxfail_key]
+@@ -129,6 +135,7 @@ def check_strict_xfail(pyfuncitem: Function) -> None:
+         if is_strict_xfail:
+             del pyfuncitem._store[evalxfail_key]
+             explanation = evalxfail.getexplanation()
++    item._store[evalxfail_key] = MarkEvaluator(item, "xfail")
+             fail("[XPASS(strict)] " + explanation, pytrace=False)
+ 
+ 
+@@ -139,6 +146,7 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):
+     evalxfail = item._store.get(evalxfail_key, None)
+     # unittest special case, see setting of unexpectedsuccess_key
+     if unexpectedsuccess_key in item._store and rep.when == "call":
++    if passed:
+         reason = item._store[unexpectedsuccess_key]
+         if reason:
+             rep.longrepr = "Unexpected success: {}".format(reason)
+@@ -149,6 +157,7 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):
+     elif item.config.option.runxfail:
+         pass  # don't interfere
+     elif call.excinfo and isinstance(call.excinfo.value, xfail.Exception):
++        if evalxfail.istrue():
+         assert call.excinfo.value.msg is not None
+         rep.wasxfail = "reason: " + call.excinfo.value.msg
+         rep.outcome = "skipped"

@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15512",
+  "input_patch_chars": 893,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/cluster/_affinity_propagation.py...\nerror: while searching for:\n    if (n_samples == 1 or\n            _equal_similarities_and_preferences(S, preference)):\n        # It makes no sense to run the algorithm in this case, so return 1 or\n            return ((np.arange(n_samples), np.arange(n_samples), 0)\n                    if return_n_iter\n                    else (np.arange(n_samples), np.arange(n_samples)))\n\nerror: patch failed: sklearn/cluster/_affinity_propagation.py:102\nerror: sklearn/cluster/_affinity_propagation.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/cluster/_affinity_propagation.py...\nerror: while searching for:\n    if (n_samples == 1 or\n            _equal_similarities_and_preferences(S, preference)):\n        # It makes no sense to run the algorithm in this case, so return 1 or\n            return ((np.arange(n_samples), np.arange(n_samples), 0)\n                    if return_n_iter\n                    else (np.arange(n_samples), np.arange(n_samples)))\n\nerror: patch failed: sklearn/cluster/_affinity_propagation.py:102\nApplying patch sklearn/cluster/_affinity_propagation.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 929
+}

@@ -1,0 +1,77 @@
+2026-05-20 18:26:45,305 - INFO - Creating container for pylint-dev__pylint-6506...
+2026-05-20 18:26:45,903 - INFO - Container for pylint-dev__pylint-6506 created: 30ba8702932b4a50c8ca7acd6c14c712bbcaedc56d2e4a1c249fd4bac7f8b023
+2026-05-20 18:26:46,121 - INFO - Container for pylint-dev__pylint-6506 started: 30ba8702932b4a50c8ca7acd6c14c712bbcaedc56d2e4a1c249fd4bac7f8b023
+2026-05-20 18:26:46,121 - INFO - Intermediate patch for pylint-dev__pylint-6506 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/pylint-dev__pylint-6506/patch.diff, now applying to container...
+2026-05-20 18:26:46,322 - INFO - >>>>> Applied Patch:
+Checking patch pylint/lint/pylinter.py...
+Applied patch pylint/lint/pylinter.py cleanly.
+
+2026-05-20 18:26:46,603 - INFO - Git diff before:
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index e9195f86e..232f4cb60 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -296,6 +296,7 @@ class PyLinter(
+         self.msg_status = 0
+         self._msgs_state: dict[str, bool] = {}
+         self._by_id_managed_msgs: list[ManagedMessage] = []
++        self._unrecognized_options: list[str] = []
+ 
+         reporters.ReportsHandlerMixIn.__init__(self)
+         checkers.BaseTokenChecker.__init__(self, self)
+@@ -318,6 +319,7 @@ class PyLinter(
+             "The option_groups attribute has been deprecated and will be removed in pylint 3.0",
+             DeprecationWarning,
+         )
++            self._unrecognized_options.append(args)
+         return self._option_groups
+ 
+     @option_groups.setter
+@@ -328,6 +330,7 @@ class PyLinter(
+         )
+         self._option_groups = value
+ 
++            self.add_message("unrecognized-option", 0, ", ".join(self._unrecognized_options))
+     def load_default_plugins(self) -> None:
+         checkers.initialize(self)
+         reporters.initialize(self)
+2026-05-20 18:26:46,604 - INFO - Eval script for pylint-dev__pylint-6506 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/pylint-dev__pylint-6506/eval.sh; copying to container...
+2026-05-20 18:26:51,279 - INFO - Test runtime: 4.60 seconds
+2026-05-20 18:26:51,279 - INFO - Test output for pylint-dev__pylint-6506 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/pylint-dev__pylint-6506/test_output.txt
+2026-05-20 18:26:51,401 - INFO - Git diff after:
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index e9195f86e..232f4cb60 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -296,6 +296,7 @@ class PyLinter(
+         self.msg_status = 0
+         self._msgs_state: dict[str, bool] = {}
+         self._by_id_managed_msgs: list[ManagedMessage] = []
++        self._unrecognized_options: list[str] = []
+ 
+         reporters.ReportsHandlerMixIn.__init__(self)
+         checkers.BaseTokenChecker.__init__(self, self)
+@@ -318,6 +319,7 @@ class PyLinter(
+             "The option_groups attribute has been deprecated and will be removed in pylint 3.0",
+             DeprecationWarning,
+         )
++            self._unrecognized_options.append(args)
+         return self._option_groups
+ 
+     @option_groups.setter
+@@ -328,6 +330,7 @@ class PyLinter(
+         )
+         self._option_groups = value
+ 
++            self.add_message("unrecognized-option", 0, ", ".join(self._unrecognized_options))
+     def load_default_plugins(self) -> None:
+         checkers.initialize(self)
+         reporters.initialize(self)
+2026-05-20 18:26:51,401 - INFO - Grading answer for pylint-dev__pylint-6506...
+2026-05-20 18:26:51,402 - INFO - report: {'pylint-dev__pylint-6506': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['tests/config/test_config.py::test_unknown_option_name', 'tests/config/test_config.py::test_unknown_short_option_name']}, 'PASS_TO_PASS': {'success': [], 'failure': ['tests/config/test_config.py::test_can_read_toml_env_variable', 'tests/config/test_config.py::test_unknown_message_id', 'tests/config/test_config.py::test_unknown_confidence', 'tests/config/test_config.py::test_unknown_yes_no', 'tests/config/test_config.py::test_unknown_py_version', 'tests/config/test_config.py::test_short_verbose']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pylint-dev__pylint-6506: resolved: False
+2026-05-20 18:26:51,402 - INFO - Attempting to stop container sweb.eval.pylint-dev__pylint-6506.qwen7b_200_direct_repaired...
+2026-05-20 18:27:06,539 - INFO - Attempting to remove container sweb.eval.pylint-dev__pylint-6506.qwen7b_200_direct_repaired...
+2026-05-20 18:27:06,560 - INFO - Container sweb.eval.pylint-dev__pylint-6506.qwen7b_200_direct_repaired removed.
+2026-05-20 18:27:06,560 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-6506:latest...
+2026-05-20 18:27:06,565 - INFO - Image swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-6506:latest removed.

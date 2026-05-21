@@ -1,0 +1,23 @@
+diff --git a/sympy/core/mul.py b/sympy/core/mul.py
+index 5e45075f76..aa4dcd1eb2 100644
+--- a/sympy/core/mul.py
++++ b/sympy/core/mul.py
+@@ -10,6 +10,7 @@
+ from .operations import AssocOp
+ from .cache import cacheit
+ from .logic import fuzzy_not, _fuzzy_group
++from sympy.functions.elementary.piecewise import Piecewise
+ from .compatibility import reduce, range
+ from .expr import Expr
+ from .evaluate import global_distribute
+@@ -100,6 +101,10 @@ def flatten(cls, seq):
+         combining related terms.
+ 
+         Notes
++            if any(isinstance(a, Piecewise) for a in ncargs):
++                newargs.append(Piecewise._from_args(ncargs))
++            else:
++                newargs.append(Mul._from_args(ncargs))
+         =====
+             * In an expression like ``a*b*c``, python process this through sympy
+               as ``Mul(Mul(a, b), c)``. This can have undesirable consequences.

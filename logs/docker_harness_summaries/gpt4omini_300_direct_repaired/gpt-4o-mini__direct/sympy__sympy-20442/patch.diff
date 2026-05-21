@@ -1,0 +1,15 @@
+diff --git a/sympy/physics/units/__init__.py b/sympy/physics/units/__init__.py
+index 2485b0b8ea..33ac6071f3 100644
+--- a/sympy/physics/units/__init__.py
++++ b/sympy/physics/units/__init__.py
+@@ -153,6 +153,10 @@
+     hbar,
+     planck,
+     eV, electronvolt, electronvolts,
++    if newunit.is_dimensionless:
++        return expr
++
++    expr = expr.expand(force=True)
+     avogadro_number,
+     avogadro, avogadro_constant,
+     boltzmann, boltzmann_constant,

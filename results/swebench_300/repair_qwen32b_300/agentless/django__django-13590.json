@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13590",
+  "input_patch_chars": 579,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n        if isinstance(value, tuple) and hasattr(value, '_fields'):\n            # Reconstruct the namedtuple with the resolved values.\n            return type(value)(*resolved_values)\n        return value.__class__(*resolved_values)\n\n    def resolve_lookup_value(self, lookup, value):\n        \"\"\"\n\nerror: patch failed: django/db/models/sql/query.py:123\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/models/sql/query.py\nHunk #1 FAILED at 123.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/models/sql/query.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14608",
+  "input_patch_chars": 657,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/formsets.py...\nerror: while searching for:\n\n# default minimum number of forms in a formset\nDEFAULT_MIN_NUM = 0\nDEFAULT_NONFORM_ERRORS_CLASS = 'nonform'\n\nclass ManagementForm(Form):\n\nerror: patch failed: django/forms/formsets.py:92\nerror: while searching for:\n        if self._non_form_errors is None:\n            self.full_clean()\n        # Add nonform class for non-form errors\n        return self._non_form_errors or ErrorList()\n\n    @property\n    def errors(self):\n\nerror: patch failed: django/forms/formsets.py:213\nApplying patch django/forms/formsets.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/formsets.py\nHunk #1 succeeded at 92 with fuzz 3.\nHunk #2 FAILED at 214.\n1 out of 2 hunks FAILED -- saving rejects to file django/forms/formsets.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

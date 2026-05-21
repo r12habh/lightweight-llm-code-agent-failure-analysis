@@ -1,0 +1,15 @@
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 00c19e2c55..1bd8a018fa 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -123,6 +123,10 @@ class Media:
+         """
+         dependency_graph = defaultdict(set)
+         all_items = OrderedSet()
++        # The trailing underscore is required to prevent clashing with the id of the
++        # clear checkbox for FileInput (see #12028).
++        if id_:
++            id_ += '_'
+         for list_ in filter(None, lists):
+             head = list_[0]
+             # The first items depend on nothing but have to be part of the

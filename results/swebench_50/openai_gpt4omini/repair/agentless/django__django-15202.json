@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15202",
+  "input_patch_chars": 969,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp71oelvai.diff:22: trailing whitespace.\n        Return the value that should be shown for this field on render of a \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmp71oelvai.diff:23: trailing whitespace.\n        bound form, given the submitted POST data for the field and the initial \nerror: corrupt patch at line 26\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 24:          data, if any.\n\n",
+          "stdout": "patching file django/forms/fields.py\nHunk #1 succeeded at 143 (offset 7 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

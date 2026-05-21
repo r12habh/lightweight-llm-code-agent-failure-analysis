@@ -1,0 +1,47 @@
+2026-05-20 16:53:24,721 - INFO - Creating container for django__django-11848...
+2026-05-20 16:53:24,787 - INFO - Container for django__django-11848 created: 80057db0d5f304f50b6c8d30028059e6a547f341632212cc02c0804f9ab9f6ce
+2026-05-20 16:53:24,881 - INFO - Container for django__django-11848 started: 80057db0d5f304f50b6c8d30028059e6a547f341632212cc02c0804f9ab9f6ce
+2026-05-20 16:53:24,882 - INFO - Intermediate patch for django__django-11848 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11848/patch.diff, now applying to container...
+2026-05-20 16:53:25,069 - INFO - >>>>> Applied Patch:
+Checking patch django/utils/http.py...
+Applied patch django/utils/http.py cleanly.
+
+2026-05-20 16:53:25,787 - INFO - Git diff before:
+diff --git a/django/utils/http.py b/django/utils/http.py
+index 572cfb4347..7b8b0cb2f1 100644
+--- a/django/utils/http.py
++++ b/django/utils/http.py
+@@ -170,7 +170,7 @@ def parse_http_date(date):
+     for regex in RFC1123_DATE, RFC850_DATE, ASCTIME_DATE:
+         m = regex.match(date)
+         if m is not None:
+-            break
++            continue
+     else:
+         raise ValueError("%r is not in a valid HTTP date format" % date)
+     try:
+2026-05-20 16:53:25,788 - INFO - Eval script for django__django-11848 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11848/eval.sh; copying to container...
+2026-05-20 16:53:40,453 - INFO - Test runtime: 14.60 seconds
+2026-05-20 16:53:40,455 - INFO - Test output for django__django-11848 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-11848/test_output.txt
+2026-05-20 16:53:40,606 - INFO - Git diff after:
+diff --git a/django/utils/http.py b/django/utils/http.py
+index 572cfb4347..7b8b0cb2f1 100644
+--- a/django/utils/http.py
++++ b/django/utils/http.py
+@@ -170,7 +170,7 @@ def parse_http_date(date):
+     for regex in RFC1123_DATE, RFC850_DATE, ASCTIME_DATE:
+         m = regex.match(date)
+         if m is not None:
+-            break
++            continue
+     else:
+         raise ValueError("%r is not in a valid HTTP date format" % date)
+     try:
+2026-05-20 16:53:40,606 - INFO - Grading answer for django__django-11848...
+2026-05-20 16:53:40,609 - INFO - report: {'django__django-11848': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_parsing_rfc850 (utils_tests.test_http.HttpDateProcessingTests)', 'test_parsing_year_less_than_70 (utils_tests.test_http.HttpDateProcessingTests)']}, 'PASS_TO_PASS': {'success': ['test_input_too_large (utils_tests.test_http.Base36IntTests)', 'test_invalid_literal (utils_tests.test_http.Base36IntTests)', 'test_negative_input (utils_tests.test_http.Base36IntTests)', 'test_roundtrip (utils_tests.test_http.Base36IntTests)', 'test_to_base36_errors (utils_tests.test_http.Base36IntTests)', 'test_to_int_errors (utils_tests.test_http.Base36IntTests)', 'test_values (utils_tests.test_http.Base36IntTests)', 'test (utils_tests.test_http.EscapeLeadingSlashesTests)', 'test_quote (utils_tests.test_http.URLQuoteTests)', 'test_quote_plus (utils_tests.test_http.URLQuoteTests)', 'test_unquote (utils_tests.test_http.URLQuoteTests)', 'test_unquote_plus (utils_tests.test_http.URLQuoteTests)', 'test_parsing (utils_tests.test_http.ETagProcessingTests)', 'test_quoting (utils_tests.test_http.ETagProcessingTests)', 'test_allowed_hosts_str (utils_tests.test_http.IsSafeURLTests)', 'test_bad_urls (utils_tests.test_http.IsSafeURLTests)', 'test_basic_auth (utils_tests.test_http.IsSafeURLTests)', 'test_good_urls (utils_tests.test_http.IsSafeURLTests)', 'test_is_safe_url_deprecated (utils_tests.test_http.IsSafeURLTests)', 'test_no_allowed_hosts (utils_tests.test_http.IsSafeURLTests)', 'test_secure_param_https_urls (utils_tests.test_http.IsSafeURLTests)', 'test_secure_param_non_https_urls (utils_tests.test_http.IsSafeURLTests)', 'test_bad (utils_tests.test_http.IsSameDomainTests)', 'test_good (utils_tests.test_http.IsSameDomainTests)', 'test_roundtrip (utils_tests.test_http.URLSafeBase64Tests)', 'test_http_date (utils_tests.test_http.HttpDateProcessingTests)', 'test_custom_iterable_not_doseq (utils_tests.test_http.URLEncodeTests)', 'test_dict (utils_tests.test_http.URLEncodeTests)', 'test_dict_containing_empty_sequence_doseq (utils_tests.test_http.URLEncodeTests)', 'test_dict_containing_sequence_doseq (utils_tests.test_http.URLEncodeTests)', 'test_dict_containing_sequence_not_doseq (utils_tests.test_http.URLEncodeTests)', 'test_dict_containing_tuple_not_doseq (utils_tests.test_http.URLEncodeTests)', 'test_dict_with_bytearray (utils_tests.test_http.URLEncodeTests)', 'test_dict_with_bytes_values (utils_tests.test_http.URLEncodeTests)', 'test_dict_with_sequence_of_bytes (utils_tests.test_http.URLEncodeTests)', 'test_generator (utils_tests.test_http.URLEncodeTests)', 'test_multivaluedict (utils_tests.test_http.URLEncodeTests)', 'test_none (utils_tests.test_http.URLEncodeTests)', 'test_none_in_generator (utils_tests.test_http.URLEncodeTests)', 'test_none_in_sequence (utils_tests.test_http.URLEncodeTests)', 'test_tuples (utils_tests.test_http.URLEncodeTests)'], 'failure': ['test_parsing_asctime (utils_tests.test_http.HttpDateProcessingTests)', 'test_parsing_rfc1123 (utils_tests.test_http.HttpDateProcessingTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11848: resolved: False
+2026-05-20 16:53:40,609 - INFO - Attempting to stop container sweb.eval.django__django-11848.qwen7b_200_direct_repaired...
+2026-05-20 16:53:55,779 - INFO - Attempting to remove container sweb.eval.django__django-11848.qwen7b_200_direct_repaired...
+2026-05-20 16:53:55,823 - INFO - Container sweb.eval.django__django-11848.qwen7b_200_direct_repaired removed.
+2026-05-20 16:53:55,823 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11848:latest...
+2026-05-20 16:53:55,830 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11848:latest removed.

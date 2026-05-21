@@ -1,0 +1,12 @@
+diff --git a/xarray/backends/api.py b/xarray/backends/api.py
+index 8d7c2230..b28d09a2 100644
+--- a/xarray/backends/api.py
++++ b/xarray/backends/api.py
+@@ -146,6 +146,7 @@ def _get_default_engine(path, allow_remote=False):
+     elif is_grib_path(path):
+         engine = _get_default_engine_grib()
+     elif path.endswith(".gz"):
++        engine = _get_default_engine_netcdf()
+         engine = _get_default_engine_gz()
+     else:
+         engine = _get_default_engine_netcdf()

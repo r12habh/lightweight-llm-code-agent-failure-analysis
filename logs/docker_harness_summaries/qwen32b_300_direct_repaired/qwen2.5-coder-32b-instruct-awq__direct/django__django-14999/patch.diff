@@ -1,0 +1,15 @@
+diff --git a/django/db/migrations/operations/models.py b/django/db/migrations/operations/models.py
+index 982816be3a..0c9192a8c2 100644
+--- a/django/db/migrations/operations/models.py
++++ b/django/db/migrations/operations/models.py
+@@ -450,6 +450,10 @@ class AlterModelTable(ModelOptionOperation):
+                         new_field.remote_field.through,
+                         old_field.remote_field.through._meta.db_table,
+                         new_field.remote_field.through._meta.db_table,
++        if self.db_table == state.models[app_label, self.old_name_lower].options.get('db_table'):
++            # If db_table is already defined and matches, this is a noop.
++            return
++
+                     )
+ 
+     def database_backwards(self, app_label, schema_editor, from_state, to_state):

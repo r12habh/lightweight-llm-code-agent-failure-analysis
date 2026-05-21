@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/colorbar.py b/lib/matplotlib/colorbar.py
+index d3d53e3d98..2e2b55c7e3 100644
+--- a/lib/matplotlib/colorbar.py
++++ b/lib/matplotlib/colorbar.py
+@@ -663,6 +663,7 @@ class Colorbar:
+         if not self.extendrect:
+             # triangle:
+             xyout = np.array([[0, 0], [0.5, bot], [1, 0],
++        mappable.autoscale_None()  # Ensure vmin and vmax are correct after setting a new norm
+                               [1, 1], [0.5, top], [0, 1], [0, 0]])
+         else:
+             # rectangle:

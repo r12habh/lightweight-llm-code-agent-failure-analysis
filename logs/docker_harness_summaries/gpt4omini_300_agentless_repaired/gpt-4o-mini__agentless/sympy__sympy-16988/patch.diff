@@ -1,0 +1,12 @@
+diff --git a/sympy/sets/handlers/intersection.py b/sympy/sets/handlers/intersection.py
+index ea4108fae3..52ca90134b 100644
+--- a/sympy/sets/handlers/intersection.py
++++ b/sympy/sets/handlers/intersection.py
+@@ -13,6 +13,7 @@ def intersection_sets(a, b):
+ 
+ @dispatch(ConditionSet, Set)
+ def intersection_sets(a, b):
++    b = FiniteSet(*b.args)  # Normalize b to remove duplicates
+     return ConditionSet(a.sym, a.condition, Intersection(a.base_set, b))
+ 
+ @dispatch(Naturals, Integers)

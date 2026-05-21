@@ -1,0 +1,12 @@
+diff --git a/tests/migrations/test_operations.py b/tests/migrations/test_operations.py
+index cfd28b1b39..003cd2def1 100644
+--- a/tests/migrations/test_operations.py
++++ b/tests/migrations/test_operations.py
+@@ -2993,6 +2993,7 @@ class OperationTests(OperationTestBase):
+         self.assertEqual(definition[0], "RenameIndex")
+         self.assertEqual(definition[1], [])
+         self.assertEqual(
++        self.assertIndexNameNotExists(table_name, "new_pony_test_idx")  # Check that it doesn't exist before re-applying
+             definition[2],
+             {
+                 "model_name": "Pony",

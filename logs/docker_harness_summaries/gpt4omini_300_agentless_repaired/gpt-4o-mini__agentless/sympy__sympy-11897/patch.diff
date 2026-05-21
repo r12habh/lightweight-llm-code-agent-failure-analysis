@@ -1,0 +1,13 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 1edc712358..7d98af4979 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -483,6 +483,9 @@ def _print_Pow(self, expr):
+                 return tex % (self.parenthesize(expr.base, PRECEDENCE['Pow']),
+                               self._print(expr.exp))
+ 
++    def _print_Div(self, expr):
++        return r"\frac{%s}{%s}" % (self._print(expr.numer), self._print(expr.denom))
++
+     def _print_UnevaluatedExpr(self, expr):
+         return self._print(expr.args[0])

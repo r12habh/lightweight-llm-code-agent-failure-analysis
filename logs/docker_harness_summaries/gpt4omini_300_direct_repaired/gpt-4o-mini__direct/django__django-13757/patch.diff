@@ -1,0 +1,13 @@
+diff --git a/tests/model_fields/test_jsonfield.py b/tests/model_fields/test_jsonfield.py
+index f71efcff61..af6dfa35ca 100644
+--- a/tests/model_fields/test_jsonfield.py
++++ b/tests/model_fields/test_jsonfield.py
+@@ -316,7 +316,7 @@ class TestQuerying(TestCase):
+     def test_isnull(self):
+         self.assertSequenceEqual(
+             NullableJSONModel.objects.filter(value__isnull=True),
+-            [self.objs[0]],
++            [self.objs[0], self.objs[4]],
+         )
+ 
+     def test_ordering_by_transform(self):

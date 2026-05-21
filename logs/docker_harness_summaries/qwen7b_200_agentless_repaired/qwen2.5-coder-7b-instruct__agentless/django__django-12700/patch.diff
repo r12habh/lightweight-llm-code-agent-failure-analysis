@@ -1,0 +1,15 @@
+diff --git a/django/views/debug.py b/django/views/debug.py
+index e6b7d4d821..6eba430f91 100644
+--- a/django/views/debug.py
++++ b/django/views/debug.py
+@@ -100,6 +100,10 @@ class SafeExceptionReporterFilter:
+             cleansed = CallableSettingWrapper(cleansed)
+ 
+         return cleansed
++                cleansed = [self.cleanse_setting(k, v) for k, v in enumerate(value)]
++            elif isinstance(value, set):
++                cleansed = {self.cleanse_setting(k, v) for k, v in enumerate(value)}
++            else:
+ 
+     def get_safe_settings(self):
+         """

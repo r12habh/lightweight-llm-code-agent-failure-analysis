@@ -1,0 +1,46 @@
+diff --git a/sympy/core/assumptions.py b/sympy/core/assumptions.py
+index c9579316e4..e3d6987dcf 100644
+--- a/sympy/core/assumptions.py
++++ b/sympy/core/assumptions.py
+@@ -123,6 +123,42 @@
+ .. seealso::
+ 
+     :py:class:`sympy.core.numbers.ImaginaryUnit`
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
++    def _ask_Q_real(self, x):
++        if self._ask(Q.positive(x)) or self._ask(Q.negative(x)):
++            return True
++        return None
+     :py:class:`sympy.core.numbers.Zero`
+     :py:class:`sympy.core.numbers.One`

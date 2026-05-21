@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23562",
+  "input_patch_chars": 871,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/mpl_toolkits/mplot3d/axes3d.py...\nerror: while searching for:\n\n        self.mouse_init()\n        self.figure.canvas.callbacks._connect_picklable(\n            'button_release_event', self._button_release)\n        self.set_top_view()\n\n\nerror: patch failed: lib/mpl_toolkits/mplot3d/axes3d.py:207\nerror: lib/mpl_toolkits/mplot3d/axes3d.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/mpl_toolkits/mplot3d/axes3d.py...\nerror: while searching for:\n\n        self.mouse_init()\n        self.figure.canvas.callbacks._connect_picklable(\n            'button_release_event', self._button_release)\n        self.set_top_view()\n\n\nerror: patch failed: lib/mpl_toolkits/mplot3d/axes3d.py:207\nerror: while searching for:\n\n    def get_facecolors(self):\n        \"\"\"Return the facecolors of the collection.\"\"\"\n        if not hasattr(self, '_facecolors2d'):\n            self._facecolors2d = np.empty((0, 4), dtype=float)\n        return self._facecolors2d\n\nerror: patch failed: lib/mpl_toolkits/mplot3d/axes3d.py:363\nApplying patch lib/mpl_toolkits/mplot3d/axes3d.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 986
+}

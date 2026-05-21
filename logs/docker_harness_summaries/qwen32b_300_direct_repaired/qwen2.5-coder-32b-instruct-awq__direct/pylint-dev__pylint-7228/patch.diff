@@ -1,0 +1,12 @@
+diff --git a/pylint/config/arguments_manager.py b/pylint/config/arguments_manager.py
+index eda1a583d..7dc782095 100644
+--- a/pylint/config/arguments_manager.py
++++ b/pylint/config/arguments_manager.py
+@@ -204,6 +204,7 @@ class _ArgumentsManager:
+                     type=argument.type,  # type: ignore[arg-type] # incorrect typing in typeshed
+                     help=argparse.SUPPRESS,
+                     metavar=argument.metavar,
++                "default": "",
+                     choices=argument.choices,
+                 )
+         elif isinstance(argument, _StoreNewNamesArgument):

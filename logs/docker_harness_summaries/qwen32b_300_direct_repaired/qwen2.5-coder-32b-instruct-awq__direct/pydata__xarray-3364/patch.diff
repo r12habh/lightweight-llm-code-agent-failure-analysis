@@ -1,0 +1,13 @@
+diff --git a/xarray/core/concat.py b/xarray/core/concat.py
+index ecae2566..a74a2dc4 100644
+--- a/xarray/core/concat.py
++++ b/xarray/core/concat.py
+@@ -235,6 +235,10 @@ def _calc_concat_over(datasets, dim, dim_names, data_vars, coords, compat):
+ 
+     process_subset_opt(data_vars, "data_vars")
+     process_subset_opt(coords, "coords")
++        # Ignore variables that are not present in all datasets
++        data_names = {name for name in data_names if all(name in ds.data_vars for ds in datasets)}
++        coord_names = {name for name in coord_names if all(name in ds.coords for ds in datasets)}
++
+     return concat_over, equals, concat_dim_lengths

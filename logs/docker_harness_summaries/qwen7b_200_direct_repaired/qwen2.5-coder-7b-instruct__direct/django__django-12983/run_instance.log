@@ -1,0 +1,77 @@
+2026-05-20 17:03:53,396 - INFO - Creating container for django__django-12983...
+2026-05-20 17:03:54,558 - INFO - Container for django__django-12983 created: cb920b8c7f8d1668014dc4833f09a61f589878828fccbb0dacef12988a9b44ec
+2026-05-20 17:03:54,747 - INFO - Container for django__django-12983 started: cb920b8c7f8d1668014dc4833f09a61f589878828fccbb0dacef12988a9b44ec
+2026-05-20 17:03:54,750 - INFO - Intermediate patch for django__django-12983 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-12983/patch.diff, now applying to container...
+2026-05-20 17:03:54,931 - INFO - >>>>> Applied Patch:
+Checking patch django/utils/text.py...
+Applied patch django/utils/text.py cleanly.
+
+2026-05-20 17:03:55,728 - INFO - Git diff before:
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..58d93efd5d 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -2,6 +2,7 @@ import html.entities
+ import re
+ import unicodedata
+ import warnings
++import string
+ from gzip import GzipFile
+ from io import BytesIO
+ 
+@@ -92,6 +93,7 @@ class Truncator(SimpleLazyObject):
+ 
+         # Calculate the length to truncate to (max length - end_text length)
+         truncate_len = length
++    Convert all characters to lowercase.
+         for char in self.add_truncation_text('', truncate):
+             if not unicodedata.combining(char):
+                 truncate_len -= 1
+@@ -102,6 +104,7 @@ class Truncator(SimpleLazyObject):
+         return self._text_chars(length, truncate, text, truncate_len)
+ 
+     def _text_chars(self, length, truncate, text, truncate_len):
++    value = value.lower()
+         """Truncate a string after a certain number of chars."""
+         s_len = 0
+         end_index = None
+2026-05-20 17:03:55,729 - INFO - Eval script for django__django-12983 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-12983/eval.sh; copying to container...
+2026-05-20 17:04:09,992 - INFO - Test runtime: 14.20 seconds
+2026-05-20 17:04:09,994 - INFO - Test output for django__django-12983 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-12983/test_output.txt
+2026-05-20 17:04:10,125 - INFO - Git diff after:
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..58d93efd5d 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -2,6 +2,7 @@ import html.entities
+ import re
+ import unicodedata
+ import warnings
++import string
+ from gzip import GzipFile
+ from io import BytesIO
+ 
+@@ -92,6 +93,7 @@ class Truncator(SimpleLazyObject):
+ 
+         # Calculate the length to truncate to (max length - end_text length)
+         truncate_len = length
++    Convert all characters to lowercase.
+         for char in self.add_truncation_text('', truncate):
+             if not unicodedata.combining(char):
+                 truncate_len -= 1
+@@ -102,6 +104,7 @@ class Truncator(SimpleLazyObject):
+         return self._text_chars(length, truncate, text, truncate_len)
+ 
+     def _text_chars(self, length, truncate, text, truncate_len):
++    value = value.lower()
+         """Truncate a string after a certain number of chars."""
+         s_len = 0
+         end_index = None
+2026-05-20 17:04:10,125 - INFO - Grading answer for django__django-12983...
+2026-05-20 17:04:10,130 - INFO - report: {'django__django-12983': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_slugify (utils_tests.test_text.TestUtilsText)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_compress_sequence (utils_tests.test_text.TestUtilsText)', 'test_format_lazy (utils_tests.test_text.TestUtilsText)', 'test_get_text_list (utils_tests.test_text.TestUtilsText)', 'test_get_valid_filename (utils_tests.test_text.TestUtilsText)', 'test_normalize_newlines (utils_tests.test_text.TestUtilsText)', 'test_phone2numeric (utils_tests.test_text.TestUtilsText)', 'test_smart_split (utils_tests.test_text.TestUtilsText)', 'test_truncate_chars (utils_tests.test_text.TestUtilsText)', 'test_truncate_chars_html (utils_tests.test_text.TestUtilsText)', 'test_truncate_html_words (utils_tests.test_text.TestUtilsText)', 'test_truncate_words (utils_tests.test_text.TestUtilsText)', 'test_unescape_entities (utils_tests.test_text.TestUtilsText)', 'test_unescape_entities_deprecated (utils_tests.test_text.TestUtilsText)', 'test_unescape_string_literal (utils_tests.test_text.TestUtilsText)', 'test_wrap (utils_tests.test_text.TestUtilsText)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12983: resolved: False
+2026-05-20 17:04:10,130 - INFO - Attempting to stop container sweb.eval.django__django-12983.qwen7b_200_direct_repaired...
+2026-05-20 17:04:25,295 - INFO - Attempting to remove container sweb.eval.django__django-12983.qwen7b_200_direct_repaired...
+2026-05-20 17:04:25,309 - INFO - Container sweb.eval.django__django-12983.qwen7b_200_direct_repaired removed.
+2026-05-20 17:04:25,310 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12983:latest...
+2026-05-20 17:04:25,315 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12983:latest removed.

@@ -1,0 +1,36 @@
+{
+  "instance_id": "astropy__astropy-14995",
+  "raw": "```diff\ndiff --git a/astropy/nddata/mixins/ndarithmetic.py b/astropy/nddata/mixins/ndarithmetic.py\nindex 0df42d6..3b6790b 100644\n--- a/astropy/nddata/mixins/ndarithmetic.py\n+++ b/astropy/nddata/mixins/ndarithmetic.py\n@@ -182,7 +182,7 @@ class NDArithmeticMixin:\n \n         # Check if operands have masks\n         if self.mask is None:\n-            mask_self = np.ma.nomask\n+            mask_self = None\n         else:\n             mask_self = self.mask\n \n         if operand.mask is None:\n-            mask_operand = np.ma.nomask\n+            mask_operand = None\n         else:\n             mask_operand = operand.mask\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19663,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 241,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19904
+    },
+    "patch": {
+      "input_tokens": 19614,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 178,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19792
+    }
+  },
+  "localized_files": [
+    "astropy/nddata/mixins/ndarithmetic.py",
+    "astropy/nddata/compat.py",
+    "astropy/nddata/decorators.py",
+    "astropy/nddata/nddata.py",
+    "astropy/nddata/nddata_ref.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"astropy/nddata/mixins/ndarithmetic.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Arithmetic methods likely need adjustment due to mask handling issues.\"\n    },\n    {\n      \"path\": \"astropy/nddata/compat.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Could involve interactions with NDDataRef that impact mask propagation.\"\n    },\n    {\n      \"path\": \"astropy/nddata/decorators.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Decorators for NDData methods could affect mask handling expectations.\"\n    },\n    {\n      \"path\": \"astropy/nddata/nddata.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"Core NDData functionality is relevant to mask propagation.\"\n    },\n    {\n      \"path\": \"astropy/nddata/nddata_ref.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Directly implements NDDataRef, where mask management changes are occurring.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8282",
+  "input_patch_chars": 1464,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/typehints.py...\nerror: while searching for:\nfrom typing import cast\n\nfrom docutils import nodes\n\nfrom sphinx import addnodes\nfrom sphinx.application import Sphinx\n\nerror: patch failed: sphinx/ext/autodoc/typehints.py:10\nerror: while searching for:\ndef record_typehints(app: Sphinx, objtype: str, name: str, obj: Any,\n                     options: Dict, args: str, retann: str) -> None:\n    \"\"\"Record type hints to env object.\"\"\"\n    try:\n        if callable(obj):\n            sig = inspect.signature(obj)\n\nerror: patch failed: sphinx/ext/autodoc/typehints.py:21\nerror: while searching for:\n                if sig.return_annotation is not sig.empty:\n                    annotation['return'] = typing.stringify(sig.return_annotation)\n    except (TypeError, ValueError):\n\n\ndef merge_typehints(app: Sphinx, domain: str, objtype: str, contentnode: Element) -> None:\n\nerror: patch failed: sphinx/ext/autodoc/typehints.py:31\nApplying patch sphinx/ext/autodoc/typehints.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/autodoc/typehints.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 14 (offset 4 lines).\nHunk #2 FAILED at 21.\nHunk #3 FAILED at 32.\n2 out of 3 hunks FAILED -- saving rejects to file sphinx/ext/autodoc/typehints.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

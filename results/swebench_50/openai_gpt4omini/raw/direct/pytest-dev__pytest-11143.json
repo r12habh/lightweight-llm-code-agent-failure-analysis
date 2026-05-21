@@ -1,0 +1,16 @@
+{
+  "instance_id": "pytest-dev__pytest-11143",
+  "raw": "```diff\ndiff --git a/src/_pytest/assertion/rewrite.py b/src/_pytest/assertion/rewrite.py\n--- a/src/_pytest/assertion/rewrite.py\n+++ b/src/_pytest/assertion/rewrite.py\n@@ -757,7 +757,7 @@\n     def is_rewrite_disabled(doc: Optional[str]) -> bool:\n         \"\"\"Determine if rewrite should be disabled due to the presence of a specific string in the docstring.\"\"\"\n-        return \"PYTEST_DONT_REWRITE\" in docstring\n+        return doc is not None and \"PYTEST_DONT_REWRITE\" in doc\n \n     def _rewrite_test(fn: Path, config: Config) -> Tuple[os.stat_result, types.CodeType]:\n         ...\n```",
+  "usage": {
+    "input_tokens": 22674,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 155,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 22829
+  },
+  "localized_files": []
+}

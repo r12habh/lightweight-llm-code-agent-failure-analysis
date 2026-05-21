@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13584",
+  "input_patch_chars": 1088,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/calibration.py...\nHunk #1 succeeded at 137 (offset 35 lines).\nerror: while searching for:\n                np.sum(y == class_) < n_folds for class_ in\n                self.classes_]):\n            raise ValueError(\"Requesting %d-fold cross-validation but provided\"\n                             \" less than %d examples for at least one class.\"\n                             % (n_folds, n_folds))\n\n        self.calibrated_classifiers_ = []\n\nerror: patch failed: sklearn/calibration.py:111\nApplying patch sklearn/calibration.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/calibration.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 137 (offset 35 lines).\nHunk #2 FAILED at 111.\n1 out of 2 hunks FAILED -- saving rejects to file sklearn/calibration.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,16 @@
+{
+  "instance_id": "astropy__astropy-14365",
+  "raw": "```diff\ndiff --git a/astropy/io/ascii/qdp.py b/astropy/io/ascii/qdp.py\n--- a/astropy/io/ascii/qdp.py\n+++ b/astropy/io/ascii/qdp.py\n@@ -39,7 +39,7 @@\n     _command_re = r\"READ [TS]ERR(\\s+[0-9]+)+\"\n \n     sep = delimiter\n-    if delimiter is None:\n+    if delimiter is None or isinstance(delimiter, str) and delimiter.lower() == ' ':\n         sep = r\"\\s+\"\n     _new_re = rf\"NO({sep}NO)+\"\n     _data_re = rf\"({_decimal_re}|NO|[-+]?nan)({sep}({_decimal_re}|NO|[-+]?nan))*)\"\n```",
+  "usage": {
+    "input_tokens": 20560,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 175,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20735
+  },
+  "localized_files": []
+}

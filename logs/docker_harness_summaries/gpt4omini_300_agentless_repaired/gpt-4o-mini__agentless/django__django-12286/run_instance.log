@@ -1,0 +1,47 @@
+2026-05-20 03:06:04,920 - INFO - Creating container for django__django-12286...
+2026-05-20 03:06:06,232 - INFO - Container for django__django-12286 created: 75a911519a02feb76687ed910052b154d8d0250f9c150e9b76a144dca8025bcc
+2026-05-20 03:06:06,372 - INFO - Container for django__django-12286 started: 75a911519a02feb76687ed910052b154d8d0250f9c150e9b76a144dca8025bcc
+2026-05-20 03:06:06,373 - INFO - Intermediate patch for django__django-12286 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12286/patch.diff, now applying to container...
+2026-05-20 03:06:06,575 - INFO - >>>>> Applied Patch:
+Checking patch django/conf/global_settings.py...
+Applied patch django/conf/global_settings.py cleanly.
+
+2026-05-20 03:06:07,470 - INFO - Git diff before:
+diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py
+index 830ba25408..219712c574 100644
+--- a/django/conf/global_settings.py
++++ b/django/conf/global_settings.py
+@@ -45,7 +45,7 @@ USE_TZ = False
+ 
+ # Language code for this installation. All choices can be found here:
+ # http://www.i18nguy.com/unicode/language-identifiers.html
+-LANGUAGE_CODE = 'en-us'
++LANGUAGE_CODE = 'de-at'
+ 
+ # Languages we provide translations for, out of the box.
+ LANGUAGES = [
+2026-05-20 03:06:07,471 - INFO - Eval script for django__django-12286 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12286/eval.sh; copying to container...
+2026-05-20 03:06:25,278 - INFO - Test runtime: 17.74 seconds
+2026-05-20 03:06:25,281 - INFO - Test output for django__django-12286 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-12286/test_output.txt
+2026-05-20 03:06:25,426 - INFO - Git diff after:
+diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py
+index 830ba25408..219712c574 100644
+--- a/django/conf/global_settings.py
++++ b/django/conf/global_settings.py
+@@ -45,7 +45,7 @@ USE_TZ = False
+ 
+ # Language code for this installation. All choices can be found here:
+ # http://www.i18nguy.com/unicode/language-identifiers.html
+-LANGUAGE_CODE = 'en-us'
++LANGUAGE_CODE = 'de-at'
+ 
+ # Languages we provide translations for, out of the box.
+ LANGUAGES = [
+2026-05-20 03:06:25,426 - INFO - Grading answer for django__django-12286...
+2026-05-20 03:06:25,429 - INFO - report: {'django__django-12286': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_valid_variant_consistent_language_settings (check_framework.test_translation.TranslationCheckTests)']}, 'PASS_TO_PASS': {'success': ['test_inconsistent_language_settings (check_framework.test_translation.TranslationCheckTests)', 'test_invalid_language_code (check_framework.test_translation.TranslationCheckTests)', 'test_invalid_languages (check_framework.test_translation.TranslationCheckTests)', 'test_invalid_languages_bidi (check_framework.test_translation.TranslationCheckTests)', 'test_valid_language_code (check_framework.test_translation.TranslationCheckTests)', 'test_valid_languages (check_framework.test_translation.TranslationCheckTests)', 'test_valid_languages_bidi (check_framework.test_translation.TranslationCheckTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12286: resolved: False
+2026-05-20 03:06:25,430 - INFO - Attempting to stop container sweb.eval.django__django-12286.gpt4omini_300_agentless_repaired...
+2026-05-20 03:06:40,605 - INFO - Attempting to remove container sweb.eval.django__django-12286.gpt4omini_300_agentless_repaired...
+2026-05-20 03:06:40,654 - INFO - Container sweb.eval.django__django-12286.gpt4omini_300_agentless_repaired removed.
+2026-05-20 03:06:40,654 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12286:latest...
+2026-05-20 03:06:41,920 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12286:latest removed.

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-21379",
+  "input_patch_chars": 524,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/solvers/solvers.py...\nerror: while searching for:\n                if not f.is_Relational and not f:\n                    return True\n\n                if sol and not f.free_symbols & set(sol.keys()):\n                    # if f(y) == 0, x=3 does not set f(y) to zero...nor does it not\n                    return None\n\nerror: patch failed: sympy/solvers/solvers.py:123\nerror: sympy/solvers/solvers.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/solvers/solvers.py...\nerror: while searching for:\n                if not f.is_Relational and not f:\n                    return True\n\n                if sol and not f.free_symbols & set(sol.keys()):\n                    # if f(y) == 0, x=3 does not set f(y) to zero...nor does it not\n                    return None\n\nerror: patch failed: sympy/solvers/solvers.py:123\nApplying patch sympy/solvers/solvers.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 386
+}

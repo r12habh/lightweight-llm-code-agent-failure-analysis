@@ -1,0 +1,14 @@
+diff --git a/docs/ref/models/options.txt b/docs/ref/models/options.txt
+index e09547ec23..6245d8305e 100644
+--- a/docs/ref/models/options.txt
++++ b/docs/ref/models/options.txt
+@@ -52,6 +52,10 @@ Available ``Meta`` options
+ 
+ .. _table-names:
+ 
++   .. admonition:: Unique table names across apps
++      It is recommended that different models across different apps use unique
++      table names to avoid conflicts and errors.
++
+ Table names
+ ~~~~~~~~~~~

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12286",
+  "input_patch_chars": 4900,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 125\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file django/conf/global_settings.py\nHunk #1 succeeded at 50 (offset -50 lines).\nHunk #2 succeeded at 58 (offset -52 lines).\nHunk #3 succeeded at 65 (offset -55 lines).\nHunk #4 succeeded at 72 (offset -58 lines).\nHunk #5 succeeded at 79 (offset -61 lines).\nHunk #6 succeeded at 86 (offset -64 lines).\nHunk #7 succeeded at 93 (offset -67 lines).\nHunk #8 succeeded at 100 (offset -70 lines).\nHunk #9 succeeded at 107 (offset -73 lines).\nHunk #10 succeeded at 114 (offset -76 lines).\nHunk #11 succeeded at 121 (offset -79 lines).\nHunk #12 succeeded at 128 (offset -82 lines).\nHunk #13 succeeded at 135 (offset -85 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

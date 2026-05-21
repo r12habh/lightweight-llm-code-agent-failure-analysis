@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15535",
+  "input_patch_chars": 618,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/metrics/cluster/_unsupervised.py...\nerror: while searching for:\ndef silhouette_samples(X, labels, metric='euclidean', **kwds):\n    ...\n    X, labels = check_X_y(X, labels, accept_sparse=['csc', 'csr'])\n\n    # Check for non-zero diagonal entries in precomputed distance matrix\n    if metric == 'precomputed':\n        atol = np.finfo(X.dtype).eps * 100\n\nerror: patch failed: sklearn/metrics/cluster/_unsupervised.py:119\nerror: sklearn/metrics/cluster/_unsupervised.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/metrics/cluster/_unsupervised.py...\nerror: while searching for:\ndef silhouette_samples(X, labels, metric='euclidean', **kwds):\n    ...\n    X, labels = check_X_y(X, labels, accept_sparse=['csc', 'csr'])\n\n    # Check for non-zero diagonal entries in precomputed distance matrix\n    if metric == 'precomputed':\n        atol = np.finfo(X.dtype).eps * 100\n\nerror: patch failed: sklearn/metrics/cluster/_unsupervised.py:119\nApplying patch sklearn/metrics/cluster/_unsupervised.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 654
+}

@@ -1,0 +1,47 @@
+2026-05-20 13:40:40,160 - INFO - Creating container for sympy__sympy-17630...
+2026-05-20 13:40:40,207 - INFO - Container for sympy__sympy-17630 created: 85546df5a573b42ed6bb42650d171070cf27c4a55162fb9aa9bb08eb692a8e03
+2026-05-20 13:40:40,396 - INFO - Container for sympy__sympy-17630 started: 85546df5a573b42ed6bb42650d171070cf27c4a55162fb9aa9bb08eb692a8e03
+2026-05-20 13:40:40,397 - INFO - Intermediate patch for sympy__sympy-17630 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17630/patch.diff, now applying to container...
+2026-05-20 13:40:40,600 - INFO - >>>>> Applied Patch:
+Checking patch sympy/matrices/expressions/blockmatrix.py...
+Applied patch sympy/matrices/expressions/blockmatrix.py cleanly.
+
+2026-05-20 13:40:41,092 - INFO - Git diff before:
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..83f583df55 100644
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -152,7 +152,7 @@ def rowblocksizes(self):
+ 
+     @property
+     def colblocksizes(self):
+-        return [self.blocks[0, i].cols for i in range(self.blockshape[1])]
++        return [self.blocks[0, i].cols if hasattr(self.blocks[0, i], 'cols') else 0 for i in range(self.blockshape[1])]
+ 
+     def structurally_equal(self, other):
+         return (isinstance(other, BlockMatrix)
+2026-05-20 13:40:41,093 - INFO - Eval script for sympy__sympy-17630 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17630/eval.sh; copying to container...
+2026-05-20 13:40:45,995 - INFO - Test runtime: 4.83 seconds
+2026-05-20 13:40:45,996 - INFO - Test output for sympy__sympy-17630 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17630/test_output.txt
+2026-05-20 13:40:46,101 - INFO - Git diff after:
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..83f583df55 100644
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -152,7 +152,7 @@ def rowblocksizes(self):
+ 
+     @property
+     def colblocksizes(self):
+-        return [self.blocks[0, i].cols for i in range(self.blockshape[1])]
++        return [self.blocks[0, i].cols if hasattr(self.blocks[0, i], 'cols') else 0 for i in range(self.blockshape[1])]
+ 
+     def structurally_equal(self, other):
+         return (isinstance(other, BlockMatrix)
+2026-05-20 13:40:46,101 - INFO - Grading answer for sympy__sympy-17630...
+2026-05-20 13:40:46,102 - INFO - report: {'sympy__sympy-17630': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_issue_17624', 'test_zero_matrix_add']}, 'PASS_TO_PASS': {'success': ['test_bc_matmul', 'test_bc_matadd', 'test_bc_transpose', 'test_bc_dist_diag', 'test_block_plus_ident', 'test_BlockMatrix', 'test_block_collapse_explicit_matrices', 'test_BlockMatrix_trace', 'test_BlockMatrix_Determinant', 'test_squareBlockMatrix', 'test_BlockDiagMatrix', 'test_blockcut', 'test_reblock_2x2', 'test_deblock', 'test_sort_key', 'test_matadd_sympify', 'test_matadd_of_matrices', 'test_doit_args', 'test_generic_identity'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-17630: resolved: False
+2026-05-20 13:40:46,103 - INFO - Attempting to stop container sweb.eval.sympy__sympy-17630.qwen32b_300_direct_repaired...
+2026-05-20 13:41:01,261 - INFO - Attempting to remove container sweb.eval.sympy__sympy-17630.qwen32b_300_direct_repaired...
+2026-05-20 13:41:01,283 - INFO - Container sweb.eval.sympy__sympy-17630.qwen32b_300_direct_repaired removed.
+2026-05-20 13:41:01,283 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-17630:latest...
+2026-05-20 13:41:01,291 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-17630:latest removed.

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-12708",
+  "input_patch_chars": 637,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/backends/base/schema.py...\nerror: while searching for:\n        # Add any deleted fields\n        if delete_field:\n            del body[delete_field.name]\n            del mapping[delete_field.column]\n            # Remove any implicit M2M tables\n            if delete_field.many_to_many and delete_field.remote_field.through._meta.auto_created:\n                return self.delete_model(delete_field.remote_field.through)\n\nerror: patch failed: django/db/backends/base/schema.py:375\nApplying patch django/db/backends/base/schema.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/backends/base/schema.py\nHunk #1 FAILED at 375.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/backends/base/schema.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

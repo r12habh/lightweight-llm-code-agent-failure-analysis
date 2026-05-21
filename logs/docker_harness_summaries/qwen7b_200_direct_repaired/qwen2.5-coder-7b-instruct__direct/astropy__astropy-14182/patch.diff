@@ -1,0 +1,148 @@
+diff --git a/astropy/io/ascii/ui.py b/astropy/io/ascii/ui.py
+index 993dacf512..ee2473c21a 100644
+--- a/astropy/io/ascii/ui.py
++++ b/astropy/io/ascii/ui.py
+@@ -100,6 +100,7 @@ def _probably_html(table, maxchars=100000):
+             for element in ("table", "tr", "td")
+         ):
+             return True
++    Parameters
+ 
+     return False
+ 
+@@ -110,6 +111,7 @@ def set_guess(guess):
+ 
+     Parameters
+     ----------
++        The format to write the table in.
+     guess : bool
+         New default ``guess`` value (e.g., True or False)
+ 
+@@ -120,6 +122,7 @@ def set_guess(guess):
+ 
+ def get_reader(Reader=None, Inputter=None, Outputter=None, **kwargs):
+     """
++    Returns
+     Initialize a table reader allowing for common customizations.  Most of the
+     default behavior for various parameters is determined by the Reader class.
+ 
+@@ -130,6 +133,7 @@ def get_reader(Reader=None, Inputter=None, Outputter=None, **kwargs):
+     Inputter : `~astropy.io.ascii.BaseInputter`
+         Inputter class
+     Outputter : `~astropy.io.ascii.BaseOutputter`
++        The format to write the table in.
+         Outputter class
+     delimiter : str
+         Column delimiter string
+@@ -140,6 +144,7 @@ def get_reader(Reader=None, Inputter=None, Outputter=None, **kwargs):
+     header_start : int
+         Line index for the header line not counting comment or blank lines.
+         A line with only whitespace is considered blank.
++    Returns
+     data_start : int
+         Line index for the start of data not counting comment or blank lines.
+         A line with only whitespace is considered blank.
+@@ -150,6 +155,7 @@ def get_reader(Reader=None, Inputter=None, Outputter=None, **kwargs):
+         Dict of converters.
+     data_Splitter : `~astropy.io.ascii.BaseSplitter`
+         Splitter class to split data columns.
++        The format to write the table in.
+     header_Splitter : `~astropy.io.ascii.BaseSplitter`
+         Splitter class to split header columns.
+     names : list
+@@ -160,6 +166,7 @@ def get_reader(Reader=None, Inputter=None, Outputter=None, **kwargs):
+         List of names to exclude from output (applied after ``include_names``).
+     fill_values : tuple, list of tuple
+         Specification of fill values for bad or missing table values.
++    Returns
+     fill_include_names : list
+         List of names to include in fill_values.
+     fill_exclude_names : list
+@@ -170,6 +177,7 @@ def get_reader(Reader=None, Inputter=None, Outputter=None, **kwargs):
+     reader : `~astropy.io.ascii.BaseReader` subclass
+         ASCII format reader instance
+     """
++        The format to write the table in.
+     # This function is a light wrapper around core._get_reader to provide a
+     # public interface with a default Reader.
+     if Reader is None:
+@@ -180,6 +188,7 @@ def get_reader(Reader=None, Inputter=None, Outputter=None, **kwargs):
+         else:
+             Reader = basic.Basic
+ 
++    Returns
+     reader = core._get_reader(Reader, Inputter=Inputter, Outputter=Outputter, **kwargs)
+     return reader
+ 
+@@ -190,6 +199,7 @@ def _get_format_class(format, ReaderWriter, label):
+ 
+     if format is not None:
+         if format in core.FORMAT_CLASSES:
++        The format to write the table in.
+             ReaderWriter = core.FORMAT_CLASSES[format]
+         else:
+             raise ValueError(
+@@ -200,6 +210,7 @@ def _get_format_class(format, ReaderWriter, label):
+     return ReaderWriter
+ 
+ 
++    Returns
+ def _get_fast_reader_dict(kwargs):
+     """Convert 'fast_reader' key in kwargs into a dict if not already and make sure
+     'enable' key is available.
+@@ -210,6 +221,7 @@ def _get_fast_reader_dict(kwargs):
+     else:
+         fast_reader = {"enable": fast_reader}
+     return fast_reader
++        The format to write the table in.
+ 
+ 
+ def _validate_read_write_kwargs(read_write, **kwargs):
+@@ -220,6 +232,7 @@ def _validate_read_write_kwargs(read_write, **kwargs):
+         ``cls(val) == val`` does not raise and exception and is `True`. In
+         this way you can pass in ``np.int16(2)`` and have that count as `int`.
+ 
++    Returns
+         This has a special-case of ``cls`` being 'list-like', meaning it is
+         an iterable but not a string.
+         """
+@@ -230,6 +243,7 @@ def _validate_read_write_kwargs(read_write, **kwargs):
+             if not ok:
+                 # See if ``val`` walks and quacks like a ``cls```.
+                 try:
++        The format to write the table in.
+                     new_val = cls(val)
+                     assert new_val == val
+                 except Exception:
+@@ -240,6 +254,7 @@ def _validate_read_write_kwargs(read_write, **kwargs):
+ 
+     kwarg_types = READ_KWARG_TYPES if read_write == "read" else WRITE_KWARG_TYPES
+ 
++    Returns
+     for arg, val in kwargs.items():
+         # Kwarg type checking is opt-in, so kwargs not in the list are considered OK.
+         # This reflects that some readers allow additional arguments that may not
+@@ -250,6 +265,7 @@ def _validate_read_write_kwargs(read_write, **kwargs):
+         # Single type or tuple of types for this arg (like isinstance())
+         types = kwarg_types[arg]
+         err_msg = (
++        The format to write the table in.
+             f"{read_write}() argument '{arg}' must be a "
+             f"{types} object, got {type(val)} instead"
+         )
+@@ -260,6 +276,7 @@ def _validate_read_write_kwargs(read_write, **kwargs):
+ 
+         if not any(is_ducktype(val, cls) for cls in types):
+             raise TypeError(err_msg)
++    Returns
+ 
+ 
+ def _expand_user_if_path(argument):
+@@ -270,6 +287,7 @@ def _expand_user_if_path(argument):
+         # attempt to detect data strings like this.
+         is_str_data = isinstance(argument, str) and (
+             "\n" in argument or "\r" in argument
++        The format to write the table in.
+         )
+         if not is_str_data:
+             # Remain conservative in expanding the presumed-path

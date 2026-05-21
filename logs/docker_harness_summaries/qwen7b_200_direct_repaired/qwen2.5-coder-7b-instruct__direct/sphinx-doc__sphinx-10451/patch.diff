@@ -1,0 +1,12 @@
+diff --git a/sphinx/ext/autodoc/type_comment.py b/sphinx/ext/autodoc/type_comment.py
+index 9881ae747..4259bb836 100644
+--- a/sphinx/ext/autodoc/type_comment.py
++++ b/sphinx/ext/autodoc/type_comment.py
+@@ -45,7 +45,7 @@ def signature_from_ast(node: ast.FunctionDef, bound_method: bool,
+         params.append(param)
+ 
+     if node.args.vararg:
+-        param = Parameter(node.args.vararg.arg, Parameter.VAR_POSITIONAL,
++        param = Parameter(node.args.vararg.arg, Parameter.VAR_POSITIONAL, annotation=Parameter.empty)
+                           annotation=node.args.vararg.type_comment or Parameter.empty)
+         params.append(param)

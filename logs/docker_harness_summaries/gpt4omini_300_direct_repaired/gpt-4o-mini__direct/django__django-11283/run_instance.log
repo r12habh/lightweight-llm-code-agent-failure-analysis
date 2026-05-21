@@ -1,0 +1,45 @@
+2026-05-19 21:09:29,534 - INFO - Creating container for django__django-11283...
+2026-05-19 21:09:30,838 - INFO - Container for django__django-11283 created: 12cbdcfa9963a4e2a64b64b5ac3fd251a649c7d583fd7921e335a55889a372bd
+2026-05-19 21:09:30,958 - INFO - Container for django__django-11283 started: 12cbdcfa9963a4e2a64b64b5ac3fd251a649c7d583fd7921e335a55889a372bd
+2026-05-19 21:09:30,959 - INFO - Intermediate patch for django__django-11283 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11283/patch.diff, now applying to container...
+2026-05-19 21:09:31,118 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/auth/models.py...
+Applied patch django/contrib/auth/models.py cleanly.
+
+2026-05-19 21:09:32,172 - INFO - Git diff before:
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..a6c592f7d7 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -65,6 +65,7 @@ class Permission(models.Model):
+ 
+     class Meta:
+         verbose_name = _('permission')
++        unique_together = (('content_type', 'codename'),)  # Ensure unique constraints are respected
+         verbose_name_plural = _('permissions')
+         unique_together = (('content_type', 'codename'),)
+         ordering = ('content_type__app_label', 'content_type__model',
+2026-05-19 21:09:32,173 - INFO - Eval script for django__django-11283 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11283/eval.sh; copying to container...
+2026-05-19 21:09:48,484 - INFO - Test runtime: 16.25 seconds
+2026-05-19 21:09:48,491 - INFO - Test output for django__django-11283 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/django__django-11283/test_output.txt
+2026-05-19 21:09:48,792 - INFO - Git diff after:
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..a6c592f7d7 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -65,6 +65,7 @@ class Permission(models.Model):
+ 
+     class Meta:
+         verbose_name = _('permission')
++        unique_together = (('content_type', 'codename'),)  # Ensure unique constraints are respected
+         verbose_name_plural = _('permissions')
+         unique_together = (('content_type', 'codename'),)
+         ordering = ('content_type__app_label', 'content_type__model',
+2026-05-19 21:09:48,792 - INFO - Grading answer for django__django-11283...
+2026-05-19 21:09:48,793 - INFO - report: {'django__django-11283': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_migrate_with_existing_target_permission (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)']}, 'PASS_TO_PASS': {'success': ['test_migrate_backwards (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_proxy_model_permissions_contenttype (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_user_has_now_proxy_model_permissions (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_user_keeps_same_permissions_after_migrating_backward (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_migrate_backwards (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_proxy_model_permissions_contenttype (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_user_keeps_same_permissions_after_migrating_backward (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_user_still_has_proxy_model_permissions (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11283: resolved: False
+2026-05-19 21:09:48,793 - INFO - Attempting to stop container sweb.eval.django__django-11283.gpt4omini_300_direct_repaired...
+2026-05-19 21:10:04,015 - INFO - Attempting to remove container sweb.eval.django__django-11283.gpt4omini_300_direct_repaired...
+2026-05-19 21:10:04,034 - INFO - Container sweb.eval.django__django-11283.gpt4omini_300_direct_repaired removed.
+2026-05-19 21:10:04,034 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11283:latest...
+2026-05-19 21:10:04,982 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11283:latest removed.

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15851",
+  "input_patch_chars": 614,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/management/commands/dbshell.py...\nerror: while searching for:\n            params = []\n        if settings.DATABASES[db]['ENGINE'] == 'django.db.backends.postgresql':\n            # Use the psql command-line client\n            args = [dbname] + params\n            try:\n                subprocess.run(args, check=True)\n            except FileNotFoundError:\n\nerror: patch failed: django/core/management/commands/dbshell.py:104\nApplying patch django/core/management/commands/dbshell.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/core/management/commands/dbshell.py\nHunk #1 FAILED at 104.\n1 out of 1 hunk FAILED -- saving rejects to file django/core/management/commands/dbshell.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

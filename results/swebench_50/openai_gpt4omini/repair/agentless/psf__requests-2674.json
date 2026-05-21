@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2674",
+  "input_patch_chars": 586,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/packages/urllib3/exceptions.py...\nerror: while searching for:\n    \"\"\" Raised when a socket timeout error occurs.\n\n    Catching this error will catch both :exc:`ReadTimeoutErrors\n    <ReadTimeoutError>` and :exc:`ConnectTimeoutErrors <ConnectTimeoutError>`.\n\nclass ReadTimeoutError(TimeoutError, RequestError):\n\nerror: patch failed: requests/packages/urllib3/exceptions.py:30\nerror: requests/packages/urllib3/exceptions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/packages/urllib3/exceptions.py...\nerror: while searching for:\n    \"\"\" Raised when a socket timeout error occurs.\n\n    Catching this error will catch both :exc:`ReadTimeoutErrors\n    <ReadTimeoutError>` and :exc:`ConnectTimeoutErrors <ConnectTimeoutError>`.\n\nclass ReadTimeoutError(TimeoutError, RequestError):\n\nerror: patch failed: requests/packages/urllib3/exceptions.py:30\nApplying patch requests/packages/urllib3/exceptions.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 491
+}

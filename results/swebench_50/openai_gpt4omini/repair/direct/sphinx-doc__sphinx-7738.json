@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-7738",
+  "input_patch_chars": 1208,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: git diff header lacks filename information (line 3)\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/napoleon/__init__.py\nHunk #1 FAILED at 56.\n1 out of 1 hunk FAILED -- saving rejects to file sphinx/ext/napoleon/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

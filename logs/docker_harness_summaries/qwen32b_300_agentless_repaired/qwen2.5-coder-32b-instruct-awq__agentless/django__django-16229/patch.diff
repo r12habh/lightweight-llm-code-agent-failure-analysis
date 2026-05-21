@@ -1,0 +1,28 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 2a98396cad..350c76a273 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -108,6 +108,7 @@ def _empty(of_cls):
+ def return_None():
+     return None
+ 
++    show_hidden_initial = True
+ 
+ @total_ordering
+ class Field(RegisterLookupMixin):
+@@ -135,6 +136,7 @@ class Field(RegisterLookupMixin):
+             "%(field_label)s must be unique for "
+             "%(date_field_label)s %(lookup_type)s."
+         ),
++        self.show_hidden_initial = show_hidden_initial
+     }
+     system_check_deprecated_details = None
+     system_check_removed_details = None
+@@ -215,6 +217,7 @@ class Field(RegisterLookupMixin):
+         self.unique_for_date = unique_for_date
+         self.unique_for_month = unique_for_month
+         self.unique_for_year = unique_for_year
++        self.show_hidden_initial = show_hidden_initial
+         if isinstance(choices, collections.abc.Iterator):
+             choices = list(choices)
+         self.choices = choices

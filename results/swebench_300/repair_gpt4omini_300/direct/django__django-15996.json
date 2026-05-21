@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15996",
+  "input_patch_chars": 678,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/query_utils.py...\nerror: while searching for:\n    )\n\ndef combine_enums(enum_values):\n\nclass FilteredRelation:\n    \"\"\"Specify custom filtering in the ON clause of SQL joins.\"\"\"\n\nerror: patch failed: django/db/models/query_utils.py:383\nerror: django/db/models/query_utils.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/query_utils.py...\nerror: while searching for:\n    )\n\ndef combine_enums(enum_values):\n\nclass FilteredRelation:\n    \"\"\"Specify custom filtering in the ON clause of SQL joins.\"\"\"\n\nerror: patch failed: django/db/models/query_utils.py:383\nApplying patch django/db/models/query_utils.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 670
+}

@@ -1,0 +1,34 @@
+{
+  "instance_id": "astropy__astropy-14365",
+  "raw": "```diff\ndiff --git a/astropy/io/ascii/qdp.py b/astropy/io/ascii/qdp.py\n--- a/astropy/io/ascii/qdp.py\n+++ b/astropy/io/ascii/qdp.py\n@@ -49,7 +49,7 @@\n     _command_re = r\"READ [TS]ERR(\\s+[0-9]+)+\"\n \n     sep = delimiter\n     if delimiter is None:\n         sep = r\"\\s+\"\n-    _new_re = rf\"NO({sep}NO)+\"\n+    _new_re = rf\"no({sep}no)+\"\n     _data_re = rf\"({_decimal_re}|NO|[-+]?nan)({sep}({_decimal_re}|NO|[-+]?nan))*)\"\n     _type_re = rf\"^\\s*((?P<command>{_command_re})|(?P<new>{_new_re})|(?P<data>{_data_re})?\\s*(\\!(?P<comment>.*))?\\s*$\"\n     _line_type_re = re.compile(_type_re)\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 20509,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 198,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20707
+    },
+    "patch": {
+      "input_tokens": 20587,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 235,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20822
+    }
+  },
+  "localized_files": [
+    "astropy/io/ascii/qdp.py",
+    "astropy/io/ascii/tests/test_qdp.py",
+    "astropy/io/ascii/core.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"astropy/io/ascii/qdp.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Core handling of QDP format case sensitivity needs adjustment to allow lowercase commands.\"\n    },\n    {\n      \"path\": \"astropy/io/ascii/tests/test_qdp.py\",\n      \"confidence\": 0.85,\n      \"reason\": \"Tests for QDP file reading need updates to accommodate lowercase commands.\"\n    },\n    {\n      \"path\": \"astropy/io/ascii/core.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Potential adjustments required for other ASCII table readers related to command handling.\"\n    },\n    {\n      \"path\": \"docs/io/ascii/read.rst\",\n      \"confidence\": 0.65,\n      \"reason\": \"Documentation may need updates to reflect new expected behavior for reading QDP files.\"\n    }\n  ]\n}\n```"
+}

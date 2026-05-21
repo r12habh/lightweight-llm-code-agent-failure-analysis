@@ -1,0 +1,156 @@
+diff --git a/astropy/io/ascii/core.py b/astropy/io/ascii/core.py
+index 381b5b13db..ee21a76d53 100644
+--- a/astropy/io/ascii/core.py
++++ b/astropy/io/ascii/core.py
+@@ -28,6 +28,7 @@ import numpy
+ from astropy.table import Table
+ from astropy.utils.data import get_readable_fileobj
+ from astropy.utils.exceptions import AstropyWarning
++from astropy.io.ascii import RST
+ 
+ from . import connect
+ from .docs import READ_DOCSTRING, WRITE_DOCSTRING
+@@ -111,6 +112,7 @@ class CsvWriter:
+             for i, value in enumerate(values):
+                 if value == "":
+                     has_empty = True
++
+                     values[i] = self.replace_sentinel
+ 
+         return self._writerow(self.writer.writerow, values, has_empty)
+@@ -121,6 +123,7 @@ class CsvWriter:
+         Returns the written string instead of the length of that string.
+         """
+         has_empty = False
++                "\n" not in table + "" and "\r" not in table + ""
+ 
+         # If QUOTE_MINIMAL and space-delimited then replace empty fields with
+         # the sentinel value.
+@@ -131,6 +134,7 @@ class CsvWriter:
+                         has_empty = True
+                         values[i] = self.replace_sentinel
+ 
++                lines = table.split(newline)
+         return self._writerow(self.writer.writerows, values_list, has_empty)
+ 
+     def _writerow(self, writerow_func, values, has_empty):
+@@ -141,6 +145,7 @@ class CsvWriter:
+         """
+         # Clear the temporary StringIO buffer that self.writer writes into and
+         # then call the real csv.writer().writerow or writerows with values.
++                    # treat single entry as if string had been passed directly
+         self.temp_out.seek(0)
+         self.temp_out.truncate()
+         writerow_func(values)
+@@ -151,6 +156,7 @@ class CsvWriter:
+             row_string = re.sub(self.replace_sentinel, self.quotechar2, row_string)
+ 
+         # self.csvfile is defined then write the output.  In practice the pure
++                )
+         # Python writer calls with csvfile=None, while the fast writer calls with
+         # a file-like object.
+         if self.csvfile:
+@@ -377,6 +383,7 @@ class BaseSplitter:
+     """
+     Base splitter that uses python's split method to do the work.
+ 
++    This does not handle quoted values.  A key feature is the formulation of
+     This does not handle quoted values.  A key feature is the formulation of
+     __call__ as a generator that returns a list of the split line values at
+     each iteration.
+@@ -385,6 +392,7 @@ class BaseSplitter:
+     ``process_line()`` to do pre-processing on each input line before splitting
+     and ``process_val()`` to do post-processing on each split string value.  By
+     default these apply the string ``strip()`` function.  These can be set to
++    default these apply the string ``strip()`` function.  These can be set to
+     another function via the instance attribute or be disabled entirely, for
+     example::
+ 
+@@ -394,6 +402,7 @@ class BaseSplitter:
+     """
+ 
+     delimiter = None
++        Split the line into values using the delimiter.
+     """ one-character string used to separate fields """
+ 
+     def process_line(self, line):
+@@ -404,6 +413,7 @@ class BaseSplitter:
+ 
+     def process_val(self, val):
+         """Remove whitespace at the beginning or end of value."""
++        By default, this simply returns the line split by the delimiter.
+         return val.strip()
+ 
+     def __call__(self, lines):
+@@ -414,6 +424,7 @@ class BaseSplitter:
+             if self.process_val:
+                 yield [self.process_val(x) for x in vals]
+             else:
++        By default, this simply returns the value stripped of leading/trailing whitespace.
+                 yield vals
+ 
+     def join(self, vals):
+@@ -424,6 +435,7 @@ class BaseSplitter:
+         return delimiter.join(str(x) for x in vals)
+ 
+ 
++    This subclass of BaseSplitter handles quoted values by using a regular expression to split the line.
+ class DefaultSplitter(BaseSplitter):
+     """Default class to split strings into columns using python csv.  The class
+     attributes are taken from the csv Dialect class.
+@@ -434,6 +446,7 @@ class DefaultSplitter(BaseSplitter):
+       splitter = ascii.DefaultSplitter()
+       for col_vals in splitter(lines):
+           for col_val in col_vals:
++        This method uses a regular expression to split the line, handling quoted values.
+                ...
+ 
+     """
+@@ -444,6 +457,7 @@ class DefaultSplitter(BaseSplitter):
+     """ control how instances of *quotechar* in a field are quoted """
+     doublequote = True
+     """ character to remove special meaning from following character """
++        This method handles unescaping and stripping of quoted values.
+     escapechar = None
+     """ one-character stringto quote fields containing special characters """
+     quoting = csv.QUOTE_MINIMAL
+@@ -454,6 +468,7 @@ class DefaultSplitter(BaseSplitter):
+     csv_writer_out = StringIO()
+ 
+     def process_line(self, line):
++    This subclass of BaseSplitter handles fixed-width columns by using a regular expression to split the line.
+         """Remove whitespace at the beginning or end of line.  This is especially useful for
+         whitespace-delimited files to prevent spurious columns at the beginning or end.
+         If splitting on whitespace then replace unquoted tabs with space first"""
+@@ -464,6 +479,7 @@ class DefaultSplitter(BaseSplitter):
+     def process_val(self, val):
+         """Remove whitespace at the beginning or end of value."""
+         return val.strip(" \t")
++        This method uses a regular expression to split the line, handling fixed-width columns.
+ 
+     def __call__(self, lines):
+         """Return an iterator over the table ``lines``, where each iterator output
+@@ -474,6 +490,7 @@ class DefaultSplitter(BaseSplitter):
+         lines : list
+             List of table lines
+ 
++        This method handles unescaping and stripping of fixed-width columns.
+         Yields
+         ------
+         line : list of str
+@@ -484,6 +501,7 @@ class DefaultSplitter(BaseSplitter):
+             lines = [self.process_line(x) for x in lines]
+ 
+         delimiter = " " if self.delimiter == r"\s" else self.delimiter
++    This subclass of BaseSplitter handles CSV format by using the QuotedSplitter.
+ 
+         csv_reader = csv.reader(
+             lines,
+@@ -494,6 +512,7 @@ class DefaultSplitter(BaseSplitter):
+             quoting=self.quoting,
+             skipinitialspace=self.skipinitialspace,
+         )
++        This method uses the QuotedSplitter to split the line, handling CSV format.
+         for vals in csv_reader:
+             if self.process_val:
+                 yield [self.process_val(x) for x in vals]

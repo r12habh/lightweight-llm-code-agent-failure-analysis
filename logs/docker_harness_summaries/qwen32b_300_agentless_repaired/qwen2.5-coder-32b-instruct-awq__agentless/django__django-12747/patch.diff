@@ -1,0 +1,14 @@
+diff --git a/docs/ref/models/querysets.txt b/docs/ref/models/querysets.txt
+index c51c4dd43a..aecab77148 100644
+--- a/docs/ref/models/querysets.txt
++++ b/docs/ref/models/querysets.txt
+@@ -123,6 +123,10 @@ described here.
+ 
+ ``QuerySet`` API
+ ================
++I would expect there will be no difference between the two cases: Either both will have the empty dictionary OR both will have dictionary with model-label keys and zero value.
++
++To ensure consistency, the result should always be a tuple with a dictionary that includes model-label keys with zero values if no objects are deleted.
++
+ 
+ Here's the formal declaration of a ``QuerySet``:

@@ -1,0 +1,17 @@
+diff --git a/django/db/models/sql/compiler.py b/django/db/models/sql/compiler.py
+index 63ca817355..011c440d1c 100644
+--- a/django/db/models/sql/compiler.py
++++ b/django/db/models/sql/compiler.py
+@@ -109,6 +109,12 @@ class SQLCompiler:
+         # Note that even if the group_by is set, it is only the minimal
+         # set to group by. So, we need to add cols in select, order_by, and
+         # having into the select in any case.
++        # Ensuring we group by the annotated 'status' to avoid ambiguity
++        if isinstance(expr, Subquery):
++            expressions.append(expr)
++        elif expr in self.query.annotations:
++            expressions.append(expr)
++
+         ref_sources = {
+             expr.source for expr in expressions if isinstance(expr, Ref)
+         }

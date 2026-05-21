@@ -1,0 +1,60 @@
+2026-05-08 09:52:58,071 - INFO - Creating container for django__django-12113...
+2026-05-08 09:52:58,902 - INFO - Container for django__django-12113 created: 970a5f781145de851948cae8ad4eb0df88f2e4473ec066d64301a0062a99d82a
+2026-05-08 09:52:59,036 - INFO - Container for django__django-12113 started: 970a5f781145de851948cae8ad4eb0df88f2e4473ec066d64301a0062a99d82a
+2026-05-08 09:52:59,037 - INFO - Intermediate patch for django__django-12113 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-12113/patch.diff, now applying to container...
+2026-05-08 09:52:59,227 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-08 09:52:59,318 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-08 09:52:59,388 - INFO - >>>>> Applied Patch:
+patching file tests/test_sqlite.py
+
+2026-05-08 09:53:00,122 - INFO - Git diff before:
+diff --git a/tests/test_sqlite.py b/tests/test_sqlite.py
+index f1b65f7d01..9ce4e32e14 100644
+--- a/tests/test_sqlite.py
++++ b/tests/test_sqlite.py
+@@ -15,9 +15,15 @@
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_default.sqlite3'
++        },
+     },
+     'other': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_other.sqlite3'
++        },
+     }
+ }
+2026-05-08 09:53:00,123 - INFO - Eval script for django__django-12113 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-12113/eval.sh; copying to container...
+2026-05-08 09:53:18,634 - INFO - Test runtime: 18.45 seconds
+2026-05-08 09:53:18,635 - INFO - Test output for django__django-12113 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-12113/test_output.txt
+2026-05-08 09:53:18,793 - INFO - Git diff after:
+diff --git a/tests/test_sqlite.py b/tests/test_sqlite.py
+index f1b65f7d01..9ce4e32e14 100644
+--- a/tests/test_sqlite.py
++++ b/tests/test_sqlite.py
+@@ -15,9 +15,15 @@
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_default.sqlite3'
++        },
+     },
+     'other': {
+         'ENGINE': 'django.db.backends.sqlite3',
++        'TEST': {
++            'NAME': 'test_other.sqlite3'
++        },
+     }
+ }
+2026-05-08 09:53:18,793 - INFO - Grading answer for django__django-12113...
+2026-05-08 09:53:18,794 - INFO - report: {'django__django-12113': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_custom_test_name (backends.sqlite.test_creation.TestDbSignatureTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12113: resolved: False
+2026-05-08 09:53:18,794 - INFO - Attempting to stop container sweb.eval.django__django-12113.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 09:53:33,958 - INFO - Attempting to remove container sweb.eval.django__django-12113.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 09:53:33,986 - INFO - Container sweb.eval.django__django-12113.hf_qwen25_coder7b_50_direct_repaired removed.
+2026-05-08 09:53:33,986 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12113:latest...
+2026-05-08 09:53:34,953 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12113:latest removed.

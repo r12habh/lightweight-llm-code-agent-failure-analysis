@@ -1,0 +1,28 @@
+diff --git a/src/flask/cli.py b/src/flask/cli.py
+index 37a15ff2..7a6804f2 100644
+--- a/src/flask/cli.py
++++ b/src/flask/cli.py
+@@ -123,6 +123,7 @@ def find_app_by_string(module, app_name):
+             f"Failed to parse {app_name!r} as an attribute name or function call."
+         ) from None
+ 
++        domain = f"{rule.subdomain}.{app.config['SERVER_NAME']}" if rule.subdomain else app.config['SERVER_NAME']
+     if isinstance(expr, ast.Name):
+         name = expr.id
+         args = []
+@@ -130,6 +131,7 @@ def find_app_by_string(module, app_name):
+     elif isinstance(expr, ast.Call):
+         # Ensure the function name is an attribute name only.
+         if not isinstance(expr.func, ast.Name):
++    click.echo(f"Domain: {domain}")
+             raise NoAppException(
+                 f"Function reference must be a simple name: {app_name!r}."
+             )
+@@ -140,6 +142,7 @@ def find_app_by_string(module, app_name):
+         try:
+             args = [ast.literal_eval(arg) for arg in expr.args]
+             kwargs = {kw.arg: ast.literal_eval(kw.value) for kw in expr.keywords}
++        click.echo(f"{domain:<{max_domain_len}} {line}")
+         except ValueError:
+             # literal_eval gives cryptic error messages, show a generic
+             # message with the full expression instead.

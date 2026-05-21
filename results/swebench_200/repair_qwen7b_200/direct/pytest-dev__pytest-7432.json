@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-7432",
+  "input_patch_chars": 591,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/skipping.py...\nerror: while searching for:\n        if call.excinfo and isinstance(call.excinfo.value, xfail.Exception):\n            assert call.excinfo.value.msg is not None\n            rep.wasxfail = \"reason: \" + call.excinfo.value.msg\n            rep.outcome = \"skipped\"\n        elif not rep.skipped and xfailed:\n            if call.excinfo:\n                raises = xfailed.raises\n\nerror: patch failed: src/_pytest/skipping.py:100\nApplying patch src/_pytest/skipping.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/skipping.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file src/_pytest/skipping.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

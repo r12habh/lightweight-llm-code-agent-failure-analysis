@@ -1,0 +1,15 @@
+diff --git a/xarray/core/dataset.py b/xarray/core/dataset.py
+index a024324b..ef81ec27 100644
+--- a/xarray/core/dataset.py
++++ b/xarray/core/dataset.py
+@@ -1620,6 +1620,10 @@ class Dataset(Mapping, ImplementsDatasetReduce, DataWithCoords):
+ 
+         Notes
+         -----
++    if compat == "override":
++        combined = Dataset()
++        for var_name, var in unstacked_vars.items():
++            combined[var_name] = var
+         Zarr chunking behavior:
+             If chunks are found in the encoding argument or attribute
+             corresponding to any DataArray, those chunks are used.

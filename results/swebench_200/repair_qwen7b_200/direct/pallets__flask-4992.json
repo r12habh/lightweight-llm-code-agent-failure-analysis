@@ -1,0 +1,25 @@
+{
+  "instance_id": "pallets__flask-4992",
+  "input_patch_chars": 2400,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/flask/config.py...\nerror: while searching for:\n        :param defaults: an optional dictionary of default values\n        \"\"\"\n        super().__init__(defaults or {})\n        self.root_path = root_path\n\n    def from_envvar(self, variable_name: str, silent: bool = False) -> bool:\n        \"\"\"Loads a configuration from an environment variable pointing to\n\nerror: patch failed: src/flask/config.py:102\nerror: while searching for:\n        :param filename: the filename of the config.  This can either be an\n                         absolute filename or a filename relative to the\n                         root path.\n        :param silent: set to ``True`` if you want silent failure for missing\n                      files.\n        :return: ``True`` if the file was loaded successfully.\n        \"\"\"\n\nerror: patch failed: src/flask/config.py:200\nHunk #3 succeeded at 250 (offset -40 lines).\nHunk #4 succeeded at 263 (offset -37 lines).\nerror: while searching for:\n        return self.from_mapping(obj)\n\n    def from_mapping(\n        self,\n        mapping: t.Optional[t.Mapping[str, t.Any]] = None,\n        **kwargs: t.Any\n\nerror: patch failed: src/flask/config.py:310\nerror: while searching for:\n        :return: Always returns ``True``.\n        \"\"\"\n        mappings: t.Dict[str, t.Any] = {}\n        if mapping is not None:\n            mappings.update(mapping)\n        mappings.update(kwargs)\n\nerror: patch failed: src/flask/config.py:320\nApplying patch src/flask/config.py with 4 rejects...\nRejected hunk #1.\nRejected hunk #2.\nHunk #3 applied cleanly.\nHunk #4 applied cleanly.\nRejected hunk #5.\nRejected hunk #6.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/flask/config.py\nHunk #1 succeeded at 72 with fuzz 2 (offset -30 lines).\nHunk #2 succeeded at 170 with fuzz 3 (offset -30 lines).\nHunk #3 FAILED at 290.\nHunk #4 succeeded at 270 with fuzz 3 (offset -30 lines).\nHunk #5 succeeded at 281 with fuzz 3 (offset -30 lines).\nHunk #6 succeeded at 286 with fuzz 1 (offset -36 lines).\n1 out of 6 hunks FAILED -- saving rejects to file src/flask/config.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

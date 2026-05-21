@@ -1,0 +1,11 @@
+diff --git a/django/contrib/admin/utils.py b/django/contrib/admin/utils.py
+index 5e6a400b6c..a9aa8f7e2f 100644
+--- a/django/contrib/admin/utils.py
++++ b/django/contrib/admin/utils.py
+@@ -1,7 +1,6 @@
+ import datetime
+ import decimal
+ import json
+-from collections import defaultdict
+ from functools import reduce
+ from operator import or_

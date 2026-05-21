@@ -1,0 +1,28 @@
+{
+  "instance_id": "astropy__astropy-12907",
+  "input_patch_chars": 669,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch astropy/modeling/separable.py...\nerror: while searching for:\n        return np.where(is_separable != 0, True, False)\n\n    # New function to handle nested CompoundModels correctly\n\n    if transform.n_inputs == 1 and transform.n_outputs > 1:\n        return np.ones((transform.n_outputs, transform.n_inputs),\n\nerror: patch failed: astropy/modeling/separable.py:102\nerror: astropy/modeling/separable.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/modeling/separable.py...\nerror: while searching for:\n        return np.where(is_separable != 0, True, False)\n\n    # New function to handle nested CompoundModels correctly\n\n    if transform.n_inputs == 1 and transform.n_outputs > 1:\n        return np.ones((transform.n_outputs, transform.n_inputs),\n\nerror: patch failed: astropy/modeling/separable.py:102\nApplying patch astropy/modeling/separable.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 620
+}

@@ -1,0 +1,14 @@
+diff --git a/docs/topics/migrations.txt b/docs/topics/migrations.txt
+index d069efb434..96b295286a 100644
+--- a/docs/topics/migrations.txt
++++ b/docs/topics/migrations.txt
+@@ -289,6 +289,9 @@ by defining a ``use_in_migrations`` attribute on the manager class::
+ 
+ 
+     class MyModel(models.Model):
++
++    Make sure to transition from `Meta.index_together` to `Meta.indexes`
++    to remove any deprecation warnings.
+         objects = MyManager()
+ 
+ If you are using the :meth:`~django.db.models.from_queryset` function to

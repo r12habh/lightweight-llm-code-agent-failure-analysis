@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15790",
+  "input_patch_chars": 510,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/core/checks/templates.py...\nerror: while searching for:\n                libraries[module_name].append(module_path)\n\n    for library_name, items in libraries.items():\n        if len(items) > 1:\n            errors.append(\n                Error(\n                    E003.msg.format(\n\nerror: patch failed: django/core/checks/templates.py:100\nerror: django/core/checks/templates.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/core/checks/templates.py...\nerror: while searching for:\n                libraries[module_name].append(module_path)\n\n    for library_name, items in libraries.items():\n        if len(items) > 1:\n            errors.append(\n                Error(\n                    E003.msg.format(\n\nerror: patch failed: django/core/checks/templates.py:100\nApplying patch django/core/checks/templates.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 536
+}

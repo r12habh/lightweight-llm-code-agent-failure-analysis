@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14997",
+  "input_patch_chars": 894,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/backends/sqlite3/schema.py...\nerror: while searching for:\n        # In SQLite, we can't create UNIQUE constraints on expressions or\n        # composite fields using a dot notation.\n        if isinstance(old_field, (models.SlugField, models.CharField)) and isinstance(new_field, (models.SlugField, models.CharField)):\n            if old_field.name in new_field.unique_together or new_field.name in old_field.unique_together:\n                raise NotSupportedError(\"Unique constraints with dot notation are not supported in SQLite.\")\n\n        super().alter_field(model, old_field, new_field, strict=strict)\n\nerror: patch failed: django/db/backends/sqlite3/schema.py:309\nApplying patch django/db/backends/sqlite3/schema.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/db/backends/sqlite3/schema.py\nHunk #1 FAILED at 309.\n1 out of 1 hunk FAILED -- saving rejects to file django/db/backends/sqlite3/schema.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

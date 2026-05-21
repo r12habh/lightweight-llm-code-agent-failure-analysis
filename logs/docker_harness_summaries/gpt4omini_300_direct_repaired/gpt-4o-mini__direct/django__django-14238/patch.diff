@@ -1,0 +1,13 @@
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 4028e05b99..38e74ddd8c 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -247,7 +247,7 @@ class Options:
+                 f"Primary key '{pk_class_path}' referred by {source} must "
+                 f"subclass AutoField."
+             )
+-        return pk_class
++        return pk_class if issubclass(pk_class, AutoField) else ValueError("Primary key must subclass AutoField")
+ 
+     def _prepare(self, model):
+         if self.order_with_respect_to:

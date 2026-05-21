@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-15789",
+  "input_patch_chars": 766,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/utils/html.py...\nerror: while searching for:\ndef json_script(value, element_id=None):\n    \"\"\"\n    Escape all the HTML/XML special characters with their unicode escapes, so\n    value is safe to be output anywhere except for inside a tag attribute. Wrap\n    the escaped JSON in a script tag.\n    \"\"\"\n\nerror: patch failed: django/utils/html.py:20\nApplying patch django/utils/html.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/utils/html.py\nHunk #1 FAILED at 20.\n1 out of 1 hunk FAILED -- saving rejects to file django/utils/html.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,13 @@
+diff --git a/lib/matplotlib/colors.py b/lib/matplotlib/colors.py
+index 2d3072da04..d486eecfe4 100644
+--- a/lib/matplotlib/colors.py
++++ b/lib/matplotlib/colors.py
+@@ -1996,7 +1996,7 @@ class BoundaryNorm(Normalize):
+         mask = np.ma.getmaskarray(xx)
+         # Fill masked values a value above the upper boundary
+         xx = np.atleast_1d(xx.filled(self.vmax + 1))
+-        if clip:
++        if clip and not isinstance(value, np.ndarray):
+             np.clip(xx, self.vmin, self.vmax, out=xx)
+             max_col = self.Ncmap - 1
+         else:

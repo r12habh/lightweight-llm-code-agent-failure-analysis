@@ -1,0 +1,14 @@
+diff --git a/sklearn/preprocessing/_encoders.py b/sklearn/preprocessing/_encoders.py
+index 1e05aba597..fb463025c5 100644
+--- a/sklearn/preprocessing/_encoders.py
++++ b/sklearn/preprocessing/_encoders.py
+@@ -265,6 +265,10 @@ class OneHotEncoder(_BaseEncoder):
+       fashion.
+     sklearn.preprocessing.MultiLabelBinarizer : transforms between iterable of
+       iterables and a multilabel format, e.g. a (samples x classes) binary
++                    # removed later. We cast to object dtype to avoid truncation
++                    # issues when setting unknown categories to the first category.
++                    if X.dtype != object:
++                        X = X.astype(object)
+       matrix indicating the presence of a class label.
+     """

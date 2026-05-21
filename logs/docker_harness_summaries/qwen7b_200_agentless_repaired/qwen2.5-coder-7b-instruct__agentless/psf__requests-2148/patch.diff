@@ -1,0 +1,92 @@
+diff --git a/requests/packages/urllib3/response.py b/requests/packages/urllib3/response.py
+index 7e0d47fa..e79b5de1 100644
+--- a/requests/packages/urllib3/response.py
++++ b/requests/packages/urllib3/response.py
+@@ -1,6 +1,7 @@
+ import zlib
+ import io
+ from socket import timeout as SocketTimeout
++from requests.exceptions import ConnectionError
+ 
+ from ._collections import HTTPHeaderDict
+ from .exceptions import ProtocolError, DecodeError, ReadTimeoutError
+@@ -100,6 +101,7 @@ class HTTPResponse(io.IOBase):
+         if preload_content and not self._body:
+             self._body = self.read(decode_content=decode_content)
+ 
++        parameters: ``decode_content`` and ``cache_content``.
+     def get_redirect_location(self):
+         """
+         Should we redirect and where to?
+@@ -110,6 +112,7 @@ class HTTPResponse(io.IOBase):
+         """
+         if self.status in self.REDIRECT_STATUSES:
+             return self.headers.get('location')
++        :param cache_content:
+ 
+         return False
+ 
+@@ -120,6 +123,7 @@ class HTTPResponse(io.IOBase):
+         self._pool._put_conn(self._connection)
+         self._connection = None
+ 
++        content_encoding = self.headers.get('content-encoding', '').lower()
+     @property
+     def data(self):
+         # For backwords-compat with earlier urllib3 0.4 and earlier.
+@@ -127,6 +131,7 @@ class HTTPResponse(io.IOBase):
+             return self._body
+ 
+         if self._fp:
++        if self._fp is None:
+             return self.read(cache_content=True)
+ 
+     def tell(self):
+@@ -140,6 +145,7 @@ class HTTPResponse(io.IOBase):
+     def read(self, amt=None, decode_content=None, cache_content=False):
+         """
+         Similar to :meth:`httplib.HTTPResponse.read`, but with two additional
++                cache_content = False
+         parameters: ``decode_content`` and ``cache_content``.
+ 
+         :param amt:
+@@ -150,6 +156,7 @@ class HTTPResponse(io.IOBase):
+         :param decode_content:
+             If True, will attempt to decode the body based on the
+             'content-encoding' header.
++        except SocketTimeout:
+ 
+         :param cache_content:
+             If True, will save the returned data such that the same result is
+@@ -157,6 +164,7 @@ class HTTPResponse(io.IOBase):
+             is useful if you want the ``.data`` property to continue working
+             after having ``.read()`` the file object. (Overridden if ``amt`` is
+             set.)
++                if not 'read operation timed out' in str(e):  # Defensive:
+         """
+         # Note: content-encoding value should be case-insensitive, per RFC 7230
+         # Section 3.2
+@@ -164,6 +172,7 @@ class HTTPResponse(io.IOBase):
+         if self._decoder is None:
+             if content_encoding in self.CONTENT_DECODERS:
+                 self._decoder = _get_decoder(content_encoding)
++            except HTTPException as e:
+         if decode_content is None:
+             decode_content = self.decode_content
+ 
+@@ -171,6 +180,7 @@ class HTTPResponse(io.IOBase):
+             return
+ 
+         flush_decoder = False
++            try:
+ 
+         try:
+             try:
+@@ -179,6 +189,7 @@ class HTTPResponse(io.IOBase):
+                     data = self._fp.read()
+                     flush_decoder = True
+                 else:
++            if flush_decoder and decode_content and self._decoder:
+                     cache_content = False
+                     data = self._fp.read(amt)
+                     if amt != 0 and not data:  # Platform-specific: Buggy versions of Python.

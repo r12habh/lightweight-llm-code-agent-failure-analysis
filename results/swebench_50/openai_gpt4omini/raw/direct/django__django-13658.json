@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-13658",
+  "raw": "```diff\ndiff --git a/django/core/management/__init__.py b/django/core/management/__init__.py\n--- a/django/core/management/__init__.py\n+++ b/django/core/management/__init__.py\n@@ -77,7 +77,7 @@\n \n def call_command(command_name, *args, **options):\n     \"\"\"\n     Call the given command, with the given options and args/kwargs.\n \n     `command_name` may be a string or a command object. Using a string is\n     preferred unless the command object is required for further processing or\n     testing.\n     \"\"\"\n     if isinstance(command_name, BaseCommand):\n         # Command object passed in.\n         command = command_name\n         command_name = command.__class__.__module__.split('.')[-1]\n     else:\n         # Load the command object by name.\n         try:\n-            app_name = get_commands()[command_name]\n+            app_name = get_commands().get(command_name)\n         except KeyError:\n             raise CommandError(\"Unknown command: %r\" % command_name)\n\n         if isinstance(app_name, BaseCommand):\n             # If the command is already loaded, use it directly.\n             command = app_name\n         else:\n             command = load_command_class(app_name, command_name)\n \n     # Simulate argument parsing to get the option defaults (see #10080 for details).\n     parser = command.create_parser('', command_name)\n     # Use the `dest` option name from the parser option\n     opt_mapping = {\n         min(s_opt.option_strings).lstrip('-').replace('-', '_'): s_opt.dest\n         for s_opt in parser._actions if s_opt.option_strings\n     }\n```",
+  "usage": {
+    "input_tokens": 18147,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 354,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18501
+  },
+  "localized_files": []
+}

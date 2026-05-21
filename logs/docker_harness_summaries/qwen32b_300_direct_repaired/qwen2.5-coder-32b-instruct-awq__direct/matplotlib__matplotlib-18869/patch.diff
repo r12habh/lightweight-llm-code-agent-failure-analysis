@@ -1,0 +1,20 @@
+diff --git a/lib/matplotlib/__init__.py b/lib/matplotlib/__init__.py
+index b657a35cf7..4d222b3449 100644
+--- a/lib/matplotlib/__init__.py
++++ b/lib/matplotlib/__init__.py
+@@ -115,6 +115,7 @@ from matplotlib.rcsetup import validate_backend, cycler
+ _log = logging.getLogger(__name__)
+ 
+ __bibtex__ = r"""@Article{Hunter:2007,
++from distutils.version import LooseVersion
+   Author    = {Hunter, J. D.},
+   Title     = {Matplotlib: A 2D graphics environment},
+   Journal   = {Computing in Science \& Engineering},
+@@ -144,6 +145,7 @@ def __getattr__(name):
+                 version_scheme="post-release",
+                 local_scheme="node-and-date",
+                 fallback_version=_version.version,
++version_info = LooseVersion(__version__)
+             )
+         else:  # Get the version from the _version.py setuptools_scm file.
+             __version__ = _version.version

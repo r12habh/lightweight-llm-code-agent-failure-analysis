@@ -1,0 +1,14 @@
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..4917f4b86f 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -117,6 +117,9 @@ class NDimArray(Printable):
+     >>> from sympy import Matrix
+     >>> a = Matrix([[1,2],[3,4]])
+     >>> a
++                if not shapes:
++                    return [], ()
++                raise ValueError("could not determine shape unambiguously")
+     Matrix([
+     [1, 2],
+     [3, 4]])

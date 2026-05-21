@@ -1,0 +1,9 @@
+diff --git a/xarray/backends/api.py b/xarray/backends/api.py
+index 8d7c2230..1ac0e114 100644
+--- a/xarray/backends/api.py
++++ b/xarray/backends/api.py
+@@ -1361,3 +1361,4 @@ def to_zarr(
+         return dask.delayed(_finalize_store)(writes, zstore)
+ 
+     return zstore
++    Raises

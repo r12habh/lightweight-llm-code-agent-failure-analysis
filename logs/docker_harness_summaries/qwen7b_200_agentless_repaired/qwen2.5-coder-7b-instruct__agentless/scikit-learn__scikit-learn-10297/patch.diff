@@ -1,0 +1,20 @@
+diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3b..1f2d30342d 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -20,6 +20,7 @@ from scipy.sparse import linalg as sp_linalg
+ from .base import LinearClassifierMixin, LinearModel, _rescale_data
+ from .sag import sag_solver
+ from ..base import RegressorMixin
++from ..base import BaseEstimator
+ from ..utils.extmath import safe_sparse_dot
+ from ..utils.extmath import row_norms
+ from ..utils import check_X_y
+@@ -31,6 +32,7 @@ from ..preprocessing import LabelBinarizer
+ from ..model_selection import GridSearchCV
+ from ..externals import six
+ from ..metrics.scorer import check_scoring
++class RidgeClassifierCV(LinearClassifierMixin, BaseEstimator):
+ 
+ 
+ def _solve_sparse_cg(X, y, alpha, max_iter=None, tol=1e-3, verbose=0):

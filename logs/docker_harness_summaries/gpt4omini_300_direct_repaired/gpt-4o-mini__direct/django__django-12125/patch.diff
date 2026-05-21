@@ -1,0 +1,12 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index aa21a151bc..6e39643f27 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -177,6 +177,7 @@ class Field(RegisterLookupMixin):
+ 
+     def __str__(self):
+         """
++        Ensure the inner class paths are correct in migrations
+         Return "app_label.model_label.field_name" for fields attached to
+         models.
+         """

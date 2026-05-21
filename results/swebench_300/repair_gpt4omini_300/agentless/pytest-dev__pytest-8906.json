@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-8906",
+  "input_patch_chars": 673,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 18\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 17:  \n\n",
+          "stdout": "patching file doc/en/how-to/skipping.rst\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

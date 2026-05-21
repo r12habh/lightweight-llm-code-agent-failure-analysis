@@ -1,0 +1,11 @@
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..6c9b96e15c 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -590,3 +590,6 @@ def as_immutable(self):
+ 
+     def as_mutable(self):
+         raise NotImplementedError("abstract method")
++        if iterable == []:
++            return ImmutableDenseNDimArray([], (0,), **kwargs)
++

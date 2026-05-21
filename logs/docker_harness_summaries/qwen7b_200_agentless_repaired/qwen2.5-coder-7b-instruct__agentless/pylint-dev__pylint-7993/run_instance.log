@@ -1,0 +1,47 @@
+2026-05-20 20:52:30,943 - INFO - Creating container for pylint-dev__pylint-7993...
+2026-05-20 20:52:31,670 - INFO - Container for pylint-dev__pylint-7993 created: fd3513a712f7163ca3b741e2cf903ad11c4b76132b407dde0ec3715f08c4e7e9
+2026-05-20 20:52:31,823 - INFO - Container for pylint-dev__pylint-7993 started: fd3513a712f7163ca3b741e2cf903ad11c4b76132b407dde0ec3715f08c4e7e9
+2026-05-20 20:52:31,824 - INFO - Intermediate patch for pylint-dev__pylint-7993 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/pylint-dev__pylint-7993/patch.diff, now applying to container...
+2026-05-20 20:52:32,024 - INFO - >>>>> Applied Patch:
+Checking patch pylint/reporters/text.py...
+Applied patch pylint/reporters/text.py cleanly.
+
+2026-05-20 20:52:32,343 - INFO - Git diff before:
+diff --git a/pylint/reporters/text.py b/pylint/reporters/text.py
+index 29bd46798..8822895cb 100644
+--- a/pylint/reporters/text.py
++++ b/pylint/reporters/text.py
+@@ -168,7 +168,7 @@ class TextReporter(BaseReporter):
+         template = str(self.linter.config.msg_template or self._template)
+ 
+         # Return early if the template is the same as the previous one
+-        if template == self._template:
++        if template == self._fixed_template:
+             return
+ 
+         # Set template to the currently selected template
+2026-05-20 20:52:32,344 - INFO - Eval script for pylint-dev__pylint-7993 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/pylint-dev__pylint-7993/eval.sh; copying to container...
+2026-05-20 20:52:41,024 - INFO - Test runtime: 8.62 seconds
+2026-05-20 20:52:41,026 - INFO - Test output for pylint-dev__pylint-7993 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/pylint-dev__pylint-7993/test_output.txt
+2026-05-20 20:52:41,173 - INFO - Git diff after:
+diff --git a/pylint/reporters/text.py b/pylint/reporters/text.py
+index 29bd46798..8822895cb 100644
+--- a/pylint/reporters/text.py
++++ b/pylint/reporters/text.py
+@@ -168,7 +168,7 @@ class TextReporter(BaseReporter):
+         template = str(self.linter.config.msg_template or self._template)
+ 
+         # Return early if the template is the same as the previous one
+-        if template == self._template:
++        if template == self._fixed_template:
+             return
+ 
+         # Set template to the currently selected template
+2026-05-20 20:52:41,173 - INFO - Grading answer for pylint-dev__pylint-7993...
+2026-05-20 20:52:41,175 - INFO - report: {'pylint-dev__pylint-7993': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['tests/reporters/unittest_reporting.py::test_template_option_with_header']}, 'PASS_TO_PASS': {'success': ['tests/reporters/unittest_reporting.py::test_template_option', 'tests/reporters/unittest_reporting.py::test_template_option_default', 'tests/reporters/unittest_reporting.py::test_template_option_end_line', 'tests/reporters/unittest_reporting.py::test_template_option_non_existing', 'tests/reporters/unittest_reporting.py::test_deprecation_set_output', 'tests/reporters/unittest_reporting.py::test_parseable_output_deprecated', 'tests/reporters/unittest_reporting.py::test_parseable_output_regression', 'tests/reporters/unittest_reporting.py::test_multi_format_output', 'tests/reporters/unittest_reporting.py::test_multi_reporter_independant_messages', 'tests/reporters/unittest_reporting.py::test_display_results_is_renamed'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pylint-dev__pylint-7993: resolved: False
+2026-05-20 20:52:41,176 - INFO - Attempting to stop container sweb.eval.pylint-dev__pylint-7993.qwen7b_200_agentless_repaired...
+2026-05-20 20:52:56,350 - INFO - Attempting to remove container sweb.eval.pylint-dev__pylint-7993.qwen7b_200_agentless_repaired...
+2026-05-20 20:52:56,361 - INFO - Container sweb.eval.pylint-dev__pylint-7993.qwen7b_200_agentless_repaired removed.
+2026-05-20 20:52:56,361 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-7993:latest...
+2026-05-20 20:52:56,368 - INFO - Image swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-7993:latest removed.

@@ -1,0 +1,27 @@
+{
+  "instance_id": "pylint-dev__pylint-7228",
+  "input_patch_chars": 382,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch pylint/lint/pylinter.py...\nHunk #1 succeeded at 264 (offset 164 lines).\nApplied patch pylint/lint/pylinter.py cleanly.\n",
+          "stdout": "",
+          "note": "command succeeded but produced an empty git diff"
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file pylint/lint/pylinter.py\nHunk #1 succeeded at 264 (offset 164 lines).\n",
+          "note": "command succeeded but produced an empty git diff"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

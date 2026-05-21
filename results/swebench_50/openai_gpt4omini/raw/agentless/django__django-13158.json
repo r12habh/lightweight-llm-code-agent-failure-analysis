@@ -1,0 +1,32 @@
+{
+  "instance_id": "django__django-13158",
+  "raw": "```diff\ndiff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py\n--- a/django/db/models/sql/query.py\n+++ b/django/db/models/sql/query.py\n@@ -1246,6 +1246,7 @@\n         # Create a new Query object by combining this one\n         # with another query using union.\n         new_query = self.clone()\n+        new_query.filter_is_sticky = True\n         return new_query\n\n     def union(self, *queries, alias=None, all=False):\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19840,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 174,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20014
+    },
+    "patch": {
+      "input_tokens": 19895,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 115,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20010
+    }
+  },
+  "localized_files": [
+    "django/db/models/sql/query.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/db/models/sql/query.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Potentially affected by QuerySet behavior with union()\"\n    },\n    {\n      \"path\": \"docs/topics/forms/formsets.txt\",\n      \"confidence\": 0.7,\n      \"reason\": \"Discusses form handling which may relate to the issue\"\n    },\n    {\n      \"path\": \"docs/ref/models/fields.txt\",\n      \"confidence\": 0.6,\n      \"reason\": \"Field configurations may influence interactions with QuerySets\"\n    },\n    {\n      \"path\": \"docs/ref/contrib/admin/index.txt\",\n      \"confidence\": 0.5,\n      \"reason\": \"Admin interactions with forms might be impacted\"\n    }\n  ]\n}\n```"
+}

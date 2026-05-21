@@ -1,0 +1,53 @@
+2026-05-20 13:46:42,043 - INFO - Creating container for sympy__sympy-20049...
+2026-05-20 13:46:43,465 - INFO - Container for sympy__sympy-20049 created: ec284259000a81211c41a20edc56c43fec5d696220f626ee39a5ee2325a13b37
+2026-05-20 13:46:43,645 - INFO - Container for sympy__sympy-20049 started: ec284259000a81211c41a20edc56c43fec5d696220f626ee39a5ee2325a13b37
+2026-05-20 13:46:43,646 - INFO - Intermediate patch for sympy__sympy-20049 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-20049/patch.diff, now applying to container...
+2026-05-20 13:46:43,837 - INFO - >>>>> Applied Patch:
+Checking patch sympy/physics/vector/point.py...
+Applied patch sympy/physics/vector/point.py cleanly.
+
+2026-05-20 13:46:44,303 - INFO - Git diff before:
+diff --git a/sympy/physics/vector/point.py b/sympy/physics/vector/point.py
+index d4e3cfcc90..fef4a359dd 100644
+--- a/sympy/physics/vector/point.py
++++ b/sympy/physics/vector/point.py
+@@ -521,7 +521,10 @@ def vel(self, frame):
+         if not (frame in self._vel_dict):
+             raise ValueError('Velocity of point ' + self.name + ' has not been'
+                              ' defined in ReferenceFrame ' + frame.name)
+-        return self._vel_dict[frame]
++        else:
++            return self._vel_dict[frame]
++        return self.pos_from(other_point).dt(frame)
++
+ 
+     def partial_velocity(self, frame, *gen_speeds):
+         """Returns the partial velocities of the linear velocity vector of this
+2026-05-20 13:46:44,304 - INFO - Eval script for sympy__sympy-20049 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-20049/eval.sh; copying to container...
+2026-05-20 13:46:49,522 - INFO - Test runtime: 5.16 seconds
+2026-05-20 13:46:49,523 - INFO - Test output for sympy__sympy-20049 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-20049/test_output.txt
+2026-05-20 13:46:49,639 - INFO - Git diff after:
+diff --git a/sympy/physics/vector/point.py b/sympy/physics/vector/point.py
+index d4e3cfcc90..fef4a359dd 100644
+--- a/sympy/physics/vector/point.py
++++ b/sympy/physics/vector/point.py
+@@ -521,7 +521,10 @@ def vel(self, frame):
+         if not (frame in self._vel_dict):
+             raise ValueError('Velocity of point ' + self.name + ' has not been'
+                              ' defined in ReferenceFrame ' + frame.name)
+-        return self._vel_dict[frame]
++        else:
++            return self._vel_dict[frame]
++        return self.pos_from(other_point).dt(frame)
++
+ 
+     def partial_velocity(self, frame, *gen_speeds):
+         """Returns the partial velocities of the linear velocity vector of this
+2026-05-20 13:46:49,640 - INFO - Grading answer for sympy__sympy-20049...
+2026-05-20 13:46:49,641 - INFO - report: {'sympy__sympy-20049': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_auto_point_vel', 'test_auto_point_vel_multiple_point_path', 'test_auto_vel_dont_overwrite', 'test_auto_point_vel_shortest_path']}, 'PASS_TO_PASS': {'success': ['test_point_v1pt_theorys', 'test_point_a1pt_theorys', 'test_point_v2pt_theorys', 'test_point_a2pt_theorys', 'test_point_funcs', 'test_point_pos', 'test_point_partial_velocity', 'test_point_vel', 'test_auto_point_vel_if_tree_has_vel_but_inappropriate_pos_vector'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-20049: resolved: False
+2026-05-20 13:46:49,642 - INFO - Attempting to stop container sweb.eval.sympy__sympy-20049.qwen32b_300_direct_repaired...
+2026-05-20 13:47:04,803 - INFO - Attempting to remove container sweb.eval.sympy__sympy-20049.qwen32b_300_direct_repaired...
+2026-05-20 13:47:04,819 - INFO - Container sweb.eval.sympy__sympy-20049.qwen32b_300_direct_repaired removed.
+2026-05-20 13:47:04,819 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-20049:latest...
+2026-05-20 13:47:04,825 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-20049:latest removed.

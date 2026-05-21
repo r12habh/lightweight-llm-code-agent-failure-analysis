@@ -1,0 +1,13 @@
+diff --git a/astropy/io/ascii/qdp.py b/astropy/io/ascii/qdp.py
+index 83a4f004aa..36fa8a4a8f 100644
+--- a/astropy/io/ascii/qdp.py
++++ b/astropy/io/ascii/qdp.py
+@@ -88,7 +88,7 @@ def _line_type(line, delimiter=None):
+ def _get_type_from_list_of_lines(lines, delimiter=None):
+     """Read through the list of QDP file lines and label each line by type.
+ 
+-    Parameters
++    Parameters:
+     ----------
+     lines : list
+         List containing one file line in each entry

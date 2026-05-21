@@ -1,0 +1,30 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8273",
+  "raw": "```diff\ndiff --git a/sphinx/builders/manpage.py b/sphinx/builders/manpage.py\n--- a/sphinx/builders/manpage.py\n+++ b/sphinx/builders/manpage.py\n@@ -145,6 +145,10 @@\n \n     def write(self, *args):\n         # existing code...\n+        # Create section directories based on 'section' field in man_pages\n+        for section in self.man_pages:\n+            section_dir = os.path.join(self.outdir, 'man', f'man{section[1]}')\n+            os.makedirs(section_dir, exist_ok=True)\n \n         for docname, targetname, title, (section, _) in self.multipage:\n-            self.write_doc(docname, targetname, title)\n+            self.write_doc(docname, os.path.join('man', f'man{section}', targetname), title)\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 21493,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 240,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21733
+    },
+    "patch": {
+      "input_tokens": 21680,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 49,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 21729
+    }
+  },
+  "localized_files": [],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"doc/man/sphinx-build.rst\",\n      \"confidence\": 0.9,\n      \"reason\": \"Documentation about building man pages; needs updates for section directory support.\"\n    },\n    {\n      \"path\": \"doc/man/sphinx-apidoc.rst\",\n      \"confidence\": 0.7,\n      \"reason\": \"Relevant for generating sources for modules; may require adjustments for new directory structure.\"\n    },\n    {\n      \"path\": \"doc/usage/builders/index.rst\",\n      \"confidence\": 0.8,\n      \"reason\": \"Contains information about builders including man page builder that needs to reflect new layout.\"\n    },\n    {\n      \"path\": \"doc/faq.rst\",\n      \"confidence\": 0.5,\n      \"reason\": \"FAQ may need to address changes in man page generation.\"\n    },\n    {\n      \"path\": \"doc/usage/restructuredtext/directives.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"Contains directives that might need updates related to new man page structure.\"\n    }\n  ]\n}\n```"
+}

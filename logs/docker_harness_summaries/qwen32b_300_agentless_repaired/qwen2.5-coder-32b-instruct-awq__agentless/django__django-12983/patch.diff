@@ -1,0 +1,24 @@
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..2227d92ae6 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -303,6 +303,7 @@ def compress_sequence(sequence):
+             if data:
+                 yield data
+     yield buf.read()
++        value = re.sub(r'[-_]+', '', value)
+ 
+ 
+ # Expression to match some_token and some_token="with spaces" (and similarly
+diff --git a/tests/utils_tests/test_text.py b/tests/utils_tests/test_text.py
+index 9dbf9367c3..bfc35dd4ef 100644
+--- a/tests/utils_tests/test_text.py
++++ b/tests/utils_tests/test_text.py
+@@ -104,6 +104,7 @@ class TestUtilsText(SimpleTestCase):
+         self.assertEqual('The quick brown fox jumped over the lazy dog.', truncator.words(10))
+         self.assertEqual('The quick brown fox…', truncator.words(4))
+         self.assertEqual('The quick brown fox[snip]', truncator.words(4, '[snip]'))
++        ('___This is a test ---', 'this-is-a-test', True),
+         # lazy strings are handled correctly
+         truncator = text.Truncator(lazystr('The quick brown fox jumped over the lazy dog.'))
+         self.assertEqual('The quick brown fox…', truncator.words(4))

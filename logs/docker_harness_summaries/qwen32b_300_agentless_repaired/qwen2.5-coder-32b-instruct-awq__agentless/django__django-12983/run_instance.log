@@ -1,0 +1,60 @@
+2026-05-20 14:26:27,714 - INFO - Creating container for django__django-12983...
+2026-05-20 14:26:29,083 - INFO - Container for django__django-12983 created: 80cbc0ba55f6c098208250261345c2c2fafb458e10110ca823a3ec4c3d88cf38
+2026-05-20 14:26:29,296 - INFO - Container for django__django-12983 started: 80cbc0ba55f6c098208250261345c2c2fafb458e10110ca823a3ec4c3d88cf38
+2026-05-20 14:26:29,297 - INFO - Intermediate patch for django__django-12983 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-12983/patch.diff, now applying to container...
+2026-05-20 14:26:29,525 - INFO - >>>>> Applied Patch:
+Checking patch django/utils/text.py...
+Checking patch tests/utils_tests/test_text.py...
+Applied patch django/utils/text.py cleanly.
+Applied patch tests/utils_tests/test_text.py cleanly.
+
+2026-05-20 14:26:30,459 - INFO - Git diff before:
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..2227d92ae6 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -303,6 +303,7 @@ def compress_sequence(sequence):
+             if data:
+                 yield data
+     yield buf.read()
++        value = re.sub(r'[-_]+', '', value)
+ 
+ 
+ # Expression to match some_token and some_token="with spaces" (and similarly
+diff --git a/tests/utils_tests/test_text.py b/tests/utils_tests/test_text.py
+index 9dbf9367c3..bfc35dd4ef 100644
+--- a/tests/utils_tests/test_text.py
++++ b/tests/utils_tests/test_text.py
+@@ -104,6 +104,7 @@ class TestUtilsText(SimpleTestCase):
+         self.assertEqual('The quick brown fox jumped over the lazy dog.', truncator.words(10))
+         self.assertEqual('The quick brown fox…', truncator.words(4))
+         self.assertEqual('The quick brown fox[snip]', truncator.words(4, '[snip]'))
++        ('___This is a test ---', 'this-is-a-test', True),
+         # lazy strings are handled correctly
+         truncator = text.Truncator(lazystr('The quick brown fox jumped over the lazy dog.'))
+         self.assertEqual('The quick brown fox…', truncator.words(4))
+2026-05-20 14:26:30,460 - INFO - Eval script for django__django-12983 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-12983/eval.sh; copying to container...
+2026-05-20 14:26:44,744 - INFO - Test runtime: 14.21 seconds
+2026-05-20 14:26:44,745 - INFO - Test output for django__django-12983 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/django__django-12983/test_output.txt
+2026-05-20 14:26:44,858 - INFO - Git diff after:
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..2227d92ae6 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -303,6 +303,7 @@ def compress_sequence(sequence):
+             if data:
+                 yield data
+     yield buf.read()
++        value = re.sub(r'[-_]+', '', value)
+ 
+ 
+ # Expression to match some_token and some_token="with spaces" (and similarly
+2026-05-20 14:26:44,858 - INFO - Git diff changed after running eval script
+2026-05-20 14:26:44,858 - INFO - Grading answer for django__django-12983...
+2026-05-20 14:26:44,866 - INFO - report: {'django__django-12983': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_slugify (utils_tests.test_text.TestUtilsText)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_compress_sequence (utils_tests.test_text.TestUtilsText)', 'test_format_lazy (utils_tests.test_text.TestUtilsText)', 'test_get_text_list (utils_tests.test_text.TestUtilsText)', 'test_get_valid_filename (utils_tests.test_text.TestUtilsText)', 'test_normalize_newlines (utils_tests.test_text.TestUtilsText)', 'test_phone2numeric (utils_tests.test_text.TestUtilsText)', 'test_smart_split (utils_tests.test_text.TestUtilsText)', 'test_truncate_chars (utils_tests.test_text.TestUtilsText)', 'test_truncate_chars_html (utils_tests.test_text.TestUtilsText)', 'test_truncate_html_words (utils_tests.test_text.TestUtilsText)', 'test_truncate_words (utils_tests.test_text.TestUtilsText)', 'test_unescape_entities (utils_tests.test_text.TestUtilsText)', 'test_unescape_entities_deprecated (utils_tests.test_text.TestUtilsText)', 'test_unescape_string_literal (utils_tests.test_text.TestUtilsText)', 'test_wrap (utils_tests.test_text.TestUtilsText)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12983: resolved: False
+2026-05-20 14:26:44,867 - INFO - Attempting to stop container sweb.eval.django__django-12983.qwen32b_300_agentless_repaired...
+2026-05-20 14:27:00,023 - INFO - Attempting to remove container sweb.eval.django__django-12983.qwen32b_300_agentless_repaired...
+2026-05-20 14:27:00,054 - INFO - Container sweb.eval.django__django-12983.qwen32b_300_agentless_repaired removed.
+2026-05-20 14:27:00,054 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12983:latest...
+2026-05-20 14:27:00,060 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12983:latest removed.

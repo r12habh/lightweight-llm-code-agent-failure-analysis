@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-26020",
+  "input_patch_chars": 897,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/mpl_toolkits/axes_grid1/axes_grid.py...\nerror: while searching for:\n    \"\"\"\n    ax.xaxis.set_tick_params(bottom=bottom_on, top=top_on)\n    ax.yaxis.set_tick_params(left=left_on, right=right_on)\n    ax.axis[\"bottom\"].toggle(ticklabels=bottom_on, label=bottom_on)\n    ax.axis[\"top\"].toggle(ticklabels=top_on, label=top_on)\n    ax.axis[\"left\"].toggle(ticklabels=left_on, label=left_on)\n    ax.axis[\"right\"].toggle(ticklabels=right_on, label=right_on)\n\nerror: patch failed: lib/mpl_toolkits/axes_grid1/axes_grid.py:24\nApplying patch lib/mpl_toolkits/axes_grid1/axes_grid.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file lib/mpl_toolkits/axes_grid1/axes_grid.py\nHunk #1 FAILED at 24.\n1 out of 1 hunk FAILED -- saving rejects to file lib/mpl_toolkits/axes_grid1/axes_grid.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

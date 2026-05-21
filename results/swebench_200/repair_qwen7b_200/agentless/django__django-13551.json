@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13551",
+  "input_patch_chars": 1264,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch docs/topics/auth/default.txt...\nerror: while searching for:\n    >>> u.set_password('new password')\n    >>> u.save()\n\n    If you have the Django admin installed, you can also change user's passwords\n    on the :ref:`authentication system's admin pages <auth-admin>`.\n\n\nerror: patch failed: docs/topics/auth/default.txt:100\nerror: docs/topics/auth/default.txt: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch docs/topics/auth/default.txt...\nerror: while searching for:\n    >>> u.set_password('new password')\n    >>> u.save()\n\n    If you have the Django admin installed, you can also change user's passwords\n    on the :ref:`authentication system's admin pages <auth-admin>`.\n\n\nerror: patch failed: docs/topics/auth/default.txt:100\nerror: while searching for:\n    If you have the Django admin installed, you can also :ref:`create users\n    interactively <auth-admin>`.\n\n    Changing a user's password will log out all their sessions. See\n    :ref:`session-invalidation-on-password-change` for details.\n\n\nerror: patch failed: docs/topics/auth/default.txt:110\nerror: while searching for:\n    .. function:: authenticate(request=None, **credentials)\n\n        Use :func:`~django.contrib.auth.authenticate()` to verify a set of\n        credentials as keyword arguments, ``username`` and\n        ``password`` for the default case, checks them against each\n        :ref:`authentication backend <authentication-backends>`, and returns a\n\nerror: patch failed: docs/topics/auth/default.txt:120\nApplying patch docs/topics/auth/default.txt with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1433
+}

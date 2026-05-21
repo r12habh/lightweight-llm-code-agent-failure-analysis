@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12286",
+  "input_patch_chars": 692,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/utils/translation/trans_real.py...\nerror: while searching for:\n    \"\"\"\n    Check whether a language code is available with at least one catalog.\n    \"\"\"\n    return lang_code in dict(settings.LANGUAGES)\n\n@functools.lru_cache(maxsize=None)\n\nerror: patch failed: django/utils/translation/trans_real.py:104\nerror: django/utils/translation/trans_real.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/utils/translation/trans_real.py...\nerror: while searching for:\n    \"\"\"\n    Check whether a language code is available with at least one catalog.\n    \"\"\"\n    return lang_code in dict(settings.LANGUAGES)\n\n@functools.lru_cache(maxsize=None)\n\nerror: patch failed: django/utils/translation/trans_real.py:104\nApplying patch django/utils/translation/trans_real.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 747
+}

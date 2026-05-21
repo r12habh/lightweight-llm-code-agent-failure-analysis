@@ -1,0 +1,15 @@
+diff --git a/django/contrib/admin/templatetags/admin_list.py b/django/contrib/admin/templatetags/admin_list.py
+index 5865843dce..f0aacbeae3 100644
+--- a/django/contrib/admin/templatetags/admin_list.py
++++ b/django/contrib/admin/templatetags/admin_list.py
+@@ -120,6 +120,10 @@ def result_headers(cl):
+             }
+             continue
+ 
++        if value is None:
++            result_repr = cl.model_admin.empty_value_display
++            row_classes.append("empty-value")
++
+         # OK, it is sortable if we got this far
+         th_classes = ["sortable", "column-{}".format(field_name)]
+         order_type = ""

@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14983",
+  "input_patch_chars": 1140,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/model_selection/_split.py...\nerror: while searching for:\n        self.n_repeats = n_repeats\n        self.random_state = random_state\n\n\nclass RepeatedStratifiedKFold(_BaseRepeatedCV):\n    \"\"\"Repeated Stratified K-Folds cross-validator\n\nerror: patch failed: sklearn/model_selection/_split.py:1000\nerror: sklearn/model_selection/_split.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/model_selection/_split.py...\nerror: while searching for:\n        self.n_repeats = n_repeats\n        self.random_state = random_state\n\n\nclass RepeatedStratifiedKFold(_BaseRepeatedCV):\n    \"\"\"Repeated Stratified K-Folds cross-validator\n\nerror: patch failed: sklearn/model_selection/_split.py:1000\nerror: while searching for:\n        self.n_repeats = n_repeats\n        self.random_state = random_state\n\n\nclass _BasePredefinedSplit(BaseCrossValidator):\n    \"\"\"Base class for user defined predefined splits.\n\nerror: patch failed: sklearn/model_selection/_split.py:1020\nApplying patch sklearn/model_selection/_split.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1129
+}

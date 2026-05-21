@@ -1,0 +1,47 @@
+2026-05-20 15:54:07,904 - INFO - Creating container for scikit-learn__scikit-learn-13497...
+2026-05-20 15:54:07,934 - INFO - Container for scikit-learn__scikit-learn-13497 created: 45fda5414bbb273622bd872cb7c32d802acd4da4226dbfe666cceef6a04db009
+2026-05-20 15:54:08,044 - INFO - Container for scikit-learn__scikit-learn-13497 started: 45fda5414bbb273622bd872cb7c32d802acd4da4226dbfe666cceef6a04db009
+2026-05-20 15:54:08,044 - INFO - Intermediate patch for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/scikit-learn__scikit-learn-13497/patch.diff, now applying to container...
+2026-05-20 15:54:08,219 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/feature_selection/mutual_info_.py...
+Applied patch sklearn/feature_selection/mutual_info_.py cleanly.
+
+2026-05-20 15:54:08,511 - INFO - Git diff before:
+diff --git a/sklearn/feature_selection/mutual_info_.py b/sklearn/feature_selection/mutual_info_.py
+index d5d1b7fb5..237c49ad2 100644
+--- a/sklearn/feature_selection/mutual_info_.py
++++ b/sklearn/feature_selection/mutual_info_.py
+@@ -250,7 +250,7 @@ def _estimate_mi(X, y, discrete_features='auto', discrete_target=False,
+     if discrete_features == 'auto':
+         discrete_features = issparse(X)
+ 
+-    if isinstance(discrete_features, bool):
++    if isinstance(discrete_features, (bool, np.ndarray)):
+         discrete_mask = np.empty(n_features, dtype=bool)
+         discrete_mask.fill(discrete_features)
+     else:
+2026-05-20 15:54:08,513 - INFO - Eval script for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/scikit-learn__scikit-learn-13497/eval.sh; copying to container...
+2026-05-20 15:54:14,021 - INFO - Test runtime: 5.44 seconds
+2026-05-20 15:54:14,022 - INFO - Test output for scikit-learn__scikit-learn-13497 written to logs/run_evaluation/qwen32b_300_agentless_repaired/qwen2.5-coder-32b-instruct-awq__agentless/scikit-learn__scikit-learn-13497/test_output.txt
+2026-05-20 15:54:14,116 - INFO - Git diff after:
+diff --git a/sklearn/feature_selection/mutual_info_.py b/sklearn/feature_selection/mutual_info_.py
+index d5d1b7fb5..237c49ad2 100644
+--- a/sklearn/feature_selection/mutual_info_.py
++++ b/sklearn/feature_selection/mutual_info_.py
+@@ -250,7 +250,7 @@ def _estimate_mi(X, y, discrete_features='auto', discrete_target=False,
+     if discrete_features == 'auto':
+         discrete_features = issparse(X)
+ 
+-    if isinstance(discrete_features, bool):
++    if isinstance(discrete_features, (bool, np.ndarray)):
+         discrete_mask = np.empty(n_features, dtype=bool)
+         discrete_mask.fill(discrete_features)
+     else:
+2026-05-20 15:54:14,116 - INFO - Grading answer for scikit-learn__scikit-learn-13497...
+2026-05-20 15:54:14,118 - INFO - report: {'scikit-learn__scikit-learn-13497': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_options']}, 'PASS_TO_PASS': {'success': ['sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_dd', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cc', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cd', 'sklearn/feature_selection/tests/test_mutual_info.py::test_compute_mi_cd_unique_label', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_classif_discrete', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_regression', 'sklearn/feature_selection/tests/test_mutual_info.py::test_mutual_info_classif_mixed'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-13497: resolved: False
+2026-05-20 15:54:14,119 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-13497.qwen32b_300_agentless_repaired...
+2026-05-20 15:54:29,280 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-13497.qwen32b_300_agentless_repaired...
+2026-05-20 15:54:29,322 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13497.qwen32b_300_agentless_repaired removed.
+2026-05-20 15:54:29,322 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest...
+2026-05-20 15:54:29,332 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13497:latest removed.

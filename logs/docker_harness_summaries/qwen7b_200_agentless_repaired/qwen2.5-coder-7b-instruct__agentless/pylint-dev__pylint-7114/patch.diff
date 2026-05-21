@@ -1,0 +1,12 @@
+diff --git a/pylint/lint/pylinter.py b/pylint/lint/pylinter.py
+index bc227d2c4..7f829af96 100644
+--- a/pylint/lint/pylinter.py
++++ b/pylint/lint/pylinter.py
+@@ -307,6 +307,7 @@ class PyLinter(
+         self.current_name: str | None = None
+         self.current_file: str | None = None
+         self._ignore_file = False
++        self._ignore_file = False
+ 
+         # Attributes related to stats
+         self.stats = LinterStats()

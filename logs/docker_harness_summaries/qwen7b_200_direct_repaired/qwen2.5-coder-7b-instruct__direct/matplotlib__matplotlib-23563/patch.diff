@@ -1,0 +1,23 @@
+diff --git a/lib/matplotlib/axes/_base.py b/lib/matplotlib/axes/_base.py
+index 04e34080c1..7338bcaaa3 100644
+--- a/lib/matplotlib/axes/_base.py
++++ b/lib/matplotlib/axes/_base.py
+@@ -123,6 +123,7 @@ def _process_plot_format(fmt, *, ambiguous_fmt_datakey=False):
+     *marker*, *color*) tuple.
+ 
+     Example format strings include:
++        self._line3d_cache = {}
+ 
+     * 'ko': black circles
+     * '.b': blue dots
+@@ -1320,6 +1321,10 @@ class _AxesBase(martist.Artist):
+ 
+     class ArtistList(MutableSequence):
+         """
++        Clear the cache of Line3D objects to avoid memory leaks.
++        """
++        self._line3d_cache.clear()
++
+         A sublist of Axes children based on their type.
+ 
+         The type-specific children sublists will become immutable in

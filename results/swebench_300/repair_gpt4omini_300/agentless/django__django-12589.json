@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-12589",
+  "input_patch_chars": 755,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n        # The group_by attribute can have one of the following forms:\n        #  - None: no group by at all in the query\n        #  - A tuple of expressions: group by (at least) those expressions.\n        #    String refs are also allowed for now.\n        #  - True: group by all select fields\n        # See compiler.get_group_by() for details.\n        \n\nerror: patch failed: django/db/models/sql/query.py:964\nerror: django/db/models/sql/query.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n        # The group_by attribute can have one of the following forms:\n        #  - None: no group by at all in the query\n        #  - A tuple of expressions: group by (at least) those expressions.\n        #    String refs are also allowed for now.\n        #  - True: group by all select fields\n        # See compiler.get_group_by() for details.\n        \n\nerror: patch failed: django/db/models/sql/query.py:964\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 709
+}

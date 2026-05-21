@@ -1,0 +1,14 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 781dfd5499..5078c8c987 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -288,6 +288,9 @@ class Query(BaseExpression):
+         substituted in (use sql_with_params() to see the unsubstituted string).
+ 
+         Parameter values won't necessarily be quoted correctly, since that is
++        # Override the deferred loading here if it's set
++        self.deferred_loading = (frozenset(), True)
++        self.select_related = True
+         done by the database interface at execution time.
+         """
+         sql, params = self.sql_with_params()

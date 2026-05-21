@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-25498",
+  "input_patch_chars": 535,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/colorbar.py...\nerror: while searching for:\n\n    def update_normal(self, mappable):\n        \"\"\"Update the colorbar based on the norm of the mappable.\"\"\"\n        self.norm = mappable.norm\n        self.vmin = mappable.get_array().min() if mappable.get_array() is not None else self.vmin\n        self.vmax = mappable.get_array().max() if mappable.get_array() is not None else self.vmax\n\nerror: patch failed: lib/matplotlib/colorbar.py:631\nerror: lib/matplotlib/colorbar.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/colorbar.py...\nerror: while searching for:\n\n    def update_normal(self, mappable):\n        \"\"\"Update the colorbar based on the norm of the mappable.\"\"\"\n        self.norm = mappable.norm\n        self.vmin = mappable.get_array().min() if mappable.get_array() is not None else self.vmin\n        self.vmax = mappable.get_array().max() if mappable.get_array() is not None else self.vmax\n\nerror: patch failed: lib/matplotlib/colorbar.py:631\nApplying patch lib/matplotlib/colorbar.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 488
+}

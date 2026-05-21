@@ -1,0 +1,14 @@
+diff --git a/sympy/polys/polyoptions.py b/sympy/polys/polyoptions.py
+index 6e504a3057..ad972a90e1 100644
+--- a/sympy/polys/polyoptions.py
++++ b/sympy/polys/polyoptions.py
+@@ -479,6 +479,10 @@ def preprocess(cls, domain):
+             if r is not None:
+                 gens = list(map(sympify, r.groups()[1].split(',')))
+                 return sympy.polys.domains.QQ.algebraic_field(*gens)
++        if r is not None:
++            domain, gens = r.groups()
++            return sympy.polys.domains.ZZ.poly_field(*gens)
++
+ 
+         raise OptionError('expected a valid domain specification, got %s' % domain)

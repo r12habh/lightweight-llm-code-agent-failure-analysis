@@ -1,0 +1,25 @@
+{
+  "instance_id": "sphinx-doc__sphinx-10325",
+  "input_patch_chars": 1102,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/__init__.py...\nerror: while searching for:\n        if self.options.inherited_members:\n            inherited_members = self.options.inherited_members.split(',')\n            if inherited_members == ['None']:\n                inherited_members = []\n            else:\n                inherited_members = [self.modname + '.' + m for m in inherited_members]\n        else:\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:1234\nerror: while searching for:\n\n        for base in bases:\n            if (base not in documented_bases and\n                    (inherited_members is None or base in inherited_members)):\n                documented_bases.add(base)\n                self.add_content_from_doc(base, 'attribute', no_docstring=True)\n                self.add_content_from_doc(base, 'method', no_docstring=True)\n\nerror: patch failed: sphinx/ext/autodoc/__init__.py:1242\nApplying patch sphinx/ext/autodoc/__init__.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sphinx/ext/autodoc/__init__.py\nHunk #1 FAILED at 1234.\nHunk #2 FAILED at 1242.\n2 out of 2 hunks FAILED -- saving rejects to file sphinx/ext/autodoc/__init__.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

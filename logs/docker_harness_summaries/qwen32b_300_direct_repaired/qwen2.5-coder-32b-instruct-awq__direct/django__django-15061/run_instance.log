@@ -1,0 +1,53 @@
+2026-05-20 12:03:36,826 - INFO - Creating container for django__django-15061...
+2026-05-20 12:03:37,624 - INFO - Container for django__django-15061 created: 7e556ec72e611680353a81601c424d94ca44ffd322c2f6c09799dc58dc705360
+2026-05-20 12:03:37,776 - INFO - Container for django__django-15061 started: 7e556ec72e611680353a81601c424d94ca44ffd322c2f6c09799dc58dc705360
+2026-05-20 12:03:37,776 - INFO - Intermediate patch for django__django-15061 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-15061/patch.diff, now applying to container...
+2026-05-20 12:03:37,961 - INFO - >>>>> Applied Patch:
+Checking patch django/forms/widgets.py...
+Applied patch django/forms/widgets.py cleanly.
+
+2026-05-20 12:03:38,795 - INFO - Git diff before:
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 00c19e2c55..2c900f2152 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -540,6 +540,11 @@ class CheckboxInput(Input):
+         values = {'true': True, 'false': False}
+         if isinstance(value, str):
+             value = values.get(value.lower(), value)
++        # Aggregates to a single id for the entire MultiWidget
++        if id_:
++            id_ += '_0'
++        return id_
++
+         return bool(value)
+ 
+     def value_omitted_from_data(self, data, files, name):
+2026-05-20 12:03:38,796 - INFO - Eval script for django__django-15061 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-15061/eval.sh; copying to container...
+2026-05-20 12:03:46,069 - INFO - Test runtime: 7.21 seconds
+2026-05-20 12:03:46,071 - INFO - Test output for django__django-15061 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-15061/test_output.txt
+2026-05-20 12:03:46,204 - INFO - Git diff after:
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 00c19e2c55..2c900f2152 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -540,6 +540,11 @@ class CheckboxInput(Input):
+         values = {'true': True, 'false': False}
+         if isinstance(value, str):
+             value = values.get(value.lower(), value)
++        # Aggregates to a single id for the entire MultiWidget
++        if id_:
++            id_ += '_0'
++        return id_
++
+         return bool(value)
+ 
+     def value_omitted_from_data(self, data, files, name):
+2026-05-20 12:03:46,204 - INFO - Grading answer for django__django-15061...
+2026-05-20 12:03:46,207 - INFO - report: {'django__django-15061': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_form_as_table (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_form_as_table_data (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_form_as_table (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)']}, 'PASS_TO_PASS': {'success': ['test_bad_choice (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_clean (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_clean_disabled_multivalue (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_disabled_has_changed (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_form_cleaned_data (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', "Test when the first widget's data has changed.", "Test when the last widget's data has changed. This ensures that it is", 'test_has_changed_no_initial (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_has_changed_same (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'If insufficient data is provided, None is substituted.', 'test_render_required_attributes (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_splitdatetimefield_1 (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)', 'test_splitdatetimefield_2 (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)', 'test_splitdatetimefield_changed (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15061: resolved: False
+2026-05-20 12:03:46,208 - INFO - Attempting to stop container sweb.eval.django__django-15061.qwen32b_300_direct_repaired...
+2026-05-20 12:04:01,445 - INFO - Attempting to remove container sweb.eval.django__django-15061.qwen32b_300_direct_repaired...
+2026-05-20 12:04:01,462 - INFO - Container sweb.eval.django__django-15061.qwen32b_300_direct_repaired removed.
+2026-05-20 12:04:01,462 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15061:latest...
+2026-05-20 12:04:01,469 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15061:latest removed.

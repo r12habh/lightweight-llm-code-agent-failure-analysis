@@ -1,0 +1,28 @@
+{
+  "instance_id": "pydata__xarray-3364",
+  "input_patch_chars": 754,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch xarray/core/concat.py...\nerror: while searching for:\n        if both_data_and_coords:\n            raise ValueError(\n                \"%r is a coordinate in some datasets but not others.\" % both_data_and_coords\n        # we don't want the concat dimension in the result dataset yet\n        dim_coords.pop(dim, None)\n        dims_sizes.pop(dim, None)\n\nerror: patch failed: xarray/core/concat.py:235\nerror: xarray/core/concat.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/concat.py...\nerror: while searching for:\n        if both_data_and_coords:\n            raise ValueError(\n                \"%r is a coordinate in some datasets but not others.\" % both_data_and_coords\n        # we don't want the concat dimension in the result dataset yet\n        dim_coords.pop(dim, None)\n        dims_sizes.pop(dim, None)\n\nerror: patch failed: xarray/core/concat.py:235\nApplying patch xarray/core/concat.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 654
+}

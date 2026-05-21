@@ -1,0 +1,51 @@
+2026-05-20 13:38:41,116 - INFO - Creating container for sympy__sympy-16792...
+2026-05-20 13:38:41,151 - INFO - Container for sympy__sympy-16792 created: 8f813b61cba5c6d85210134543e456e992f28b965620bc16711b6105d0073571
+2026-05-20 13:38:41,288 - INFO - Container for sympy__sympy-16792 started: 8f813b61cba5c6d85210134543e456e992f28b965620bc16711b6105d0073571
+2026-05-20 13:38:41,289 - INFO - Intermediate patch for sympy__sympy-16792 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-16792/patch.diff, now applying to container...
+2026-05-20 13:38:41,476 - INFO - >>>>> Applied Patch:
+Checking patch sympy/utilities/autowrap.py...
+Applied patch sympy/utilities/autowrap.py cleanly.
+
+2026-05-20 13:38:41,963 - INFO - Git diff before:
+diff --git a/sympy/utilities/autowrap.py b/sympy/utilities/autowrap.py
+index bd6afb12d1..f12114b92a 100644
+--- a/sympy/utilities/autowrap.py
++++ b/sympy/utilities/autowrap.py
+@@ -315,6 +315,10 @@ def _prepare_files(self, routine, build_dir=os.curdir):
+         # pyx
+         with open(os.path.join(build_dir, pyxfilename), 'w') as f:
+             self.dump_pyx([routine], f, self.filename)
++            # Ensure all arguments are included in the function signature
++            for arg in routine.arguments:
++                if isinstance(arg, (InputArgument, InOutArgument)):
++                    self._need_numpy = True if isinstance(arg.name, MatrixSymbol) else self._need_numpy
+ 
+         # setup.py
+         ext_args = [repr(self.module_name), repr([pyxfilename, codefilename])]
+2026-05-20 13:38:41,964 - INFO - Eval script for sympy__sympy-16792 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-16792/eval.sh; copying to container...
+2026-05-20 13:38:47,688 - INFO - Test runtime: 5.66 seconds
+2026-05-20 13:38:47,689 - INFO - Test output for sympy__sympy-16792 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-16792/test_output.txt
+2026-05-20 13:38:47,796 - INFO - Git diff after:
+diff --git a/sympy/utilities/autowrap.py b/sympy/utilities/autowrap.py
+index bd6afb12d1..f12114b92a 100644
+--- a/sympy/utilities/autowrap.py
++++ b/sympy/utilities/autowrap.py
+@@ -315,6 +315,10 @@ def _prepare_files(self, routine, build_dir=os.curdir):
+         # pyx
+         with open(os.path.join(build_dir, pyxfilename), 'w') as f:
+             self.dump_pyx([routine], f, self.filename)
++            # Ensure all arguments are included in the function signature
++            for arg in routine.arguments:
++                if isinstance(arg, (InputArgument, InOutArgument)):
++                    self._need_numpy = True if isinstance(arg.name, MatrixSymbol) else self._need_numpy
+ 
+         # setup.py
+         ext_args = [repr(self.module_name), repr([pyxfilename, codefilename])]
+2026-05-20 13:38:47,796 - INFO - Grading answer for sympy__sympy-16792...
+2026-05-20 13:38:47,797 - INFO - report: {'sympy__sympy-16792': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_ccode_unused_array_arg']}, 'PASS_TO_PASS': {'success': ['test_Routine_argument_order', 'test_empty_c_code', 'test_empty_c_code_with_comment', 'test_empty_c_header', 'test_simple_c_code', 'test_c_code_reserved_words', 'test_numbersymbol_c_code', 'test_c_code_argument_order', 'test_simple_c_header', 'test_simple_c_codegen', 'test_multiple_results_c', 'test_no_results_c', 'test_ansi_math1_codegen', 'test_ansi_math2_codegen', 'test_complicated_codegen', 'test_loops_c', 'test_dummy_loops_c', 'test_partial_loops_c', 'test_output_arg_c', 'test_output_arg_c_reserved_words', 'test_ccode_results_named_ordered', 'test_ccode_matrixsymbol_slice', 'test_ccode_cse', 'test_empty_f_code', 'test_empty_f_code_with_header', 'test_empty_f_header', 'test_simple_f_code', 'test_numbersymbol_f_code', 'test_erf_f_code', 'test_f_code_argument_order', 'test_simple_f_header', 'test_simple_f_codegen', 'test_multiple_results_f', 'test_no_results_f', 'test_intrinsic_math_codegen', 'test_intrinsic_math2_codegen', 'test_complicated_codegen_f95', 'test_loops', 'test_dummy_loops_f95', 'test_loops_InOut', 'test_partial_loops_f', 'test_output_arg_f', 'test_inline_function', 'test_f_code_call_signature_wrap', 'test_check_case', 'test_check_case_false_positive', 'test_c_fortran_omit_routine_name', 'test_fcode_matrix_output', 'test_fcode_results_named_ordered', 'test_fcode_matrixsymbol_slice', 'test_fcode_matrixsymbol_slice_autoname', 'test_global_vars', 'test_custom_codegen', 'test_c_with_printer'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-16792: resolved: False
+2026-05-20 13:38:47,797 - INFO - Attempting to stop container sweb.eval.sympy__sympy-16792.qwen32b_300_direct_repaired...
+2026-05-20 13:39:03,039 - INFO - Attempting to remove container sweb.eval.sympy__sympy-16792.qwen32b_300_direct_repaired...
+2026-05-20 13:39:03,060 - INFO - Container sweb.eval.sympy__sympy-16792.qwen32b_300_direct_repaired removed.
+2026-05-20 13:39:03,060 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-16792:latest...
+2026-05-20 13:39:03,068 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-16792:latest removed.

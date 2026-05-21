@@ -1,0 +1,12 @@
+diff --git a/django/db/backends/base/features.py b/django/db/backends/base/features.py
+index 70878f92a2..ecf94758e7 100644
+--- a/django/db/backends/base/features.py
++++ b/django/db/backends/base/features.py
+@@ -12,6 +12,7 @@ class BaseDatabaseFeatures:
+     # Does the backend distinguish between '' and None?
+     interprets_empty_strings_as_nulls = False
+ 
++    # Does the backend allow duplicate table names across apps?
+     # Does the backend allow inserting duplicate NULL rows in a nullable
+     # unique field? All core backends implement this correctly, but other
+     # databases such as SQL Server do not.

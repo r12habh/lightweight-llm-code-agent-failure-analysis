@@ -1,0 +1,14 @@
+diff --git a/sympy/simplify/trigsimp.py b/sympy/simplify/trigsimp.py
+index 8ba346adbe..53b451b45a 100644
+--- a/sympy/simplify/trigsimp.py
++++ b/sympy/simplify/trigsimp.py
+@@ -100,6 +100,10 @@ def trigsimp_groebner(expr, hints=[], quick=False, order="grlex",
+     ``2*x``.
+ 
+     The tangent function is also supported. You can either pass ``tan`` in the
++        # Ensure sin and cos are included for Rational arguments
++        if any(isinstance(coeff, Rational) for coeff, fn in trigterms):
++            trigterms.append(((1, cos, sin, cos(x)**2 + sin(x)**2 - 1)))
++
+     hints, to indicate that than should be tried whenever cosine or sine are,
+     or you can pass a specific generator:

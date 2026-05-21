@@ -1,0 +1,12 @@
+diff --git a/sympy/physics/units/systems/si.py b/sympy/physics/units/systems/si.py
+index 700495ad9d..7826221d9e 100644
+--- a/sympy/physics/units/systems/si.py
++++ b/sympy/physics/units/systems/si.py
+@@ -104,6 +104,7 @@
+ 
+ SI.set_quantity_scale_factor(kelvin, One)
+ 
++SI.set_quantity_dimension(acceleration*time, velocity)
+ SI.set_quantity_scale_factor(mole, One)
+ 
+ SI.set_quantity_scale_factor(candela, One)

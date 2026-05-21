@@ -1,0 +1,12 @@
+diff --git a/sklearn/calibration.py b/sklearn/calibration.py
+index 2c4a33616d..0f0b3ed769 100644
+--- a/sklearn/calibration.py
++++ b/sklearn/calibration.py
+@@ -761,6 +761,7 @@ class _CalibratedClassifier:
+                 # clf.classes_[1] but `pos_class_indices` = 0
+                 class_idx += 1
+             proba[:, class_idx] = calibrator.predict(this_pred)
++                this_pred = this_pred.ravel()
+ 
+         # Normalize the probabilities
+         if n_classes == 2:

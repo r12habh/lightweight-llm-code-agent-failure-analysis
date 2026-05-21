@@ -1,0 +1,51 @@
+2026-05-20 13:51:38,140 - INFO - Creating container for sympy__sympy-21627...
+2026-05-20 13:51:38,234 - INFO - Container for sympy__sympy-21627 created: 15932d8829e832c329618440b79fbfa6395aa0c87616df40452664d3d58d4a79
+2026-05-20 13:51:38,351 - INFO - Container for sympy__sympy-21627 started: 15932d8829e832c329618440b79fbfa6395aa0c87616df40452664d3d58d4a79
+2026-05-20 13:51:38,351 - INFO - Intermediate patch for sympy__sympy-21627 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-21627/patch.diff, now applying to container...
+2026-05-20 13:51:38,520 - INFO - >>>>> Applied Patch:
+Checking patch sympy/core/expr.py...
+Applied patch sympy/core/expr.py cleanly.
+
+2026-05-20 13:51:39,072 - INFO - Git diff before:
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 95ed85f769..8b798d840e 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -151,6 +151,10 @@ def __eq__(self, other):
+         if  not (self.is_Number and other.is_Number) and (
+                 type(self) != type(other)):
+             return False
++        if self == other:
++            return True
++        if self.is_zero and other.is_zero:
++            return True
+         a, b = self._hashable_content(), other._hashable_content()
+         if a != b:
+             return False
+2026-05-20 13:51:39,072 - INFO - Eval script for sympy__sympy-21627 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-21627/eval.sh; copying to container...
+2026-05-20 13:51:44,027 - INFO - Test runtime: 4.89 seconds
+2026-05-20 13:51:44,032 - INFO - Test output for sympy__sympy-21627 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-21627/test_output.txt
+2026-05-20 13:51:44,151 - INFO - Git diff after:
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 95ed85f769..8b798d840e 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -151,6 +151,10 @@ def __eq__(self, other):
+         if  not (self.is_Number and other.is_Number) and (
+                 type(self) != type(other)):
+             return False
++        if self == other:
++            return True
++        if self.is_zero and other.is_zero:
++            return True
+         a, b = self._hashable_content(), other._hashable_content()
+         if a != b:
+             return False
+2026-05-20 13:51:44,151 - INFO - Grading answer for sympy__sympy-21627...
+2026-05-20 13:51:44,156 - INFO - report: {'sympy__sympy-21627': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_Abs']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_re', 'test_im', 'test_sign', 'test_as_real_imag', 'test_Abs_rewrite', 'test_Abs_real', 'test_Abs_properties', 'test_abs', 'test_arg', 'test_arg_rewrite', 'test_adjoint', 'test_conjugate', 'test_conjugate_transpose', 'test_transpose', 'test_polarify', 'test_unpolarify', 'test_issue_4035', 'test_issue_3206', 'test_issue_4754_derivative_conjugate', 'test_derivatives_issue_4757', 'test_issue_11413', 'test_periodic_argument', 'test_principal_branch', 'test_issue_14216', 'test_issue_14238', 'test_zero_assumptions']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-21627: resolved: False
+2026-05-20 13:51:44,156 - INFO - Attempting to stop container sweb.eval.sympy__sympy-21627.qwen32b_300_direct_repaired...
+2026-05-20 13:51:59,365 - INFO - Attempting to remove container sweb.eval.sympy__sympy-21627.qwen32b_300_direct_repaired...
+2026-05-20 13:51:59,382 - INFO - Container sweb.eval.sympy__sympy-21627.qwen32b_300_direct_repaired removed.
+2026-05-20 13:51:59,382 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-21627:latest...
+2026-05-20 13:51:59,389 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-21627:latest removed.

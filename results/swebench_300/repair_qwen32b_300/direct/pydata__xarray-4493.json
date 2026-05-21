@@ -1,0 +1,25 @@
+{
+  "instance_id": "pydata__xarray-4493",
+  "input_patch_chars": 605,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/dataset.py...\nerror: while searching for:\n        for k, v in other.items():\n            if k in self:\n                if isinstance(v, DataArray) and isinstance(self[k], DataArray):\n                    self[k] = v._to_temp_dataset().variables[k]\n                else:\n                    self[k] = v\n            else:\n\nerror: patch failed: xarray/core/dataset.py:1234\nApplying patch xarray/core/dataset.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file xarray/core/dataset.py\nHunk #1 FAILED at 1234.\n1 out of 1 hunk FAILED -- saving rejects to file xarray/core/dataset.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,14 @@
+diff --git a/seaborn/_oldcore.py b/seaborn/_oldcore.py
+index c9218c1f..9e4500ac 100644
+--- a/seaborn/_oldcore.py
++++ b/seaborn/_oldcore.py
+@@ -124,6 +124,10 @@ class HueMapping(SemanticMapping):
+                 levels, lookup_table = self.categorical_mapping(
+                     data, palette, order,
+                 )
++            elif map_type == "categorical" and not all(level in data for level in order):
++                # Filter out levels in order that are not in data
++                levels = [level for level in order if level in data]
++                lookup_table = self.categorical_mapping(data, palette, levels)[1]
+ 
+             # --- Option 3: datetime mapping

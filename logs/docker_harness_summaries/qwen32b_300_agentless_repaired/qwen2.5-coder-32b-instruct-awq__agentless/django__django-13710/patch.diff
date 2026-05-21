@@ -1,0 +1,37 @@
+diff --git a/django/contrib/admin/options.py b/django/contrib/admin/options.py
+index dadd4acfa1..3b09c23809 100644
+--- a/django/contrib/admin/options.py
++++ b/django/contrib/admin/options.py
+@@ -150,6 +150,10 @@ class BaseModelAdmin(metaclass=forms.MediaDefiningClass):
+                 kwargs = {**self.formfield_overrides[db_field.__class__], **kwargs}
+ 
+             # Get the correct formfield.
++    verbose_name_plural_set = False
++
++    def __init__(self, parent_model, admin_site):
++        super().__init__(parent_model, admin_site)
+             if isinstance(db_field, models.ForeignKey):
+                 formfield = self.formfield_for_foreignkey(db_field, request, **kwargs)
+             elif isinstance(db_field, models.ManyToManyField):
+@@ -2040,6 +2044,10 @@ class InlineModelAdmin(BaseModelAdmin):
+         if self.verbose_name is None:
+             self.verbose_name = self.model._meta.verbose_name
+         if self.verbose_name_plural is None:
++            if self.verbose_name:
++                self.verbose_name_plural = self.verbose_name + 's'
++                self.verbose_name_plural_set = True
++            else:
+             self.verbose_name_plural = self.model._meta.verbose_name_plural
+ 
+     @property
+@@ -2051,6 +2059,10 @@ class InlineModelAdmin(BaseModelAdmin):
+         if self.classes and 'collapse' in self.classes:
+             js.append('collapse.js')
+         return forms.Media(js=['admin/js/%s' % url for url in js])
++            if self.verbose_name and not self.verbose_name_plural_set:
++                self.verbose_name_plural = self.verbose_name + 's'
++                self.verbose_name_plural_set = True
++            else:
+ 
+     def get_extra(self, request, obj=None, **kwargs):
+         """Hook for customizing the number of extra inline forms."""

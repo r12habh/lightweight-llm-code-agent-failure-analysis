@@ -1,0 +1,12 @@
+diff --git a/sympy/functions/combinatorial/numbers.py b/sympy/functions/combinatorial/numbers.py
+index 896729ac87..a898e03ef6 100644
+--- a/sympy/functions/combinatorial/numbers.py
++++ b/sympy/functions/combinatorial/numbers.py
+@@ -99,6 +99,7 @@ def _fibpoly(n, prev):
+     def eval(cls, n, sym=None):
+         if n is S.Infinity:
+             return S.Infinity
++            return S.Infinity
+ 
+         if n.is_Integer:
+             n = int(n)

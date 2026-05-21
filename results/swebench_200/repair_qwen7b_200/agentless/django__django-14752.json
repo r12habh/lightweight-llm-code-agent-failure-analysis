@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14752",
+  "input_patch_chars": 2000,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 18\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 16:          qs, search_use_distinct = self.model_admin.get_search_results(self.request, qs, self.term)\n\n",
+          "stdout": "patching file django/contrib/admin/views/autocomplete.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

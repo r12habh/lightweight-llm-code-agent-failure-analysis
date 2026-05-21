@@ -1,0 +1,13 @@
+diff --git a/requests/packages/urllib3/exceptions.py b/requests/packages/urllib3/exceptions.py
+index 31bda1c0..d1c6db7a 100644
+--- a/requests/packages/urllib3/exceptions.py
++++ b/requests/packages/urllib3/exceptions.py
+@@ -10,6 +10,8 @@ class HTTPWarning(Warning):
+     pass
+ 
+ 
++DecodeError = requests.packages.urllib3.exceptions.DecodeError
++TimeoutError = requests.packages.urllib3.exceptions.TimeoutError
+ 
+ class PoolError(HTTPError):
+     "Base exception for errors caused within a pool."

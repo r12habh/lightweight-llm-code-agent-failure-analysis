@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-18698",
+  "input_patch_chars": 617,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpo6ilqiui.diff:12: trailing whitespace.\n    \nChecking patch sympy/ntheory/factor_.py...\nerror: while searching for:\n\ndef factorint(n, limit=None):\n    \"\"\"Return a dictionary mapping prime factors of n to their multiplicities.\n\n    Examples\n    >>> factorint(12)\n    {2: 2, 3: 1}\n\nerror: patch failed: sympy/ntheory/factor_.py:275\nerror: sympy/ntheory/factor_.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpo6ilqiui.diff:12: trailing whitespace.\n    \nChecking patch sympy/ntheory/factor_.py...\nerror: while searching for:\n\ndef factorint(n, limit=None):\n    \"\"\"Return a dictionary mapping prime factors of n to their multiplicities.\n\n    Examples\n    >>> factorint(12)\n    {2: 2, 3: 1}\n\nerror: patch failed: sympy/ntheory/factor_.py:275\nApplying patch sympy/ntheory/factor_.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 430
+}

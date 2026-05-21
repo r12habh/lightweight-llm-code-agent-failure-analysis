@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11797",
+  "input_patch_chars": 931,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n                if subquery.query.group_by is True:\n                    subquery.query.group_by = subquery.query.get_default_columns()\n                elif subquery.query.group_by is None:\n                    subquery.query.group_by = tuple(\n                        subquery.query.resolve_ref(col, subquery.query.get_meta(), can_fail=True).alias\n                        for col in subquery.query.group_by\n\nerror: patch failed: django/db/models/sql/query.py:1024\nerror: django/db/models/sql/query.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/models/sql/query.py...\nerror: while searching for:\n                if subquery.query.group_by is True:\n                    subquery.query.group_by = subquery.query.get_default_columns()\n                elif subquery.query.group_by is None:\n                    subquery.query.group_by = tuple(\n                        subquery.query.resolve_ref(col, subquery.query.get_meta(), can_fail=True).alias\n                        for col in subquery.query.group_by\n\nerror: patch failed: django/db/models/sql/query.py:1024\nApplying patch django/db/models/sql/query.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 879
+}

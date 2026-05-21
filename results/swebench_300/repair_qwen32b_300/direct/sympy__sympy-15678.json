@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-15678",
+  "input_patch_chars": 468,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/geometry/util.py...\nerror: while searching for:\n    if not eq.has(y):\n        raise ValueError(\"expecting x-dependent symbol(s) but got: %s\" % y)\n\n    dydx = Dummy('dydx')\n    derivs = {Derivative(y, x): dydx}\n    for i in range(n):\n\nerror: patch failed: sympy/geometry/util.py:569\nerror: sympy/geometry/util.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/geometry/util.py...\nerror: while searching for:\n    if not eq.has(y):\n        raise ValueError(\"expecting x-dependent symbol(s) but got: %s\" % y)\n\n    dydx = Dummy('dydx')\n    derivs = {Derivative(y, x): dydx}\n    for i in range(n):\n\nerror: patch failed: sympy/geometry/util.py:569\nApplying patch sympy/geometry/util.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 463
+}

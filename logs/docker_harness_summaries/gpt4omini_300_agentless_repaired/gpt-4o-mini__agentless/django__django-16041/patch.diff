@@ -1,0 +1,12 @@
+diff --git a/django/db/models/fields/files.py b/django/db/models/fields/files.py
+index 3d1291a221..348dd7407c 100644
+--- a/django/db/models/fields/files.py
++++ b/django/db/models/fields/files.py
+@@ -81,6 +81,7 @@ class FieldFile(File):
+         return self
+ 
+     # open() doesn't alter the file's contents, but it does reset the pointer
++        if self.field.empty_permitted is not True:
+     open.alters_data = True
+ 
+     # In addition to the standard File API, FieldFiles have extra methods

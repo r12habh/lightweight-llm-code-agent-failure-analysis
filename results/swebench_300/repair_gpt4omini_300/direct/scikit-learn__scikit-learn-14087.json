@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-14087",
+  "input_patch_chars": 615,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/linear_model/logistic.py...\nerror: while searching for:\n          super().fit(X, y, sample_weight=sample_weight)\n      else:\n          if not hasattr(self, \"Cs_\"):\n               self.Cs_ = np.logspace(0, 4, 10)  # Default to C values if not set\n\n          # Other logic for cross-validation and fitting\n          ...\n\nerror: patch failed: sklearn/linear_model/logistic.py:771\nApplying patch sklearn/linear_model/logistic.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/linear_model/logistic.py\nHunk #1 FAILED at 771.\n1 out of 1 hunk FAILED -- saving rejects to file sklearn/linear_model/logistic.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

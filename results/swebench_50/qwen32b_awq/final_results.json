@@ -1,0 +1,712 @@
+{
+  "experiment": {
+    "dataset_name": "princeton-nlp/SWE-bench_Lite",
+    "split": "test",
+    "model": "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ",
+    "result_prefix": "hf_qwen25_coder32b_awq_50_20260508_l40s",
+    "generated_at": "2026-05-09 03:49:49 UTC",
+    "hf_generation_seconds_manifest": 1628.856,
+    "hf_job": {
+      "job_id": "69fea80faff1cd33e8f3193c",
+      "flavor": "l40sx1",
+      "running_seconds": 1671,
+      "total_seconds": 1745,
+      "rate_usd_per_hour": 1.8,
+      "estimated_cost_usd_total_seconds": 0.873,
+      "estimated_cost_usd_running_seconds": 0.836
+    }
+  },
+  "repair_summary": {
+    "direct": {
+      "total": 50,
+      "valid": 22,
+      "invalid": 28,
+      "repaired": 22,
+      "unchanged": 28,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 20,
+        "NONE": 28,
+        "git apply --verbose": 2
+      },
+      "selected_candidate_distribution": {
+        "original": 22,
+        "NONE": 28
+      },
+      "invalid_instance_ids": [
+        "astropy__astropy-14995",
+        "django__django-11133",
+        "django__django-12113",
+        "django__django-12308",
+        "django__django-13158",
+        "django__django-13315",
+        "django__django-13658",
+        "django__django-16139",
+        "matplotlib__matplotlib-22835",
+        "matplotlib__matplotlib-25079",
+        "scikit-learn__scikit-learn-13496",
+        "scikit-learn__scikit-learn-14092",
+        "sphinx-doc__sphinx-10451",
+        "sphinx-doc__sphinx-7686",
+        "sphinx-doc__sphinx-7738",
+        "sphinx-doc__sphinx-7975",
+        "sphinx-doc__sphinx-8273",
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-13043",
+        "sympy__sympy-13437",
+        "sympy__sympy-13480",
+        "sympy__sympy-14317",
+        "sympy__sympy-14774",
+        "sympy__sympy-15308",
+        "sympy__sympy-16988",
+        "sympy__sympy-17139",
+        "sympy__sympy-19254",
+        "sympy__sympy-23262"
+      ]
+    },
+    "agentless": {
+      "total": 50,
+      "valid": 23,
+      "invalid": 27,
+      "repaired": 23,
+      "unchanged": 27,
+      "apply_command_distribution": {
+        "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i": 21,
+        "NONE": 27,
+        "git apply --verbose": 2
+      },
+      "selected_candidate_distribution": {
+        "original": 23,
+        "NONE": 27
+      },
+      "invalid_instance_ids": [
+        "django__django-11133",
+        "django__django-11905",
+        "django__django-12113",
+        "django__django-12308",
+        "django__django-13158",
+        "django__django-13933",
+        "django__django-14534",
+        "django__django-15252",
+        "matplotlib__matplotlib-22835",
+        "matplotlib__matplotlib-23314",
+        "matplotlib__matplotlib-25079",
+        "matplotlib__matplotlib-25433",
+        "pytest-dev__pytest-5495",
+        "scikit-learn__scikit-learn-13496",
+        "scikit-learn__scikit-learn-14092",
+        "sphinx-doc__sphinx-7975",
+        "sphinx-doc__sphinx-8273",
+        "sympy__sympy-13043",
+        "sympy__sympy-13437",
+        "sympy__sympy-13480",
+        "sympy__sympy-14774",
+        "sympy__sympy-16988",
+        "sympy__sympy-17139",
+        "sympy__sympy-18057",
+        "sympy__sympy-19254",
+        "sympy__sympy-22714",
+        "sympy__sympy-23262"
+      ]
+    }
+  },
+  "comparison": {
+    "n_paired": 50,
+    "direct_resolved": 1,
+    "agentless_resolved": 4,
+    "direct_rate": 0.02,
+    "agentless_rate": 0.08,
+    "paired_table": {
+      "both_fail": 46,
+      "direct_only": 0,
+      "agentless_only": 3,
+      "both_pass": 1
+    },
+    "mcnemar_exact_p": 0.25
+  },
+  "runs": {
+    "direct": {
+      "submitted": 50,
+      "completed": 22,
+      "resolved": 1,
+      "unresolved": 21,
+      "errors": 28,
+      "empty_patches": 0,
+      "resolved_ids": [
+        "scikit-learn__scikit-learn-13439"
+      ],
+      "unresolved_ids": [
+        "astropy__astropy-14365",
+        "django__django-11905",
+        "django__django-13768",
+        "django__django-13933",
+        "django__django-14534",
+        "django__django-14999",
+        "django__django-15202",
+        "django__django-15252",
+        "matplotlib__matplotlib-23299",
+        "matplotlib__matplotlib-23314",
+        "matplotlib__matplotlib-25433",
+        "mwaskom__seaborn-3407",
+        "psf__requests-2674",
+        "pytest-dev__pytest-11143",
+        "pytest-dev__pytest-5495",
+        "scikit-learn__scikit-learn-14894",
+        "scikit-learn__scikit-learn-15512",
+        "sympy__sympy-13177",
+        "sympy__sympy-18057",
+        "sympy__sympy-18199",
+        "sympy__sympy-22714"
+      ],
+      "error_ids": [
+        "astropy__astropy-14995",
+        "django__django-11133",
+        "django__django-12113",
+        "django__django-12308",
+        "django__django-13158",
+        "django__django-13315",
+        "django__django-13658",
+        "django__django-16139",
+        "matplotlib__matplotlib-22835",
+        "matplotlib__matplotlib-25079",
+        "scikit-learn__scikit-learn-13496",
+        "scikit-learn__scikit-learn-14092",
+        "sphinx-doc__sphinx-10451",
+        "sphinx-doc__sphinx-7686",
+        "sphinx-doc__sphinx-7738",
+        "sphinx-doc__sphinx-7975",
+        "sphinx-doc__sphinx-8273",
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-13043",
+        "sympy__sympy-13437",
+        "sympy__sympy-13480",
+        "sympy__sympy-14317",
+        "sympy__sympy-14774",
+        "sympy__sympy-15308",
+        "sympy__sympy-16988",
+        "sympy__sympy-17139",
+        "sympy__sympy-19254",
+        "sympy__sympy-23262"
+      ],
+      "empty_patch_ids": []
+    },
+    "agentless": {
+      "submitted": 50,
+      "completed": 23,
+      "resolved": 4,
+      "unresolved": 19,
+      "errors": 27,
+      "empty_patches": 0,
+      "resolved_ids": [
+        "django__django-13315",
+        "django__django-13658",
+        "pytest-dev__pytest-11143",
+        "scikit-learn__scikit-learn-13439"
+      ],
+      "unresolved_ids": [
+        "astropy__astropy-14365",
+        "astropy__astropy-14995",
+        "django__django-13768",
+        "django__django-14999",
+        "django__django-15202",
+        "django__django-16139",
+        "matplotlib__matplotlib-23299",
+        "mwaskom__seaborn-3407",
+        "psf__requests-2674",
+        "scikit-learn__scikit-learn-14894",
+        "scikit-learn__scikit-learn-15512",
+        "sphinx-doc__sphinx-10451",
+        "sphinx-doc__sphinx-7686",
+        "sphinx-doc__sphinx-7738",
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-13177",
+        "sympy__sympy-14317",
+        "sympy__sympy-15308",
+        "sympy__sympy-18199"
+      ],
+      "error_ids": [
+        "django__django-11133",
+        "django__django-11905",
+        "django__django-12113",
+        "django__django-12308",
+        "django__django-13158",
+        "django__django-13933",
+        "django__django-14534",
+        "django__django-15252",
+        "matplotlib__matplotlib-22835",
+        "matplotlib__matplotlib-23314",
+        "matplotlib__matplotlib-25079",
+        "matplotlib__matplotlib-25433",
+        "pytest-dev__pytest-5495",
+        "scikit-learn__scikit-learn-13496",
+        "scikit-learn__scikit-learn-14092",
+        "sphinx-doc__sphinx-7975",
+        "sphinx-doc__sphinx-8273",
+        "sympy__sympy-13043",
+        "sympy__sympy-13437",
+        "sympy__sympy-13480",
+        "sympy__sympy-14774",
+        "sympy__sympy-16988",
+        "sympy__sympy-17139",
+        "sympy__sympy-18057",
+        "sympy__sympy-19254",
+        "sympy__sympy-22714",
+        "sympy__sympy-23262"
+      ],
+      "empty_patch_ids": []
+    }
+  },
+  "failure_taxonomy": {
+    "direct": {
+      "high_level_counts": {
+        "invalid_patch_apply_error": 28,
+        "applies_but_fails_tests": 21,
+        "empty_patch": 0
+      },
+      "patch_apply_primary_error_counts": {
+        "malformed_patch": 6,
+        "hunk_failed_or_rejected": 16,
+        "reversed_or_previously_applied": 3,
+        "missing_target_file": 3
+      },
+      "patch_apply_pattern_counts": {
+        "malformed_patch": 6,
+        "hunk_failed_or_rejected": 19,
+        "reversed_or_previously_applied": 3,
+        "missing_target_file": 3
+      },
+      "per_error_instance": {
+        "astropy__astropy-14995": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/astropy__astropy-14995/run_instance.log"
+        },
+        "django__django-11133": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-11133/run_instance.log"
+        },
+        "django__django-12113": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-12113/run_instance.log"
+        },
+        "django__django-12308": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-12308/run_instance.log"
+        },
+        "django__django-13158": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-13158/run_instance.log"
+        },
+        "django__django-13315": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-13315/run_instance.log"
+        },
+        "django__django-13658": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-13658/run_instance.log"
+        },
+        "django__django-16139": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/django__django-16139/run_instance.log"
+        },
+        "matplotlib__matplotlib-22835": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/matplotlib__matplotlib-22835/run_instance.log"
+        },
+        "matplotlib__matplotlib-25079": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/matplotlib__matplotlib-25079/run_instance.log"
+        },
+        "scikit-learn__scikit-learn-13496": {
+          "primary": "reversed_or_previously_applied",
+          "patterns": [
+            "reversed_or_previously_applied",
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/scikit-learn__scikit-learn-13496/run_instance.log"
+        },
+        "scikit-learn__scikit-learn-14092": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/scikit-learn__scikit-learn-14092/run_instance.log"
+        },
+        "sphinx-doc__sphinx-10451": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sphinx-doc__sphinx-10451/run_instance.log"
+        },
+        "sphinx-doc__sphinx-7686": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sphinx-doc__sphinx-7686/run_instance.log"
+        },
+        "sphinx-doc__sphinx-7738": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sphinx-doc__sphinx-7738/run_instance.log"
+        },
+        "sphinx-doc__sphinx-7975": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sphinx-doc__sphinx-7975/run_instance.log"
+        },
+        "sphinx-doc__sphinx-8273": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sphinx-doc__sphinx-8273/run_instance.log"
+        },
+        "sphinx-doc__sphinx-8595": {
+          "primary": "missing_target_file",
+          "patterns": [
+            "missing_target_file"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sphinx-doc__sphinx-8595/run_instance.log"
+        },
+        "sympy__sympy-13043": {
+          "primary": "missing_target_file",
+          "patterns": [
+            "missing_target_file"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-13043/run_instance.log"
+        },
+        "sympy__sympy-13437": {
+          "primary": "reversed_or_previously_applied",
+          "patterns": [
+            "reversed_or_previously_applied",
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-13437/run_instance.log"
+        },
+        "sympy__sympy-13480": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-13480/run_instance.log"
+        },
+        "sympy__sympy-14317": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-14317/run_instance.log"
+        },
+        "sympy__sympy-14774": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-14774/run_instance.log"
+        },
+        "sympy__sympy-15308": {
+          "primary": "reversed_or_previously_applied",
+          "patterns": [
+            "reversed_or_previously_applied",
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-15308/run_instance.log"
+        },
+        "sympy__sympy-16988": {
+          "primary": "missing_target_file",
+          "patterns": [
+            "missing_target_file"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-16988/run_instance.log"
+        },
+        "sympy__sympy-17139": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-17139/run_instance.log"
+        },
+        "sympy__sympy-19254": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-19254/run_instance.log"
+        },
+        "sympy__sympy-23262": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_direct_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-direct/sympy__sympy-23262/run_instance.log"
+        }
+      }
+    },
+    "agentless": {
+      "high_level_counts": {
+        "invalid_patch_apply_error": 27,
+        "applies_but_fails_tests": 19,
+        "empty_patch": 0
+      },
+      "patch_apply_primary_error_counts": {
+        "malformed_patch": 9,
+        "hunk_failed_or_rejected": 12,
+        "reversed_or_previously_applied": 3,
+        "truncated_patch": 1,
+        "missing_target_file": 2
+      },
+      "patch_apply_pattern_counts": {
+        "malformed_patch": 9,
+        "hunk_failed_or_rejected": 15,
+        "reversed_or_previously_applied": 3,
+        "missing_target_file": 3,
+        "truncated_patch": 1
+      },
+      "per_error_instance": {
+        "django__django-11133": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-11133/run_instance.log"
+        },
+        "django__django-11905": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-11905/run_instance.log"
+        },
+        "django__django-12113": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-12113/run_instance.log"
+        },
+        "django__django-12308": {
+          "primary": "reversed_or_previously_applied",
+          "patterns": [
+            "reversed_or_previously_applied",
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-12308/run_instance.log"
+        },
+        "django__django-13158": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-13158/run_instance.log"
+        },
+        "django__django-13933": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-13933/run_instance.log"
+        },
+        "django__django-14534": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-14534/run_instance.log"
+        },
+        "django__django-15252": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/django__django-15252/run_instance.log"
+        },
+        "matplotlib__matplotlib-22835": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/matplotlib__matplotlib-22835/run_instance.log"
+        },
+        "matplotlib__matplotlib-23314": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch",
+            "missing_target_file"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/matplotlib__matplotlib-23314/run_instance.log"
+        },
+        "matplotlib__matplotlib-25079": {
+          "primary": "truncated_patch",
+          "patterns": [
+            "truncated_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/matplotlib__matplotlib-25079/run_instance.log"
+        },
+        "matplotlib__matplotlib-25433": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/matplotlib__matplotlib-25433/run_instance.log"
+        },
+        "pytest-dev__pytest-5495": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/pytest-dev__pytest-5495/run_instance.log"
+        },
+        "scikit-learn__scikit-learn-13496": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/scikit-learn__scikit-learn-13496/run_instance.log"
+        },
+        "scikit-learn__scikit-learn-14092": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/scikit-learn__scikit-learn-14092/run_instance.log"
+        },
+        "sphinx-doc__sphinx-7975": {
+          "primary": "reversed_or_previously_applied",
+          "patterns": [
+            "reversed_or_previously_applied",
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sphinx-doc__sphinx-7975/run_instance.log"
+        },
+        "sphinx-doc__sphinx-8273": {
+          "primary": "reversed_or_previously_applied",
+          "patterns": [
+            "reversed_or_previously_applied",
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sphinx-doc__sphinx-8273/run_instance.log"
+        },
+        "sympy__sympy-13043": {
+          "primary": "missing_target_file",
+          "patterns": [
+            "missing_target_file"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-13043/run_instance.log"
+        },
+        "sympy__sympy-13437": {
+          "primary": "malformed_patch",
+          "patterns": [
+            "malformed_patch"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-13437/run_instance.log"
+        },
+        "sympy__sympy-13480": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-13480/run_instance.log"
+        },
+        "sympy__sympy-14774": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-14774/run_instance.log"
+        },
+        "sympy__sympy-16988": {
+          "primary": "missing_target_file",
+          "patterns": [
+            "missing_target_file"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-16988/run_instance.log"
+        },
+        "sympy__sympy-17139": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-17139/run_instance.log"
+        },
+        "sympy__sympy-18057": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-18057/run_instance.log"
+        },
+        "sympy__sympy-19254": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-19254/run_instance.log"
+        },
+        "sympy__sympy-22714": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-22714/run_instance.log"
+        },
+        "sympy__sympy-23262": {
+          "primary": "hunk_failed_or_rejected",
+          "patterns": [
+            "hunk_failed_or_rejected"
+          ],
+          "log": "logs/run_evaluation/hf_qwen25_coder32b_awq_50_agentless_repaired/Qwen__Qwen2.5-Coder-32B-Instruct-AWQ-agentless/sympy__sympy-23262/run_instance.log"
+        }
+      }
+    }
+  },
+  "gpt_4_1_status": {
+    "status": "blocked",
+    "reason": "OpenAI API project lacks access to gpt-4.1; live call returned 403 and model list only exposed gpt-4o-mini.",
+    "do_not_substitute_without_approval": "gpt-4o-mini"
+  },
+  "paired_resolution_ids": {
+    "both_pass": [
+      "scikit-learn__scikit-learn-13439"
+    ],
+    "direct_only": [],
+    "agentless_only": [
+      "django__django-13315",
+      "django__django-13658",
+      "pytest-dev__pytest-11143"
+    ]
+  }
+}

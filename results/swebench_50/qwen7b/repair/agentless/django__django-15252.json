@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15252",
+  "input_patch_chars": 473,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/migrations/recorder.py...\nerror: while searching for:\n        \"\"\"\n        Ensure the table exists and has the correct schema.\n        \"\"\"\n        if self.has_table():\n            return\n        # Make the table\n        try:\n\nerror: patch failed: django/db/migrations/recorder.py:66\nerror: django/db/migrations/recorder.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/recorder.py...\nerror: while searching for:\n        \"\"\"\n        Ensure the table exists and has the correct schema.\n        \"\"\"\n        if self.has_table():\n            return\n        # Make the table\n        try:\n\nerror: patch failed: django/db/migrations/recorder.py:66\nApplying patch django/db/migrations/recorder.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 595
+}

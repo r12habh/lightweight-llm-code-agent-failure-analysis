@@ -1,0 +1,14 @@
+diff --git a/lib/matplotlib/_pylab_helpers.py b/lib/matplotlib/_pylab_helpers.py
+index 24fcb81fc9..feb1361295 100644
+--- a/lib/matplotlib/_pylab_helpers.py
++++ b/lib/matplotlib/_pylab_helpers.py
+@@ -100,6 +100,9 @@ class Gcf:
+     def get_all_fig_managers(cls):
+         """Return a list of figure managers."""
+         return list(cls.figs.values())
++        
++        # Store the context state and restore it after backend switch
++        context_state = get_current_context_state()
+ 
+     @classmethod
+     def get_num_fig_managers(cls):

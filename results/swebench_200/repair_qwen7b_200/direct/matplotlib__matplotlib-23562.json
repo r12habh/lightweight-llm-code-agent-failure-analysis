@@ -1,0 +1,25 @@
+{
+  "instance_id": "matplotlib__matplotlib-23562",
+  "input_patch_chars": 6117,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 159\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** unexpected end of file in patch\n",
+          "stdout": "patching file lib/mpl_toolkits/mplot3d/axes3d.py\nHunk #1 succeeded at 218 (offset 95 lines).\nHunk #2 succeeded at 227 with fuzz 3 (offset 95 lines).\nHunk #3 succeeded at 236 with fuzz 3 (offset 95 lines).\nHunk #4 succeeded at 245 with fuzz 3 (offset 95 lines).\nHunk #5 succeeded at 254 with fuzz 3 (offset 95 lines).\nHunk #6 succeeded at 263 with fuzz 3 (offset 95 lines).\nHunk #7 succeeded at 272 with fuzz 3 (offset 95 lines).\nHunk #8 succeeded at 281 with fuzz 3 (offset 95 lines).\nHunk #9 succeeded at 290 with fuzz 3 (offset 95 lines).\nHunk #10 succeeded at 299 with fuzz 3 (offset 95 lines).\nHunk #11 succeeded at 308 with fuzz 3 (offset 95 lines).\nHunk #12 succeeded at 317 with fuzz 3 (offset 95 lines).\nHunk #13 succeeded at 326 with fuzz 3 (offset 95 lines).\nHunk #14 succeeded at 335 with fuzz 3 (offset 95 lines).\nHunk #15 succeeded at 344 with fuzz 3 (offset 95 lines).\nHunk #16 succeeded at 353 with fuzz 3 (offset 95 lines).\nHunk #17 succeeded at 362 with fuzz 3 (offset 95 lines).\nHunk #18 succeeded at 371 with fuzz 3 (offset 95 lines).\nHunk #19 succeeded at 380 with fuzz 3 (offset 95 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

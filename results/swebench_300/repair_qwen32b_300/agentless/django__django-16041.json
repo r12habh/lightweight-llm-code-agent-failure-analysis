@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16041",
+  "input_patch_chars": 1362,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/forms/formsets.py...\nerror: while searching for:\n        # We instantiate the formset with an empty list of forms, because the management form\n        # will tell us how many forms are needed when it is validated.\n        self._initial_form_count = 0\n        self.form = form\n        self.form_kwargs = form_kwargs\n        self.extra = extra\n        self.can_order = can_order\n\nerror: patch failed: django/forms/formsets.py:345\nerror: while searching for:\n        # Initialize the form data from default data or an empty dictionary.\n        if data or files:\n            data = data or []\n            # The management form is missing, or the formset is invalid.\n            if not self.is_valid():\n                return\n\nerror: patch failed: django/forms/formsets.py:401\nerror: while searching for:\n            # If we've been passed empty_permitted, set the forms appropriately.\n            if form_kwargs and 'empty_permitted' in form_kwargs:\n                empty_permitted = form_kwargs['empty_permitted']\n                for form in self.forms:\n                    form.empty_permitted = empty_permitted\n        else:\n\nerror: patch failed: django/forms/formsets.py:410\nApplying patch django/forms/formsets.py with 3 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/forms/formsets.py\nHunk #1 FAILED at 345.\nHunk #2 succeeded at 401 with fuzz 3.\nHunk #3 succeeded at 411 with fuzz 3.\n1 out of 3 hunks FAILED -- saving rejects to file django/forms/formsets.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

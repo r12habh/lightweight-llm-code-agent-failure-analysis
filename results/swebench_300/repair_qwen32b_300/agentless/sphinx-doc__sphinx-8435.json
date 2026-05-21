@@ -1,0 +1,28 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8435",
+  "input_patch_chars": 755,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sphinx/ext/autodoc/importer.py...\nerror: while searching for:\n                members[name] = Attribute(name, True, INSTANCEATTR)\n\n    if analyzer:\n        # append instance attributes (cf. self.attr1) if analyzer knows\n        namespace = '.'.join(objpath)\n        for (ns, name) in analyzer.find_attr_docs():\n\nerror: patch failed: sphinx/ext/autodoc/importer.py:163\nerror: sphinx/ext/autodoc/importer.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sphinx/ext/autodoc/importer.py...\nerror: while searching for:\n                members[name] = Attribute(name, True, INSTANCEATTR)\n\n    if analyzer:\n        # append instance attributes (cf. self.attr1) if analyzer knows\n        namespace = '.'.join(objpath)\n        for (ns, name) in analyzer.find_attr_docs():\n\nerror: patch failed: sphinx/ext/autodoc/importer.py:163\nApplying patch sphinx/ext/autodoc/importer.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 761
+}

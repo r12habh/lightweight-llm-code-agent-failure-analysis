@@ -1,0 +1,45 @@
+2026-05-20 12:22:04,396 - INFO - Creating container for matplotlib__matplotlib-23964...
+2026-05-20 12:22:04,427 - INFO - Container for matplotlib__matplotlib-23964 created: 89b2785bb27fe28046d4e13e97ed56baee21547dc322cc21cabffc62b691f23d
+2026-05-20 12:22:04,544 - INFO - Container for matplotlib__matplotlib-23964 started: 89b2785bb27fe28046d4e13e97ed56baee21547dc322cc21cabffc62b691f23d
+2026-05-20 12:22:04,545 - INFO - Intermediate patch for matplotlib__matplotlib-23964 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/matplotlib__matplotlib-23964/patch.diff, now applying to container...
+2026-05-20 12:22:04,700 - INFO - >>>>> Applied Patch:
+Checking patch lib/matplotlib/backends/backend_ps.py...
+Applied patch lib/matplotlib/backends/backend_ps.py cleanly.
+
+2026-05-20 12:22:06,116 - INFO - Git diff before:
+diff --git a/lib/matplotlib/backends/backend_ps.py b/lib/matplotlib/backends/backend_ps.py
+index f209e811f1..5f2e1afd0d 100644
+--- a/lib/matplotlib/backends/backend_ps.py
++++ b/lib/matplotlib/backends/backend_ps.py
+@@ -666,6 +666,7 @@ grestore
+                     (item.x, item.ft_object.get_glyph_name(item.glyph_idx))
+                 )
+             # append the last entry
++        if curr_stream:
+             stream.append(curr_stream)
+ 
+         self.set_color(*gc.get_rgb())
+2026-05-20 12:22:06,116 - INFO - Eval script for matplotlib__matplotlib-23964 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/matplotlib__matplotlib-23964/eval.sh; copying to container...
+2026-05-20 12:23:23,859 - INFO - Test runtime: 77.67 seconds
+2026-05-20 12:23:23,864 - INFO - Test output for matplotlib__matplotlib-23964 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/matplotlib__matplotlib-23964/test_output.txt
+2026-05-20 12:23:23,986 - INFO - Git diff after:
+diff --git a/lib/matplotlib/backends/backend_ps.py b/lib/matplotlib/backends/backend_ps.py
+index f209e811f1..5f2e1afd0d 100644
+--- a/lib/matplotlib/backends/backend_ps.py
++++ b/lib/matplotlib/backends/backend_ps.py
+@@ -666,6 +666,7 @@ grestore
+                     (item.x, item.ft_object.get_glyph_name(item.glyph_idx))
+                 )
+             # append the last entry
++        if curr_stream:
+             stream.append(curr_stream)
+ 
+         self.set_color(*gc.get_rgb())
+2026-05-20 12:23:23,987 - INFO - Grading answer for matplotlib__matplotlib-23964...
+2026-05-20 12:23:23,994 - INFO - report: {'matplotlib__matplotlib-23964': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['lib/matplotlib/tests/test_backend_ps.py::test_empty_line'], 'failure': []}, 'PASS_TO_PASS': {'success': ['lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[ps-portrait]', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[ps-landscape]', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[ps', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[eps-portrait]', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[eps-landscape]', 'lib/matplotlib/tests/test_backend_ps.py::test_patheffects', 'lib/matplotlib/tests/test_backend_ps.py::test_transparency[eps]', 'lib/matplotlib/tests/test_backend_ps.py::test_bbox', 'lib/matplotlib/tests/test_backend_ps.py::test_failing_latex', 'lib/matplotlib/tests/test_backend_ps.py::test_text_clip[eps]', 'lib/matplotlib/tests/test_backend_ps.py::test_d_glyph', 'lib/matplotlib/tests/test_backend_ps.py::test_fonttype[3]', 'lib/matplotlib/tests/test_backend_ps.py::test_fonttype[42]', 'lib/matplotlib/tests/test_backend_ps.py::test_linedash', 'lib/matplotlib/tests/test_backend_ps.py::test_no_duplicate_definition'], 'failure': ['lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[eps']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for matplotlib__matplotlib-23964: resolved: False
+2026-05-20 12:23:23,995 - INFO - Attempting to stop container sweb.eval.matplotlib__matplotlib-23964.qwen32b_300_direct_repaired...
+2026-05-20 12:23:39,265 - INFO - Attempting to remove container sweb.eval.matplotlib__matplotlib-23964.qwen32b_300_direct_repaired...
+2026-05-20 12:23:39,317 - INFO - Container sweb.eval.matplotlib__matplotlib-23964.qwen32b_300_direct_repaired removed.
+2026-05-20 12:23:39,317 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23964:latest...
+2026-05-20 12:23:39,328 - INFO - Image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23964:latest removed.

@@ -1,0 +1,13 @@
+diff --git a/lib/matplotlib/layout_engine.py b/lib/matplotlib/layout_engine.py
+index 56e82b5699..dc215a2019 100644
+--- a/lib/matplotlib/layout_engine.py
++++ b/lib/matplotlib/layout_engine.py
+@@ -61,7 +61,7 @@ class LayoutEngine:
+ 
+     def __init__(self, **kwargs):
+         super().__init__(**kwargs)
+-        self._params = {}
++        self._params = {'adjust_compatible': False, 'colorbar_gridspec': False}
+ 
+     def set(self, **kwargs):
+         raise NotImplementedError

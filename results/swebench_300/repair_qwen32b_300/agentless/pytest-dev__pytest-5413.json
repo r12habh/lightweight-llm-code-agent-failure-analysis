@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-5413",
+  "input_patch_chars": 679,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch src/_pytest/python_api.py...\nHunk #1 succeeded at 18 (offset 8 lines).\nerror: while searching for:\n        self.excinfo = None\n        self.match = match\n\n\n    def __enter__(self):\n        return self\n\nerror: patch failed: src/_pytest/python_api.py:110\nApplying patch src/_pytest/python_api.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file src/_pytest/python_api.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 18 (offset 8 lines).\nHunk #2 FAILED at 110.\n1 out of 2 hunks FAILED -- saving rejects to file src/_pytest/python_api.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

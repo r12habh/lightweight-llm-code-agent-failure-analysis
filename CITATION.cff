@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite it using the metadata below."
+title: "Replication Package for Failure Analysis of Lightweight LLM Code Agents for Software Repair"
+authors:
+  - family-names: Singh
+    given-names: Rishabh
+    orcid: "https://orcid.org/0009-0006-2644-6184"
+date-released: 2026-05-20
+version: "1.0.0"
+license: MIT
+keywords:
+  - language models
+  - software engineering
+  - code agents
+  - SWE-bench
+  - empirical evaluation

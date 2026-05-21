@@ -1,0 +1,28 @@
+{
+  "instance_id": "pydata__xarray-4493",
+  "input_patch_chars": 710,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch xarray/core/dataset.py...\nerror: while searching for:\n        if inplace:\n            self.update(other)\n            return self\n        return Dataset(new_vars, self.coords, self.attrs, self._indexes)\n\n    def merge(self, other, compat=None, join=\"outer\", combine_attrs=\"override\"):\n\nerror: patch failed: xarray/core/dataset.py:102\nerror: xarray/core/dataset.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch xarray/core/dataset.py...\nerror: while searching for:\n        if inplace:\n            self.update(other)\n            return self\n        return Dataset(new_vars, self.coords, self.attrs, self._indexes)\n\n    def merge(self, other, compat=None, join=\"outer\", combine_attrs=\"override\"):\n\nerror: patch failed: xarray/core/dataset.py:102\nApplying patch xarray/core/dataset.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 556
+}

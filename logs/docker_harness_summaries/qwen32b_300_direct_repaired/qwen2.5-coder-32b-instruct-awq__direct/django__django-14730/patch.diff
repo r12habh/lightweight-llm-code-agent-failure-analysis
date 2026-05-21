@@ -1,0 +1,17 @@
+diff --git a/django/db/models/fields/related.py b/django/db/models/fields/related.py
+index febaadbb5b..6ab1696b6d 100644
+--- a/django/db/models/fields/related.py
++++ b/django/db/models/fields/related.py
+@@ -101,6 +101,12 @@ class RelatedField(FieldCacheMixin, Field):
+         self._limit_choices_to = limit_choices_to
+         super().__init__(**kwargs)
+ 
++    def __init__(self, *args, **kwargs):
++        related_name = kwargs.get('related_name')
++        if kwargs.get('symmetrical', False) and related_name:
++            raise ValueError("Cannot specify related_name on a symmetrical ManyToManyField.")
++        super().__init__(*args, **kwargs)
++
+     @cached_property
+     def related_model(self):
+         # Can't cache this property until all the models are loaded.

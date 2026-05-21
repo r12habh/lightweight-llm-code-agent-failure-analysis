@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23563",
+  "input_patch_chars": 778,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/axes/_base.py...\nerror: while searching for:\n        self._shared_axes[\"y\"] = cbook.Grouper()\n        self._shared_axes[\"z\"] = cbook.Grouper()\n\n        self._axis_method_wrapper = _axis_method_wrapper\n        self._process_plot_format = _process_plot_format\n        self._get_lines = _get_lines\n\nerror: patch failed: lib/matplotlib/axes/_base.py:123\nerror: lib/matplotlib/axes/_base.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/axes/_base.py...\nerror: while searching for:\n        self._shared_axes[\"y\"] = cbook.Grouper()\n        self._shared_axes[\"z\"] = cbook.Grouper()\n\n        self._axis_method_wrapper = _axis_method_wrapper\n        self._process_plot_format = _process_plot_format\n        self._get_lines = _get_lines\n\nerror: patch failed: lib/matplotlib/axes/_base.py:123\nerror: while searching for:\n        \"\"\"\n        Draw the figure.\n\n        self.figure.canvas.draw_idle()\n\n    def _draw_artist(self, artist, renderer):\n\nerror: patch failed: lib/matplotlib/axes/_base.py:1320\nApplying patch lib/matplotlib/axes/_base.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 774
+}

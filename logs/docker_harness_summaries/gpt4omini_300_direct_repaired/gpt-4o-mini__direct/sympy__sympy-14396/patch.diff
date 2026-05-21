@@ -1,0 +1,13 @@
+diff --git a/sympy/polys/polyoptions.py b/sympy/polys/polyoptions.py
+index 6e504a3057..cd901f0696 100644
+--- a/sympy/polys/polyoptions.py
++++ b/sympy/polys/polyoptions.py
+@@ -410,7 +410,7 @@ class Domain(with_metaclass(OptionType, Option)):
+     _re_algebraic = re.compile(r"^(Q|QQ)\<(.+)\>$")
+ 
+     @classmethod
+-    def preprocess(cls, domain):
++    def preprocess(cls, domain_str):
+         if isinstance(domain, sympy.polys.domains.Domain):
+             return domain
+         elif hasattr(domain, 'to_domain'):

@@ -1,0 +1,17 @@
+diff --git a/sympy/sets/handlers/intersection.py b/sympy/sets/handlers/intersection.py
+index ea4108fae3..91e2db1c8b 100644
+--- a/sympy/sets/handlers/intersection.py
++++ b/sympy/sets/handlers/intersection.py
+@@ -135,6 +135,12 @@ def intersection_sets(a, b):
+     if r2.start.is_infinite:
+         r2 = r2.reversed
+ 
++    if other == S.EmptySet:
++        return S.EmptySet
++
++    for e in self.base_set.args:
++        if e in other.args:
++            return Intersection(*self.base_set.args)
+     # this equation represents the values of the Range;
+     # it's a linear equation
+     eq = lambda r, i: r.start + i*r.step

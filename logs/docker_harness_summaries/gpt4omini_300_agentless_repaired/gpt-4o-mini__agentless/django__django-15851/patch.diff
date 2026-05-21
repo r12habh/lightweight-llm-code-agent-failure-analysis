@@ -1,0 +1,13 @@
+diff --git a/docs/ref/django-admin.txt b/docs/ref/django-admin.txt
+index 5016b25ea2..5bd8efa473 100644
+--- a/docs/ref/django-admin.txt
++++ b/docs/ref/django-admin.txt
+@@ -206,7 +206,7 @@ customize it or use the migrations framework.
+ 
+ Runs the command-line client for the database engine specified in your
+ :setting:`ENGINE <DATABASE-ENGINE>` setting, with the connection parameters
+-specified in your :setting:`USER`, :setting:`PASSWORD`, etc., settings.
++specified in your :setting:`USER`, :setting:`PASSWORD`, etc., settings, and any additional parameters must be placed before the database name.
+ 
+ * For PostgreSQL, this runs the ``psql`` command-line client.
+ * For MySQL, this runs the ``mysql`` command-line client.

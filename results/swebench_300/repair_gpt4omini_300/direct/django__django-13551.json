@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-13551",
+  "input_patch_chars": 434,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/auth/tokens.py...\nerror: while searching for:\nfrom django.utils.translation import gettext as _\n\nclass PasswordResetTokenGenerator(PasswordResetTokenGenerator):\n        return f\"{user.pk}{timestamp}{user.password}{user.email}\"\n\ndef default_token_generator():\n\nerror: patch failed: django/contrib/auth/tokens.py:19\nerror: django/contrib/auth/tokens.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/auth/tokens.py...\nerror: while searching for:\nfrom django.utils.translation import gettext as _\n\nclass PasswordResetTokenGenerator(PasswordResetTokenGenerator):\n        return f\"{user.pk}{timestamp}{user.password}{user.email}\"\n\ndef default_token_generator():\n\nerror: patch failed: django/contrib/auth/tokens.py:19\nApplying patch django/contrib/auth/tokens.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 546
+}

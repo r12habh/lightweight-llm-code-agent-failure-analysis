@@ -1,0 +1,115 @@
+2026-05-08 11:58:41,054 - INFO - Creating container for django__django-11905...
+2026-05-08 11:58:41,392 - INFO - Container for django__django-11905 created: b833b9ca110e49325a13a600932c511a752bb081d92cb47be0b048382bc2fba6
+2026-05-08 11:58:41,501 - INFO - Container for django__django-11905 started: b833b9ca110e49325a13a600932c511a752bb081d92cb47be0b048382bc2fba6
+2026-05-08 11:58:41,501 - INFO - Intermediate patch for django__django-11905 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/django__django-11905/patch.diff, now applying to container...
+2026-05-08 11:58:41,681 - INFO - >>>>> Applied Patch:
+Checking patch django/db/backends/base/operations.py...
+Checking patch django/db/models/lookups.py...
+Checking patch django/db/models/query.py...
+Applied patch django/db/backends/base/operations.py cleanly.
+Applied patch django/db/models/lookups.py cleanly.
+Applied patch django/db/models/query.py cleanly.
+
+2026-05-08 11:58:42,341 - INFO - Git diff before:
+diff --git a/django/db/backends/base/operations.py b/django/db/backends/base/operations.py
+index a6abe3769b..3ea566260c 100644
+--- a/django/db/backends/base/operations.py
++++ b/django/db/backends/base/operations.py
+@@ -100,6 +100,10 @@ class BaseDatabaseOperations:
+ 
+     def date_interval_sql(self, timedelta):
+         """
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         Implement the date interval functionality for expressions.
+         """
+         raise NotImplementedError('subclasses of BaseDatabaseOperations may require a date_interval_sql() method')
+diff --git a/django/db/models/lookups.py b/django/db/models/lookups.py
+index 9344979c56..622f7e58f6 100644
+--- a/django/db/models/lookups.py
++++ b/django/db/models/lookups.py
+@@ -100,6 +100,10 @@ class Lookup:
+ 
+     def relabeled_clone(self, relabels):
+         new = copy(self)
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         new.lhs = new.lhs.relabeled_clone(relabels)
+         if hasattr(new.rhs, 'relabeled_clone'):
+             new.rhs = new.rhs.relabeled_clone(relabels)
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index 794e0faae7..c89df30208 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -100,6 +100,10 @@ class ValuesIterable(BaseIterable):
+     def __iter__(self):
+         queryset = self.queryset
+         query = queryset.query
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         compiler = query.get_compiler(queryset.db)
+ 
+         # extra(select=...) cols are always at the start of the row.
+2026-05-08 11:58:42,342 - INFO - Eval script for django__django-11905 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/django__django-11905/eval.sh; copying to container...
+2026-05-08 11:59:00,326 - INFO - Test runtime: 17.92 seconds
+2026-05-08 11:59:00,326 - INFO - Test output for django__django-11905 written to logs/run_evaluation/hf_qwen25_coder7b_50_agentless_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-agentless/django__django-11905/test_output.txt
+2026-05-08 11:59:00,456 - INFO - Git diff after:
+diff --git a/django/db/backends/base/operations.py b/django/db/backends/base/operations.py
+index a6abe3769b..3ea566260c 100644
+--- a/django/db/backends/base/operations.py
++++ b/django/db/backends/base/operations.py
+@@ -100,6 +100,10 @@ class BaseDatabaseOperations:
+ 
+     def date_interval_sql(self, timedelta):
+         """
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         Implement the date interval functionality for expressions.
+         """
+         raise NotImplementedError('subclasses of BaseDatabaseOperations may require a date_interval_sql() method')
+diff --git a/django/db/models/lookups.py b/django/db/models/lookups.py
+index 9344979c56..622f7e58f6 100644
+--- a/django/db/models/lookups.py
++++ b/django/db/models/lookups.py
+@@ -100,6 +100,10 @@ class Lookup:
+ 
+     def relabeled_clone(self, relabels):
+         new = copy(self)
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         new.lhs = new.lhs.relabeled_clone(relabels)
+         if hasattr(new.rhs, 'relabeled_clone'):
+             new.rhs = new.rhs.relabeled_clone(relabels)
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index 794e0faae7..c89df30208 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -100,6 +100,10 @@ class ValuesIterable(BaseIterable):
+     def __iter__(self):
+         queryset = self.queryset
+         query = queryset.query
++
++    def get_prep_lookup(self):
++        if not isinstance(self.rhs, bool):
++            raise ValueError("__isnull lookup requires a boolean value")
+         compiler = query.get_compiler(queryset.db)
+ 
+         # extra(select=...) cols are always at the start of the row.
+2026-05-08 11:59:00,456 - INFO - Grading answer for django__django-11905...
+2026-05-08 11:59:00,459 - INFO - report: {'django__django-11905': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_isnull_non_boolean_value (lookup.tests.LookupTests)', 'test_iterator (lookup.tests.LookupTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_chain_date_time_lookups (lookup.tests.LookupTests)', 'test_count (lookup.tests.LookupTests)', 'test_custom_field_none_rhs (lookup.tests.LookupTests)', 'Lookup.can_use_none_as_rhs=True allows None as a lookup value.', 'test_error_messages (lookup.tests.LookupTests)', 'test_escaping (lookup.tests.LookupTests)', 'test_exact_exists (lookup.tests.LookupTests)', 'Transforms are used for __exact=None.', 'test_exact_query_rhs_with_selected_columns (lookup.tests.LookupTests)', 'test_exact_sliced_queryset_limit_one (lookup.tests.LookupTests)', 'test_exact_sliced_queryset_limit_one_offset (lookup.tests.LookupTests)', 'test_exact_sliced_queryset_not_limited_to_one (lookup.tests.LookupTests)', 'test_exclude (lookup.tests.LookupTests)', 'test_exists (lookup.tests.LookupTests)', 'test_get_next_previous_by (lookup.tests.LookupTests)', 'test_in (lookup.tests.LookupTests)', 'test_in_bulk (lookup.tests.LookupTests)', 'test_in_bulk_lots_of_ids (lookup.tests.LookupTests)', 'test_in_bulk_non_unique_field (lookup.tests.LookupTests)', 'test_in_bulk_with_field (lookup.tests.LookupTests)', 'test_in_different_database (lookup.tests.LookupTests)', 'test_in_keeps_value_ordering (lookup.tests.LookupTests)', 'test_lookup_collision (lookup.tests.LookupTests)', 'test_lookup_date_as_str (lookup.tests.LookupTests)', 'test_lookup_int_as_str (lookup.tests.LookupTests)', 'test_nested_outerref_lhs (lookup.tests.LookupTests)', 'test_none (lookup.tests.LookupTests)', 'test_nonfield_lookups (lookup.tests.LookupTests)', 'test_pattern_lookups_with_substr (lookup.tests.LookupTests)', 'test_regex (lookup.tests.LookupTests)', 'test_regex_backreferencing (lookup.tests.LookupTests)', 'test_regex_non_ascii (lookup.tests.LookupTests)', 'test_regex_non_string (lookup.tests.LookupTests)', 'test_regex_null (lookup.tests.LookupTests)', 'test_relation_nested_lookup_error (lookup.tests.LookupTests)', 'test_unsupported_lookups (lookup.tests.LookupTests)', 'test_values (lookup.tests.LookupTests)', 'test_values_list (lookup.tests.LookupTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11905: resolved: False
+2026-05-08 11:59:00,459 - INFO - Attempting to stop container sweb.eval.django__django-11905.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 11:59:15,615 - INFO - Attempting to remove container sweb.eval.django__django-11905.hf_qwen25_coder7b_50_agentless_repaired...
+2026-05-08 11:59:15,635 - INFO - Container sweb.eval.django__django-11905.hf_qwen25_coder7b_50_agentless_repaired removed.
+2026-05-08 11:59:15,635 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11905:latest...
+2026-05-08 11:59:16,336 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11905:latest removed.

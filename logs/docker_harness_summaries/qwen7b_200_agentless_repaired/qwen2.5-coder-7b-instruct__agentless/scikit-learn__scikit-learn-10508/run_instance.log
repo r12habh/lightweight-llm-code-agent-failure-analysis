@@ -1,0 +1,44 @@
+2026-05-20 21:02:39,093 - INFO - Creating container for scikit-learn__scikit-learn-10508...
+2026-05-20 21:02:39,541 - INFO - Container for scikit-learn__scikit-learn-10508 created: 6c62a132358288f5f35d2bb7e1d3bd65cad6e027df5ae02bdd5735b9f79925db
+2026-05-20 21:02:39,689 - INFO - Container for scikit-learn__scikit-learn-10508 started: 6c62a132358288f5f35d2bb7e1d3bd65cad6e027df5ae02bdd5735b9f79925db
+2026-05-20 21:02:39,690 - INFO - Intermediate patch for scikit-learn__scikit-learn-10508 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/scikit-learn__scikit-learn-10508/patch.diff, now applying to container...
+2026-05-20 21:02:39,864 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-20 21:02:39,935 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-20 21:02:40,009 - INFO - >>>>> Applied Patch:
+patching file sklearn/preprocessing/label.py
+
+2026-05-20 21:02:40,310 - INFO - Git diff before:
+diff --git a/sklearn/preprocessing/label.py b/sklearn/preprocessing/label.py
+index 61b8d4a21..75941c34e 100644
+--- a/sklearn/preprocessing/label.py
++++ b/sklearn/preprocessing/label.py
+@@ -131,6 +131,7 @@ class LabelEncoder(BaseEstimator, TransformerMixin):
+         if len(np.intersect1d(classes, self.classes_)) < len(classes):
+             diff = np.setdiff1d(classes, self.classes_)
+             raise ValueError(
++        if not y.size: return np.array([])
+                     "y contains previously unseen labels: %s" % str(diff))
+         return np.searchsorted(self.classes_, y)
+2026-05-20 21:02:40,311 - INFO - Eval script for scikit-learn__scikit-learn-10508 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/scikit-learn__scikit-learn-10508/eval.sh; copying to container...
+2026-05-20 21:02:45,707 - INFO - Test runtime: 5.33 seconds
+2026-05-20 21:02:45,708 - INFO - Test output for scikit-learn__scikit-learn-10508 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/scikit-learn__scikit-learn-10508/test_output.txt
+2026-05-20 21:02:45,808 - INFO - Git diff after:
+diff --git a/sklearn/preprocessing/label.py b/sklearn/preprocessing/label.py
+index 61b8d4a21..75941c34e 100644
+--- a/sklearn/preprocessing/label.py
++++ b/sklearn/preprocessing/label.py
+@@ -131,6 +131,7 @@ class LabelEncoder(BaseEstimator, TransformerMixin):
+         if len(np.intersect1d(classes, self.classes_)) < len(classes):
+             diff = np.setdiff1d(classes, self.classes_)
+             raise ValueError(
++        if not y.size: return np.array([])
+                     "y contains previously unseen labels: %s" % str(diff))
+         return np.searchsorted(self.classes_, y)
+2026-05-20 21:02:45,808 - INFO - Grading answer for scikit-learn__scikit-learn-10508...
+2026-05-20 21:02:45,813 - INFO - report: {'scikit-learn__scikit-learn-10508': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/preprocessing/tests/test_label.py::test_label_encoder_errors', 'sklearn/preprocessing/tests/test_label.py::test_label_encoder_empty_array']}, 'PASS_TO_PASS': {'success': [], 'failure': ['sklearn/preprocessing/tests/test_label.py::test_label_binarizer', 'sklearn/preprocessing/tests/test_label.py::test_label_binarizer_unseen_labels', 'sklearn/preprocessing/tests/test_label.py::test_label_binarizer_set_label_encoding', 'sklearn/preprocessing/tests/test_label.py::test_label_binarizer_errors', 'sklearn/preprocessing/tests/test_label.py::test_label_encoder', 'sklearn/preprocessing/tests/test_label.py::test_label_encoder_fit_transform', 'sklearn/preprocessing/tests/test_label.py::test_sparse_output_multilabel_binarizer', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer_empty_sample', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer_unknown_class', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer_given_classes', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer_same_length_sequence', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer_non_integer_labels', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer_non_unique', 'sklearn/preprocessing/tests/test_label.py::test_multilabel_binarizer_inverse_validation', 'sklearn/preprocessing/tests/test_label.py::test_label_binarize_with_class_order', 'sklearn/preprocessing/tests/test_label.py::test_invalid_input_label_binarize', 'sklearn/preprocessing/tests/test_label.py::test_inverse_binarize_multiclass']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-10508: resolved: False
+2026-05-20 21:02:45,814 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-10508.qwen7b_200_agentless_repaired...
+2026-05-20 21:03:00,966 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-10508.qwen7b_200_agentless_repaired...
+2026-05-20 21:03:00,992 - INFO - Container sweb.eval.scikit-learn__scikit-learn-10508.qwen7b_200_agentless_repaired removed.
+2026-05-20 21:03:00,992 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10508:latest...
+2026-05-20 21:03:00,998 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10508:latest removed.

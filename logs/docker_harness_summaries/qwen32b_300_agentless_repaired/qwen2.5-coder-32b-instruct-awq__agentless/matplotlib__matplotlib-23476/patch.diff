@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/backends/backend_macosx.py b/lib/matplotlib/backends/backend_macosx.py
+index 700d1d4c58..762c918cc6 100644
+--- a/lib/matplotlib/backends/backend_macosx.py
++++ b/lib/matplotlib/backends/backend_macosx.py
+@@ -47,6 +47,8 @@ class FigureCanvasMac(FigureCanvasAgg, _macosx.FigureCanvas, FigureCanvasBase):
+         if self._is_drawing:
+             return
+         with cbook._setattr_cm(self, _is_drawing=True):
++            self.figure.dpi = self._dpi  # Reset dpi before drawing
++            self.figure.dpi = self._dpi  # Reset dpi before drawing
+             super().draw()
+         self.update()

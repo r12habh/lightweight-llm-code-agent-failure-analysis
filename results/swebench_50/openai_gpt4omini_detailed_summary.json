@@ -1,0 +1,685 @@
+{
+  "generated_at_local": "2026-05-07T19:38:00",
+  "dataset_name": "princeton-nlp/SWE-bench_Lite",
+  "split": "test",
+  "model": "gpt-4o-mini",
+  "n_instances": 50,
+  "run_dir": "outputs/openai_gpt4omini_50_20260507_0028",
+  "prediction_files": {
+    "direct": "outputs/openai_gpt4omini_50_20260507_0028/direct_predictions.jsonl",
+    "agentless": "outputs/openai_gpt4omini_50_20260507_0028/agentless_predictions.jsonl"
+  },
+  "comparison_file": "outputs/openai_gpt4omini_50_20260507_0028/comparison.json",
+  "summary": {
+    "direct": {
+      "official_report": "gpt-4o-mini-direct.openai_gpt4omini_direct_50_nocreds.json",
+      "logs_dir": "logs/run_evaluation/openai_gpt4omini_direct_50_nocreds/gpt-4o-mini-direct",
+      "harness_wall_clock_observed": "59:53 for 43 resumed instances after earlier disk-full interruption",
+      "submitted_instances": 50,
+      "completed_instances": 23,
+      "resolved_instances": 0,
+      "unresolved_instances": 23,
+      "error_instances": 27,
+      "empty_patch_instances": 0,
+      "resolve_rate": 0.0,
+      "failure_taxonomy": {
+        "unresolved_tests_failed": 23,
+        "patch_apply_truncated_patch": 1,
+        "patch_apply_malformed_patch": 18,
+        "patch_apply_context_mismatch": 7,
+        "patch_apply_wrong_file_path": 1
+      },
+      "resolved_ids": [],
+      "token_usage": {
+        "input_tokens": 1033803,
+        "output_tokens": 9311,
+        "total_tokens": 1043114,
+        "api_calls": 50,
+        "estimated_usd_gpt4o_mini_standard": 0.160657
+      }
+    },
+    "agentless": {
+      "official_report": "gpt-4o-mini-agentless.openai_gpt4omini_agentless_50_nocreds.json",
+      "logs_dir": "logs/run_evaluation/openai_gpt4omini_agentless_50_nocreds/gpt-4o-mini-agentless",
+      "harness_wall_clock_observed": "1:12:52 for 50 instances",
+      "submitted_instances": 50,
+      "completed_instances": 29,
+      "resolved_instances": 1,
+      "unresolved_instances": 28,
+      "error_instances": 21,
+      "empty_patch_instances": 0,
+      "resolve_rate": 0.02,
+      "failure_taxonomy": {
+        "unresolved_tests_failed": 28,
+        "patch_apply_context_mismatch": 7,
+        "patch_apply_malformed_patch": 10,
+        "patch_apply_truncated_patch": 3,
+        "resolved": 1,
+        "patch_apply_wrong_file_path": 1
+      },
+      "resolved_ids": [
+        "django__django-16139"
+      ],
+      "token_usage": {
+        "input_tokens": 2066916,
+        "output_tokens": 19149,
+        "total_tokens": 2086065,
+        "api_calls": 100,
+        "estimated_usd_gpt4o_mini_standard": 0.321527
+      }
+    }
+  },
+  "paired_table": {
+    "both_fail": 49,
+    "agentless_only": 1,
+    "direct_only": 0,
+    "both_pass": 0
+  },
+  "agentless_only_resolved_ids": [
+    "django__django-16139"
+  ],
+  "per_instance": {
+    "astropy__astropy-14365": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "astropy__astropy-14995": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "django__django-11133": {
+      "direct": {
+        "status": "patch_apply_truncated_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-11905": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-12113": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-12308": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-13158": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-13315": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "django__django-13658": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "django__django-13768": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_truncated_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "django__django-13933": {
+      "direct": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "django__django-14534": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-14999": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-15202": {
+      "direct": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "django__django-15252": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "django__django-16139": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "resolved",
+        "resolved": true,
+        "patch_successfully_applied": true
+      }
+    },
+    "matplotlib__matplotlib-22835": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "matplotlib__matplotlib-23299": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "matplotlib__matplotlib-23314": {
+      "direct": {
+        "status": "patch_apply_wrong_file_path",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "matplotlib__matplotlib-25079": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "matplotlib__matplotlib-25433": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "mwaskom__seaborn-3407": {
+      "direct": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "psf__requests-2674": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "pytest-dev__pytest-11143": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "pytest-dev__pytest-5495": {
+      "direct": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "scikit-learn__scikit-learn-13439": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_truncated_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "scikit-learn__scikit-learn-13496": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "scikit-learn__scikit-learn-14092": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "scikit-learn__scikit-learn-14894": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "scikit-learn__scikit-learn-15512": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sphinx-doc__sphinx-10451": {
+      "direct": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sphinx-doc__sphinx-7686": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sphinx-doc__sphinx-7738": {
+      "direct": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sphinx-doc__sphinx-7975": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sphinx-doc__sphinx-8273": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sphinx-doc__sphinx-8595": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-13043": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sympy__sympy-13177": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-13437": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-13480": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-14317": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sympy__sympy-14774": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_truncated_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-15308": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sympy__sympy-16988": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sympy__sympy-17139": {
+      "direct": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-18057": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sympy__sympy-18199": {
+      "direct": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      },
+      "agentless": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-19254": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_wrong_file_path",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    },
+    "sympy__sympy-22714": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "unresolved_tests_failed",
+        "resolved": false,
+        "patch_successfully_applied": true
+      }
+    },
+    "sympy__sympy-23262": {
+      "direct": {
+        "status": "patch_apply_malformed_patch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      },
+      "agentless": {
+        "status": "patch_apply_context_mismatch",
+        "resolved": false,
+        "patch_successfully_applied": false
+      }
+    }
+  },
+  "pricing_note": "Estimated cost uses official GPT-4o mini text token prices: $0.15/1M input and $0.60/1M output. Cached-token discount not applied because raw usage showed zero cached tokens.",
+  "total_estimated_usd_gpt4o_mini_standard": 0.482184
+}

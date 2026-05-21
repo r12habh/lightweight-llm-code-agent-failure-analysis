@@ -1,0 +1,36 @@
+diff --git a/docs/internals/deprecation.txt b/docs/internals/deprecation.txt
+index b27348adb0..2a8f76c556 100644
+--- a/docs/internals/deprecation.txt
++++ b/docs/internals/deprecation.txt
+@@ -10,6 +10,7 @@ about each item can often be found in the release notes of two versions prior.
+ .. _deprecation-removed-in-6.0:
+ 
+ 6.0
++-----
+ ---
+ 
+ See the :ref:`Django 5.0 release notes <deprecated-features-5.0>` for more
+@@ -20,6 +21,7 @@ details on these changes.
+ 
+ * Support for passing positional arguments to ``BaseConstraint`` will be
+   removed.
++* Squashing migrations with Meta.index_together -> Meta.indexes transition should remove deprecation warnings.
+ 
+ * ``request`` will be required in the signature of
+   ``ModelAdmin.lookup_allowed()`` subclasses.
+diff --git a/docs/releases/4.1.txt b/docs/releases/4.1.txt
+index d93833b7f7..26ccff2f42 100644
+--- a/docs/releases/4.1.txt
++++ b/docs/releases/4.1.txt
+@@ -100,6 +100,11 @@ See :ref:`the Forms section (below)<forms-4.1>` for full details.
+ ------------------------------
+ 
+ The new ``CSRF_COOKIE_MASKED`` transitional setting allows specifying whether
++* ``Meta.index_together`` in models:
++
++  * The ``Meta.index_together`` option in models is deprecated. Use the ``Meta.indexes`` option instead.
++  * Squashing migrations with the transition from ``Meta.index_together`` to ``Meta.indexes`` should remove deprecation warnings.
++
+ to mask the CSRF cookie.
+ 
+ :class:`~django.middleware.csrf.CsrfViewMiddleware` no longer masks the CSRF

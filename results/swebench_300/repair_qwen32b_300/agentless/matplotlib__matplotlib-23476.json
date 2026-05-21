@@ -1,0 +1,28 @@
+{
+  "instance_id": "matplotlib__matplotlib-23476",
+  "input_patch_chars": 1349,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_macosx.py...\nerror: while searching for:\n    def __init__(self, figure):\n        super().__init__(figure=figure)\n        self._draw_pending = False\n        self._is_drawing = False\n        self._dpi = figure.dpi  # Store the initial dpi\n\n    def draw(self):\n\nerror: patch failed: lib/matplotlib/backends/backend_macosx.py:30\nerror: lib/matplotlib/backends/backend_macosx.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch lib/matplotlib/backends/backend_macosx.py...\nerror: while searching for:\n    def __init__(self, figure):\n        super().__init__(figure=figure)\n        self._draw_pending = False\n        self._is_drawing = False\n        self._dpi = figure.dpi  # Store the initial dpi\n\n    def draw(self):\n\nerror: patch failed: lib/matplotlib/backends/backend_macosx.py:30\nHunk #2 succeeded at 47 (offset 7 lines).\nHunk #3 succeeded at 97 (offset -8 lines).\nApplying patch lib/matplotlib/backends/backend_macosx.py with 1 reject...\nRejected hunk #1.\nHunk #2 applied cleanly.\nHunk #3 applied cleanly.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 625
+}

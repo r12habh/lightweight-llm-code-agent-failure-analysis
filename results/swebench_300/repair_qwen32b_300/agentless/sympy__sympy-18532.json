@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18532",
+  "input_patch_chars": 882,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/basic.py...\nerror: while searching for:\n        \"\"\"\n        return self._args\n\n    def copy(self):\n        return self.func(*self.args)\n\n\nerror: patch failed: sympy/core/basic.py:100\nChecking patch sympy/core/expr.py...\nerror: while searching for:\n        \"\"\"\n        if args:\n            return set([a for a in self.args if isinstance(a, Atom)])\n        return set([a for a in self.args if isinstance(a, Atom)])\n\n    @cacheit\n    def sort_key(self, order=None):\n\nerror: patch failed: sympy/core/expr.py:100\nApplying patch sympy/core/basic.py with 1 reject...\nRejected hunk #1.\nApplying patch sympy/core/expr.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/core/basic.py\nHunk #1 succeeded at 100 with fuzz 2.\npatching file sympy/core/expr.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/core/expr.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

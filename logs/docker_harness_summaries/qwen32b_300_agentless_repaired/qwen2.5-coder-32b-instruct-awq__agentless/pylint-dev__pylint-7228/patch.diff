@@ -1,0 +1,12 @@
+diff --git a/pylint/config/arguments_manager.py b/pylint/config/arguments_manager.py
+index eda1a583d..1a32bb1f6 100644
+--- a/pylint/config/arguments_manager.py
++++ b/pylint/config/arguments_manager.py
+@@ -220,6 +220,7 @@ class _ArgumentsManager:
+         elif isinstance(argument, _StoreTrueArgument):
+             section_group.add_argument(
+                 *argument.flags,
++                "default": "{path}:{line}: {msg_id}: {msg}",
+                 action=argument.action,
+                 default=argument.default,
+                 help=argument.help,

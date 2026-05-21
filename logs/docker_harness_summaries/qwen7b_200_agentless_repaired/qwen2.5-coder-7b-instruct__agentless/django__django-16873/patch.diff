@@ -1,0 +1,21 @@
+diff --git a/tests/template_tests/filter_tests/test_join.py b/tests/template_tests/filter_tests/test_join.py
+index 08f68537ee..5e87d5afab 100644
+--- a/tests/template_tests/filter_tests/test_join.py
++++ b/tests/template_tests/filter_tests/test_join.py
+@@ -1,6 +1,7 @@
+ from django.template.defaultfilters import join
+ from django.test import SimpleTestCase
+ from django.utils.safestring import mark_safe
++from django.utils.html import escape
+ 
+ from ..utils import setup
+ 
+@@ -16,7 +17,7 @@ class JoinTests(SimpleTestCase):
+         output = self.engine.render_to_string("join02", {"a": ["alpha", "beta & me"]})
+         self.assertEqual(output, "alpha, beta & me")
+ 
+-    @setup({"join03": '{{ a|join:" &amp; " }}'})
++    @setup({"join03": '{{ a|join:" &amp; " }}|escape'})
+     def test_join03(self):
+         output = self.engine.render_to_string("join03", {"a": ["alpha", "beta & me"]})
+         self.assertEqual(output, "alpha &amp; beta &amp; me")

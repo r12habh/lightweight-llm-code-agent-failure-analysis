@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-16988",
+  "raw": "```diff\ndiff --git a/sympy/sets/handlers/intersection.py b/sympy/sets/handlers/intersection.py\n--- a/sympy/sets/handlers/intersection.py\n+++ b/sympy/sets/handlers/intersection.py\n@@ -135,6 +135,12 @@\n @dispatch(ImageSet, Set)\n def intersection_sets(self, other):\n     from sympy.solvers.diophantine import diophantine\n+    if other == S.EmptySet:\n+        return S.EmptySet\n+\n+    for e in self.base_set.args:\n+        if e in other.args:\n+            return Intersection(*self.base_set.args)\n\n     if self.base_set is S.Integers:\n         g = None\n```",
+  "usage": {
+    "input_tokens": 22193,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 159,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 22352
+  },
+  "localized_files": []
+}

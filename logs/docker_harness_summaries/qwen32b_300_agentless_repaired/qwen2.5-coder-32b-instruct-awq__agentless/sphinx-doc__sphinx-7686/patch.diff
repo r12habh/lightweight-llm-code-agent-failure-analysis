@@ -1,0 +1,25 @@
+diff --git a/sphinx/ext/autosummary/generate.py b/sphinx/ext/autosummary/generate.py
+index a57c73fb7..c8e0b0023 100644
+--- a/sphinx/ext/autosummary/generate.py
++++ b/sphinx/ext/autosummary/generate.py
+@@ -200,6 +200,10 @@ def generate_autosummary_content(name: str, obj: Any, parent: Any,
+             try:
+                 value = safe_getattr(obj, name)
+             except AttributeError:
++def filter_imported_members(members, module):
++    return [member for member in members if member[1].__module__ == module.__name__]
++
++
+                 continue
+             documenter = get_documenter(app, value, obj)
+             if documenter.objtype in types:
+@@ -250,6 +254,9 @@ def generate_autosummary_content(name: str, obj: Any, parent: Any,
+         ns['functions'], ns['all_functions'] = \
+             get_members(obj, {'function'}, imported=imported_members)
+         ns['classes'], ns['all_classes'] = \
++            if not app.config.autosummary_imported_members:
++                members = filter_imported_members(members, module)
++
+             get_members(obj, {'class'}, imported=imported_members)
+         ns['exceptions'], ns['all_exceptions'] = \
+             get_members(obj, {'exception'}, imported=imported_members)

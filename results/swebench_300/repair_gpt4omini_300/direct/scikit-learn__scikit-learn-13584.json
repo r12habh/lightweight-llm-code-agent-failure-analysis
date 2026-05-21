@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13584",
+  "input_patch_chars": 408,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/feature_extraction/dict_vectorizer.py...\nerror: while searching for:\n       self.feature_names_ = feature_names\n       self.vocabulary_ = vocab\n\n       return self\n\n    def _transform(self, X, fitting):\n\nerror: patch failed: sklearn/feature_extraction/dict_vectorizer.py:184\nerror: sklearn/feature_extraction/dict_vectorizer.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/feature_extraction/dict_vectorizer.py...\nerror: while searching for:\n       self.feature_names_ = feature_names\n       self.vocabulary_ = vocab\n\n       return self\n\n    def _transform(self, X, fitting):\n\nerror: patch failed: sklearn/feature_extraction/dict_vectorizer.py:184\nApplying patch sklearn/feature_extraction/dict_vectorizer.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 653
+}

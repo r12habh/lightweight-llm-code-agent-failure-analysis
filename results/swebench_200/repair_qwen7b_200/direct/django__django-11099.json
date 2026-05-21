@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-11099",
+  "input_patch_chars": 450,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/contrib/auth/validators.py...\nerror: while searching for:\nimport re\nfrom django.core.exceptions import ValidationError\nfrom django.utils.translation import gettext as _\n\n\nerror: patch failed: django/contrib/auth/validators.py:1\nerror: django/contrib/auth/validators.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/auth/validators.py...\nerror: while searching for:\nimport re\nfrom django.core.exceptions import ValidationError\nfrom django.utils.translation import gettext as _\n\n\nerror: patch failed: django/contrib/auth/validators.py:1\nApplying patch django/contrib/auth/validators.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 446
+}

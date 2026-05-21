@@ -1,0 +1,12 @@
+diff --git a/sympy/simplify/trigsimp.py b/sympy/simplify/trigsimp.py
+index 7ca05f0304..658d1904dd 100644
+--- a/sympy/simplify/trigsimp.py
++++ b/sympy/simplify/trigsimp.py
+@@ -152,6 +152,7 @@ def trigsimp_groebner(expr, hints=[], quick=False, order="grlex",
+     # like indeterminates. In particular if (say) "I" is one of them, then
+     # in fact I**2 + 1 = 0 and we may and will compute non-sensical
+     # expressions. However, we can work with a dummy and add the relation
++    expr = expr.rewrite(sqrt)
+     # I**2 + 1 = 0 to our ideal, then substitute back in the end.
+     #
+     # Now regarding trigonometric generators. We split them into groups,

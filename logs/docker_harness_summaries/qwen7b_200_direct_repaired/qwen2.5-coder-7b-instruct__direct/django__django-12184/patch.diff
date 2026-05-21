@@ -1,0 +1,13 @@
+diff --git a/django/core/handlers/base.py b/django/core/handlers/base.py
+index 2304e7761d..595a097075 100644
+--- a/django/core/handlers/base.py
++++ b/django/core/handlers/base.py
+@@ -90,7 +90,7 @@ class BaseHandler:
+         """
+         response = None
+ 
+-        if hasattr(request, 'urlconf'):
++        if hasattr(request, 'urlconf') and request.method != 'GET':
+             urlconf = request.urlconf
+             set_urlconf(urlconf)
+             resolver = get_resolver(urlconf)

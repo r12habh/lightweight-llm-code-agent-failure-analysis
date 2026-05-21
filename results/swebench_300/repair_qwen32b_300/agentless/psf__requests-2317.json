@@ -1,0 +1,28 @@
+{
+  "instance_id": "psf__requests-2317",
+  "input_patch_chars": 633,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch requests/sessions.py...\nerror: while searching for:\n        # Cache the url, unless it redirects to itself.\n        if resp.is_permanent_redirect and req.url != prepared_request.url:\n            self.redirect_cache[req.url] = prepared_request.url\n\n        method = builtin_str(method)\n\n        # http://tools.ietf.org/html/rfc7231#section-6.4.4\n\nerror: patch failed: requests/sessions.py:100\nerror: requests/sessions.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/sessions.py...\nerror: while searching for:\n        # Cache the url, unless it redirects to itself.\n        if resp.is_permanent_redirect and req.url != prepared_request.url:\n            self.redirect_cache[req.url] = prepared_request.url\n\n        method = builtin_str(method)\n\n        # http://tools.ietf.org/html/rfc7231#section-6.4.4\n\nerror: patch failed: requests/sessions.py:100\nApplying patch requests/sessions.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 437
+}

@@ -1,0 +1,16 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index d610dc86f0..934810d2ef 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -1234,6 +1234,11 @@ class DateTimeField(DateField):
+ 
+     # __init__ is inherited from DateField
+ 
++        if isinstance(value, Enum):
++            return value.value
++        elif isinstance(value, TextChoices) or isinstance(value, IntegerChoices):
++            return value.value
++
+     def _check_fix_default_value(self):
+         """
+         Warn that using an actual date or datetime value is probably wrong;

@@ -1,0 +1,15 @@
+diff --git a/src/_pytest/assertion/util.py b/src/_pytest/assertion/util.py
+index 762e5761d..624d47357 100644
+--- a/src/_pytest/assertion/util.py
++++ b/src/_pytest/assertion/util.py
+@@ -117,6 +117,10 @@ def assertrepr_compare(config, op, left, right):
+     """Return specialised explanations for some operators/operands"""
+     width = 80 - 15 - len(op) - 2  # 15 chars indentation, 1 space around op
+     left_repr = saferepr(left, maxsize=int(width // 2))
++    if isinstance(left, bytes) and isinstance(right, bytes):
++        left = repr(left)
++        right = repr(right)
++
+     right_repr = saferepr(right, maxsize=width - len(left_repr))
+ 
+     summary = "{} {} {}".format(left_repr, op, right_repr)

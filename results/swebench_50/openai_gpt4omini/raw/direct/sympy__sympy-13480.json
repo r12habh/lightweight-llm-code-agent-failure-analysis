@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-13480",
+  "raw": "```diff\ndiff --git a/sympy/functions/elementary/hyperbolic.py b/sympy/functions/elementary/hyperbolic.py\nindex df4a773..9d31a6c 100644\n--- a/sympy/functions/elementary/hyperbolic.py\n+++ b/sympy/functions/elementary/hyperbolic.py\n@@ -601,6 +601,8 @@ class coth(HyperbolicFunction):\n \n     @classmethod\n     def eval(cls, arg):\n+        from sympy import cot, oo\n+\n         arg = sympify(arg)\n\n         if arg.is_Number:\n             if arg is S.NaN:\n```",
+  "usage": {
+    "input_tokens": 24147,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 144,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 24291
+  },
+  "localized_files": []
+}

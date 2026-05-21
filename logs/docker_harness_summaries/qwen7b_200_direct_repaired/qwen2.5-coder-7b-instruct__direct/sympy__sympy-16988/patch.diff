@@ -1,0 +1,28 @@
+diff --git a/sympy/core/mul.py b/sympy/core/mul.py
+index 5e45075f76..03b8bc1cdc 100644
+--- a/sympy/core/mul.py
++++ b/sympy/core/mul.py
+@@ -10,6 +10,7 @@
+ from .operations import AssocOp
+ from .cache import cacheit
+ from .logic import fuzzy_not, _fuzzy_group
++from sympy.core.compatibility import ordered
+ from .compatibility import reduce, range
+ from .expr import Expr
+ from .evaluate import global_distribute
+@@ -69,6 +70,7 @@ def _unevaluated_Mul(*args):
+     newargs = []
+     ncargs = []
+     co = S.One
++    args = ordered(set(args))  # Remove duplicates and sort
+     while args:
+         a = args.pop()
+         if a.is_Mul:
+@@ -99,6 +101,7 @@ def flatten(cls, seq):
+         """Return commutative, noncommutative and order arguments by
+         combining related terms.
+ 
++    args = ordered(set(args))  # Remove duplicates and sort
+         Notes
+         =====
+             * In an expression like ``a*b*c``, python process this through sympy

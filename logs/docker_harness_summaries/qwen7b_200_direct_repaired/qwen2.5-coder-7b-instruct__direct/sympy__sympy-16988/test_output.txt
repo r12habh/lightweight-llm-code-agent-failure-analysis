@@ -1,0 +1,649 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   sympy/core/mul.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
++ git show
+commit e727339af6dc22321b00f52d971cda39e4ce89fb
+Merge: 6dd3966100 3c5b991bea
+Author: Francesco Bonazzi <franz.bonazzi@gmail.com>
+Date:   Fri Jun 7 09:45:12 2019 +0200
+
+    Merge pull request #16969 from kangzhiq/Added_functions_to_AC
+    
+    Added functions to ArrayComprehension
+
++ git -c core.fileMode=false diff e727339af6dc22321b00f52d971cda39e4ce89fb
+diff --git a/sympy/core/mul.py b/sympy/core/mul.py
+index 5e45075f76..03b8bc1cdc 100644
+--- a/sympy/core/mul.py
++++ b/sympy/core/mul.py
+@@ -10,6 +10,7 @@
+ from .operations import AssocOp
+ from .cache import cacheit
+ from .logic import fuzzy_not, _fuzzy_group
++from sympy.core.compatibility import ordered
+ from .compatibility import reduce, range
+ from .expr import Expr
+ from .evaluate import global_distribute
+@@ -69,6 +70,7 @@ def _unevaluated_Mul(*args):
+     newargs = []
+     ncargs = []
+     co = S.One
++    args = ordered(set(args))  # Remove duplicates and sort
+     while args:
+         a = args.pop()
+         if a.is_Mul:
+@@ -99,6 +101,7 @@ def flatten(cls, seq):
+         """Return commutative, noncommutative and order arguments by
+         combining related terms.
+ 
++    args = ordered(set(args))  # Remove duplicates and sort
+         Notes
+         =====
+             * In an expression like ``a*b*c``, python process this through sympy
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e .
+Obtaining file:///testbed
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: mpmath>=0.19 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from sympy==1.5.dev0) (1.3.0)
+Installing collected packages: sympy
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.5.dev0
+    Uninstalling sympy-1.5.dev0:
+      Successfully uninstalled sympy-1.5.dev0
+  DEPRECATION: Legacy editable install of sympy==1.5.dev0 from file:///testbed (setup.py develop) is deprecated. pip 25.0 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+  Running setup.py develop for sympy
+Successfully installed sympy
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git checkout e727339af6dc22321b00f52d971cda39e4ce89fb sympy/sets/tests/test_sets.py
+Updated 0 paths from 3be1a44635
++ git apply -v -
+Checking patch sympy/sets/tests/test_sets.py...
+Applied patch sympy/sets/tests/test_sets.py cleanly.
++ : '>>>>> Start Test Output'
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/sets/tests/test_sets.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.20-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        48045522
+hash randomization: on (PYTHONHASHSEED=1503139987)
+
+sympy/sets/tests/test_sets.py[78] 
+test_imageset F
+test_interval_arguments ok
+test_interval_symbolic_end_points ok
+test_union ok
+test_union_iter ok
+test_difference ok
+test_Complement ok
+test_complement ok
+test_intersect1 ok
+test_intersection F
+test_issue_9623 ok
+test_is_disjoint ok
+test_ProductSet_of_single_arg_is_arg ok
+test_interval_subs ok
+test_interval_to_mpi ok
+test_measure ok
+test_is_subset ok
+test_is_proper_subset ok
+test_is_superset ok
+test_is_proper_superset ok
+test_contains E
+test_interval_symbolic ok
+test_union_contains ok
+test_is_number ok
+test_Interval_is_left_unbounded ok
+test_Interval_is_right_unbounded ok
+test_Interval_as_relational ok
+test_Finite_as_relational ok
+test_Union_as_relational ok
+test_Intersection_as_relational ok
+test_EmptySet ok
+test_finite_basic ok
+test_powerset ok
+test_product_basic ok
+test_real ok
+test_supinf ok
+test_universalset ok
+test_Union_of_ProductSets_shares ok
+test_Interval_free_symbols ok
+test_image_interval E
+test_image_piecewise E
+test_image_Intersection f
+test_image_FiniteSet ok
+test_image_Union E
+test_image_EmptySet ok
+test_issue_5724_7680 ok
+test_boundary ok
+test_boundary_Union ok
+test_union_boundary_of_joining_sets f
+test_boundary_ProductSet ok
+test_boundary_ProductSet_line ok
+test_is_open ok
+test_is_closed ok
+test_closure ok
+test_interior ok
+test_issue_7841 ok
+test_Eq ok
+test_SymmetricDifference ok
+test_issue_9536 ok
+test_issue_9637 ok
+test_issue_9808 f
+test_issue_9956 ok
+test_issue_Symbol_inter ok
+test_issue_11827 ok
+test_issue_10113 E
+test_issue_10248 ok
+test_issue_9447 ok
+test_issue_10337 ok
+test_issue_10326 ok
+test_issue_2799 ok
+test_issue_9706 ok
+test_issue_8257 ok
+test_issue_10931 ok
+test_issue_11174 ok
+test_finite_set_intersection ok
+test_union_intersection_constructor ok
+test_Union_contains ok
+test_issue_16878b f                                                       [FAIL]
+
+
+________________________________________________________________________________
+_________________ sympy/sets/tests/test_sets.py:test_contains __________________
+Traceback (most recent call last):
+  File "/testbed/sympy/core/assumptions.py", line 262, in getit
+    return self._assumptions[fact]
+KeyError: 'zero'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/testbed/sympy/core/assumptions.py", line 262, in getit
+    return self._assumptions[fact]
+KeyError: 'extended_positive'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_sets.py", line 509, in test_contains
+    assert s1 - s2 == S.EmptySet
+  File "/testbed/sympy/sets/sets.py", line 595, in __sub__
+    return Complement(self, other)
+  File "/testbed/sympy/sets/sets.py", line 1416, in __new__
+    return Complement.reduce(a, b)
+  File "/testbed/sympy/sets/sets.py", line 1426, in reduce
+    if B == S.UniversalSet or A.is_subset(B):
+  File "/testbed/sympy/sets/sets.py", line 348, in is_subset
+    s_o = self.intersect(other)
+  File "/testbed/sympy/sets/sets.py", line 119, in intersect
+    return Intersection(self, other)
+  File "/testbed/sympy/sets/sets.py", line 1268, in __new__
+    return simplify_intersection(args)
+  File "/testbed/sympy/sets/sets.py", line 1995, in simplify_intersection
+    rv = Intersection._handle_finite_sets(args)
+  File "/testbed/sympy/sets/sets.py", line 1331, in _handle_finite_sets
+    c = fuzzy_and(fuzzy_bool(o.contains(x))
+  File "/testbed/sympy/core/logic.py", line 139, in fuzzy_and
+    for ai in args:
+  File "/testbed/sympy/sets/sets.py", line 1331, in <genexpr>
+    c = fuzzy_and(fuzzy_bool(o.contains(x))
+  File "/testbed/sympy/sets/sets.py", line 315, in contains
+    c = self._contains(other)
+  File "/testbed/sympy/sets/sets.py", line 1669, in _contains
+    return fuzzy_or([tfn[Eq(e, other, evaluate=True)] for e in self.args])
+  File "/testbed/sympy/sets/sets.py", line 1669, in <listcomp>
+    return fuzzy_or([tfn[Eq(e, other, evaluate=True)] for e in self.args])
+  File "/testbed/sympy/core/relational.py", line 445, in __new__
+    z = dif.is_zero
+  File "/testbed/sympy/core/assumptions.py", line 266, in getit
+    return _ask(fact, self)
+  File "/testbed/sympy/core/assumptions.py", line 321, in _ask
+    _ask(pk, obj)
+  File "/testbed/sympy/core/assumptions.py", line 309, in _ask
+    a = evaluate(obj)
+  File "/testbed/sympy/core/expr.py", line 844, in _eval_is_positive
+    extended_positive = self.is_extended_positive
+  File "/testbed/sympy/core/assumptions.py", line 266, in getit
+    return _ask(fact, self)
+  File "/testbed/sympy/core/assumptions.py", line 309, in _ask
+    a = evaluate(obj)
+  File "/testbed/sympy/core/add.py", line 597, in _eval_is_extended_positive
+    return super(Add, self)._eval_is_extended_positive()
+  File "/testbed/sympy/core/expr.py", line 869, in _eval_is_extended_positive
+    n2 = self._eval_evalf(2)
+  File "/testbed/sympy/core/operations.py", line 340, in _eval_evalf
+    newa = a._eval_evalf(prec)
+  File "/testbed/sympy/core/mul.py", line 670, in _eval_evalf
+    rv = AssocOp._eval_evalf(self, prec)
+  File "/testbed/sympy/core/operations.py", line 312, in _eval_evalf
+    x, tail = self.as_independent(Symbol, AppliedUndef)
+  File "/testbed/sympy/core/expr.py", line 1883, in as_independent
+    _unevaluated_Mul(*depend))
+  File "/testbed/sympy/core/mul.py", line 75, in _unevaluated_Mul
+    a = args.pop()
+AttributeError: 'generator' object has no attribute 'pop'
+________________________________________________________________________________
+______________ sympy/sets/tests/test_sets.py:test_image_interval _______________
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_sets.py", line 792, in test_image_interval
+    assert imageset(x, 2*x, Interval(-2, 1)) == Interval(-4, 2)
+  File "/testbed/sympy/sets/sets.py", line 1872, in imageset
+    r = set_function(f, set)
+  File "/testbed/sympy/sets/sets.py", line 2101, in set_function
+    return _set_function(f, x)
+  File "/testbed/sympy/multipledispatch/dispatcher.py", line 198, in __call__
+    return func(*args, **kwargs)
+  File "/testbed/sympy/sets/handlers/functions.py", line 70, in _set_function
+    sing = [i for i in singularities(expr, var)
+  File "/testbed/sympy/calculus/singularities.py", line 90, in singularities
+    return solveset(simplify(1 / expression), symbol, domain)
+  File "/testbed/sympy/solvers/solveset.py", line 1718, in solveset
+    return _solveset(f, symbol, domain, _check=True)
+  File "/testbed/sympy/solvers/solveset.py", line 876, in _solveset
+    coeff, f = f.as_independent(symbol, as_Add=False)
+  File "/testbed/sympy/core/expr.py", line 1883, in as_independent
+    _unevaluated_Mul(*depend))
+  File "/testbed/sympy/core/mul.py", line 75, in _unevaluated_Mul
+    a = args.pop()
+AttributeError: 'generator' object has no attribute 'pop'
+________________________________________________________________________________
+______________ sympy/sets/tests/test_sets.py:test_image_piecewise ______________
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_sets.py", line 823, in test_image_piecewise
+    assert imageset(x, f, Interval(-5, 5)) == Union(Interval(-5, -1), Interval(S(1)/25, oo))
+  File "/testbed/sympy/sets/sets.py", line 1872, in imageset
+    r = set_function(f, set)
+  File "/testbed/sympy/sets/sets.py", line 2101, in set_function
+    return _set_function(f, x)
+  File "/testbed/sympy/multipledispatch/dispatcher.py", line 198, in __call__
+    return func(*args, **kwargs)
+  File "/testbed/sympy/sets/handlers/functions.py", line 57, in _set_function
+    image = imageset(Lambda(var, p_expr), intrvl)
+  File "/testbed/sympy/sets/sets.py", line 1872, in imageset
+    r = set_function(f, set)
+  File "/testbed/sympy/sets/sets.py", line 2101, in set_function
+    return _set_function(f, x)
+  File "/testbed/sympy/multipledispatch/dispatcher.py", line 198, in __call__
+    return func(*args, **kwargs)
+  File "/testbed/sympy/sets/handlers/functions.py", line 76, in _set_function
+    _start = limit(expr, var, x.start, dir="+")
+  File "/testbed/sympy/series/limits.py", line 82, in limit
+    return Limit(e, z, z0, dir).doit(deep=False)
+  File "/testbed/sympy/series/limits.py", line 263, in doit
+    r = gruntz(e, z, z0, dir)
+  File "/testbed/sympy/series/gruntz.py", line 656, in gruntz
+    r = limitinf(e0, z)
+  File "/testbed/sympy/series/gruntz.py", line 426, in limitinf
+    c0, e0 = mrv_leadterm(e, x)
+  File "/testbed/sympy/series/gruntz.py", line 511, in mrv_leadterm
+    series = calculate_series(f, w, logx=logw)
+  File "/testbed/sympy/series/gruntz.py", line 464, in calculate_series
+    for t in e.lseries(x, logx=logx):
+  File "/testbed/sympy/core/expr.py", line 2925, in yield_lseries
+    for si in s:
+  File "/testbed/sympy/core/expr.py", line 2990, in _eval_lseries
+    series = self._eval_nseries(x, n=n, logx=logx)
+  File "/testbed/sympy/core/power.py", line 1442, in _eval_nseries
+    return (1/denominator)._eval_nseries(x, n=n, logx=logx)
+  File "/testbed/sympy/core/power.py", line 1370, in _eval_nseries
+    ord = b.as_leading_term(x)
+  File "/testbed/sympy/core/expr.py", line 3152, in as_leading_term
+    obj = self._eval_as_leading_term(x)
+  File "/testbed/sympy/core/add.py", line 860, in _eval_as_leading_term
+    plain = expr.func(*[s for s, _ in expr.extract_leading_order(x)])
+  File "/testbed/sympy/core/add.py", line 800, in extract_leading_order
+    seq = [(f, Order(f, *zip(symbols, point))) for f in self.args]
+  File "/testbed/sympy/core/add.py", line 800, in <listcomp>
+    seq = [(f, Order(f, *zip(symbols, point))) for f in self.args]
+  File "/testbed/sympy/series/order.py", line 222, in __new__
+    expr = expr.as_independent(*args, as_Add=False)[1]
+  File "/testbed/sympy/core/expr.py", line 1883, in as_independent
+    _unevaluated_Mul(*depend))
+  File "/testbed/sympy/core/mul.py", line 75, in _unevaluated_Mul
+    a = args.pop()
+AttributeError: 'generator' object has no attribute 'pop'
+________________________________________________________________________________
+________________ sympy/sets/tests/test_sets.py:test_image_Union ________________
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_sets.py", line 842, in test_image_Union
+    assert imageset(x, x**2, Interval(-2, 0) + FiniteSet(1, 2, 3)) == \
+  File "/testbed/sympy/sets/sets.py", line 1872, in imageset
+    r = set_function(f, set)
+  File "/testbed/sympy/sets/sets.py", line 2101, in set_function
+    return _set_function(f, x)
+  File "/testbed/sympy/multipledispatch/dispatcher.py", line 198, in __call__
+    return func(*args, **kwargs)
+  File "/testbed/sympy/sets/handlers/functions.py", line 124, in _set_function
+    return Union(*(imageset(f, arg) for arg in x.args))
+  File "/testbed/sympy/sets/handlers/functions.py", line 124, in <genexpr>
+    return Union(*(imageset(f, arg) for arg in x.args))
+  File "/testbed/sympy/sets/sets.py", line 1872, in imageset
+    r = set_function(f, set)
+  File "/testbed/sympy/sets/sets.py", line 2101, in set_function
+    return _set_function(f, x)
+  File "/testbed/sympy/multipledispatch/dispatcher.py", line 198, in __call__
+    return func(*args, **kwargs)
+  File "/testbed/sympy/sets/handlers/functions.py", line 85, in _set_function
+    solns = list(solveset(diff(expr, var), var))
+  File "/testbed/sympy/solvers/solveset.py", line 1718, in solveset
+    return _solveset(f, symbol, domain, _check=True)
+  File "/testbed/sympy/solvers/solveset.py", line 876, in _solveset
+    coeff, f = f.as_independent(symbol, as_Add=False)
+  File "/testbed/sympy/core/expr.py", line 1883, in as_independent
+    _unevaluated_Mul(*depend))
+  File "/testbed/sympy/core/mul.py", line 75, in _unevaluated_Mul
+    a = args.pop()
+AttributeError: 'generator' object has no attribute 'pop'
+________________________________________________________________________________
+________________ sympy/sets/tests/test_sets.py:test_issue_10113 ________________
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_sets.py", line 1014, in test_issue_10113
+    assert imageset(x, f, S.Reals) == Union(Interval(-oo, 0), Interval(1, oo, True, True))
+  File "/testbed/sympy/sets/sets.py", line 1872, in imageset
+    r = set_function(f, set)
+  File "/testbed/sympy/sets/sets.py", line 2101, in set_function
+    return _set_function(f, x)
+  File "/testbed/sympy/multipledispatch/dispatcher.py", line 198, in __call__
+    return func(*args, **kwargs)
+  File "/testbed/sympy/sets/handlers/functions.py", line 244, in _set_function
+    return _set_function(f, Interval(-oo, oo))
+  File "/testbed/sympy/multipledispatch/dispatcher.py", line 198, in __call__
+    return func(*args, **kwargs)
+  File "/testbed/sympy/sets/handlers/functions.py", line 70, in _set_function
+    sing = [i for i in singularities(expr, var)
+  File "/testbed/sympy/calculus/singularities.py", line 90, in singularities
+    return solveset(simplify(1 / expression), symbol, domain)
+  File "/testbed/sympy/solvers/solveset.py", line 1718, in solveset
+    return _solveset(f, symbol, domain, _check=True)
+  File "/testbed/sympy/solvers/solveset.py", line 881, in _solveset
+    m, h = h.as_independent(symbol, as_Add=False)
+  File "/testbed/sympy/core/expr.py", line 1883, in as_independent
+    _unevaluated_Mul(*depend))
+  File "/testbed/sympy/core/mul.py", line 75, in _unevaluated_Mul
+    a = args.pop()
+AttributeError: 'generator' object has no attribute 'pop'
+
+________________________________________________________________________________
+_________________ sympy/sets/tests/test_sets.py:test_imageset __________________
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_sets.py", line 24, in test_imageset
+    assert (1, r) in imageset(x, (x, x), S.Reals) != False
+AssertionError
+________________________________________________________________________________
+_______________ sympy/sets/tests/test_sets.py:test_intersection ________________
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_sets.py", line 346, in test_intersection
+    assert Intersection({1}, {1}, {x}) == Intersection({1}, {x})
+AssertionError
+
+ tests finished: 67 passed, 2 failed, 4 expected to fail, 5 exceptions, 
+in 6.86 seconds 
+DO *NOT* COMMIT!
++ : '>>>>> End Test Output'
++ git checkout e727339af6dc22321b00f52d971cda39e4ce89fb sympy/sets/tests/test_sets.py
+Updated 1 path from 3be1a44635

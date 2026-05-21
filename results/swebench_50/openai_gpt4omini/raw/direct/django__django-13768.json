@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-13768",
+  "raw": "```diff\ndiff --git a/django/template/base.py b/django/template/base.py\n--- a/django/template/base.py\n+++ b/django/template/base.py\n@@ -66,6 +66,7 @@\n from .exceptions import TemplateSyntaxError\n \n logger = logging.getLogger('django.template')\n+logger.setLevel(logging.ERROR)  # Ensure we capture error logs\n \n \n class TokenType(Enum):\n@@ -704,6 +705,7 @@\n                 try:\n                     result = receiver(self, *args, **kwargs)\n                 except Exception as e:\n+                    logger.exception(\"Exception in signal receiver:\")\n                     if failure:\n                         failure = e\n                     if not ignore_failure:\n```",
+  "usage": {
+    "input_tokens": 18843,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 143,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18986
+  },
+  "localized_files": []
+}

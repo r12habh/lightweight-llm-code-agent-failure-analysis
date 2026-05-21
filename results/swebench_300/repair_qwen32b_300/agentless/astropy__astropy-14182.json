@@ -1,0 +1,28 @@
+{
+  "instance_id": "astropy__astropy-14182",
+  "input_patch_chars": 615,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch astropy/io/ascii/core.py...\nerror: while searching for:\n    def __init__(self, delimiter=' ', comment='\\\\', quotechar='\"', fast_writer=False,\n                 fast_reader=False, **kwargs):\n        super().__init__(delimiter=delimiter, comment=comment, quotechar=quotechar,\n                         fast_writer=fast_writer, fast_reader=fast_reader, **kwargs)\n\n    def write(self, table, output):\n\nerror: patch failed: astropy/io/ascii/core.py:1234\nerror: astropy/io/ascii/core.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch astropy/io/ascii/core.py...\nerror: while searching for:\n    def __init__(self, delimiter=' ', comment='\\\\', quotechar='\"', fast_writer=False,\n                 fast_reader=False, **kwargs):\n        super().__init__(delimiter=delimiter, comment=comment, quotechar=quotechar,\n                         fast_writer=fast_writer, fast_reader=fast_reader, **kwargs)\n\n    def write(self, table, output):\n\nerror: patch failed: astropy/io/ascii/core.py:1234\nApplying patch astropy/io/ascii/core.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 618
+}

@@ -1,0 +1,45 @@
+2026-05-20 13:40:18,204 - INFO - Creating container for sympy__sympy-17022...
+2026-05-20 13:40:19,134 - INFO - Container for sympy__sympy-17022 created: 74c90c45656f48dbf1f3cc2199969d51952ef3d5631bff4865d7a9c9befa86dc
+2026-05-20 13:40:19,283 - INFO - Container for sympy__sympy-17022 started: 74c90c45656f48dbf1f3cc2199969d51952ef3d5631bff4865d7a9c9befa86dc
+2026-05-20 13:40:19,284 - INFO - Intermediate patch for sympy__sympy-17022 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17022/patch.diff, now applying to container...
+2026-05-20 13:40:19,470 - INFO - >>>>> Applied Patch:
+Checking patch sympy/utilities/lambdify.py...
+Applied patch sympy/utilities/lambdify.py cleanly.
+
+2026-05-20 13:40:19,898 - INFO - Git diff before:
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index a940509b47..cbf6b835cb 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -83,6 +83,7 @@
+ SCIPY_TRANSLATIONS = {}
+ 
+ TENSORFLOW_TRANSLATIONS = {
++    "Identity": "lambda n: numpy.eye(n)",
+     "Abs": "abs",
+     "ceiling": "ceil",
+     "im": "imag",
+2026-05-20 13:40:19,899 - INFO - Eval script for sympy__sympy-17022 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17022/eval.sh; copying to container...
+2026-05-20 13:40:24,801 - INFO - Test runtime: 4.84 seconds
+2026-05-20 13:40:24,804 - INFO - Test output for sympy__sympy-17022 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/sympy__sympy-17022/test_output.txt
+2026-05-20 13:40:24,922 - INFO - Git diff after:
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index a940509b47..cbf6b835cb 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -83,6 +83,7 @@
+ SCIPY_TRANSLATIONS = {}
+ 
+ TENSORFLOW_TRANSLATIONS = {
++    "Identity": "lambda n: numpy.eye(n)",
+     "Abs": "abs",
+     "ceiling": "ceil",
+     "im": "imag",
+2026-05-20 13:40:24,922 - INFO - Grading answer for sympy__sympy-17022...
+2026-05-20 13:40:24,922 - INFO - report: {'sympy__sympy-17022': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_NumPyPrinter']}, 'PASS_TO_PASS': {'success': ['test_numpy_piecewise_regression', 'test_PythonCodePrinter', 'test_MpmathPrinter', 'test_SciPyPrinter', 'test_pycode_reserved_words', 'test_printmethod', 'test_codegen_ast_nodes', 'test_issue_14283'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-17022: resolved: False
+2026-05-20 13:40:24,923 - INFO - Attempting to stop container sweb.eval.sympy__sympy-17022.qwen32b_300_direct_repaired...
+2026-05-20 13:40:40,108 - INFO - Attempting to remove container sweb.eval.sympy__sympy-17022.qwen32b_300_direct_repaired...
+2026-05-20 13:40:40,141 - INFO - Container sweb.eval.sympy__sympy-17022.qwen32b_300_direct_repaired removed.
+2026-05-20 13:40:40,142 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.sympy_1776_sympy-17022:latest...
+2026-05-20 13:40:40,150 - INFO - Image swebench/sweb.eval.x86_64.sympy_1776_sympy-17022:latest removed.

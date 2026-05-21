@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-12481",
+  "input_patch_chars": 1134,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/combinatorics/permutations.py...\nerror: while searching for:\n            raise ValueError(\"Invalid arguments\")\n        if not rem_dups:\n            if not _is_valid(array_form, size):\n                raise ValueError(\"Invalid permutation\")\n        else:\n            array_form = _remove_dups(array_form)\n        self._array_form = _canonicalize(array_form, size)\n\nerror: patch failed: sympy/combinatorics/permutations.py:123\nerror: while searching for:\n    return True\n\n\ndef _remove_dups(cycles):\n    \"\"\"Remove duplicate cycles.\"\"\"\n    seen = set()\n\nerror: patch failed: sympy/combinatorics/permutations.py:234\nApplying patch sympy/combinatorics/permutations.py with 2 rejects...\nRejected hunk #1.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/combinatorics/permutations.py\nHunk #1 FAILED at 123.\nHunk #2 succeeded at 234 with fuzz 3.\n1 out of 2 hunks FAILED -- saving rejects to file sympy/combinatorics/permutations.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

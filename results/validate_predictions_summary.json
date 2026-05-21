@@ -1,0 +1,68 @@
+[
+  {
+    "file": "outputs/final_predictions_gpt4omini_direct.jsonl",
+    "expected": 300,
+    "total": 300,
+    "nonempty_patch": 300,
+    "valid_diff_git_header": 300,
+    "empty_or_malformed_patch": 0,
+    "duplicate_instance_ids": [],
+    "field_shape_errors": [],
+    "ok": true
+  },
+  {
+    "file": "outputs/final_predictions_gpt4omini_agentless.jsonl",
+    "expected": 300,
+    "total": 300,
+    "nonempty_patch": 300,
+    "valid_diff_git_header": 300,
+    "empty_or_malformed_patch": 0,
+    "duplicate_instance_ids": [],
+    "field_shape_errors": [],
+    "ok": true
+  },
+  {
+    "file": "outputs/final_predictions_qwen7b_direct.jsonl",
+    "expected": 200,
+    "total": 200,
+    "nonempty_patch": 200,
+    "valid_diff_git_header": 200,
+    "empty_or_malformed_patch": 0,
+    "duplicate_instance_ids": [],
+    "field_shape_errors": [],
+    "ok": true
+  },
+  {
+    "file": "outputs/final_predictions_qwen7b_agentless.jsonl",
+    "expected": 200,
+    "total": 200,
+    "nonempty_patch": 200,
+    "valid_diff_git_header": 200,
+    "empty_or_malformed_patch": 0,
+    "duplicate_instance_ids": [],
+    "field_shape_errors": [],
+    "ok": true
+  },
+  {
+    "file": "outputs/final_predictions_qwen32b_direct.jsonl",
+    "expected": 300,
+    "total": 300,
+    "nonempty_patch": 300,
+    "valid_diff_git_header": 300,
+    "empty_or_malformed_patch": 0,
+    "duplicate_instance_ids": [],
+    "field_shape_errors": [],
+    "ok": true
+  },
+  {
+    "file": "outputs/final_predictions_qwen32b_agentless.jsonl",
+    "expected": 300,
+    "total": 300,
+    "nonempty_patch": 300,
+    "valid_diff_git_header": 300,
+    "empty_or_malformed_patch": 0,
+    "duplicate_instance_ids": [],
+    "field_shape_errors": [],
+    "ok": true
+  }
+]

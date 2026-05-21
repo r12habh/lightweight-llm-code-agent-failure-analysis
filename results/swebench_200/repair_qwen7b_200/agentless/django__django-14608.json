@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-14608",
+  "input_patch_chars": 1986,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 31\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 31: <input type=\"hidden\" name=\"choices-INITIAL_FORMS\" value=\"0\">\n\n",
+          "stdout": "patching file django/forms/formsets.py\nHunk #1 succeeded at 38 with fuzz 2 (offset -62 lines).\npatching file docs/topics/forms/formsets.txt\nHunk #1 succeeded at 264 with fuzz 1 (offset 164 lines).\npatching file tests/forms_tests/tests/test_formsets.py\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

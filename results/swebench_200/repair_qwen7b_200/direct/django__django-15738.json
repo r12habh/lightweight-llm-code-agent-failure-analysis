@@ -1,0 +1,28 @@
+{
+  "instance_id": "django__django-15738",
+  "input_patch_chars": 1937,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch django/db/migrations/operations/fields.py...\nerror: while searching for:\nfrom django.db import models\nfrom django.db.migrations.state import ModelState\nfrom django.db.migrations.operations.base import Operation\n\nclass AddField(Operation):\n    def __init__(self, model_name, name, field, preserve_default=True):\n\nerror: patch failed: django/db/migrations/operations/fields.py:10\nerror: django/db/migrations/operations/fields.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/db/migrations/operations/fields.py...\nerror: while searching for:\nfrom django.db import models\nfrom django.db.migrations.state import ModelState\nfrom django.db.migrations.operations.base import Operation\n\nclass AddField(Operation):\n    def __init__(self, model_name, name, field, preserve_default=True):\n\nerror: patch failed: django/db/migrations/operations/fields.py:10\nerror: while searching for:\n        self.preserve_default = preserve_default\n\n    def state_forwards(self, app_label, state):\n        model_state = state.get_model_state(app_label, self.model_name)\n        model_state.fields.append((self.name, self.field))\n        state.set_model_state(app_label, self.model_name, model_state)\n\nerror: patch failed: django/db/migrations/operations/fields.py:20\nerror: while searching for:\n        model_state = state.get_model_state(app_label, self.model_name)\n        model_state.fields.remove((self.name, self.field))\n        state.set_model_state(app_label, self.model_name, model_state)\n\n    def database_forwards(self, app_label, schema_editor, from_state, to_state):\n        to_model_state = to_state.get_model_state(app_label, self.model_name)\n\nerror: patch failed: django/db/migrations/operations/fields.py:30\nerror: while searching for:\n        to_model_state.fields.remove((self.name, self.field))\n        schema_editor.alter_field(\n            to_model_state.model,\n            self.field,\n        )\n\n\nerror: patch failed: django/db/migrations/operations/fields.py:40\nerror: while searching for:\n        from_model_state = from_state.get_model_state(app_label, self.model_name)\n        from_model_state.fields.append((self.name, self.field))\n        schema_editor.alter_field(\n            from_model_state.model,\n            self.field,\n        )\n\nerror: patch failed: django/db/migrations/operations/fields.py:50\nApplying patch django/db/migrations/operations/fields.py with 5 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\nRejected hunk #5.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 1700
+}

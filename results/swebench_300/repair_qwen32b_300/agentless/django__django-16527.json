@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-16527",
+  "input_patch_chars": 856,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/templatetags/admin_modify.py...\nerror: while searching for:\n    can_save_and_continue = (\n        not is_popup and can_save and has_view_permission and show_save_and_continue\n    )\n    ctx = Context(context)\n    ctx.update({\n        \"show_save_as_new\": not is_popup and has_change_permission and change and save_as,\n        \"show_save_and_add_another\": can_save_and_add_another,\n\nerror: patch failed: django/contrib/admin/templatetags/admin_modify.py:100\nApplying patch django/contrib/admin/templatetags/admin_modify.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/admin/templatetags/admin_modify.py\nHunk #1 FAILED at 100.\n1 out of 1 hunk FAILED -- saving rejects to file django/contrib/admin/templatetags/admin_modify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

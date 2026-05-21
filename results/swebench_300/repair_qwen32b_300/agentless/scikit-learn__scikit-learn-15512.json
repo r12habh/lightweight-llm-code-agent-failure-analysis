@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15512",
+  "input_patch_chars": 831,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/cluster/_affinity_propagation.py...\nerror: while searching for:\n        if not np.any(cluster_centers_indices == old_cluster_centers_indices):\n            n_iter_convergence = 0\n        else:\n            n_iter_convergence += 1\n            if n_iter_convergence >= convergence_iter:\n                break\n\nerror: patch failed: sklearn/cluster/_affinity_propagation.py:220\nerror: sklearn/cluster/_affinity_propagation.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/cluster/_affinity_propagation.py...\nerror: while searching for:\n        if not np.any(cluster_centers_indices == old_cluster_centers_indices):\n            n_iter_convergence = 0\n        else:\n            n_iter_convergence += 1\n            if n_iter_convergence >= convergence_iter:\n                break\n\nerror: patch failed: sklearn/cluster/_affinity_propagation.py:220\nApplying patch sklearn/cluster/_affinity_propagation.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 923
+}

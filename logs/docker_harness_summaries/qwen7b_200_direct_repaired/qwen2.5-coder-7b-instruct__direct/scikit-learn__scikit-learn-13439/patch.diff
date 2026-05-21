@@ -1,0 +1,12 @@
+diff --git a/sklearn/pipeline.py b/sklearn/pipeline.py
+index 7eaf9a46f0..954fb85ece 100644
+--- a/sklearn/pipeline.py
++++ b/sklearn/pipeline.py
+@@ -100,6 +100,7 @@ class Pipeline(_BaseComposition):
+     0.83
+     >>> # getting the selected features chosen by anova_filter
+     >>> anova_svm['anova'].get_support()
++        return len(self.steps)
+     ... # doctest: +NORMALIZE_WHITESPACE
+     array([False, False,  True,  True, False, False,  True,  True, False,
+            True, False,  True,  True, False,  True, False,  True,  True,

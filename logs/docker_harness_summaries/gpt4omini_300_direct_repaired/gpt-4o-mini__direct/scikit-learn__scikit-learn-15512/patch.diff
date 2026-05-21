@@ -1,0 +1,16 @@
+diff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py
+index 4806afee90..42c9b3d111 100644
+--- a/sklearn/cluster/_affinity_propagation.py
++++ b/sklearn/cluster/_affinity_propagation.py
+@@ -236,6 +236,11 @@ def affinity_propagation(S, preference=None, convergence_iter=15, max_iter=200,
+ class AffinityPropagation(ClusterMixin, BaseEstimator):
+     """Perform Affinity Propagation Clustering of data.
+ 
++        cluster_centers_indices = []  # Ensure empty array for non-convergence
++        labels = np.array([-1] * n_samples)  # Ensure all labels are -1
++        
++        # Added to assign proper attributes for expected behavior
++        self.cluster_centers_indices_ = cluster_centers_indices
+     Read more in the :ref:`User Guide <affinity_propagation>`.
+ 
+     Parameters

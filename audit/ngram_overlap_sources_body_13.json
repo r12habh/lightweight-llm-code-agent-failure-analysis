@@ -1,0 +1,10 @@
+{
+  "target": "audit_checks/paper_body.txt",
+  "corpus": "audit_checks/sources/text",
+  "n": 13,
+  "target_tokens": 5975,
+  "target_ngram_instances": 5963,
+  "files_compared": 9,
+  "files_with_overlap": 0,
+  "results": []
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-13447",
+  "input_patch_chars": 1863,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch django/contrib/admin/views/main.py...\nerror: while searching for:\n        app_dict = {}\n        for model, model_admin in self._registry.items():\n            app_label = model._meta.app_label\n            app_dict.setdefault(app_label, {'models': []})['models'].append({\n                'name': capfirst(model._meta.verbose_name_plural),\n                'object_name': model._meta.object_name,\n                'perms': model_admin.get_model_perms(request),\n\nerror: patch failed: django/contrib/admin/views/main.py:100\nerror: while searching for:\n                'admin_url': reverse('admin:%s_%s_changelist' % (app_label, model._meta.model_name)),\n                'add_url': reverse('admin:%s_%s_add' % (app_label, model._meta.model_name))\n                if model_admin.has_add_permission(request) else None,\n            })\n        if label:\n            return app_dict.get(label)\n\nerror: patch failed: django/contrib/admin/views/main.py:108\nerror: while searching for:\n\n    def _build_app_dict(self, request, label=None):\n        \"\"\"\n        Build the app dictionary for the admin index page.\n        \"\"\"\n        app_dict = {}\n        for model, model_admin in self._registry.items():\n\nerror: patch failed: django/contrib/admin/views/main.py:120\nerror: while searching for:\n                'name': capfirst(model._meta.verbose_name_plural),\n                'object_name': model._meta.object_name,\n                'perms': model_admin.get_model_perms(request),\n            })\n        if label:\n            return app_dict.get(label)\n\nerror: patch failed: django/contrib/admin/views/main.py:130\nApplying patch django/contrib/admin/views/main.py with 4 rejects...\nRejected hunk #1.\nRejected hunk #2.\nRejected hunk #3.\nRejected hunk #4.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/admin/views/main.py\nHunk #1 FAILED at 100.\nHunk #2 succeeded at 108 with fuzz 3.\nHunk #3 FAILED at 121.\nHunk #4 succeeded at 131 with fuzz 3.\n2 out of 4 hunks FAILED -- saving rejects to file django/contrib/admin/views/main.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

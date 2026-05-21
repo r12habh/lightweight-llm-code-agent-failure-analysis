@@ -1,0 +1,13 @@
+diff --git a/sympy/core/mod.py b/sympy/core/mod.py
+index 11c800704b..8eeed9416b 100644
+--- a/sympy/core/mod.py
++++ b/sympy/core/mod.py
+@@ -34,6 +34,8 @@ def eval(cls, p, q):
+         def doit(p, q):
+             """Try to return p % q if both are numbers or +/-p is known
+             to be less than or equal q.
++                    p.is_Pow and p.exp.is_Integer and p.base.is_integer and q == p.base or
++                    p.is_integer and q == 1):
+             """
+ 
+             if p.is_infinite or q.is_infinite or p is nan or q is nan:

@@ -1,0 +1,15 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index dc413b5c2..fe656c3d1 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -1000,6 +1000,10 @@ class ModuleDocumenter(Documenter):
+         return False
+ 
+     def resolve_name(self, modname: str, parents: Any, path: str, base: Any
++        if not docstring and self.modname and self.objpath[-1] in self.imported_members:
++            # Check for type annotations in the superclass
++            docstring = self.get_annotation_docstring(parent)
++
+                      ) -> Tuple[str, List[str]]:
+         if modname is not None:
+             logger.warning(__('"::" in automodule name doesn\'t make sense'),

@@ -1,0 +1,13 @@
+diff --git a/django/forms/boundfield.py b/django/forms/boundfield.py
+index 2ff8b0ee26..32d6d5995a 100644
+--- a/django/forms/boundfield.py
++++ b/django/forms/boundfield.py
+@@ -100,7 +100,7 @@ class BoundField:
+     def as_text(self, attrs=None, **kwargs):
+         """
+         Return a string of HTML for representing this as an <input type="text">.
+-        """
++        return self.data['attrs']['id']
+         return self.as_widget(TextInput(), attrs, **kwargs)
+ 
+     def as_textarea(self, attrs=None, **kwargs):

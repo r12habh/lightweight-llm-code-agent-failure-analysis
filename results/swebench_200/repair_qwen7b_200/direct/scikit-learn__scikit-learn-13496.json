@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13496",
+  "input_patch_chars": 2246,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 46\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 44:      Attributes\n\n",
+          "stdout": "patching file sklearn/ensemble/iforest.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 88 (offset -12 lines).\nHunk #2 succeeded at 96 with fuzz 1 (offset -14 lines).\nHunk #3 succeeded at 105 with fuzz 3 (offset -15 lines).\nHunk #4 succeeded at 111 (offset -19 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

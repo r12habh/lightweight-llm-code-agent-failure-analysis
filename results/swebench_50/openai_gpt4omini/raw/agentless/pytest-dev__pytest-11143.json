@@ -1,0 +1,36 @@
+{
+  "instance_id": "pytest-dev__pytest-11143",
+  "raw": "```diff\ndiff --git a/src/_pytest/assertion/rewrite.py b/src/_pytest/assertion/rewrite.py\n--- a/src/_pytest/assertion/rewrite.py\n+++ b/src/_pytest/assertion/rewrite.py\n@@ -758,7 +758,7 @@\n     def is_rewrite_disabled(doc: Optional[str]) -> bool:\n         \"\"\"Return True if the rewrite should be disabled based on the docstring.\"\"\"\n         return doc is not None and \"PYTEST_DONT_REWRITE\" in doc\n-        \n+\n     # More methods here...\n \n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 22623,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 242,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22865
+    },
+    "patch": {
+      "input_tokens": 20558,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 118,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 20676
+    }
+  },
+  "localized_files": [
+    "src/_pytest/assertion/rewrite.py",
+    "src/_pytest/python.py",
+    "src/_pytest/config/__init__.py",
+    "src/_pytest/assertion/__init__.py",
+    "src/_pytest/assertion/util.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"src/_pytest/assertion/rewrite.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Involves assertion rewriting logic critical to handling docstrings and expressions.\"\n    },\n    {\n      \"path\": \"src/_pytest/python.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Handles test discovery and file collection, may be affected by the docstring confusion with numbers.\"\n    },\n    {\n      \"path\": \"src/_pytest/config/__init__.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Implements configuration which may include test file patterns that might trigger the issue.\"\n    },\n    {\n      \"path\": \"src/_pytest/assertion/__init__.py\",\n      \"confidence\": 0.7,\n      \"reason\": \"Contains logic for handling assertions which could be impacted by the bug.\"\n    },\n    {\n      \"path\": \"src/_pytest/assertion/util.py\",\n      \"confidence\": 0.6,\n      \"reason\": \"Utility functions may affect how assertions and expressions are interpreted.\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-16988",
+  "input_patch_chars": 541,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/sets/handlers/intersection.py...\nerror: while searching for:\n@dispatch(ImageSet, Set)\ndef intersection_sets(self, other):\n    from sympy.solvers.diophantine import diophantine\n\n    if self.base_set is S.Integers:\n        g = None\n\nerror: patch failed: sympy/sets/handlers/intersection.py:135\nerror: sympy/sets/handlers/intersection.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/sets/handlers/intersection.py...\nerror: while searching for:\n@dispatch(ImageSet, Set)\ndef intersection_sets(self, other):\n    from sympy.solvers.diophantine import diophantine\n\n    if self.base_set is S.Integers:\n        g = None\n\nerror: patch failed: sympy/sets/handlers/intersection.py:135\nApplying patch sympy/sets/handlers/intersection.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 619
+}

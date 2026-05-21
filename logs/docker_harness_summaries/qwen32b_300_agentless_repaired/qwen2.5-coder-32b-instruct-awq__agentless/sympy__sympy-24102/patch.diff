@@ -1,0 +1,23 @@
+diff --git a/sympy/parsing/sympy_parser.py b/sympy/parsing/sympy_parser.py
+index 01cdcfcac8..8836ae357c 100644
+--- a/sympy/parsing/sympy_parser.py
++++ b/sympy/parsing/sympy_parser.py
+@@ -12,6 +12,7 @@
+ import types
+ from typing import Tuple as tTuple, Dict as tDict, Any, Callable, \
+     List, Optional, Union as tUnion
++import unicodedata
+ 
+ from sympy.assumptions.ask import AssumptionKeys
+ from sympy.core.basic import Basic
+@@ -106,6 +107,10 @@ def __init__(self, function: TOKEN, args: ParenthesisGroup, exponent=None):
+     def expand(self) -> List[TOKEN]:
+         """Return a list of tokens representing the function"""
+         return [self.function, *self.args]
++    try:
++        unicodedata.lookup('GREEK SMALL LETTER ' + token_name)
++        return False
++    except KeyError:
+ 
+     def __getitem__(self, index):
+         return getattr(self, self.items[index])

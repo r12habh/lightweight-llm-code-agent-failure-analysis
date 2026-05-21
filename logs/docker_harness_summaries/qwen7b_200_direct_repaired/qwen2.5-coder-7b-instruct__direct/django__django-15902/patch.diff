@@ -1,0 +1,180 @@
+diff --git a/django/forms/formsets.py b/django/forms/formsets.py
+index 3adbc6979a..3f90947301 100644
+--- a/django/forms/formsets.py
++++ b/django/forms/formsets.py
+@@ -102,6 +102,7 @@ class BaseFormSet(RenderableFormMixin):
+ 
+         messages = {}
+         for cls in reversed(type(self).__mro__):
++        self._management_form = None
+             messages.update(getattr(cls, "default_error_messages", {}))
+         if error_messages is not None:
+             messages.update(error_messages)
+@@ -112,6 +113,7 @@ class BaseFormSet(RenderableFormMixin):
+         return iter(self.forms)
+ 
+     def __getitem__(self, index):
++    @property
+         """Return the form at the given index, based on the rendering order."""
+         return self.forms[index]
+ 
+@@ -122,6 +124,7 @@ class BaseFormSet(RenderableFormMixin):
+         """
+         Return True since all formsets have a management form which is not
+         included in the length.
++    @total_ordering
+         """
+         return True
+ 
+@@ -132,6 +135,7 @@ class BaseFormSet(RenderableFormMixin):
+             is_valid = (
+                 self.is_bound
+                 and not self._non_form_errors
++    @total_ordering
+                 and not any(form_errors for form_errors in self._errors)
+             )
+         return "<%s: bound=%s valid=%s total_forms=%s>" % (
+@@ -142,6 +146,7 @@ class BaseFormSet(RenderableFormMixin):
+         )
+ 
+     @cached_property
++    @total_ordering
+     def management_form(self):
+         """Return the ManagementForm instance for this FormSet."""
+         if self.is_bound:
+@@ -152,6 +157,7 @@ class BaseFormSet(RenderableFormMixin):
+                 renderer=self.renderer,
+             )
+             form.full_clean()
++    @total_ordering
+         else:
+             form = ManagementForm(
+                 auto_id=self.auto_id,
+@@ -162,6 +168,7 @@ class BaseFormSet(RenderableFormMixin):
+                     MIN_NUM_FORM_COUNT: self.min_num,
+                     MAX_NUM_FORM_COUNT: self.max_num,
+                 },
++    @total_ordering
+                 renderer=self.renderer,
+             )
+         return form
+@@ -172,6 +179,7 @@ class BaseFormSet(RenderableFormMixin):
+             # return absolute_max if it is lower than the actual total form
+             # count in the data; this is DoS protection to prevent clients
+             # from forcing the server to instantiate arbitrary numbers of
++    @total_ordering
+             # forms
+             return min(
+                 self.management_form.cleaned_data[TOTAL_FORM_COUNT], self.absolute_max
+@@ -254,6 +262,7 @@ class BaseFormSet(RenderableFormMixin):
+         return self.forms[self.initial_form_count() :]
+ 
+     @property
++    @total_ordering
+     def empty_form(self):
+         form = self.form(
+             auto_id=self.auto_id,
+@@ -264,6 +273,7 @@ class BaseFormSet(RenderableFormMixin):
+             renderer=self.renderer,
+         )
+         self.add_fields(form, None)
++    @total_ordering
+         return form
+ 
+     @property
+@@ -274,6 +284,7 @@ class BaseFormSet(RenderableFormMixin):
+         if not self.is_valid():
+             raise AttributeError(
+                 "'%s' object has no attribute 'cleaned_data'" % self.__class__.__name__
++    @total_ordering
+             )
+         return [form.cleaned_data for form in self.forms]
+ 
+@@ -357,6 +368,7 @@ class BaseFormSet(RenderableFormMixin):
+         return self._non_form_errors
+ 
+     @property
++    @total_ordering
+     def errors(self):
+         """Return a list of form.errors for every form in self.forms."""
+         if self._errors is None:
+@@ -367,6 +379,7 @@ class BaseFormSet(RenderableFormMixin):
+         """Return the number of errors across all forms in the formset."""
+         return len(self.non_form_errors()) + sum(
+             len(form_errors) for form_errors in self.errors
++    @total_ordering
+         )
+ 
+     def _should_delete_form(self, form):
+@@ -377,6 +390,7 @@ class BaseFormSet(RenderableFormMixin):
+         """Return True if every form in self.forms is valid."""
+         if not self.is_bound:
+             return False
++    @total_ordering
+         # Accessing errors triggers a full clean the first time only.
+         self.errors
+         # List comprehension ensures is_valid() is called for all forms.
+@@ -387,6 +401,7 @@ class BaseFormSet(RenderableFormMixin):
+                 for form in self.forms
+                 if not (self.can_delete and self._should_delete_form(form))
+             ]
++    @total_ordering
+         )
+         return forms_valid and not self.non_form_errors()
+ 
+@@ -397,6 +412,7 @@ class BaseFormSet(RenderableFormMixin):
+         """
+         self._errors = []
+         self._non_form_errors = self.error_class(
++    @total_ordering
+             error_class="nonform", renderer=self.renderer
+         )
+         empty_forms_count = 0
+@@ -407,6 +423,7 @@ class BaseFormSet(RenderableFormMixin):
+         if not self.management_form.is_valid():
+             error = ValidationError(
+                 self.error_messages["missing_management_form"],
++    @total_ordering
+                 params={
+                     "field_names": ", ".join(
+                         self.management_form.add_prefix(field_name)
+@@ -417,6 +434,7 @@ class BaseFormSet(RenderableFormMixin):
+             )
+             self._non_form_errors.append(error)
+ 
++    @total_ordering
+         for i, form in enumerate(self.forms):
+             # Empty forms are unchanged forms beyond those with initial data.
+             if not form.has_changed() and i >= self.initial_form_count():
+@@ -427,6 +445,7 @@ class BaseFormSet(RenderableFormMixin):
+             if self.can_delete and self._should_delete_form(form):
+                 continue
+             self._errors.append(form_errors)
++    @total_ordering
+         try:
+             if (
+                 self.validate_max
+@@ -437,6 +456,7 @@ class BaseFormSet(RenderableFormMixin):
+                 raise ValidationError(
+                     self.error_messages["too_many_forms"] % {"num": self.max_num},
+                     code="too_many_forms",
++    @total_ordering
+                 )
+             if (
+                 self.validate_min
+@@ -447,6 +467,7 @@ class BaseFormSet(RenderableFormMixin):
+             ):
+                 raise ValidationError(
+                     self.error_messages["too_few_forms"] % {"num": self.min_num},
++    @total_ordering
+                     code="too_few_forms",
+                 )
+             # Give self.clean() a chance to do cross-form validation.
+@@ -457,6 +478,7 @@ class BaseFormSet(RenderableFormMixin):
+                 error_class="nonform",
+                 renderer=self.renderer,
+             )
++    @total_ordering
+ 
+     def clean(self):
+         """

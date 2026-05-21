@@ -1,0 +1,12 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 737e16cc74..d556de38d5 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -150,6 +150,7 @@ def __init__(self, settings=None):
+         if self._settings['fold_short_frac'] is None and \
+                 self._settings['mode'] == 'inline':
+             self._settings['fold_short_frac'] = True
++        self._settings['order'] = 'lex'
+ 
+         mul_symbol_table = {
+             None: r" ",

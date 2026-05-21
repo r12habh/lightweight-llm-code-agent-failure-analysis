@@ -1,0 +1,33 @@
+{
+  "instance_id": "django__django-13315",
+  "raw": "```diff\ndiff --git a/django/db/models/options.py b/django/db/models/options.py\n--- a/django/db/models/options.py\n+++ b/django/db/models/options.py\n@@ -153,6 +153,8 @@\n \n     def add_field(self, field, private=False):\n         # Insert the given field in the order in which it was created, using\n         # the \"creation_counter\" attribute of the field.\n         # Move many-to-many related fields from self.fields into\n         # self.many_to_many.\n         if private:\n             self.private_fields.append(field)\n         elif field.is_relation and field.many_to_many:\n+            if any(f.name == field.name for f in self.local_many_to_many):\n+                return  # Avoid duplicates\n             bisect.insort(self.local_many_to_many, field)\n         else:\n             bisect.insort(self.local_fields, field)\n```\n",
+  "usage": {
+    "localize": {
+      "input_tokens": 18418,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 187,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18605
+    },
+    "patch": {
+      "input_tokens": 18481,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 191,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 18672
+    }
+  },
+  "localized_files": [
+    "django/db/models/options.py",
+    "tests/view_tests/tests/test_debug.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"django/db/models/options.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Modification required for ForeignKey behavior with limit_choices_to.\"\n    },\n    {\n      \"path\": \"tests/view_tests/tests/test_debug.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Tests related to form handling might need updates due to changes in ForeignKey behavior.\"\n    },\n    {\n      \"path\": \"docs/ref/models/options.txt\",\n      \"confidence\": 0.7,\n      \"reason\": \"Documentation on ForeignKey options may need clarification regarding limit_choices_to.\"\n    },\n    {\n      \"path\": \"docs/topics/forms/index.txt\",\n      \"confidence\": 0.6,\n      \"reason\": \"Form handling documentation could require updates to reflect changes in how duplicates are managed.\"\n    }\n  ]\n}\n```"
+}

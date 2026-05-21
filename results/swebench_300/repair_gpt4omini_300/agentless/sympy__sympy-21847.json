@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-21847",
+  "input_patch_chars": 512,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmplb5j397d.diff:7: trailing whitespace.\n                if sum(powers.values()) >= min_degree:  # Ensure total degree meets min_degree \nerror: corrupt patch at line 12\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/polys/monomials.py\nHunk #1 FAILED at 98.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/polys/monomials.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

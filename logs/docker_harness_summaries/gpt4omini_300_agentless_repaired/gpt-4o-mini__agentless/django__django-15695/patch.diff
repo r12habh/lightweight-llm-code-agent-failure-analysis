@@ -1,0 +1,13 @@
+diff --git a/tests/migrations/test_operations.py b/tests/migrations/test_operations.py
+index cfd28b1b39..11b8b06257 100644
+--- a/tests/migrations/test_operations.py
++++ b/tests/migrations/test_operations.py
+@@ -2982,7 +2982,7 @@ class OperationTests(OperationTestBase):
+         operation.state_forwards(app_label, new_state)
+         # Rename index.
+         with connection.schema_editor() as editor:
+-            operation.database_forwards(app_label, editor, project_state, new_state)
++            operation.database_forwards(app_label, editor, project_state, new_state, atomic=False)
+         self.assertIndexNameExists(table_name, "new_pony_test_idx")
+         # Reverse is a no-op.
+         with connection.schema_editor() as editor, self.assertNumQueries(0):

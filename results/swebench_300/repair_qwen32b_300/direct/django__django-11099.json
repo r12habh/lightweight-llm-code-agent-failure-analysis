@@ -1,0 +1,25 @@
+{
+  "instance_id": "django__django-11099",
+  "input_patch_chars": 731,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 21\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file django/contrib/auth/validators.py\nHunk #1 FAILED at 10.\nHunk #2 FAILED at 20.\n2 out of 2 hunks FAILED -- saving rejects to file django/contrib/auth/validators.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

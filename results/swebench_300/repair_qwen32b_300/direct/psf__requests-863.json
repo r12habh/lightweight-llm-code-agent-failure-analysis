@@ -1,0 +1,25 @@
+{
+  "instance_id": "psf__requests-863",
+  "input_patch_chars": 590,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch requests/models.py...\nerror: while searching for:\n        for (k, v) in list(hooks.items()):\n            self.register_hook(event=k, hook=v)\n\n        for (k, v) in list(self.hooks.items()):\n            self.register_hook(event=k, hook=v)\n\n        #: Session.\n\nerror: patch failed: requests/models.py:104\nApplying patch requests/models.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file requests/models.py\nHunk #1 FAILED at 104.\n1 out of 1 hunk FAILED -- saving rejects to file requests/models.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-13471",
+  "input_patch_chars": 503,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/numbers.py...\nerror: while searching for:\n\ndef _decimal_to_Rational_prec(dec):\n    \"\"\"Convert an ordinary decimal instance to a Rational.\"\"\"\n    if not dec.is_finite():\n        raise TypeError(\"dec must be finite and not a float, got %s.\" % dec)\n    s, d, e = dec.as_tuple()\n    prec = len(d)\n\nerror: patch failed: sympy/core/numbers.py:1008\nerror: sympy/core/numbers.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/numbers.py...\nerror: while searching for:\n\ndef _decimal_to_Rational_prec(dec):\n    \"\"\"Convert an ordinary decimal instance to a Rational.\"\"\"\n    if not dec.is_finite():\n        raise TypeError(\"dec must be finite and not a float, got %s.\" % dec)\n    s, d, e = dec.as_tuple()\n    prec = len(d)\n\nerror: patch failed: sympy/core/numbers.py:1008\nApplying patch sympy/core/numbers.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 494
+}

@@ -1,0 +1,10 @@
+{
+  "text": "audit_checks/paper_body.txt",
+  "characters": 39463,
+  "words": 6327,
+  "nonempty_lines": 468,
+  "unique_word_types": 1387,
+  "repeated_sentences": [],
+  "ai_style_marker_counts": {},
+  "long_lines_over_220_chars": []
+}

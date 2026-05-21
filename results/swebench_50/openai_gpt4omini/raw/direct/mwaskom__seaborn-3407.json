@@ -1,0 +1,16 @@
+{
+  "instance_id": "mwaskom__seaborn-3407",
+  "raw": "```diff\ndiff --git a/seaborn/axisgrid.py b/seaborn/axisgrid.py\n--- a/seaborn/axisgrid.py\n+++ b/seaborn/axisgrid.py\n@@ -1374,7 +1374,7 @@\n     # _setup_ax will return an error\n     if isinstance(data, pd.DataFrame) and data.columns.nlevels > 1:\n         data = data.copy()\n-        data.columns = [\"\".join(col) for col in data.columns]\n+        data.columns = [col[0] + col[1] for col in data.columns]\n\n     # ... rest of the code remains unchanged\n```",
+  "usage": {
+    "input_tokens": 20408,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 139,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 20547
+  },
+  "localized_files": []
+}

@@ -1,0 +1,12 @@
+diff --git a/lib/matplotlib/widgets.py b/lib/matplotlib/widgets.py
+index ebe5da43e2..9f4d81265a 100644
+--- a/lib/matplotlib/widgets.py
++++ b/lib/matplotlib/widgets.py
+@@ -93,7 +93,6 @@ class Widget:
+     def _changed_canvas(self):
+         """
+         Someone has switched the canvas on us!
+-
+         This happens if `savefig` needs to save to a format the previous
+         backend did not support (e.g. saving a figure using an Agg based
+         backend saved to a vector format).

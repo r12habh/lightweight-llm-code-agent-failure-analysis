@@ -1,0 +1,15 @@
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 4028e05b99..b0c41e12f0 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -714,6 +714,10 @@ class Options:
+         This method is used by each model to find its reverse objects. As this
+         method is very expensive and is accessed frequently (it looks up every
+         field in a model, in every app), it is computed on first access and then
++                    # Check if the primary key is inherited and skip the warning
++                    if any(parent._meta.pk.name == field.name for parent in self.parents):
++                        continue
++
+         is set as a property on every model.
+         """
+         related_objects_graph = defaultdict(list)

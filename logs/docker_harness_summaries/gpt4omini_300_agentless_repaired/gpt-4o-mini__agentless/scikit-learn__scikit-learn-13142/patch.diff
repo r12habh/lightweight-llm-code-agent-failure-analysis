@@ -1,0 +1,9 @@
+diff --git a/sklearn/tests/test_pipeline.py b/sklearn/tests/test_pipeline.py
+index 259876acd1..a9b7d70753 100644
+--- a/sklearn/tests/test_pipeline.py
++++ b/sklearn/tests/test_pipeline.py
+@@ -1048,3 +1048,4 @@ def test_make_pipeline_memory():
+     assert pipeline.memory is None
+ 
+     shutil.rmtree(cachedir)
++    # step of the pipeline does not have fit_predict defined

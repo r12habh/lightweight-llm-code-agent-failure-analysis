@@ -1,0 +1,49 @@
+2026-05-20 09:40:05,853 - INFO - Creating container for matplotlib__matplotlib-23964...
+2026-05-20 09:40:05,884 - INFO - Container for matplotlib__matplotlib-23964 created: 4fdc1693bc3f98cd33f41d0fdc955c565c8c2f282fe716fae7363fbeaf93be7d
+2026-05-20 09:40:05,993 - INFO - Container for matplotlib__matplotlib-23964 started: 4fdc1693bc3f98cd33f41d0fdc955c565c8c2f282fe716fae7363fbeaf93be7d
+2026-05-20 09:40:05,994 - INFO - Intermediate patch for matplotlib__matplotlib-23964 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/matplotlib__matplotlib-23964/patch.diff, now applying to container...
+2026-05-20 09:40:06,169 - INFO - >>>>> Applied Patch:
+Checking patch lib/matplotlib/backends/backend_ps.py...
+Applied patch lib/matplotlib/backends/backend_ps.py cleanly.
+
+2026-05-20 09:40:07,540 - INFO - Git diff before:
+diff --git a/lib/matplotlib/backends/backend_ps.py b/lib/matplotlib/backends/backend_ps.py
+index f209e811f1..1dcc6e8ddd 100644
+--- a/lib/matplotlib/backends/backend_ps.py
++++ b/lib/matplotlib/backends/backend_ps.py
+@@ -663,6 +663,9 @@ grestore
+                     prev_font = item.ft_object
+                     curr_stream = [ps_name, []]
+                 curr_stream[1].append(
++            # Fix to handle empty line in text
++            if s.strip() == "":
++                return
+                     (item.x, item.ft_object.get_glyph_name(item.glyph_idx))
+                 )
+             # append the last entry
+2026-05-20 09:40:07,541 - INFO - Eval script for matplotlib__matplotlib-23964 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/matplotlib__matplotlib-23964/eval.sh; copying to container...
+2026-05-20 09:40:27,033 - INFO - Test runtime: 19.43 seconds
+2026-05-20 09:40:27,035 - INFO - Test output for matplotlib__matplotlib-23964 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/matplotlib__matplotlib-23964/test_output.txt
+2026-05-20 09:40:27,148 - INFO - Git diff after:
+diff --git a/lib/matplotlib/backends/backend_ps.py b/lib/matplotlib/backends/backend_ps.py
+index f209e811f1..1dcc6e8ddd 100644
+--- a/lib/matplotlib/backends/backend_ps.py
++++ b/lib/matplotlib/backends/backend_ps.py
+@@ -663,6 +663,9 @@ grestore
+                     prev_font = item.ft_object
+                     curr_stream = [ps_name, []]
+                 curr_stream[1].append(
++            # Fix to handle empty line in text
++            if s.strip() == "":
++                return
+                     (item.x, item.ft_object.get_glyph_name(item.glyph_idx))
+                 )
+             # append the last entry
+2026-05-20 09:40:27,148 - INFO - Grading answer for matplotlib__matplotlib-23964...
+2026-05-20 09:40:27,153 - INFO - report: {'matplotlib__matplotlib-23964': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['lib/matplotlib/tests/test_backend_ps.py::test_empty_line']}, 'PASS_TO_PASS': {'success': [], 'failure': ['lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[ps-portrait]', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[ps-landscape]', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[ps', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[eps-portrait]', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[eps-landscape]', 'lib/matplotlib/tests/test_backend_ps.py::test_savefig_to_stringio[eps', 'lib/matplotlib/tests/test_backend_ps.py::test_patheffects', 'lib/matplotlib/tests/test_backend_ps.py::test_transparency[eps]', 'lib/matplotlib/tests/test_backend_ps.py::test_bbox', 'lib/matplotlib/tests/test_backend_ps.py::test_failing_latex', 'lib/matplotlib/tests/test_backend_ps.py::test_text_clip[eps]', 'lib/matplotlib/tests/test_backend_ps.py::test_d_glyph', 'lib/matplotlib/tests/test_backend_ps.py::test_fonttype[3]', 'lib/matplotlib/tests/test_backend_ps.py::test_fonttype[42]', 'lib/matplotlib/tests/test_backend_ps.py::test_linedash', 'lib/matplotlib/tests/test_backend_ps.py::test_no_duplicate_definition']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for matplotlib__matplotlib-23964: resolved: False
+2026-05-20 09:40:27,154 - INFO - Attempting to stop container sweb.eval.matplotlib__matplotlib-23964.gpt4omini_300_agentless_repaired...
+2026-05-20 09:40:42,422 - INFO - Attempting to remove container sweb.eval.matplotlib__matplotlib-23964.gpt4omini_300_agentless_repaired...
+2026-05-20 09:40:42,453 - INFO - Container sweb.eval.matplotlib__matplotlib-23964.gpt4omini_300_agentless_repaired removed.
+2026-05-20 09:40:42,454 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23964:latest...
+2026-05-20 09:40:42,463 - INFO - Image swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23964:latest removed.

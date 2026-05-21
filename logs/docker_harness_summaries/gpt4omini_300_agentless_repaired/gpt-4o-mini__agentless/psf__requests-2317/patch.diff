@@ -1,0 +1,13 @@
+diff --git a/requests/sessions.py b/requests/sessions.py
+index d701ff2e..5dc6b7e9 100644
+--- a/requests/sessions.py
++++ b/requests/sessions.py
+@@ -119,7 +119,7 @@ class SessionRedirectMixin(object):
+             # Handle redirection without scheme (see: RFC 1808 Section 4)
+             if url.startswith('//'):
+                 parsed_rurl = urlparse(resp.url)
+-                url = '%s:%s' % (parsed_rurl.scheme, url)
++                url = '%s:%s' % (parsed_rurl.scheme.encode('utf-8'), url)
+ 
+             # The scheme should be lower case...
+             parsed = urlparse(url)

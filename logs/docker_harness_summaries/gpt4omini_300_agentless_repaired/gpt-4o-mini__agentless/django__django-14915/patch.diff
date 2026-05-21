@@ -1,0 +1,17 @@
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+index 65d6a9ec82..b72ea20d1d 100644
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -125,6 +125,12 @@ class Field:
+ 
+     def validate(self, value):
+         if value in self.empty_values and self.required:
++            # Ensure value is hashable to avoid unhashable type error
++            if isinstance(value, dict):
++                raise ValidationError(self.error_messages['required'], code='required')
++            if isinstance(value, list):
++                return  # Avoid error for empty list
++
+             raise ValidationError(self.error_messages['required'], code='required')
+ 
+     def run_validators(self, value):

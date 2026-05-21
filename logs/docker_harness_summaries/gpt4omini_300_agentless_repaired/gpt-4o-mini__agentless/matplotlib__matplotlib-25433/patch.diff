@@ -1,0 +1,15 @@
+diff --git a/lib/matplotlib/widgets.py b/lib/matplotlib/widgets.py
+index ebe5da43e2..6e8a0bba69 100644
+--- a/lib/matplotlib/widgets.py
++++ b/lib/matplotlib/widgets.py
+@@ -128,6 +128,10 @@ class AxesWidget(Widget):
+     active : bool
+         If False, the widget does not respond to events.
+     """
++    Ensure that multiple widgets can be responsive when redrawing.
++    """
++    def __init__(self):
++        self._owner = None
+ 
+     def __init__(self, ax):
+         self.ax = ax

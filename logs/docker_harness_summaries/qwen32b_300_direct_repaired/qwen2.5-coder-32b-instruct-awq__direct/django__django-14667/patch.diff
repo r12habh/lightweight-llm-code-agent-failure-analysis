@@ -1,0 +1,31 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 8837881579..3a25a50aac 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -100,6 +100,10 @@ class RawQuery:
+             result = list(self.cursor)
+         else:
+             result = self.cursor
++        obj = super().clone()
++        obj.deferred_loading = self.deferred_loading
++        return obj
++
+         return iter(result)
+ 
+     def __repr__(self):
+@@ -110,6 +114,7 @@ class RawQuery:
+         if self.params is None:
+             return None
+         return dict if isinstance(self.params, Mapping) else tuple
++        obj.deferred_loading = self.deferred_loading
+ 
+     def __str__(self):
+         if self.params_type is None:
+@@ -302,6 +307,7 @@ class Query(BaseExpression):
+         obj.alias_map = self.alias_map.copy()
+         obj.external_aliases = self.external_aliases.copy()
+         obj.table_map = self.table_map.copy()
++        obj.deferred_loading = self.deferred_loading
+         obj.where = self.where.clone()
+         obj.annotations = self.annotations.copy()
+         if self.annotation_select_mask is None:

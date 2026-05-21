@@ -1,0 +1,28 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13142",
+  "input_patch_chars": 598,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sklearn/tests/test_pipeline.py...\nerror: while searching for:\n\ndef test_fit_predict_on_pipeline_without_fit_predict():\n    # tests that a pipeline does not have fit_predict method when final\n    scaler = StandardScaler()\n    pca = PCA()\n    pipe = Pipeline([('scaler', scaler), ('pca', pca)])\n\nerror: patch failed: sklearn/tests/test_pipeline.py:1234\nerror: sklearn/tests/test_pipeline.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/tests/test_pipeline.py...\nerror: while searching for:\n\ndef test_fit_predict_on_pipeline_without_fit_predict():\n    # tests that a pipeline does not have fit_predict method when final\n    scaler = StandardScaler()\n    pca = PCA()\n    pipe = Pipeline([('scaler', scaler), ('pca', pca)])\n\nerror: patch failed: sklearn/tests/test_pipeline.py:1234\nApplying patch sklearn/tests/test_pipeline.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 371
+}

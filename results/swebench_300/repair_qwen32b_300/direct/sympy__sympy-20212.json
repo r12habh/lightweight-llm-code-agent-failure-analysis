@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-20212",
+  "input_patch_chars": 601,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/power.py...\nerror: while searching for:\n                return -Pow(-b, e)\n            if e == -1 and not b:\n                return S.ComplexInfinity\n            # Only perform autosimplification if exponent or base is a Symbol or number\n            elif (b.is_Symbol or b.is_number) and (e.is_Symbol or e.is_number) and\\\n                e.is_integer and _coeff_isneg(b):\n\nerror: patch failed: sympy/core/power.py:160\nerror: sympy/core/power.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/power.py...\nerror: while searching for:\n                return -Pow(-b, e)\n            if e == -1 and not b:\n                return S.ComplexInfinity\n            # Only perform autosimplification if exponent or base is a Symbol or number\n            elif (b.is_Symbol or b.is_number) and (e.is_Symbol or e.is_number) and\\\n                e.is_integer and _coeff_isneg(b):\n\nerror: patch failed: sympy/core/power.py:160\nApplying patch sympy/core/power.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 621
+}

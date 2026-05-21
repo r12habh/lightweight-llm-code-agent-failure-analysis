@@ -1,0 +1,48 @@
+2026-05-20 00:53:45,291 - INFO - Creating container for scikit-learn__scikit-learn-10297...
+2026-05-20 00:53:45,520 - INFO - Container for scikit-learn__scikit-learn-10297 created: 65edb61ba7134df7e1a8d493fbd09b7d8ec72212dc1893599bf3ffb1a83104a4
+2026-05-20 00:53:45,732 - INFO - Container for scikit-learn__scikit-learn-10297 started: 65edb61ba7134df7e1a8d493fbd09b7d8ec72212dc1893599bf3ffb1a83104a4
+2026-05-20 00:53:45,732 - INFO - Intermediate patch for scikit-learn__scikit-learn-10297 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/scikit-learn__scikit-learn-10297/patch.diff, now applying to container...
+2026-05-20 00:53:45,944 - INFO - >>>>> Applied Patch:
+/tmp/patch.diff:9: trailing whitespace.
+    
+Checking patch sklearn/linear_model/ridge.py...
+Applied patch sklearn/linear_model/ridge.py cleanly.
+warning: 1 line adds whitespace errors.
+
+2026-05-20 00:53:46,254 - INFO - Git diff before:
+diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3..b939bc843 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -96,6 +96,7 @@ def _solve_lsqr(X, y, alpha, max_iter=None, tol=1e-3):
+     return coefs, n_iter
+ 
+ 
++    
+ def _solve_cholesky(X, y, alpha):
+     # w = inv(X^t X + alpha*Id) * X.T y
+     n_samples, n_features = X.shape
+2026-05-20 00:53:46,255 - INFO - Eval script for scikit-learn__scikit-learn-10297 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/scikit-learn__scikit-learn-10297/eval.sh; copying to container...
+2026-05-20 00:53:54,548 - INFO - Test runtime: 8.22 seconds
+2026-05-20 00:53:54,550 - INFO - Test output for scikit-learn__scikit-learn-10297 written to logs/run_evaluation/gpt4omini_300_direct_repaired/gpt-4o-mini__direct/scikit-learn__scikit-learn-10297/test_output.txt
+2026-05-20 00:53:54,679 - INFO - Git diff after:
+diff --git a/sklearn/linear_model/ridge.py b/sklearn/linear_model/ridge.py
+index 911c74ae3..b939bc843 100644
+--- a/sklearn/linear_model/ridge.py
++++ b/sklearn/linear_model/ridge.py
+@@ -96,6 +96,7 @@ def _solve_lsqr(X, y, alpha, max_iter=None, tol=1e-3):
+     return coefs, n_iter
+ 
+ 
++    
+ def _solve_cholesky(X, y, alpha):
+     # w = inv(X^t X + alpha*Id) * X.T y
+     n_samples, n_features = X.shape
+2026-05-20 00:53:54,679 - INFO - Grading answer for scikit-learn__scikit-learn-10297...
+2026-05-20 00:53:54,682 - INFO - report: {'scikit-learn__scikit-learn-10297': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/linear_model/tests/test_ridge.py::test_ridge_classifier_cv_store_cv_values']}, 'PASS_TO_PASS': {'success': ['sklearn/linear_model/tests/test_ridge.py::test_ridge', 'sklearn/linear_model/tests/test_ridge.py::test_primal_dual_relationship', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_singular', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_regression_sample_weights', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_sample_weights', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_shapes', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_intercept', 'sklearn/linear_model/tests/test_ridge.py::test_toy_ridge_object', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_vs_lstsq', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_individual_penalties', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_cv_sparse_svd', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_sparse_svd', 'sklearn/linear_model/tests/test_ridge.py::test_class_weights', 'sklearn/linear_model/tests/test_ridge.py::test_class_weight_vs_sample_weight', 'sklearn/linear_model/tests/test_ridge.py::test_class_weights_cv', 'sklearn/linear_model/tests/test_ridge.py::test_ridgecv_store_cv_values', 'sklearn/linear_model/tests/test_ridge.py::test_ridgecv_sample_weight', 'sklearn/linear_model/tests/test_ridge.py::test_raises_value_error_if_sample_weights_greater_than_1d', 'sklearn/linear_model/tests/test_ridge.py::test_sparse_design_with_sample_weights', 'sklearn/linear_model/tests/test_ridge.py::test_raises_value_error_if_solver_not_supported', 'sklearn/linear_model/tests/test_ridge.py::test_sparse_cg_max_iter', 'sklearn/linear_model/tests/test_ridge.py::test_n_iter', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_fit_intercept_sparse', 'sklearn/linear_model/tests/test_ridge.py::test_errors_and_values_helper', 'sklearn/linear_model/tests/test_ridge.py::test_errors_and_values_svd_helper', 'sklearn/linear_model/tests/test_ridge.py::test_ridge_classifier_no_support_multilabel', 'sklearn/linear_model/tests/test_ridge.py::test_dtype_match', 'sklearn/linear_model/tests/test_ridge.py::test_dtype_match_cholesky'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-10297: resolved: False
+2026-05-20 00:53:54,683 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-10297.gpt4omini_300_direct_repaired...
+2026-05-20 00:54:09,848 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-10297.gpt4omini_300_direct_repaired...
+2026-05-20 00:54:09,863 - INFO - Container sweb.eval.scikit-learn__scikit-learn-10297.gpt4omini_300_direct_repaired removed.
+2026-05-20 00:54:09,863 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10297:latest...
+2026-05-20 00:54:11,386 - INFO - Image swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10297:latest removed.

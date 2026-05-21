@@ -1,0 +1,15 @@
+diff --git a/seaborn/_stats/regression.py b/seaborn/_stats/regression.py
+index 7b7ddc8d..1f0a02f2 100644
+--- a/seaborn/_stats/regression.py
++++ b/seaborn/_stats/regression.py
+@@ -40,6 +40,10 @@ class PolyFit(Stat):
+ 
+         return groupby.apply(data, self._fit_predict)
+ 
++    def _fit_predict(self, data):
++        x = data[self.x]
++        y = data[self.y]
++        return np.polyfit(x, y, self.order)
+ 
+ @dataclass
+ class OLSFit(Stat):

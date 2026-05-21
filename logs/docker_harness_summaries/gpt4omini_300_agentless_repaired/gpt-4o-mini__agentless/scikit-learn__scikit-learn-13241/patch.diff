@@ -1,0 +1,13 @@
+diff --git a/sklearn/decomposition/kernel_pca.py b/sklearn/decomposition/kernel_pca.py
+index bb91d0cbba..8caf825519 100644
+--- a/sklearn/decomposition/kernel_pca.py
++++ b/sklearn/decomposition/kernel_pca.py
+@@ -212,7 +212,7 @@ class KernelPCA(BaseEstimator, TransformerMixin, _UnstableOn32BitMixin):
+ 
+         # sort eigenvectors in descending order
+         indices = self.lambdas_.argsort()[::-1]
+-        self.lambdas_ = self.lambdas_[indices]
++        self.lambdas_ = np.abs(self.lambdas_[indices])
+         self.alphas_ = self.alphas_[:, indices]
+ 
+         # remove eigenvectors with a zero eigenvalue

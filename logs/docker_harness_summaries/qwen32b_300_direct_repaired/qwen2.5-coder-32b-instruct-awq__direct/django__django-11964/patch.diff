@@ -1,0 +1,16 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index d610dc86f0..ede372f5ed 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -1149,6 +1149,11 @@ class DateField(DateTimeCheckMixin, Field):
+         return "DateField"
+ 
+     def to_python(self, value):
++        if isinstance(value, Enum):
++            # Return the actual value of the enum member
++            return value.value
++        return value
++
+         if value is None:
+             return value
+         if isinstance(value, datetime.datetime):

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-21055",
+  "input_patch_chars": 700,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpbhmz6prs.diff:10: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpbhmz6prs.diff:20: trailing whitespace.\n            Resulting symbolic expression. \nerror: corrupt patch at line 23\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 22:  \n\n",
+          "stdout": "patching file sympy/core/function.py\nHunk #1 succeeded at 1300 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

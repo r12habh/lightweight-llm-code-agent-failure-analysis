@@ -1,0 +1,33 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-15512",
+  "raw": "```diff\ndiff --git a/sklearn/cluster/_affinity_propagation.py b/sklearn/cluster/_affinity_propagation.py\n--- a/sklearn/cluster/_affinity_propagation.py\n+++ b/sklearn/cluster/_affinity_propagation.py\n@@ -99,6 +99,9 @@\n    if K > 0:\n        c = np.argmax(S[:, I], axis=1)\n        c[I] = np.arange(K)  # Identify clusters\n+    else:\n+        # Ensure labels and centers are set for non-convergence\n+        labels = np.array([-1] * n_samples)\n \n        # Refine the final set of exemplars and clusters and return results\n        for k in range(K):\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 19297,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 209,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19506
+    },
+    "patch": {
+      "input_tokens": 19369,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 161,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 19530
+    }
+  },
+  "localized_files": [
+    "sklearn/cluster/_affinity_propagation.py",
+    "sklearn/cluster/tests/test_affinity_propagation.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sklearn/cluster/_affinity_propagation.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains the Affinity Propagation implementation, likely related to the non-convergence issue.\"\n    },\n    {\n      \"path\": \"sklearn/cluster/tests/test_affinity_propagation.py\",\n      \"confidence\": 0.8,\n      \"reason\": \"Contains tests specifically for Affinity Propagation, including non-convergence scenarios.\"\n    },\n    {\n      \"path\": \"doc/modules/clustering.rst\",\n      \"confidence\": 0.6,\n      \"reason\": \"Documentation on clustering methods needs review for consistency with expected behavior.\"\n    },\n    {\n      \"path\": \"doc/tutorial/text_analytics/working_with_text_data.rst\",\n      \"confidence\": 0.5,\n      \"reason\": \"May contain examples of clustering that could be misaligned with documented behavior.\"\n    }\n  ]\n}\n```"
+}

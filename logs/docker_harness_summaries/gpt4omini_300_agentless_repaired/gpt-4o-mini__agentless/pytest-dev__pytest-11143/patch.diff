@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/assertion/rewrite.py b/src/_pytest/assertion/rewrite.py
+index 157903faf..f793caeea 100644
+--- a/src/_pytest/assertion/rewrite.py
++++ b/src/_pytest/assertion/rewrite.py
+@@ -757,7 +757,7 @@ class AssertionRewriter(ast.NodeVisitor):
+         name = self.variable()
+         self.statements.append(ast.Assign([ast.Name(name, ast.Store())], expr))
+         return ast.Name(name, ast.Load())
+-
++        
+     def display(self, expr: ast.expr) -> ast.expr:
+         """Call saferepr on the expression."""
+         return self.helper("_saferepr", expr)

@@ -1,0 +1,15 @@
+diff --git a/sympy/simplify/trigsimp.py b/sympy/simplify/trigsimp.py
+index 34a3bab3fc..4569d1d4a7 100644
+--- a/sympy/simplify/trigsimp.py
++++ b/sympy/simplify/trigsimp.py
+@@ -123,6 +123,10 @@ def trigsimp_groebner(expr, hints=[], quick=False, order="grlex",
+     #     add sin(x + y) automatically... ?
+     # - algebraic numbers ...
+     # - expressions of lowest degree are not distinguished properly
++                if fn == cos and coeff == 1:
++                    I.append(cos(x) - (exp(I*x) + exp(-I*x))/2)
++                elif fn == sin and coeff == 1:
++                    I.append(sin(x) - (exp(I*x) - exp(-I*x))/(2*I))
+     #   e.g. 1 - sin(x)**2
+     # - we could try to order the generators intelligently, so as to influence
+     #   which monomials appear in the quotient basis

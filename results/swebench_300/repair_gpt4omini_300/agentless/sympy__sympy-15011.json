@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-15011",
+  "input_patch_chars": 565,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/utilities/lambdify.py...\nerror: while searching for:\n            raise ValueError(\"'args' must be built from valid Python identifiers.\")\n\n    # Substitute symbols not valid in Python with dummy symbols\n    if dummify and not isinstance(args, string_types):\n        args = [Dummy(str(a)) if not isinstance(a, string_types) else a for a in args]\n\n    # Ensure that dimensions of inputs are consistent\n\nerror: patch failed: sympy/utilities/lambdify.py:340\nApplying patch sympy/utilities/lambdify.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/utilities/lambdify.py\nHunk #1 FAILED at 340.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/utilities/lambdify.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

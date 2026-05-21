@@ -1,0 +1,16 @@
+{
+  "instance_id": "sympy__sympy-13177",
+  "raw": "```diff\ndiff --git a/sympy/core/mod.py b/sympy/core/mod.py\n--- a/sympy/core/mod.py\n+++ b/sympy/core/mod.py\n@@ -24,6 +24,9 @@\n \n         def doit(p, q):\n             \"\"\"Try to return p % q if both are numbers or +/-p is known\n+            to be less than or equal q.\n+            \"\"\"\n+\n             if p.is_infinite or q.is_infinite or p is nan or q is nan:\n                 return nan\n             if (p == q or p == -q or\n@@ -29,9 +32,12 @@\n                     p.is_integer and q == 1):\n                 return S.Zero\n+            if p.is_Number and not p.is_integer and q.is_Number:\n+                return p - q * int(p / q)\n \n             if q.is_Number:\n                 if p.is_Number:\n                     return (p % q)\n                 if q == 2:\n                     if p.is_even:\n                         return S.Zero\n```",
+  "usage": {
+    "input_tokens": 25124,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 221,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 25345
+  },
+  "localized_files": []
+}

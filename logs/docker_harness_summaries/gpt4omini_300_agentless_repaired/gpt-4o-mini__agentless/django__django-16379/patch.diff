@@ -1,0 +1,17 @@
+diff --git a/django/core/cache/backends/filebased.py b/django/core/cache/backends/filebased.py
+index 631da49444..dd027c8d2a 100644
+--- a/django/core/cache/backends/filebased.py
++++ b/django/core/cache/backends/filebased.py
+@@ -90,6 +90,12 @@ class FileBasedCache(BaseCache):
+ 
+     def has_key(self, key, version=None):
+         fname = self._key_to_file(key, version)
++        # Check for race condition before opening the file
++        if not os.path.exists(fname):
++            return False
++        
++        # Locking the file during read access
++        with locks.lock(fname, locks.LOCK_EX):
+         if os.path.exists(fname):
+             with open(fname, "rb") as f:
+                 return not self._is_expired(f)

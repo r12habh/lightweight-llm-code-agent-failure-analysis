@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18835",
+  "input_patch_chars": 920,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 22\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 22: @@ -311,6 +328,8 @@ def iterable(i, exclude=(str, dict, NotIterable)):\n\n",
+          "stdout": "patching file sympy/core/compatibility.py\nHunk #1 succeeded at 10 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,17 @@
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 95ed85f769..684693afa6 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -542,6 +542,12 @@ def is_constant(self, *wrt, **flags):
+         Explanation
+         ===========
+ 
++        """Return True if the Expr is numeric, else False."""
++        if self.is_zero:
++            return False  # Specifically treat zero as non-number
++        return not self.free_symbols
++
++    @property
+         If an expression has no free symbols then it is a constant. If
+         there are free symbols it is possible that the expression is a
+         constant, perhaps (but not necessarily) zero. To test such

@@ -1,0 +1,51 @@
+2026-05-20 11:52:13,934 - INFO - Creating container for django__django-13925...
+2026-05-20 11:52:13,972 - INFO - Container for django__django-13925 created: 1cfa04db785bb99bc7ee9a6120a2c115b586afa685d7bf2831ce31a894f9fe80
+2026-05-20 11:52:14,073 - INFO - Container for django__django-13925 started: 1cfa04db785bb99bc7ee9a6120a2c115b586afa685d7bf2831ce31a894f9fe80
+2026-05-20 11:52:14,074 - INFO - Intermediate patch for django__django-13925 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-13925/patch.diff, now applying to container...
+2026-05-20 11:52:14,233 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/options.py...
+Applied patch django/db/models/options.py cleanly.
+
+2026-05-20 11:52:15,046 - INFO - Git diff before:
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 4028e05b99..b0c41e12f0 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -714,6 +714,10 @@ class Options:
+         This method is used by each model to find its reverse objects. As this
+         method is very expensive and is accessed frequently (it looks up every
+         field in a model, in every app), it is computed on first access and then
++                    # Check if the primary key is inherited and skip the warning
++                    if any(parent._meta.pk.name == field.name for parent in self.parents):
++                        continue
++
+         is set as a property on every model.
+         """
+         related_objects_graph = defaultdict(list)
+2026-05-20 11:52:15,047 - INFO - Eval script for django__django-13925 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-13925/eval.sh; copying to container...
+2026-05-20 11:52:19,482 - INFO - Test runtime: 4.38 seconds
+2026-05-20 11:52:19,489 - INFO - Test output for django__django-13925 written to logs/run_evaluation/qwen32b_300_direct_repaired/qwen2.5-coder-32b-instruct-awq__direct/django__django-13925/test_output.txt
+2026-05-20 11:52:19,610 - INFO - Git diff after:
+diff --git a/django/db/models/options.py b/django/db/models/options.py
+index 4028e05b99..b0c41e12f0 100644
+--- a/django/db/models/options.py
++++ b/django/db/models/options.py
+@@ -714,6 +714,10 @@ class Options:
+         This method is used by each model to find its reverse objects. As this
+         method is very expensive and is accessed frequently (it looks up every
+         field in a model, in every app), it is computed on first access and then
++                    # Check if the primary key is inherited and skip the warning
++                    if any(parent._meta.pk.name == field.name for parent in self.parents):
++                        continue
++
+         is set as a property on every model.
+         """
+         related_objects_graph = defaultdict(list)
+2026-05-20 11:52:19,610 - INFO - Grading answer for django__django-13925...
+2026-05-20 11:52:19,613 - INFO - report: {'django__django-13925': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_auto_created_inherited_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_inherited_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)']}, 'PASS_TO_PASS': {'success': ['test_app_default_auto_field (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_auto_created_inherited_parent_link (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_auto_created_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_default_auto_field_setting (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_inherited_parent_link (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_explicit_pk (check_framework.test_model_checks.ModelDefaultAutoFieldTests)', 'test_collision_abstract_model (check_framework.test_model_checks.IndexNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.IndexNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.IndexNameTests)', 'test_collision_abstract_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_different_models (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_in_same_model (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_abstract_model_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_no_collision_across_apps_interpolation (check_framework.test_model_checks.ConstraintNameTests)', 'test_collision_across_apps (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_across_apps_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_collision_in_same_app_database_routers_installed (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_proxy_models (check_framework.test_model_checks.DuplicateDBTableTests)', 'test_no_collision_for_unmanaged_models (check_framework.test_model_checks.DuplicateDBTableTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13925: resolved: False
+2026-05-20 11:52:19,613 - INFO - Attempting to stop container sweb.eval.django__django-13925.qwen32b_300_direct_repaired...
+2026-05-20 11:52:34,785 - INFO - Attempting to remove container sweb.eval.django__django-13925.qwen32b_300_direct_repaired...
+2026-05-20 11:52:34,809 - INFO - Container sweb.eval.django__django-13925.qwen32b_300_direct_repaired removed.
+2026-05-20 11:52:34,809 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13925:latest...
+2026-05-20 11:52:34,819 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13925:latest removed.

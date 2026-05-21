@@ -1,0 +1,12 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index e16ab8ce5..d0e9a4539 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -91,6 +91,7 @@ def members_option(arg: Any) -> Union[object, List[str]]:
+         return None
+     else:
+         return [x.strip() for x in arg.split(',') if x.strip()]
++        return [x.strip() for x in arg.split(',') if x.strip()]
+ 
+ 
+ def exclude_members_option(arg: Any) -> Union[object, Set[str]]:

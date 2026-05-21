@@ -1,0 +1,25 @@
+{
+  "instance_id": "pytest-dev__pytest-8906",
+  "input_patch_chars": 1168,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 28\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 27: +    raise Skipped(msg=reason, allow_module_level=True)\n\n",
+          "stdout": "patching file src/_pytest/config/__init__.py\nHunk #1 succeeded at 123 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,16 @@
+{
+  "instance_id": "astropy__astropy-14995",
+  "raw": "```diff\ndiff --git a/astropy/nddata/mixins/ndarithmetic.py b/astropy/nddata/mixins/ndarithmetic.py\nindex 7e909f7..16fa52f 100644\n--- a/astropy/nddata/mixins/ndarithmetic.py\n+++ b/astropy/nddata/mixins/ndarithmetic.py\n@@ -145,7 +145,7 @@ class NDArithmeticMixin:\n \n         # collapse operations on masked quantities/arrays which are supported by\n         # the astropy.utils.masked or np.ma modules should use those modules to\n-        # do the arithmetic on the data and propagate masks.\n+        # do the arithmetic on the data and propagate masks. Include a check for None masks.\n         if self.mask is None and operand.mask is None:\n             use_masked_arith = False\n         else:\n```",
+  "usage": {
+    "input_tokens": 19714,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 190,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 19904
+  },
+  "localized_files": []
+}

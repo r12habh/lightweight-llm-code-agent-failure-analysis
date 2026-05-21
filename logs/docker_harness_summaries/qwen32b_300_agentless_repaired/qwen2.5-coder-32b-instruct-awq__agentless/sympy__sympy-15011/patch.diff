@@ -1,0 +1,12 @@
+diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py
+index f71bea25f5..9d4e317e9c 100644
+--- a/sympy/utilities/lambdify.py
++++ b/sympy/utilities/lambdify.py
+@@ -100,6 +100,7 @@
+ }
+ 
+ 
++        args = [Dummy(arg.name) if isinstance(arg, MatrixSymbol) else arg for arg in args]
+ def _import(module, reload="False"):
+     """
+     Creates a global translation dictionary for module.

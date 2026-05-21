@@ -1,0 +1,25 @@
+{
+  "instance_id": "mwaskom__seaborn-3190",
+  "input_patch_chars": 396,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch seaborn/_core/scales.py...\nerror: while searching for:\n    def _setup(\n        self, data: Series, prop: Property, axis: Axis | None = None,\n    ) -> Scale:\n        a = forward(vmin)\n        b = forward(vmax) - forward(vmin)\n\n        def normalize(x):\n\nerror: patch failed: seaborn/_core/scales.py:349\nApplying patch seaborn/_core/scales.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file seaborn/_core/scales.py\nHunk #1 FAILED at 349.\n1 out of 1 hunk FAILED -- saving rejects to file seaborn/_core/scales.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

@@ -1,0 +1,12 @@
+diff --git a/django/utils/text.py b/django/utils/text.py
+index fb5f6298c4..36d23b9899 100644
+--- a/django/utils/text.py
++++ b/django/utils/text.py
+@@ -333,6 +333,8 @@ def smart_split(text):
+     >>> list(smart_split(r'A "\"funky\" style" test.'))
+     ['A', '"\\"funky\\" style"', 'test.']
+     """
++    value = re.sub(r'[-_]+', '-', str(value).lower().strip())
++
+     for bit in smart_split_re.finditer(str(text)):
+         yield bit[0]

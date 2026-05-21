@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-12236",
+  "input_patch_chars": 576,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/function.py...\nerror: while searching for:\n                if x is S.Zero:\n                    return S.One\n                elif x is S.Infinity:\n                    return x\n                elif x.is_Number:\n                    return x\n\nerror: patch failed: sympy/core/function.py:1234\nerror: sympy/core/function.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/function.py...\nerror: while searching for:\n                if x is S.Zero:\n                    return S.One\n                elif x is S.Infinity:\n                    return x\n                elif x.is_Number:\n                    return x\n\nerror: patch failed: sympy/core/function.py:1234\nApplying patch sympy/core/function.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 527
+}

@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-18621",
+  "input_patch_chars": 833,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpzm5buebp.diff:9: trailing whitespace.\n    \n/var/folders/99/zz86w5lx4cqdgx17d_xs541h0000gn/T/tmpzm5buebp.diff:12: trailing whitespace.\n    \nerror: corrupt patch at line 16\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 16: @@ -160,8 +165\n\n",
+          "stdout": "patching file sympy/matrices/expressions/blockmatrix.py\nHunk #1 succeeded at 150 with fuzz 3.\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

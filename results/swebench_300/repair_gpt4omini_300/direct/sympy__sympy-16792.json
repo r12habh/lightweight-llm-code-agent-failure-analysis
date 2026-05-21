@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-16792",
+  "input_patch_chars": 758,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/utilities/codegen.py...\nerror: while searching for:\n\n        # Check that all symbols in the expressions are covered by\n        # InputArguments/InOutArguments---subset because user could\n        # specify additional (unused) InputArguments or local_vars.\n        notcovered = symbols.difference(\n            input_symbols.union(local_symbols).union(global_vars))\n\nerror: patch failed: sympy/utilities/codegen.py:1258\nApplying patch sympy/utilities/codegen.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sympy/utilities/codegen.py\nHunk #1 FAILED at 1258.\n1 out of 1 hunk FAILED -- saving rejects to file sympy/utilities/codegen.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

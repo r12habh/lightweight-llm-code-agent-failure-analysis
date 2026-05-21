@@ -1,0 +1,13 @@
+diff --git a/sympy/functions/elementary/hyperbolic.py b/sympy/functions/elementary/hyperbolic.py
+index 2a4555d919..6896cc725a 100644
+--- a/sympy/functions/elementary/hyperbolic.py
++++ b/sympy/functions/elementary/hyperbolic.py
+@@ -944,6 +944,8 @@ def fdiff(self, argindex=1):
+ 
+     @classmethod
+     def eval(cls, arg):
++        from sympy import cot, oo
++
+         arg = sympify(arg)
+ 
+         if arg.is_Number:

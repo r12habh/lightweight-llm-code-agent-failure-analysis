@@ -1,0 +1,44 @@
+2026-05-08 10:00:26,131 - INFO - Creating container for django__django-13768...
+2026-05-08 10:00:26,753 - INFO - Container for django__django-13768 created: 85382391a53212f59e27caa1732a5aafcb6dd384fcf1cec880847eacaf43b97b
+2026-05-08 10:00:26,890 - INFO - Container for django__django-13768 started: 85382391a53212f59e27caa1732a5aafcb6dd384fcf1cec880847eacaf43b97b
+2026-05-08 10:00:26,895 - INFO - Intermediate patch for django__django-13768 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-13768/patch.diff, now applying to container...
+2026-05-08 10:00:27,071 - INFO - Failed to apply patch to container: git apply --verbose
+2026-05-08 10:00:27,149 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-05-08 10:00:27,230 - INFO - >>>>> Applied Patch:
+patching file django/core/handlers/exception.py
+
+2026-05-08 10:00:28,006 - INFO - Git diff before:
+diff --git a/django/core/handlers/exception.py b/django/core/handlers/exception.py
+index 3005a5eccb..17582126fc 100644
+--- a/django/core/handlers/exception.py
++++ b/django/core/handlers/exception.py
+@@ -102,6 +102,7 @@ def response_for_exception(request, exc):
+         )
+         if settings.DEBUG:
+             response = debug.technical_500_response(request, *sys.exc_info(), status_code=400)
++        logger.exception('SuspiciousOperation caught')
+         else:
+             response = get_exception_response(request, get_resolver(get_urlconf()), 400, exc)
+2026-05-08 10:00:28,006 - INFO - Eval script for django__django-13768 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-13768/eval.sh; copying to container...
+2026-05-08 10:00:46,190 - INFO - Test runtime: 18.12 seconds
+2026-05-08 10:00:46,191 - INFO - Test output for django__django-13768 written to logs/run_evaluation/hf_qwen25_coder7b_50_direct_repaired/Qwen__Qwen2.5-Coder-7B-Instruct-direct/django__django-13768/test_output.txt
+2026-05-08 10:00:46,330 - INFO - Git diff after:
+diff --git a/django/core/handlers/exception.py b/django/core/handlers/exception.py
+index 3005a5eccb..17582126fc 100644
+--- a/django/core/handlers/exception.py
++++ b/django/core/handlers/exception.py
+@@ -102,6 +102,7 @@ def response_for_exception(request, exc):
+         )
+         if settings.DEBUG:
+             response = debug.technical_500_response(request, *sys.exc_info(), status_code=400)
++        logger.exception('SuspiciousOperation caught')
+         else:
+             response = get_exception_response(request, get_resolver(get_urlconf()), 400, exc)
+2026-05-08 10:00:46,330 - INFO - Grading answer for django__django-13768...
+2026-05-08 10:00:46,332 - INFO - report: {'django__django-13768': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_send_robust_fail (dispatch.tests.DispatcherTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_receiver_signal_list (dispatch.tests.ReceiverTestCase)', 'test_receiver_single_signal (dispatch.tests.ReceiverTestCase)', 'test_cached_garbaged_collected (dispatch.tests.DispatcherTests)', 'test_cannot_connect_no_kwargs (dispatch.tests.DispatcherTests)', 'test_cannot_connect_non_callable (dispatch.tests.DispatcherTests)', 'test_disconnection (dispatch.tests.DispatcherTests)', 'test_garbage_collected (dispatch.tests.DispatcherTests)', 'test_has_listeners (dispatch.tests.DispatcherTests)', 'test_multiple_registration (dispatch.tests.DispatcherTests)', 'test_send (dispatch.tests.DispatcherTests)', 'test_send_connected_no_sender (dispatch.tests.DispatcherTests)', 'test_send_different_no_sender (dispatch.tests.DispatcherTests)', 'test_send_no_receivers (dispatch.tests.DispatcherTests)', 'test_send_robust_ignored_sender (dispatch.tests.DispatcherTests)', 'test_send_robust_no_receivers (dispatch.tests.DispatcherTests)', 'test_send_robust_success (dispatch.tests.DispatcherTests)', 'test_uid_registration (dispatch.tests.DispatcherTests)', 'test_values_returned_by_disconnection (dispatch.tests.DispatcherTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13768: resolved: False
+2026-05-08 10:00:46,333 - INFO - Attempting to stop container sweb.eval.django__django-13768.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 10:01:01,468 - INFO - Attempting to remove container sweb.eval.django__django-13768.hf_qwen25_coder7b_50_direct_repaired...
+2026-05-08 10:01:01,496 - INFO - Container sweb.eval.django__django-13768.hf_qwen25_coder7b_50_direct_repaired removed.
+2026-05-08 10:01:01,497 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-13768:latest...
+2026-05-08 10:01:02,503 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-13768:latest removed.

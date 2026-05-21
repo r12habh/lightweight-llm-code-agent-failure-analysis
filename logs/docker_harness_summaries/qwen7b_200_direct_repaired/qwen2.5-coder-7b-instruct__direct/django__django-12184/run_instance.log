@@ -1,0 +1,47 @@
+2026-05-20 16:56:36,429 - INFO - Creating container for django__django-12184...
+2026-05-20 16:56:37,409 - INFO - Container for django__django-12184 created: 3aad61cf4cc5ca0e15ad1abc85ec71e312be3dd7cc2f4d6a928e2cdca31d20fa
+2026-05-20 16:56:37,571 - INFO - Container for django__django-12184 started: 3aad61cf4cc5ca0e15ad1abc85ec71e312be3dd7cc2f4d6a928e2cdca31d20fa
+2026-05-20 16:56:37,572 - INFO - Intermediate patch for django__django-12184 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-12184/patch.diff, now applying to container...
+2026-05-20 16:56:37,770 - INFO - >>>>> Applied Patch:
+Checking patch django/core/handlers/base.py...
+Applied patch django/core/handlers/base.py cleanly.
+
+2026-05-20 16:56:38,601 - INFO - Git diff before:
+diff --git a/django/core/handlers/base.py b/django/core/handlers/base.py
+index 2304e7761d..595a097075 100644
+--- a/django/core/handlers/base.py
++++ b/django/core/handlers/base.py
+@@ -90,7 +90,7 @@ class BaseHandler:
+         """
+         response = None
+ 
+-        if hasattr(request, 'urlconf'):
++        if hasattr(request, 'urlconf') and request.method != 'GET':
+             urlconf = request.urlconf
+             set_urlconf(urlconf)
+             resolver = get_resolver(urlconf)
+2026-05-20 16:56:38,603 - INFO - Eval script for django__django-12184 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-12184/eval.sh; copying to container...
+2026-05-20 16:56:54,544 - INFO - Test runtime: 15.86 seconds
+2026-05-20 16:56:54,547 - INFO - Test output for django__django-12184 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-12184/test_output.txt
+2026-05-20 16:56:54,690 - INFO - Git diff after:
+diff --git a/django/core/handlers/base.py b/django/core/handlers/base.py
+index 2304e7761d..595a097075 100644
+--- a/django/core/handlers/base.py
++++ b/django/core/handlers/base.py
+@@ -90,7 +90,7 @@ class BaseHandler:
+         """
+         response = None
+ 
+-        if hasattr(request, 'urlconf'):
++        if hasattr(request, 'urlconf') and request.method != 'GET':
+             urlconf = request.urlconf
+             set_urlconf(urlconf)
+             resolver = get_resolver(urlconf)
+2026-05-20 16:56:54,690 - INFO - Grading answer for django__django-12184...
+2026-05-20 16:56:54,695 - INFO - report: {'django__django-12184': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_re_path_with_missing_optional_parameter (urlpatterns.tests.SimplifiedURLTests)']}, 'PASS_TO_PASS': {'success': ['test_allows_non_ascii_but_valid_identifiers (urlpatterns.tests.ParameterRestrictionTests)', 'test_non_identifier_parameter_name_causes_exception (urlpatterns.tests.ParameterRestrictionTests)', 'test_matching_urls (urlpatterns.tests.ConverterTests)', 'test_nonmatching_urls (urlpatterns.tests.ConverterTests)', 'test_resolve_type_error_propagates (urlpatterns.tests.ConversionExceptionTests)', 'test_resolve_value_error_means_no_match (urlpatterns.tests.ConversionExceptionTests)', 'test_reverse_value_error_propagates (urlpatterns.tests.ConversionExceptionTests)', 'test_converter_resolve (urlpatterns.tests.SimplifiedURLTests)', 'test_converter_reverse (urlpatterns.tests.SimplifiedURLTests)', 'test_converter_reverse_with_second_layer_instance_namespace (urlpatterns.tests.SimplifiedURLTests)', 'test_invalid_converter (urlpatterns.tests.SimplifiedURLTests)', 'test_path_inclusion_is_matchable (urlpatterns.tests.SimplifiedURLTests)', 'test_path_inclusion_is_reversible (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_double_inclusion (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_empty_string_inclusion (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_inclusion (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_multiple_parameters (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_with_typed_parameters (urlpatterns.tests.SimplifiedURLTests)', 'test_path_lookup_without_parameters (urlpatterns.tests.SimplifiedURLTests)', 'test_path_reverse_with_parameter (urlpatterns.tests.SimplifiedURLTests)', 'test_path_reverse_without_parameter (urlpatterns.tests.SimplifiedURLTests)', 'test_re_path (urlpatterns.tests.SimplifiedURLTests)', 'test_re_path_with_optional_parameter (urlpatterns.tests.SimplifiedURLTests)', 'test_space_in_route (urlpatterns.tests.SimplifiedURLTests)', 'test_two_variable_at_start_of_path_pattern (urlpatterns.tests.SimplifiedURLTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12184: resolved: False
+2026-05-20 16:56:54,695 - INFO - Attempting to stop container sweb.eval.django__django-12184.qwen7b_200_direct_repaired...
+2026-05-20 16:57:09,847 - INFO - Attempting to remove container sweb.eval.django__django-12184.qwen7b_200_direct_repaired...
+2026-05-20 16:57:09,865 - INFO - Container sweb.eval.django__django-12184.qwen7b_200_direct_repaired removed.
+2026-05-20 16:57:09,865 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-12184:latest...
+2026-05-20 16:57:09,872 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-12184:latest removed.

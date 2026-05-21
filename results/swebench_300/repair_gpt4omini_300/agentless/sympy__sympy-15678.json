@@ -1,0 +1,25 @@
+{
+  "instance_id": "sympy__sympy-15678",
+  "input_patch_chars": 840,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "error: corrupt patch at line 29\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "/opt/homebrew/bin/gpatch: **** malformed patch at line 24:      yp = solve(eq.diff(x), dydx)[0].subs(derivs)\n\n",
+          "stdout": "patching file sympy/geometry/util.py\nHunk #1 succeeded at 15 with fuzz 1 (offset -2 lines).\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

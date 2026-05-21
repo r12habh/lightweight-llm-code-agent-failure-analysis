@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-20590",
+  "input_patch_chars": 286,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/core/symbol.py...\nerror: while searching for:\n\n    __slots__ = ('name',)\n\n\n    is_Symbol = True\n    is_symbol = True\n\nerror: patch failed: sympy/core/symbol.py:167\nerror: sympy/core/symbol.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/core/symbol.py...\nerror: while searching for:\n\n    __slots__ = ('name',)\n\n\n    is_Symbol = True\n    is_symbol = True\n\nerror: patch failed: sympy/core/symbol.py:167\nApplying patch sympy/core/symbol.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 437
+}

@@ -1,0 +1,28 @@
+{
+  "instance_id": "sympy__sympy-21612",
+  "input_patch_chars": 582,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": true,
+      "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+      "errors": [
+        {
+          "command": "git apply --verbose",
+          "stderr": "Checking patch sympy/parsing/latex/_parse_latex_antlr.py...\nerror: while searching for:\n        if lattr and not right.is_Add:\n            right = sympy.Add(right, 0, evaluate=False)\n\n            left = sympy.Add(left, 0, evaluate=False)\n\n        return sympy.Mul(left, sympy.Pow(right, -1, evaluate=False), evaluate=False)\n\nerror: patch failed: sympy/parsing/latex/_parse_latex_antlr.py:769\nerror: sympy/parsing/latex/_parse_latex_antlr.py: patch does not apply\n",
+          "stdout": ""
+        },
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sympy/parsing/latex/_parse_latex_antlr.py...\nerror: while searching for:\n        if lattr and not right.is_Add:\n            right = sympy.Add(right, 0, evaluate=False)\n\n            left = sympy.Add(left, 0, evaluate=False)\n\n        return sympy.Mul(left, sympy.Pow(right, -1, evaluate=False), evaluate=False)\n\nerror: patch failed: sympy/parsing/latex/_parse_latex_antlr.py:769\nApplying patch sympy/parsing/latex/_parse_latex_antlr.py with 1 reject...\nRejected hunk #1.\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "repaired": true,
+  "valid": true,
+  "selected_candidate": "original",
+  "apply_command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+  "output_patch_chars": 481
+}

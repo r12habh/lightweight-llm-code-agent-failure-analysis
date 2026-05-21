@@ -1,0 +1,36 @@
+{
+  "instance_id": "sympy__sympy-13437",
+  "raw": "```diff\ndiff --git a/sympy/functions/combinatorial/numbers.py b/sympy/functions/combinatorial/numbers.py\n--- a/sympy/functions/combinatorial/numbers.py\n+++ b/sympy/functions/combinatorial/numbers.py\n@@ -1565,6 +1565,10 @@\n \n class bell(Function):\n     r\"\"\"\n+    Bell numbers / Bell polynomials\n+    \n+    ...\n+    \n     * bell(n) gives the `n^{th}` Bell number, `B_n`.\n     * bell(n, x) gives the `n^{th}` Bell polynomial, `B_n(x)`.\n     * bell(n, k, (x1, x2, ...)) gives Bell polynomials of the second kind,\n@@ -1585,8 +1589\n     def eval(cls, n, sym=None):\n         if n is S.Infinity:\n             return S.Infinity\n+\n         if n.is_Integer:\n             n = int(n)\n             if n < 0:\n-                return S.NegativeOne**(n + 1) * fibonacci(-n)\n+                return S.NegativeOne**(n + 1) * bell(-n)\n             ...\n             return Integer(cls._fib(n))\n+\n     def _eval_rewrite_as_sqrt(self, n):\n         return 2**(-n)*sqrt(5)*((1 + sqrt(5))**n - (-sqrt(5) + 1)**n) / 5\n```",
+  "usage": {
+    "localize": {
+      "input_tokens": 22181,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 230,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22411
+    },
+    "patch": {
+      "input_tokens": 22009,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 316,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 22325
+    }
+  },
+  "localized_files": [
+    "sympy/combinatorics/partitions.py",
+    "sympy/core/expr.py",
+    "sympy/functions/combinatorial/numbers.py",
+    "sympy/integrals/integrals.py",
+    "sympy/core/add.py"
+  ],
+  "localization_raw": "```json\n{\n  \"files\": [\n    {\n      \"path\": \"sympy/combinatorics/partitions.py\",\n      \"confidence\": 0.9,\n      \"reason\": \"Contains definition of Bell numbers, likely needs update to limit behavior.\"\n    },\n    {\n      \"path\": \"sympy/core/expr.py\",\n      \"confidence\": 0.5,\n      \"reason\": \"General expression handling, could affect limit evaluations.\"\n    },\n    {\n      \"path\": \"sympy/functions/combinatorial/numbers.py\",\n      \"confidence\": 0.4,\n      \"reason\": \"Houses combinatorial functions; may relate to Bell number limitations.\"\n    },\n    {\n      \"path\": \"sympy/integrals/integrals.py\",\n      \"confidence\": 0.3,\n      \"reason\": \"Handles integrals which may indirectly interact with limit evaluations.\"\n    },\n    {\n      \"path\": \"sympy/core/add.py\",\n      \"confidence\": 0.2,\n      \"reason\": \"Contains addition logic that could affect evaluated results in limits.\"\n    }\n  ]\n}\n```"
+}

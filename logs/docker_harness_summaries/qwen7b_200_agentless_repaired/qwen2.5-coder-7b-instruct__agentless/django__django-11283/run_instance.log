@@ -1,0 +1,47 @@
+2026-05-20 18:54:19,142 - INFO - Creating container for django__django-11283...
+2026-05-20 18:54:20,503 - INFO - Container for django__django-11283 created: 638643335e947a3b5b30c8382d43120481d37424187b35f01593b25242af100b
+2026-05-20 18:54:20,670 - INFO - Container for django__django-11283 started: 638643335e947a3b5b30c8382d43120481d37424187b35f01593b25242af100b
+2026-05-20 18:54:20,670 - INFO - Intermediate patch for django__django-11283 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-11283/patch.diff, now applying to container...
+2026-05-20 18:54:20,865 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/auth/models.py...
+Applied patch django/contrib/auth/models.py cleanly.
+
+2026-05-20 18:54:21,995 - INFO - Git diff before:
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..e23efbcf05 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -55,7 +55,7 @@ class Permission(models.Model):
+     """
+     name = models.CharField(_('name'), max_length=255)
+     content_type = models.ForeignKey(
+-        ContentType,
++        ContentType, on_delete=models.CASCADE,
+         models.CASCADE,
+         verbose_name=_('content type'),
+     )
+2026-05-20 18:54:21,999 - INFO - Eval script for django__django-11283 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-11283/eval.sh; copying to container...
+2026-05-20 18:54:36,549 - INFO - Test runtime: 14.47 seconds
+2026-05-20 18:54:36,550 - INFO - Test output for django__django-11283 written to logs/run_evaluation/qwen7b_200_agentless_repaired/qwen2.5-coder-7b-instruct__agentless/django__django-11283/test_output.txt
+2026-05-20 18:54:36,682 - INFO - Git diff after:
+diff --git a/django/contrib/auth/models.py b/django/contrib/auth/models.py
+index 324faa6f3e..e23efbcf05 100644
+--- a/django/contrib/auth/models.py
++++ b/django/contrib/auth/models.py
+@@ -55,7 +55,7 @@ class Permission(models.Model):
+     """
+     name = models.CharField(_('name'), max_length=255)
+     content_type = models.ForeignKey(
+-        ContentType,
++        ContentType, on_delete=models.CASCADE,
+         models.CASCADE,
+         verbose_name=_('content type'),
+     )
+2026-05-20 18:54:36,682 - INFO - Grading answer for django__django-11283...
+2026-05-20 18:54:36,683 - INFO - report: {'django__django-11283': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_migrate_with_existing_target_permission (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)']}, 'PASS_TO_PASS': {'success': [], 'failure': ['test_migrate_backwards (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_proxy_model_permissions_contenttype (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_user_has_now_proxy_model_permissions (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_user_keeps_same_permissions_after_migrating_backward (auth_tests.test_migrations.ProxyModelWithDifferentAppLabelTests)', 'test_migrate_backwards (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_proxy_model_permissions_contenttype (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_user_keeps_same_permissions_after_migrating_backward (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)', 'test_user_still_has_proxy_model_permissions (auth_tests.test_migrations.ProxyModelWithSameAppLabelTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11283: resolved: False
+2026-05-20 18:54:36,684 - INFO - Attempting to stop container sweb.eval.django__django-11283.qwen7b_200_agentless_repaired...
+2026-05-20 18:54:51,911 - INFO - Attempting to remove container sweb.eval.django__django-11283.qwen7b_200_agentless_repaired...
+2026-05-20 18:54:51,936 - INFO - Container sweb.eval.django__django-11283.qwen7b_200_agentless_repaired removed.
+2026-05-20 18:54:51,937 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-11283:latest...
+2026-05-20 18:54:51,944 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-11283:latest removed.

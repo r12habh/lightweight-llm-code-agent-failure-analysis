@@ -1,0 +1,13 @@
+diff --git a/sympy/core/operations.py b/sympy/core/operations.py
+index 4c4a7b95f2..180308e58b 100644
+--- a/sympy/core/operations.py
++++ b/sympy/core/operations.py
+@@ -36,7 +36,7 @@ def __new__(cls, *args, **options):
+         if len(args) == 0:
+             return cls.identity
+         if len(args) == 1:
+-            return args[0]
++            return args[0].as_ordered_factors()
+ 
+         c_part, nc_part, order_symbols = cls.flatten(args)
+         is_commutative = not nc_part

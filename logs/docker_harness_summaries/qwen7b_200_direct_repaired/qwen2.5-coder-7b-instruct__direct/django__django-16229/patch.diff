@@ -1,0 +1,116 @@
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 35ecdc1c0d..0b521d4956 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -102,6 +102,7 @@ def model_to_dict(instance, fields=None, exclude=None):
+     ``exclude`` is an optional list of field names. If provided, exclude the
+     named from the returned dict, even if they are listed in the ``fields``
+     argument.
++        self.show_hidden_initial = getattr(options, 'show_hidden_initial', False)
+     """
+     opts = instance._meta
+     data = {}
+@@ -209,6 +210,7 @@ def fields_for_model(
+         if widgets and f.name in widgets:
+             kwargs["widget"] = widgets[f.name]
+         if localized_fields == ALL_FIELDS or (
++        self.show_hidden_initial = self.options.show_hidden_initial
+             localized_fields and f.name in localized_fields
+         ):
+             kwargs["localize"] = True
+@@ -218,6 +220,7 @@ def fields_for_model(
+             kwargs["help_text"] = help_texts[f.name]
+         if error_messages and f.name in error_messages:
+             kwargs["error_messages"] = error_messages[f.name]
++        self.show_hidden_initial = self.options.show_hidden_initial
+         if field_classes and f.name in field_classes:
+             kwargs["form_class"] = field_classes[f.name]
+ 
+@@ -227,6 +230,7 @@ def fields_for_model(
+             raise TypeError("formfield_callback must be a function or callable")
+         else:
+             formfield = formfield_callback(f, **kwargs)
++        self.show_hidden_initial = self.options.show_hidden_initial
+ 
+         if formfield:
+             if apply_limit_choices_to:
+@@ -236,6 +240,7 @@ def fields_for_model(
+             ignored.append(f.name)
+     if fields:
+         field_dict = {
++        self.show_hidden_initial = self.options.show_hidden_initial
+             f: field_dict.get(f)
+             for f in fields
+             if (not exclude or f not in exclude) and f not in ignored
+@@ -245,6 +250,7 @@ def fields_for_model(
+ 
+ class ModelFormOptions:
+     def __init__(self, options=None):
++        self.show_hidden_initial = self.options.show_hidden_initial
+         self.model = getattr(options, "model", None)
+         self.fields = getattr(options, "fields", None)
+         self.exclude = getattr(options, "exclude", None)
+@@ -254,6 +260,7 @@ class ModelFormOptions:
+         self.help_texts = getattr(options, "help_texts", None)
+         self.error_messages = getattr(options, "error_messages", None)
+         self.field_classes = getattr(options, "field_classes", None)
++        self.show_hidden_initial = self.options.show_hidden_initial
+         self.formfield_callback = getattr(options, "formfield_callback", None)
+ 
+ 
+@@ -263,6 +270,7 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
+ 
+         if bases == (BaseModelForm,):
+             return new_class
++        self.show_hidden_initial = self.options.show_hidden_initial
+ 
+         opts = new_class._meta = ModelFormOptions(getattr(new_class, "Meta", None))
+ 
+@@ -272,6 +280,7 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
+         for opt in ["fields", "exclude", "localized_fields"]:
+             value = getattr(opts, opt)
+             if isinstance(value, str) and value != ALL_FIELDS:
++        self.show_hidden_initial = self.options.show_hidden_initial
+                 msg = (
+                     "%(model)s.Meta.%(opt)s cannot be a string. "
+                     "Did you mean to type: ('%(value)s',)?"
+@@ -281,6 +290,7 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
+                         "value": value,
+                     }
+                 )
++        self.show_hidden_initial = self.options.show_hidden_initial
+                 raise TypeError(msg)
+ 
+         if opts.model:
+@@ -290,6 +300,7 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
+                     "Creating a ModelForm without either the 'fields' attribute "
+                     "or the 'exclude' attribute is prohibited; form %s "
+                     "needs updating." % name
++        self.show_hidden_initial = self.options.show_hidden_initial
+                 )
+ 
+             if opts.fields == ALL_FIELDS:
+@@ -299,6 +310,7 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
+ 
+             fields = fields_for_model(
+                 opts.model,
++        self.show_hidden_initial = self.options.show_hidden_initial
+                 opts.fields,
+                 opts.exclude,
+                 opts.widgets,
+@@ -308,6 +320,7 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
+                 opts.help_texts,
+                 opts.error_messages,
+                 opts.field_classes,
++        self.show_hidden_initial = self.options.show_hidden_initial
+                 # limit_choices_to will be applied during ModelForm.__init__().
+                 apply_limit_choices_to=False,
+             )
+@@ -317,6 +330,7 @@ class ModelFormMetaclass(DeclarativeFieldsMetaclass):
+             missing_fields = none_model_fields.difference(new_class.declared_fields)
+             if missing_fields:
+                 message = "Unknown field(s) (%s) specified for %s"
++        self.show_hidden_initial = self.options.show_hidden_initial
+                 message %= (", ".join(missing_fields), opts.model.__name__)
+                 raise FieldError(message)
+             # Override default model fields with any custom declared ones

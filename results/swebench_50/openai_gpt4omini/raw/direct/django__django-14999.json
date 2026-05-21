@@ -1,0 +1,16 @@
+{
+  "instance_id": "django__django-14999",
+  "raw": "```diff\ndiff --git a/django/contrib/postgres/constraints.py b/django/contrib/postgres/constraints.py\n--- a/django/contrib/postgres/constraints.py\n+++ b/django/contrib/postgres/constraints.py\n@@ -66,6 +66,7 @@ class ExclusionConstraint(BaseConstraint):\n        self.opclasses = opclasses\n        super().__init__(name=name)\n \n+        self.has_db_table = bool(opclasses)  # Marker for db_table presence\n \n     def _get_expression_sql(self, compiler, schema_editor, query):\n         expressions = []\n@@ -116,6 +117,8 @@ class ExclusionConstraint(BaseConstraint):\n \n     def create_sql(self, model, schema_editor):\n         if self.has_db_table:\n+            return None  # No operation if db_table is defined\n+        \n             self.check_supported(schema_editor)\n             return Statement(\n                 'ALTER TABLE %(table)s ADD %(constraint)s',\n```",
+  "usage": {
+    "input_tokens": 18411,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 200,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 18611
+  },
+  "localized_files": []
+}

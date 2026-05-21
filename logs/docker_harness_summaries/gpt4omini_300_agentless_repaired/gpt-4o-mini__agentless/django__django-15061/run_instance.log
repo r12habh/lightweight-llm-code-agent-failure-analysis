@@ -1,0 +1,43 @@
+2026-05-20 08:28:02,107 - INFO - Creating container for django__django-15061...
+2026-05-20 08:28:03,336 - INFO - Container for django__django-15061 created: 9eaa7422431a946bb16366a50e3f10cd67a1d0dbc25a2bc02964af3392ecd342
+2026-05-20 08:28:03,478 - INFO - Container for django__django-15061 started: 9eaa7422431a946bb16366a50e3f10cd67a1d0dbc25a2bc02964af3392ecd342
+2026-05-20 08:28:03,479 - INFO - Intermediate patch for django__django-15061 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-15061/patch.diff, now applying to container...
+2026-05-20 08:28:03,680 - INFO - >>>>> Applied Patch:
+Checking patch docs/topics/class-based-views/generic-display.txt...
+Applied patch docs/topics/class-based-views/generic-display.txt cleanly.
+
+2026-05-20 08:28:04,474 - INFO - Git diff before:
+diff --git a/docs/topics/class-based-views/generic-display.txt b/docs/topics/class-based-views/generic-display.txt
+index cb35296149..37df2282a2 100644
+--- a/docs/topics/class-based-views/generic-display.txt
++++ b/docs/topics/class-based-views/generic-display.txt
+@@ -1,5 +1,5 @@
+ ==================================
+-Built-in class-based generic views
++Built-in class-based generic views without index
+ ==================================
+ 
+ Writing web applications can be monotonous, because we repeat certain patterns
+2026-05-20 08:28:04,474 - INFO - Eval script for django__django-15061 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-15061/eval.sh; copying to container...
+2026-05-20 08:28:13,625 - INFO - Test runtime: 9.08 seconds
+2026-05-20 08:28:13,626 - INFO - Test output for django__django-15061 written to logs/run_evaluation/gpt4omini_300_agentless_repaired/gpt-4o-mini__agentless/django__django-15061/test_output.txt
+2026-05-20 08:28:13,764 - INFO - Git diff after:
+diff --git a/docs/topics/class-based-views/generic-display.txt b/docs/topics/class-based-views/generic-display.txt
+index cb35296149..37df2282a2 100644
+--- a/docs/topics/class-based-views/generic-display.txt
++++ b/docs/topics/class-based-views/generic-display.txt
+@@ -1,5 +1,5 @@
+ ==================================
+-Built-in class-based generic views
++Built-in class-based generic views without index
+ ==================================
+ 
+ Writing web applications can be monotonous, because we repeat certain patterns
+2026-05-20 08:28:13,764 - INFO - Grading answer for django__django-15061...
+2026-05-20 08:28:13,766 - INFO - report: {'django__django-15061': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_form_as_table (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_form_as_table_data (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_form_as_table (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)']}, 'PASS_TO_PASS': {'success': ['test_bad_choice (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_clean (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_clean_disabled_multivalue (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_disabled_has_changed (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_form_cleaned_data (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', "Test when the first widget's data has changed.", "Test when the last widget's data has changed. This ensures that it is", 'test_has_changed_no_initial (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_has_changed_same (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'If insufficient data is provided, None is substituted.', 'test_render_required_attributes (forms_tests.field_tests.test_multivaluefield.MultiValueFieldTest)', 'test_splitdatetimefield_1 (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)', 'test_splitdatetimefield_2 (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)', 'test_splitdatetimefield_changed (forms_tests.field_tests.test_splitdatetimefield.SplitDateTimeFieldTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15061: resolved: False
+2026-05-20 08:28:13,766 - INFO - Attempting to stop container sweb.eval.django__django-15061.gpt4omini_300_agentless_repaired...
+2026-05-20 08:28:28,915 - INFO - Attempting to remove container sweb.eval.django__django-15061.gpt4omini_300_agentless_repaired...
+2026-05-20 08:28:28,930 - INFO - Container sweb.eval.django__django-15061.gpt4omini_300_agentless_repaired removed.
+2026-05-20 08:28:28,930 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-15061:latest...
+2026-05-20 08:28:28,937 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-15061:latest removed.

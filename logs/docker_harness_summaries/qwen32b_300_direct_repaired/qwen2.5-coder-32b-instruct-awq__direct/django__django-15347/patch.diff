@@ -1,0 +1,22 @@
+diff --git a/django/contrib/messages/storage/cookie.py b/django/contrib/messages/storage/cookie.py
+index 1d390c71dd..85af2faf20 100644
+--- a/django/contrib/messages/storage/cookie.py
++++ b/django/contrib/messages/storage/cookie.py
+@@ -18,7 +18,7 @@ class MessageEncoder(json.JSONEncoder):
+         if isinstance(obj, Message):
+             # Using 0/1 here instead of False/True to produce more compact json
+             is_safedata = 1 if isinstance(obj.message, SafeData) else 0
+-            message = [self.message_key, is_safedata, obj.level, obj.message]
++            message = [self.message_key, is_safedata, obj.level, obj.message, obj.extra_tags]
+             if obj.extra_tags:
+                 message.append(obj.extra_tags)
+             return message
+@@ -35,7 +35,7 @@ class MessageDecoder(json.JSONDecoder):
+             if obj[0] == MessageEncoder.message_key:
+                 if obj[1]:
+                     obj[3] = mark_safe(obj[3])
+-                return Message(*obj[2:])
++                return Message(*obj[2:5]) if len(obj) > 4 else Message(*obj[2:])
+             return [self.process_messages(item) for item in obj]
+         if isinstance(obj, dict):
+             return {key: self.process_messages(value)

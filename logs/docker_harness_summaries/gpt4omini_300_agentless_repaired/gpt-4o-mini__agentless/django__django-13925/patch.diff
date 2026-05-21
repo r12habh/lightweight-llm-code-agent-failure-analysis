@@ -1,0 +1,11 @@
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0f53d9c30b..cf037e017d 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -39,6 +39,7 @@ __all__ = [
+ ]
+ 
+ 
++
+ class Empty:
+     pass

@@ -1,0 +1,51 @@
+2026-05-20 17:29:02,995 - INFO - Creating container for django__django-16046...
+2026-05-20 17:29:03,952 - INFO - Container for django__django-16046 created: 332b693d755c21bdbd41665e0aa6a7f3a137517f657214fd6def950b4a7b6f2d
+2026-05-20 17:29:04,099 - INFO - Container for django__django-16046 started: 332b693d755c21bdbd41665e0aa6a7f3a137517f657214fd6def950b4a7b6f2d
+2026-05-20 17:29:04,099 - INFO - Intermediate patch for django__django-16046 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-16046/patch.diff, now applying to container...
+2026-05-20 17:29:04,299 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/admin/templatetags/admin_list.py...
+Applied patch django/contrib/admin/templatetags/admin_list.py cleanly.
+
+2026-05-20 17:29:05,411 - INFO - Git diff before:
+diff --git a/django/contrib/admin/templatetags/admin_list.py b/django/contrib/admin/templatetags/admin_list.py
+index 5865843dce..f0aacbeae3 100644
+--- a/django/contrib/admin/templatetags/admin_list.py
++++ b/django/contrib/admin/templatetags/admin_list.py
+@@ -120,6 +120,10 @@ def result_headers(cl):
+             }
+             continue
+ 
++        if value is None:
++            result_repr = cl.model_admin.empty_value_display
++            row_classes.append("empty-value")
++
+         # OK, it is sortable if we got this far
+         th_classes = ["sortable", "column-{}".format(field_name)]
+         order_type = ""
+2026-05-20 17:29:05,412 - INFO - Eval script for django__django-16046 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-16046/eval.sh; copying to container...
+2026-05-20 17:29:12,809 - INFO - Test runtime: 7.32 seconds
+2026-05-20 17:29:12,810 - INFO - Test output for django__django-16046 written to logs/run_evaluation/qwen7b_200_direct_repaired/qwen2.5-coder-7b-instruct__direct/django__django-16046/test_output.txt
+2026-05-20 17:29:12,923 - INFO - Git diff after:
+diff --git a/django/contrib/admin/templatetags/admin_list.py b/django/contrib/admin/templatetags/admin_list.py
+index 5865843dce..f0aacbeae3 100644
+--- a/django/contrib/admin/templatetags/admin_list.py
++++ b/django/contrib/admin/templatetags/admin_list.py
+@@ -120,6 +120,10 @@ def result_headers(cl):
+             }
+             continue
+ 
++        if value is None:
++            result_repr = cl.model_admin.empty_value_display
++            row_classes.append("empty-value")
++
+         # OK, it is sortable if we got this far
+         th_classes = ["sortable", "column-{}".format(field_name)]
+         order_type = ""
+2026-05-20 17:29:12,924 - INFO - Grading answer for django__django-16046...
+2026-05-20 17:29:12,925 - INFO - report: {'django__django-16046': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_empty (utils_tests.test_numberformat.TestNumberFormat)']}, 'PASS_TO_PASS': {'success': ['test_decimal_numbers (utils_tests.test_numberformat.TestNumberFormat)', 'test_decimal_subclass (utils_tests.test_numberformat.TestNumberFormat)', 'test_float_numbers (utils_tests.test_numberformat.TestNumberFormat)', 'test_format_number (utils_tests.test_numberformat.TestNumberFormat)', 'test_format_string (utils_tests.test_numberformat.TestNumberFormat)', 'test_large_number (utils_tests.test_numberformat.TestNumberFormat)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-16046: resolved: False
+2026-05-20 17:29:12,925 - INFO - Attempting to stop container sweb.eval.django__django-16046.qwen7b_200_direct_repaired...
+2026-05-20 17:29:28,176 - INFO - Attempting to remove container sweb.eval.django__django-16046.qwen7b_200_direct_repaired...
+2026-05-20 17:29:28,206 - INFO - Container sweb.eval.django__django-16046.qwen7b_200_direct_repaired removed.
+2026-05-20 17:29:28,206 - INFO - Attempting to remove image swebench/sweb.eval.x86_64.django_1776_django-16046:latest...
+2026-05-20 17:29:28,220 - INFO - Image swebench/sweb.eval.x86_64.django_1776_django-16046:latest removed.

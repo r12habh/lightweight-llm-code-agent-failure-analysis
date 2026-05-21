@@ -1,0 +1,25 @@
+{
+  "instance_id": "scikit-learn__scikit-learn-13496",
+  "input_patch_chars": 1060,
+  "candidate_attempts": [
+    {
+      "candidate": "original",
+      "ok": false,
+      "apply_command": null,
+      "errors": [
+        {
+          "command": "git apply --verbose --reject",
+          "stderr": "Checking patch sklearn/ensemble/iforest.py...\nHunk #1 succeeded at 117 (offset 57 lines).\nerror: while searching for:\n            bootstrap=bootstrap,\n            oob_score=oob_score,\n            n_jobs=n_jobs,\n            random_state=random_state,\n            verbose=verbose,\n            max_samples=max_samples)\n\nerror: patch failed: sklearn/ensemble/iforest.py:100\nApplying patch sklearn/ensemble/iforest.py with 1 reject...\nHunk #1 applied cleanly.\nRejected hunk #2.\n",
+          "stdout": ""
+        },
+        {
+          "command": "/opt/homebrew/bin/gpatch --batch --fuzz=5 -p1 -i",
+          "stderr": "",
+          "stdout": "patching file sklearn/ensemble/iforest.py\nReversed (or previously applied) patch detected!  Assuming -R.\nHunk #1 succeeded at 117 (offset 57 lines).\nHunk #2 FAILED at 100.\n1 out of 2 hunks FAILED -- saving rejects to file sklearn/ensemble/iforest.py.rej\n"
+        }
+      ]
+    }
+  ],
+  "repaired": false,
+  "valid": false
+}

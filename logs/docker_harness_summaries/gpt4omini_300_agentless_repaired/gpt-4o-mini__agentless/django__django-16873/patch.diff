@@ -1,0 +1,13 @@
+diff --git a/tests/template_tests/filter_tests/test_join.py b/tests/template_tests/filter_tests/test_join.py
+index 08f68537ee..27317551da 100644
+--- a/tests/template_tests/filter_tests/test_join.py
++++ b/tests/template_tests/filter_tests/test_join.py
+@@ -14,7 +14,7 @@ class JoinTests(SimpleTestCase):
+     @setup({"join02": '{% autoescape off %}{{ a|join:", " }}{% endautoescape %}'})
+     def test_join02(self):
+         output = self.engine.render_to_string("join02", {"a": ["alpha", "beta & me"]})
+-        self.assertEqual(output, "alpha, beta & me")
++        self.assertEqual(output, "alpha, beta &amp; me")
+ 
+     @setup({"join03": '{{ a|join:" &amp; " }}'})
+     def test_join03(self):

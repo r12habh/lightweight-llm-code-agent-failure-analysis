@@ -1,0 +1,15 @@
+diff --git a/django/utils/autoreload.py b/django/utils/autoreload.py
+index 25c3b44250..0ab72f24e7 100644
+--- a/django/utils/autoreload.py
++++ b/django/utils/autoreload.py
+@@ -139,6 +139,10 @@ def iter_modules_and_files(modules, extra_files):
+         path = Path(filename)
+         try:
+             resolved_path = path.resolve(strict=True).absolute()
++            if '\0' in str(resolved_path):
++                logger.error(f"Skipping path with embedded null byte: {resolved_path}")
++                continue
++
+         except FileNotFoundError:
+             # The module could have been removed, don't fail loudly if this
+             # is the case.
