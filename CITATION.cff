@@ -5,8 +5,10 @@ authors:
   - family-names: Singh
     given-names: Rishabh
     orcid: "https://orcid.org/0009-0006-2644-6184"
-date-released: 2026-05-20
+date-released: 2026-05-21
 version: "1.0.0"
+doi: "10.5281/zenodo.20321563"
+url: "https://zenodo.org/records/20321563"
 license: MIT
 keywords:
   - language models

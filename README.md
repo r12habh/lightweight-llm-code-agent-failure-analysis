@@ -33,6 +33,7 @@ released under CC BY 4.0 unless otherwise noted.
 
 ## Citation
 
-If you use this artifact, please cite the Zenodo DOI for the archived release.
-The `CITATION.cff` file can be updated with the DOI after Zenodo archives the
-first GitHub release.
+If you use this artifact, please cite the archived Zenodo release:
+
+Rishabh Singh. Replication Package for Failure Analysis of Lightweight LLM Code
+Agents for Software Repair. Zenodo. https://doi.org/10.5281/zenodo.20321563

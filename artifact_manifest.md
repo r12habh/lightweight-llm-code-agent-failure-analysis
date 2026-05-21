@@ -3,6 +3,8 @@
 This repository is a browsable replication package for the manuscript
 "Failure Analysis of Lightweight LLM Code Agents for Software Repair."
 
+Archived release DOI: `10.5281/zenodo.20321563`.
+
 ## Paper
 
 - `paper/jss_failure_analysis_code_agents_v4.pdf`: latest manuscript copy.
