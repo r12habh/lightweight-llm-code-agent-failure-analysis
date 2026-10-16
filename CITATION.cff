@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-message: "If you use this artifact, please cite it using the metadata below."
-title: "Replication Package for Failure Analysis of Lightweight LLM Code Agents for Software Repair"
+message: "If you use this replication package, please cite the published article and the archived artifact as appropriate."
+title: "Replication Package for Auditable Patch Validity for Lightweight Language-Model Software Repair"
 authors:
   - family-names: Singh
     given-names: Rishabh
     orcid: "https://orcid.org/0009-0006-2644-6184"
-date-released: 2026-05-21
-version: "1.0.0"
+date-released: 2026-10-16
+version: "1.0.1"
 doi: "10.5281/zenodo.20321563"
 url: "https://zenodo.org/records/20321563"
 license: MIT
@@ -16,3 +16,17 @@ keywords:
   - code agents
   - SWE-bench
   - empirical evaluation
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Singh
+      given-names: Rishabh
+      orcid: "https://orcid.org/0009-0006-2644-6184"
+  title: "Auditable patch validity for lightweight language-model software repair"
+  journal: "International Journal of Electrical and Computer Engineering (IJECE)"
+  volume: 16
+  issue: 5
+  start: 2664
+  end: 2671
+  year: 2026
+  doi: "10.11591/ijece.v16i5.pp2664-2671"

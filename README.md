@@ -1,8 +1,15 @@
-# Failure Analysis of Lightweight LLM Code Agents for Software Repair
+# Replication Package: Auditable Patch Validity for Lightweight Language-Model Software Repair
 
-This repository contains replication artifacts for the manuscript:
+This repository contains the replication artifacts for the published article:
 
-"Failure Analysis of Lightweight LLM Code Agents for Software Repair"
+Rishabh Singh, "Auditable patch validity for lightweight language-model
+software repair," *International Journal of Electrical and Computer Engineering
+(IJECE)*, vol. 16, no. 5, pp. 2664-2671, 2026.
+
+Published article: https://doi.org/10.11591/ijece.v16i5.pp2664-2671
+
+The repository was originally archived under the manuscript working title
+"Failure Analysis of Lightweight LLM Code Agents for Software Repair."
 
 The artifacts support the reported summarization metrics, Tests4Py stress test,
 SWE-bench Lite prediction files, patch repair summaries, paired comparisons,
@@ -33,7 +40,16 @@ released under CC BY 4.0 unless otherwise noted.
 
 ## Citation
 
-If you use this artifact, please cite the archived Zenodo release:
+If you use this replication package, please cite the published article:
 
-Rishabh Singh. Replication Package for Failure Analysis of Lightweight LLM Code
-Agents for Software Repair. Zenodo. https://doi.org/10.5281/zenodo.20321563
+Rishabh Singh. "Auditable patch validity for lightweight language-model
+software repair." *International Journal of Electrical and Computer Engineering
+(IJECE)*, 16(5), 2664-2671, 2026.
+https://doi.org/10.11591/ijece.v16i5.pp2664-2671
+
+Please also cite the archived replication package when referring to the
+software or artifacts directly:
+
+Rishabh Singh. *Replication Package for Auditable Patch Validity for Lightweight
+Language-Model Software Repair*. Zenodo.
+https://doi.org/10.5281/zenodo.20321563
