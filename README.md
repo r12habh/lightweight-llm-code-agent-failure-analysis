@@ -8,6 +8,9 @@ software repair," *International Journal of Electrical and Computer Engineering
 
 Published article: https://doi.org/10.11591/ijece.v16i5.pp2664-2671
 
+Published article PDF: [Auditable patch validity for lightweight language-model
+software repair](./auditable-patch-validity-lightweight-language-model-software-repair.pdf)
+
 The repository was originally archived under the manuscript working title
 "Failure Analysis of Lightweight LLM Code Agents for Software Repair."
 
@@ -31,12 +34,17 @@ repositories.
 - `logs/`: generation sidecars and Docker harness summaries
 - `figures/`: figures used in the manuscript
 - `paper/`: manuscript copies
+- `auditable-patch-validity-lightweight-language-model-software-repair.pdf`:
+  published IJECE article
 
 ## Licensing
 
 Code in this repository is released under the MIT License. Non-code artifacts
 including figures, tables, logs, prediction files, and result summaries are
 released under CC BY 4.0 unless otherwise noted.
+
+The published article PDF is distributed under the CC BY-SA 4.0 license stated
+in the article.
 
 ## Citation
 
